@@ -2292,6 +2292,10 @@ h3 {
   color: var(--text-on-dark-muted);
 }
 
+.process .service-detail-grid h3 {
+  color: var(--ink);
+}
+
 .timeline {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -3141,6 +3145,10 @@ h3 {
   line-height: 1.75;
 }
 
+.process .article-body p {
+  color: var(--text-on-dark);
+}
+
 .visual-hero h1 {
   font-size: 60px;
   line-height: 1.02;
@@ -3788,7 +3796,7 @@ h3 {
 }
 
 .footer-links a {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   min-height: 44px;
 }
