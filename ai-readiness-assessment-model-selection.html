@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Readiness Assessment &amp; AI Model Selection for Businesses | Datrick</title>
+    <meta
+      name="description"
+      content="Assess AI readiness, compare model fit, and build a practical roadmap before investing in AI platforms. Datrick helps technical leaders reduce AI risk."
+    >
+    <link rel="canonical" href="https://datrick.com/ai-readiness-assessment-model-selection">
+    <meta property="og:title" content="AI Readiness Assessment Provider &amp; Model Selection | Datrick">
+    <meta property="og:description" content="Evaluate AI rollout risk, business value, model fit, data readiness, governance and implementation cost before funding a pilot.">
+    <meta property="og:url" content="https://datrick.com/ai-readiness-assessment-model-selection">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Datrick AI readiness assessment and model selection consulting">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Readiness Assessment Cost &amp; Model Selection | Datrick">
+    <meta name="twitter:description" content="A vendor-neutral decision package for AI use-case value, model fit, readiness, risk, and pilot planning.">
+    <meta name="twitter:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            "@id": "https://datrick.com/ai-readiness-assessment-model-selection#service",
+            "name": "AI Readiness Assessment and Model Selection Consulting",
+            "url": "https://datrick.com/ai-readiness-assessment-model-selection",
+            "description": "Vendor-neutral AI readiness assessment consulting covering business use-case value, model selection, data and governance readiness, risk, pilot planning, and an implementation roadmap.",
+            "serviceType": [
+              "AI readiness assessment consulting",
+              "AI model selection consulting services",
+              "AI use-case ROI assessment",
+              "AI implementation roadmap consulting"
+            ],
+            "provider": {
+              "@type": "Organization",
+              "@id": "https://datrick.com/#organization",
+              "name": "Datrick",
+              "url": "https://datrick.com/",
+              "email": "info@datrick.com"
+            },
+            "areaServed": "Worldwide",
+            "audience": {
+              "@type": "BusinessAudience",
+              "audienceType": "CTOs, technical leaders, founders, operations leaders, and IT service firms"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "AI assessment engagement options",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "priceCurrency": "USD",
+                  "price": "15000",
+                  "itemOffered": {"@type": "Service", "name": "AI Decision Sprint"}
+                },
+                {
+                  "@type": "Offer",
+                  "priceCurrency": "USD",
+                  "price": "22500",
+                  "itemOffered": {"@type": "Service", "name": "AI Portfolio Assessment"}
+                },
+                {
+                  "@type": "Offer",
+                  "priceCurrency": "USD",
+                  "price": "30000",
+                  "itemOffered": {"@type": "Service", "name": "Enterprise or Partner AI Assessment"}
+                }
+              ]
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://datrick.com/ai-readiness-assessment-model-selection#breadcrumbs",
+            "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://datrick.com/"},
+              {"@type": "ListItem", "position": 2, "name": "AI Readiness Assessment and Model Selection", "item": "https://datrick.com/ai-readiness-assessment-model-selection"}
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://datrick.com/ai-readiness-assessment-model-selection#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is included in an AI readiness assessment?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Datrick reviews business use cases, expected value, workflow ownership, data and integration readiness, security and governance constraints, model options, evaluation criteria, operating risk, and the practical path to a pilot. The output is an evidence-backed decision package and implementation roadmap."}
+              },
+              {
+                "@type": "Question",
+                "name": "How do you select the right AI model for a business use case?",
+                "acceptedAnswer": {"@type": "Answer", "text": "We define the required tasks, quality threshold, latency, context, privacy, integration, and cost constraints, then compare suitable model routes using representative scenarios. The recommendation is based on observed fit and operating requirements rather than a universal model ranking."}
+              },
+              {
+                "@type": "Question",
+                "name": "Is the assessment vendor-neutral?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Yes. Datrick can assess Anthropic Claude, OpenAI, Google Gemini, open-weight models, and relevant workflow tools. Existing contracts and platform standards are considered, but the recommendation is tied to the use case, evidence, risk, and total operating cost."}
+              },
+              {
+                "@type": "Question",
+                "name": "How long does an AI readiness and model selection assessment take?",
+                "acceptedAnswer": {"@type": "Answer", "text": "A focused decision sprint normally takes two weeks. Portfolio and enterprise assessments normally take three to four weeks, depending on the number of workflows, stakeholders, model routes, data constraints, and governance requirements."}
+              },
+              {
+                "@type": "Question",
+                "name": "What does an AI readiness assessment cost?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Datrick's fixed-scope options start at 15,000 USD for one workflow. A portfolio assessment is 22,500 USD, and an enterprise or partner assessment is 30,000 USD. Final scope depends on workflow count, model routes, access, evidence, and governance requirements."}
+              },
+              {
+                "@type": "Question",
+                "name": "What is included in an AI implementation roadmap?",
+                "acceptedAnswer": {"@type": "Answer", "text": "An AI implementation roadmap should identify the prioritized workflow, expected value, chosen model route, data and integration dependencies, security and governance controls, evaluation criteria, pilot scope, decision gates, owners, investment sequence, production requirements, and the conditions for continuing, revising, or stopping. Datrick delivers this roadmap as part of the assessment decision package rather than as a generic technology backlog."}
+              },
+              {
+                "@type": "Question",
+                "name": "Do we need to provide sensitive data before scoping?",
+                "acceptedAnswer": {"@type": "Answer", "text": "No. Initial qualification can use a written description of the workflow, risk, current tools, constraints, and timeline. Sensitive data, credentials, or confidential materials should only be shared after an approved access and confidentiality path is established."}
+              },
+              {
+                "@type": "Question",
+                "name": "How do I choose an AI readiness assessment provider?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Choose a provider that evaluates business value, representative workflow performance, data and integration readiness, security and governance, total operating cost, and production ownership together. Require named deliverables, explicit assumptions, measurable decision gates, vendor-neutral model comparison, and a practical implementation roadmap rather than a generic maturity score or strategy deck."}
+              },
+              {
+                "@type": "Question",
+                "name": "How can a business assess AI readiness before investing in models or platforms?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Start with the business workflow and measurable outcome, then evaluate data access, integration, model quality, privacy, security, governance, human review, operational ownership, cost, and adoption. Compare suitable model routes on representative tasks before committing to a platform, and fund a bounded pilot only when its success criteria and stop conditions are explicit."}
+              },
+              {
+                "@type": "Question",
+                "name": "Should a business buy an AI readiness tool or commission an assessment?",
+                "acceptedAnswer": {"@type": "Answer", "text": "A readiness tool can help collect answers or calculate a repeatable score, but it cannot independently validate workflow value, model behavior, data constraints, governance decisions, or operating ownership. A consequential rollout usually needs a provider-led assessment that uses tools as evidence inputs and produces a decision package accountable stakeholders can review."}
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="commercial-detail-page content-role-ai" data-commercial-landing="true" data-commercial-cluster="ai_readiness" data-content-type="commercial_landing">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home">
+        <img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115">
+        <span>Datrick</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero dark-page visual-hero">
+        <div>
+          <p class="eyebrow">AI readiness assessment and model selection consulting</p>
+          <span class="partner-badge">Vendor-neutral decision support</span>
+          <h1>Choose where AI creates value, which model fits, and what to implement first.</h1>
+          <p class="page-lede">
+            Datrick provides AI readiness assessment consulting and AI model selection consulting services for leaders who need an evidence-backed roadmap before funding a pilot or committing to a platform.
+          </p>
+          <div class="hero-actions">
+            <a class="button dark-button" data-cta-name="start_ai_readiness_diagnostic" data-funnel-stage="assessment_entry" href="#readiness-diagnostic">Score AI readiness</a>
+            <a class="button secondary dark-secondary" href="#assessment-method">Review the assessment method</a>
+          </div>
+        </div>
+        <div class="hero-visual-panel" aria-label="AI readiness and model selection decision path">
+          <div class="visual-header">
+            <span>Decision path</span>
+            <span>Evidence before implementation</span>
+          </div>
+          <div class="flow-visual">
+            <div class="flow-step">
+              <i>1</i>
+              <div><strong>Business value</strong><small>Rank use cases by consequence, frequency, effort, and measurable return.</small></div>
+              <em>Value</em>
+            </div>
+            <div class="flow-step">
+              <i>2</i>
+              <div><strong>Model fit</strong><small>Compare suitable model routes against representative work and constraints.</small></div>
+              <em>Evidence</em>
+            </div>
+            <div class="flow-step">
+              <i>3</i>
+              <div><strong>Readiness and risk</strong><small>Inspect data, integration, security, governance, and operating ownership.</small></div>
+              <em>Control</em>
+            </div>
+            <div class="flow-step">
+              <i>4</i>
+              <div><strong>Pilot roadmap</strong><small>Define scope, success criteria, investment, owners, and decision gates.</small></div>
+              <em>Act</em>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <nav class="service-scope-nav" aria-label="Related AI services">
+        <a href="ai-readiness-assessment-model-selection" aria-current="page"><span>Decide</span><strong>AI readiness and model selection</strong></a>
+        <a href="ai-workflows.html"><span>Implement</span><strong>AI workflow automation</strong></a>
+        <a href="ai-model-training.html"><span>Evaluate</span><strong>AI model training and evaluation</strong></a>
+      </nav>
+
+      <section class="section service-band" id="buyer-situations" data-section-label="Buyer situations">
+        <div class="section-heading">
+          <p class="eyebrow">When to use an assessment</p>
+          <h2>Use evidence to make the AI decision before implementation cost and risk compound.</h2>
+        </div>
+        <p class="context-note">The assessment combines generative AI readiness, AI use-case ROI, vendor-neutral model selection, and implementation roadmap consulting in one decision package.</p>
+        <div class="service-detail-grid two-up">
+          <article><span class="service-tag">Portfolio uncertainty</span><h3>Too many possible AI use cases, no defensible priority</h3><p>Leadership sees opportunities across support, reporting, documents, sales, engineering, or operations, but cannot compare business value, readiness, and implementation effort consistently.</p></article>
+          <article><span class="service-tag">Model uncertainty</span><h3>Claude, OpenAI, Gemini, or an open-weight model could fit</h3><p>Vendor claims are difficult to translate into your own quality, privacy, integration, latency, and cost requirements. You need representative evidence, not a generic leaderboard.</p></article>
+          <article><span class="service-tag">Pilot uncertainty</span><h3>An experiment works, but production value remains unclear</h3><p>A prototype exists, yet acceptance criteria, operating ownership, data access, failure handling, adoption, and measurable return have not been resolved.</p></article>
+          <article><span class="service-tag">Buyer accountability</span><h3>A board, client, or executive sponsor needs a credible AI roadmap</h3><p>The decision requires a written business case, risk boundaries, investment sequence, pilot charter, and decision gates that technical and business stakeholders can review.</p></article>
+        </div>
+      </section>
+
+      <section class="section process" id="assessment-decisions" data-section-label="Decisions">
+        <div class="section-heading">
+          <p class="eyebrow">Datrick AI Decision-to-Operations Framework</p>
+          <h2>An AI readiness assessment resolves the framework's first four decision gates.</h2>
+        </div>
+        <p class="context-note">Each gate produces reviewable evidence and an explicit decision. Pilot evidence, production controls, and managed operations continue the framework after the assessment.</p>
+        <ol class="timeline four-step">
+          <li><span>1</span><h3>Value</h3><p>Identify workflows where quality, speed, capacity, or decision support can create measurable value without hiding critical risk.</p></li>
+          <li><span>2</span><h3>Model fit</h3><p>Compare capable options using representative tasks, quality thresholds, context, privacy, integration, latency, and total operating cost.</p></li>
+          <li><span>3</span><h3>Readiness and risk</h3><p>Expose gaps in data, access, architecture, evaluation, security, governance, process ownership, and team adoption.</p></li>
+          <li><span>4</span><h3>Pilot evidence</h3><p>Define a bounded pilot, success criteria, roles, budget range, controls, timeline, and explicit continue, revise, or stop gates.</p></li>
+        </ol>
+      </section>
+
+      <section class="section architecture" id="assessment-method" data-section-label="Method">
+        <div class="section-heading">
+          <p class="eyebrow">Assessment method</p>
+          <h2>Business value, model evidence, and operating readiness are assessed together.</h2>
+        </div>
+        <div class="system-diagram" aria-label="AI readiness assessment consulting method">
+          <div class="diagram-row">
+            <div class="diagram-label">Opportunity<span>Business case</span></div>
+            <div class="diagram-cells">
+              <span><strong>Workflow inventory</strong>Trigger, owner, users, frequency, current effort, consequences, and expected outcome.</span>
+              <span><strong>Value model</strong>Capacity, cycle time, quality, revenue, risk, adoption, and the baseline needed to measure change.</span>
+            </div>
+          </div>
+          <div class="diagram-row">
+            <div class="diagram-label">Evidence<span>Model selection</span></div>
+            <div class="diagram-cells">
+              <span><strong>Representative scenarios</strong>Realistic tasks, expected outputs, edge cases, review criteria, and unacceptable failure modes.</span>
+              <span><strong>Model routes</strong>Claude, OpenAI, Gemini, open-weight, retrieval, deterministic automation, or a hybrid where appropriate.</span>
+            </div>
+          </div>
+          <div class="diagram-row">
+            <div class="diagram-label">Readiness<span>Delivery constraints</span></div>
+            <div class="diagram-cells">
+              <span><strong>Technical readiness</strong>Data quality, integrations, identity, permissions, environments, observability, and support ownership.</span>
+              <span><strong>Governance readiness</strong>Privacy, security, retention, human review, auditability, vendor exposure, and approval authority.</span>
+            </div>
+          </div>
+          <div class="diagram-row">
+            <div class="diagram-label">Roadmap<span>Decision package</span></div>
+            <div class="diagram-cells">
+              <span><strong>Pilot charter</strong>Scope, success criteria, owners, controls, timeline, investment, and operating assumptions.</span>
+              <span><strong>Implementation sequence</strong>Immediate actions, dependencies, decision gates, responsible teams, and scale conditions.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section service-band" id="assessment-deliverables" data-section-label="Deliverables">
+        <div class="section-heading">
+          <p class="eyebrow">What you receive</p>
+          <h2>A reviewable decision package, not a generic AI strategy deck.</h2>
+        </div>
+        <div class="deliverable-grid">
+          <article>
+            <span>01</span>
+            <h3>Use-case and ROI scorecard</h3>
+            <p>Prioritized opportunities with assumptions, baseline measures, expected value, dependencies, and reasons to defer unsuitable work.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Model selection evidence</h3>
+            <p>Shortlisted routes, evaluation criteria, representative results, tradeoffs, cost drivers, and the basis for the recommendation.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Readiness and risk register</h3>
+            <p>Data, integration, security, privacy, governance, adoption, support, and ownership gaps with practical mitigation actions.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Pilot charter and roadmap</h3>
+            <p>Scope, architecture direction, success thresholds, roles, timeline, investment sequence, and continue, revise, or stop gates.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section packages" id="assessment-options" data-section-label="Engagements">
+        <div class="section-heading">
+          <p class="eyebrow">Fixed-scope options</p>
+          <h2>Choose the smallest assessment that can support the decision.</h2>
+        </div>
+        <div class="package-grid">
+          <article>
+            <span class="package-label">2 weeks</span>
+            <h3>Decision Sprint</h3>
+            <p>One priority workflow and up to three model routes. Designed for a buyer who needs a defensible pilot decision quickly.</p>
+            <strong>Investment</strong><span>$15,000 fixed scope</span>
+            <strong>Decision output</strong><span>Use-case case, model recommendation, readiness gaps, pilot charter, and executive readout.</span>
+          </article>
+          <article>
+            <span class="package-label">3 weeks</span>
+            <h3>Portfolio Assessment</h3>
+            <p>Up to three workflows and up to four model routes for the priority use case. Designed to rank opportunities before funding a portfolio.</p>
+            <strong>Investment</strong><span>$22,500 fixed scope</span>
+            <strong>Decision output</strong><span>Portfolio scorecard, priority benchmark, risk register, implementation sequence, and executive readout.</span>
+          </article>
+          <article>
+            <span class="package-label">4 weeks</span>
+            <h3>Enterprise or Partner Assessment</h3>
+            <p>Up to three workflows, up to five model routes, and enhanced governance or white-label delivery planning.</p>
+            <strong>Investment</strong><span>$30,000 fixed scope</span>
+            <strong>Decision output</strong><span>Decision package, governance boundaries, partner or enterprise operating model, roadmap, and executive readout.</span>
+          </article>
+        </div>
+        <p class="context-note">Standard payment is 50% at signing and 50% before the executive readout unless an existing master services agreement defines different terms. Final scope reflects workflow count, model routes, access, evidence, and governance requirements.</p>
+      </section>
+
+      <section class="section service-band" id="buyer-concerns" data-section-label="Buyer concerns">
+        <div class="section-heading">
+          <p class="eyebrow">Risk before rollout</p>
+          <h2>Common AI concerns become explicit assessment criteria.</h2>
+        </div>
+        <div class="decision-grid">
+          <article class="decision-panel">
+            <h3>What buyers need resolved</h3>
+            <ul>
+              <li>Will the model be accurate enough for the real workflow?</li>
+              <li>Can sensitive data remain within approved boundaries?</li>
+              <li>Will token, tooling, integration, and review costs erase the return?</li>
+              <li>Are we creating avoidable vendor lock-in?</li>
+              <li>Who owns output review, incidents, and model changes?</li>
+              <li>Will the team adopt the workflow after the pilot?</li>
+            </ul>
+          </article>
+          <article class="decision-panel">
+            <h3>How the assessment responds</h3>
+            <ul>
+              <li>Representative tasks, quality thresholds, and unacceptable failure modes.</li>
+              <li>Data-flow, identity, permission, retention, and human-review boundaries.</li>
+              <li>Total operating cost assumptions tied to measurable baseline value.</li>
+              <li>Portable architecture decisions and explicit switching constraints.</li>
+              <li>Named owners, escalation, logging, monitoring, and decision gates.</li>
+              <li>Workflow design, training needs, adoption signals, and rollout sequence.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section architecture" id="provider-selection" data-section-label="Provider selection">
+        <div class="section-heading">
+          <p class="eyebrow">Choose an assessment provider</p>
+          <h2>Evaluate the provider by the decisions and evidence it can produce before AI rollout.</h2>
+        </div>
+        <p class="context-note">A maturity questionnaire or readiness tool can organize inputs. It does not replace accountable analysis of business value, representative model performance, data constraints, risk, operating cost, and ownership.</p>
+        <div class="article-table-wrap" role="region" aria-label="AI readiness assessment provider selection criteria" tabindex="0">
+          <table class="article-table">
+            <caption class="sr-only">Criteria for choosing an AI readiness assessment provider</caption>
+            <thead><tr><th scope="col">Selection criterion</th><th scope="col">Evidence to require</th><th scope="col">Warning sign</th></tr></thead>
+            <tbody>
+              <tr><td>Business value</td><td>Workflow baseline, measurable outcome, assumptions, value range, and reasons to defer.</td><td>A generic use-case list without operational or financial evidence.</td></tr>
+              <tr><td>Model selection</td><td>Representative tasks, quality thresholds, comparable model routes, latency, privacy, and total operating cost.</td><td>A predetermined vendor recommendation or public benchmark presented as proof of fit.</td></tr>
+              <tr><td>Data and integration readiness</td><td>Named sources, access path, data quality, identity, permissions, system dependencies, and ownership gaps.</td><td>A score that does not identify the systems, owners, or remediation required.</td></tr>
+              <tr><td>Risk and governance</td><td>Failure modes, sensitive-data boundaries, human review, audit evidence, approval authority, and residual risk.</td><td>Security and legal work deferred until after the pilot is built.</td></tr>
+              <tr><td>Decision output</td><td>Prioritized scorecard, risk register, model evidence, pilot charter, owners, investment sequence, and stop gates.</td><td>A strategy presentation without a fund, revise, or stop decision.</td></tr>
+              <tr><td>Production accountability</td><td>Monitoring, evaluation, incidents, changes, cost control, adoption, and support ownership considered before rollout.</td><td>A pilot roadmap that ends at deployment and leaves operations unnamed.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section process" id="readiness-diagnostic" data-section-label="Diagnostic">
+        <div class="section-heading"><p class="eyebrow">Five-minute diagnostic</p><h2>Test whether the decision is ready for an accountable assessment.</h2></div>
+        <div class="assessment-layout">
+          <form class="service-assessment" data-service-assessment data-assessment-key="ai_readiness" data-contact-service="AI value, model selection, and integration assessment" data-engagement-type="Assessment / healthcheck" data-expected-investment="Focused assessment or pilot" data-offer="ai_readiness_assessment" data-internal-source="ai_readiness_assessment" data-internal-campaign="ai_model_selection_assessment" data-low-label="Decision framing needed" data-mid-label="Ready for an evidence-led assessment" data-high-label="Ready for model selection and pilot design" data-low-copy="The business decision, workflow, or ownership needs to be narrowed before model comparison will be useful." data-mid-copy="The decision has enough shape for a focused assessment, with evidence gaps to resolve across data, evaluation, governance, or ownership." data-high-copy="The foundations appear ready for representative model testing and a bounded pilot charter. Verify assumptions and constraints during scoping." aria-label="AI Readiness Assessment">
+            <div class="assessment-progress"><span>No sensitive data required</span><span data-assessment-progress>0 of 5 answered</span></div>
+            <fieldset class="assessment-question"><legend>How clearly is the business decision defined?</legend><div class="assessment-options"><label><input type="radio" name="decision" value="0" required>General AI exploration</label><label><input type="radio" name="decision" value="1">A workflow and sponsor are identified</label><label><input type="radio" name="decision" value="2">Outcome, baseline, deadline, and stop condition are explicit</label></div></fieldset>
+            <fieldset class="assessment-question"><legend>How ready are the data and integrations?</legend><div class="assessment-options"><label><input type="radio" name="data" value="0" required>Sources, access, or owners are unknown</label><label><input type="radio" name="data" value="1">Key sources are known; gaps remain</label><label><input type="radio" name="data" value="2">Access path, quality, identity, dependencies, and owners mapped</label></div></fieldset>
+            <fieldset class="assessment-question"><legend>How will model fit be evaluated?</legend><div class="assessment-options"><label><input type="radio" name="model" value="0" required>Public benchmark or vendor demo</label><label><input type="radio" name="model" value="1">Representative examples are available</label><label><input type="radio" name="model" value="2">Tasks, quality thresholds, latency, cost, and failure criteria</label></div></fieldset>
+            <fieldset class="assessment-question"><legend>How are risk and human review handled?</legend><div class="assessment-options"><label><input type="radio" name="governance" value="0" required>Deferred until after the pilot</label><label><input type="radio" name="governance" value="1">Policies exist; workflow controls are partial</label><label><input type="radio" name="governance" value="2">Data boundary, review, audit, approval, and residual risk defined</label></div></fieldset>
+            <fieldset class="assessment-question"><legend>Who will own production and adoption?</legend><div class="assessment-options"><label><input type="radio" name="ownership" value="0" required>No named operating owner</label><label><input type="radio" name="ownership" value="1">A team is interested; responsibilities are partial</label><label><input type="radio" name="ownership" value="2">Owner, support, monitoring, change, cost, and adoption decision</label></div></fieldset>
+            <div class="assessment-submit-row"><p>This score organizes the next questions. It is not a security approval, model recommendation, or business case.</p><button class="button primary" type="submit">See the AI readiness band</button></div>
+            <section class="assessment-result" data-assessment-result role="status" aria-live="polite" tabindex="-1" hidden><p class="eyebrow">AI readiness · <strong data-assessment-result-score></strong></p><h3 data-assessment-result-level></h3><p data-assessment-result-copy></p><a class="button primary" data-assessment-contact data-cta-name="ai_readiness_result_to_scoping" data-funnel-stage="assessment_to_form" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20value%2C%20model%20selection%2C%20and%20integration%20assessment&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;expected_investment=Focused%20assessment%20or%20pilot&amp;offer=ai_readiness_assessment#contact">Attach this result to written scoping</a></section>
+          </form>
+          <aside class="assessment-aside" aria-label="Assessment boundaries and next steps"><h3>What this tests</h3><ul><li>Business decision and baseline.</li><li>Data and integration readiness.</li><li>Representative model evaluation.</li><li>Governance and human review.</li><li>Production and adoption ownership.</li></ul><h3>Vendor-neutral boundary</h3><p>The result does not recommend Claude, OpenAI, Gemini, or an open-weight model. Model fit needs representative task evidence.</p><a class="text-link" href="ai-readiness-assessment-vs-poc-vs-pilot">Compare assessment, POC, and pilot stages</a></aside>
+        </div>
+      </section>
+
+      <section class="section service-band" id="assessment-faq" data-section-label="FAQ">
+        <div class="section-heading">
+          <p class="eyebrow">AI assessment FAQ</p>
+          <h2>Questions buyers ask before commissioning an AI readiness assessment.</h2>
+        </div>
+        <div class="faq-list">
+          <details><summary>What is included in an AI readiness assessment?</summary><p>Datrick reviews business use cases, expected value, workflow ownership, data and integration readiness, security and governance constraints, model options, evaluation criteria, operating risk, and the practical path to a pilot. The output is an evidence-backed decision package and implementation roadmap.</p></details>
+          <details><summary>How do you select the right AI model for a business use case?</summary><p>We define the required tasks, quality threshold, latency, context, privacy, integration, and cost constraints, then compare suitable model routes using representative scenarios. The recommendation is based on observed fit and operating requirements rather than a universal model ranking.</p></details>
+          <details><summary>Is the assessment vendor-neutral?</summary><p>Yes. Datrick can assess Anthropic Claude, OpenAI, Google Gemini, open-weight models, and relevant workflow tools. Existing contracts and platform standards are considered, but the recommendation is tied to the use case, evidence, risk, and total operating cost.</p></details>
+          <details><summary>How long does an AI readiness and model selection assessment take?</summary><p>A focused decision sprint normally takes two weeks. Portfolio and enterprise assessments normally take three to four weeks, depending on the number of workflows, stakeholders, model routes, data constraints, and governance requirements.</p></details>
+          <details><summary>What does an AI readiness assessment cost?</summary><p>Datrick's fixed-scope options start at 15,000 USD for one workflow. A portfolio assessment is 22,500 USD, and an enterprise or partner assessment is 30,000 USD. Final scope depends on workflow count, model routes, access, evidence, and governance requirements.</p></details>
+          <details><summary>What is included in an AI implementation roadmap?</summary><p>An AI implementation roadmap should identify the prioritized workflow, expected value, chosen model route, data and integration dependencies, security and governance controls, evaluation criteria, pilot scope, decision gates, owners, investment sequence, production requirements, and the conditions for continuing, revising, or stopping. Datrick delivers this roadmap as part of the assessment decision package rather than as a generic technology backlog.</p></details>
+          <details><summary>Do we need to provide sensitive data before scoping?</summary><p>No. Initial qualification can use a written description of the workflow, risk, current tools, constraints, and timeline. Sensitive data, credentials, or confidential materials should only be shared after an approved access and confidentiality path is established.</p></details>
+          <details><summary>How do I choose an AI readiness assessment provider?</summary><p>Choose a provider that evaluates business value, representative workflow performance, data and integration readiness, security and governance, total operating cost, and production ownership together. Require named deliverables, explicit assumptions, measurable decision gates, vendor-neutral model comparison, and a practical implementation roadmap rather than a generic maturity score or strategy deck.</p></details>
+          <details><summary>How can a business assess AI readiness before investing in models or platforms?</summary><p>Start with the business workflow and measurable outcome, then evaluate data access, integration, model quality, privacy, security, governance, human review, operational ownership, cost, and adoption. Compare suitable model routes on representative tasks before committing to a platform, and fund a bounded pilot only when its success criteria and stop conditions are explicit.</p></details>
+          <details><summary>Should a business buy an AI readiness tool or commission an assessment?</summary><p>A readiness tool can help collect answers or calculate a repeatable score, but it cannot independently validate workflow value, model behavior, data constraints, governance decisions, or operating ownership. A consequential rollout usually needs a provider-led assessment that uses tools as evidence inputs and produces a decision package accountable stakeholders can review.</p></details>
+        </div>
+      </section>
+
+      <section class="section packages" id="assessment-fit" data-section-label="Fit">
+        <div class="section-heading">
+          <p class="eyebrow">Fit and boundaries</p>
+          <h2>This service is for consequential decisions, not AI theater.</h2>
+        </div>
+        <div class="service-detail-grid two-up">
+          <article><span class="service-tag">Strong fit</span><h3>A named buyer must decide what to fund</h3><p>The assessment has an accountable sponsor, real workflows, a decision deadline, relevant stakeholders, and a legitimate path to operational context.</p></article>
+          <article><span class="service-tag">Strong fit</span><h3>Model choice must reflect real constraints</h3><p>Quality, data, privacy, security, integration, cost, latency, governance, and operating ownership matter more than a generic model ranking.</p></article>
+          <article><span class="service-tag">Not a fit</span><h3>A predetermined vendor recommendation needs validation</h3><p>Datrick can assess an existing preference, but will not manufacture evidence for a model or platform regardless of observed workflow fit.</p></article>
+          <article><span class="service-tag">Cannot proceed</span><h3>Rights, access, ownership, or intended use are unclear</h3><p>Confidential materials, sensitive data, credentials, and restricted systems require an approved access, identity, and data-handling path before inspection.</p></article>
+        </div>
+      </section>
+
+      <section class="section packages" id="assessment-resources" data-section-label="Related services">
+        <div class="section-heading">
+          <p class="eyebrow">From decision to delivery</p>
+          <h2>Continue only when the assessment supports implementation.</h2>
+        </div>
+        <div class="resource-list">
+          <article><span>Commercial planning</span><div><h3>AI consulting pricing and implementation cost guide</h3><p>Compare readiness, pilot, implementation, managed operations, hidden cost, and white-label commercial models before requesting proposals.</p></div><a href="ai-consulting-pricing-guide">Use the AI pricing guide</a></article>
+          <article><span>Vendor selection</span><div><h3>AI consulting RFP and vendor scorecard</h3><p>Give shortlisted suppliers one comparable workflow brief and score value, model fit, evaluation, security, operations, and commercial responsibility.</p></div><a href="ai-consulting-rfp-vendor-selection">Use the RFP checklist</a></article>
+          <article><span>Stage selection</span><div><h3>AI readiness assessment vs POC vs pilot</h3><p>Match assessment, technical feasibility, supervised workflow evidence, and production readiness to separate decision gates.</p></div><a href="ai-readiness-assessment-vs-poc-vs-pilot">Compare AI engagement stages</a></article>
+          <article><span>Implementation</span><div><h3>AI workflow automation consulting</h3><p>Build one controlled production workflow with evaluation, human review, integration, and operating ownership.</p></div><a href="ai-workflows.html">Review AI workflow automation services</a></article>
+          <article><span>Claude</span><div><h3>Claude implementation services</h3><p>Move a well-scoped Claude use case into production with context, controls, evaluation, documentation, and support.</p></div><a href="anthropic.html">Review Claude implementation services</a></article>
+          <article><span>Evaluation</span><div><h3>AI model training and evaluation</h3><p>Operate technical evaluation programs for coding, SQL, data, analytics, rubrics, reference answers, and model-output review.</p></div><a href="ai-model-training.html">Review AI model evaluation services</a></article>
+          <article><span>Readiness guide</span><div><h3>Production-ready AI workflow checklist</h3><p>Inspect workflow, context, evaluation, human review, security, monitoring, and handover before rollout.</p></div><a href="resource-production-ai-workflow.html">Use the production AI workflow guide</a></article>
+        </div>
+      </section>
+
+      <section class="cta-band" aria-label="AI readiness assessment call to action">
+        <div>
+          <p class="eyebrow">Written scoping first</p>
+          <h2>Describe the AI decision, what is at risk, and when it must be made.</h2>
+          <p>A senior lead reviews every inquiry and responds within one business day with a scoping recommendation or qualifying questions. Calls follow written qualification.</p>
+        </div>
+        <a class="button dark-button" data-cta-name="ai_readiness_page_end_to_diagnostic" data-funnel-stage="assessment_entry" href="#readiness-diagnostic">Score readiness first</a>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

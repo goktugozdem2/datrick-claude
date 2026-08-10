@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Data Agent Power BI NL2DAX Accuracy Assessment | Datrick</title>
+    <meta name="description" content="Assess Fabric Data Agent NL2DAX accuracy for Power BI semantic models across Prep for AI schema, instructions, verified answers, generated DAX, security, and regression tests.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-power-bi-semantic-model-nl2dax-accuracy-assessment">
+    <meta property="og:title" content="Fabric Data Agent Power BI NL2DAX Accuracy Assessment | Datrick">
+    <meta property="og:description" content="Make conversational metrics inherit the semantic model's business truth, permissions, and tested DAX behavior.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-power-bi-semantic-model-nl2dax-accuracy-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Power BI Semantic Model NL2DAX Accuracy Assessment", "description": "Assess Fabric Data Agent NL2DAX accuracy for Power BI semantic models across Prep for AI schema, instructions, verified answers, generated DAX, security, and regression tests.", "url": "https://datrick.com/microsoft-fabric-data-agent-power-bi-semantic-model-nl2dax-accuracy-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-power-bi-semantic-model-nl2dax-accuracy-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "How does Fabric Data Agent query a Power BI semantic model?", "acceptedAnswer": {"@type": "Answer", "text": "Fabric Data Agent routes a question through its orchestrator to a specialized DAX generation tool. That tool uses semantic model metadata, Prep for AI configuration, and conversation context to generate, validate, and execute DAX before the agent formats the result."}},
+            {"@type": "Question", "name": "Where should Power BI semantic model instructions for Fabric Data Agent be configured?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft says semantic-model-specific instructions must be configured in Power BI Prep for AI. The DAX generation tool ignores semantic-model instructions placed at the Data Agent level. Agent instructions should cover only cross-source routing and behavior that applies to the whole agent."}},
+            {"@type": "Question", "name": "Do Verified Answers work with Fabric Data Agent?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Verified Answers are stored on the semantic model and can guide the DAX generation tool when a Data Agent question exactly or semantically matches a trigger. The agent does not return the original Power BI visual; it uses the question and visual properties to influence DAX generation."}},
+            {"@type": "Question", "name": "What permissions are required to query a semantic model through Fabric Data Agent?", "acceptedAnswer": {"@type": "Answer", "text": "Current Microsoft documentation states that Read permission on the semantic model is sufficient for Data Agent queries and workspace or Build permission is not required for interaction. RLS and CLS still apply. Build or Write permissions are needed to modify the model or configure Prep for AI."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent NL2DAX accuracy assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment commonly takes three to five weeks for one semantic model and a representative business question set. It covers model readiness, Prep for AI configuration, generated DAX, deterministic reconciliation, user security, latency, draft-versus-published comparison, and release controls."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent semantic model accuracy</p>
+        <h1>Make conversational metrics inherit the semantic model's business truth.</h1>
+        <p class="page-lede">Prepare the Power BI model for AI, constrain NL2DAX to approved measures and dimensions, verify generated queries and effective access, and regression-test the Data Agent before plausible answers reach business users.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_semantic_model&amp;utm_medium=organic_content&amp;utm_campaign=nl2dax_prep_for_ai_assessment&amp;utm_content=hero#inquiry-form">Describe the wrong answer</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Power BI conversational analytics</span><span>12 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#path">NL2DAX path</a><a href="#prep">Prep for AI</a><a href="#evaluation">Accuracy evaluation</a><a href="#security">Security and release</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>A semantic model can contain certified measures and still produce a wrong conversational answer. The agent may choose an overlapping measure, apply the wrong date, miss a relationship, aggregate a numeric column implicitly, retrieve an obsolete verified answer, or generate valid DAX at the wrong business grain. Fluency does not reveal which failure occurred.</p>
+        <p>Fabric Data Agent uses an orchestrator to select the semantic model and a specialized DAX tool to generate, validate, and execute the query. Microsoft states that this DAX tool relies on model metadata and Prep for AI configuration, not semantic-model instructions written at the Data Agent level. Accuracy therefore depends on the model, AI Data Schema, Verified Answers, AI Instructions, generated DAX, user identity, and release process working as one controlled system.</p>
+
+        <section class="readiness-actions"><p><strong>Can your team show the DAX and deterministic expected result behind every high-value agent answer?</strong> If not, start with a bounded question set before adding more users.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_semantic_model&amp;utm_medium=organic_content&amp;utm_campaign=nl2dax_prep_for_ai_assessment&amp;utm_content=article_intro#inquiry-form">Send the model and questions</a><a class="button secondary" href="ai-power-bi-fabric-copilot-readiness-semantic-model-evaluation">Review broader Copilot readiness</a></div></section>
+
+        <h2 id="path">Test every layer of the NL2DAX path</h2>
+        <p>Separate source routing from DAX accuracy. First prove that the orchestrator selected the intended semantic model. Then inspect the generated DAX, execute an independently approved control query against the same snapshot and identity, compare results, and verify that the final response preserved filters, units, freshness, grain, uncertainty, and truncation limits.</p>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent semantic model accuracy layers" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent semantic model accuracy layers</caption>
+          <thead><tr><th scope="col">Layer</th><th scope="col">Evidence to capture</th><th scope="col">Typical failure</th><th scope="col">Control</th></tr></thead>
+          <tbody>
+            <tr><td>Route</td><td>Selected source, competing sources, agent instructions, runtime, and conversation state.</td><td>A raw SQL source wins over the governed semantic model.</td><td>Explicit source contract and route-level expected result.</td></tr>
+            <tr><td>Model context</td><td>Tables, columns, measures, relationships, descriptions, synonyms, formats, and report visual metadata.</td><td>Similar measures or ambiguous dates lead the tool toward the wrong object.</td><td>Business naming, explicit measures, star schema, focused metadata, and dependency review.</td></tr>
+            <tr><td>Prep for AI</td><td>AI Data Schema, AI Instructions, Verified Answers, trigger questions, filters, and model version.</td><td>Schema and agent selection diverge, or instructions conflict with verified behavior.</td><td>Versioned configuration with single-purpose changes and regression gates.</td></tr>
+            <tr><td>Generated DAX</td><td>Query text, referenced measures, filters, date context, grouping, blank behavior, and execution time.</td><td>Valid DAX returns a plausible value at the wrong grain or time period.</td><td>Independent control DAX and component-level reconciliation.</td></tr>
+            <tr><td>Effective access</td><td>User identity, model Read permission, RLS role, CLS restrictions, and result differences.</td><td>Testing under an author identity hides a consumer-specific denial or data leak.</td><td>Persona matrix with positive, negative, and role-boundary tests.</td></tr>
+            <tr><td>Answer</td><td>Value, units, labels, freshness, limitations, latency, source attribution, and conversation history.</td><td>The result is correct but summarized, relabeled, or qualified incorrectly.</td><td>Answer rubric and clean-session versus follow-up comparison.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="prep">Configure Prep for AI where the DAX tool can use it</h2>
+        <p>Define the Data Agent's supported questions first, then configure a focused AI Data Schema in Prep for AI. Select only relevant tables, columns, and explicit business measures, including required dependent objects. When adding the semantic model to Data Agent, select the same tables. A smaller schema reduces ambiguity and latency; an incomplete schema can silently remove the objects needed by a measure.</p>
+        <p>Use Verified Answers for common or complex questions with stable, approved interpretations. Microsoft recommends multiple natural trigger variations and supports limited filter flexibility. In Data Agent, the verified visual is not returned directly; its question and visual properties guide DAX generation. Test exact prompts, semantic paraphrases, near-misses, stale field names, changed filters, and questions that must not match.</p>
+        <p>Add AI Instructions only after baseline testing shows a reproducible gap. Keep them specific: approved metric preference, fiscal period definition, default grouping, terminology, and bounded analysis rules. Instructions are interpreted rather than guaranteed, so test them. Conflicting or complex guidance can reduce predictability and increase latency.</p>
+        <p>Do not duplicate semantic logic in Data Agent instructions. Microsoft documents that the semantic-model DAX tool ignores those instructions. Reserve agent-level instructions for cross-source routing, shared abbreviations, response format, tone, and behavior that applies to every attached source.</p>
+
+        <h2 id="evaluation">Build a ground-truth suite for DAX and business meaning</h2>
+        <p>Start from real analyst and executive questions, not synthetic prompts alone. For each case, record intent, persona, model version, data snapshot, expected measure, dimensions, filters, date interpretation, expected DAX or deterministic result, acceptable phrasing, prohibited behavior, severity, and latency target. Add paraphrases only after the base case passes.</p>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent NL2DAX evaluation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent NL2DAX evaluation matrix</caption>
+          <thead><tr><th scope="col">Test family</th><th scope="col">Example risk</th><th scope="col">Pass condition</th><th scope="col">Remediation layer</th></tr></thead>
+          <tbody>
+            <tr><td>Metric selection</td><td>Revenue, net sales, gross sales, and bookings all appear relevant.</td><td>Approved explicit measure is used or the agent asks a useful clarification.</td><td>Model naming, AI schema, instruction, or verified answer.</td></tr>
+            <tr><td>Date and comparison</td><td>Calendar versus fiscal period, order versus ship date, partial period, or prior-year baseline.</td><td>Generated DAX uses the approved date and comparison logic.</td><td>Date model, measure, instruction, verified answer, or question scope.</td></tr>
+            <tr><td>Grain and filter</td><td>Customer, account, product, region, hierarchy, Top N, or hidden default filter.</td><td>Rows, totals, filters, and ranking match the control query.</td><td>Relationships, metadata, schema, visual grounding, or DAX measure.</td></tr>
+            <tr><td>Verified Answer retrieval</td><td>Paraphrase misses, unrelated prompt matches, renamed field, or outdated visual filter.</td><td>Expected questions match; near-misses do not; generated DAX remains correct.</td><td>Triggers, filters, visual, field references, or verified-answer redesign.</td></tr>
+            <tr><td>Instruction adherence</td><td>Business term, preferred measure, default period, or conflicting guidance.</td><td>Target behavior improves without regressions in unrelated cases.</td><td>Simplify, relocate, split, or remove the instruction.</td></tr>
+            <tr><td>Security</td><td>Two users ask the same question under different RLS or CLS boundaries.</td><td>Each answer matches that user's effective model access and fails closed.</td><td>Permission, role, model security, source sharing, or rollout scope.</td></tr>
+            <tr><td>Conversation state</td><td>A follow-up inherits the wrong date, metric, filter, or summarized 25-row context.</td><td>Context is preserved only when intended; a new chat resets the result.</td><td>Clarification, conversation design, answer limit, or usage guidance.</td></tr>
+            <tr><td>Performance</td><td>Large model, inefficient measure, high-cardinality field, or generated DAX timeout.</td><td>Correct answer meets the approved latency and capacity envelope.</td><td>Model optimization, schema reduction, DAX tuning, or use-case limit.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Score route accuracy, DAX validity, numeric correctness, semantic correctness, security correctness, answer fidelity, latency, and abstention separately. A single pass rate hides whether remediation belongs in the model, Prep for AI, the Data Agent, access design, or the user experience. Preserve generated DAX and run evidence so each failure has an accountable owner.</p>
+
+        <h2 id="security">Prove consumer permissions and controlled release</h2>
+        <p>Current Microsoft documentation says Data Agent users need Read permission on the semantic model, not Build or workspace access, and that RLS and CLS remain enforced. Build or Write is required for model changes and Prep for AI authoring. Test with actual consumer identities because author permissions can conceal empty results, authorization failures, or excessive access.</p>
+        <p>Keep a published baseline and an isolated draft. Change one layer at a time, compare the same question suite, inspect generated DAX, and block promotion when a critical metric, permission boundary, or latency target regresses. Include model refresh, deployment pipeline, renamed objects, verified-answer updates, runtime changes, and report visual metadata changes in release impact analysis.</p>
+        <p>Monitor wrong-answer feedback, no-answer rate, verified-answer match rate, DAX execution failures, authorization errors, latency, capacity, model freshness, route changes, question drift, and configuration releases. Preserve rollback to the last approved model and Data Agent version. A correct semantic model is not a permanent guarantee of correct NL2DAX after metadata, configuration, data, or runtime changes.</p>
+
+        <h2 id="assessment">Run a three-to-five-week NL2DAX accuracy assessment</h2>
+        <ol>
+          <li>Select one semantic model, one Data Agent, target users, business owners, critical metrics, and a representative production question set.</li>
+          <li>Map model design, measures, metadata, relationships, refresh, report visuals, AI Data Schema, AI Instructions, Verified Answers, permissions, runtime, and current failures.</li>
+          <li>Define deterministic controls for route, expected measure, dimensions, filters, date logic, DAX result, security persona, answer wording, and latency.</li>
+          <li>Run baseline tests before remediation; inspect generated DAX and classify failures by route, model, Prep for AI, query, permission, answer, or performance.</li>
+          <li>Refine the smallest responsible layer, rerun the full suite, and compare draft with published behavior under real consumer identities.</li>
+          <li>Test paraphrases, ambiguity, unsupported questions, permission boundaries, stale data, model changes, conversation history, timeouts, and runtime changes.</li>
+          <li>Deliver the model-readiness findings, Prep for AI configuration, NL2DAX scorecard, ground-truth suite, permission matrix, release gates, runbooks, and go, limit, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>How does Fabric Data Agent query a Power BI semantic model?</summary><p>Fabric Data Agent routes a question through its orchestrator to a specialized DAX generation tool. That tool uses semantic model metadata, Prep for AI configuration, and conversation context to generate, validate, and execute DAX before the agent formats the result.</p></details>
+          <details><summary>Where should Power BI semantic model instructions for Fabric Data Agent be configured?</summary><p>Microsoft says semantic-model-specific instructions must be configured in Power BI Prep for AI. The DAX generation tool ignores semantic-model instructions placed at the Data Agent level. Agent instructions should cover only cross-source routing and behavior that applies to the whole agent.</p></details>
+          <details><summary>Do Verified Answers work with Fabric Data Agent?</summary><p>Yes. Verified Answers are stored on the semantic model and can guide the DAX generation tool when a Data Agent question exactly or semantically matches a trigger. The agent does not return the original Power BI visual; it uses the question and visual properties to influence DAX generation.</p></details>
+          <details><summary>What permissions are required to query a semantic model through Fabric Data Agent?</summary><p>Current Microsoft documentation states that Read permission on the semantic model is sufficient for Data Agent queries and workspace or Build permission is not required for interaction. RLS and CLS still apply. Build or Write permissions are needed to modify the model or configure Prep for AI.</p></details>
+          <details><summary>How long does a Fabric Data Agent NL2DAX accuracy assessment take?</summary><p>A focused assessment commonly takes three to five weeks for one semantic model and a representative business question set. It covers model readiness, Prep for AI configuration, generated DAX, deterministic reconciliation, user security, latency, draft-versus-published comparison, and release controls.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/semantic-model-best-practices">Microsoft semantic model best practices for Fabric Data Agent</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai">Power BI Prep data for AI overview</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-data-schema">Power BI AI Data Schema guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-verified-answers">Power BI Verified Answers guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-instructions">Power BI AI Instructions guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-sharing">Fabric Data Agent semantic model permissions</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the questions where the generated DAX is valid but the business answer is wrong.</strong> Datrick can connect semantic-model remediation, Prep for AI configuration, deterministic controls, consumer security, and release evidence into one measured assessment.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_semantic_model&amp;utm_medium=organic_content&amp;utm_campaign=nl2dax_prep_for_ai_assessment&amp;utm_content=article_end#inquiry-form">Scope the NL2DAX assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-power-bi-verified-answers-prep-for-ai-assessment"><span>Control semantic matching</span><strong>Assess Verified Answers and Prep for AI</strong></a><a href="ai-power-bi-report-dax-semantic-model-performance-optimization"><span>Fix model latency</span><strong>Optimize Power BI and DAX performance</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

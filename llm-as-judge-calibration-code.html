@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LLM-as-a-Judge Calibration for Code Evaluation | Datrick</title>
+    <meta name="description" content="How to calibrate LLM-as-a-judge for code with expert labels, executable evidence, error analysis, challenge sets, and ongoing human review.">
+    <link rel="canonical" href="https://datrick.com/llm-as-judge-calibration-code">
+    <meta property="og:title" content="LLM-as-a-Judge Calibration for Code Evaluation | Datrick">
+    <meta property="og:description" content="A practical system for aligning automated code judges with trusted software-engineering decisions and detecting judge drift.">
+    <meta property="og:url" content="https://datrick.com/llm-as-judge-calibration-code">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "headline": "How to Calibrate LLM-as-a-Judge for Code Evaluation with Human Software Engineers",
+            "description": "How to calibrate LLM-as-a-judge for code with expert labels, executable evidence, error analysis, challenge sets, and ongoing human review.",
+            "url": "https://datrick.com/llm-as-judge-calibration-code",
+            "datePublished": "2026-07-14",
+            "dateModified": "2026-07-14",
+            "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"},
+            "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}},
+            "mainEntityOfPage": "https://datrick.com/llm-as-judge-calibration-code"
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What does LLM-as-a-judge calibration mean for code evaluation?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Calibration means testing and adjusting a specific judge model, prompt, rubric, context package, and output schema against trusted software-engineering decisions. The goal is to understand where the judge agrees, where it fails, and which decisions still require executable checks or human review."}
+              },
+              {
+                "@type": "Question",
+                "name": "How many human-reviewed examples are needed to calibrate a code judge?",
+                "acceptedAnswer": {"@type": "Answer", "text": "There is no universal sample size. It depends on task diversity, failure prevalence, decision severity, reviewer consistency, and the precision required for each class. Start with a stratified set large enough to include important normal, boundary, ambiguous, adversarial, and critical-failure cases, then calculate uncertainty and add examples where evidence is weak."}
+              },
+              {
+                "@type": "Question",
+                "name": "Should an LLM judge replace unit tests for generated code?",
+                "acceptedAnswer": {"@type": "Answer", "text": "No. Unit, integration, state, build, type, lint, and security checks should verify claims that software can prove. An LLM judge is more useful for bounded contextual criteria such as maintainability, scope, explanation quality, trajectory behavior, or repository conventions, and those judgments still need human calibration."}
+              },
+              {
+                "@type": "Question",
+                "name": "Which metrics should be used for LLM judge calibration?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Use class-level confusion matrices, precision and recall for consequential failures, agreement adjusted for chance where appropriate, ordinal or rank measures for ordered ratings, severity-weighted error, abstention coverage, and confidence intervals. Always inspect disagreement examples; one aggregate agreement score can hide unsafe failure patterns."}
+              },
+              {
+                "@type": "Question",
+                "name": "How often should a code-evaluation judge be recalibrated?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Revalidate whenever the judge model, prompt, rubric, context, output schema, code domain, agent harness, task distribution, or acceptance policy changes. Also run periodic human audits and trigger review when disagreement, severity-weighted error, score distribution, or production escape patterns move beyond approved limits."}
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">LLM-as-a-judge calibration for code</p>
+          <h1>How do you calibrate an LLM judge with human software-engineering review?</h1>
+          <p class="page-lede">Treat the judge as a versioned measurement system: anchor it to executable evidence and trusted expert decisions, quantify consequential errors, preserve abstention, and monitor drift.</p>
+          <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=code_judge_calibration&amp;utm_medium=organic_content&amp;utm_campaign=technical_ai_evaluation&amp;utm_content=hero#inquiry-form">Scope a judge calibration pilot</a></div>
+          <div class="article-meta"><a href="resources.html">Resource library</a><span>Automated code evaluation</span><span>12 min read</span></div>
+        </div>
+      </section>
+
+      <section class="section service-band">
+        <article class="article-body">
+          <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#judge-boundary">Judge boundary</a><a href="#human-anchor">Human anchor</a><a href="#metrics">Metrics</a><a href="#operations">Operations</a></nav>
+
+          <p>An LLM judge can review more code outputs than a senior engineering team can inspect manually. It can apply a structured rubric, identify likely scope violations, summarize trajectory evidence, and route suspicious cases for review. That scale is useful only when the organization knows how the judge behaves relative to trusted engineering decisions.</p>
+
+          <p>Calibration is not asking a few engineers whether the judge's explanations look reasonable. It is a controlled comparison between a versioned judge system and independently established reference decisions across representative and difficult cases. The result should define where the judge can operate, where it must abstain, and where executable checks or human engineers remain authoritative.</p>
+
+          <section class="readiness-actions"><p><strong>Need to scale code evaluation without replacing expert judgment with an untested model?</strong> Datrick supports rubric design, expert labeling, calibration sets, judge prompts, error analysis, adjudication, monitoring, and managed technical review.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=code_judge_calibration&amp;utm_medium=organic_content&amp;utm_campaign=technical_ai_evaluation&amp;utm_content=article_intro#inquiry-form">Describe the calibration need</a><a class="button secondary" href="coding-agent-evaluation-services">Review coding-agent evaluation</a></div></section>
+
+          <h2 id="judge-boundary">Use the judge only where deterministic evidence is insufficient</h2>
+          <p>Start by removing criteria that can be tested directly. Required behavior, regressions, repository state, builds, type checks, lint, security rules, schema changes, and command outcomes belong in executable graders. An LLM judge should not estimate whether tests passed when the harness can run them.</p>
+
+          <p>Reserve model judgment for explicit contextual criteria: whether a patch is appropriately scoped, whether an explanation matches the change, whether an agent's trajectory used evidence responsibly, whether the implementation fits repository conventions, or whether a tradeoff is acceptable under the task. Anthropic's <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">agent evaluation guidance</a> recommends combining code-based, model-based, and human graders and closely calibrating LLM judges with human experts.</p>
+
+          <div class="article-table-wrap" role="region" aria-label="Code evaluation grader assignment" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Code evaluation grader assignment</caption>
+              <thead><tr><th scope="col">Criterion</th><th scope="col">Primary grader</th><th scope="col">Judge role</th></tr></thead>
+              <tbody>
+                <tr><td>Required behavior and regressions</td><td>Fail-to-pass, pass-to-pass, integration, state, and protected tests.</td><td>None unless the task requires interpretation that tests cannot encode.</td></tr>
+                <tr><td>Build, type, lint, and static security</td><td>Versioned commands and approved scanners.</td><td>Summarize evidence or classify known findings, not replace the tools.</td></tr>
+                <tr><td>Scope and repository fit</td><td>Human-engineered rubric with repository context.</td><td>Apply bounded criteria after calibration and escalate uncertain cases.</td></tr>
+                <tr><td>Maintainability and architecture</td><td>Qualified software-engineering review for consequential decisions.</td><td>Triage, extract evidence, or score low-risk cases within a validated domain.</td></tr>
+                <tr><td>Trajectory behavior</td><td>Tool logs, command output, state changes, and completion claim.</td><td>Classify evidence use, recovery, instruction following, and unsupported claims.</td></tr>
+                <tr><td>Security consequence</td><td>Security checks and authorized human owner.</td><td>Flag and route; do not certify a consequential change alone.</td></tr>
+              </tbody>
+            </table></div>
+
+          <h2>Version the complete judge, not only the model name</h2>
+          <p>A judge system includes the model and exact version, system and user prompts, rubric, examples, context-selection logic, output schema, temperature or sampling controls, retry policy, aggregation, preprocessing, postprocessing, and abstention rules. Changing any component can change the measurement.</p>
+
+          <p>Store a judge manifest with each result. Keep the evaluated model output separate from reference patches and human labels unless the rubric explicitly permits those inputs. A judge that sees the gold solution measures similarity to that solution, which may differ from measuring whether the submitted code is valid.</p>
+
+          <h2 id="human-anchor">Create an independent human anchor set</h2>
+          <p>Select a stratified calibration set from the actual task population. Include common tasks, boundary cases, ambiguous requirements, multiple valid solutions, subtle regressions, security-sensitive changes, over-engineered patches, misleading completion claims, and examples that pass tests while remaining technically unacceptable.</p>
+
+          <p>Two or more qualified engineers should review the same items independently before seeing the judge decision. Give them the task, repository context, patch, executable evidence, trajectory, and versioned rubric. Require criterion-level decisions with evidence citations, severity, confidence, and an option to mark the task or rubric unjudgeable.</p>
+
+          <p>Adjudicate disagreements through an authorized technical owner. Do not force agreement merely to produce a clean gold label. Classify whether the disagreement came from reviewer error, rubric ambiguity, missing context, a broken task, multiple valid interpretations, or a genuinely borderline engineering decision. Fix the evaluation system before using those cases to optimize the judge.</p>
+
+          <h2>Write criteria that can be falsified</h2>
+          <p>Avoid rubrics such as "good code" or "production quality." Define observable failure and pass conditions. For scope control, state which files, behaviors, dependencies, and interfaces may change. For maintainability, identify the repository conventions and complexity signals that matter. For evidence integrity, require the completion claim to match commands actually run and final repository state.</p>
+
+          <div class="article-table-wrap" role="region" aria-label="Code judge rubric design examples" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Code judge rubric design examples</caption>
+              <thead><tr><th scope="col">Weak criterion</th><th scope="col">Calibratable criterion</th><th scope="col">Required evidence</th></tr></thead>
+              <tbody>
+                <tr><td>The code is clean.</td><td>The patch follows the named module boundary, avoids duplicated logic, and adds no unexplained abstraction.</td><td>Changed files, repository pattern, duplicated branch, or added dependency.</td></tr>
+                <tr><td>The solution is correct.</td><td>The patch satisfies the written requirement and the supplied normal, boundary, and failure evidence without a critical regression.</td><td>Task clauses, tests, state checks, and cited code path.</td></tr>
+                <tr><td>The agent reasoned well.</td><td>The trajectory inspected relevant context, responded to tool errors, ran required checks, and did not claim evidence it lacked.</td><td>Tool calls, errors, retries, command output, and final claim.</td></tr>
+                <tr><td>The change is secure.</td><td>The patch preserves the specified trust boundary, validation, authorization, secret handling, and approved data flow.</td><td>Security rule, scanner result, changed control, and reviewer citation.</td></tr>
+                <tr><td>The patch is appropriately scoped.</td><td>No unrelated behavior, test expectation, configuration, dependency, or public interface changed without task support.</td><td>Diff, task requirement, changed tests, and affected interfaces.</td></tr>
+              </tbody>
+            </table></div>
+
+          <h2 id="metrics">Measure the errors that matter to the decision</h2>
+          <p>Start with a confusion matrix for each criterion and severity class. Measure precision when false accusations create unnecessary review or reject valid work. Measure recall when missed critical failures create release risk. Use severity-weighted error so confusing two low-risk categories does not count the same as accepting an authorization bypass.</p>
+
+          <p>Agreement adjusted for chance can help when labels are categorical; rank or ordinal measures may fit ordered scores. Track abstention coverage and accuracy among non-abstained cases. Report confidence intervals and sample composition. One aggregate agreement number can look strong while the judge consistently misses a rare but unacceptable class.</p>
+
+          <p>OpenAI's <a href="https://evals.openai.com/gdpval/grading">GDPval grading documentation</a> uses pairwise human expert preferences as its standard while describing an LLM judge as a rough estimate. That distinction is useful operationally: the judge can provide scalable signal, but its role must follow demonstrated alignment for the actual domain and decision.</p>
+
+          <h2>Test judge bias and robustness directly</h2>
+          <p>Run controlled perturbations: reverse candidate order, remove style cues, equalize verbosity, rename irrelevant identifiers, vary explanation length, change author identity, and present equivalent implementations. Test whether the judge favors outputs associated with its own model family, longer answers, familiar patterns, or the first option.</p>
+
+          <p>Build a challenge set from historical disagreements and known failure classes. Include patches that pass visible tests through unsafe shortcuts, plausible explanations that contradict the diff, unnecessary rewrites, weakened tests, subtle permission errors, and functionally valid alternatives to the reference patch. Keep a held-out set for validating judge changes.</p>
+
+          <p>Research continues to find that automated judges can diverge systematically from people. The 2026 ACL industry paper <a href="https://aclanthology.org/2026.acl-industry.45/">SAJA</a> treats human alignment as a calibration problem rather than assuming an uncalibrated judge is sufficient. For code, the practical lesson is to preserve the human-labeled anchor and re-evaluate every judge change against it.</p>
+
+          <h2>Set abstention and escalation rules</h2>
+          <p>The judge should be able to return insufficient context, rubric conflict, multiple valid interpretations, environment failure, or human review required. Route cases based on severity, uncertainty, protected areas, disagreement with executable evidence, novel task types, and out-of-distribution signals.</p>
+
+          <p>Do not tune away abstention merely to improve automation coverage. Coverage is a business variable, not a quality metric by itself. A judge that confidently decides every case may be less useful than one that reliably handles routine outputs and escalates the decisions that require engineering judgment.</p>
+
+          <h2 id="operations">Monitor judge drift as part of evaluation operations</h2>
+          <p>Revalidate when the judge model, prompt, rubric, context package, output schema, task distribution, codebase, agent harness, or acceptance policy changes. Run old and new judge versions on the same held-out set. Compare criterion distributions, class-level errors, abstention, cost, latency, and disagreement with human decisions.</p>
+
+          <p>Sample production decisions for blind human audit. Feed confirmed misses into error analysis, but do not train and test on the same examples. Maintain separate development, calibration, and held-out audit sets. Record why every rubric and threshold changed, who approved it, and which historical results remain comparable.</p>
+
+          <h2>What a code-judge calibration pilot should deliver</h2>
+          <ol>
+            <li>A written decision, judge role, excluded decisions, task population, severity policy, and named quality owner.</li>
+            <li>A versioned rubric and judge manifest covering model, prompts, context, examples, output schema, aggregation, and abstention.</li>
+            <li>A stratified human anchor set with independent expert labels, evidence citations, adjudication, and task-quality findings.</li>
+            <li>Deterministic grader integration so the judge does not estimate claims that tools can prove.</li>
+            <li>Class-level metrics, severity-weighted error, uncertainty, abstention coverage, and disagreement analysis.</li>
+            <li>A challenge set covering order, verbosity, self-preference, unsafe shortcuts, misleading claims, and valid alternatives.</li>
+            <li>Approved thresholds, escalation routes, monitoring cadence, drift triggers, limitations, and an expand, revise, or stop recommendation.</li>
+          </ol>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-list">
+            <details><summary>What does LLM-as-a-judge calibration mean for code evaluation?</summary><p>Calibration means testing and adjusting a specific judge model, prompt, rubric, context package, and output schema against trusted software-engineering decisions. The goal is to understand where the judge agrees, where it fails, and which decisions still require executable checks or human review.</p></details>
+            <details><summary>How many human-reviewed examples are needed to calibrate a code judge?</summary><p>There is no universal sample size. It depends on task diversity, failure prevalence, decision severity, reviewer consistency, and the precision required for each class. Start with a stratified set large enough to include important normal, boundary, ambiguous, adversarial, and critical-failure cases, then calculate uncertainty and add examples where evidence is weak.</p></details>
+            <details><summary>Should an LLM judge replace unit tests for generated code?</summary><p>No. Unit, integration, state, build, type, lint, and security checks should verify claims that software can prove. An LLM judge is more useful for bounded contextual criteria such as maintainability, scope, explanation quality, trajectory behavior, or repository conventions, and those judgments still need human calibration.</p></details>
+            <details><summary>Which metrics should be used for LLM judge calibration?</summary><p>Use class-level confusion matrices, precision and recall for consequential failures, agreement adjusted for chance where appropriate, ordinal or rank measures for ordered ratings, severity-weighted error, abstention coverage, and confidence intervals. Always inspect disagreement examples; one aggregate agreement score can hide unsafe failure patterns.</p></details>
+            <details><summary>How often should a code-evaluation judge be recalibrated?</summary><p>Revalidate whenever the judge model, prompt, rubric, context, output schema, code domain, agent harness, task distribution, or acceptance policy changes. Also run periodic human audits and trigger review when disagreement, severity-weighted error, score distribution, or production escape patterns move beyond approved limits.</p></details>
+          </div>
+
+          <section class="readiness-actions"><p><strong>Start with one bounded coding criterion and an independent human anchor set.</strong> Datrick can help define the rubric, build calibration evidence, analyze judge errors, establish escalation, and operate recurring technical review.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=code_judge_calibration&amp;utm_medium=organic_content&amp;utm_campaign=technical_ai_evaluation&amp;utm_content=article_end#inquiry-form">Scope judge calibration</a></div></section>
+
+          <nav class="article-next" aria-label="Resource next steps"><a href="coding-agent-evaluation-services"><span>Evaluation system</span><strong>Coding agent evaluation services</strong></a><a href="coding-agent-benchmark-private-repositories"><span>Protected tasks</span><strong>Private repository benchmark guide</strong></a></nav>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

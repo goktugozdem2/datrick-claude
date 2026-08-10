@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Database Handover Checklist: When a DBA or Developer Leaves</title>
+    <meta name="description" content="Use this database handover checklist when a DBA or key developer leaves. Secure access, backups, monitoring, jobs, dependencies, incidents, and ownership.">
+    <link rel="canonical" href="https://datrick.com/resource-database-handover.html">
+    <meta property="og:title" content="Database Handover Checklist: When a DBA or Developer Leaves">
+    <meta property="og:description" content="Secure database access, backups, monitoring, jobs, dependencies, incident history, and ownership after a key person leaves.">
+    <meta property="og:url" content="https://datrick.com/resource-database-handover.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "headline": "Database Operations Handover Checklist",
+            "description": "A practical checklist for transferring database access, ownership, monitoring, backups, scheduled jobs, incident history, and reporting dependencies.",
+            "url": "https://datrick.com/resource-database-handover.html",
+            "datePublished": "2026-07-10",
+            "dateModified": "2026-07-17",
+            "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"},
+            "reviewedBy": {"@type": "Person", "name": "Can Goktug Ozdem", "url": "https://datrick.com/about.html"},
+            "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}},
+            "mainEntityOfPage": "https://datrick.com/resource-database-handover.html"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://datrick.com/"},
+              {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://datrick.com/resources.html"},
+              {"@type": "ListItem", "position": 3, "name": "Database Handover Checklist", "item": "https://datrick.com/resource-database-handover.html"}
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What should be included in a database handover?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A database handover should include system ownership, environments, architecture, access procedures, privileged accounts, integrations, scheduled jobs, monitoring, backups, restore evidence, incident history, change procedures, reporting dependencies, vendor contacts, known risks, and an agreed acceptance process."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How long should a database operations handover take?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A focused handover for a well-documented environment may take several days. A business-critical estate with multiple databases, undocumented jobs, weak access control, or missing restore evidence can require several weeks of discovery, observation, remediation, and validation."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What if the previous database owner is unavailable?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Treat the transition as a controlled recovery. Secure administrative access, inventory systems and dependencies, preserve current operations, verify backups and monitoring, observe scheduled workloads, interview adjacent teams, document unknowns, and avoid nonessential changes until the environment is understood."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you know a database handover is complete?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The handover is complete when the receiving team can access each environment, explain ownership and dependencies, operate routine jobs, respond to alerts, restore from backup, follow change and escalation procedures, identify known risks, and support a real operating cycle without relying on the departing owner."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data" data-commercial-cluster="remote_dba" data-content-type="commercial_resource">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Data operations</p>
+          <h1>Database operations handover checklist.</h1>
+          <p class="page-lede">A clean handover gives the support team enough context to protect uptime, reporting, migration work, and incident response without relying on tribal knowledge.</p>
+          <div class="article-meta"><a href="resources.html">Resource library</a><span>Operations checklist</span><span>11 min read</span></div>
+          <p class="article-review">Reviewed for database operations accuracy by <a href="about.html">Can Goktug Ozdem</a>, founder and senior technical lead. Last reviewed July 16, 2026.</p>
+          <p class="article-review">Practice basis: this checklist reflects recurring gaps observed in our database handover, takeover, migration, and production support work.</p>
+        </div>
+      </section>
+      <section class="section service-band">
+        <article class="article-body">
+          <p>A database handover is not complete when a document is delivered. It is complete when the receiving team can operate the environment, respond to an incident, explain the important dependencies, and make a controlled change without depending on the person who left.</p>
+
+          <p>This checklist is designed for CTOs, technical managers, IT service firms, and incoming database teams taking responsibility for a production estate. It works for a planned transition, but it is especially useful when a key developer or database owner leaves with incomplete documentation or limited knowledge transfer.</p>
+
+          <h2>Start by defining the transfer of responsibility</h2>
+          <p>Name the outgoing owner, receiving owner, business sponsor, technical escalation contact, and decision maker for production changes. Record the effective date of the transfer and separate three states: information received, information verified, and responsibility accepted. A credential list or architecture diagram may be received without proving that it is current or usable.</p>
+
+          <p>Agree what the receiving team owns. Database administration can include availability, performance, backups, security, patching, scheduled jobs, data integrations, reporting refreshes, vendor coordination, and migration support. If any responsibility remains elsewhere, name that owner and the handoff between teams.</p>
+
+          <h2>Database handover checklist</h2>
+          <div class="article-table-wrap" role="region" aria-label="Database operations handover checklist" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Database operations handover checklist</caption>
+              <thead><tr><th scope="col">Area</th><th scope="col">What to collect and verify</th><th scope="col">Acceptance evidence</th></tr></thead>
+              <tbody>
+                <tr><td>Ownership</td><td>Business owner, technical owner, support coverage, escalation contacts, vendors, and responsibility boundaries.</td><td>Every production system and critical process has a named accountable owner.</td></tr>
+                <tr><td>Inventory</td><td>Database engines, versions, hosts, clusters, cloud accounts, regions, environments, and lifecycle status.</td><td>The inventory matches discovered infrastructure and connection endpoints.</td></tr>
+                <tr><td>Architecture</td><td>Primary and replica topology, network paths, storage, failover, integrations, data flows, and dependent applications.</td><td>The receiving team can trace a critical transaction or data flow end to end.</td></tr>
+                <tr><td>Access</td><td>Administrative access, service accounts, break-glass procedure, secrets storage, VPN, bastions, MFA, and approval process.</td><td>Approved team members can access each environment without using personal or shared credentials improperly.</td></tr>
+                <tr><td>Workloads</td><td>Critical queries, scheduled jobs, ETL processes, maintenance tasks, peak windows, batch deadlines, and resource limits.</td><td>A complete operating cycle is observed and its failures are understood.</td></tr>
+                <tr><td>Monitoring</td><td>Dashboards, alerts, thresholds, on-call routing, noisy signals, log locations, and normal performance baselines.</td><td>A test or recent alert can be traced from detection through response and closure.</td></tr>
+                <tr><td>Backups</td><td>Backup types, schedules, retention, encryption, storage, replication, recovery objectives, and restore procedure.</td><td>Recent backup status is checked and restore evidence exists for a representative system.</td></tr>
+                <tr><td>Incidents</td><td>Recent outages, recurring failures, unresolved actions, emergency changes, post-incident reviews, and stakeholder communications.</td><td>Known failure patterns and first-response actions are documented.</td></tr>
+                <tr><td>Changes</td><td>Release process, migration scripts, approvals, maintenance windows, deployment tools, validation, and rollback.</td><td>The team can explain and rehearse the next planned production change.</td></tr>
+                <tr><td>Security</td><td>Data classification, encryption, audit logs, privileged roles, access reviews, vulnerabilities, and compliance obligations.</td><td>High-risk access and unresolved security exceptions have owners and deadlines.</td></tr>
+                <tr><td>Reporting</td><td>Dashboards, semantic models, refresh jobs, KPI definitions, reconciliation controls, deadlines, and report owners.</td><td>Critical reports can be traced to source data and their refresh failures can be diagnosed.</td></tr>
+                <tr><td>Risks</td><td>Capacity limits, end-of-life components, manual workarounds, single points of failure, technical debt, and undocumented dependencies.</td><td>Each material risk has impact, likelihood, owner, and an agreed next action.</td></tr>
+              </tbody>
+            </table></div>
+
+          <h2>1. Build an inventory that matches reality</h2>
+          <p>Collect existing inventories, diagrams, cloud exports, configuration repositories, monitoring targets, and connection records. Then reconcile them. Look for databases that appear in application configurations but not in the official inventory, jobs running under personal accounts, abandoned replicas, old environments that still receive traffic, and systems with unclear business ownership.</p>
+
+          <p>For each database, record its purpose, engine and version, environment, hosting location, criticality, data sensitivity, recovery expectations, upstream sources, downstream consumers, and current support owner. Mark facts that were discovered technically versus statements that still require confirmation.</p>
+
+          <h2>2. Transfer access without creating new risk</h2>
+          <p>Do not exchange passwords in a handover spreadsheet. Use the approved secrets manager and access process. Confirm how administrators reach private networks, where privileged credentials are stored, how emergency access is approved, and which accounts are tied to the departing person.</p>
+
+          <p>Rotate credentials when ownership changes, but sequence the work carefully. A service account can be embedded in jobs, applications, monitoring, backup agents, or vendor integrations. Inventory its use, create a rollback plan, make the change during an appropriate window, and verify every dependency afterward.</p>
+
+          <h2>3. Observe the operating cycle</h2>
+          <p>A static document rarely captures what actually happens during daily, weekly, and month-end operations. Observe at least one meaningful cycle. Review scheduled jobs, backups, maintenance, reporting refreshes, file arrivals, data quality checks, capacity patterns, and manual interventions.</p>
+
+          <p>Ask which tasks fail frequently, which alerts are ignored, which jobs must finish before a business deadline, and which procedures exist only in one person's memory. Record the expected start time, completion signal, normal duration, dependencies, failure behavior, retry rule, and escalation owner for every critical process.</p>
+
+          <h2>4. Verify monitoring and incident response</h2>
+          <p>List the tools used for infrastructure, database, application, job, and data-pipeline monitoring. Establish a normal baseline for availability, latency, connections, CPU, memory, storage, replication lag, lock waits, deadlocks, job duration, and backup status where relevant. Thresholds without context are not enough; the receiving team must know what action each important alert requires.</p>
+
+          <p>Review recent incidents and unresolved follow-up actions. Capture how severity is assigned, who communicates with stakeholders, who can authorize an emergency change, and how evidence is preserved for a post-incident review. A useful runbook begins with diagnostic checks and decision points, not a long list of commands with no explanation.</p>
+
+          <h2>5. Prove backup and recovery readiness</h2>
+          <p>A successful backup job is not proof that the database can be recovered. Confirm backup scope, frequency, retention, encryption, storage location, cross-region or off-site protection, and the recovery point and recovery time expected by the business. Identify who can initiate a restore and where it can be performed safely.</p>
+
+          <p>Review recent restore evidence or perform a controlled restore test when risk and access permit. Validate that the restored data is usable, required encryption keys and credentials are available, dependent applications can reconnect, and the team knows how to communicate recovery status. For PostgreSQL estates, use the <a href="postgresql-backup-verification-restore-drill">PostgreSQL backup verification and restore drill</a> to separate backup presence, integrity, restorability, business usability, and recovery timing. Record gaps as operational risks rather than treating them as documentation issues.</p>
+
+          <h2>6. Map reporting and integration dependencies</h2>
+          <p>Database responsibility often extends beyond the application itself. A schema change, delayed ETL job, or overloaded replica can affect dashboards, KPI packs, customer reports, finance processes, and data exports. Record critical consumers, refresh windows, service expectations, and the person who decides whether late or incomplete data is acceptable.</p>
+
+          <p>Trace critical reports from their visible metric back through semantic models, transformations, jobs, and source tables. Capture reconciliation checks and known differences between operational and reporting definitions. This prevents the incoming team from fixing a technical symptom while breaking a business reporting commitment.</p>
+
+          <h2>7. Record known risks and planned changes</h2>
+          <p>Separate current operating risks from future improvement ideas. Current risks include unsupported versions, storage pressure, missing restore evidence, unmonitored jobs, weak privileged-access controls, single points of failure, and undocumented manual procedures. Give each risk an impact, likelihood, evidence, owner, and next review date.</p>
+
+          <p>List upcoming releases, migrations, certificate renewals, contract dates, maintenance windows, capacity events, and audit deadlines. Include the change owner, validation plan, rollback trigger, and required approvals. An incoming team should not discover a major production change from a calendar invitation after responsibility has transferred.</p>
+
+          <h2>When the previous owner is unavailable</h2>
+          <p>When there is no cooperative handover, switch from transfer mode to controlled recovery. The immediate objective is continuity, not optimization. Secure access, preserve logs and configuration, inventory the estate, verify backup and monitoring status, identify critical business deadlines, and freeze avoidable changes until the environment is understood.</p>
+
+          <ol>
+            <li><strong>Stabilize ownership:</strong> establish technical and business decision makers, communication channels, and emergency authority.</li>
+            <li><strong>Protect access:</strong> recover approved administrative paths, disable inappropriate personal access, and preserve break-glass capability.</li>
+            <li><strong>Discover dependencies:</strong> inspect application configurations, job schedulers, monitoring, infrastructure, repositories, and reporting tools.</li>
+            <li><strong>Verify protection:</strong> check active alerts, backup completion, replication, storage headroom, and near-term operational deadlines.</li>
+            <li><strong>Observe before changing:</strong> watch routine workloads and document behavior before tuning, upgrading, or restructuring.</li>
+            <li><strong>Maintain an unknowns register:</strong> make uncertainty visible, prioritize it by business risk, and close it with evidence.</li>
+          </ol>
+
+          <h2>Acceptance criteria for the receiving team</h2>
+          <p>Use a formal acceptance review instead of assuming that elapsed time means the handover is finished. The receiving team should be able to demonstrate the following:</p>
+          <ul>
+            <li>Access to every in-scope environment through approved, auditable paths.</li>
+            <li>A reconciled inventory and architecture view with named system owners.</li>
+            <li>Understanding of critical workloads, integrations, reporting deadlines, and normal operating patterns.</li>
+            <li>Ability to interpret priority alerts and follow incident and escalation procedures.</li>
+            <li>Verified backup status and credible restore evidence.</li>
+            <li>A controlled process for releases, schema changes, maintenance, validation, and rollback.</li>
+            <li>A risk register covering unresolved gaps, owners, priorities, and next actions.</li>
+            <li>Completion of a real operating cycle without depending on the outgoing owner.</li>
+          </ul>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-list">
+            <details>
+              <summary>What should be included in a database handover?</summary>
+              <p>A database handover should include system ownership, environments, architecture, access procedures, privileged accounts, integrations, scheduled jobs, monitoring, backups, restore evidence, incident history, change procedures, reporting dependencies, vendor contacts, known risks, and an agreed acceptance process.</p>
+            </details>
+            <details>
+              <summary>How long should a database operations handover take?</summary>
+              <p>A focused handover for a well-documented environment may take several days. A business-critical estate with multiple databases, undocumented jobs, weak access control, or missing restore evidence can require several weeks of discovery, observation, remediation, and validation.</p>
+            </details>
+            <details>
+              <summary>What if the previous database owner is unavailable?</summary>
+              <p>Treat the transition as a controlled recovery. Secure administrative access, inventory systems and dependencies, preserve current operations, verify backups and monitoring, observe scheduled workloads, interview adjacent teams, document unknowns, and avoid nonessential changes until the environment is understood.</p>
+            </details>
+            <details>
+              <summary>How do you know a database handover is complete?</summary>
+              <p>The handover is complete when the receiving team can access each environment, explain ownership and dependencies, operate routine jobs, respond to alerts, restore from backup, follow change and escalation procedures, identify known risks, and support a real operating cycle without relying on the departing owner.</p>
+            </details>
+          </div>
+
+          <section class="readiness-actions"><p><strong>Recover ownership before the gap becomes an outage.</strong> Score monitoring, recovery, access, performance, and ownership risk before deciding whether the estate needs a bounded handover or ongoing support model.</p><a class="button primary" data-cta-name="handover_to_database_health_assessment" data-funnel-stage="content_to_commercial" href="database-health-assessment?utm_source=database_handover_checklist&amp;utm_medium=organic_content&amp;utm_campaign=remote_dba_assessment&amp;utm_content=article_end">Start the database health assessment</a></section>
+          <nav class="article-next" aria-label="Resource next steps"><a href="managed-database-operations"><span>Matching service</span><strong>Review managed database operations</strong></a><a href="database-handover-support.html"><span>Implementation service</span><strong>Review database handover support</strong></a></nav>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

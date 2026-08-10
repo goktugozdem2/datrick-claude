@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Azure Synapse to Microsoft Fabric Migration Assessment | Datrick</title>
+    <meta name="description" content="Assess Azure Synapse to Microsoft Fabric migration across SQL pools, pipelines, Spark, KQL, data, security, CI/CD, capacity, validation, cutover, and decommissioning.">
+    <link rel="canonical" href="https://datrick.com/ai-azure-synapse-to-microsoft-fabric-migration-assessment">
+    <meta property="og:title" content="AI Azure Synapse to Microsoft Fabric Migration Assessment | Datrick">
+    <meta property="og:description" content="Decide what to migrate, redesign, retain, or retire before moving Synapse workloads into Fabric.">
+    <meta property="og:url" content="https://datrick.com/ai-azure-synapse-to-microsoft-fabric-migration-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "AI Azure Synapse to Microsoft Fabric Migration Assessment", "description": "Assess Azure Synapse to Microsoft Fabric migration across SQL pools, pipelines, Spark, KQL, data, security, CI/CD, capacity, validation, cutover, and decommissioning.", "url": "https://datrick.com/ai-azure-synapse-to-microsoft-fabric-migration-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/ai-azure-synapse-to-microsoft-fabric-migration-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Can Azure Synapse Analytics be migrated to Microsoft Fabric?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, but Synapse is a collection of workload types rather than one portable object. Dedicated SQL pools, pipelines, Spark notebooks, serverless SQL usage, KQL or Data Explorer workloads, links, security, CI/CD, and dependent applications require different target patterns and tools. Some assets can use Microsoft migration assistants; others need conversion, redesign, coexistence, or retention."}},
+            {"@type": "Question", "name": "What is included in a Synapse to Fabric migration assessment?", "acceptedAnswer": {"@type": "Answer", "text": "The assessment inventories active Synapse assets, dependencies, usage, data, code, security, performance, cost, SLAs, and operations; maps each workload to a Fabric target or retain decision; identifies compatibility gaps; defines architecture, capacity, governance, CI/CD, validation, cutover, rollback, and decommissioning; and proves representative risk through a bounded pilot."}},
+            {"@type": "Question", "name": "Does the Fabric Migration Assistant migrate every Synapse workload automatically?", "acceptedAnswer": {"@type": "Answer", "text": "No. Microsoft provides migration experiences for supported dedicated SQL pool and pipeline scenarios, but feature and item coverage varies. Connections, credentials, triggers, global parameters, unsupported activities or connectors, Spark and KQL behavior, networking, identities, security, schedules, and dependent applications can require manual work or redesign. Validate current tool coverage against the actual estate."}},
+            {"@type": "Question", "name": "How do you validate an Azure Synapse to Fabric migration?", "acceptedAnswer": {"@type": "Answer", "text": "Validate schema and code conversion, complete and incremental data, transformations, row counts, checksums, balances, referential rules, pipelines, schedules, security personas, query and Spark results, semantic models, reports, APIs, performance, capacity, cost, monitoring, recovery, and business workflows. Run source and target in parallel for approved periods and reconcile every material exception before cutover."}},
+            {"@type": "Question", "name": "How long does a Synapse to Fabric migration assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment and representative pilot can often be completed in four to six weeks when inventory access, source code, architecture, usage, costs, owners, and validation data are available. A full migration takes longer and should be planned in waves based on workload count, compatibility, data volume, security, business criticality, testing, coexistence, and decommissioning dependencies."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Azure Synapse to Microsoft Fabric migration</p>
+        <h1>Decide what to migrate, redesign, retain, or retire before moving Synapse workloads.</h1>
+        <p class="page-lede">Inventory the real estate, map item-specific compatibility, prove a representative pilot, validate business parity, and cut over in controlled waves.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=synapse_fabric_migration&amp;utm_medium=organic_content&amp;utm_campaign=synapse_fabric_assessment_scoping&amp;utm_content=hero#inquiry-form">Describe the Synapse estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Data platform migration</span><span>10 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#inventory">Estate inventory</a><a href="#mapping">Target mapping</a><a href="#pilot">Migration pilot</a><a href="#validation">Validation and cutover</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>An Azure Synapse workspace can contain dedicated and serverless SQL, pipelines, Spark pools and notebooks, Data Explorer or KQL assets, linked services, integration runtimes, triggers, managed identities, private networking, libraries, code repositories, monitoring, and dependent Power BI or applications. There is no single button that converts this operating system into Microsoft Fabric with equivalent behavior.</p>
+        <p>Datrick treats migration as workload modernization with controlled evidence. AI can accelerate discovery, code classification, dependency extraction, compatibility analysis, conversion candidates, test generation, and reconciliation review. It cannot approve business logic, hide unsupported behavior, or declare parity without deterministic source-to-target tests and accountable owners.</p>
+
+        <section class="readiness-actions"><p><strong>Considering Fabric but unsure which Synapse workloads are portable or worth moving?</strong> Start with an estate assessment and one representative pilot.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=synapse_fabric_migration&amp;utm_medium=organic_content&amp;utm_campaign=synapse_fabric_assessment_scoping&amp;utm_content=article_intro#inquiry-form">Send the migration context</a><a class="button secondary" href="ai-microsoft-fabric-readiness-assessment-adoption-roadmap">Assess Fabric readiness</a></div></section>
+
+        <h2 id="inventory">Build a usage-backed Synapse estate inventory</h2>
+        <p>Collect workspaces, SQL pools and objects, pipelines, activities, triggers, linked services, datasets, integration runtimes, notebooks, Spark configurations and libraries, KQL assets, storage, Synapse Link, identities, secrets, network controls, Git and release paths, schedules, dependencies, monitoring, incidents, costs, performance, data volumes, SLAs, owners, users, and downstream consumers.</p>
+        <p>Usage matters. A deployed object is not automatically a migration requirement. Classify active, seasonal, regulatory, duplicated, obsolete, experimental, and unknown assets. Confirm business purpose and owner before estimating conversion. Retiring unused pipelines and reports can remove more risk and cost than translating them.</p>
+
+        <h2 id="mapping">Map each workload to a target pattern</h2>
+        <div class="article-table-wrap" role="region" aria-label="Azure Synapse to Microsoft Fabric workload mapping" tabindex="0"><table class="article-table"><caption class="sr-only">Azure Synapse to Microsoft Fabric workload mapping</caption>
+          <thead><tr><th scope="col">Synapse workload</th><th scope="col">Potential Fabric target</th><th scope="col">Assessment focus</th></tr></thead>
+          <tbody>
+            <tr><td>Dedicated SQL pool</td><td>Fabric Data Warehouse, Lakehouse, or retained/coexisting Synapse based on requirements.</td><td>DDL and DML compatibility, distribution-specific design, procedures, security, data load, query patterns, concurrency, performance, and cost.</td></tr>
+            <tr><td>Serverless SQL</td><td>Lakehouse SQL analytics endpoint, Fabric Warehouse, shortcuts, or redesigned serving pattern.</td><td>External table and file behavior, formats, functions, permissions, performance, consumers, and query semantics.</td></tr>
+            <tr><td>Synapse pipelines</td><td>Fabric Data Factory pipelines, dataflows, notebooks, copy jobs, or retained hybrid orchestration.</td><td>Activities, connectors, parameters, triggers, credentials, integration runtime, networking, retries, dependencies, and operational behavior.</td></tr>
+            <tr><td>Spark pools and notebooks</td><td>Fabric Spark notebooks, environments, Lakehouse, jobs, or coexistence.</td><td>Runtime and library compatibility, session configuration, mounts, secrets, data paths, scale, scheduling, performance, and tests.</td></tr>
+            <tr><td>Data Explorer and KQL</td><td>Fabric Eventhouse/KQL Database, Real-Time Intelligence, or retained Azure Data Explorer.</td><td>Ingestion, retention, functions, update policies, dashboards, query behavior, streaming, security, performance, and recovery.</td></tr>
+            <tr><td>Synapse Link and replication</td><td>Fabric Mirroring, shortcuts, pipelines, or source-specific integration.</td><td>Supported sources, latency, history, schema change, deletion, consistency, security, region, and operating ownership.</td></tr>
+            <tr><td>Power BI dependencies</td><td>Fabric semantic models, Direct Lake, Import, DirectQuery, reports, and apps.</td><td>Connection endpoints, measures, RLS, refresh, performance, deployment, lineage, and business-result parity.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Assign each item a disposition: migrate with supported tooling, convert with bounded changes, refactor for a Fabric-native pattern, re-architect, retain in Synapse, coexist temporarily, replace, or retire. Record the reason, owner, prerequisite, effort range, validation, rollback, and decommission dependency.</p>
+
+        <h2>Validate current migration-tool coverage against the estate</h2>
+        <p>Microsoft provides Fabric Migration Assistant capabilities for supported data warehouse scenarios and migration guidance for Azure Data Factory and Synapse pipelines. Tooling can accelerate schema, code, pipeline, or data movement, but coverage changes and does not remove environment work. Connections, credentials, triggers, global parameters, unsupported activities and connectors, integration runtimes, Spark, KQL, networking, identity, monitoring, and consumers can need separate action.</p>
+        <p>Run migration assistants in an isolated non-production environment and retain the generated findings. Do not treat a successful import as acceptance. Reconcile every skipped object, warning, converted expression, renamed item, disabled trigger, connection, parameter, dependency, and generated AI suggestion against the source and approved target design.</p>
+
+        <h2 id="pilot">Choose a pilot that tests the hard parts</h2>
+        <p>Select a business-relevant workload with bounded scope, known owners, accessible data and code, representative SQL or Spark transformation, orchestration, security, a semantic or application consumer, measurable baseline, and deterministic outputs. Include at least one known compatibility risk. A pilot containing only a simple copy and dashboard will not estimate the real migration.</p>
+        <div class="article-table-wrap" role="region" aria-label="Synapse to Fabric migration pilot evidence" tabindex="0"><table class="article-table"><caption class="sr-only">Synapse to Fabric migration pilot evidence</caption>
+          <thead><tr><th scope="col">Pilot gate</th><th scope="col">Evidence</th><th scope="col">Decision</th></tr></thead>
+          <tbody>
+            <tr><td>Functional parity</td><td>Converted objects, pipeline runs, Spark or SQL results, schedules, parameters, exceptions, and source-to-target reconciliation.</td><td>Can the target produce the approved result for representative data and edge cases?</td></tr>
+            <tr><td>Security and connectivity</td><td>Identity, network, gateway, secrets, permissions, RLS, private access, external sources, and negative tests.</td><td>Can the workload operate without weakening approved controls?</td></tr>
+            <tr><td>Performance and scale</td><td>Data load, transformation, query, concurrency, refresh, capacity CU, throttling, storage, and growth tests.</td><td>Does the target meet service levels at a defensible capacity and cost?</td></tr>
+            <tr><td>Delivery and operations</td><td>Git, environments, deployment, configuration, monitoring, alerting, incident recovery, backup, DR, and support runbooks.</td><td>Can the team release, operate, recover, and improve the workload?</td></tr>
+            <tr><td>Business acceptance</td><td>Reports, APIs, extracts, users, cutoffs, usability, owner sign-off, and measured process impact.</td><td>Does the migrated solution preserve or improve the business service?</td></tr>
+            <tr><td>Migration economics</td><td>Measured migration effort, exception rate, Fabric consumption, licensing, coexistence, support, and decommission savings.</td><td>Should the next wave scale, change pattern, retain workloads, or stop?</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="validation">Build deterministic validation and a reversible cutover</h2>
+        <p>Validate schema, complete and incremental data, counts, checksums, balances, transformations, referential rules, null and duplicate behavior, late data, CDC state, pipeline branches, schedules, retries, SQL and Spark results, security personas, semantic models, reports, APIs, exports, freshness, performance, capacity, cost, monitoring, and recovery. Preserve source query, target query, data cutoff, expected tolerance, result, exception, owner, and decision.</p>
+        <p>Run source and target in parallel for an approved period where criticality warrants it. Freeze or coordinate changes, establish final synchronization, pause triggers in the correct order, communicate consumer changes, switch endpoints, monitor the target, and retain a tested rollback path. Do not delete Synapse artifacts immediately after first successful production use.</p>
+
+        <h2>Plan migration waves and decommissioning</h2>
+        <ol>
+          <li>Group items by business domain, shared data, dependency, target pattern, criticality, compatibility, and owner rather than by file type alone.</li>
+          <li>Move low-risk prerequisites and shared platform controls before dependent business workloads.</li>
+          <li>Use pilot evidence to revise conversion rates, capacity, testing, staffing, coexistence, and wave duration.</li>
+          <li>Define entry and exit gates for inventory completeness, target readiness, security, validation, user acceptance, rollback, and support.</li>
+          <li>Track exceptions and retained Synapse dependencies so partial migrations do not create an indefinite dual-platform estate.</li>
+          <li>Decommission only after usage, schedules, consumers, data retention, audit, cost, ownership, support, and rollback windows are cleared.</li>
+        </ol>
+
+        <h2 id="assessment">Run a four-to-six-week assessment and pilot</h2>
+        <ol>
+          <li>Define business drivers, target dates, constraints, critical services, architecture principles, budget, owners, and decision gates.</li>
+          <li>Discover the Synapse estate and enrich the inventory with usage, dependencies, cost, performance, incidents, security, and business ownership.</li>
+          <li>Map workloads to Fabric targets, compatibility, disposition, effort, risk, coexistence, validation, and decommission requirements.</li>
+          <li>Design target tenancy, domains, workspaces, capacity, OneLake, networking, identity, governance, CI/CD, monitoring, support, and BCDR.</li>
+          <li>Execute migration assistants and manual analysis against representative assets, recording gaps and conversion quality.</li>
+          <li>Build one production-shaped pilot and run functional, data, security, performance, capacity, cost, operational, and business tests.</li>
+          <li>Deliver the estate register, target architecture, fit-gap matrix, pilot evidence, wave roadmap, budget range, risk register, validation factory, cutover runbook, and decommission plan.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Can Azure Synapse Analytics be migrated to Microsoft Fabric?</summary><p>Yes, but Synapse is a collection of workload types rather than one portable object. Dedicated SQL pools, pipelines, Spark notebooks, serverless SQL usage, KQL or Data Explorer workloads, links, security, CI/CD, and dependent applications require different target patterns and tools. Some assets can use Microsoft migration assistants; others need conversion, redesign, coexistence, or retention.</p></details>
+          <details><summary>What is included in a Synapse to Fabric migration assessment?</summary><p>The assessment inventories active Synapse assets, dependencies, usage, data, code, security, performance, cost, SLAs, and operations; maps each workload to a Fabric target or retain decision; identifies compatibility gaps; defines architecture, capacity, governance, CI/CD, validation, cutover, rollback, and decommissioning; and proves representative risk through a bounded pilot.</p></details>
+          <details><summary>Does the Fabric Migration Assistant migrate every Synapse workload automatically?</summary><p>No. Microsoft provides migration experiences for supported dedicated SQL pool and pipeline scenarios, but feature and item coverage varies. Connections, credentials, triggers, global parameters, unsupported activities or connectors, Spark and KQL behavior, networking, identities, security, schedules, and dependent applications can require manual work or redesign. Validate current tool coverage against the actual estate.</p></details>
+          <details><summary>How do you validate an Azure Synapse to Fabric migration?</summary><p>Validate schema and code conversion, complete and incremental data, transformations, row counts, checksums, balances, referential rules, pipelines, schedules, security personas, query and Spark results, semantic models, reports, APIs, performance, capacity, cost, monitoring, recovery, and business workflows. Run source and target in parallel for approved periods and reconcile every material exception before cutover.</p></details>
+          <details><summary>How long does a Synapse to Fabric migration assessment take?</summary><p>A focused assessment and representative pilot can often be completed in four to six weeks when inventory access, source code, architecture, usage, costs, owners, and validation data are available. A full migration takes longer and should be planned in waves based on workload count, compatibility, data volume, security, business criticality, testing, coexistence, and decommissioning dependencies.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-warehouse/migrate-using-upload-file">Microsoft Fabric Migration Assistant for Data Warehouse</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-warehouse/migration-synapse-dedicated-sql-pool-methods">Microsoft Synapse dedicated SQL pool migration methods</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-factory/migrate-from-azure-data-factory">Microsoft Data Factory and Synapse pipeline migration guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/data-factory/how-to-upgrade-your-azure-data-factory-pipelines-to-fabric-data-factory">Microsoft pipeline migration behavior and limitations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-factory/compare-fabric-data-factory-and-azure-data-factory">Microsoft Fabric and Azure Data Factory comparison</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the Synapse workloads that carry meaningful cost or business risk and one pilot that exercises their hardest dependencies.</strong> Datrick can assess the estate, prove the target pattern, and build a controlled migration factory.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=synapse_fabric_migration&amp;utm_medium=organic_content&amp;utm_campaign=synapse_fabric_assessment_scoping&amp;utm_content=article_end#inquiry-form">Scope a Synapse to Fabric assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="ai-data-migration-reconciliation-validation-automation"><span>Migration validation</span><strong>Reconcile source and target evidence</strong></a><a href="ai-microsoft-fabric-readiness-assessment-adoption-roadmap"><span>Fabric readiness</span><strong>Build the operating and adoption roadmap</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

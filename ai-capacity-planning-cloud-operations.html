@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Capacity Planning for Cloud Operations | Datrick</title>
+    <meta name="description" content="Automate cloud capacity planning with demand forecasts, performance targets, scenarios, quotas, reservations, cost, approvals, and post-event learning.">
+    <link rel="canonical" href="https://datrick.com/ai-capacity-planning-cloud-operations">
+    <meta property="og:title" content="AI Capacity Planning for Cloud Operations | Datrick">
+    <meta property="og:description" content="Turn workload forecasts into explainable cloud capacity plans with performance, availability, quota, reservation, and cost evidence.">
+    <meta property="og:url" content="https://datrick.com/ai-capacity-planning-cloud-operations">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "AI Capacity Planning for Cloud Operations", "description": "Turn workload forecasts into explainable cloud capacity plans with performance, availability, quota, reservation, and cost evidence.", "url": "https://datrick.com/ai-capacity-planning-cloud-operations", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/ai-capacity-planning-cloud-operations"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is AI capacity planning for cloud operations?", "acceptedAnswer": {"@type": "Answer", "text": "AI capacity planning combines historical utilization, workload demand, business events, performance targets, architecture constraints, quotas, reservations, and cost to forecast resource needs and prepare capacity decisions. A production workflow shows uncertainty and scenarios, routes actions to owners, and compares actual outcomes with the forecast."}},
+            {"@type": "Question", "name": "Is predictive autoscaling the same as capacity planning?", "acceptedAnswer": {"@type": "Answer", "text": "No. Predictive autoscaling adjusts supported resources over a short horizon within configured boundaries. Capacity planning also covers future business events, service architecture, quotas, reservations, regional availability, storage and network growth, databases, GPUs, commitments, resilience, load testing, and longer-term investment decisions."}},
+            {"@type": "Question", "name": "Which data is needed for AI cloud capacity forecasting?", "acceptedAnswer": {"@type": "Answer", "text": "Use workload demand and unit drivers, resource utilization, saturation and latency, scaling events, quotas, reservations, deployment and incident history, seasonality, planned launches and campaigns, service objectives, architecture limits, cost, and known supply constraints. Keep business assumptions and source freshness visible."}},
+            {"@type": "Question", "name": "How do you evaluate a cloud capacity forecast?", "acceptedAnswer": {"@type": "Answer", "text": "Evaluate forecast error and interval coverage by horizon and resource, peak and saturation misses, false overprovisioning, scenario accuracy, quota and reservation adequacy, service-level outcomes, cost, manual overrides, and performance during launches or incidents. Compare forecasts with actual demand and decisions after every planning event."}},
+            {"@type": "Question", "name": "How long does an AI capacity planning pilot take?", "acceptedAnswer": {"@type": "Answer", "text": "A pilot for one workload and one upcoming event can often reach supervised planning in two to six weeks when metrics, business drivers, quotas, cost, architecture limits, and owners are available. New workloads, sparse history, shared infrastructure, weak unit metrics, and scarce GPU or regional capacity can extend the schedule."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Demand and capacity intelligence</p>
+          <h1>Plan cloud capacity before demand becomes a reliability incident or a cost problem.</h1>
+          <p class="page-lede">Forecast workload demand, model uncertainty and business scenarios, expose service constraints, and prepare quota, reservation, scaling, and cost decisions with accountable review.</p>
+          <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=AI%20workflow%20automation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=ai_capacity_planning&amp;utm_medium=organic_content&amp;utm_campaign=ai_workflow_scoping&amp;utm_content=hero#inquiry-form">Describe the capacity risk</a></div>
+          <div class="article-meta"><a href="resources.html">Resource library</a><span>Cloud capacity planning</span><span>9 min read</span></div>
+        </div>
+      </section>
+
+      <section class="section service-band">
+        <article class="article-body">
+          <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#plan">Planning contract</a><a href="#architecture">Architecture</a><a href="#evaluation">Evaluation</a><a href="#pilot">Pilot</a></nav>
+
+          <p>Autoscaling handles some short-term variation, but it cannot guarantee that a region has the required quota, a database can absorb a launch, a GPU type will be available, a downstream dependency will scale, or a sudden marketing event will remain within cost and performance objectives.</p>
+
+          <p>Capacity planning connects business demand with technical limits and lead times. AI can improve the forecast and prepare scenarios, but the plan must show assumptions, uncertainty, bottlenecks, and the decisions required from engineering, product, finance, and cloud providers.</p>
+
+          <section class="readiness-actions"><p><strong>Is the next launch, campaign, migration, or AI workload relying on “the cloud will scale”?</strong> Datrick can assess one workload, build a measurable demand-to-capacity model, prepare scenarios, and hand over a repeatable planning workflow.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=AI%20workflow%20automation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=ai_capacity_planning&amp;utm_medium=organic_content&amp;utm_campaign=ai_workflow_scoping&amp;utm_content=article_intro#inquiry-form">Send one workload forecast</a><a class="button secondary" href="ai-cloud-cost-anomaly-investigation">Review cost investigation</a></div></section>
+
+          <h2 id="plan">Define the capacity planning contract</h2>
+          <div class="article-table-wrap" role="region" aria-label="Cloud capacity planning contract" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Cloud capacity planning contract</caption>
+              <thead><tr><th scope="col">Planning element</th><th scope="col">Required evidence</th><th scope="col">Decision</th></tr></thead>
+              <tbody>
+                <tr><td>Demand</td><td>Requests, users, transactions, jobs, tokens, data, events, growth, seasonality, launch, and scenario assumptions.</td><td>Expected, low, high, and stress demand by time horizon.</td></tr>
+                <tr><td>Service objective</td><td>Latency, throughput, availability, recovery, queue, completion, and customer commitments.</td><td>Acceptance thresholds and allowed degradation.</td></tr>
+                <tr><td>Resource behavior</td><td>CPU, memory, GPU, storage, IOPS, network, database, concurrency, scaling, and saturation.</td><td>Capacity curve, bottleneck, and safe operating headroom.</td></tr>
+                <tr><td>Supply constraint</td><td>Quota, reservation, region, zone, SKU, lead time, commitment, provider and dependency limits.</td><td>Request, reserve, distribute, redesign, or accept risk.</td></tr>
+                <tr><td>Economics</td><td>Unit cost, run rate, reservation or commitment, data transfer, license, support, and scenario cost.</td><td>Performance-cost trade-off and approved budget.</td></tr>
+                <tr><td>Response</td><td>Autoscaling, queueing, load shedding, fallback, failover, rollback, and operator runbooks.</td><td>Trigger, owner, authority, verification, and escalation.</td></tr>
+              </tbody>
+            </table></div>
+
+          <p>Cloud providers expose useful forecasting components. AWS predictive scaling uses recent metric history to forecast short-horizon capacity while respecting configured limits. Azure predictive autoscale offers forecast-only mode before scaling and works best for cyclical VM scale-set demand. Google Cloud Capacity Planner provides historical and forecast usage for VM, disk, GPU, TPU, quota, and reservation planning with forecast data up to six months.</p>
+
+          <h2>Forecast workload drivers, not only resource metrics</h2>
+          <p>CPU and memory explain the past but may not explain the next event. Link resource usage to durable business units such as active users, orders, messages, documents, model tokens, pipelines, reports, devices, or customer tenants. Include planned launches, migrations, retention changes, model upgrades, data growth, and marketing campaigns.</p>
+
+          <p>For a new workload with little history, use load tests, architecture limits, comparable services, vendor benchmarks, and explicit scenarios. Do not manufacture precision. Present a range, the assumptions that drive it, and the next observation that would materially change the decision.</p>
+
+          <h2 id="architecture">Build a repeatable planning workflow</h2>
+          <div class="article-table-wrap" role="region" aria-label="AI cloud capacity planning architecture" tabindex="0">
+            <table class="article-table"><caption class="sr-only">AI cloud capacity planning architecture</caption>
+              <thead><tr><th scope="col">Component</th><th scope="col">Responsibility</th><th scope="col">Control</th></tr></thead>
+              <tbody>
+                <tr><td>Demand collector</td><td>Combines telemetry, business drivers, schedules, launches, contracts, and owner assumptions.</td><td>Version assumptions and preserve source freshness.</td></tr>
+                <tr><td>Capacity model</td><td>Maps workload demand to resource use, performance, bottlenecks, and cost.</td><td>Calibrate with load tests and actual events.</td></tr>
+                <tr><td>Forecast and scenario engine</td><td>Produces baseline, low, high, stress, and event forecasts with intervals.</td><td>Show uncertainty and avoid unsupported extrapolation.</td></tr>
+                <tr><td>Constraint checker</td><td>Compares demand with quota, reservation, regional supply, dependencies, and lead times.</td><td>Deterministic limits and explicit missing data.</td></tr>
+                <tr><td>Plan generator</td><td>Prepares actions, timing, cost, risks, alternatives, owners, and approval questions.</td><td>Source-linked calculations and no automatic commitments.</td></tr>
+                <tr><td>Workflow integration</td><td>Creates quota, reservation, engineering, finance, testing, and runbook tasks.</td><td>Named owners, deadlines, approval, and audit history.</td></tr>
+                <tr><td>Outcome monitor</td><td>Compares actual demand, capacity, performance, and cost with the plan.</td><td>Error attribution, model update, and post-event review.</td></tr>
+              </tbody>
+            </table></div>
+
+          <h2>Balance underprovisioning and overprovisioning</h2>
+          <p>Underprovisioning can create throttling, missed service objectives, failed jobs, delayed reports, and customer impact. Overprovisioning creates avoidable cost, idle commitments, and stranded capacity. The acceptable balance differs by service criticality, recovery options, supply lead time, and cost of failure.</p>
+
+          <p>Do not optimize average utilization. Plan for the relevant percentile, burst, failover, maintenance, deployment, and recovery conditions. Shared infrastructure needs workload isolation and an allocation model so one tenant or batch job cannot consume another service's safety margin.</p>
+
+          <h2 id="evaluation">Evaluate forecasts and decisions after every event</h2>
+          <ul>
+            <li><strong>Forecast:</strong> error, bias, prediction-interval coverage, peak timing, and accuracy by horizon and scenario.</li>
+            <li><strong>Capacity:</strong> saturation misses, quota failures, reservation shortfall, idle headroom, and bottleneck accuracy.</li>
+            <li><strong>Service:</strong> latency, throughput, availability, queueing, failed work, fallback, and customer impact.</li>
+            <li><strong>Cost:</strong> actual versus planned, unit cost, commitment utilization, overprovisioning, and emergency premium.</li>
+            <li><strong>Workflow:</strong> lead time, owner acknowledgement, approval, action completion, override, and missing evidence.</li>
+          </ul>
+
+          <p>Keep historical forecasts and their assumptions. A forecast overwritten every day cannot be evaluated honestly. After a launch or peak, identify whether the miss came from demand, resource behavior, architecture, supply, business assumptions, or an action that was not completed.</p>
+
+          <h2 id="pilot">Pilot one workload and one planning event</h2>
+          <ol>
+            <li>Select one workload with an upcoming event, measurable demand units, and accountable technical and business owners.</li>
+            <li>Define service objectives, current architecture, scaling behavior, quotas, reservations, lead times, and cost.</li>
+            <li>Collect historical demand, resource, performance, deployment, incident, and business-event data.</li>
+            <li>Build and backtest demand-to-capacity forecasts with explicit uncertainty.</li>
+            <li>Run load or replay tests to validate capacity curves and failure thresholds.</li>
+            <li>Prepare scenarios, actions, owners, approval, fallback, and event runbooks.</li>
+            <li>Monitor the event and compare actual demand, capacity, service, and cost with the plan.</li>
+            <li>Update the model and decide whether to extend the workflow to more services or horizons.</li>
+          </ol>
+
+          <p>A bounded pilot can often reach supervised planning in two to six weeks when telemetry, business drivers, architecture limits, quotas, cost, and owners are available. Sparse history and scarce resources require broader uncertainty and earlier provider or procurement action.</p>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-list">
+            <details><summary>What is AI capacity planning for cloud operations?</summary><p>AI capacity planning combines historical utilization, workload demand, business events, performance targets, architecture constraints, quotas, reservations, and cost to forecast resource needs and prepare capacity decisions. A production workflow shows uncertainty and scenarios, routes actions to owners, and compares actual outcomes with the forecast.</p></details>
+            <details><summary>Is predictive autoscaling the same as capacity planning?</summary><p>No. Predictive autoscaling adjusts supported resources over a short horizon within configured boundaries. Capacity planning also covers future business events, service architecture, quotas, reservations, regional availability, storage and network growth, databases, GPUs, commitments, resilience, load testing, and longer-term investment decisions.</p></details>
+            <details><summary>Which data is needed for AI cloud capacity forecasting?</summary><p>Use workload demand and unit drivers, resource utilization, saturation and latency, scaling events, quotas, reservations, deployment and incident history, seasonality, planned launches and campaigns, service objectives, architecture limits, cost, and known supply constraints. Keep business assumptions and source freshness visible.</p></details>
+            <details><summary>How do you evaluate a cloud capacity forecast?</summary><p>Evaluate forecast error and interval coverage by horizon and resource, peak and saturation misses, false overprovisioning, scenario accuracy, quota and reservation adequacy, service-level outcomes, cost, manual overrides, and performance during launches or incidents. Compare forecasts with actual demand and decisions after every planning event.</p></details>
+            <details><summary>How long does an AI capacity planning pilot take?</summary><p>A pilot for one workload and one upcoming event can often reach supervised planning in two to six weeks when metrics, business drivers, quotas, cost, architecture limits, and owners are available. New workloads, sparse history, shared infrastructure, weak unit metrics, and scarce GPU or regional capacity can extend the schedule.</p></details>
+          </div>
+
+          <h2>Official implementation references</h2>
+          <ul>
+            <li><a href="https://docs.cloud.google.com/capacity-planner/docs">Google Cloud Capacity Planner</a></li>
+            <li><a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/predictive-scaling-policy-overview.html">AWS predictive scaling</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-predictive">Azure predictive autoscale</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/azure/well-architected/performance-efficiency/capacity-planning">Azure capacity planning guidance</a></li>
+          </ul>
+
+          <section class="readiness-actions"><p><strong>Start with one workload, one demand unit, and one upcoming event.</strong> Datrick can assess data, capacity curves, scenarios, quotas, cost, actions, and operating ownership before proposing a pilot.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=AI%20workflow%20automation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=ai_capacity_planning&amp;utm_medium=organic_content&amp;utm_campaign=ai_workflow_scoping&amp;utm_content=article_end#inquiry-form">Scope capacity planning</a></div></section>
+
+          <nav class="article-next" aria-label="Resource next steps"><a href="ai-cloud-cost-anomaly-investigation"><span>FinOps workflow</span><strong>Investigate cost anomalies</strong></a><a href="ai-change-risk-assessment-automation"><span>Change workflow</span><strong>Prepare explainable risk reviews</strong></a></nav>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

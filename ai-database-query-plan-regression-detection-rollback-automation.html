@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Database Query Plan Regression Detection and Rollback Automation | Datrick</title>
+    <meta name="description" content="Detect and control database query plan regressions with plan history, runtime evidence, parameter shape, changes, safe plan forcing, validation, and permanent fixes.">
+    <link rel="canonical" href="https://datrick.com/ai-database-query-plan-regression-detection-rollback-automation">
+    <meta property="og:title" content="AI Database Query Plan Regression Detection and Rollback Automation | Datrick">
+    <meta property="og:description" content="Detect bad plan changes before they become recurring production incidents.">
+    <meta property="og:url" content="https://datrick.com/ai-database-query-plan-regression-detection-rollback-automation">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@graph":[
+        {"@type":"Article","headline":"AI Database Query Plan Regression Detection and Rollback Automation","description":"Detect and control database query plan regressions with plan history, runtime evidence, parameter shape, changes, safe plan forcing, validation, and permanent fixes.","url":"https://datrick.com/ai-database-query-plan-regression-detection-rollback-automation","datePublished":"2026-07-14","dateModified":"2026-07-14","author":{"@type":"Organization","name":"Datrick","url":"https://datrick.com/"},"publisher":{"@type":"Organization","name":"Datrick","url":"https://datrick.com/","logo":{"@type":"ImageObject","url":"https://datrick.com/assets/datrick-logo.png"}},"mainEntityOfPage":"https://datrick.com/ai-database-query-plan-regression-detection-rollback-automation"},
+        {"@type":"FAQPage","mainEntity":[
+          {"@type":"Question","name":"What is database query plan regression detection automation?","acceptedAnswer":{"@type":"Answer","text":"Query plan regression detection automation tracks query and plan identities, compares runtime and resource behavior across representative periods and parameter shapes, correlates regressions with statistics, schema, index, configuration, data, and deployment changes, then prepares controlled mitigation and permanent-fix evidence for DBA review."}},
+          {"@type":"Question","name":"What causes a database query execution plan to regress?","acceptedAnswer":{"@type":"Answer","text":"Common causes include changed statistics or cardinality, data skew, parameter-sensitive behavior, schema or index changes, compatibility or optimizer upgrades, configuration changes, stale statistics, different bind values, memory pressure, and a recompile after plan-cache eviction. The new plan is not always the root cause of slower execution."}},
+          {"@type":"Question","name":"Should a previous good query plan be forced automatically?","acceptedAnswer":{"@type":"Answer","text":"Only under narrow, deterministic policy with strong evidence and rollback. A previous plan can perform poorly for different parameter values or current data, depend on a removed index, fail to reproduce, or hide a deeper problem. Use approval, canary validation, expiry, monitoring, and automatic unforce conditions."}},
+          {"@type":"Question","name":"How do you validate a forced query plan?","acceptedAnswer":{"@type":"Answer","text":"Confirm that forcing succeeded and the intended plan is used, then compare latency distributions, CPU, reads, writes, memory, waits, rows, concurrency, errors, throughput, blocking, replicas, and business transactions across representative parameter shapes. Monitor for forcing failure and remove the force when the permanent fix is proven."}},
+          {"@type":"Question","name":"How long does a query plan regression pilot take?","acceptedAnswer":{"@type":"Answer","text":"A pilot for one database engine and a high-impact query set can often reach supervised detection in three to six weeks when plan history, runtime statistics, query fingerprints, parameters or shape proxies, changes, deployments, incidents, and DBA owners are available. Missing historical plans or sensitive SQL restrictions extend the schedule."}}
+        ]}
+      ]}
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Query performance stability and controlled plan mitigation</p>
+        <h1>Detect bad plan changes before they become recurring production incidents.</h1>
+        <p class="page-lede">Connect query and plan history, runtime distributions, parameter shape, statistics, schema, indexes, optimizer settings, deployments, workload, waits, and business impact into evidence-backed plan regression control without allowing AI to force or unforce production plans autonomously.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Database%20operations&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=ai_query_plan_regression&amp;utm_medium=organic_content&amp;utm_campaign=database_performance_scoping&amp;utm_content=hero#inquiry-form">Describe the plan regression</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Query plan regressions</span><span>9 min read</span></div>
+      </div></section>
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#evidence">Evidence contract</a><a href="#architecture">Architecture</a><a href="#evaluation">Evaluation</a><a href="#pilot">Pilot</a></nav>
+
+        <p>A query can become slower when its execution plan changes, but two observations do not prove causality. Traffic, parameter values, data volume, cache state, blocking, storage, memory, and concurrent workload may also differ. Reliable detection compares plans within representative runtime buckets and preserves the context needed to distinguish a bad choice from a changed workload.</p>
+        <p>Plan forcing can restore service quickly, but it is a reversible containment action, not a permanent optimization strategy. SQL Server notes that a forced plan may not be identical and can perform materially worse; forcing can also fail. Every forced plan needs eligibility, expiry, validation, failure monitoring, and an owner for removal.</p>
+
+        <section class="readiness-actions"><p><strong>Do DBAs find plan regressions only after users report a slowdown?</strong> Datrick can assess one engine and high-impact query set, then build supervised detection and controlled mitigation.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Database%20operations&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=ai_query_plan_regression&amp;utm_medium=organic_content&amp;utm_campaign=database_performance_scoping&amp;utm_content=article_intro#inquiry-form">Send one query case</a><a class="button secondary" href="ai-database-performance-incident-triage-automation">Review performance triage</a></div></section>
+
+        <h2 id="evidence">Define the plan regression evidence contract</h2>
+        <div class="article-table-wrap" role="region" aria-label="Query plan regression evidence" tabindex="0"><table class="article-table"><caption class="sr-only">Query plan regression evidence</caption>
+          <thead><tr><th scope="col">Evidence layer</th><th scope="col">Capture</th><th scope="col">Question</th></tr></thead>
+          <tbody>
+            <tr><td>Query identity</td><td>Database, query ID, normalized fingerprint, object, application, route, tenant class, statement class, and business operation.</td><td>Are the old and new observations the same logical workload?</td></tr>
+            <tr><td>Plan identity</td><td>Plan ID or hash, compile time, optimizer and compatibility settings, operators, access paths, joins, estimates, parallelism, memory, and dependencies.</td><td>What materially changed in the optimizer choice?</td></tr>
+            <tr><td>Runtime distribution</td><td>Executions, duration percentiles, CPU, reads, writes, memory, rows, temp use, waits, errors, concurrency, and time bucket.</td><td>Is the new behavior consistently worse under comparable conditions?</td></tr>
+            <tr><td>Parameter and data shape</td><td>Safe parameter buckets, selectivity, cardinality, skew, partition, row growth, statistics age and sample, cache state, and hot values.</td><td>Does one plan serve all shapes, or is the query parameter-sensitive?</td></tr>
+            <tr><td>Change context</td><td>Deployment, query text, schema, index, statistics, configuration, compatibility, patch, failover, maintenance, and workload change.</td><td>Which event can explain compilation or runtime differences?</td></tr>
+            <tr><td>Mitigation and outcome</td><td>Candidate plan, forcing support, approval, canary, force result, failure, expiry, unforce, permanent fix, verification, and recurrence.</td><td>Did mitigation help safely, and when should it be removed?</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2>Compare representative periods, not global averages</h2>
+        <p>Aggregate averages can hide a plan that helps common values but harms rare, critical values. Segment by time, application route, tenant or data-size class, parameter-shape proxy, concurrency, and warm versus cold state where evidence permits. Protect sensitive literals through bucketing, hashing, or approved redaction.</p>
+        <p>Require a minimum execution count and material absolute impact, not only a percentage change. A query moving from one to two milliseconds is a 100 percent regression but may not matter; a high-volume query adding 100 milliseconds can consume significant capacity. Include customer errors, queueing, blocking, and downstream SLA impact.</p>
+
+        <h2 id="architecture">Build a controlled plan regression workflow</h2>
+        <div class="article-table-wrap" role="region" aria-label="AI query plan regression architecture" tabindex="0"><table class="article-table"><caption class="sr-only">AI query plan regression architecture</caption>
+          <thead><tr><th scope="col">Component</th><th scope="col">Responsibility</th><th scope="col">Production control</th></tr></thead>
+          <tbody>
+            <tr><td>Plan history adapter</td><td>Collects query identities, plans, compile context, runtime and wait buckets, forcing state, and forcing failures.</td><td>Read-only access, retention health, exact engine semantics, and no missing-plan silence.</td></tr>
+            <tr><td>Context collector</td><td>Connects data shape, statistics, schema, indexes, configuration, deployments, workload, incidents, and service owners.</td><td>Freshness, stable identifiers, sensitive-value protection, and explicit missing context.</td></tr>
+            <tr><td>Regression detector</td><td>Compares comparable plan/runtime segments using materiality, confidence, persistence, and business-impact thresholds.</td><td>Minimum samples, seasonality, baseline version, false-alert review, and abstention.</td></tr>
+            <tr><td>AI plan analyst</td><td>Explains plan differences, ranks causes, finds contradictory evidence, and proposes discriminating tests and candidate containment.</td><td>Source citations, alternatives, uncertainty, no plan force, and prompt-injection isolation.</td></tr>
+            <tr><td>Mitigation gate</td><td>Checks candidate-plan history, dependencies, parameter coverage, current schema, risk, expiry, canary, and approval.</td><td>Named DBA, dry run, scoped identity, automatic rollback condition, and immutable ticket.</td></tr>
+            <tr><td>Outcome monitor</td><td>Verifies intended plan, runtime, resource, wait, error, throughput, blocking, and forcing failure after change.</td><td>Fast unforce path, sustained observation, no metric masking, and business transaction checks.</td></tr>
+            <tr><td>Evidence ledger</td><td>Preserves detection, evidence, analysis, decision, action, result, permanent fix, unforce, and closure.</td><td>Tamper resistance, restricted access, retention, and reproducibility.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2>Use plan forcing as expiring containment</h2>
+        <p>A candidate previous plan must still be reproducible against the current schema and indexes. It must have evidence across relevant parameter shapes, not just one fast execution. Check that the database supports the action and monitor whether forcing succeeds. SQL Server surfaces plan-forcing failures and supports explicit unforce; Oracle SQL Plan Management verifies plans before acceptance into a baseline.</p>
+        <p>Set an expiry and permanent-fix owner at approval time. Permanent work can include statistics strategy, query or schema changes, indexes, parameter-sensitive handling, compatibility remediation, data partitioning, or workload changes. Remove the force in a controlled canary after the fix proves stable.</p>
+
+        <h2>Do not execute diagnostic plans carelessly</h2>
+        <p>Actual-plan and explain-analyze operations can execute the query and create production load or side effects. Use captured plans where possible, read-only replicas or safe nonproduction environments, bounded statements, and engine-specific controls. Never run a modifying statement merely to inspect its plan without an approved isolation strategy.</p>
+
+        <h2 id="evaluation">Evaluate detection, mitigation, and removal</h2>
+        <ul>
+          <li><strong>Coverage:</strong> high-impact query, plan, runtime, wait, parameter-shape, change, and forcing-state coverage; retention gaps.</li>
+          <li><strong>Detection:</strong> material-regression recall, false alerts, time to detection, baseline quality, sample sufficiency, and impact ranking.</li>
+          <li><strong>Diagnosis:</strong> plan-difference accuracy, supported cause, alternatives, citation, parameter sensitivity, and reviewer agreement.</li>
+          <li><strong>Mitigation:</strong> wrong-plan force, forcing failure, latency and resource recovery, new blocking, parameter outliers, rollback, and customer outcome.</li>
+          <li><strong>Lifecycle:</strong> expired forces, time to permanent fix, safe unforce, recurrence, and configuration drift.</li>
+        </ul>
+
+        <h2 id="pilot">Pilot one engine and high-impact query set</h2>
+        <ol>
+          <li>Select one engine, business service, and small set of high-impact queries with retained plan and runtime history.</li>
+          <li>Inventory query identity, plan retention, runtime buckets, waits, statistics, schema, indexes, configurations, deployments, and owners.</li>
+          <li>Define comparable segments, minimum samples, materiality, protected queries, mitigation eligibility, expiry, validation, and unforce criteria.</li>
+          <li>Replay confirmed regressions, normal plan improvements, parameter-sensitive cases, forcing failures, schema drift, and unrelated slowdowns.</li>
+          <li>Run in shadow mode, compare findings with DBA decisions, and tune false alerts and missing context.</li>
+          <li>Enable supervised case creation before any forcing integration; canary one eligible containment under change control.</li>
+          <li>Expand only after detection, diagnosis, mitigation safety, unforce, and permanent-fix tracking meet thresholds.</li>
+        </ol>
+        <p>A bounded pilot can often reach supervised detection in three to six weeks. Missing plan history, short retention, dynamic SQL, encrypted text, parameter privacy, and workload seasonality are usually the main complexity drivers.</p>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is database query plan regression detection automation?</summary><p>Query plan regression detection automation tracks query and plan identities, compares runtime and resource behavior across representative periods and parameter shapes, correlates regressions with statistics, schema, index, configuration, data, and deployment changes, then prepares controlled mitigation and permanent-fix evidence for DBA review.</p></details>
+          <details><summary>What causes a database query execution plan to regress?</summary><p>Common causes include changed statistics or cardinality, data skew, parameter-sensitive behavior, schema or index changes, compatibility or optimizer upgrades, configuration changes, stale statistics, different bind values, memory pressure, and a recompile after plan-cache eviction. The new plan is not always the root cause of slower execution.</p></details>
+          <details><summary>Should a previous good query plan be forced automatically?</summary><p>Only under narrow, deterministic policy with strong evidence and rollback. A previous plan can perform poorly for different parameter values or current data, depend on a removed index, fail to reproduce, or hide a deeper problem. Use approval, canary validation, expiry, monitoring, and automatic unforce conditions.</p></details>
+          <details><summary>How do you validate a forced query plan?</summary><p>Confirm that forcing succeeded and the intended plan is used, then compare latency distributions, CPU, reads, writes, memory, waits, rows, concurrency, errors, throughput, blocking, replicas, and business transactions across representative parameter shapes. Monitor for forcing failure and remove the force when the permanent fix is proven.</p></details>
+          <details><summary>How long does a query plan regression pilot take?</summary><p>A pilot for one database engine and a high-impact query set can often reach supervised detection in three to six weeks when plan history, runtime statistics, query fingerprints, parameters or shape proxies, changes, deployments, incidents, and DBA owners are available. Missing historical plans or sensitive SQL restrictions extend the schedule.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store">SQL Server Query Store monitoring</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-query-store-force-plan-transact-sql">SQL Server plan forcing behavior</a></li>
+          <li><a href="https://www.postgresql.org/docs/current/pgstatstatements.html">PostgreSQL pg_stat_statements</a></li>
+          <li><a href="https://www.postgresql.org/docs/current/auto-explain.html">PostgreSQL auto_explain</a></li>
+          <li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/26/tgsql/overview-of-sql-plan-management.html">Oracle SQL Plan Management</a></li>
+          <li><a href="https://dev.mysql.com/doc/refman/8.0/en/explain.html">MySQL EXPLAIN</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the query set where plan changes create the most customer impact or senior DBA work.</strong> Datrick can assess history, baselines, parameters, changes, detection, mitigation, validation, and operating ownership before proposing a pilot.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Database%20operations&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=ai_query_plan_regression&amp;utm_medium=organic_content&amp;utm_campaign=database_performance_scoping&amp;utm_content=article_end#inquiry-form">Scope plan regression control</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="ai-database-statistics-drift-maintenance-validation-automation"><span>Statistics reliability</span><strong>Control statistics drift</strong></a><a href="ai-database-deadlock-blocking-incident-root-cause-automation"><span>Concurrency analysis</span><strong>Resolve deadlocks and blocking</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

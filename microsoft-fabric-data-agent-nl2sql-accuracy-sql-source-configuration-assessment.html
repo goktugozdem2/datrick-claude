@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Data Agent NL2SQL Accuracy Assessment | Datrick</title>
+    <meta name="description" content="Improve Microsoft Fabric Data Agent NL2SQL accuracy through SQL source scope, schema design, data-source instructions, example queries, query validation, and regression testing.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-nl2sql-accuracy-sql-source-configuration-assessment">
+    <meta property="og:title" content="Fabric Data Agent NL2SQL Accuracy Assessment | Datrick">
+    <meta property="og:description" content="Fix schema scope, join logic, filter values, and few-shot examples before blaming the model for wrong SQL.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-nl2sql-accuracy-sql-source-configuration-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent NL2SQL Accuracy and SQL Source Configuration Assessment", "description": "Improve Microsoft Fabric Data Agent NL2SQL accuracy through SQL source scope, schema design, data-source instructions, example queries, query validation, and regression testing.", "url": "https://datrick.com/microsoft-fabric-data-agent-nl2sql-accuracy-sql-source-configuration-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-nl2sql-accuracy-sql-source-configuration-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "How does a Fabric Data Agent generate SQL?", "acceptedAnswer": {"@type": "Answer", "text": "For a supported SQL source, the Data Agent reads the approved schema, applies data-source instructions, retrieves the most similar example queries, generates a read-only T-SQL query, validates it against the selected schema, executes it through the SQL analytics endpoint, and formats the result. The standard runtime uses NL2SQL; the preview runtime can use Advanced NL2SQL."}},
+            {"@type": "Question", "name": "How many tables should a Fabric Data Agent SQL source include?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft recommends minimizing scope and provides a tip to use 25 or fewer tables for a given source for optimal results. The correct number is the smallest approved schema that can answer the target questions. Exclude unrelated, duplicate, technical, or ambiguous objects and test every selected table's purpose."}},
+            {"@type": "Question", "name": "What should Fabric Data Agent data-source instructions contain?", "acceptedAnswer": {"@type": "Answer", "text": "Data-source instructions should explain the source's purpose, supported question types, business terminology, grain, required filters, join paths, date rules, status values, exclusions, null behavior, and columns required in results. They should help a competent analyst write the correct query without trying to replace deterministic business logic or security controls."}},
+            {"@type": "Question", "name": "How do example queries improve Fabric Data Agent NL2SQL accuracy?", "acceptedAnswer": {"@type": "Answer", "text": "Example queries pair a clear natural-language question with validated SQL that demonstrates approved joins, filters, calculations, and grain. The Data Agent retrieves the most similar examples for a question and uses them as context. Examples must be unique, correct, schema-valid, representative, and evaluated for clarity, relatedness, and literal mapping."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent NL2SQL accuracy assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment commonly takes three to five weeks for one SQL domain, one Data Agent, and a representative question set. The work includes source and schema review, instructions, example-query design, deterministic ground truth, NL2SQL evaluation, security tests, iteration, release evidence, and an improvement backlog."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent + NL2SQL accuracy</p>
+        <h1>Fix the SQL context before blaming the model.</h1>
+        <p class="page-lede">Reduce wrong joins, filters, dates, aggregations, and business definitions by tightening the SQL source schema, writing operational data-source instructions, curating validated example queries, and measuring generated SQL against deterministic ground truth.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_nl2sql&amp;utm_medium=organic_content&amp;utm_campaign=nl2sql_accuracy_assessment&amp;utm_content=hero#inquiry-form">Describe the wrong-answer pattern</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>NL2SQL configuration</span><span>10 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#contract">Accuracy contract</a><a href="#schema">Schema scope</a><a href="#instructions">Instructions and examples</a><a href="#evaluation">Evaluation</a><a href="#pilot">Assessment plan</a></nav>
+
+        <p>A Fabric Data Agent can produce valid T-SQL that answers the wrong business question. It may select a similar status, join at the wrong grain, use order date instead of invoice date, count events instead of customers, include cancelled records, or miss a tenant filter. More prompting at the agent level rarely fixes a source that exposes ambiguous objects and undocumented business logic.</p>
+        <p>For SQL sources, Microsoft describes three core inputs to NL2SQL: the selected schema, data-source instructions, and example queries. The tool retrieves similar examples, generates a read-only query, validates it against the approved schema, and executes it through the source's SQL analytics endpoint. Accuracy work should improve those inputs and prove the output query, not merely polish the final explanation.</p>
+
+        <section class="readiness-actions"><p><strong>Can a new analyst write the approved query using only the exposed schema and instructions?</strong> If not, the Data Agent is being asked to infer undocumented business logic.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_nl2sql&amp;utm_medium=organic_content&amp;utm_campaign=nl2sql_accuracy_assessment&amp;utm_content=article_intro#inquiry-form">Send the SQL and question examples</a><a class="button secondary" href="text-to-sql-evaluation-services">Review the evaluation method</a></div></section>
+
+        <h2 id="contract">Define a business-question accuracy contract</h2>
+        <p>Select one decision domain, accountable data owner, supported users, approved source, question classes, metrics, time logic, sensitivity, and quality threshold. For each question, specify expected interpretation, source objects, joins, filters, grain, calculation, output fields, deterministic result, and acceptable clarification. Define prohibited questions and cases that require an analyst.</p>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent NL2SQL accuracy contract" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent NL2SQL accuracy contract</caption>
+          <thead><tr><th scope="col">Input layer</th><th scope="col">Required decision</th><th scope="col">Evidence</th><th scope="col">Failure signal</th></tr></thead>
+          <tbody>
+            <tr><td>Domain scope</td><td>Users, decisions, supported questions, prohibited use, owner, freshness, and acceptance threshold.</td><td>Versioned question catalogue and accountable approver.</td><td>Generic agent expected to answer every question over a broad platform.</td></tr>
+            <tr><td>SQL source</td><td>Lakehouse, Warehouse, SQL Database, or Mirrored Database; authoritative endpoint and environment.</td><td>Source ID, workspace, refresh, lineage, permission, and production binding.</td><td>Duplicate or development source answers the same business term differently.</td></tr>
+            <tr><td>Selected schema</td><td>Minimum tables, views, columns, names, descriptions, keys, and relationships required.</td><td>Approved object inventory and rationale for each exposed object.</td><td>Ambiguous duplicates, technical fields, excessive scope, or missing join key.</td></tr>
+            <tr><td>Instructions</td><td>Purpose, grain, business rules, joins, dates, values, filters, nulls, and exclusions.</td><td>Analyst review showing instructions support correct query construction.</td><td>Long prose conflicts, security in prompts, or missing operational rules.</td></tr>
+            <tr><td>Example queries</td><td>Representative question-SQL pairs for complex and high-value patterns.</td><td>Schema validation plus clarity, relatedness, mapping, and result review.</td><td>Wrong SQL becomes a highly relevant few-shot and amplifies error.</td></tr>
+            <tr><td>Evaluation</td><td>Generated query, deterministic result, answer, identity, latency, and regression thresholds.</td><td>Repeatable scorecard on fixed data and production-shaped personas.</td><td>Success judged from fluent prose or user satisfaction alone.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="schema">Reduce the schema to the decision surface</h2>
+        <p>Expose only objects needed for the supported questions. Microsoft recommends minimizing scope and gives a practical tip to use 25 or fewer tables for a source for optimal results. That is a ceiling, not a target. A leadership sales agent may need six curated tables or views, while attaching the entire enterprise lakehouse introduces synonyms, duplicate dates, helper tables, historical structures, and technical fields that compete during query generation.</p>
+        <p>Prefer business-readable names and descriptions. Replace or hide objects such as <code>F_SLS</code>, <code>TR_AMT</code>, and multiple generic <code>status</code> columns with governed views or metadata that expresses meaning. Define fact grain, dimension keys, role-playing dates, slowly changing dimensions, active-row logic, currency, timezone, fiscal calendar, soft deletion, and tenant boundaries. Do not expect the tool to inspect arbitrary row values before generating a query; document categorical formats such as <code>CA</code> versus <code>California</code>.</p>
+        <p>Use SQL views when deterministic logic should not be regenerated on every question. A governed view can encode approved joins, row filters, status mapping, current-record selection, or metric components while preserving read-only access. Test performance and lineage, and avoid hiding contradictory definitions behind similarly named views. The Data Agent should choose among clear analytical surfaces, not reverse-engineer an operational schema.</p>
+
+        <h2 id="instructions">Write source instructions and few-shots as executable knowledge</h2>
+        <p>Agent-level instructions should describe cross-source routing and answer behavior. Put SQL-specific join paths, grain, filters, date rules, value formats, and query constraints in data-source instructions where the SQL tool receives them. Structure instructions into short sections: purpose, supported questions, entities, joins, dates, metrics, required filters, exclusions, and output expectations. Remove narrative that cannot be tested.</p>
+        <p>Example queries demonstrate approved patterns. Pair one clear natural-language question with SQL that validates against the selected schema and returns the intended result. Cover complex joins, fiscal periods, cohort logic, status combinations, exclusions, ranking, distinct entities, and null behavior. Use realistic variation without creating near-duplicate examples that compete for retrieval. Microsoft notes that the tool typically retrieves the most similar examples, so relevance matters as much as volume.</p>
+        <p>Evaluate the example library before using it as context. Microsoft exposes SDK evaluation for clarity, relatedness, and mapping between question literals and SQL. Add deterministic review for business correctness, performance, security, grain, and result. An example can pass syntax validation and still teach an incorrect metric. Version the library with the source schema and rerun validation after column, view, or business-rule changes.</p>
+        <p>The preview Build agent with AI can explore schema, inspect query-history patterns when permitted, propose instructions and few-shots, and execute read-only validation queries. Use it as a drafting assistant. It does not select the source or schema for you, and accepted suggestions can replace current configuration blocks. Review diffs, validate generated SQL and results, and preserve the prior configuration before applying changes.</p>
+
+        <h2 id="evaluation">Score the generated SQL before the narrative answer</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent NL2SQL evaluation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent NL2SQL evaluation matrix</caption>
+          <thead><tr><th scope="col">Dimension</th><th scope="col">Test</th><th scope="col">Pass condition</th><th scope="col">Typical remediation</th></tr></thead>
+          <tbody>
+            <tr><td>Source and objects</td><td>Check selected source, tables, views, columns, and approved schema boundary.</td><td>Only authoritative and permitted objects are referenced.</td><td>Reduce schema, improve names, or clarify source routing.</td></tr>
+            <tr><td>Join and grain</td><td>Inspect keys, join type, cardinality, fan-out, deduplication, and result grain.</td><td>No duplicate inflation, dropped entities, or mixed grains.</td><td>Curated view, explicit join instruction, or representative few-shot.</td></tr>
+            <tr><td>Filters and dates</td><td>Verify tenant, status, active row, timezone, fiscal period, exclusions, and implied values.</td><td>Every material question constraint appears correctly in SQL.</td><td>Document values, add examples, clarify ambiguity, or use Advanced NL2SQL evaluation.</td></tr>
+            <tr><td>Metric logic</td><td>Compare aggregation, distinct count, denominator, null, currency, and approved business formula.</td><td>Query reproduces deterministic ground truth.</td><td>Governed view, explicit metric surface, or corrected example query.</td></tr>
+            <tr><td>Security</td><td>Run allowed and denied personas, cross-tenant prompts, sensitive columns, and injection attempts.</td><td>Application and source permissions fail closed with no inferred leakage.</td><td>Permission correction, narrower source, RLS/CLS test, or separate agent.</td></tr>
+            <tr><td>Operations</td><td>Measure query cost, latency, timeouts, result limits, capacity, and repeat behavior.</td><td>Correct answers meet the defined SLO and consumption threshold.</td><td>Optimize views and SQL, reduce scope, index/source tuning, or route large extracts elsewhere.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Classify failures by durable layer: source data, schema design, selected scope, instruction, example retrieval, generated SQL, permissions, runtime, result formatting, or user ambiguity. Fix the lowest responsible layer. Do not add a verbose prompt workaround for a broken join or encode access policy in instructions. Rerun the complete suite after each change because improving one pattern can alter example retrieval or routing for another.</p>
+        <p>Compare the standard NL2SQL runtime first. If unresolved cases specifically involve example adherence, implied filters, or ambiguity, test the preview Advanced NL2SQL runtime through the separate <a href="microsoft-fabric-data-agent-standard-preview-runtime-evaluation-migration-assessment">runtime evaluation and migration assessment</a>. Keep source configuration constant so runtime behavior is the only variable.</p>
+
+        <h2 id="pilot">Run a three-to-five-week NL2SQL accuracy assessment</h2>
+        <ol>
+          <li>Select one SQL decision domain, production source, accountable owner, target users, business questions, prohibited uses, and quality threshold.</li>
+          <li>Inventory the source, schema, object names, relationships, grain, dates, values, permissions, refresh, lineage, performance, and current failures.</li>
+          <li>Reduce the selected schema, create governed views where needed, and document the purpose of every exposed table and column.</li>
+          <li>Write structured data-source instructions and a diverse library of validated question-SQL examples from approved business logic.</li>
+          <li>Build deterministic ground truth and run generated-query, result, security, ambiguity, unsupported, latency, and consumption tests.</li>
+          <li>Classify failures, remediate the correct layer, evaluate standard and preview runtime only where justified, and repeat regression.</li>
+          <li>Deliver the source contract, schema map, instructions, example library, evaluation scorecard, release package, operating checks, and prioritized backlog.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>How does a Fabric Data Agent generate SQL?</summary><p>For a supported SQL source, the Data Agent reads the approved schema, applies data-source instructions, retrieves the most similar example queries, generates a read-only T-SQL query, validates it against the selected schema, executes it through the SQL analytics endpoint, and formats the result. The standard runtime uses NL2SQL; the preview runtime can use Advanced NL2SQL.</p></details>
+          <details><summary>How many tables should a Fabric Data Agent SQL source include?</summary><p>Microsoft recommends minimizing scope and provides a tip to use 25 or fewer tables for a given source for optimal results. The correct number is the smallest approved schema that can answer the target questions. Exclude unrelated, duplicate, technical, or ambiguous objects and test every selected table's purpose.</p></details>
+          <details><summary>What should Fabric Data Agent data-source instructions contain?</summary><p>Data-source instructions should explain the source's purpose, supported question types, business terminology, grain, required filters, join paths, date rules, status values, exclusions, null behavior, and columns required in results. They should help a competent analyst write the correct query without trying to replace deterministic business logic or security controls.</p></details>
+          <details><summary>How do example queries improve Fabric Data Agent NL2SQL accuracy?</summary><p>Example queries pair a clear natural-language question with validated SQL that demonstrates approved joins, filters, calculations, and grain. The Data Agent retrieves the most similar examples for a question and uses them as context. Examples must be unique, correct, schema-valid, representative, and evaluated for clarity, relatedness, and literal mapping.</p></details>
+          <details><summary>How long does a Fabric Data Agent NL2SQL accuracy assessment take?</summary><p>A focused assessment commonly takes three to five weeks for one SQL domain, one Data Agent, and a representative question set. The work includes source and schema review, instructions, example-query design, deterministic ground truth, NL2SQL evaluation, security tests, iteration, release evidence, and an improvement backlog.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-sql-sources">SQL sources, NL2SQL, and Advanced NL2SQL</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-add-datasources?tabs=sql">Add and configure Fabric Data Agent SQL sources</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-configuration-best-practices">Fabric Data Agent configuration best practices</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-example-queries">Example-query design and SDK evaluation</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-creator-agent-overview">Build agent with AI configuration workflow</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/rest/api/fabric/articles/item-management/definitions/data-agent-definition">Fabric Data Agent source and few-shot definition format</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with ten questions whose approved SQL is already known.</strong> Datrick can turn those examples into a focused source contract, measurable NL2SQL improvements, and a production regression suite.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_nl2sql&amp;utm_medium=organic_content&amp;utm_campaign=nl2sql_accuracy_assessment&amp;utm_content=article_end#inquiry-form">Scope the NL2SQL assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-example-query-few-shot-retrieval-quality-assessment"><span>Inspect retrieved patterns</span><strong>Assess example-query and few-shot quality</strong></a><a href="microsoft-fabric-data-agent-standard-preview-runtime-evaluation-migration-assessment"><span>Compare query runtimes</span><strong>Test standard and Advanced NL2SQL</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

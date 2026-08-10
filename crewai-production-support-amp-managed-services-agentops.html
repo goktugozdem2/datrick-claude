@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CrewAI Production Support and AMP Managed Services | Datrick</title>
+    <meta name="description" content="Managed CrewAI production support and AMP AgentOps for crews, flows, tools, memory, triggers, traces, Kubernetes, workers, PostgreSQL, releases, incidents, and cost.">
+    <link rel="canonical" href="https://datrick.com/crewai-production-support-amp-managed-services-agentops">
+    <meta property="og:title" content="CrewAI Production Support and AMP Managed Services | Datrick">
+    <meta property="og:description" content="Operate CrewAI crews and flows with accountable runtime monitoring, state, tools, memory, triggers, self-hosted platform dependencies, incidents, and releases.">
+    <meta property="og:url" content="https://datrick.com/crewai-production-support-amp-managed-services-agentops">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Service", "name": "CrewAI Production Support and AMP Managed Services", "description": "Ongoing CrewAI operations covering crews, flows, agents, tasks, tools, memory, triggers, traces, API and worker runtime, PostgreSQL and object storage, incidents, releases, runbooks, and reporting.", "url": "https://datrick.com/crewai-production-support-amp-managed-services-agentops", "provider": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "areaServed": "Global", "audience": {"@type": "BusinessAudience", "audienceType": "Software companies, enterprises, managed service providers, and AI delivery firms operating production CrewAI automations"}},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is included in CrewAI production support?", "acceptedAnswer": {"@type": "Answer", "text": "A defined service can include crew and flow execution, agents and tasks, state and persistence, memory and knowledge, tools and integrations, triggers and webhooks, traces and logs, API and worker health, model providers, incidents, release control, cost, runbooks, and reporting. For self-hosted CrewAI Platform it can also include the agreed Kubernetes, PostgreSQL, object storage, BuildKit, ingress, authentication, and secret-management boundary."}},
+            {"@type": "Question", "name": "What is the difference between CrewAI AMP and a self-hosted CrewAI Platform deployment?", "acceptedAnswer": {"@type": "Answer", "text": "CrewAI AMP provides managed deployment, API access, monitoring, traces, tools, and streaming. A self-hosted Platform deployment runs in the client's Kubernetes environment and brings infrastructure responsibilities such as external production PostgreSQL, object storage, web and worker replicas, ingress, authentication, secrets, image builds, backup, scaling, and upgrades. The operating contract must state which model is in scope."}},
+            {"@type": "Question", "name": "How do you monitor CrewAI crews and flows in production?", "acceptedAnswer": {"@type": "Answer", "text": "Correlate deployment and API health with execution traces and logs across crews, flows, agents, tasks, model calls, tool calls, state transitions, triggers, memory retrieval, guardrails, and final outputs. Add client-specific quality checks, target-system reconciliation, infrastructure metrics, provider limits, alerts, and cost attribution because a successful crew execution does not prove the business outcome is correct."}},
+            {"@type": "Question", "name": "How should secrets be operated in self-hosted CrewAI Platform?", "acceptedAnswer": {"@type": "Answer", "text": "Use an external secrets provider with least-privilege access and record how values reach automation workloads. Static credentials are resolved at deployment time and rotated values require redeployment. Workload identity uses short-lived credentials and resolves secrets at kickoff, allowing rotation without redeployment. Test both the provider trust and the deployed automation's effective access."}},
+            {"@type": "Question", "name": "How long does CrewAI production support onboarding take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused onboarding commonly takes two to four weeks for a representative production portfolio. It covers deployment and automation inventory, execution and quality baselines, tools and triggers, state and memory, infrastructure and identity, incidents, releases, cost, runbooks, controlled failure exercises, and acceptance of the steady-state operating scope."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">CrewAI AMP and Platform AgentOps</p>
+        <h1>A crew can coordinate the agents. It cannot own the production consequence.</h1>
+        <p class="page-lede">Operate CrewAI crews and flows with accountable runtime monitoring, state and memory, tools and triggers, managed or self-hosted platform dependencies, incident response, controlled releases, and cost evidence.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=crewai_production_support&amp;utm_medium=organic_content&amp;utm_campaign=crewai_agentops&amp;utm_content=hero#inquiry-form">Describe the CrewAI estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>CrewAI AgentOps</span><span>12 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Service boundary</a><a href="#scope">Operating scope</a><a href="#runtime">Runtime and identity</a><a href="#incidents">Incident response</a><a href="#onboarding">Onboarding</a></nav>
+
+        <p>CrewAI can coordinate autonomous agents in crews, place deterministic control around them with flows, persist and resume workflow state, use memory and knowledge, invoke tools and enterprise integrations, react to triggers, publish REST endpoints, stream webhook events, and expose execution traces and logs through CrewAI AMP. A self-hosted CrewAI Platform can place those capabilities inside the client's Kubernetes environment. None of this decides who owns a repeated trigger, a shared agent edit that changes several tasks, stale memory that poisons a decision, a rotated static secret that never reached the image, or a crew that completed while the target system remained wrong.</p>
+        <p>Datrick provides an ongoing operating layer for an agreed CrewAI estate. Named engineers correlate deployments, APIs, crews, flows, agents, tasks, state, memory, knowledge, tools, triggers, model providers, traces, worker and database health, external-system audits, releases, cost, and business outcomes. CrewAI Support remains the escalation path for platform defects. Datrick owns the client-specific diagnosis, containment, validation, communication, change, and prevention accepted in the service boundary.</p>
+
+        <section class="readiness-actions"><p><strong>Do you have CrewAI automations in production but no team accountable for turning a failed task, looping delegation, stale memory, broken trigger, worker backlog, credential problem, or quality regression into a verified outcome?</strong> Start with one representative portfolio.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=crewai_production_support&amp;utm_medium=organic_content&amp;utm_campaign=crewai_agentops&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" href="white-label-ai-agent-operations-managed-support-for-msps">Review the MSP model</a></div></section>
+
+        <h2 id="boundary">Define ownership across crews, flows, platform services, integrations, and outcomes</h2>
+        <p>A production path can include a client, API or enterprise trigger; CrewAI AMP or a self-hosted Platform ingress and web application; background workers; deployed crew or flow code; agents, tasks, processes, state, memory, and knowledge; model providers; custom and managed tools; OAuth integrations; webhooks; PostgreSQL and object storage; BuildKit and container images; secrets and workload identity; and the target application that creates the actual outcome. Name which layers the managed service owns, observes, changes, coordinates, or excludes.</p>
+        <p>Document deployment model, accounts and clusters, environments, automations, agents and tasks, triggers, tools, providers, data stores, identities, secrets, observability, data classes, support hours, severity, quality bars, change authority, budgets, fallback, and CrewAI escalation.</p>
+
+        <h2 id="scope">Operate the complete CrewAI production surface</h2>
+        <div class="article-table-wrap" role="region" aria-label="CrewAI production support scope" tabindex="0"><table class="article-table"><caption class="sr-only">CrewAI production support scope</caption>
+          <thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead>
+          <tbody>
+            <tr><td>Deployments and API</td><td>Environment status, build and image, endpoint availability, latency, errors, authentication, kickoff, webhook streaming, client retries, concurrency, and fallback.</td><td>AMP versus self-hosted, supported deployments, regions, clients, traffic, SLO, capacity, and maintenance.</td></tr>
+            <tr><td>Crews, agents, and tasks</td><td>Process, role, goal, delegation, task order, expected output, structured schema, max iterations, guardrails, callbacks, loops, and final result.</td><td>Supported crews, autonomy, quality bar, iteration limit, human handoff, shared-agent ownership, and exception policy.</td></tr>
+            <tr><td>Flows, state, and memory</td><td>Events, routers, listeners, state transitions, persistence, resume, long-running execution, memory encoding and retrieval, knowledge freshness, and deletion.</td><td>Authoritative state, retention, consistency, memory scope, source owner, privacy, migration, backup, and recovery.</td></tr>
+            <tr><td>Tools, triggers, and integrations</td><td>Tool and trigger contracts, OAuth identity, payload, timeout, retry, idempotency, side effects, permissions, rate limits, target audit, reconciliation, and disable path.</td><td>Allowed tools, principal, action authority, approval, trigger deduplication, target SLO, rollback, and emergency stop.</td></tr>
+            <tr><td>Observability and quality</td><td>Execution traces and logs, agent and task events, model and tool spans, latency, tokens, errors, guardrail results, evaluation, feedback, alerts, and business outcome.</td><td>Trace provider, sensitive fields, retention, sampling, metrics, thresholds, reviewer, evaluator budget, and client KPI.</td></tr>
+            <tr><td>Platform and identity</td><td>Kubernetes web and workers, ingress, external PostgreSQL and storage, BuildKit, RBAC, authentication, secret providers, workload identity, backups, scaling, and upgrade.</td><td>Client versus service ownership, cloud resources, access, RTO, RPO, patching, failover, capacity, and incident route.</td></tr>
+            <tr><td>Release and cost</td><td>Crew and flow code, shared agent definitions, packages, models, tools, state and memory schemas, image, platform version, tests, rollout, rollback, provider use, compute, and anomaly.</td><td>Source of truth, environments, approval, compatibility, budget, forecast, unit economics, canary, and acceptance evidence.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="runtime">Separate managed AMP responsibilities from self-hosted platform and workload identity</h2>
+        <p>CrewAI AMP provides deployment, generated REST APIs, monitoring, execution traces and logs, tool repositories, webhook streaming, and Crew Studio. A self-hosted CrewAI Platform adds a Kubernetes application surface with web and background-worker replicas, external or internal PostgreSQL, object storage, BuildKit, ingress, authentication, secrets, and image registries. CrewAI's production guidance says the internal PostgreSQL and MinIO options are not intended for production and recommends external managed PostgreSQL and external object storage. Put database, backup, restore, storage lifecycle, worker capacity, build security, ingress, certificate, and platform upgrade ownership in the contract.</p>
+        <p>Static secret-provider credentials are resolved during deployment and embedded into the deployment image; rotating the source value requires redeployment. Workload identity uses short-lived credentials and resolves the secret on each automation kickoff. The operational choice affects rotation, incident response, audit evidence, and availability. Test access from the actual worker identity and verify a rotation failure before production.</p>
+        <p>CrewAI distinguishes autonomous crews from structured flows. Use a flow when a process requires precise sequencing, persisted state, resumability, routing, and controlled integration; insert crews where adaptive reasoning adds value. Shared agents can be reused across tasks, so editing an agent definition can change every task that references it. Preserve dependency mapping and run affected automation tests before release.</p>
+
+        <h2 id="incidents">Distinguish deployment, worker, flow, memory, tool, identity, release, and cost failures</h2>
+        <div class="article-table-wrap" role="region" aria-label="CrewAI production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">CrewAI production incident matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead>
+          <tbody>
+            <tr><td>Deployment unavailable or kickoff fails</td><td>Environment and image status, API and ingress logs, auth, web and worker health, queue or job state, PostgreSQL, storage, provider status, client timeout, and recent deploy.</td><td>Stop new traffic, route to fallback, restore accepted image or dependency, preserve logs, and communicate affected automations.</td><td>Health SLO, capacity model, external service monitoring, backup and restore, canary, rollback, and dependency alerting.</td></tr>
+            <tr><td>Crew loops, delegates badly, or produces wrong output</td><td>Trace, agents, tasks, process, delegation, max iterations, prompts, model, tools, guardrails, expected schema, feedback, target outcome, and recent shared-agent edit.</td><td>Cap iterations, disable risky agent or tool, route to human, restore accepted definition, and correct impacted outcomes.</td><td>Task-specific evaluation, structured outputs, delegation policy, iteration limits, shared-agent impact tests, and release threshold.</td></tr>
+            <tr><td>Flow is stuck or resumes with wrong state</td><td>Flow ID, event and router path, listeners, persisted state, last completed step, concurrent trigger, retry, schema version, external side effects, and target state.</td><td>Pause trigger, isolate execution, prevent duplicate resume, restore accepted state only if safe, use manual fallback, and reconcile side effects.</td><td>State schema migration, idempotent steps, trigger deduplication, transition assertions, resume tests, and recovery runbook.</td></tr>
+            <tr><td>Memory or knowledge contaminates a decision</td><td>Memory scope, encoded facts, retrieval query, importance and recency, conflicting facts, source version, tenant or user boundary, deletion state, and expected source.</td><td>Disable or narrow memory retrieval, use approved knowledge, route to review, remove or supersede bad facts, and reassess affected runs.</td><td>Source provenance, scoped memory, freshness and contradiction controls, deletion test, retrieval evaluation, and owner review.</td></tr>
+            <tr><td>Tool or trigger creates a duplicate or unauthorized action</td><td>Trigger event and ID, payload, retries, tool inputs and outputs, integration identity, token, permissions, idempotency key, external audit, and target state.</td><td>Disable trigger or tool, revoke or narrow credential, block replay, isolate records, use manual route, and reconcile target state.</td><td>Webhook signature, deduplication, least privilege, workload identity, contract tests, approval, and emergency disable path.</td></tr>
+            <tr><td>Unexpected model, platform, or infrastructure cost</td><td>Execution volume, agent and task model calls, tokens, retries, loops, memory and knowledge operations, evaluator use, worker and database load, storage, and outcomes.</td><td>Stop loops, cap traffic and iterations, scale down noncritical workload, reduce optional evaluation only if safe, and notify the commercial owner.</td><td>Per-automation attribution, budgets and alerts, model routing, iteration limits, capacity forecast, quality-cost review, and unit economics.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Safe replay is a business decision, not merely kicking off a crew again. Before retrying, determine whether a task, tool, trigger, or integration already created, changed, approved, sent, paid, assigned, or closed a record. Use idempotency, target-state reconciliation, and explicit approval for consequential actions.</p>
+
+        <h2>Release shared definitions, state, platform, and integrations together</h2>
+        <p>A production release includes crew and flow code, agents and tasks, process and delegation settings, structured output schemas, guardrails, state and persistence, memory and knowledge configuration, tools and integrations, trigger contracts, secrets and identity, packages and models, deployment image, platform configuration, observability, tests, approvals, rollout, and rollback. Editing a reusable agent can affect multiple tasks, while rotating a static secret can require a new image. Map those dependencies before change.</p>
+        <p>Before release, run representative and negative evaluations, test trigger deduplication and tool side effects, replay persisted flows, verify memory and tenant boundaries, rotate a test secret, load API and worker paths, confirm traces and alerts, canary a limited cohort, and preserve the accepted image and data migration reversal. For self-hosted Platform, include PostgreSQL restore, storage access, ingress, worker scaling, and BuildKit failure exercises.</p>
+
+        <h2 id="onboarding">Onboard through inventory, baselines, controlled failures, and shadow operations</h2>
+        <ol>
+          <li><strong>Inventory:</strong> deployment model, clusters, environments, crews, flows, agents, tasks, triggers, tools, models, memory, knowledge, platform services, identities, and outcomes.</li>
+          <li><strong>Responsibility:</strong> define supported layers, SLOs, severity, access, data handling, quality, change authority, budget, dependencies, fallback, CrewAI escalation, and exclusions.</li>
+          <li><strong>Baseline:</strong> measure API and worker health, execution completion, flow state, trigger success, trace coverage, quality, memory and tool outcomes, cost, and incidents.</li>
+          <li><strong>Controls:</strong> validate external database and storage, backups, secrets and identity, deduplication, idempotency, evaluation, safe replay, releases, rollback, attribution, and alerts.</li>
+          <li><strong>Exercise:</strong> rehearse a worker failure, database interruption, looping crew, stuck flow, stale memory, duplicate trigger, credential rotation, quality regression, and provider outage.</li>
+          <li><strong>Transition:</strong> operate in shadow, close or accept material gaps, publish runbooks and escalation routes, and accept the steady-state support scope.</li>
+        </ol>
+
+        <section class="readiness-actions"><p><strong>Start with the CrewAI automations that already create customer, financial, operational, compliance, or workforce consequence.</strong> Datrick can define the operating boundary, close material control gaps, and transition one portfolio into managed support.</p><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=crewai_production_support&amp;utm_medium=organic_content&amp;utm_campaign=crewai_agentops&amp;utm_content=article_end#inquiry-form">Request a CrewAI AgentOps review</a></section>
+
+        <h2>Official references and adjacent operating guides</h2>
+        <ul>
+          <li><a href="https://docs.crewai.com/enterprise/introduction">CrewAI AMP deployment and observability</a></li>
+          <li><a href="https://docs.crewai.com/">CrewAI crews, flows, state, persistence, and enterprise journey</a></li>
+          <li><a href="https://docs.crewai.com/core-concepts/Agents">CrewAI agents and crews</a></li>
+          <li><a href="https://enterprise-docs.crewai.com/configuration/configuration">CrewAI Platform production Kubernetes configuration</a></li>
+          <li><a href="https://docs.crewai.com/en/enterprise/features/secrets-manager/overview">CrewAI Platform secrets and workload identity</a></li>
+          <li><a href="https://docs.crewai.com/v1.14.7/en/enterprise/features/merged-step-card">Shared agents and task configuration in Crew Studio</a></li>
+          <li><a href="white-label-ai-agent-operations-managed-support-for-msps">White-label AI agent managed support for MSPs</a></li>
+          <li><a href="langgraph-production-support-langsmith-agentops-managed-services">LangGraph production support and LangSmith AgentOps</a></li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is included in CrewAI production support?</summary><p>A defined service can include crew and flow execution, agents and tasks, state and persistence, memory and knowledge, tools and integrations, triggers and webhooks, traces and logs, API and worker health, model providers, incidents, release control, cost, runbooks, and reporting. For self-hosted CrewAI Platform it can also include the agreed Kubernetes, PostgreSQL, object storage, BuildKit, ingress, authentication, and secret-management boundary.</p></details>
+          <details><summary>What is the difference between CrewAI AMP and a self-hosted CrewAI Platform deployment?</summary><p>CrewAI AMP provides managed deployment, API access, monitoring, traces, tools, and streaming. A self-hosted Platform deployment runs in the client's Kubernetes environment and brings infrastructure responsibilities such as external production PostgreSQL, object storage, web and worker replicas, ingress, authentication, secrets, image builds, backup, scaling, and upgrades. The operating contract must state which model is in scope.</p></details>
+          <details><summary>How do you monitor CrewAI crews and flows in production?</summary><p>Correlate deployment and API health with execution traces and logs across crews, flows, agents, tasks, model calls, tool calls, state transitions, triggers, memory retrieval, guardrails, and final outputs. Add client-specific quality checks, target-system reconciliation, infrastructure metrics, provider limits, alerts, and cost attribution because a successful crew execution does not prove the business outcome is correct.</p></details>
+          <details><summary>How should secrets be operated in self-hosted CrewAI Platform?</summary><p>Use an external secrets provider with least-privilege access and record how values reach automation workloads. Static credentials are resolved at deployment time and rotated values require redeployment. Workload identity uses short-lived credentials and resolves secrets at kickoff, allowing rotation without redeployment. Test both the provider trust and the deployed automation's effective access.</p></details>
+          <details><summary>How long does CrewAI production support onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for a representative production portfolio. It covers deployment and automation inventory, execution and quality baselines, tools and triggers, state and memory, infrastructure and identity, incidents, releases, cost, runbooks, controlled failure exercises, and acceptance of the steady-state operating scope.</p></details>
+        </div>
+
+        <div class="article-next"><p>Do those agents depend on a production retrieval layer?</p><a href="llamaindex-llamacloud-production-support-retrieval-operations-managed-services">Review the LlamaCloud retrieval operations boundary</a></div>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

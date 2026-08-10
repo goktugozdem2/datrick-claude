@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ETL Pricing Guide 2026: Costs, Models &amp; Tool Comparison</title>
+    <meta name="description" content="Compare predictable ETL costs across Fivetran, Hevo, Stitch, Airbyte and AWS Glue, including row-, connection- and usage-based pricing for high volume.">
+    <link rel="canonical" href="https://datrick.com/etlelt-pricing-guide">
+    <meta property="og:title" content="ETL Pricing Guide 2026: Costs, Models &amp; Tool Comparison">
+    <meta property="og:description" content="Compare predictable ETL costs across five major tools, including row-, connection- and usage-based pricing for high volume.">
+    <meta property="og:url" content="https://datrick.com/etlelt-pricing-guide">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Which ETL tools offer the best pricing models for growing businesses?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For predictability while growing: Hevo's event tiers or Stitch-style row tiers, because the monthly number is known in advance. For lowest cost at small scale: Airbyte Cloud's $10 entry. For growth into large, stable data volumes: Fivetran's per-connection curves reward consolidation into fewer, bigger connectors. The honest answer is workload-dependent: insert-heavy favors events, churn-heavy favors MAR, and very high volume favors self-hosting with real ops capacity."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does ETL cost in 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A small analytics stack (3–5 sources, modest volume) runs $0–$300/month on free tiers or entry plans. A mid-market deployment of 10–15 sources typically lands between $1,000 and $4,000/month on managed platforms, before destination warehouse costs. Enterprise deployments with compliance requirements run $10,000/month and up. Self-hosted open source trades those fees for $500–$3,000/month in infrastructure plus meaningful engineering time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between ETL pricing models?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MAR (Fivetran) counts distinct rows changed per month, once each. Event pricing (Hevo) counts every record write, including repeated updates to the same row. Row tiers (Stitch) sell a flat allowance of replicated rows. Credit and capacity models (Airbyte Cloud) meter sync volume or provisioned workers. Compute pricing (AWS Glue) bills the runtime of the jobs themselves. The same workload can differ in cost by 3–5x across these models, which is why the model matters more than the sticker price."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do ETL tools vary in cost as data grows?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Usage models (MAR, events, credits) scale linearly or worse with data change volume, with unit discounts partially offsetting. Tiered models step up in jumps and become expensive at tier boundaries. Compute models scale with job runtime, which good engineering can hold nearly flat. Self-hosted costs scale in steps (bigger cluster, more ops time). Teams that grow fastest usually migrate models at least once: entry tool to scale tool around the point where the monthly bill crosses a senior engineer's day rate."
+            }
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "headline": "ETL Pricing Guide 2026: Costs, Models and Tool Comparison",
+            "description": "Compare predictable ETL costs across Fivetran, Hevo, Stitch, Airbyte and AWS Glue, including row-, connection- and usage-based pricing for high volume.",
+            "url": "https://datrick.com/etlelt-pricing-guide",
+            "datePublished": "2026-07-10",
+            "dateModified": "2026-07-28",
+            "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"},
+            "reviewedBy": {"@type": "Person", "name": "Can Goktug Ozdem", "url": "https://datrick.com/about.html"},
+            "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}},
+            "mainEntityOfPage": "https://datrick.com/etlelt-pricing-guide"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://datrick.com/"},
+              {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://datrick.com/resources.html"},
+              {"@type": "ListItem", "position": 3, "name": "ETL and ELT Pricing Guide", "item": "https://datrick.com/etlelt-pricing-guide"}
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data" data-commercial-cluster="database_migration" data-content-type="commercial_resource">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Data integration pricing</p>
+          <h1>ETL &amp; ELT Pricing Guide (2026): What Data Integration Actually Costs</h1>
+          <p class="page-lede">Every ETL vendor publishes a pricing page. Almost none of them let you predict your bill.</p>
+          <div class="article-meta"><a href="resources.html">Resource library</a><span>Pricing guide · 2026</span><span>14 min read</span></div>
+          <p class="article-review">Reviewed for technical and pricing accuracy by <a href="about.html">Can Goktug Ozdem</a>, founder and senior technical lead. Last reviewed July 16, 2026.</p>
+        </div>
+      </section>
+      <section class="section service-band">
+        <article class="article-body">
+          <p>The reason is structural: each vendor meters a different unit, including rows, events, credits, and compute-hours. The unit with the lowest visible price is rarely the one that keeps the lowest total cost under your actual workload.</p>
+
+          <p>This guide explains the five pricing models in use across the data integration market in 2026, breaks down what the major tools actually charge today, and covers the cost traps we see when reviewing client pipelines. Prices below were verified in July 2026. Vendors change pricing frequently; treat every number as a planning figure and confirm on the vendor's pricing page before signing.</p>
+
+          <h2>The five pricing models</h2>
+
+          <p><strong>1. Monthly Active Rows (MAR).</strong> You pay for distinct rows inserted, updated, or deleted per month. A row that changes ten times in a month counts once. Fivetran is the reference implementation. Predictable for stable sources, volatile for high-churn tables.</p>
+
+          <p><strong>2. Event-based.</strong> Every record written to the destination counts as one event, including repeat updates to the same row. Hevo uses this model. Simpler to reason about than MAR, but repeated updates to the same records cost more than they would under MAR.</p>
+
+          <p><strong>3. Row-based tiers.</strong> Flat monthly fee for a row allowance, stepping up in tiers. Stitch built its business on this model. The most budget-predictable of the usage models, as long as you stay inside your tier.</p>
+
+          <p><strong>4. Credit or capacity-based.</strong> You buy credits consumed by sync volume, or provision fixed capacity (workers) regardless of volume. Airbyte Cloud uses credits on its entry plan and capacity-based Data Workers on higher plans.</p>
+
+          <p><strong>5. Compute-hours.</strong> You pay for the infrastructure that runs the job, not the data that moves through it. AWS Glue charges per DPU-hour. Cost tracks job runtime and cluster size, which puts pricing in your engineers' hands, for better and worse.</p>
+
+          <p>There is a sixth option that isn't a pricing model: open-source self-hosted (Airbyte OSS, Meltano, Singer taps). The software is free. The infrastructure and the engineering time are not, and they usually dominate the real cost. More on that in the buy-vs-build section.</p>
+
+          <h2>Tool-by-tool breakdown</h2>
+
+          <h3>Fivetran</h3>
+
+          <p>Fivetran prices on MAR with per-connection consumption curves: each connection is billed separately, and the per-MAR unit cost declines as that connection's volume grows.</p>
+
+          <p>Current structure:</p>
+
+          <ul>
+            <li><strong>Free:</strong> 500,000 MAR/month, plus small allowances for activations and model runs. An evaluation tier; a single moderately busy production database exceeds it.</li>
+            <li><strong>Standard:</strong> usage-based, roughly $500 per million MAR at entry volumes, 15-minute minimum sync frequency, 700+ connectors.</li>
+            <li><strong>Enterprise:</strong> roughly a third more per MAR, 1-minute syncs, enterprise database connectors (Oracle, SAP, Db2), 99.9% SLA.</li>
+            <li><strong>Business Critical:</strong> roughly double Standard's rate, adds customer-managed keys, PCI DSS Level 1, private networking.</li>
+          </ul>
+
+          <p>Three 2025–2026 changes materially raised bills for many teams:</p>
+
+          <ol>
+            <li><strong>Connector-level MAR billing</strong> (March 2025). MAR is calculated per connection, not pooled across the account. Teams running many mid-size connectors lost their volume discounts; increases of 40–70% were common for multi-connector setups.</li>
+            <li><strong>Deletes now count as paid MAR</strong> (January 2026). High-churn tables such as orders, sessions, and inventory got more expensive overnight.</li>
+            <li><strong>$5 base charge per connection</strong> generating 1–1M MAR (January 2026). Trivial for one connector, real money for a fleet of small ones.</li>
+          </ol>
+
+          <p>What stays free: initial historical syncs and re-syncs of unchanged rows.</p>
+
+          <p>Realistic budget: a mid-market company replicating 10–15 sources into Snowflake typically lands around $2,000–$4,000/month, with the first month higher if backfills trigger. Annual contracts discount roughly 15%, two-year around 20%, and volume tiers discount further past ~$36K annual spend.</p>
+
+          <p>Best fit: teams with few, large, stable sources that value connector reliability over cost, and have the discipline to monitor MAR per connection.</p>
+
+          <h3>Hevo</h3>
+
+          <p>Hevo prices on events: every record inserted, updated, or deleted in the destination counts once, every time.</p>
+
+          <ul>
+            <li><strong>Free:</strong> 1M events/month, limited connector set.</li>
+            <li><strong>Starter:</strong> from $239/month (annual billing) including 5M events; a slider scales the quota and price. 150+ connectors, up to 10 users.</li>
+            <li><strong>Professional:</strong> from $679/month including 20M events, unlimited users, streaming-grade sync options.</li>
+            <li><strong>Business Critical:</strong> custom pricing; where HIPAA, RBAC, and SSO live.</li>
+          </ul>
+
+          <p>Overages are billed as on-demand events on top of the plan, and Hevo provides a buffer so pipelines don't stop mid-month. New sources get 14 days of free events, which lowers the initial proof-of-concept cost.</p>
+
+          <p>The event model's trap is repeat updates: a row that updates hourly costs 720 events a month under Hevo where Fivetran's MAR would count it once. For CDC-heavy operational sources, model this before assuming Hevo is cheaper. For insert-heavy workloads, it often genuinely is.</p>
+
+          <p>Best fit: analytics teams with insert-dominant workloads that want a fixed monthly number and strong support without enterprise procurement.</p>
+
+          <h3>Stitch</h3>
+
+          <p>Stitch is row-based: flat tiers from roughly $100/month for 5M rows up to about $1,250/month on Standard, with a Premium tier around $3,000/month for 1B rows and HIPAA compliance. Around 130–140 connectors, Singer-based.</p>
+
+          <p>The number that matters most in 2026 is strategic, not financial: <strong>Stitch is now part of Qlik and is being folded into Qlik Talend Cloud.</strong> The Stitch site directs new signups toward Qlik Talend Cloud, and standalone feature development has effectively ended. Existing customers still run fine today. New teams should treat Stitch as a sunset product and price in a future migration, not just a monthly fee.</p>
+
+          <p>Best fit: existing customers with stable pipelines, and teams already inside the Qlik ecosystem. We would not start a new greenfield deployment on standalone Stitch in 2026.</p>
+
+          <h3>Airbyte</h3>
+
+          <p>Airbyte spans the widest cost range in the market because it's really three products:</p>
+
+          <ul>
+            <li><strong>Core (open source, self-hosted):</strong> free software, unlimited volume, 600+ connectors. Real cost: production-grade Kubernetes infrastructure typically runs $500–$3,000+/month, plus a commonly cited 20–40 engineering hours per month for upgrades, connector issues, and pipeline maintenance.</li>
+            <li><strong>Cloud Standard:</strong> from a $10/month minimum, credit-based (around $2.50 per credit), with volume-based consumption. The entry cost is low, but failed syncs still consume credits, and large initial backfills can generate one-time charges in the thousands.</li>
+            <li><strong>Plus / Pro / Enterprise Flex:</strong> capacity-based Data Worker pricing, entry around $25,000/year. SSO, RBAC, and enterprise connectors (SAP, NetSuite, Workday, Oracle) are gated here.</li>
+          </ul>
+
+          <p>The structural issue is the gap: there is very little between $10/month self-serve and $25K/year contracts. Growing teams hit that cliff mid-scale. The structural advantage: at high volumes, self-hosted Airbyte with competent ops is the cheapest per-terabyte option on this list by a wide margin.</p>
+
+          <p>Best fit: engineering-led teams that either stay small on Cloud Standard or have genuine platform capacity to run self-hosted. Wrong fit: teams with no one to own the infrastructure.</p>
+
+          <h3>AWS Glue</h3>
+
+          <p>Glue prices compute, not data:</p>
+
+          <ul>
+            <li><strong>ETL jobs and interactive sessions:</strong> $0.44 per DPU-hour, billed per second, 1-minute minimum. A DPU is 4 vCPU and 16 GB memory. Flex execution drops non-urgent batch work to $0.29 per DPU-hour, about a third cheaper.</li>
+            <li><strong>Crawlers:</strong> $0.44 per DPU-hour, 10-minute minimum.</li>
+            <li><strong>Data Catalog:</strong> first million objects and million requests free monthly, then $1 per 100,000 objects.</li>
+            <li><strong>DataBrew:</strong> $1 per 30-minute interactive session.</li>
+            <li><strong>Zero-ETL integrations:</strong> ingestion billed around $1.50/GB, plus destination costs.</li>
+          </ul>
+
+          <p>Worked example, straight from the model: a Spark job using 6 DPUs for 15 minutes costs 6 × 0.25 × $0.44 = $0.66. Sounds like pocket change. The bill grows through frequency (hourly jobs run 720 times a month), over-provisioned DPUs, and forgotten development endpoints, which have no auto-timeout and keep billing until someone kills them.</p>
+
+          <p>Best fit: AWS-native teams doing heavy transformation work who can engineer their own cost efficiency. Glue is not really a connector product; comparing it to Fivetran is comparing an engine to a car.</p>
+
+          <h2>Comparison table</h2>
+
+          <div class="article-table-wrap" role="region" aria-label="Comparison table" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Comparison table</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Tool</th>
+                  <th scope="col">Model</th>
+                  <th scope="col">Entry point</th>
+                  <th scope="col">Realistic mid-market monthly</th>
+                  <th scope="col">Scaling driver</th>
+                  <th scope="col">Watch-out</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Fivetran</td>
+                  <td>MAR, per-connection curves</td>
+                  <td>Free (500K MAR)</td>
+                  <td>$2,000–$4,000</td>
+                  <td>Rows changed, per connection</td>
+                  <td>Deletes billed since 2026; connector-level billing removed pooled discounts</td>
+                </tr>
+                <tr>
+                  <td>Hevo</td>
+                  <td>Events</td>
+                  <td>Free (1M events); Starter $239</td>
+                  <td>$239–$1,500</td>
+                  <td>Every record write, repeats included</td>
+                  <td>High-frequency updates multiply events</td>
+                </tr>
+                <tr>
+                  <td>Stitch</td>
+                  <td>Row tiers</td>
+                  <td>$100 (5M rows)</td>
+                  <td>$100–$1,250</td>
+                  <td>Rows replicated</td>
+                  <td>Product being absorbed into Qlik Talend Cloud</td>
+                </tr>
+                <tr>
+                  <td>Airbyte Cloud</td>
+                  <td>Credits / capacity</td>
+                  <td>$10 minimum</td>
+                  <td>$100–$2,000, then $25K/yr cliff</td>
+                  <td>Volume synced (incl. failed syncs)</td>
+                  <td>Big gap between self-serve and contract tiers</td>
+                </tr>
+                <tr>
+                  <td>Airbyte self-hosted</td>
+                  <td>Infra + labor</td>
+                  <td>$0 software</td>
+                  <td>$500–$3,000 infra + eng. time</td>
+                  <td>Your platform team</td>
+                  <td>The "free" option with the highest fixed cost</td>
+                </tr>
+                <tr>
+                  <td>AWS Glue</td>
+                  <td>DPU-hours</td>
+                  <td>Pay-as-you-go</td>
+                  <td>Highly variable</td>
+                  <td>Job runtime × cluster size × frequency</td>
+                  <td>Idle dev endpoints; over-provisioned DPUs</td>
+                </tr>
+              </tbody>
+            </table></div>
+
+          <h2>The cost traps</h2>
+
+          <p><strong>Connector sprawl.</strong> Every "quick" new source adds a fixed floor: a base charge on Fivetran, a tier bump on Stitch, another pipeline to maintain anywhere. Audit quarterly; most stacks we review carry connectors nobody has queried in months.</p>
+
+          <p><strong>Backfill and re-sync spikes.</strong> Initial syncs are free on Fivetran but not everywhere; on credit-based models a schema change that forces a full re-sync of a large table can produce a four-figure one-time charge. Know your tool's re-sync billing before you approve a schema migration.</p>
+
+          <p><strong>Churn-heavy tables.</strong> Since deletes became billable MAR, tables with heavy insert-delete cycles (queues, sessions, staging tables) are disproportionately expensive to replicate. Often the fix is not a cheaper tool but a question: does this table belong in the warehouse at all?</p>
+
+          <p><strong>Sync frequency defaults.</strong> The difference between 5-minute and 6-hour syncs on a low-priority source is real money every month, and most sources were set to a frequency once and never revisited.</p>
+
+          <p><strong>Destination costs.</strong> Warehouse compute and storage, including Snowflake credits, BigQuery scans, and Redshift nodes, are a separate bill that ingestion decisions directly drive. Third-party analyses regularly find destination costs equal to or exceeding the pipeline tool's fee. Budget them together.</p>
+
+          <p><strong>Egress and networking.</strong> Cross-region traffic, NAT gateways for self-hosted deployments, and private networking surcharges sit outside every pricing page and inside every invoice.</p>
+
+          <h2>A total-cost worksheet</h2>
+
+          <p>Before comparing vendors, write down for your own workload:</p>
+
+          <ol>
+            <li>Number of sources, and for each: rows changed per month, records written per month, and update frequency (these three numbers price you under MAR, events, and rows respectively)</li>
+            <li>Highest-churn tables, including deletes</li>
+            <li>Required sync frequency per source, based on actual business need rather than the default</li>
+            <li>Any table over ~100M rows that might ever need a full re-sync</li>
+            <li>Compliance requirements (HIPAA/PCI push you into top tiers everywhere)</li>
+            <li>Destination compute cost per additional TB ingested</li>
+            <li>For self-hosted: who owns the infrastructure, and what their hours cost</li>
+          </ol>
+
+          <p>Run those numbers through two or three vendors' models. The ranking that comes out is frequently the opposite of the pricing-page ranking.</p>
+
+          <h2>Buy vs build</h2>
+
+          <p>Self-hosting or hand-rolling pipelines wins on paper and loses in payroll. The realistic break-even: if your monthly managed-tool bill is below what 25% of a data engineer costs you, buy. Self-hosted Airbyte or custom pipelines make sense when volumes are large enough that managed per-row pricing exceeds a platform engineer's time, with one condition teams often skip: that engineer must actually exist and stay. Pipelines built by someone who then leaves are how we meet many of our clients. If that's the situation you're in, our <a href="/resource-database-handover.html">database handover checklist</a> is the place to start.</p>
+
+          <h2>FAQ</h2>
+
+          <h3>Which ETL tools offer the best pricing models for growing businesses?</h3>
+
+          <p>For predictability while growing: Hevo's event tiers or Stitch-style row tiers, because the monthly number is known in advance. For lowest cost at small scale: Airbyte Cloud's $10 entry. For growth into large, stable data volumes: Fivetran's per-connection curves reward consolidation into fewer, bigger connectors. The honest answer is workload-dependent: insert-heavy favors events, churn-heavy favors MAR, and very high volume favors self-hosting with real ops capacity.</p>
+
+          <h3>How much does ETL cost in 2026?</h3>
+
+          <p>A small analytics stack (3–5 sources, modest volume) runs $0–$300/month on free tiers or entry plans. A mid-market deployment of 10–15 sources typically lands between $1,000 and $4,000/month on managed platforms, before destination warehouse costs. Enterprise deployments with compliance requirements run $10,000/month and up. Self-hosted open source trades those fees for $500–$3,000/month in infrastructure plus meaningful engineering time.</p>
+
+          <h3>What is the difference between ETL pricing models?</h3>
+
+          <p>MAR (Fivetran) counts distinct rows changed per month, once each. Event pricing (Hevo) counts every record write, including repeated updates to the same row. Row tiers (Stitch) sell a flat allowance of replicated rows. Credit and capacity models (Airbyte Cloud) meter sync volume or provisioned workers. Compute pricing (AWS Glue) bills the runtime of the jobs themselves. The same workload can differ in cost by 3–5x across these models, which is why the model matters more than the sticker price.</p>
+
+          <h3>How do ETL tools vary in cost as data grows?</h3>
+
+          <p>Usage models (MAR, events, credits) scale linearly or worse with data change volume, with unit discounts partially offsetting. Tiered models step up in jumps and become expensive at tier boundaries. Compute models scale with job runtime, which good engineering can hold nearly flat. Self-hosted costs scale in steps (bigger cluster, more ops time). Teams that grow fastest usually migrate models at least once: entry tool to scale tool around the point where the monthly bill crosses a senior engineer's day rate.</p>
+
+          <hr>
+
+          <p>Pricing shifts like Fivetran's 2026 changes are often the trigger for a platform migration, and migrations are where pipelines break. If you're planning a move between ETL tools or re-platforming a warehouse, our <a href="/resource-migration-support-playbook.html">migration support playbook</a> covers the sequence, and the <a href="/migration-risk-assessment">migration risk assessment</a> tests the decision evidence.</p>
+          <section class="readiness-actions"><p><strong>Compare tools against your actual migration risk.</strong> Score sources, change volume, reporting dependencies, validation, rollback, and operating ownership before you commit to a platform.</p><a class="button primary" data-cta-name="etl_pricing_to_migration_risk_assessment" data-funnel-stage="content_to_commercial" href="migration-risk-assessment?utm_source=etlelt_pricing_guide&amp;utm_medium=organic_content&amp;utm_campaign=database_migration_assessment&amp;utm_content=article_end">Start the migration risk assessment</a></section>
+          <nav class="article-next" aria-label="Resource next steps"><a href="resources.html"><span>Resource library</span><strong>Browse all guides</strong></a><a href="data-operations.html"><span>Delivery capability</span><strong>Review data operations support</strong></a></nav>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OpenAI Agents SDK Production Support &amp; AgentOps | Datrick</title>
+    <meta name="description" content="Production support for OpenAI Agents SDK workflows: tracing, sessions, tools, MCP, handoffs, guardrails, incidents, releases, security and cost.">
+    <link rel="canonical" href="https://datrick.com/openai-agents-sdk-production-support-agentops">
+    <meta property="og:title" content="OpenAI Agents SDK Production Support &amp; AgentOps | Datrick">
+    <meta property="og:description" content="Operate OpenAI Agents SDK workflows with accountable tracing, tools, guardrails, incident response and controlled releases.">
+    <meta property="og:url" content="https://datrick.com/openai-agents-sdk-production-support-agentops">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="OpenAI Agents SDK Production Support &amp; AgentOps | Datrick">
+    <meta name="twitter:description" content="Operate OpenAI Agents SDK workflows with accountable tracing, tools, guardrails, incident response and controlled releases.">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "OpenAI Agents SDK Production Support and AgentOps", "description": "Production support for OpenAI Agents SDK workflows covering tracing, sessions, tools, MCP, handoffs, guardrails, incidents, releases, security, and cost.", "url": "https://datrick.com/openai-agents-sdk-production-support-agentops", "datePublished": "2026-07-27", "dateModified": "2026-08-03", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "reviewedBy": {"@type": "Person", "name": "Can Goktug Ozdem", "url": "https://datrick.com/about.html"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/openai-agents-sdk-production-support-agentops"},
+          {"@type": "Service", "name": "OpenAI Agents SDK Production Support and AgentOps", "description": "Ongoing OpenAI Agents SDK operations covering traces, sessions, tools, MCP, handoffs, guardrails, approvals, incidents, controlled releases, cost, and reporting.", "url": "https://datrick.com/openai-agents-sdk-production-support-agentops", "provider": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "areaServed": "Global", "audience": {"@type": "BusinessAudience", "audienceType": "Enterprises, managed service providers, and IT service firms operating agent workflows built with the OpenAI Agents SDK"}},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is OpenAI Agents SDK production support?", "acceptedAnswer": {"@type": "Answer", "text": "OpenAI Agents SDK production support is an operating service for applications built with the SDK. It can cover runtime and dependency monitoring, traces, sessions and memory, model calls, tools and MCP, handoffs, guardrails, human approvals, incidents, releases, security, usage, cost, and runbooks. OpenAI platform support remains the escalation path for platform defects."}},
+            {"@type": "Question", "name": "How do you monitor an OpenAI Agents SDK workflow?", "acceptedAnswer": {"@type": "Answer", "text": "Correlate application requests with workflow, trace, group, session, model, agent, handoff, guardrail, tool, MCP, approval, token, latency, error, and downstream outcome evidence. Built-in tracing records agent runs, model generations, tool calls, handoffs, guardrails, and custom spans, but application health, session storage, external tools, queues, business outcomes, and trace completeness also need monitoring."}},
+            {"@type": "Question", "name": "Does the OpenAI Agents SDK host and operate my agent application?", "acceptedAnswer": {"@type": "Answer", "text": "No. The SDK is an application framework. Some model and hosted-tool execution can occur on OpenAI services, while your team still operates the application runtime, deployment, configuration, session and memory choice, local tools, external services, identities, approvals, observability integrations, recovery, and business process around the workflow."}},
+            {"@type": "Question", "name": "How do you protect sensitive data in OpenAI agent traces?", "acceptedAnswer": {"@type": "Answer", "text": "Classify trace content, restrict dashboard and exporter access, avoid secrets in prompts and tool arguments, minimize or redact sensitive inputs and outputs, configure whether traces include sensitive data, control debug logging, and define retention and deletion. OpenAI documents that sensitive trace capture is enabled by default in the Agents SDK and that tracing is unavailable for organizations operating under Zero Data Retention."}},
+            {"@type": "Question", "name": "How long does OpenAI AgentOps onboarding take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused onboarding commonly takes two to four weeks for one representative agent workflow or small portfolio. It includes architecture and dependency inventory, ownership, telemetry and quality baselines, session and tool review, security, incident and release runbooks, controlled failure exercises, a shadow period, and acceptance of the steady-state scope."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai" data-content-id="openai_agents_sdk_agentops" data-content-group="ai_agents" data-content-type="commercial_resource" data-commercial-cluster="ai_operations">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">OpenAI Agents SDK AgentOps</p>
+        <h1>The SDK runs the agent loop. It does not run your production service.</h1>
+        <p class="page-lede">Operate OpenAI agent workflows with accountable traces, sessions, tools and MCP, handoffs, guardrails, approvals, incident response, releases, security, cost, and service improvement.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" data-cta-name="openai_agentops_hero_to_inquiry" data-funnel-stage="content_to_inquiry" data-next-stage="written_scoping" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=openai_agents_sdk_agentops&amp;utm_medium=organic_content&amp;utm_campaign=openai_agent_production_support&amp;utm_content=hero#inquiry-form">Describe the agent workflow</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>OpenAI AgentOps</span><span>12 min read</span></div>
+        <p class="article-review">Reviewed against official OpenAI Agents SDK documentation for production operations by <a href="about.html">Can Goktug Ozdem</a>, founder and senior technical lead. Last reviewed August 3, 2026.</p>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Service boundary</a><a href="#scope">Operating scope</a><a href="#observability">Observability</a><a href="#incidents">Incident response</a><a href="#onboarding">Onboarding</a></nav>
+
+        <p>The OpenAI Agents SDK provides primitives for agents, model calls, tools, MCP, handoffs, guardrails, sessions, tracing, streaming, and human approval. It reduces application code around the agent loop. It does not host or operate the complete service you build. Your runtime, deployment, local tools, session store, queues, identity, external systems, approval experience, telemetry integrations, fallback, and business outcome still need accountable owners.</p>
+        <p>Datrick provides an ongoing operating layer for an agreed OpenAI agent estate. Named engineers correlate traces with application, session, model, tool, MCP, handoff, approval, dependency, user, and business evidence; diagnose and contain incidents; evaluate behavior; control changes; and maintain runbooks and service reporting. OpenAI support remains part of the escalation path for platform defects. Datrick owns the client-specific diagnosis, validation, communication, and prevention defined in the support boundary.</p>
+
+        <section class="readiness-actions"><p><strong>Can your team see traces but still lacks an owner for the runtime, session store, failed tool, stale approval, or wrong business outcome?</strong> Start with one production workflow.</p><div class="readiness-action-links"><a class="button primary" data-cta-name="openai_agentops_intro_to_inquiry" data-funnel-stage="content_to_inquiry" data-next-stage="written_scoping" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=openai_agents_sdk_agentops&amp;utm_medium=organic_content&amp;utm_campaign=openai_agent_production_support&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" data-cta-name="openai_agentops_to_msp_offer" data-funnel-stage="content_to_commercial" data-next-stage="service_landing" href="white-label-ai-agent-operations-managed-support-for-msps">Review the MSP model</a></div></section>
+
+        <h2 id="boundary">Define responsibility across OpenAI, the SDK, your runtime, and business systems</h2>
+        <p>A production workflow can span an API or channel, application runtime, OpenAI model and hosted tools, SDK runner, agents and handoffs, local or hosted MCP servers, function tools, session and memory storage, queues, databases, identities, approval UI, trace exporters, and downstream systems. Name which components the managed service owns, observes, changes, coordinates, or excludes. Do not let “OpenAI agent” conceal the parts running in your cloud or process.</p>
+        <p>Document supported applications, SDK language and version, models, workflows, agents, sessions, stores, tools, MCP servers, environments, business hours, severity, response and update targets, telemetry, data handling, change authority, vendor escalation, and fallback. Distinguish platform availability from application availability, trace completion from task completion, technical restoration from business correction, and model output from an approved action.</p>
+
+        <h2 id="scope">Operate the complete OpenAI Agents SDK production surface</h2>
+        <div class="article-table-wrap" role="region" aria-label="OpenAI Agents SDK production support scope" tabindex="0"><table class="article-table"><caption class="sr-only">OpenAI Agents SDK production support scope</caption>
+          <thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead>
+          <tbody>
+            <tr><td>Runtime and runs</td><td>Application health, request lifecycle, queues, streaming, timeout, retry, concurrency, exception, dependency, and degraded fallback.</td><td>Hosting owner, regions, environments, SLO, hours, capacity, deployment, vendor dependency, and restoration authority.</td></tr>
+            <tr><td>Traces and quality</td><td>Trace completeness, model generations, agent and custom spans, evaluation, transcript review, task success, safety, and regression.</td><td>Use cases, sensitive-data policy, ground truth, metrics, thresholds, sampling, reviewer, retention, and acceptable risk.</td></tr>
+            <tr><td>Sessions and memory</td><td>Conversation continuity, session store, retrieval and merge behavior, compaction, correction, isolation, stale state, persistence, and deletion.</td><td>Session implementation, ownership, encryption, retention, sharing, concurrency, backup, recovery, and user-data rights.</td></tr>
+            <tr><td>Tools, MCP, and actions</td><td>Selection, schema, discovery, connectivity, authentication, authorization, timeout, error, approval, side effect, idempotency, and rollback.</td><td>Hosted versus local execution, allowed tools, least privilege, action owner, approval, monetary or data impact, and disable path.</td></tr>
+            <tr><td>Handoffs, agents, and guardrails</td><td>Routing, context transfer, loops, tool-agent calls, input and output checks, tripwires, false positives, bypass, and escalation.</td><td>Agent ownership, routing policy, maximum turns, guardrail coverage, enforcement point, fallback, and business acceptance.</td></tr>
+            <tr><td>Identity, security, and approvals</td><td>User attribution, API keys, OAuth, secrets, traces and logs, approval state, approver identity, denial, expiry, and audit evidence.</td><td>Security authority, ZDR implications, data classes, credential rotation, segregation, incident route, and retention.</td></tr>
+            <tr><td>Release, usage, and cost</td><td>SDK, model, prompt, agent, handoff, guardrail, tool, MCP, store, code, infrastructure, token, trace, and external cost changes.</td><td>Source of truth, test and approval gates, canary, rollback, budget owner, attribution, anomaly threshold, and optimization authority.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="observability">Treat SDK tracing as one evidence source, not the whole monitor</h2>
+        <p>The Agents SDK traces runner activity, agent spans, model generations, function tools, guardrails, handoffs, and custom events. Set meaningful workflow names, trace IDs, group IDs, and metadata so an operator can correlate a user or job across runs. Export traces to approved destinations when needed. Then connect them to application logs, request and session IDs, queue messages, tool service telemetry, target-system audits, model and API usage, deployment records, and user outcomes.</p>
+        <p>Tracing has a material data boundary. OpenAI documents that generation and function spans can store model and tool inputs and outputs and that sensitive-data inclusion is enabled by default in the SDK. Classify the content before production, keep secrets out of prompts and tool arguments, restrict trace access, control exporters and debug logs, and set retention. Organizations using OpenAI APIs under Zero Data Retention cannot use tracing, so they need an alternative observability design that satisfies both diagnosis and policy.</p>
+        <p>Monitor what a successful trace cannot prove: whether the application returned the response, the session store committed state, an approval reached the right person, a tool changed the intended record exactly once, a handoff selected the right specialist, and the business task was accepted. Add synthetic runs, representative evaluations, target-state reconciliation, approval aging, trace-export health, and anomaly alerts for latency, tokens, retries, loops, and missing spans.</p>
+
+        <h2 id="incidents">Reconcile traces, sessions, approvals, tools, and target state before replay</h2>
+        <div class="article-table-wrap" role="region" aria-label="OpenAI Agents SDK production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">OpenAI Agents SDK production incident matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead>
+          <tbody>
+            <tr><td>Run fails, times out, or streams partial output</td><td>Application request, trace and spans, model error, stream state, SDK and runtime, network, rate limit, retry policy, tools, queue, and target state.</td><td>Stop unsafe replay, preserve partial output and IDs, use fallback, reduce traffic, or retry only when replay is proven safe.</td><td>Timeout budgets, explicit retry policy, idempotency, stream recovery, capacity test, synthetic run, and failure runbook.</td></tr>
+            <tr><td>Wrong agent, handoff, or loop</td><td>Routing inputs, agent instructions and descriptions, handoff and tool spans, context transfer, turn count, output type, guardrails, and expected route.</td><td>Disable route, cap turns, use one agent, require review, or restore the accepted routing configuration.</td><td>Routing test set, structural coverage, loop budget, typed outputs, trace assertion, release gate, and sampled review.</td></tr>
+            <tr><td>Tool or MCP action fails or changes wrong state</td><td>Effective tool list, schema, arguments, identity, approval, result, timeout, retry, MCP connectivity, target audit, duplicate action, and rollback state.</td><td>Disable tool, revoke credential, block replay, isolate affected records, invoke manual runbook, or compensate safely.</td><td>Contract and negative tests, least privilege, approval, idempotency key, target reconciliation, circuit breaker, and rollback.</td></tr>
+            <tr><td>Approval is missing, stale, or applied to the wrong action</td><td>RunState, interruptions, session, serialized task version, requested action, approver, decision, expiry, resumed run, tool call, and target state.</td><td>Expire or reject pending action, stop resume, require re-approval, and verify no side effect occurred.</td><td>Version pending tasks, bind approval to immutable action details, enforce expiry and approver policy, and audit resume behavior.</td></tr>
+            <tr><td>Session returns stale, leaked, or inconsistent context</td><td>Session ID, store type, history, merge and compaction, user and tenant mapping, concurrent runs, corrections, retention, and previous response linkage.</td><td>Quarantine session, start clean context, disable shared access, preserve evidence, and correct downstream output.</td><td>Tenant-safe naming, isolation tests, locking, history limits, encrypted storage, lifecycle policy, and recovery tests.</td></tr>
+            <tr><td>Token, latency, or external-cost spike</td><td>Trace and usage, model, prompt and history, handoffs, tool search, MCP, loops, retries, compaction, output size, concurrency, and workload mix.</td><td>Cap turns and tools, interrupt runaway work, pause traffic, use fallback, reduce context, or disable noncritical paths.</td><td>Per-task budgets, usage attribution, anomaly alerts, load and cost tests, model routing, cache or compaction policy, and unit economics.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Retries require special care. OpenAI documents that the SDK does not retry general model requests unless a retry policy is configured, and that aborts, unsafe replays, partially streamed output, and stateful follow-ups need conservative handling. A production policy should classify errors, honor provider guidance and retry-after signals, cap attempts and delays, preserve correlation, and verify that tool or downstream side effects did not already occur.</p>
+
+        <h2>Control human approval as a durable production workflow</h2>
+        <p>The SDK can pause a run when a tool requires approval and resume from serialized <code>RunState</code>. Production design must persist that state safely, show the exact proposed action and context to an authorized reviewer, bind the decision to an immutable action version, expire stale approvals, preserve denial reasons, and reconcile the target state after resume. Long approval delays can cross application deployments, model changes, credential rotations, and policy updates; version pending tasks so yesterday's approval cannot silently authorize today's different action.</p>
+        <p>Guardrails are not a substitute for tool authorization or deterministic policy. Test where input and output guardrails execute, which nested agents or handoffs they cover, what happens after a tripwire, and whether streamed or realtime output can reach a user before enforcement. Measure false positives and false negatives against business cases, and route consequential uncertainty to review.</p>
+
+        <h2 id="onboarding">Onboard through architecture, evidence, controlled failures, and shadow operations</h2>
+        <ol>
+          <li><strong>Inventory:</strong> applications, runtimes, SDKs, models, agents, handoffs, guardrails, sessions, stores, tools, MCP, identities, approvals, traces, queues, and outcomes.</li>
+          <li><strong>Responsibility:</strong> define supported workflows, SLOs, severity, access, change authority, data handling, ZDR constraints, vendor escalation, dependencies, and exclusions.</li>
+          <li><strong>Baseline:</strong> measure run and task success, trace completeness, quality, review edits, latency, tokens, tool and handoff behavior, approval aging, incidents, and cost.</li>
+          <li><strong>Controls:</strong> validate sensitive trace settings, logging, session isolation, permissions, approval binding, retries, idempotency, evaluation gates, rollback, and fallback.</li>
+          <li><strong>Exercise:</strong> rehearse a model timeout, partial stream, failed MCP connection, duplicate tool attempt, stale approval, wrong handoff, session leak, cost spike, and platform outage.</li>
+          <li><strong>Transition:</strong> operate in shadow, close or accept material gaps, publish runbooks and escalation routes, and accept the steady-state support scope.</li>
+        </ol>
+
+        <section class="readiness-actions"><p><strong>Start with the workflow that already creates operational consequences.</strong> Datrick can assess the OpenAI Agents SDK architecture, define the support boundary, close the most material control gaps, and transition it into managed operations.</p><a class="button primary" data-cta-name="openai_agentops_end_to_inquiry" data-funnel-stage="content_to_inquiry" data-next-stage="written_scoping" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=openai_agents_sdk_agentops&amp;utm_medium=organic_content&amp;utm_campaign=openai_agent_production_support&amp;utm_content=article_end#inquiry-form">Request an OpenAI AgentOps review</a></section>
+
+        <h2>Official references and adjacent operating guides</h2>
+        <ul>
+          <li><a href="https://openai.github.io/openai-agents-python/tracing/">OpenAI Agents SDK tracing and sensitive-data controls</a></li>
+          <li><a href="https://openai.github.io/openai-agents-python/sessions/">Sessions, memory, persistence, and operational patterns</a></li>
+          <li><a href="https://openai.github.io/openai-agents-python/human_in_the_loop/">Human-in-the-loop approvals and resumable runs</a></li>
+          <li><a href="https://openai.github.io/openai-agents-python/tools/">Hosted, local, function, MCP, and agent tools</a></li>
+          <li><a href="https://openai.github.io/openai-agents-python/models/">Model errors and retry policies</a></li>
+          <li><a href="resource-production-ai-workflow.html">How to build a production-ready AI workflow</a></li>
+          <li><a href="managed-human-evaluation-ai-agents">Managed human evaluation for AI agents</a></li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is OpenAI Agents SDK production support?</summary><p>OpenAI Agents SDK production support is an operating service for applications built with the SDK. It can cover runtime and dependency monitoring, traces, sessions and memory, model calls, tools and MCP, handoffs, guardrails, human approvals, incidents, releases, security, usage, cost, and runbooks. OpenAI platform support remains the escalation path for platform defects.</p></details>
+          <details><summary>How do you monitor an OpenAI Agents SDK workflow?</summary><p>Correlate application requests with workflow, trace, group, session, model, agent, handoff, guardrail, tool, MCP, approval, token, latency, error, and downstream outcome evidence. Built-in tracing records agent runs, model generations, tool calls, handoffs, guardrails, and custom spans, but application health, session storage, external tools, queues, business outcomes, and trace completeness also need monitoring.</p></details>
+          <details><summary>Does the OpenAI Agents SDK host and operate my agent application?</summary><p>No. The SDK is an application framework. Some model and hosted-tool execution can occur on OpenAI services, while your team still operates the application runtime, deployment, configuration, session and memory choice, local tools, external services, identities, approvals, observability integrations, recovery, and business process around the workflow.</p></details>
+          <details><summary>How do you protect sensitive data in OpenAI agent traces?</summary><p>Classify trace content, restrict dashboard and exporter access, avoid secrets in prompts and tool arguments, minimize or redact sensitive inputs and outputs, configure whether traces include sensitive data, control debug logging, and define retention and deletion. OpenAI documents that sensitive trace capture is enabled by default in the Agents SDK and that tracing is unavailable for organizations operating under Zero Data Retention.</p></details>
+          <details><summary>How long does OpenAI AgentOps onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for one representative agent workflow or small portfolio. It includes architecture and dependency inventory, ownership, telemetry and quality baselines, session and tool review, security, incident and release runbooks, controlled failure exercises, a shadow period, and acceptance of the steady-state scope.</p></details>
+        </div>
+
+        <div class="article-next"><p>Need the same support model across several agent platforms?</p><a href="white-label-ai-agent-operations-managed-support-for-msps">Review white-label AI agent managed support for MSPs</a></div>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

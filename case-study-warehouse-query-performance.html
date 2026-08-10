@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Warehouse Query Performance Case Study | Datrick</title>
+    <meta name="description" content="An anonymized data warehouse optimization case study: 68% faster analytical queries and 85% lower scan volume after query, model, and refresh ownership improvements.">
+    <link rel="canonical" href="https://datrick.com/case-study-warehouse-query-performance">
+    <meta property="og:title" content="Data Warehouse Query Performance Case Study | Datrick">
+    <meta property="og:description" content="How a reporting warehouse achieved 68% faster queries and 85% lower scan volume through focused performance and ownership improvements.">
+    <meta property="og:url" content="https://datrick.com/case-study-warehouse-query-performance">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "headline": "Data Warehouse Query Performance: 68% Faster Queries and 85% Lower Scan Volume",
+            "description": "An anonymized data warehouse optimization case study covering verified query performance and scan-volume improvements.",
+            "url": "https://datrick.com/case-study-warehouse-query-performance",
+            "datePublished": "2026-07-27",
+            "dateModified": "2026-07-27",
+            "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"},
+            "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://datrick.com/"},
+              {"@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://datrick.com/case-studies.html"},
+              {"@type": "ListItem", "position": 3, "name": "Warehouse Query Performance", "item": "https://datrick.com/case-study-warehouse-query-performance"}
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What was measured in this warehouse optimization case?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Datrick verified the change in analytical query time and data scan volume. Query time fell by 68% and scan volume fell by 85% after the focused optimization work."}
+              },
+              {
+                "@type": "Question",
+                "name": "What did the warehouse optimization cover?",
+                "acceptedAnswer": {"@type": "Answer", "text": "The scope covered query patterns, data models, scan behavior, refresh ownership, and documentation for the reporting layer."}
+              },
+              {
+                "@type": "Question",
+                "name": "Does Datrick guarantee the same performance improvement?",
+                "acceptedAnswer": {"@type": "Answer", "text": "No. The published figures are verified results from this environment, not a guarantee for another system. The responsible target depends on workload, architecture, data volume, constraints, and the available baseline."}
+              },
+              {
+                "@type": "Question",
+                "name": "Why is the client and platform information private?",
+                "acceptedAnswer": {"@type": "Answer", "text": "The client, platform configuration, baseline dates, and commercial terms remain private. Datrick publishes only the environment category, verified scope, approach, and measured outcome it can substantiate."}
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-proof">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html?buyer_type=CTO+%2F+technical+leader&amp;service=Data+platform+or+BI+work&amp;engagement_type=Fixed-scope+project+or+pilot&amp;utm_source=warehouse_case&amp;utm_medium=website&amp;utm_campaign=performance_scoping&amp;utm_content=header#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Measured data outcome</p>
+          <h1>68% faster warehouse queries with 85% lower scan volume.</h1>
+          <p class="page-lede">A focused review of query patterns, models, scan behavior, and refresh ownership created a faster, more explainable reporting foundation.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="index.html?buyer_type=CTO+%2F+technical+leader&amp;service=Data+platform+or+BI+work&amp;engagement_type=Fixed-scope+project+or+pilot&amp;expected_investment=Focused+assessment+or+pilot&amp;utm_source=warehouse_case&amp;utm_medium=website&amp;utm_campaign=performance_scoping&amp;utm_content=article_hero#contact">Describe the performance problem</a>
+            <a class="button secondary" href="data-operations.html">Review data operations</a>
+          </div>
+          <div class="article-meta"><a href="case-studies.html">Case studies</a><span>Verified measured outcome</span><span>4 min read</span></div>
+          <p class="article-review">Verified and reviewed by <a href="about.html">Can Goktug Ozdem</a>, founder and senior technical lead. Last reviewed July 27, 2026.</p>
+        </div>
+      </section>
+
+      <section class="section service-band">
+        <article class="article-body">
+          <div class="case-summary">
+            <span class="service-tag">Evidence boundary</span>
+            <p class="evidence-note"><strong>What Datrick can verify</strong>Analytical query time fell by 68% and data scan volume fell by 85% after focused warehouse optimization work.</p>
+            <dl class="outcome-metrics" aria-label="Verified warehouse optimization outcomes">
+              <div><dt>68%</dt><dd>faster analytical queries</dd></div>
+              <div><dt>85%</dt><dd>lower scan volume</dd></div>
+            </dl>
+            <dl class="case-facts">
+              <div><dt>Environment</dt><dd>Reporting warehouse</dd></div>
+              <div><dt>Scope</dt><dd>Queries, models, scan behavior, refresh ownership</dd></div>
+              <div><dt>Evidence type</dt><dd>Verified before-and-after measurements</dd></div>
+              <div><dt>Private details</dt><dd>Client, platform configuration, baseline dates, and commercial terms</dd></div>
+            </dl>
+          </div>
+
+          <h2>The operating problem</h2>
+          <p>Analytical queries and dashboard workloads were slow, difficult to explain, and expensive to operate. Stakeholders depended on reporting that was slow to refresh and hard to diagnose when latency or scan behavior changed.</p>
+          <p>The immediate requirement was not a broad platform replacement. It was to identify where the reporting workload was spending time and scanning data, then make the smallest changes that could improve performance and ownership.</p>
+
+          <h2>The focused scope</h2>
+          <p>Datrick reviewed the parts of the reporting path that directly influenced query behavior: query patterns, data models, scan volume, and refresh ownership. The work also included documentation so the improved behavior could be understood and maintained after the engagement.</p>
+          <div class="article-table-wrap" role="region" aria-label="Warehouse optimization review areas" tabindex="0">
+            <table class="article-table">
+              <caption class="sr-only">Warehouse optimization review areas</caption>
+              <thead><tr><th scope="col">Review area</th><th scope="col">Decision supported</th></tr></thead>
+              <tbody>
+                <tr><td>Query patterns</td><td>Where processing time and unnecessary work entered the reporting path.</td></tr>
+                <tr><td>Data models</td><td>Which modeling choices increased complexity or scan behavior.</td></tr>
+                <tr><td>Scan behavior</td><td>How much data the workload read and where volume could be reduced.</td></tr>
+                <tr><td>Refresh ownership</td><td>Who owned recurring execution, diagnosis, and continuity.</td></tr>
+                <tr><td>Documentation</td><td>How the resulting reporting foundation would remain understandable.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>The measured result</h2>
+          <p>After the focused optimization work, analytical queries ran 68% faster and scan volume was 85% lower. The result created a faster and more maintainable reporting foundation while reducing the amount of data processed by the workload.</p>
+          <p>These figures describe this environment only. They are not a guarantee for another warehouse. A responsible target depends on the existing workload, architecture, data volume, model design, refresh pattern, platform constraints, and the quality of the available baseline.</p>
+
+          <h2>When this engagement pattern fits</h2>
+          <p>A focused warehouse performance engagement is relevant when reporting latency or processing cost has become visible but the organization does not yet have a defensible diagnosis. Typical signals include:</p>
+          <ul>
+            <li>queries or dashboards have become progressively slower;</li>
+            <li>scan volume or processing cost changes without a clear explanation;</li>
+            <li>models have accumulated complexity and unclear ownership;</li>
+            <li>refresh failures or delays are difficult to diagnose; or</li>
+            <li>the team needs an evidence-based optimization scope before considering broader platform change.</li>
+          </ul>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-list">
+            <details><summary>What was measured in this warehouse optimization case?</summary><p>Datrick verified the change in analytical query time and data scan volume. Query time fell by 68% and scan volume fell by 85% after the focused optimization work.</p></details>
+            <details><summary>What did the warehouse optimization cover?</summary><p>The scope covered query patterns, data models, scan behavior, refresh ownership, and documentation for the reporting layer.</p></details>
+            <details><summary>Does Datrick guarantee the same performance improvement?</summary><p>No. The published figures are verified results from this environment, not a guarantee for another system. The responsible target depends on workload, architecture, data volume, constraints, and the available baseline.</p></details>
+            <details><summary>Why is the client and platform information private?</summary><p>The client, platform configuration, baseline dates, and commercial terms remain private. Datrick publishes only the environment category, verified scope, approach, and measured outcome it can substantiate.</p></details>
+          </div>
+
+          <section class="readiness-actions">
+            <p><strong>Start with the workload evidence.</strong> Describe the slow queries or dashboards, the available baseline, what has already been tried, and the operating impact. A senior lead will recommend the smallest useful review or implementation scope.</p>
+            <a class="button primary" href="index.html?buyer_type=CTO+%2F+technical+leader&amp;service=Data+platform+or+BI+work&amp;engagement_type=Assessment+%2F+healthcheck&amp;expected_investment=Focused+assessment+or+pilot&amp;utm_source=warehouse_case&amp;utm_medium=website&amp;utm_campaign=performance_scoping&amp;utm_content=article_end#contact">Describe the workload</a>
+          </section>
+          <nav class="article-next" aria-label="Case study next steps">
+            <a href="case-studies.html"><span>More evidence</span><strong>Review Datrick case studies</strong></a>
+            <a href="data-operations.html"><span>Data operations</span><strong>Review the delivery scope</strong></a>
+          </nav>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

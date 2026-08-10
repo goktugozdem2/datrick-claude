@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Claude Managed Agents Production Support and AgentOps | Datrick</title>
+    <meta name="description" content="Production support for Claude Managed Agents: session monitoring, MCP and tool failures, sandbox security, incident response, releases, cost, and runbooks.">
+    <link rel="canonical" href="https://datrick.com/claude-managed-agents-production-support-agentops">
+    <meta property="og:title" content="Claude Managed Agents Production Support and AgentOps | Datrick">
+    <meta property="og:description" content="Operate persistent Claude agent sessions with accountable observability, tool and sandbox controls, incident response, release governance, and cost management.">
+    <meta property="og:url" content="https://datrick.com/claude-managed-agents-production-support-agentops">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Service", "name": "Claude Managed Agents Production Support and AgentOps", "description": "Ongoing Claude Managed Agents operations covering session observability, tool and MCP support, sandbox and identity controls, incident response, controlled releases, cost, and service reporting.", "url": "https://datrick.com/claude-managed-agents-production-support-agentops", "provider": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "areaServed": "Global", "audience": {"@type": "BusinessAudience", "audienceType": "Enterprises, managed service providers, and IT service firms operating Claude Managed Agents"}},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What are Claude Managed Agents?", "acceptedAnswer": {"@type": "Answer", "text": "Claude Managed Agents is Anthropic's beta, hosted agent harness and infrastructure for long-running and asynchronous tasks. An agent definition combines a model, system prompt, tools, MCP servers, and skills; sessions run that definition in a cloud or self-hosted environment and exchange persistent events with the calling application."}},
+            {"@type": "Question", "name": "How do you monitor Claude Managed Agents in production?", "acceptedAnswer": {"@type": "Answer", "text": "Monitor session status and errors, span and agent events, tool calls and results, MCP connectivity, token usage, latency, environment and network state, user-reported outcomes, and recent configuration changes. Preserve session IDs and event history, alert on terminated, rescheduling, stalled, costly, or policy-relevant behavior, and test that telemetry itself is complete."}},
+            {"@type": "Question", "name": "What does Claude Managed Agents production support include?", "acceptedAnswer": {"@type": "Answer", "text": "A defined service can include session and event monitoring, incident triage, tool and MCP troubleshooting, vault and credential coordination, sandbox and network review, regression evaluation, agent-version and environment change control, cost analysis, runbooks, reporting, and escalation to Anthropic for platform defects. Coverage depends on architecture, telemetry, access, beta behavior, and the accepted responsibility boundary."}},
+            {"@type": "Question", "name": "How do you secure self-hosted or cloud Claude agent sandboxes?", "acceptedAnswer": {"@type": "Answer", "text": "Apply least privilege to tools, MCP servers, vault credentials, identities, files, packages, and outbound networking; prefer explicit allowed hosts for production cloud environments; separate secrets from reusable agent definitions; test denied actions; retain auditable events; and define containment for credential, data, or tool misuse. Self-hosted environments also require the client to operate the worker infrastructure and its security controls."}},
+            {"@type": "Question", "name": "How long does Claude Managed Agents support onboarding take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused onboarding commonly takes two to four weeks for a representative agent portfolio. It covers inventory, beta and data-retention fit, responsibility, access, environments, sessions, event collection, tools, MCP and credentials, quality and cost baselines, runbooks, controlled failure exercises, and acceptance of the steady-state support scope."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Claude Managed Agents AgentOps</p>
+        <h1>A persistent agent session needs an operator, not just a longer context window.</h1>
+        <p class="page-lede">Operate Claude Managed Agents with accountable session monitoring, MCP and tool support, sandbox and identity controls, incident response, release governance, cost management, and service evidence.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=claude_managed_agents_agentops&amp;utm_medium=organic_content&amp;utm_campaign=claude_agent_production_support&amp;utm_content=hero#inquiry-form">Describe the agent estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Claude AgentOps</span><span>12 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Service boundary</a><a href="#scope">Operating scope</a><a href="#observability">Observability</a><a href="#incidents">Incident response</a><a href="#onboarding">Onboarding</a></nav>
+
+        <p>Claude Managed Agents provides a hosted agent harness, secure execution environments, persistent sessions, built-in tools, MCP connectivity, event streaming, and console tracing for long-running or asynchronous work. Anthropic manages important platform infrastructure. Your organization still owns whether an agent used the right data, had appropriate access, completed the business task, changed external state safely, stayed within cost, and recovered correctly after a failure.</p>
+        <p>Datrick provides an ongoing operating layer for an agreed Claude Managed Agents estate. Named engineers reconcile session, span, agent, tool, status, token, dependency, user, and business evidence; diagnose incidents; control changes; and maintain runbooks and service reporting. Anthropic support remains the escalation path for platform defects. Datrick owns the client-specific diagnosis, containment, validation, communication, and preventive action defined in the service boundary.</p>
+
+        <section class="readiness-actions"><p><strong>Anthropic hosts the agent runtime. Who owns a terminated session, failed MCP credential, unsafe tool call, or silent quality regression?</strong> Start with the agents already touching real work.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=claude_managed_agents_agentops&amp;utm_medium=organic_content&amp;utm_campaign=claude_agent_production_support&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" href="white-label-ai-agent-operations-managed-support-for-msps">Review the MSP model</a></div></section>
+
+        <h2 id="boundary">Treat beta status and data handling as architecture decisions</h2>
+        <p>Anthropic currently documents Claude Managed Agents as beta and requires the versioned <code>managed-agents-2026-04-01</code> beta header for Managed Agents requests. Behaviors can be refined between releases. Limited features such as MCP tunnels and dreaming can have a separate research-preview boundary. Record the enabled features, account access, API and toolset versions, supported regions, fallback path, vendor escalation, release acceptance, and the business workloads allowed to depend on the service.</p>
+        <p>Managed Agents is stateful by design. Anthropic states that sessions can retain conversation history, sandbox state, and outputs server-side and that the feature is not currently eligible for Zero Data Retention or HIPAA BAA coverage. Confirm that fit before placing regulated or sensitive workloads on the platform. Define session, upload, event, credential, and derived-output retention; access; deletion; regional requirements; and the evidence required to prove each control.</p>
+
+        <h2 id="scope">Operate the complete Claude agent production surface</h2>
+        <div class="article-table-wrap" role="region" aria-label="Claude Managed Agents production support scope" tabindex="0"><table class="article-table"><caption class="sr-only">Claude Managed Agents production support scope</caption>
+          <thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead>
+          <tbody>
+            <tr><td>Sessions and events</td><td>Status, queue, stream, interruption, rescheduling, termination, latency, event completeness, history, archive, and deletion.</td><td>Supported agents, session volume, hours, SLO, alert source, retention, and restoration authority.</td></tr>
+            <tr><td>Outcome quality</td><td>Representative evaluation, transcript review, instruction adherence, factual and task accuracy, unsafe behavior, and release regression.</td><td>Use cases, ground truth, metrics, thresholds, reviewers, sample rate, and acceptable residual risk.</td></tr>
+            <tr><td>Tools and MCP</td><td>Selection, permission policy, schema, connection, authentication, vault credential, timeout, result, side effect, retry, and rollback.</td><td>Allowed tools and servers, least privilege, approval, data or monetary impact, idempotency, and emergency disable path.</td></tr>
+            <tr><td>Environments and sandboxes</td><td>Cloud or self-hosted environment, packages, networking, allowed hosts, filesystem behavior, worker health, and environment changes.</td><td>Infrastructure owner, image and package versions, egress, region, isolation, patching, availability, and forensic access.</td></tr>
+            <tr><td>Identity and data</td><td>API access, vaults, OAuth or bearer credentials, user attribution, secrets, sensitive events, retention, deletion, and access review.</td><td>Security authority, ZDR and BAA fit, data classes, residency, credential owner, incident route, and evidence retention.</td></tr>
+            <tr><td>Release and lifecycle</td><td>Versioned agent definitions, model, system prompt, skills, tools, MCP servers, environment, client integration, evaluation, rollout, and rollback.</td><td>Source of truth, environments, approval, compatibility gate, freeze window, fallback, and acceptance evidence.</td></tr>
+            <tr><td>Usage, cost, and value</td><td>Tokens, sessions, duration, tool and external service use, sandbox, storage, evaluation, incidents, and support effort.</td><td>Attribution, budget owner, anomaly threshold, rate limits, unit economics, quality trade-off, and optimization authority.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="observability">Turn the event stream into operational evidence</h2>
+        <p>Managed Agents communication is event-based. Persist and correlate the application request, user identity, agent and environment ID, session ID, agent version, model, system configuration, event sequence, tool and MCP operations, token usage, status transitions, outputs, downstream state, and user outcome. Anthropic exposes session, span, and agent events; a <code>session.error</code> event conveys session errors, while console tracing can show content, timestamps, token usage, and tool execution to authorized Developers and Admins.</p>
+        <p>Monitor the monitor. A closed browser stream is not proof that a session stopped, and a running session is not proof that work is progressing. Detect missing or delayed events, null processing timestamps, stale running sessions, repeated rescheduling, terminated sessions, unusually long tool calls, token spikes, incomplete outputs, and discrepancies between event history and the external system. Preserve evidence before interrupting, redirecting, archiving, deleting, or retrying a session.</p>
+        <p>MCP connectivity needs its own health model. Anthropic documents that session creation does not validate MCP connectivity or credentials; the session can start and emit connection or authentication errors for the affected server. Decide whether an unavailable tool blocks the task, permits degraded operation, triggers credential rotation, or routes work to a person. Validate the exact MCP URL used for vault credential matching, retry behavior, and the target system state before replaying an action.</p>
+
+        <h2 id="incidents">Diagnose the session, configuration, sandbox, tools, and business outcome together</h2>
+        <div class="article-table-wrap" role="region" aria-label="Claude Managed Agents production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Claude Managed Agents production incident matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead>
+          <tbody>
+            <tr><td>Session terminated or repeatedly rescheduling</td><td>Status and error events, event order, agent and environment, model, context, token use, sandbox, tools, external dependencies, rate limits, and recent change.</td><td>Preserve history and files; stop new work; route to a known fallback; retry only after classifying side effects.</td><td>Synthetic session, failure classification, bounded retries, timeout and progress thresholds, capacity tests, and recovery runbook.</td></tr>
+            <tr><td>MCP connection or authentication failure</td><td>Server name and URL, vault ID, credential type and expiry, network, endpoint response, error retry status, tool availability, and task dependency.</td><td>Block affected action, rotate or reauthorize credentials, remove tool, or route to manual execution.</td><td>Credential-expiry alert, connectivity check, exact-URL validation, least privilege, degraded-mode test, and owner.</td></tr>
+            <tr><td>Wrong, incomplete, or unsafe outcome</td><td>User task, event history, model, system prompt, skills, tools, sources, tool results, approvals, output, expected result, and external state.</td><td>Interrupt session, disable affected tool, require review, narrow users, or restore the last accepted agent version.</td><td>Representative regression set, policy tests, transcript sampling, release gate, approval control, and outcome monitoring.</td></tr>
+            <tr><td>Unexpected tool access or side effect</td><td>Effective tool and MCP configuration, permission policy, session-local override, identity, vault, arguments, results, target audit, and config change.</td><td>Interrupt, revoke credential, replace tool set, isolate environment, preserve evidence, and invoke security response.</td><td>Negative tests, full-replacement config review, least privilege, human confirmation, idempotency, and emergency disable.</td></tr>
+            <tr><td>Latency or token-cost spike</td><td>Session duration, event and span timing, model, context, compaction, prompt caching, tool loops, retries, external latency, output size, and workload mix.</td><td>Interrupt runaway work, cap steps or budgets, pause schedule, route to a smaller scope, or reduce concurrency.</td><td>Per-task budget, anomaly alert, model and prompt evaluation, representative load test, caching review, and unit economics.</td></tr>
+            <tr><td>Release or environment regression</td><td>Agent version, session override, model, system, skills, tools, MCP, environment packages and networking, client release, evaluation, and rollback state.</td><td>Stop rollout, pin or restore the accepted configuration, pause schedules, and protect affected users.</td><td>Immutable release record, pinned dependencies, compatibility tests, canary, approval, and rehearsed rollback.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Session overrides and updates deserve explicit review. Anthropic documents that override arrays replace rather than merge with the agent definition, and that session-local tool or MCP updates do not propagate to the underlying agent. Record both the reusable agent version and the effective session configuration. Otherwise two sessions can behave differently while appearing to reference the same agent.</p>
+
+        <h2>Constrain cloud networking and own self-hosted infrastructure explicitly</h2>
+        <p>For production cloud environments, Anthropic recommends limited networking with explicit allowed hosts and least privilege. Decide whether MCP servers and package managers require separate network access. Pin required package versions where reproducibility matters; unpinned packages can resolve to a newer release. Because environments are not versioned, maintain an external change record that identifies the environment configuration used by each accepted release.</p>
+        <p>A self-hosted sandbox changes the responsibility split rather than removing operational work. The client or service provider must operate the worker, container or isolation layer, network and credential controls, patching, capacity, logs, availability, and recovery. Test the boundary between Anthropic's session service and the self-hosted runtime, including disconnects, stale work, event delivery, state synchronization, shutdown, and forensic evidence.</p>
+
+        <h2 id="onboarding">Onboard one representative portfolio before promising a managed service</h2>
+        <ol>
+          <li><strong>Inventory:</strong> agents, versions, models, skills, tools, MCP servers, environments, channels, schedules, vaults, data, owners, users, and business outcomes.</li>
+          <li><strong>Fit decision:</strong> confirm beta tolerance, ZDR and HIPAA BAA implications, data classes, retention, deletion, region, fallback, and vendor escalation.</li>
+          <li><strong>Responsibility:</strong> define severity, response and update targets, access, change authority, platform and application ownership, client dependencies, and exclusions.</li>
+          <li><strong>Baseline:</strong> measure session status, task success, quality, review edits, latency, tokens, tools, external costs, incidents, and event completeness.</li>
+          <li><strong>Controls:</strong> validate permission policies, MCP credentials, network restrictions, package versions, approvals, evaluation gates, runbooks, and rollback.</li>
+          <li><strong>Exercise:</strong> rehearse a terminated session, MCP outage, credential failure, unsafe tool attempt, quality regression, cost spike, and platform fallback.</li>
+          <li><strong>Transition:</strong> run in shadow, accept the steady-state scope, publish escalation routes and service evidence, and prioritize the first improvement backlog.</li>
+        </ol>
+
+        <section class="readiness-actions"><p><strong>Start with evidence, not a broad outsourcing promise.</strong> Datrick can assess the current Claude Managed Agents estate, define the operating boundary, close the most material control gaps, and transition one portfolio into managed support.</p><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=claude_managed_agents_agentops&amp;utm_medium=organic_content&amp;utm_campaign=claude_agent_production_support&amp;utm_content=article_end#inquiry-form">Request an AgentOps scoping review</a></section>
+
+        <h2>Official references and adjacent operating guides</h2>
+        <ul>
+          <li><a href="https://platform.claude.com/docs/en/managed-agents/overview">Claude Managed Agents overview and beta/data-retention boundary</a></li>
+          <li><a href="https://platform.claude.com/docs/en/managed-agents/events-and-streaming">Session event stream and console observability</a></li>
+          <li><a href="https://platform.claude.com/docs/en/managed-agents/mcp-connector">MCP connector, vault credentials, and failure behavior</a></li>
+          <li><a href="https://platform.claude.com/docs/en/managed-agents/environments">Cloud environment networking and lifecycle</a></li>
+          <li><a href="resource-production-ai-workflow.html">How to build a production-ready AI workflow</a></li>
+          <li><a href="managed-human-evaluation-ai-agents">Managed human evaluation for AI agents</a></li>
+          <li><a href="anthropic.html">Datrick Claude implementation services</a></li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What are Claude Managed Agents?</summary><p>Claude Managed Agents is Anthropic's beta, hosted agent harness and infrastructure for long-running and asynchronous tasks. An agent definition combines a model, system prompt, tools, MCP servers, and skills; sessions run that definition in a cloud or self-hosted environment and exchange persistent events with the calling application.</p></details>
+          <details><summary>How do you monitor Claude Managed Agents in production?</summary><p>Monitor session status and errors, span and agent events, tool calls and results, MCP connectivity, token usage, latency, environment and network state, user-reported outcomes, and recent configuration changes. Preserve session IDs and event history, alert on terminated, rescheduling, stalled, costly, or policy-relevant behavior, and test that telemetry itself is complete.</p></details>
+          <details><summary>What does Claude Managed Agents production support include?</summary><p>A defined service can include session and event monitoring, incident triage, tool and MCP troubleshooting, vault and credential coordination, sandbox and network review, regression evaluation, agent-version and environment change control, cost analysis, runbooks, reporting, and escalation to Anthropic for platform defects. Coverage depends on architecture, telemetry, access, beta behavior, and the accepted responsibility boundary.</p></details>
+          <details><summary>How do you secure self-hosted or cloud Claude agent sandboxes?</summary><p>Apply least privilege to tools, MCP servers, vault credentials, identities, files, packages, and outbound networking; prefer explicit allowed hosts for production cloud environments; separate secrets from reusable agent definitions; test denied actions; retain auditable events; and define containment for credential, data, or tool misuse. Self-hosted environments also require the client to operate the worker infrastructure and its security controls.</p></details>
+          <details><summary>How long does Claude Managed Agents support onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for a representative agent portfolio. It covers inventory, beta and data-retention fit, responsibility, access, environments, sessions, event collection, tools, MCP and credentials, quality and cost baselines, runbooks, controlled failure exercises, and acceptance of the steady-state support scope.</p></details>
+        </div>
+
+        <div class="article-next"><p>Need cross-platform ownership under your brand?</p><a href="white-label-ai-agent-operations-managed-support-for-msps">Review white-label AI agent managed support for MSPs</a></div>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

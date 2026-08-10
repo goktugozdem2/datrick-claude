@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Power BI and Fabric Tenant-to-Tenant Migration Services | Datrick</title>
+    <meta name="description" content="Plan and execute Power BI and Microsoft Fabric tenant migrations with inventory, identity mapping, dependency order, backup, validation, cutover, and post-migration operations.">
+    <link rel="canonical" href="https://datrick.com/ai-power-bi-fabric-tenant-to-tenant-migration-automation">
+    <meta property="og:title" content="AI Power BI and Fabric Tenant-to-Tenant Migration Services | Datrick">
+    <meta property="og:description" content="Move Power BI and Fabric content between tenants without confusing artifact transfer with a validated business cutover.">
+    <meta property="og:url" content="https://datrick.com/ai-power-bi-fabric-tenant-to-tenant-migration-automation">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "AI Power BI and Fabric Tenant-to-Tenant Migration Automation", "description": "Plan and execute Power BI and Microsoft Fabric tenant migrations with inventory, identity mapping, dependency order, backup, validation, cutover, and post-migration operations.", "url": "https://datrick.com/ai-power-bi-fabric-tenant-to-tenant-migration-automation", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/ai-power-bi-fabric-tenant-to-tenant-migration-automation"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Can Power BI workspaces be migrated directly between tenants?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft documents no direct workspace migration path between tenants. Target workspaces must be recreated, and each supported artifact needs an appropriate export, definition, backup-and-restore, Git, API, or manual recreation path. Gateways, apps, dashboards, identities, credentials, permissions, links, and unsupported Fabric items require separate handling."}},
+            {"@type": "Question", "name": "What triggers a Power BI tenant-to-tenant migration?", "acceptedAnswer": {"@type": "Answer", "text": "Common triggers include mergers and acquisitions, tenant consolidation, divestitures and spin-offs, corporate reorganization, managed-service transition, and strict regional or data-residency requirements. Before migrating, evaluate whether multi-geo capacity, cross-tenant access, or another architecture can meet the requirement with lower risk."}},
+            {"@type": "Question", "name": "What must be inventoried before a Power BI or Fabric tenant migration?", "acceptedAnswer": {"@type": "Answer", "text": "Inventory workspaces, capacities, reports, semantic models, dataflows, dashboards, apps, paginated reports, Fabric items, sources, gateways, credentials, schedules, identities, licenses, permissions, RLS, labels, tenant settings, lineage, embedded URLs, SharePoint links, Power Apps and Power Automate references, APIs, usage, criticality, and owners."}},
+            {"@type": "Question", "name": "How do you validate a Power BI tenant migration?", "acceptedAnswer": {"@type": "Answer", "text": "Validate artifact counts and definitions, dependencies, source and gateway bindings, credentials, refresh, row counts, key aggregates, DAX results, RLS and permissions, apps, links, embedded scenarios, subscriptions, exports, report interactions, performance, capacity headroom, audit evidence, and business-owner acceptance. Each imported semantic model needs a target-tenant refresh because definitions don't include underlying data."}},
+            {"@type": "Question", "name": "How long does a Power BI tenant migration take?", "acceptedAnswer": {"@type": "Answer", "text": "A discovery and pilot commonly take four to eight weeks. Full duration depends on workspace and item count, Fabric item support, identity readiness, data volume, gateways, shared dependencies, manual recreation, security approvals, business validation, coexistence, cutover windows, and decommissioning. Large or complex tenants are usually migrated in controlled waves."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Power BI and Microsoft Fabric tenant migration</p>
+        <h1>Move reporting between tenants without mistaking artifact transfer for a validated business cutover.</h1>
+        <p class="page-lede">Inventory every dependency, map identities and permissions, select an artifact-specific migration path, rebuild target operations, validate business results, and cut over in controlled waves.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Data%20platform%20or%20BI%20work&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=ai_power_bi_tenant_migration&amp;utm_medium=organic_content&amp;utm_campaign=power_bi_tenant_migration_scoping&amp;utm_content=hero#inquiry-form">Describe the migration</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Cross-tenant migration</span><span>13 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#decision">Migration decision</a><a href="#contract">Inventory contract</a><a href="#paths">Artifact paths</a><a href="#architecture">Migration control</a><a href="#pilot">Pilot and waves</a></nav>
+
+        <p>Power BI tenant migrations are not conventional lift-and-shift projects. Workspaces cannot be moved directly between tenants, user and group object IDs change, gateways must be reconfigured, credentials must be re-established, apps and dashboards can require recreation, and Fabric item support varies. Definitions can move without data, and a report can open while pointing to the wrong source or missing a downstream consumer.</p>
+        <p>Microsoft states that tenant migrations carry significant risk and extensive manual effort and does not provide direct support for moving content between tenants. Datrick uses supervised AI to classify inventory, map dependencies, compare source and target evidence, and draft exception and validation records. AI cannot select content for migration, map identities, approve data transfer, create credentials, deploy artifacts, grant access, switch users, or decommission the source without deterministic controls and accountable owners.</p>
+
+        <section class="readiness-actions"><p><strong>Is a merger, divestiture, tenant consolidation, or regional requirement putting Power BI continuity at risk?</strong> Datrick can run discovery, classify migration complexity, and prove the path with one representative workspace.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Data%20platform%20or%20BI%20work&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=ai_power_bi_tenant_migration&amp;utm_medium=organic_content&amp;utm_campaign=power_bi_tenant_migration_scoping&amp;utm_content=article_intro#inquiry-form">Send the tenant scope</a><a class="button secondary" href="resource-migration-support-playbook.html">Use the migration playbook</a></div></section>
+
+        <h2 id="decision">Confirm that full migration is necessary</h2>
+        <p>Classify the scenario first. A side-by-side migration consolidates separate Microsoft 365 tenants, commonly after an acquisition. A tenant split carves selected business content and users into an independent tenant during a divestiture or spin-off. A tenant remap deletes and recreates the Power BI tenant in a different home region while preserving the Microsoft 365 tenant identity. These scenarios have different identity, coexistence, downtime, and recovery requirements.</p>
+        <p>Evaluate alternatives. Multi-geo capacity can satisfy many latency and data-residency needs without relocating the tenant. Cross-tenant or guest access, content sharing, capacity relocation within supported boundaries, or managed coexistence can reduce migration scope. A full remap is justified only when requirements include tenant metadata and Microsoft 365 identity residency that capacity placement cannot satisfy.</p>
+
+        <h2 id="contract">Build an inventory and migration evidence contract</h2>
+        <div class="article-table-wrap" role="region" aria-label="Power BI tenant migration evidence contract" tabindex="0"><table class="article-table"><caption class="sr-only">Power BI tenant migration evidence contract</caption>
+          <thead><tr><th scope="col">Migration layer</th><th scope="col">Required evidence</th><th scope="col">Decision supported</th></tr></thead>
+          <tbody>
+            <tr><td>Tenant and capacity</td><td>Tenant IDs, home and capacity regions, capacities, SKUs, settings, domains, labels, governance, administrators, and target readiness.</td><td>Define boundary, residency, capacity, policy, and platform prerequisites.</td></tr>
+            <tr><td>Workspace and content</td><td>Workspaces, item types, definitions, data, size, owner, environment, app, activity, criticality, supported migration path, and complexity.</td><td>Select migrate, rebuild, consolidate, archive, retire, or defer.</td></tr>
+            <tr><td>Dependencies</td><td>Sources, gateways, credentials, semantic models, reports, dataflows, Fabric items, cross-workspace models, links, APIs, subscriptions, and embedded use.</td><td>Determine safe sequence and reveal dependencies that cross the migration boundary.</td></tr>
+            <tr><td>Identity and access</td><td>Source and target user and group object IDs, licenses, workspace roles, item permissions, RLS, sharing, service principals, contacts, and owners.</td><td>Map least-privilege target access and prevent orphaned content.</td></tr>
+            <tr><td>Validation</td><td>Source refresh, row counts, aggregates, DAX controls, report interactions, performance, capacity, security tests, user scenarios, and acceptance owners.</td><td>Prove technical and business equivalence in the target.</td></tr>
+            <tr><td>Cutover and recovery</td><td>Wave, freeze, delta, coexistence, target release, link changes, communication, rollback, source retention, decommissioning, and evidence.</td><td>Control user transition, service continuity, recovery, and closure.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Use Power BI and Fabric admin APIs, metadata scanning, activity logs, capacity evidence, identity data, and manual documentation for unsupported metadata. Capture tenant settings through an approved method. Inventory My workspaces, external users, service principals, large semantic models, dataflow storage, embedded applications, SharePoint pages, Power Apps, Power Automate, exports, subscriptions, and Excel live connections. Unknown relationships become migration risks.</p>
+
+        <h2 id="paths">Assign an artifact-specific migration path</h2>
+        <div class="article-table-wrap" role="region" aria-label="Power BI and Fabric artifact migration paths" tabindex="0"><table class="article-table"><caption class="sr-only">Power BI and Fabric artifact migration paths</caption>
+          <thead><tr><th scope="col">Artifact</th><th scope="col">Typical migration treatment</th><th scope="col">Critical validation</th></tr></thead>
+          <tbody>
+            <tr><td>Workspaces</td><td>Recreate in target, assign capacity, settings, roles, contacts, domain, tags, and environment pattern.</td><td>Ownership, least privilege, capacity, policy, naming, and target readiness.</td></tr>
+            <tr><td>Gateways and sources</td><td>Install or register target gateways, recreate clusters and sources, map identities, and enter approved credentials.</td><td>Connectivity, HA, region, permissions, refresh, DirectQuery, and failure recovery.</td></tr>
+            <tr><td>Semantic models</td><td>Definition export/import or supported backup and restore; reconnect sources and perform target refresh.</td><td>Schema, partitions, data, measures, RLS, refresh, size, performance, and downstream reports.</td></tr>
+            <tr><td>Reports and paginated reports</td><td>PBIX or definition export/import; RDL for paginated reports; rebind to target semantic models and sources.</td><td>Visuals, filters, bookmarks, RLS, links, exports, performance, and subscriptions.</td></tr>
+            <tr><td>Dataflows</td><td>Export and import supported definitions, then configure storage, connections, credentials, destinations, and schedules.</td><td>Query logic, outputs, lineage, refresh, incremental behavior, and consumers.</td></tr>
+            <tr><td>Fabric items</td><td>Use supported Git or definition paths; recreate unsupported items; migrate or reload data separately.</td><td>Item support, dependencies, data state, connections, execution, security, and capacity.</td></tr>
+            <tr><td>Dashboards and apps</td><td>Plan manual recreation where no direct path exists; rebuild audiences, navigation, tiles, links, and distribution.</td><td>Content binding, permissions, user entry points, subscriptions, and adoption.</td></tr>
+            <tr><td>External references</td><td>Update embedded URLs, SharePoint, Power Apps, Power Automate, APIs, bookmarks, documentation, and service desk records.</td><td>No source-tenant references remain after cutover except approved coexistence.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Recreate upstream foundations before downstream artifacts. Establish capacities, workspaces, identities, gateways, sources, and connections; then data and Fabric foundations, dataflows and semantic models, reports and dashboards, apps and external integrations. Skipping dependency order creates broken references and repeated rework. A Git sync can remove target items not represented in the repository, so use clean, controlled workspaces and explicit scope.</p>
+
+        <h2>Map identities, permissions, and licenses</h2>
+        <p>In cross-tenant migration and tenant splits, source and target users and groups have different object IDs. Build a controlled mapping from each source identity to a target identity or approved disposition. Include workspace roles, item permissions, Build, RLS groups, app audiences, subscriptions, ownership, contacts, external users, service principals, and licenses. Unmapped identities block cutover; silent substitution creates access risk.</p>
+        <p>Target users and groups must exist before permission restoration. Prefer managed groups to recreating thousands of direct grants. Reassess access against the target operating model rather than copying known excess privilege. Preserve the source permission record and target effective-access result for audit.</p>
+
+        <h2 id="architecture">Operate migration as a controlled evidence pipeline</h2>
+        <ol>
+          <li><strong>Discover:</strong> collect tenant, workspace, item, source, identity, permission, activity, capacity, and dependency evidence.</li>
+          <li><strong>Decide:</strong> assign owner, criticality, migration wave, target architecture, artifact path, identity mapping, test scope, and disposition.</li>
+          <li><strong>Prepare:</strong> configure target tenant settings, capacities, domains, workspaces, identities, gateways, connections, secrets, and monitoring.</li>
+          <li><strong>Extract and protect:</strong> export definitions or backups, record checksums and versions, capture source controls, and log unsupported items.</li>
+          <li><strong>Deploy in order:</strong> create upstream foundations, migrate definitions and data, bind dependencies, configure schedules, and restore access.</li>
+          <li><strong>Validate:</strong> compare inventory, data, calculations, security, refresh, reports, integrations, performance, capacity, and business scenarios.</li>
+          <li><strong>Cut over:</strong> freeze or control changes, run delta steps, update links and apps, grant users, communicate, monitor, and retain recovery options.</li>
+          <li><strong>Stabilize and close:</strong> resolve defects, transfer ownership, document operations, remove approved source access, and decommission only after sign-off.</li>
+        </ol>
+
+        <p>Every migration record should contain source and target IDs, artifact version, dependency map, method, status, attempt, error, validation result, owner, approver, and exception. AI can summarize failures and suggest likely shared causes. It must cite the source evidence and leave the migration state machine under deterministic control.</p>
+
+        <h2>Validate business continuity, not only artifact counts</h2>
+        <p>Definitions do not include all operational state or data. Microsoft explicitly notes that imported semantic model definitions require at least one refresh in the target tenant. Validate source and gateway connections, credentials, row and partition counts, key aggregates, DAX controls, data freshness, RLS, report interactions, exports, subscriptions, apps, embedded scenarios, API calls, and external links.</p>
+        <p>Measure performance and capacity under representative concurrency. A migration can be functionally correct and operationally unstable because target capacity is undersized or many validation refreshes run together. Temporarily increasing validation capacity can be appropriate, but size steady state from measured workloads.</p>
+
+        <h2>Design coexistence, freeze, cutover, and rollback</h2>
+        <p>Large migrations use waves. Define whether source and target can coexist, how changes are frozen or synchronized, which tenant is authoritative, how users distinguish environments, and how long source access remains. A side-by-side period reduces immediate cutover risk but creates drift and duplicate-support risk.</p>
+        <p>Rollback depends on the wave and external references. Preserve source artifacts and access until the target passes acceptance. Record which identity, link, app, automation, or data changes are reversible. Do not promise zero downtime without proving every dependency. Communicate last source change, target URL, access instructions, known differences, support path, and decision owner.</p>
+
+        <h2>Measure migration quality and stabilization</h2>
+        <ul>
+          <li><strong>Coverage:</strong> inventoried, assigned, migrated, validated, deferred, retired, unknown, and ownerless artifacts and dependencies.</li>
+          <li><strong>Quality:</strong> definition match, data reconciliation, refresh success, DAX controls, report tests, link validation, and business acceptance.</li>
+          <li><strong>Security:</strong> mapped identities, least privilege, RLS equivalence, external access, orphaned owners, credential handling, and audit evidence.</li>
+          <li><strong>Service:</strong> availability, freshness, performance, capacity headroom, user access, incidents, support volume, and recurrence.</li>
+          <li><strong>Delivery:</strong> wave throughput, manual effort, retry, defect escape, cutover duration, rollback, blocked dependencies, and schedule variance.</li>
+          <li><strong>Control:</strong> unapproved data transfer, missing artifact, wrong source, excessive access, premature source deletion, and unsupported automated action.</li>
+        </ul>
+
+        <h2 id="pilot">Prove the migration with one representative workspace</h2>
+        <ol>
+          <li>Select an actively used but noncritical workspace containing realistic reports, a semantic model, refresh, permissions, RLS, and at least one relevant Fabric or integration dependency.</li>
+          <li>Complete source and target discovery, identity mapping, dependency analysis, classification, backup, and acceptance criteria.</li>
+          <li>Prepare target capacity, workspace, gateway, connections, identities, monitoring, support, and migration evidence store.</li>
+          <li>Execute the artifact-specific migration in dependency order and record every manual and scripted step.</li>
+          <li>Refresh and reconcile data, test security, reports, subscriptions, links, performance, capacity, and business scenarios.</li>
+          <li>Run a controlled user cutover, observe operation, exercise rollback or recovery, and capture support findings.</li>
+          <li>Update the factory pattern, effort model, risk classes, scripts, runbooks, test suite, and wave plan from pilot evidence.</li>
+        </ol>
+        <p>Discovery and a representative pilot commonly take four to eight weeks. Full duration depends on tenant size and complexity, but large programs should not begin with bulk movement. The pilot must expose unsupported items, manual work, identity gaps, validation cost, cutover behavior, and the operating model required after migration.</p>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Can Power BI workspaces be migrated directly between tenants?</summary><p>Microsoft documents no direct workspace migration path between tenants. Target workspaces must be recreated, and each supported artifact needs an appropriate export, definition, backup-and-restore, Git, API, or manual recreation path. Gateways, apps, dashboards, identities, credentials, permissions, links, and unsupported Fabric items require separate handling.</p></details>
+          <details><summary>What triggers a Power BI tenant-to-tenant migration?</summary><p>Common triggers include mergers and acquisitions, tenant consolidation, divestitures and spin-offs, corporate reorganization, managed-service transition, and strict regional or data-residency requirements. Before migrating, evaluate whether multi-geo capacity, cross-tenant access, or another architecture can meet the requirement with lower risk.</p></details>
+          <details><summary>What must be inventoried before a Power BI or Fabric tenant migration?</summary><p>Inventory workspaces, capacities, reports, semantic models, dataflows, dashboards, apps, paginated reports, Fabric items, sources, gateways, credentials, schedules, identities, licenses, permissions, RLS, labels, tenant settings, lineage, embedded URLs, SharePoint links, Power Apps and Power Automate references, APIs, usage, criticality, and owners.</p></details>
+          <details><summary>How do you validate a Power BI tenant migration?</summary><p>Validate artifact counts and definitions, dependencies, source and gateway bindings, credentials, refresh, row counts, key aggregates, DAX results, RLS and permissions, apps, links, embedded scenarios, subscriptions, exports, report interactions, performance, capacity headroom, audit evidence, and business-owner acceptance. Each imported semantic model needs a target-tenant refresh because definitions don't include underlying data.</p></details>
+          <details><summary>How long does a Power BI tenant migration take?</summary><p>A discovery and pilot commonly take four to eight weeks. Full duration depends on workspace and item count, Fabric item support, identity readiness, data volume, gateways, shared dependencies, manual recreation, security approvals, business validation, coexistence, cutover windows, and decommissioning. Large or complex tenants are usually migrated in controlled waves.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/support/tenant-migration-patterns">Microsoft Power BI tenant migration patterns and strategies</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-implementation-planning-workspaces-tenant-level-planning">Microsoft Power BI tenant-level workspace planning</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/enterprise/powerbi/service-premium-backup-restore-dataset">Microsoft Power BI semantic model backup and restore</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/cicd/git-integration/git-get-started">Microsoft Fabric Git integration</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/connect-data/service-datasets-discover-across-workspaces">Microsoft Power BI cross-workspace semantic models</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with discovery and one representative workspace.</strong> Datrick can build the migration factory, execute under your brand, and stabilize target operations after cutover.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Data%20platform%20or%20BI%20work&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=ai_power_bi_tenant_migration&amp;utm_medium=organic_content&amp;utm_campaign=power_bi_tenant_migration_scoping&amp;utm_content=article_end#inquiry-form">Scope a tenant migration pilot</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="ai-power-bi-fabric-cicd-deployment-pipeline-release-governance-automation"><span>Migration factory</span><strong>Build controlled deployment and release paths</strong></a><a href="ai-data-migration-reconciliation-validation-automation"><span>Data assurance</span><strong>Reconcile source and target data</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

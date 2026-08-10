@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Azure Cosmos DB Vector Search Production Support | Datrick</title>
+    <meta name="description" content="Managed Azure Cosmos DB vector search support for DiskANN, quantizedFlat, partitions, tenant isolation, RU/s, 429s, indexing, multi-region recovery, incidents, and cost.">
+    <link rel="canonical" href="https://datrick.com/azure-cosmos-db-vector-search-production-support-managed-services-rag-operations">
+    <meta property="og:title" content="Azure Cosmos DB Vector Search Production Support | Datrick">
+    <meta property="og:description" content="Operate Cosmos DB vector search with accountable recall, partitions, tenant isolation, RU/s, indexing, private access, recovery, releases, and cost.">
+    <meta property="og:url" content="https://datrick.com/azure-cosmos-db-vector-search-production-support-managed-services-rag-operations">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Service", "name": "Azure Cosmos DB Vector Search Production Support and Managed Services", "description": "Ongoing Azure Cosmos DB vector search operations covering source items, vector embedding and indexing policies, flat, quantizedFlat and DiskANN indexes, partition and tenant strategy, recall evaluation, filters, RU per operation, autoscale, 429 throttling, change feed, private endpoints, consistency, multi-region continuity, backups, incidents, releases, cost, runbooks, and reporting.", "url": "https://datrick.com/azure-cosmos-db-vector-search-production-support-managed-services-rag-operations", "provider": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "areaServed": "Global", "audience": {"@type": "BusinessAudience", "audienceType": "Software companies, enterprises, managed service providers, and AI delivery firms operating production Azure Cosmos DB vector search and RAG workloads"}},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is included in Azure Cosmos DB vector search production support?", "acceptedAnswer": {"@type": "Answer", "text": "A defined service can include source items, embeddings, vector and indexing policies, flat, quantizedFlat and DiskANN indexes, partition and tenant strategy, recall evaluation, filters, RU measurement, autoscale and 429 handling, change feed, identities, private endpoints, consistency, multi-region continuity, backups and restore, incidents, releases, cost, runbooks, and reporting."}},
+            {"@type": "Question", "name": "Should Cosmos DB vector search use flat, quantizedFlat, or DiskANN?", "acceptedAnswer": {"@type": "Answer", "text": "Flat performs exact search and fits small vector sets or a recall baseline. quantizedFlat can fit smaller scoped partitions with lower graph overhead. DiskANN is designed for larger production partitions and approximate retrieval. Select through representative partition, filter, recall, latency, ingestion, RU, failure, and cost tests."}},
+            {"@type": "Question", "name": "Can Cosmos DB return 429 errors when autoscale is enabled?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Requests can be throttled when overall consumption exceeds the autoscale maximum or when a hot logical partition exhausts its physical partition budget. Diagnose normalized RU consumption, partition-key distribution, vector query fan-out, retries, end-to-end latency, and sustained throttling before increasing RU/s."}},
+            {"@type": "Question", "name": "How should multitenant Cosmos DB vector search be partitioned?", "acceptedAnswer": {"@type": "Answer", "text": "Tenant partitioning must balance isolation, data size, write distribution, query scope, and RU cost. Partition-key-per-tenant can work for similarly sized tenants, hierarchical partition keys can extend scale and preserve tenant-scoped search, and account-per-tenant provides stronger isolation at higher operational cost. Validate every tenant filter and partition scope."}},
+            {"@type": "Question", "name": "How long does Cosmos DB vector search managed support onboarding take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused onboarding commonly takes two to four weeks for a representative container, vector index, and consuming RAG workflow. It covers partitioning, recall, RU and throttling, tenant access, monitoring, private connectivity, backup and failover controls, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Azure Cosmos VectorOps</p>
+        <h1>Autoscale can be enabled while one hot partition still throttles vector search.</h1>
+        <p class="page-lede">Operate Azure Cosmos DB vector search with accountable partitioning, tenant isolation, DiskANN or quantizedFlat recall, indexing policies, RU/s, 429 handling, private access, multi-region continuity, recovery, and cost.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=cosmos_vector_support&amp;utm_medium=organic_content&amp;utm_campaign=cosmos_vector_rag_operations&amp;utm_content=hero#inquiry-form">Describe the Cosmos estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Azure Cosmos VectorOps</span><span>14 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Service boundary</a><a href="#scope">Operating scope</a><a href="#relevance">Recall and RU design</a><a href="#incidents">Incident response</a><a href="#onboarding">Onboarding</a></nav>
+
+        <p>Azure Cosmos DB can keep operational items and vectors in one container, maintain vector and range indexes through container policies, run exact or approximate vector queries with structured filters, distribute data through logical and physical partitions, autoscale provisioned throughput, replicate across regions, emit Azure Monitor metrics, connect through private endpoints, and protect data with periodic or continuous backup modes. Those controls do not decide who owns a cross-partition vector query whose RU charge grows with fan-out, a tenant key that creates a hot partition, a DiskANN configuration that saves RU while losing recall, an indexing policy that forces a full scan, a retry policy that hides sustained 429s, or a failover whose private DNS route was never tested.</p>
+        <p>Datrick provides an ongoing operating layer for an agreed Cosmos DB vector search estate. Named engineers correlate authoritative sources, items and embeddings, vector and indexing policies, partition and tenant design, flat, quantizedFlat or DiskANN indexes, filters and query parameters, labelled recall, RU per operation, autoscale, 429s and retries, change feed, consistency, identities, private endpoints and DNS, multi-region replication, monitoring, backups, releases, Azure cost, and business outcomes. Microsoft support remains the escalation path for platform defects. Datrick owns the client-specific diagnosis, containment, validation, communication, change, and prevention accepted in the service boundary.</p>
+
+        <section class="readiness-actions"><p><strong>Do you have Cosmos DB vector search in production but no team accountable for turning hot partitions, cross-partition RU cost, 429 throttling, recall loss, tenant-filter defects, private-network failures, or restore uncertainty into a verified outcome?</strong> Start with one representative container, vector index, and consuming search or RAG workflow.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=cosmos_vector_support&amp;utm_medium=organic_content&amp;utm_campaign=cosmos_vector_rag_operations&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" href="ai-workflows.html">Review AI workflow operations</a></div></section>
+
+        <h2 id="boundary">Define ownership from source item to partition, vector index, retrieved evidence, citation, and business answer</h2>
+        <p>A production path can include a source system or change feed; embedding generation; a Cosmos DB account, database and container; item IDs and partition keys; vector embedding and indexing policies; flat, quantizedFlat or DiskANN index; a SQL query using <code>VectorDistance</code>, partition and business filters; an agent or application; answer synthesis and citations; and the target workflow. Name which layers the managed service owns, observes, changes, coordinates, or excludes.</p>
+        <p>Document Azure tenants, subscriptions, resource groups, accounts and regions; APIs, databases, containers and consistency; source IDs, updates and deletes; partition-key hierarchy and tenant model; vector path, data type, dimensions, distance function and index type; query TOP, filters, list multipliers and filter priority; freshness, recall, latency and availability SLOs; provisioned or autoscale RU/s; identities, private endpoints and DNS; backup mode, failover, support hours, severity, change authority, budget, fallback, and Microsoft escalation.</p>
+
+        <h2 id="scope">Operate the complete Azure Cosmos DB vector search production surface</h2>
+        <div class="article-table-wrap" role="region" aria-label="Azure Cosmos DB vector search production support scope" tabindex="0"><table class="article-table"><caption class="sr-only">Azure Cosmos DB vector search production support scope</caption>
+          <thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead>
+          <tbody>
+            <tr><td>Items and ingestion</td><td>Authoritative sources, item and document IDs, partition keys, embeddings, writes, upserts and deletes, change feed, retries, backfill, source-container reconciliation, item size, and indexing charge.</td><td>Source owner, freshness and deletion SLOs, idempotency, embedding authority, change-feed ownership, replay authority, and exception route.</td></tr>
+            <tr><td>Partition and tenant design</td><td>Logical and physical partitions, synthetic or hierarchical partition keys, tenant scope, hot-partition detection, 20 GB logical partition considerations, physical partition splits, write distribution, query fan-out, and account-per-tenant boundaries.</td><td>Tenant isolation, data and workload skew, query patterns, compliance, account or shared-container model, partition migration, and cost.</td></tr>
+            <tr><td>Vector and indexing policies</td><td>Vector embedding path, data type, dimensions and distance; flat, quantizedFlat or DiskANN indexes; range indexes for partition and filter paths; policy source of truth; index transformation, size, readiness, rebuild, and compatibility.</td><td>Index choice by scoped vector count, exact baseline, filter paths, transformation window, RU and storage budget, rollout, and rollback.</td></tr>
+            <tr><td>Retrieval and evaluation</td><td><code>VectorDistance</code>, TOP, exact or indexed search, search-list and quantized candidate multipliers, filter priority, partition and tenant filters, hybrid application logic, recall, latency, RU, drift, and grounded-answer evaluation.</td><td>Labelled cohorts, acceptable recall, filter and tenant negatives, accuracy-RU-latency trade-off, reviewer, and business consequence.</td></tr>
+            <tr><td>Throughput and observability</td><td>Manual, autoscale or dynamic autoscale RU/s, normalized RU consumption, autoscaled and provisioned throughput, RequestCharge, 429s, SDK retries, hot partitions, latency, availability, storage, index size, alerts, logs, and forecast.</td><td>RU owner, acceptable transient throttling, sustained-429 threshold, retry budget, per-partition headroom, scale authority, SLA, and budget.</td></tr>
+            <tr><td>Security and continuity</td><td>Managed identity and data-plane RBAC, keys and secrets, firewall, VNet and private endpoints, private DNS, encryption, multi-region reads and writes, consistency, failover priorities, backup mode, point-in-time restore, RTO, and RPO.</td><td>Least privilege, tenant isolation, public access, consistency decision, write region, private failover path, backup scope, restore acceptance, and incident route.</td></tr>
+            <tr><td>Release and value</td><td>Item contracts, embeddings, partition design, vector and indexing policies, queries, throughput, identities, networking, regions, application versions, tests, rollout, rollback, RU, storage, backup, transfer, model cost, attribution, and forecast.</td><td>Source of truth, environments, change window, approval, compatibility, budget, canary, rollback, and acceptance evidence.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="relevance">Treat recall, partition scope, tenant isolation, RU, throttling, consistency, and recovery as one design</h2>
+        <p>Flat search provides exact results and a useful baseline for smaller vector sets. quantizedFlat can be efficient for smaller scoped partitions, while DiskANN targets larger production partitions with approximate retrieval. Query-time search-list or quantized candidate multipliers can improve recall at higher RU and latency. Maintain labelled queries and exact ground truth across tenants, filters, languages and content age; measure RequestCharge and grounded-answer quality for each accepted configuration.</p>
+        <p>Partition design has outsized influence on write throughput, search fan-out, tenant isolation and cost. A single physical partition has a finite RU/s ceiling, and a hot logical partition can be throttled even when account autoscale is enabled. Cross-partition vector search can multiply query RU by the number of partitions reached. Scope searches by a complete or top-level tenant partition key where possible and validate skew, large tenants, hierarchical keys and account isolation with real workload.</p>
+        <p>Autoscale does not eliminate 429s. Occasional throttling can indicate efficient use when retries and end-to-end latency remain acceptable; sustained 429s can indicate insufficient maximum RU/s, hot partitions, expensive fan-out, retry amplification, or poor query and index design. Diagnose physical-partition normalized consumption, RequestCharge, retry latency and business impact before buying more throughput.</p>
+        <p>Multi-region replication, consistency, backup and private networking are connected. A failover can keep the public service name stable, but private endpoint and DNS scenarios require additional planning. A restored account or container is not accepted until items, vector and range indexes, partition queries, tenant filters, recall, consistency, private routes and application behavior are validated.</p>
+
+        <h2 id="incidents">Distinguish item, partition, index, recall, RU, tenant, network, failover, restore, and cost failures</h2>
+        <div class="article-table-wrap" role="region" aria-label="Azure Cosmos DB vector search production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Azure Cosmos DB vector search production incident matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead>
+          <tbody>
+            <tr><td>Items are missing, stale, duplicated, or not deleted</td><td>Authoritative source, item ID and partition key, write response and RequestCharge, change-feed position, retry history, consistency, target account and container, sampled item and query, index transformation, and application cache.</td><td>Pause consequential automation, stop unsafe replay, isolate affected IDs and partitions, restore accepted ingestion, use source fallback, and disclose freshness or consistency risk.</td><td>Stable-ID and partition contract, item-level ledger, source-container reconciliation, deletion test, change-feed checkpoint control, freshness SLO, sampling, and idempotent retry.</td></tr>
+            <tr><td>DiskANN or quantized retrieval loses expected evidence</td><td>Labelled query and exact results, vector policy and index type, dimensions and distance, partition scope, search-list or quantized multiplier, filter priority and selectivity, embedding version, RU, latency, and release.</td><td>Restore accepted policy and query settings, increase candidate breadth within tested limits, narrow affected cohorts, use exact or lexical fallback where valid, and block high-consequence automation.</td><td>Recall and ranking thresholds, exact-baseline suite, tenant and filter negatives, index-choice gate, query-cohort canary, drift monitoring, RU limit, and rollback.</td></tr>
+            <tr><td>429s, latency, or cost rise despite autoscale</td><td>Normalized RU consumption by physical partition and region, autoscaled and provisioned RU, RequestCharge, 429 count and retry latency, hot partition keys, cross-partition fan-out, vector index state, workload spike, and recent change.</td><td>Protect critical traffic, stop retry amplification, target queries to partitions, throttle nonessential ingestion, raise approved maximum RU/s only with evidence, use fallback, and communicate impact.</td><td>Partition strategy, RU-per-operation baseline, sustained-429 alert, retry budget, dynamic autoscale evaluation, fan-out test, capacity forecast, load shedding, and cost guardrail.</td></tr>
+            <tr><td>Index policy change, partition split, or migration degrades queries</td><td>Current and target vector and range policies, indexing transformation progress, index size, excluded and included paths, partition key hierarchy, physical partitions, query metrics, RU, recall, application version, and recent deployment.</td><td>Stop cutover, preserve prior container or policy path where available, avoid overlapping migrations, protect source items, route critical queries to accepted configuration, and preserve evidence.</td><td>Policy-as-code, representative transformation test, partition migration plan, index readiness gate, blue-green container where required, compatibility tests, and rollback.</td></tr>
+            <tr><td>Tenant filter, identity, private endpoint, or DNS denies or exposes data</td><td>Caller identity and RBAC, account and container, item partition key and query filter, tenant positives and negatives, firewall and VNet, private endpoint and DNS zone, region and failover state, audit logs, credentials, and recent change.</td><td>Revoke unsafe access, stop public fallback, block affected tenant queries, restore accepted identity and private route, use approved break glass, preserve logs, and notify the owner.</td><td>Effective-access matrix, mandatory partition and tenant tests, denied-tenant negatives, least privilege, network-as-code, regional DNS canary, credential rotation, and audit alerts.</td></tr>
+            <tr><td>Failover, consistency, backup, restore, release, or cost control fails</td><td>Regions and failover priority, write status, consistency level and session token, private DNS, backup mode and restore point, restored account or container, item and index coverage, recall tests, RU, storage, backup and model cost, and recent release.</td><td>Stop cutover, preserve current accounts and restore points, fail over through the accepted plan, restore in isolation, validate indexes and queries, cap noncritical consumption, and communicate RTO, RPO, consistency, quality, or budget risk.</td><td>Regional failure exercise, private-DNS failover test, consistency decision record, PITR exercise, Search post-restore checklist, release matrix, cost attribution, alarms, and rollback.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>A retry is not automatically safe. Before replaying writes, resetting change-feed processing, raising RU/s, changing a partition strategy, updating an index policy, altering query candidates, failing over a region, restoring a container, or reopening traffic, determine which item operations succeeded, which partitions and region received them, what consistency the caller observed, whether index transformation and embeddings are current, and whether the application already acted on a result. Reconcile source, item, partition, index, query, identity, application, and business state first.</p>
+
+        <h2>Release item contracts, partitions, embeddings, indexes, queries, throughput, regions, access, and applications together</h2>
+        <p>A production Cosmos DB vector search release includes source item contracts, IDs and partition keys, embeddings, vector and range indexing policies, exact or approximate index selection, query parameters and filters, throughput and retry policy, consistency, regions and failover, identities and private networking, monitoring, backups, application versions, budgets, rollout, and rollback. A valid Azure change can still alter freshness, recall, latency, isolation, consistency, availability, and cost.</p>
+        <p>Before release, ingest a representative corpus; reconcile items, updates and deletes; compare approximate retrieval against exact ground truth; run partition, filter and tenant negatives; benchmark realistic ingestion and query concurrency; inspect RU and 429 behavior per physical partition and region; exercise private endpoint and regional failure; restore a container or account in isolation and validate vector search; canary the application, index, embedding and filter change together; and preserve the prior accepted configuration.</p>
+
+        <h2 id="onboarding">Onboard through inventory, baselines, controlled failures, and shadow operations</h2>
+        <ol>
+          <li><strong>Inventory:</strong> Azure tenants, subscriptions, accounts, regions, APIs, databases, containers, partitions, sources, change feeds, embeddings, policies, queries, identities, networks, throughput, backups, applications, and outcomes.</li>
+          <li><strong>Responsibility:</strong> define supported layers, freshness, recall, latency, consistency and availability SLOs, severity, access, change authority, budget, dependencies, fallback, Microsoft escalation, and exclusions.</li>
+          <li><strong>Baseline:</strong> measure source and item coverage, update and deletion lag, query-cohort recall and latency, partition skew, RequestCharge, RU and 429s, consistency, private access, backup status, Azure cost, and incidents.</li>
+          <li><strong>Controls:</strong> validate IDs, partition keys, change-feed checkpoints, exact recall baselines, tenant filters, index policies, RU and retry budgets, least privilege, alerts, failover, backup and restore, releases, rollback, attribution, and runbooks.</li>
+          <li><strong>Exercise:</strong> rehearse a missing item, hot partition, sustained 429s, recall regression, filter omission, index transformation, tenant denial, private-DNS outage, regional failover, point-in-time restore, credential rotation, and embedding outage.</li>
+          <li><strong>Transition:</strong> operate in shadow, close or accept material gaps, publish runbooks and escalation routes, and accept the steady-state support scope.</li>
+        </ol>
+
+        <section class="readiness-actions"><p><strong>Start with the Cosmos DB container and vector index that already influences customer, financial, operational, compliance, or workforce decisions.</strong> Datrick can define the operating boundary, close material control gaps, and transition one representative search or RAG workload into managed support.</p><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=cosmos_vector_support&amp;utm_medium=organic_content&amp;utm_campaign=cosmos_vector_rag_operations&amp;utm_content=article_end#inquiry-form">Request a Cosmos VectorOps review</a></section>
+
+        <h2>Official references and adjacent operating guides</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/azure/cosmos-db/gen-ai/vector-search-performance-tips">Cosmos DB vector indexing, partitioning, recall, and RU performance guidance</a></li>
+          <li><a href="https://learn.microsoft.com/azure/cosmos-db/multi-tenancy-vector-search">Multitenancy for Azure Cosmos DB vector search</a></li>
+          <li><a href="https://learn.microsoft.com/azure/cosmos-db/index-policy">Azure Cosmos DB indexing policies</a></li>
+          <li><a href="https://learn.microsoft.com/azure/cosmos-db/autoscale-faq">Cosmos DB autoscale and 429 behavior</a></li>
+          <li><a href="https://learn.microsoft.com/azure/cosmos-db/troubleshoot-request-rate-too-large">Troubleshoot Cosmos DB request-rate throttling</a></li>
+          <li><a href="https://learn.microsoft.com/azure/cosmos-db/disaster-recovery-guidance">Azure Cosmos DB disaster recovery guidance</a></li>
+          <li><a href="https://learn.microsoft.com/azure/cosmos-db/periodic-backup-restore-introduction">Periodic backup and restore in Azure Cosmos DB</a></li>
+          <li><a href="google-vertex-ai-vector-search-production-support-managed-services-rag-operations">Google Vertex AI Vector Search production support</a></li>
+          <li><a href="ai-workflows.html">Production AI workflow automation and operations</a></li>
+          <li><a href="white-label-ai-agent-operations-managed-support-for-msps">White-label AI agent managed support for MSPs</a></li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is included in Azure Cosmos DB vector search production support?</summary><p>A defined service can include source items, embeddings, vector and indexing policies, flat, quantizedFlat and DiskANN indexes, partition and tenant strategy, recall evaluation, filters, RU measurement, autoscale and 429 handling, change feed, identities, private endpoints, consistency, multi-region continuity, backups and restore, incidents, releases, cost, runbooks, and reporting.</p></details>
+          <details><summary>Should Cosmos DB vector search use flat, quantizedFlat, or DiskANN?</summary><p>Flat performs exact search and fits small vector sets or a recall baseline. quantizedFlat can fit smaller scoped partitions with lower graph overhead. DiskANN is designed for larger production partitions and approximate retrieval. Select through representative partition, filter, recall, latency, ingestion, RU, failure, and cost tests.</p></details>
+          <details><summary>Can Cosmos DB return 429 errors when autoscale is enabled?</summary><p>Yes. Requests can be throttled when overall consumption exceeds the autoscale maximum or when a hot logical partition exhausts its physical partition budget. Diagnose normalized RU consumption, partition-key distribution, vector query fan-out, retries, end-to-end latency, and sustained throttling before increasing RU/s.</p></details>
+          <details><summary>How should multitenant Cosmos DB vector search be partitioned?</summary><p>Tenant partitioning must balance isolation, data size, write distribution, query scope, and RU cost. Partition-key-per-tenant can work for similarly sized tenants, hierarchical partition keys can extend scale and preserve tenant-scoped search, and account-per-tenant provides stronger isolation at higher operational cost. Validate every tenant filter and partition scope.</p></details>
+          <details><summary>How long does Cosmos DB vector search managed support onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for a representative container, vector index, and consuming RAG workflow. It covers partitioning, recall, RU and throttling, tenant access, monitoring, private connectivity, backup and failover controls, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope.</p></details>
+        </div>
+
+        <div class="article-next"><p>Operating vector retrieval inside an AWS-managed RAG workflow?</p><a href="amazon-bedrock-knowledge-bases-production-support-managed-services-rag-operations">Review the Amazon Bedrock Knowledge Bases production support boundary</a></div>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

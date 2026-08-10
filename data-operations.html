@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Operations, DBA, Migration &amp; BI Support | Datrick</title>
+    <meta name="description" content="Senior data operations delivery for critical environments: DBA/NOC, handover recovery, migration support, BI reliability, analytics, pipelines, and performance.">
+    <link rel="canonical" href="https://datrick.com/data-operations.html">
+    <meta property="og:title" content="Data Operations, DBA, Migration &amp; BI Support | Datrick">
+    <meta property="og:description" content="Restore ownership, operate critical data systems, move platforms safely, and make reporting reliable with senior data operations delivery.">
+    <meta property="og:url" content="https://datrick.com/data-operations.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            "name": "Data Operations Delivery",
+            "url": "https://datrick.com/data-operations.html",
+            "description": "Senior DBA/NOC, database handover recovery, migration support, BI reporting reliability, analytics, data pipeline, and performance delivery for critical environments.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Datrick",
+              "url": "https://datrick.com/"
+            },
+            "areaServed": "Global",
+            "audience": {
+              "@type": "BusinessAudience",
+              "audienceType": "CTOs, technical leaders, IT service firms, and data platform owners"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is included in Datrick data operations support?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Scope can include database operations and NOC coverage, backup and restore coordination, incident support, database handover recovery, migration development and QA, BI reporting reliability, analytics, pipelines, integrations, performance tuning, runbooks, and operational improvement. Final coverage is documented for each engagement."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can Datrick take over an undocumented data environment?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Datrick can begin with an evidence-led handover recovery: inventory systems, map authorized access, identify dependencies, review monitoring and recurring work, classify risk, create runbooks, and establish named ownership. Missing information is recorded as risk rather than guessed."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can we start with one urgent data operations issue?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Many engagements begin with one bounded problem such as an incident, failed handover, migration blocker, slow reporting workload, unreliable dashboard, or missing pipeline owner. Datrick then recommends whether to close the scope, extend the project, or establish ongoing coverage."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does Datrick provide 24/7 database support?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Coverage windows, on-call responsibilities, severity definitions, response expectations, escalation paths, and staffing depend on the engagement. Datrick does not represent every data operations engagement as automatic 24/7 support; the required coverage model must be scoped and confirmed in writing."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How is migration support different from owning the entire migration?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Migration support can cover a defined workstream such as development, QA, reconciliation, performance review, reporting continuity, cutover readiness, rollback evidence, or handover. Full migration ownership adds broader architecture, program governance, stakeholder, dependency, and acceptance responsibilities and must be scoped separately."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What does data operations onboarding require?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Onboarding normally requires named stakeholders, a system and environment inventory, authorized access paths, monitoring context, known incidents, backup and restore expectations, repositories, recurring work, reporting dependencies, active change plans, communication routes, and approval authority. Sensitive credentials should never be sent through the website form."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="data-operations-page commercial-detail-page content-role-data" data-commercial-landing="true" data-commercial-cluster="data_operations" data-content-type="commercial_landing">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero visual-hero">
+        <div>
+          <p class="eyebrow">Senior data operations delivery</p>
+          <h1>Keep critical data work operating while ownership, systems, and priorities change.</h1>
+          <p class="page-lede">Datrick helps CTOs and IT service firms restore technical ownership, operate database environments, support migrations, and make BI and analytics delivery reliable.</p>
+          <div class="hero-actions"><a class="button primary" href="index.html?service=Dedicated+data+operations+program&amp;engagement_type=Ongoing+operations+program&amp;utm_source=data_operations&amp;utm_medium=website&amp;utm_campaign=data_operations_delivery&amp;utm_content=hero&amp;buyer_type=CTO+%2F+technical+leader#contact">Describe the operating gap</a><a class="button secondary" href="emergency-dba-support.html">Get urgent DBA help</a></div>
+        </div>
+        <div class="hero-visual-panel" aria-label="Data operations control loop">
+          <div class="visual-header"><span>Operating control loop</span><span>Evidence before expansion</span></div>
+          <div class="flow-visual">
+            <div class="flow-step"><i>1</i><div><strong>Own</strong><small>Inventory systems, access, dependencies, recurring work, risks, stakeholders, and accountable owners.</small></div><em>Context</em></div>
+            <div class="flow-step"><i>2</i><div><strong>Operate</strong><small>Monitor signals, handle incidents, coordinate backups and restores, and maintain escalation paths.</small></div><em>Continuity</em></div>
+            <div class="flow-step"><i>3</i><div><strong>Change</strong><small>Plan, test, approve, execute, validate, and document migrations and production changes.</small></div><em>Control</em></div>
+            <div class="flow-step"><i>4</i><div><strong>Improve</strong><small>Reduce recurring failure, tune workloads, strengthen reporting, automate repeatable work, and update runbooks.</small></div><em>Progress</em></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section service-band">
+        <div class="section-heading"><p class="eyebrow">What success means</p><h2>Data operations is not a ticket queue. It is accountable continuity across systems and change.</h2></div>
+        <div class="service-detail-grid two-up">
+          <article><span class="service-tag">Ownership</span><h3>The environment can be understood without one indispensable person</h3><p>Systems, access, dependencies, recurring work, reporting commitments, known issues, decision routes, and escalation paths are visible enough for an authorized team to operate and change responsibly.</p></article>
+          <article><span class="service-tag">Reliability</span><h3>Incidents and recurring work have a controlled response</h3><p>Monitoring signals, severity, coverage, backup and restore expectations, on-call boundaries, status communication, evidence capture, and follow-up actions are explicitly assigned.</p></article>
+          <article><span class="service-tag">Change</span><h3>Migrations and releases preserve evidence and rollback options</h3><p>Readiness, data validation, output comparison, performance, reporting continuity, approval, cutover, rollback, and handover are treated as operating responsibilities rather than last-minute checks.</p></article>
+          <article><span class="service-tag">Reporting</span><h3>Business decisions do not depend on unexplained dashboards</h3><p>KPI definitions, source ownership, refresh schedules, access rules, transformation logic, quality checks, performance behavior, and stakeholder outputs are documented and reviewable.</p></article>
+        </div>
+      </section>
+
+      <section class="section architecture" id="entry-routes" data-section-label="Entry routes">
+        <div class="section-heading"><p class="eyebrow">Entry routes</p><h2>Start with the failure mode creating business pressure.</h2></div>
+        <div class="system-diagram" aria-label="Data operations service routes">
+          <div class="diagram-row">
+            <div class="diagram-label">Continuity<span>Operate and recover</span></div>
+            <div class="diagram-cells">
+              <span><strong><a href="emergency-dba-support.html">Emergency DBA</a></strong>Controlled incident intake, production triage, evidence capture, stabilization, and next-step scoping.</span>
+              <span><strong><a href="database-handover-support.html">Handover recovery</a></strong>Inventory, authorized access, dependencies, risks, runbooks, recurring work, and named ownership.</span>
+              <span><strong><a href="database-health-assessment">DBA / NOC program</a></strong>Monitoring, incidents, backup checks, restore coordination, performance review, and escalation cadence.</span>
+              <span><strong>Reliability backlog</strong>Recurring failure analysis, monitoring improvements, runbook updates, automation, and ownership cleanup.</span>
+            </div>
+          </div>
+          <div class="diagram-row">
+            <div class="diagram-label">Delivery<span>Move and report</span></div>
+            <div class="diagram-cells">
+              <span><strong><a href="migration-risk-assessment">Migration support</a></strong>Development, QA, reconciliation, performance review, cutover readiness, rollback evidence, and transition.</span>
+              <span><strong><a href="power-bi-managed-services-support">Power BI managed services</a></strong>KPI logic, dashboard ownership, refresh reliability, stakeholder outputs, access, data quality, incidents, releases, and improvement work.</span>
+              <span><strong>Analytics and pipelines</strong>Models, transformations, integrations, orchestration, quality checks, analysis, and operating handover.</span>
+              <span><strong>Performance</strong>Query patterns, scan behavior, model structure, refresh workloads, capacity drivers, and maintainability.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section evidence-patterns">
+        <div class="section-heading"><p class="eyebrow">Delivery evidence</p><h2>Use measured outcomes where measurement is available, and clear boundaries where it is not.</h2></div>
+        <div class="evidence-pattern-grid">
+          <article><span>Measured warehouse outcome</span><h3>68% faster analytical queries</h3><p>A warehouse optimization engagement reviewed query patterns, model structure, scan behavior, refresh ownership, and reporting-layer maintainability. Measured query time fell by 68%.</p></article>
+          <article><span>Measured efficiency outcome</span><h3>85% lower scan volume</h3><p>The same engagement reduced unnecessary data scanning by 85%, improving both reporting responsiveness and the operating team's ability to explain workload behavior.</p></article>
+          <article><span>Verified partner pattern</span><h3>Reliable delivery expanded into adjacent services</h3><p>An IT operations partner began with urgent database and migration needs. Prompt, documented execution led to additional BI, reporting, analytics, and operations work while the partner retained the client relationship.</p></article>
+          <article><span>Confidentiality boundary</span><h3>Client and contract details remain private</h3><p>The partner's identity, end-client identity, environments, workloads, rates, contract terms, and confidential operational metrics are not published. The operating pattern is shared without inventing public proof.</p></article>
+        </div>
+        <div class="section-actions"><a class="button secondary" href="case-studies.html">Review case studies</a></div>
+      </section>
+
+      <section class="section packages" id="operating-controls" data-section-label="Controls">
+        <div class="section-heading"><p class="eyebrow">Core operating controls</p><h2>Critical environments need explicit boundaries before delivery begins.</h2></div>
+        <div class="service-detail-grid">
+          <article><span class="service-tag">Access</span><h3>Authorized and attributable</h3><p>Named accounts, least privilege, secure credential channels, environment boundaries, approval, expiry, revocation, and emergency procedures are agreed with the authorized owner.</p></article>
+          <article><span class="service-tag">Coverage</span><h3>Defined rather than implied</h3><p>Support windows, severity, response expectations, on-call duties, communication routes, escalation, and exclusions are written into the operating model.</p></article>
+          <article><span class="service-tag">Change</span><h3>Reviewable and reversible</h3><p>Request, approval, implementation, validation, rollback, evidence, and stakeholder communication are assigned before critical changes are executed.</p></article>
+          <article><span class="service-tag">Ownership</span><h3>One decision route per responsibility</h3><p>Systems, jobs, dashboards, runbooks, vendors, incidents, risks, and business outputs have accountable owners and an escalation path.</p></article>
+          <article><span class="service-tag">Evidence</span><h3>Decisions leave an operating record</h3><p>Status notes, assumptions, findings, changes, tests, risks, known issues, runbooks, and acceptance evidence reduce reliance on memory.</p></article>
+          <article><span class="service-tag">Improvement</span><h3>Recurring work becomes a backlog</h3><p>Repeated incidents, slow workflows, manual checks, unclear reports, and missing documentation are prioritized instead of rediscovered indefinitely.</p></article>
+        </div>
+      </section>
+
+      <section class="section process" id="onboarding" data-section-label="Onboarding">
+        <div class="section-heading"><p class="eyebrow">Phase-gated onboarding</p><h2>Build control before expanding responsibility.</h2></div>
+        <ol class="timeline">
+          <li><span>1</span><h3>Qualify</h3><p>Describe the business risk, service area, environment, workload, urgency, stakeholders, current ownership, and what has already been tried.</p></li>
+          <li><span>2</span><h3>Inventory</h3><p>Map systems, environments, authorized access, dependencies, monitoring, repositories, recurring work, reports, vendors, and active changes.</p></li>
+          <li><span>3</span><h3>Classify</h3><p>Separate critical continuity gaps from high, moderate, and planned improvement work using operating consequences and available evidence.</p></li>
+          <li><span>4</span><h3>Agree controls</h3><p>Confirm coverage, priorities, communication, access, approvals, deliverables, acceptance, escalation, documentation, and commercial boundaries.</p></li>
+          <li><span>5</span><h3>Deliver</h3><p>Execute the prioritized scope through a named lead, surface blockers early, preserve evidence, and maintain reviewable status.</p></li>
+          <li><span>6</span><h3>Improve or hand back</h3><p>Continue into an operations program, extend a project, or complete a documented transfer based on demand and observed results.</p></li>
+        </ol>
+      </section>
+
+      <section class="section service-band" id="engagement-shapes" data-section-label="Engagements">
+        <div class="section-heading"><p class="eyebrow">Engagement shapes</p><h2>Choose the smallest model that can own the required outcome.</h2></div>
+        <div class="package-grid">
+          <article><span class="package-label">Urgent</span><h3>Incident or ownership recovery</h3><p>A bounded production issue, failed handover, migration blocker, reporting failure, or immediate operational risk.</p><strong>Typical output</strong><span>Controlled intake, evidence, risk, stabilization actions, ownership map, and recommended next scope.</span></article>
+          <article><span class="package-label">Scoped</span><h3>Project or improvement workstream</h3><p>Migration QA, BI reliability, performance optimization, pipeline delivery, documentation, or another defined outcome.</p><strong>Typical output</strong><span>Plan, deliverables, implementation evidence, validation, risks, runbook updates, and handover.</span></article>
+          <article><span class="package-label">Ongoing</span><h3>Data operations program</h3><p>Recurring database, migration, reporting, analytics, and improvement responsibilities with agreed coverage and cadence.</p><strong>Typical output</strong><span>Named ownership, prioritized backlog, status, incident context, documentation, and senior review.</span></article>
+        </div>
+      </section>
+
+      <section class="section faq-section" id="data-operations-faq" data-section-label="FAQ">
+        <div class="section-heading"><p class="eyebrow">Data operations FAQ</p><h2>Questions to resolve before granting responsibility.</h2></div>
+        <div class="faq-list">
+          <details><summary>What is included in Datrick data operations support?</summary><p>Scope can include database operations and NOC coverage, backup and restore coordination, incident support, database handover recovery, migration development and QA, BI reporting reliability, analytics, pipelines, integrations, performance tuning, runbooks, and operational improvement. Final coverage is documented for each engagement.</p></details>
+          <details><summary>Can Datrick take over an undocumented data environment?</summary><p>Datrick can begin with an evidence-led handover recovery: inventory systems, map authorized access, identify dependencies, review monitoring and recurring work, classify risk, create runbooks, and establish named ownership. Missing information is recorded as risk rather than guessed.</p></details>
+          <details><summary>Can we start with one urgent data operations issue?</summary><p>Yes. Many engagements begin with one bounded problem such as an incident, failed handover, migration blocker, slow reporting workload, unreliable dashboard, or missing pipeline owner. Datrick then recommends whether to close the scope, extend the project, or establish ongoing coverage.</p></details>
+          <details><summary>Does Datrick provide 24/7 database support?</summary><p>Coverage windows, on-call responsibilities, severity definitions, response expectations, escalation paths, and staffing depend on the engagement. Datrick does not represent every data operations engagement as automatic 24/7 support; the required coverage model must be scoped and confirmed in writing.</p></details>
+          <details><summary>How is migration support different from owning the entire migration?</summary><p>Migration support can cover a defined workstream such as development, QA, reconciliation, performance review, reporting continuity, cutover readiness, rollback evidence, or handover. Full migration ownership adds broader architecture, program governance, stakeholder, dependency, and acceptance responsibilities and must be scoped separately.</p></details>
+          <details><summary>What does data operations onboarding require?</summary><p>Onboarding normally requires named stakeholders, a system and environment inventory, authorized access paths, monitoring context, known incidents, backup and restore expectations, repositories, recurring work, reporting dependencies, active change plans, communication routes, and approval authority. Sensitive credentials should never be sent through the website form.</p></details>
+        </div>
+      </section>
+
+      <section class="section packages resource-library-section" id="operations-library" data-section-label="Guides">
+        <div class="section-heading"><p class="eyebrow">Operations library</p><h2>Find the guide that matches the operating risk before written scoping.</h2></div>
+        <div class="resource-list">
+          <article><span>Ownership</span><div><h3>Database operations handover checklist</h3><p>Prepare systems, access, backups, monitoring, recurring work, escalation, risks, and reporting dependencies.</p></div><a href="resource-database-handover.html">Read guide</a></article>
+          <article><span>Migration</span><div><h3>Migration support playbook</h3><p>Prepare QA, validation, reporting continuity, cutover, rollback, stakeholder updates, and operating handover.</p></div><a href="resource-migration-support-playbook.html">Read guide</a></article>
+          <article><span>Integration economics</span><div><h3>ETL and ELT pricing guide</h3><p>Compare row-, connection-, usage-, and infrastructure-based pricing before committing a growing data estate to an integration platform.</p></div><a href="etlelt-pricing-guide">Compare ETL pricing models</a></article>
+          <article><span>BI reporting</span><div><h3>BI reporting reliability checklist</h3><p>Prepare KPI definitions, dashboard ownership, refresh cadence, access, data quality, and stakeholder review.</p></div><a href="resource-bi-reporting-reliability-checklist.html">Read guide</a></article>
+          <article><span>Power BI managed services</span><div><h3>Power BI and Fabric managed support</h3><p>Establish accountable ownership for reporting reliability, gateways, governance, incidents, releases, service reporting, and continuous improvement.</p></div><a href="power-bi-managed-services-support">Review service</a></article>
+          <article><span>AI-assisted DBA operations</span><div><h3>Database performance incident triage</h3><p>Connect waits, locks, queries, plans, platform evidence, and changes into a safe, supervised DBA investigation workflow.</p></div><a href="ai-database-performance-incident-triage-automation">Read guide</a></article>
+          <article><span>AI-assisted data reliability</span><div><h3>Data pipeline failure triage and recovery</h3><p>Use run evidence, lineage, quality, output state, and controlled recovery policies to restore failed data workflows safely.</p></div><a href="ai-data-pipeline-failure-triage-recovery-automation">Read guide</a></article>
+          <article><span>AI-assisted migration assurance</span><div><h3>Data migration reconciliation and validation</h3><p>Build layered source-to-target validation, exception evidence, CDC checks, and an accountable cutover gate.</p></div><a href="ai-data-migration-reconciliation-validation-automation">Read guide</a></article>
+          <article><span>AI-assisted BI reliability</span><div><h3>BI report reconciliation and freshness incidents</h3><p>Detect stale or inconsistent reports with source cutoffs, refresh evidence, KPI controls, impact, and accountable recovery.</p></div><a href="ai-bi-report-reconciliation-data-freshness-incident-automation">Read guide</a></article>
+          <article><span>AI-assisted Power BI operations</span><div><h3>Power BI semantic model refresh and gateway reliability</h3><p>Manage refresh failures, schedules, gateway HA, credentials, capacity overlap, incremental partitions, freshness SLAs, and validated recovery.</p></div><a href="ai-power-bi-semantic-model-refresh-gateway-reliability-automation">Read guide</a></article>
+          <article><span>AI-assisted Fabric capacity</span><div><h3>Microsoft Fabric throttling and cost-performance optimization</h3><p>Connect CU smoothing, throttling, operations, workspaces, items, users, performance, schedules, and Azure cost into an approval-ready capacity decision.</p></div><a href="ai-microsoft-fabric-capacity-throttling-cost-performance-optimization">Read guide</a></article>
+          <article><span>AI-assisted Power BI performance</span><div><h3>Power BI report, DAX, and semantic model optimization</h3><p>Find the measured bottleneck across visuals, DAX, model structure, storage mode, Power Query, sources, gateways, and capacity, then validate correctness and user latency.</p></div><a href="ai-power-bi-report-dax-semantic-model-performance-optimization">Read guide</a></article>
+          <article><span>AI-assisted BI governance</span><div><h3>Power BI and Fabric tenant governance</h3><p>Build a verified inventory, restore ownership, review effective access, classify lifecycle, and operate evidence-backed archive and remediation decisions.</p></div><a href="ai-power-bi-fabric-tenant-governance-workspace-lifecycle-automation">Read guide</a></article>
+          <article><span>AI-assisted BI release engineering</span><div><h3>Power BI and Fabric CI/CD release governance</h3><p>Replace manual publishing with controlled source, environment binding, dependency sequencing, testing, approval, rollback, and post-deployment validation.</p></div><a href="ai-power-bi-fabric-cicd-deployment-pipeline-release-governance-automation">Read guide</a></article>
+          <article><span>AI-assisted tenant migration</span><div><h3>Power BI and Fabric tenant-to-tenant migration</h3><p>Map source and target tenants, artifacts, identities, gateways, dependencies, data, security, links, cutover, validation, and post-migration operations.</p></div><a href="ai-power-bi-fabric-tenant-to-tenant-migration-automation">Read guide</a></article>
+          <article><span>AI-assisted BI security</span><div><h3>Power BI RLS and effective-access security audit</h3><p>Audit workspace roles, Build permission, app audiences, direct grants, external sharing, service principals, RLS, and source access before controlled remediation.</p></div><a href="ai-power-bi-row-level-security-permission-external-sharing-audit">Read guide</a></article>
+          <article><span>White-label managed BI</span><div><h3>Power BI and Fabric L2/L3 managed support</h3><p>Add incident ownership, monitoring, complex escalation, controlled changes, backlog delivery, SLA reporting, and service improvement under your brand.</p></div><a href="white-label-power-bi-fabric-managed-support-services">Read guide</a></article>
+          <article><span>White-label managed AI</span><div><h3>AI agent L2/L3 operations for MSPs</h3><p>Operate client agents under the partner's brand with quality regression, telemetry, retrieval, tool, identity, incident, release, cost, and reporting controls.</p></div><a href="white-label-ai-agent-operations-managed-support-for-msps">Read managed support guide</a></article>
+          <article><span>AI-assisted BI handover</span><div><h3>Power BI developer handover and takeover rescue</h3><p>Restore ownership, reconstruct undocumented dependencies, validate business outputs, stabilize personal credentials, and establish a supportable operating model.</p></div><a href="power-bi-developer-handover-takeover-rescue-support">Read guide</a></article>
+          <article><span>AI-assisted BI migration</span><div><h3>Tableau to Power BI migration assessment and validation</h3><p>Inventory and rationalize the Tableau portfolio, map semantic logic, prove a representative pilot, validate parity, and cut over with controlled adoption.</p></div><a href="ai-tableau-to-power-bi-migration-assessment-validation">Read guide</a></article>
+          <article><span>AI-assisted report migration</span><div><h3>SSRS RDL to Power BI paginated report migration</h3><p>Assess catalog usage and compatibility, migrate supported RDLs, redesign exceptions, rebuild distribution, validate rendering, and retire report-server dependencies.</p></div><a href="ai-ssrs-rdl-power-bi-paginated-report-migration-assessment">Read guide</a></article>
+          <article><span>AI-assisted embedded analytics</span><div><h3>Power BI Embedded multi-tenant SaaS assessment</h3><p>Test service principal profiles, customer mapping, RLS identity, embed tokens, lifecycle automation, capacity SLOs, and cross-customer isolation.</p></div><a href="ai-power-bi-embedded-multitenant-saas-security-capacity-assessment">Read guide</a></article>
+          <article><span>AI-assisted BI governance</span><div><h3>Power BI and Fabric Copilot readiness</h3><p>Prepare governed semantic models, configure AI context, evaluate answers against deterministic controls, and roll out Copilot by use case and risk.</p></div><a href="ai-power-bi-fabric-copilot-readiness-semantic-model-evaluation">Read guide</a></article>
+          <article><span>AI-assisted platform adoption</span><div><h3>Microsoft Fabric readiness and adoption roadmap</h3><p>Choose the first production workload, establish architecture and operating controls, validate capacity economics, and sequence a 90-day implementation plan.</p></div><a href="ai-microsoft-fabric-readiness-assessment-adoption-roadmap">Read guide</a></article>
+          <article><span>AI-assisted platform resilience</span><div><h3>Microsoft Fabric disaster recovery and business continuity</h3><p>Prove item-level protection, reconstruction, recovery sequencing, security, reconciled data, RPO, RTO, and business acceptance with a controlled drill.</p></div><a href="ai-microsoft-fabric-disaster-recovery-business-continuity-assessment">Read guide</a></article>
+          <article><span>Managed Fabric operations</span><div><h3>Microsoft Fabric managed services and support</h3><p>Give production workloads accountable monitoring, incident response, capacity and cost control, reliable change, backlog delivery, and continual improvement.</p></div><a href="microsoft-fabric-managed-services-support-operations">Read service model</a></article>
+          <article><span>AI-assisted platform migration</span><div><h3>Azure Synapse to Microsoft Fabric migration</h3><p>Classify every Synapse workload, test migration-tool coverage, prove a production-shaped pilot, reconcile parity, and execute reversible migration waves.</p></div><a href="ai-azure-synapse-to-microsoft-fabric-migration-assessment">Read guide</a></article>
+          <article><span>AI-assisted enterprise analytics</span><div><h3>Microsoft Fabric Data Agent implementation</h3><p>Ground conversational agents in governed semantic, SQL, and KQL sources; enforce user permissions and prove answer quality with deterministic evaluation.</p></div><a href="microsoft-fabric-data-agent-implementation-evaluation-services">Read guide</a></article>
+          <article><span>AI-assisted business semantics</span><div><h3>Microsoft Fabric IQ Ontology implementation</h3><p>Turn one business domain into governed entities, relationships, source bindings, and measurable ontology grounding for enterprise agents.</p></div><a href="microsoft-fabric-iq-ontology-implementation-assessment">Read guide</a></article>
+          <article><span>AI-assisted real-time operations</span><div><h3>Microsoft Fabric Operations Agent implementation</h3><p>Convert one operational signal into a tested playbook, safe recommendation or action, Teams approval, audit evidence, and measured response improvement.</p></div><a href="microsoft-fabric-operations-agent-implementation-evaluation-services">Read guide</a></article>
+          <article><span>AI-assisted data security</span><div><h3>OneLake security and AI agent access assessment</h3><p>Prove effective access across workspace and OneLake roles, RLS, CLS, SQL identity modes, Spark, Direct Lake, shortcuts, and Data Agents.</p></div><a href="microsoft-fabric-onelake-security-ai-agent-access-assessment">Read guide</a></article>
+          <article><span>AI-assisted governance</span><div><h3>Microsoft Purview governance for Fabric AI agents</h3><p>Validate sensitive grounding data, interaction controls, audit evidence, risk monitoring, retention, eDiscovery, licensing, and incident response.</p></div><a href="microsoft-purview-fabric-ai-agent-governance-assessment">Read guide</a></article>
+          <article><span>AI-assisted FinOps</span><div><h3>Fabric AI agent observability and cost governance</h3><p>Connect Data Agent, Operations Agent, Copilot, generated-query, storage, and action consumption to quality, unit economics, SLOs, and capacity risk.</p></div><a href="microsoft-fabric-ai-agent-observability-cost-governance-assessment">Read guide</a></article>
+          <article><span>AI-assisted release governance</span><div><h3>Fabric Data Agent CI/CD and lifecycle governance</h3><p>Control Git definitions, draft and published stages, source rebinding, dev/test/prod promotion, evaluation gates, drift, and rollback.</p></div><a href="microsoft-fabric-data-agent-cicd-lifecycle-governance-assessment">Read guide</a></article>
+          <article><span>AI-assisted incident response</span><div><h3>Fabric Data Agent production incident and rollback support</h3><p>Contain unreliable answers, isolate routing, query, identity, policy, publishing, integration, and capacity failures, then restore a tested service path.</p></div><a href="microsoft-fabric-data-agent-production-incident-response-rollback-support">Read incident guide</a></article>
+          <article><span>AI-assisted MCP integration</span><div><h3>Fabric Data Agent MCP server implementation</h3><p>Expose governed OneLake knowledge to approved AI clients with tested identity, permissions, data boundaries, tool routing, answer quality, and operating controls.</p></div><a href="microsoft-fabric-data-agent-mcp-server-implementation-security-assessment">Read MCP guide</a></article>
+          <article><span>AI-assisted application integration</span><div><h3>Fabric Data Agent service principal custom application integration</h3><p>Give custom applications and background services governed Fabric answers through a least-privilege service principal, resilient MCP adapter, and production quality controls.</p></div><a href="microsoft-fabric-data-agent-service-principal-custom-application-integration">Read custom app guide</a></article>
+          <article><span>AI-assisted multi-agent architecture</span><div><h3>Fabric Data Agent multi-agent orchestration assessment</h3><p>Partition specialist data domains, route intent, preserve identity, synthesize attributable answers, isolate actions, and recover individual agent routes.</p></div><a href="microsoft-fabric-data-agent-multi-agent-orchestration-architecture-assessment">Read architecture guide</a></article>
+          <article><span>AI-assisted runtime assurance</span><div><h3>Fabric Data Agent standard and preview runtime evaluation</h3><p>Prove Advanced NL2SQL gains, catch query and answer regressions, and control runtime republishing, monitoring, and rollback.</p></div><a href="microsoft-fabric-data-agent-standard-preview-runtime-evaluation-migration-assessment">Read runtime guide</a></article>
+          <article><span>AI-assisted NL2SQL accuracy</span><div><h3>Fabric Data Agent SQL source and NL2SQL assessment</h3><p>Tighten schema scope, join and date rules, categorical values, few-shot examples, generated SQL, deterministic results, security, and regression gates.</p></div><a href="microsoft-fabric-data-agent-nl2sql-accuracy-sql-source-configuration-assessment">Read NL2SQL guide</a></article>
+          <article><span>AI-assisted few-shot governance</span><div><h3>Fabric Data Agent example query retrieval assessment</h3><p>Validate question-query pairs, Clarity, Relatedness, Mapping, schema execution, run-step retrieval, collision risk, generated SQL or KQL, security, and lifecycle.</p></div><a href="microsoft-fabric-data-agent-example-query-few-shot-retrieval-quality-assessment">Read example-query guide</a></article>
+          <article><span>AI-assisted multilingual analytics</span><div><h3>Fabric Data Agent multilingual rollout assessment</h3><p>Define the English-only support boundary and validate any translation layer across terminology, intent, generated queries, values, locale rules, security, disclosure, and rollback.</p></div><a href="microsoft-fabric-data-agent-multilingual-non-english-rollout-assessment">Read multilingual rollout guide</a></article>
+          <article><span>AI-assisted configuration assurance</span><div><h3>Fabric Data Agent instruction conflict assessment</h3><p>Place routing, query, semantic, policy, and response rules in the configuration layer that can use them, then test draft and published behavior.</p></div><a href="microsoft-fabric-data-agent-instruction-precedence-configuration-conflict-assessment">Read instruction conflict guide</a></article>
+          <article><span>AI-assisted action security</span><div><h3>Fabric Operations Agent identity and action security</h3><p>Validate creator permissions, Teams approvers, parameter controls, downstream execution, expiry, identity lifecycle, evidence, containment, and recovery.</p></div><a href="microsoft-fabric-operations-agent-creator-identity-teams-approval-action-security-assessment">Read action security guide</a></article>
+          <article><span>AI-assisted detection assurance</span><div><h3>Fabric Operations Agent rule and duplicate alert assessment</h3><p>Reconcile generated queries, source and time semantics, state and transition conditions, replay, false positives, missed events, duplicate messages, and monitoring.</p></div><a href="microsoft-fabric-operations-agent-rule-not-triggering-state-transition-duplicate-alert-assessment">Read rule accuracy guide</a></article>
+          <article><span>AI-assisted control-plane security</span><div><h3>Fabric Operations Agent remote MCP security</h3><p>Separate query and configuration access, govern OAuth identities and write-capable tools, test source and action changes, and establish audited recovery controls.</p></div><a href="microsoft-fabric-operations-agent-remote-mcp-server-implementation-security-assessment">Read MCP security guide</a></article>
+          <article><span>AI-assisted semantic operations</span><div><h3>Fabric Operations Agent and Fabric IQ Ontology</h3><p>Validate ontology entities, properties, relationships, live bindings, graph freshness, generated rules, source permissions, action parameters, and monitoring evidence.</p></div><a href="microsoft-fabric-operations-agent-fabric-iq-ontology-knowledge-source-implementation-assessment">Read ontology monitoring guide</a></article>
+          <article><span>AI-assisted release governance</span><div><h3>Fabric Operations Agent REST API and CI/CD</h3><p>Version public definitions, rebind environment resources, handle delegated identity and long-running updates, deploy inactive, run behavioral gates, and prove rollback.</p></div><a href="microsoft-fabric-operations-agent-rest-api-cicd-deployment-automation-assessment">Read Operations Agent CI/CD guide</a></article>
+          <article><span>AI-assisted incident response</span><div><h3>Fabric Operations Agent production troubleshooting</h3><p>Contain unsafe automation and reconcile source, query, rule, operation, Teams, identity, approval, action, capacity, change, recovery, and reactivation evidence.</p></div><a href="microsoft-fabric-operations-agent-production-incident-response-troubleshooting-support">Read incident response guide</a></article>
+          <article><span>AI-assisted pipeline NOC</span><div><h3>Fabric pipeline long-running and failed-run monitoring</h3><p>Use workspace Eventhouse logs, deterministic alerts, Operations Agent context, Teams escalation, replay, capacity checks, and NOC ownership for critical pipeline runs.</p></div><a href="microsoft-fabric-operations-agent-pipeline-monitoring-long-running-failed-runs-assessment">Read pipeline monitoring guide</a></article>
+          <article><span>AI-assisted real-time analytics</span><div><h3>Fabric Data Agent Eventhouse KQL assessment</h3><p>Prove event-time windows, entity state, selected KQL schema, functions, examples, generated queries, user permissions, capacity, and answer fidelity.</p></div><a href="microsoft-fabric-data-agent-eventhouse-kql-nl2kql-accuracy-assessment">Read Eventhouse guide</a></article>
+          <article><span>AI-assisted graph reasoning</span><div><h3>Fabric Data Agent Graph and NL2GQL assessment</h3><p>Prove node and edge semantics, path direction and modes, source instructions, example GQL, generated traversals, refresh, permissions, capacity, and answer evidence.</p></div><a href="microsoft-fabric-data-agent-graph-nl2gql-accuracy-assessment">Read Graph guide</a></article>
+          <article><span>AI-assisted document retrieval</span><div><h3>Fabric Data Agent Azure AI Search RAG assessment</h3><p>Prove document authority, index and chunk design, retrieval relevance, citations, user access, source routing, answer groundedness, freshness, and failure behavior.</p></div><a href="microsoft-fabric-data-agent-azure-ai-search-unstructured-rag-assessment">Read AI Search guide</a></article>
+          <article><span>AI-assisted agent configuration</span><div><h3>Fabric Data Agent Build agent with AI review</h3><p>Turn schema and query-history suggestions into reviewed instructions, validated few-shots, measured query and answer regressions, controlled releases, and rollback evidence.</p></div><a href="microsoft-fabric-data-agent-build-agent-with-ai-configuration-review">Read configuration review</a></article>
+          <article><span>AI-assisted source routing</span><div><h3>Fabric Data Agent mixed-source routing assessment</h3><p>Prove source authority, configuration boundaries, route selection, tool output, combined evidence, effective access, runtime changes, and route-level rollback.</p></div><a href="microsoft-fabric-data-agent-mixed-source-routing-accuracy-assessment">Read routing guide</a></article>
+          <article><span>AI-assisted semantic accuracy</span><div><h3>Fabric Data Agent Power BI NL2DAX assessment</h3><p>Test semantic model metadata, Prep for AI, verified answers, generated DAX, business correctness, RLS and CLS, performance, release, and rollback.</p></div><a href="microsoft-fabric-data-agent-power-bi-semantic-model-nl2dax-accuracy-assessment">Read NL2DAX guide</a></article>
+          <article><span>AI-assisted semantic grounding</span><div><h3>Fabric Data Agent Verified Answers assessment</h3><p>Prove trigger precision and recall, filter behavior, visual and DAX grounding, conflicts, model dependencies, consumer security, cross-experience behavior, and rollback.</p></div><a href="microsoft-fabric-data-agent-power-bi-verified-answers-prep-for-ai-assessment">Read Verified Answers guide</a></article>
+          <article><span>AI-assisted release quality</span><div><h3>Fabric Data Agent automated evaluation engineering</h3><p>Version ground truth, automate SDK runs, calibrate critics, inspect step evidence, compare sandbox and production, and block unsafe regressions.</p></div><a href="microsoft-fabric-data-agent-python-sdk-automated-evaluation-regression-testing">Read evaluation guide</a></article>
+          <article><span>AI-assisted governed analytics</span><div><h3>Fabric Data Agent Code Interpreter assessment</h3><p>Prove source and input completeness, generated Python, numeric and visual correctness, effective access, sandbox governance, latency, and release safety.</p></div><a href="microsoft-fabric-data-agent-code-interpreter-python-accuracy-security-assessment">Read Code Interpreter guide</a></article>
+          <article><span>AI-assisted visual assurance</span><div><h3>Fabric Data Agent native visual response assessment</h3><p>Test source queries, 200-row truncation, stable ordering, chart selection, labels, permissions, accessibility, client compatibility, release, and rollback.</p></div><a href="microsoft-fabric-data-agent-visual-response-chart-accuracy-truncation-assessment">Read visual response guide</a></article>
+          <article><span>AI-assisted conversation assurance</span><div><h3>Fabric Data Agent context drift assessment</h3><p>Prove 25-by-25 output boundaries, multi-turn reference resolution, new-chat behavior, history persistence, effective permissions, query fidelity, and regression safety.</p></div><a href="microsoft-fabric-data-agent-conversation-history-context-drift-output-truncation-assessment">Read context drift guide</a></article>
+          <article><span>AI-assisted regional architecture</span><div><h3>Fabric Data Agent cross-region deployment assessment</h3><p>Align agent and source capacities, tenant settings, AI processing and storage boundaries, client data flows, capacity, migration controls, validation, and rollback.</p></div><a href="microsoft-fabric-data-agent-cross-region-capacity-tenant-settings-deployment-assessment">Read deployment guide</a></article>
+          <article><span>AI-assisted Foundry integration</span><div><h3>Microsoft Foundry and Fabric Data Agent integration</h3><p>Preserve user permissions across Foundry orchestration, Fabric source routing, generated queries, answer synthesis, tracing, evaluation, and production support.</p></div><a href="microsoft-foundry-fabric-data-agent-integration-implementation-assessment">Read Foundry guide</a></article>
+          <article><span>AI agent production operations</span><div><h3>Microsoft Foundry AgentOps managed support</h3><p>Run tracing, evaluation, retrieval, tools, MCP, identity, incident response, controlled releases, telemetry security, and cost as one service.</p></div><a href="microsoft-foundry-ai-agent-managed-services-production-support">Read managed support guide</a></article>
+          <article><span>Claude agent production operations</span><div><h3>Claude Managed Agents production support</h3><p>Operate persistent sessions, event streams, MCP and tools, cloud or self-hosted sandboxes, credentials, incidents, releases, cost, and beta risk.</p></div><a href="claude-managed-agents-production-support-agentops">Read Claude AgentOps guide</a></article>
+          <article><span>OpenAI agent production operations</span><div><h3>OpenAI Agents SDK production support</h3><p>Operate application runtimes, traces, sessions, tools and MCP, handoffs, guardrails, approvals, incidents, releases, and cost.</p></div><a href="openai-agents-sdk-production-support-agentops">Read OpenAI AgentOps guide</a></article>
+          <article><span>Google Cloud agent operations</span><div><h3>Vertex AI Agent Engine managed support</h3><p>Operate runtime metrics, quality, sessions, memory, IAM, private networking, tools, incidents, releases, quotas, and cost.</p></div><a href="vertex-ai-agent-engine-managed-services-production-support">Read Vertex AgentOps guide</a></article>
+          <article><span>AWS agent production operations</span><div><h3>Amazon Bedrock AgentCore managed support</h3><p>Operate runtime sessions, traces, evaluations, identities, gateways, tools, memory, policy, incidents, releases, quotas, and cost.</p></div><a href="amazon-bedrock-agentcore-managed-services-production-support">Read AWS AgentOps guide</a></article>
+          <article><span>Salesforce agent production operations</span><div><h3>Salesforce Agentforce managed support</h3><p>Operate sessions, topics, actions, flows, Apex, permissions, Data 360, incidents, controlled releases, quality, and consumption.</p></div><a href="salesforce-agentforce-managed-services-production-support">Read Agentforce support guide</a></article>
+          <article><span>ServiceNow agent production operations</span><div><h3>ServiceNow AI Agent managed support</h3><p>Operate agentic workflows, execution plans, agents, tools, ACLs, identities, analytics, incidents, releases, and Assist consumption.</p></div><a href="servicenow-ai-agent-managed-services-now-assist-production-support">Read ServiceNow AgentOps guide</a></article>
+          <article><span>Oracle Fusion agent production operations</span><div><h3>Oracle AI Agent Studio managed support</h3><p>Operate sessions, evaluation, agent teams, tools, Fusion roles, OAuth integrations, incidents, quarterly releases, and outcomes.</p></div><a href="oracle-ai-agent-studio-managed-services-fusion-production-support">Read Oracle AgentOps guide</a></article>
+          <article><span>SAP agent production operations</span><div><h3>SAP Joule agent managed support</h3><p>Operate traces, tools, approvals, BTP environments, destinations, transport, deployment drift, incidents, releases, and consumption.</p></div><a href="sap-joule-agent-production-operations-managed-support">Read SAP Joule AgentOps guide</a></article>
+          <article><span>IBM agent production operations</span><div><h3>IBM watsonx Orchestrate managed support</h3><p>Operate messages, traces, tools, workflows, knowledge, connections, credentials, channels, incidents, versions, and outcomes.</p></div><a href="ibm-watsonx-orchestrate-managed-services-production-support">Read IBM AgentOps guide</a></article>
+          <article><span>Databricks agent production operations</span><div><h3>Databricks Mosaic AI Agent Framework managed support</h3><p>Operate MLflow traces, evaluation, Model Serving, governed retrieval and tools, Unity Catalog identity, incidents, releases, and cost.</p></div><a href="databricks-mosaic-ai-agent-framework-managed-services-production-support">Read Databricks AgentOps guide</a></article>
+          <article><span>Snowflake agent production operations</span><div><h3>Snowflake Cortex Agents managed support</h3><p>Operate request traces, evaluations, Analyst and Search tools, semantic data, custom actions, default-role access, incidents, releases, and cost.</p></div><a href="snowflake-cortex-agents-managed-services-production-support">Read Snowflake AgentOps guide</a></article>
+          <article><span>LangGraph runtime operations</span><div><h3>LangGraph production support and LangSmith AgentOps</h3><p>Operate API and queue workers, durable threads and checkpoints, Postgres, Redis, tracing, evaluation, tool actions, incidents, and releases.</p></div><a href="langgraph-production-support-langsmith-agentops-managed-services">Read LangGraph AgentOps guide</a></article>
+          <article><span>CrewAI runtime operations</span><div><h3>CrewAI production support and AMP managed services</h3><p>Operate crews and flows, state, triggers, memory, tools, API and worker workloads, external PostgreSQL and storage, incidents, releases, and cost.</p></div><a href="crewai-production-support-amp-managed-services-agentops">Read CrewAI AgentOps guide</a></article>
+          <article><span>RAG retrieval operations</span><div><h3>LlamaIndex and LlamaCloud production support</h3><p>Operate document sources, parsing, index synchronization, embeddings, vector stores, hybrid retrieval, tenant filters, incidents, releases, and cost.</p></div><a href="llamaindex-llamacloud-production-support-retrieval-operations-managed-services">Read LlamaCloud RetrievalOps guide</a></article>
+          <article><span>Vector database operations</span><div><h3>Pinecone production support and managed services</h3><p>Operate index and namespace design, ingestion freshness, tenant isolation, retrieval performance, Dedicated Read Nodes, monitoring, backups, incidents, and cost.</p></div><a href="pinecone-vector-database-production-support-managed-services">Read Pinecone operations guide</a></article>
+          <article><span>Distributed vector database operations</span><div><h3>Weaviate production support and managed services</h3><p>Operate collections, asynchronous indexing, shard and replica consistency, tenant lifecycle, retrieval performance, monitoring, backups, and cost.</p></div><a href="weaviate-production-support-managed-services-vector-database-operations">Read Weaviate operations guide</a></article>
+          <article><span>Vector database cluster operations</span><div><h3>Qdrant production support and managed services</h3><p>Operate collections, shards, replicas, consistency and ordering, tenant routing, optimizer pressure, monitoring, backups, incidents, and cost.</p></div><a href="qdrant-production-support-managed-services-vector-database-operations">Read Qdrant operations guide</a></article>
+          <article><span>Distributed retrieval operations</span><div><h3>Milvus and Zilliz Cloud production support</h3><p>Operate ingestion freshness, segments, indexes, collection loading, QueryNode replicas, resource groups, tenant isolation, monitoring, backups, and cost.</p></div><a href="milvus-zilliz-cloud-production-support-managed-services-vector-database-operations">Read Milvus operations guide</a></article>
+          <article><span>PostgreSQL vector search operations</span><div><h3>PostgreSQL pgvector production support</h3><p>Operate vector schemas, HNSW and IVFFlat recall, filtered queries, planner behavior, vacuum and reindex, replication, restore, incidents, and cost.</p></div><a href="postgresql-pgvector-production-support-managed-services-rag-vector-search">Read pgvector operations guide</a></article>
+          <article><span>Enterprise search operations</span><div><h3>Azure AI Search production support</h3><p>Operate source ingestion, indexers, skillsets, vector and hybrid retrieval, semantic ranking, security, capacity, releases, resilience, and cost.</p></div><a href="azure-ai-search-production-support-managed-services-rag-operations">Read Azure AI Search operations guide</a></article>
+          <article><span>Elastic vector search operations</span><div><h3>Elasticsearch vector search production support</h3><p>Operate ingest pipelines, mappings, aliases, shard health, vectors and inference, hybrid relevance, security, snapshots, upgrades, and cost.</p></div><a href="elasticsearch-vector-search-production-support-managed-services-rag-operations">Read Elasticsearch operations guide</a></article>
+          <article><span>AWS vector search operations</span><div><h3>Amazon OpenSearch Service production support</h3><p>Operate provisioned domains and Serverless collections, ingestion, k-NN relevance, shards or OCUs, IAM and VPC, monitoring, snapshots, and cost.</p></div><a href="amazon-opensearch-service-vector-search-production-support-managed-services-rag-operations">Read OpenSearch operations guide</a></article>
+          <article><span>MongoDB vector search operations</span><div><h3>MongoDB Atlas Vector Search production support</h3><p>Operate collection-to-index freshness, mappings, ANN and ENN recall, Search Nodes, tenant filters, private networking, recovery, and cost.</p></div><a href="mongodb-atlas-vector-search-production-support-managed-services-rag-operations">Read Atlas VectorOps guide</a></article>
+          <article><span>Redis vector search operations</span><div><h3>Redis vector search production support</h3><p>Operate source keys, Search indexes and aliases, exact and approximate recall, filters, shards, memory, persistence, restore, and cost.</p></div><a href="redis-vector-search-production-support-managed-services-rag-operations">Read Redis VectorOps guide</a></article>
+          <article><span>Google Cloud vector search operations</span><div><h3>Vertex AI Vector Search production support</h3><p>Operate data updates, ScaNN recall, filters, index and endpoint releases, shards, replicas, private connectivity, quotas, and cost.</p></div><a href="google-vertex-ai-vector-search-production-support-managed-services-rag-operations">Read Vertex VectorOps guide</a></article>
+          <article><span>Azure Cosmos vector search operations</span><div><h3>Azure Cosmos DB vector search production support</h3><p>Operate source items, partition and tenant design, DiskANN recall, indexing policies, RU/s, 429s, consistency, failover, restore, and cost.</p></div><a href="azure-cosmos-db-vector-search-production-support-managed-services-rag-operations">Read Cosmos VectorOps guide</a></article>
+          <article><span>AWS managed RAG operations</span><div><h3>Amazon Bedrock Knowledge Bases production support</h3><p>Operate source sync, document ingestion, chunking, embeddings, vector-store state, retrieval, citations, security, incidents, and cost.</p></div><a href="amazon-bedrock-knowledge-bases-production-support-managed-services-rag-operations">Read Bedrock RAGOps guide</a></article>
+          <article><span>Google Cloud managed RAG operations</span><div><h3>Vertex AI RAG Engine production support</h3><p>Operate corpora, file imports, chunking, embeddings, managed or external vector stores, retrieval, reranking, grounded answers, security, quotas, and cost.</p></div><a href="google-vertex-ai-rag-engine-production-support-managed-services">Read Vertex RAGOps guide</a></article>
+          <article><span>AWS enterprise search operations</span><div><h3>Amazon Kendra production support</h3><p>Operate repository connectors, document sync and deletion, enrichment, ACLs, Query and Retrieve relevance, capacity, monitoring, incidents, and cost.</p></div><a href="amazon-kendra-production-support-managed-services-enterprise-search-rag">Read Kendra SearchOps guide</a></article>
+          <article><span>Microsoft 365 knowledge operations</span><div><h3>Microsoft 365 Copilot connector production support</h3><p>Operate source crawls, external items, schema, ACL and identity mapping, indexed content, Copilot discovery, throttling, incidents, rollout, and governance.</p></div><a href="microsoft-365-copilot-connectors-production-support-managed-services-enterprise-search">Read Copilot KnowledgeOps guide</a></article>
+          <article><span>Atlassian knowledge operations</span><div><h3>Atlassian Rovo production support</h3><p>Operate connected knowledge, permission and deletion sync, Search and Chat outcomes, agent scope, tool actions, MCP access, incidents, and governance.</p></div><a href="atlassian-rovo-production-support-managed-services-enterprise-search-agents">Read Rovo KnowledgeOps guide</a></article>
+          <article><span>Enterprise AI search operations</span><div><h3>Glean enterprise search and agents production support</h3><p>Operate datasource crawl and index coverage, permission synchronization, search relevance, Assistant answers, agent actions, background runs, and governance.</p></div><a href="glean-enterprise-search-agents-production-support-managed-services">Read Glean Search and AgentOps guide</a></article>
+          <article><span>Enterprise search relevance operations</span><div><h3>Coveo Relevance Cloud production support</h3><p>Operate sources, item and permission freshness, security identities, query pipelines, ML relevance, generative answers, performance, incidents, and usage.</p></div><a href="coveo-relevance-cloud-production-support-managed-services-enterprise-search">Read Coveo SearchOps guide</a></article>
+          <article><span>AI search relevance operations</span><div><h3>Algolia AI Search production support</h3><p>Operate source-to-index tasks, atomic releases, replicas, settings, NeuralSearch relevance, analytics events, key security, rate limits, and cost.</p></div><a href="algolia-ai-search-neuralsearch-production-support-managed-services">Read Algolia SearchOps guide</a></article>
+          <article><span>Salesforce RAG operations</span><div><h3>Salesforce Data Cloud vector search and Agentforce RAG support</h3><p>Operate data streams, DLO and DMO mappings, chunks, embeddings, vector and hybrid indexes, retrievers, citations, permissions, quality, and credits.</p></div><a href="salesforce-data-cloud-vector-search-agentforce-rag-production-support-managed-services">Read Salesforce RAGOps guide</a></article>
+          <article><span>ServiceNow enterprise search operations</span><div><h3>ServiceNow AI Search and Now Assist production support</h3><p>Operate source indexing, search profiles and applications, relevance, Genius Results, external permissions, grounded answers, analytics, incidents, and releases.</p></div><a href="servicenow-ai-search-now-assist-production-support-managed-services">Read ServiceNow SearchOps guide</a></article>
+          <article><span>SAP document grounding operations</span><div><h3>SAP Joule document grounding production support</h3><p>Operate repository scope, pipeline ingestion, schedules, document limits, chunking, metadata, access, answer quality, AI Units, incidents, and releases.</p></div><a href="sap-joule-document-grounding-production-support-managed-services">Read Joule GroundingOps guide</a></article>
+          <article><span>Microsoft 365 grounded agent operations</span><div><h3>Microsoft 365 Copilot declarative agent support</h3><p>Operate SharePoint and connector knowledge, manifest scope, permission trimming, licenses, context limits, citations, incidents, releases, and governance.</p></div><a href="microsoft-365-copilot-declarative-agent-sharepoint-knowledge-production-support-managed-services">Read M365 Declarative AgentOps guide</a></article>
+          <article><span>Box content intelligence operations</span><div><h3>Box AI Studio agent production support</h3><p>Operate files and Hubs, permissions, agent instructions, API completeness, extraction confidence, metadata writes, integrations, AI Units, and releases.</p></div><a href="box-ai-studio-agents-production-support-managed-services">Read Box AI AgentOps guide</a></article>
+          <article><span>Slack enterprise knowledge operations</span><div><h3>Slack enterprise search and AI production support</h3><p>Operate built-in and custom sources, user account connections, OAuth, workspace grants, permission-aware retrieval, citations, incidents, and releases.</p></div><a href="slack-enterprise-search-ai-production-support-managed-services">Read Slack SearchOps guide</a></article>
+          <article><span>Dropbox universal search operations</span><div><h3>Dropbox Dash enterprise search production support</h3><p>Operate connector scope, OAuth and consent, content and permission sync, searchable types, extraction limits, AI answers, audit, incidents, and releases.</p></div><a href="dropbox-dash-enterprise-search-production-support-managed-services">Read Dash SearchOps guide</a></article>
+          <article><span>AI-assisted low-code integration</span><div><h3>Copilot Studio and Fabric Data Agent integration</h3><p>Prove connected-agent authentication, source permissions, generative orchestration, Teams or website channel behavior, answer quality, and policy.</p></div><a href="microsoft-copilot-studio-fabric-data-agent-integration-assessment">Read Copilot Studio guide</a></article>
+          <article><span>AI agent managed operations</span><div><h3>Copilot Studio production support</h3><p>Operate session quality, knowledge, tools, triggers, identities, data policies, releases, incidents, Copilot Credits, and client-facing service evidence.</p></div><a href="microsoft-copilot-studio-managed-services-production-support">Read managed support guide</a></article>
+          <article><span>AI-assisted Copilot rollout</span><div><h3>Microsoft 365 Copilot Fabric Data Agent rollout</h3><p>Move governed Fabric answers into Agent Store and Teams with proven discovery, user access, response fidelity, visualization, support, and adoption.</p></div><a href="microsoft-365-copilot-fabric-data-agent-rollout-assessment">Read rollout guide</a></article>
+          <article><span>AI-assisted data quality</span><div><h3>Data quality root cause and remediation</h3><p>Turn failed quality checks into evidence-backed diagnosis, impact analysis, reversible containment, and independently validated recovery.</p></div><a href="ai-data-quality-incident-root-cause-remediation-automation">Read guide</a></article>
+          <article><span>AI-assisted change governance</span><div><h3>Data contract change impact assessment</h3><p>Find affected pipelines, reports, APIs, models, exports, and customers before a schema or contract change is released.</p></div><a href="ai-data-contract-change-impact-assessment-automation">Read guide</a></article>
+          <article><span>AI-assisted master data</span><div><h3>Customer deduplication and merge review</h3><p>Combine explainable entity matching, false-merge controls, survivorship, human approval, downstream reconciliation, and rollback.</p></div><a href="ai-customer-master-data-deduplication-merge-review">Read guide</a></article>
+          <article><span>AI-assisted access governance</span><div><h3>Warehouse access review and recertification</h3><p>Give data owners effective-access, usage, sensitivity, purpose, and ownership evidence before retain, reduce, or revoke decisions.</p></div><a href="ai-data-warehouse-access-review-entitlement-recertification">Read guide</a></article>
+          <article><span>AI-assisted data lifecycle</span><div><h3>Retention and deletion evidence automation</h3><p>Turn approved policies and requests into scoped actions, hold handling, platform-aware execution, downstream evidence, and verified closure.</p></div><a href="ai-data-retention-deletion-workflow-evidence-automation">Read guide</a></article>
+          <article><span>AI-assisted database audit</span><div><h3>Privileged database activity investigation</h3><p>Turn audit streams into context-rich cases with identity attribution, sensitive-object risk, change evidence, and controlled response.</p></div><a href="ai-privileged-database-activity-review-investigation-automation">Read guide</a></article>
+          <article><span>AI-assisted maintenance assurance</span><div><h3>Database patch risk and validation</h3><p>Prepare patch windows with deterministic prechecks, dependency evidence, baselines, rollback controls, and post-change service validation.</p></div><a href="ai-database-patch-risk-assessment-maintenance-validation">Read guide</a></article>
+          <article><span>AI-assisted continuity testing</span><div><h3>Database failover readiness and DR drills</h3><p>Validate role transition, DNS, client recovery, data integrity, application transactions, RPO, RTO, fencing, and failback end to end.</p></div><a href="ai-database-failover-readiness-disaster-recovery-drill-automation">Read guide</a></article>
+          <article><span>AI-assisted connection triage</span><div><h3>Connection pool exhaustion and saturation incidents</h3><p>Correlate pool acquisition, proxy waiting, database sessions, long transactions, locks, retries, capacity, and customer impact.</p></div><a href="ai-database-connection-pool-exhaustion-saturation-incident-automation">Read guide</a></article>
+          <article><span>AI-assisted concurrency analysis</span><div><h3>Database deadlock and blocking root cause</h3><p>Turn native deadlock graphs and blocking chains into grouped patterns, safe response, validated fixes, and recurrence evidence.</p></div><a href="ai-database-deadlock-blocking-incident-root-cause-automation">Read guide</a></article>
+          <article><span>AI-assisted plan stability</span><div><h3>Query plan regression detection and rollback</h3><p>Detect material plan changes with representative runtime evidence, controlled containment, automatic unforce conditions, and permanent remediation.</p></div><a href="ai-database-query-plan-regression-detection-rollback-automation">Read guide</a></article>
+          <article><span>AI-assisted statistics reliability</span><div><h3>Database statistics drift and maintenance validation</h3><p>Prioritize targeted statistics work from distribution, sample, estimate, plan, workload, maintenance, and post-change evidence.</p></div><a href="ai-database-statistics-drift-maintenance-validation-automation">Read guide</a></article>
+          <article><span>AI-assisted index maintenance</span><div><h3>Index bloat and maintenance prioritization</h3><p>Replace fixed rebuild schedules with engine-aware condition, workload impact, execution risk, cost, and outcome evidence.</p></div><a href="ai-database-index-bloat-maintenance-prioritization-automation">Read guide</a></article>
+          <article><span>AI-assisted capacity assurance</span><div><h3>Database storage growth and incident forecasting</h3><p>Forecast capacity limits across data, logs, temp, backups, and replicas, then route evidence-backed scale or remediation before risk becomes an incident.</p></div><a href="ai-database-storage-growth-capacity-incident-forecasting-automation">Read guide</a></article>
+          <article><span>AI-assisted replication assurance</span><div><h3>Replication lag root cause and failover risk</h3><p>Locate transport and apply bottlenecks, quantify stale-read and recovery exposure, and validate controlled remediation.</p></div><a href="ai-database-replication-lag-root-cause-failover-risk-automation">Read guide</a></article>
+          <article><span>AI-assisted recovery-log control</span><div><h3>Transaction log and WAL growth incidents</h3><p>Find the engine-native reuse blocker, protect availability, preserve recovery, and validate durable remediation without unsafe purge or shrink actions.</p></div><a href="ai-database-transaction-log-wal-growth-incident-automation">Read guide</a></article>
+          <article><span>AI-assisted schema change safety</span><div><h3>Schema migration lock risk and deployment validation</h3><p>Resolve exact DDL against engine behavior, production concurrency, dependencies, resources, compatibility, rollback, and measurable deployment gates.</p></div><a href="ai-database-schema-migration-lock-risk-deployment-validation-automation">Read guide</a></article>
+          <article><span>AI-assisted configuration governance</span><div><h3>Database configuration drift and performance risk</h3><p>Find which settings differ across desired, persisted, runtime, pending, and fleet states, then validate controlled correction against service outcomes.</p></div><a href="ai-database-configuration-drift-performance-risk-automation">Read guide</a></article>
+          <article><span>AI-assisted TLS continuity</span><div><h3>Database certificate expiry and rotation validation</h3><p>Inventory server and CA certificates, client trust, verification modes, connection paths, restart risk, rehearsal, rollback, and post-rotation evidence.</p></div><a href="ai-database-tls-certificate-expiry-rotation-validation-automation">Read guide</a></article>
+          <article><span>AI-assisted credential continuity</span><div><h3>Database credential rotation and connection validation</h3><p>Coordinate account, secret version, consumer refresh, connection-pool renewal, job testing, rollback, old-access revocation, and application proof.</p></div><a href="ai-database-credential-rotation-application-connection-validation-automation">Read guide</a></article>
+          <article><span>AI-assisted upgrade assurance</span><div><h3>Database major-version compatibility and cutover</h3><p>Move beyond vendor prechecks with extension, SQL, driver, topology, workload, performance, downtime, rollback, and production transaction evidence.</p></div><a href="ai-database-major-version-upgrade-compatibility-cutover-validation-automation">Read guide</a></article>
+          <article><span>AI-assisted cloud migration economics</span><div><h3>Cloud database sizing, cost, and performance validation</h3><p>Profile representative demand, compare target architectures and total-cost scenarios, then validate the leading size with production-relevant workload.</p></div><a href="ai-database-cloud-migration-sizing-cost-performance-validation-automation">Read guide</a></article>
+          <article><span>AI-assisted fleet consolidation</span><div><h3>Database consolidation candidate and workload isolation assessment</h3><p>Find which workloads can safely share capacity using correlated peaks, platform compatibility, recovery, security, licensing, and concurrent tests.</p></div><a href="ai-database-consolidation-candidate-assessment-workload-isolation-automation">Read guide</a></article>
+          <article><span>AI-assisted licensing evidence</span><div><h3>Database licensing and edition optimization assessment</h3><p>Build reviewable deployment, feature, core, edition, cloud benefit, workload, cost, and target evidence while authorized owners interpret rights.</p></div><a href="ai-database-licensing-edition-optimization-assessment-automation">Read guide</a></article>
+          <article><span>AI-assisted database unit economics</span><div><h3>Cloud database cost allocation and chargeback</h3><p>Join provider billing, resource identity, database usage, shared cost pools, versioned rules, reconciliation, showback, and chargeback evidence.</p></div><a href="ai-database-cloud-cost-allocation-chargeback-automation">Read guide</a></article>
+          <article><span>AI-assisted backup cost governance</span><div><h3>Database backup retention and snapshot cost optimization</h3><p>Map every retained copy to recovery purpose, owner, chain, policy, restore evidence, legal controls, cost, approval, and verified outcome.</p></div><a href="ai-database-backup-retention-snapshot-cost-optimization-automation">Read guide</a></article>
+          <article><span>AI-assisted replication economics</span><div><h3>Database data transfer and cross-region replication cost</h3><p>Reconcile regional topology, replication and application flows, egress, lag, RPO, RTO, routing, failover capacity, and tested cost outcomes.</p></div><a href="ai-database-data-transfer-cross-region-replication-cost-optimization-automation">Read guide</a></article>
+          <article><span>AI-assisted commitment economics</span><div><h3>Database reserved capacity and commitment utilization</h3><p>Reconcile eligible usage, utilization, coverage, expiry, stable workload, architecture roadmaps, commercial scenarios, and authorized renewal decisions.</p></div><a href="ai-database-reserved-capacity-commitment-utilization-optimization-automation">Read guide</a></article>
+          <article><span>AI-assisted environment lifecycle</span><div><h3>Idle nonproduction database cost optimization</h3><p>Classify development and test demand, implement guarded schedules, manage exceptions, verify restore, and retire expired environments without hidden dependencies.</p></div><a href="ai-database-idle-nonproduction-environment-lifecycle-cost-optimization-automation">Read guide</a></article>
+          <article><span>AI-assisted performance economics</span><div><h3>Database compute rightsizing and risk validation</h3><p>Compare target limits, replay representative workload, validate maintenance and failover, reconcile commitments, and control production change and rollback.</p></div><a href="ai-database-compute-rightsizing-performance-risk-validation-automation">Read guide</a></article>
+          <article><span>AI-assisted autoscaling economics</span><div><h3>Serverless database capacity and auto-pause optimization</h3><p>Balance minimum and maximum capacity, scale-up speed, pause and resume, background wake-ups, readers, failover, SLOs, and effective billing.</p></div><a href="ai-serverless-database-capacity-auto-pause-cost-performance-optimization-automation">Read guide</a></article>
+          <article><span>AI-assisted database FinOps</span><div><h3>Database cloud cost forecast and budget variance</h3><p>Reconcile actuals, model technical cost drivers, incorporate plans and commitments, quantify uncertainty, and route explainable variance to accountable owners.</p></div><a href="ai-database-cloud-cost-forecast-budget-variance-automation">Read guide</a></article>
+          <article><span>AI-assisted storage economics</span><div><h3>Database storage tier, IOPS, and throughput optimization</h3><p>Separate capacity from performance, validate latency and queueing, test backup and recovery, price the complete topology, and control production changes.</p></div><a href="ai-database-storage-tier-iops-throughput-cost-performance-optimization-automation">Read guide</a></article>
+          <article><span>AI-assisted observability economics</span><div><h3>Database monitoring and telemetry cost optimization</h3><p>Trace metrics, logs, plans, alerts, retention, exports, privacy, incidents, stores, and billing; test lower-cost settings without losing operational evidence.</p></div><a href="ai-database-observability-monitoring-telemetry-cost-optimization-automation">Read guide</a></article>
+          <article><span>AI-assisted resilience economics</span><div><h3>Managed database HA topology cost optimization</h3><p>Connect every standby, readable replica, zone, tier, and proxy to funded failure modes, degraded capacity, application failover, RPO, RTO, and realized cost.</p></div><a href="ai-managed-database-high-availability-topology-cost-resilience-optimization-automation">Read guide</a></article>
+          <article><span>AI-assisted read-scale economics</span><div><h3>Managed database read replica utilization and cost</h3><p>Trace every paid replica to real endpoints, clients, query classes, consistency limits, peak demand, workload isolation, promotion or DR value, and realized billing.</p></div><a href="ai-managed-database-read-replica-utilization-cost-performance-optimization-automation">Read guide</a></article>
+          <article><span>AI-assisted audit economics</span><div><h3>Database audit logging cost and compliance</h3><p>Connect every audit event and retained copy to a control, investigation, sensitive-data boundary, integrity test, retrieval objective, performance result, and realized invoice.</p></div><a href="ai-database-audit-logging-cost-compliance-retention-optimization-automation">Read guide</a></article>
+          <article><span>AI-assisted lifecycle economics</span><div><h3>Managed database extended support cost planning</h3><p>Connect engine deadlines, paid-support year tiers, vCPU and topology exposure, compatibility blockers, delivery capacity, exceptions, upgrade milestones, and realized invoices.</p></div><a href="ai-managed-database-extended-support-cost-version-lifecycle-planning-automation">Read guide</a></article>
+          <article><span>AI-assisted connection economics</span><div><h3>Managed database proxy and pooling optimization</h3><p>Measure client-to-backend reuse, pinning, borrow waits, session correctness, failover recovery, database headroom, endpoint cost, edition premium, and realized billing.</p></div><a href="ai-managed-database-proxy-connection-pooling-cost-performance-optimization-automation">Read guide</a></article>
+        </div>
+        <div class="section-actions"><a class="button secondary" href="outsourced-dba-services-pricing">Compare outsourced DBA pricing</a></div>
+      </section>
+
+      <section class="cta-band" aria-label="Data operations call to action">
+        <div><p class="eyebrow">Written scoping</p><h2>Describe the operating gap, what is at risk, and the responsibility you need covered.</h2><p>A senior lead will review the environment, urgency, ownership, workload, access constraints, and expected outcome, then respond with qualifying questions or a recommended starting shape.</p></div>
+        <a class="button dark-button" href="index.html?service=Dedicated+data+operations+program&amp;engagement_type=Ongoing+operations+program&amp;utm_source=data_operations&amp;utm_medium=website&amp;utm_campaign=data_operations_delivery&amp;utm_content=page_end&amp;buyer_type=CTO+%2F+technical+leader#contact">Describe the operating gap</a>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

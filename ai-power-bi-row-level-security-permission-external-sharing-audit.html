@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Power BI RLS, Permission and External Sharing Security Audit | Datrick</title>
+    <meta name="description" content="Audit Power BI row-level security, workspace roles, Build permission, app audiences, direct access, external sharing, guest users, service principals, and effective access.">
+    <link rel="canonical" href="https://datrick.com/ai-power-bi-row-level-security-permission-external-sharing-audit">
+    <meta property="og:title" content="AI Power BI RLS, Permission and External Sharing Security Audit | Datrick">
+    <meta property="og:description" content="Turn fragmented Power BI permissions into a verified effective-access map and controlled remediation plan.">
+    <meta property="og:url" content="https://datrick.com/ai-power-bi-row-level-security-permission-external-sharing-audit">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "AI Power BI Row-Level Security, Permission, and External Sharing Audit", "description": "Audit Power BI row-level security, workspace roles, Build permission, app audiences, direct access, external sharing, guest users, service principals, and effective access.", "url": "https://datrick.com/ai-power-bi-row-level-security-permission-external-sharing-audit", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/ai-power-bi-row-level-security-permission-external-sharing-audit"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "How do you audit Power BI permissions?", "acceptedAnswer": {"@type": "Answer", "text": "Collect workspace roles, item permissions, direct and link-based sharing, app audiences, semantic-model permissions, Build rights, RLS roles, external guests, service principals, tenant settings, identity status, sensitivity, lineage, and activity. Resolve users and nested groups, calculate effective access for each critical item, compare it with approved policy, validate findings with owners, and retest access after approved remediation."}},
+            {"@type": "Question", "name": "What is included in a Power BI row-level security assessment?", "acceptedAnswer": {"@type": "Answer", "text": "A useful assessment reviews role definitions, DAX filters, static and dynamic membership, identity mapping, workspace roles, Build and reshare permissions, app and direct access paths, source-system authorization for DirectQuery or SSO, service-principal behavior, test cases, negative tests, and evidence that each representative persona sees only the intended rows and objects."}},
+            {"@type": "Question", "name": "Does Power BI RLS apply to workspace administrators?", "acceptedAnswer": {"@type": "Answer", "text": "No. Microsoft documents that RLS applies to users assigned the Viewer workspace role, while workspace Admin, Member, and Contributor roles have edit permission on the semantic model and are not restricted by RLS. A security audit must therefore review elevated workspace roles as separate access paths."}},
+            {"@type": "Question", "name": "How do you audit external sharing in Power BI?", "acceptedAnswer": {"@type": "Answer", "text": "Review tenant sharing settings, Microsoft Entra B2B guests, direct access, sharing links, app audiences, semantic-model sharing, reshare and Build permissions, subscriptions, embeds, Publish to web codes, identity status, activity, sensitivity, owner approval, and expiry. Verify access using representative external identities and remove exposure only through an approved, reversible change process."}},
+            {"@type": "Question", "name": "How long does a Power BI security audit take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment of critical workspaces can often produce an effective-access baseline, validated findings, and a prioritized remediation plan in two to four weeks. A tenant-wide program takes longer when there are many nested groups, external guests, direct grants, app audiences, cross-workspace models, service principals, missing activity history, or business-owner attestations."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Power BI security assessment and remediation</p>
+        <h1>Prove who can reach sensitive Power BI data, through every permission path.</h1>
+        <p class="page-lede">Connect RLS roles, workspace access, Build permission, direct grants, app audiences, sharing links, external guests, service principals, source permissions, sensitivity, and activity into one verified effective-access map.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Data%20platform%20or%20BI%20work&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=ai_power_bi_security_audit&amp;utm_medium=organic_content&amp;utm_campaign=power_bi_security_scoping&amp;utm_content=hero#inquiry-form">Describe the access risk</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Power BI security audit</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#contract">Audit contract</a><a href="#effective-access">Effective access</a><a href="#architecture">Controlled workflow</a><a href="#remediation">Remediation</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>A Power BI report can look correctly restricted while an elevated workspace role, Build permission, a shared semantic model, an app audience, a direct grant, an external guest, a service principal, or a public embed creates another route to the data. A list of workspace members is therefore not a security audit. The useful question is whether a named identity can reach a specific report, semantic model, row, object, export, or downstream connection through any permitted path.</p>
+        <p>Datrick builds this answer from supported tenant, identity, metadata, permission, and activity evidence. AI can classify findings, explain complex access paths, group similar exceptions, and draft owner attestations. Deterministic rules calculate effective access and policy violations. No model should grant, revoke, approve, or reinterpret access without an accountable reviewer and a validated change plan.</p>
+
+        <section class="readiness-actions"><p><strong>Do you have sensitive models, external users, inherited permissions, or RLS rules that nobody can confidently explain?</strong> Start with the workspaces where an access mistake has the highest business impact.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Data%20platform%20or%20BI%20work&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=ai_power_bi_security_audit&amp;utm_medium=organic_content&amp;utm_campaign=power_bi_security_scoping&amp;utm_content=article_intro#inquiry-form">Send the security scope</a><a class="button secondary" href="ai-power-bi-fabric-tenant-governance-workspace-lifecycle-automation">Review tenant governance</a></div></section>
+
+        <h2 id="contract">Define the security contract before testing access</h2>
+        <p>Identify the tenant, workspaces, apps, reports, semantic models, Fabric items, source systems, identities, business units, external organizations, sensitivity classes, and time period in scope. Define expected personas, data boundaries, export rules, sharing policy, exception authority, evidence retention, acceptable outage, and remediation approval. Without an approved expectation, an access graph can show what exists but cannot determine what is wrong.</p>
+        <div class="article-table-wrap" role="region" aria-label="Power BI security audit evidence contract" tabindex="0"><table class="article-table"><caption class="sr-only">Power BI security audit evidence contract</caption>
+          <thead><tr><th scope="col">Security layer</th><th scope="col">Evidence to collect</th><th scope="col">Risk the audit must resolve</th></tr></thead>
+          <tbody>
+            <tr><td>Identity</td><td>Users, guests, groups, nested membership, service principals, managed identities, account status, owner, sponsor, and expiry.</td><td>Departed user, unmanaged guest, stale application, nested group surprise, or no accountable sponsor.</td></tr>
+            <tr><td>Workspace and item access</td><td>Admin, Member, Contributor, Viewer, item grants, direct access, sharing links, reshare, Read, Write, and owner assignments.</td><td>Elevated role bypasses intended RLS, broad direct grant, inherited access, or permission without business need.</td></tr>
+            <tr><td>Semantic model</td><td>Read, Build, Reshare, Write, RLS roles, OLS, dynamic identity rules, XMLA access, cross-workspace use, and downstream reports.</td><td>Build enables unintended data exploration, role membership is wrong, or one model exposes more than its report interface suggests.</td></tr>
+            <tr><td>Distribution</td><td>Apps and audiences, external B2B sharing, subscriptions, Teams or SharePoint use, secure embeds, Publish to web codes, exports, and APIs.</td><td>External exposure, stale audience, public content, forwarded extract, or channel that owners do not monitor.</td></tr>
+            <tr><td>Source and connection</td><td>Gateway, cloud connection, DirectQuery or SSO identity, source roles, credentials, service accounts, and data-source privacy.</td><td>Power BI restriction conflicts with source authorization, shared credentials overexpose data, or test results use the wrong identity.</td></tr>
+            <tr><td>Context and evidence</td><td>Sensitivity labels, endorsement, criticality, lineage, activity events, tenant settings, access reviews, incidents, exceptions, and approvals.</td><td>Sensitive content has weak controls, dormant access is retained, or a policy exception has no owner or expiry.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="effective-access">Calculate effective access, not configured access</h2>
+        <p>Resolve every user, group, guest, and application to the permissions it receives across workspace roles, item access, apps, links, semantic models, and sources. Preserve the provenance of each edge: a direct grant and a nested group membership can produce the same visible access but require different remediation. Record when evidence was collected because group membership, sharing links, and app audiences change independently.</p>
+        <p>Microsoft documents an important RLS boundary: RLS applies to users assigned the Viewer workspace role, while Admin, Member, and Contributor roles have edit permission and are not restricted by RLS. A user who is correctly assigned to an RLS role can still see unrestricted data through an elevated workspace role. The audit should flag this conflict and test the effective experience, not merely confirm that the RLS role exists.</p>
+        <p>Build permission also deserves separate review. It can support Analyze in Excel, creation of new content from a semantic model, and access patterns that go beyond viewing a curated report. Report layout, hidden fields, filters, and app navigation customize the experience; they are not substitutes for RLS or object-level controls. Test representative users against the semantic model, not only against one report page.</p>
+
+        <h2>Test RLS as a security control</h2>
+        <p>Inventory every static and dynamic RLS role, its DAX expression, table relationships, identity function, membership source, deployment process, and owner. Check overlapping roles because additive membership can broaden access. Trace how a user's UPN or other identity reaches the authorization table, including casing, aliases, guest identities, service accounts, and environment-specific mappings.</p>
+        <p>Create positive and negative test cases for representative personas: expected rows, forbidden rows, totals, drillthrough, exports, Analyze in Excel, subscriptions, downstream reports, and cross-workspace models. For DirectQuery or single sign-on, include source-system behavior because Microsoft notes limitations in the built-in “Test as role” experience. Retain the query, identity, model version, expected result, observed result, and reviewer decision.</p>
+
+        <h2>Audit external sharing and public exposure</h2>
+        <p>External sharing requires more than listing guest users. Review tenant settings, invitation and sponsor status, direct recipients, sharing links, app audiences, semantic-model sharing, Build and reshare rights, subscriptions, embeds, activity, sensitivity, and expiry. Microsoft notes that external recipients must authenticate for normal sharing and that only the intended identity can use a specific-person link, but broad permissions and stale guests still require governance.</p>
+        <p>Search explicitly for Publish to web embed codes. Microsoft warns that Publish to web makes content and underlying model data available to anyone on the internet without authentication. It is not a secure sharing mechanism. Each code should have an owner, approved public-data classification, tenant-policy basis, and recurring review; unapproved exposure should follow an incident-aware removal process.</p>
+
+        <h2 id="architecture">Build a controlled security-review workflow</h2>
+        <div class="article-table-wrap" role="region" aria-label="Power BI security audit architecture" tabindex="0"><table class="article-table"><caption class="sr-only">Power BI security audit architecture</caption>
+          <thead><tr><th scope="col">Component</th><th scope="col">Responsibility</th><th scope="col">Required control</th></tr></thead>
+          <tbody>
+            <tr><td>Read-only collectors</td><td>Collect scanner metadata, roles, item permissions, users, groups, apps, RLS, sharing, tenant settings, labels, lineage, and activity.</td><td>Least-privilege service identity, secret rotation, pagination, raw retention, extraction time, and collection-health monitoring.</td></tr>
+            <tr><td>Effective-access graph</td><td>Connect identities and nested groups to workspaces, items, models, roles, apps, links, sources, and external organizations.</td><td>Stable identifiers, edge provenance, source timestamp, unresolved membership, and no inferred grant presented as fact.</td></tr>
+            <tr><td>Deterministic policy engine</td><td>Compares calculated access with approved role, sensitivity, sharing, Build, RLS, guest, service-principal, and exception rules.</td><td>Versioned policy, scoped applicability, effective dates, test cases, and approved exception with owner and expiry.</td></tr>
+            <tr><td>AI security analyst</td><td>Groups findings, summarizes paths, proposes likely cause, drafts owner questions, and explains remediation alternatives.</td><td>Evidence citations, uncertainty, redaction, prompt and output logging, and no permission-changing authority.</td></tr>
+            <tr><td>Attestation and approval</td><td>Routes findings to data owners, workspace owners, security, compliance, external-user sponsors, and platform administrators.</td><td>Named decision maker, due date, business reason, conflict handling, exception expiry, and escalation.</td></tr>
+            <tr><td>Controlled remediation</td><td>Changes group membership, role, direct access, app audience, Build, sharing, RLS, embed, or source permission.</td><td>Impact preview, approval, backup, rollback, change window, user communication, and separation of duties.</td></tr>
+            <tr><td>Independent validation</td><td>Recalculates access and runs persona tests after the change.</td><td>Different reviewer or automated control, negative tests, downstream checks, audit trail, and residual-risk acceptance.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="remediation">Remediate the permission path, not only the visible symptom</h2>
+        <p>If a user has excessive access through three paths, removing one direct grant does not close the finding. Produce a before-and-after path for each affected identity and item. Prefer maintainable group-based assignments where policy supports them, but first resolve nested group ownership and lifecycle. Do not automatically replace all direct access; some break-glass, service, or exception patterns can be legitimate when approved and monitored.</p>
+        <p>Sequence changes to avoid breaking production reports and integrations. Removing Build can affect analysts, Analyze in Excel, composite models, and downstream report authors. Changing a workspace role can alter publish, refresh, app, and deployment duties. Updating RLS can change every report connected to the model. Revoking an external guest can affect multiple Microsoft 365 resources outside Power BI. The runbook should name dependencies, communication, rollback, and acceptance tests.</p>
+        <p>Validate from the user's effective context after every wave. Recollect permissions, resolve group membership, rerun positive and negative tests, inspect activity, and confirm the intended business workflow still works. Close a finding only when the prohibited path is gone and the required path remains available.</p>
+
+        <h2>Prioritize findings by reachable data and business impact</h2>
+        <ul>
+          <li><strong>Critical:</strong> public exposure, unrestricted access to regulated data, compromised identity, or unauthorized external access with confirmed sensitive reach.</li>
+          <li><strong>High:</strong> elevated role bypassing RLS, broad Build or reshare on sensitive models, stale privileged service principal, or unmanaged external access.</li>
+          <li><strong>Medium:</strong> direct grant sprawl, unused access, unclear ownership, overlapping RLS roles, weak expiry, or missing negative tests.</li>
+          <li><strong>Control gap:</strong> incomplete evidence, scanner failure, unresolved nested group, missing source permission, or activity history too short to support a decision.</li>
+        </ul>
+        <p>Do not use an AI confidence score as risk severity. Severity should derive from verified access, data sensitivity, action capability, external exposure, activity, business criticality, compensating controls, and the consequence of misuse. Unknown evidence is a control gap, not proof of safety.</p>
+
+        <h2 id="assessment">Run a two-to-four-week Power BI security assessment</h2>
+        <ol>
+          <li>Define critical content, expected personas, sensitive data, external organizations, policy sources, decision owners, and remediation authority.</li>
+          <li>Configure read-only tenant, metadata, identity, permission, and activity collection; verify completeness and retain raw evidence.</li>
+          <li>Build the identity-to-content graph across workspace, item, app, semantic-model, RLS, sharing, service-principal, and source paths.</li>
+          <li>Apply versioned rules for elevated roles, Build, direct grants, guests, public exposure, stale identities, RLS conflicts, and expired exceptions.</li>
+          <li>Test representative internal, external, privileged, and restricted personas with positive and negative expected results.</li>
+          <li>Validate findings with data, workspace, security, and business owners; distinguish violation, accepted exception, and missing evidence.</li>
+          <li>Execute one approved remediation wave with dependency checks, communication, rollback, and separation of duties.</li>
+          <li>Recalculate effective access, retest user outcomes, and deliver the baseline, risk register, remediation backlog, runbooks, evidence model, and recurring review cadence.</li>
+        </ol>
+        <p>Start with a bounded set of critical workspaces if tenant access is complex. The first assessment should prove the evidence and remediation method before expanding. Tenant-wide security reviews can then operate as a recurring managed control, with event-driven checks for leavers, new guests, elevated role changes, public embeds, sensitive models, and service-principal changes.</p>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>How do you audit Power BI permissions?</summary><p>Collect workspace roles, item permissions, direct and link-based sharing, app audiences, semantic-model permissions, Build rights, RLS roles, external guests, service principals, tenant settings, identity status, sensitivity, lineage, and activity. Resolve users and nested groups, calculate effective access for each critical item, compare it with approved policy, validate findings with owners, and retest access after approved remediation.</p></details>
+          <details><summary>What is included in a Power BI row-level security assessment?</summary><p>A useful assessment reviews role definitions, DAX filters, static and dynamic membership, identity mapping, workspace roles, Build and reshare permissions, app and direct access paths, source-system authorization for DirectQuery or SSO, service-principal behavior, test cases, negative tests, and evidence that each representative persona sees only the intended rows and objects.</p></details>
+          <details><summary>Does Power BI RLS apply to workspace administrators?</summary><p>No. Microsoft documents that RLS applies to users assigned the Viewer workspace role, while workspace Admin, Member, and Contributor roles have edit permission on the semantic model and are not restricted by RLS. A security audit must therefore review elevated workspace roles as separate access paths.</p></details>
+          <details><summary>How do you audit external sharing in Power BI?</summary><p>Review tenant sharing settings, Microsoft Entra B2B guests, direct access, sharing links, app audiences, semantic-model sharing, reshare and Build permissions, subscriptions, embeds, Publish to web codes, identity status, activity, sensitivity, owner approval, and expiry. Verify access using representative external identities and remove exposure only through an approved, reversible change process.</p></details>
+          <details><summary>How long does a Power BI security audit take?</summary><p>A focused assessment of critical workspaces can often produce an effective-access baseline, validated findings, and a prioritized remediation plan in two to four weeks. A tenant-wide program takes longer when there are many nested groups, external guests, direct grants, app audiences, cross-workspace models, service principals, missing activity history, or business-owner attestations.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/security/service-admin-row-level-security">Microsoft row-level security guidance for Power BI</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-roles-new-workspaces">Microsoft Power BI workspace roles and Build permission</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-share-dashboards">Microsoft Power BI sharing and external-user guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-publish-to-web">Microsoft Power BI Publish to web security warning</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/governance/metadata-scanning-overview">Microsoft Fabric metadata scanning overview</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/rest/api/power-bi/admin/get-activity-events">Microsoft Power BI Admin Activity Events API</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the models where excessive access would create a real incident.</strong> Datrick can establish effective access, validate RLS and sharing, prioritize findings, and run a controlled remediation wave.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Data%20platform%20or%20BI%20work&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=ai_power_bi_security_audit&amp;utm_medium=organic_content&amp;utm_campaign=power_bi_security_scoping&amp;utm_content=article_end#inquiry-form">Scope the Power BI audit</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="ai-power-bi-fabric-copilot-readiness-semantic-model-evaluation"><span>Copilot governance</span><strong>Test AI answers under real security personas</strong></a><a href="ai-data-warehouse-access-review-entitlement-recertification"><span>Data access governance</span><strong>Review warehouse entitlements</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

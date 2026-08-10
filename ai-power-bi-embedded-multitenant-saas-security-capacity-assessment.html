@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Power BI Embedded Multi-Tenant SaaS Security and Capacity Assessment | Datrick</title>
+    <meta name="description" content="Assess Power BI Embedded for multi-tenant SaaS: service principal profiles, workspace isolation, RLS and effective identity, embed tokens, customer lifecycle automation, capacity, monitoring, and incident controls.">
+    <link rel="canonical" href="https://datrick.com/ai-power-bi-embedded-multitenant-saas-security-capacity-assessment">
+    <meta property="og:title" content="AI Power BI Embedded Multi-Tenant SaaS Security and Capacity Assessment | Datrick">
+    <meta property="og:description" content="Prove customer isolation and production behavior before embedded analytics becomes a product risk.">
+    <meta property="og:url" content="https://datrick.com/ai-power-bi-embedded-multitenant-saas-security-capacity-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "AI Power BI Embedded Multi-Tenant SaaS Security and Capacity Assessment", "description": "Assess Power BI Embedded for multi-tenant SaaS: service principal profiles, workspace isolation, RLS and effective identity, embed tokens, customer lifecycle automation, capacity, monitoring, and incident controls.", "url": "https://datrick.com/ai-power-bi-embedded-multitenant-saas-security-capacity-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/ai-power-bi-embedded-multitenant-saas-security-capacity-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "How do you build multi-tenant Power BI Embedded analytics?", "acceptedAnswer": {"@type": "Answer", "text": "Choose an isolation model based on security, scale, cost, regional, and operational requirements. Common patterns include a shared semantic model protected by RLS or customer-specific workspaces and semantic models managed with service principal profiles. Build a server-side token service, authoritative customer-to-profile mapping, automated onboarding and offboarding, capacity monitoring, deployment controls, and negative tests that prove one customer cannot access another customer's content or data."}},
+            {"@type": "Question", "name": "Are Power BI service principal profiles required for multi-tenancy?", "acceptedAnswer": {"@type": "Answer", "text": "No. A smaller solution can use one semantic model with RLS, while service principal profiles support customer-specific workspaces and stronger logical separation at larger scale. Profiles are first-class Power BI security principals and can own content and credentials. The correct pattern depends on customer count, model size, customization, data residency, isolation, automation, and operational capability."}},
+            {"@type": "Question", "name": "How do you test Power BI Embedded row-level security?", "acceptedAnswer": {"@type": "Answer", "text": "Test the complete server-side identity and token path, not only the report. For each representative customer and persona, generate an embed token with the expected identity and roles, verify allowed rows and objects, attempt prohibited cross-customer and cross-role access, test exports and downstream reports, and confirm that missing or malformed identity input fails closed. Retain token-request metadata without logging reusable secrets or tokens."}},
+            {"@type": "Question", "name": "How do you size Power BI Embedded capacity?", "acceptedAnswer": {"@type": "Answer", "text": "Measure concurrent users, query and render latency, semantic-model size and memory, cold-load behavior, refresh concurrency, background work, peak customer patterns, customization, and growth. Load-test representative reports and onboarding scenarios, monitor capacity metrics, isolate noisy workloads where required, and define scaling, throttling, and cost guardrails rather than sizing from viewer count alone."}},
+            {"@type": "Question", "name": "What is included in a Power BI Embedded architecture assessment?", "acceptedAnswer": {"@type": "Answer", "text": "The assessment covers authentication, authorization, service principals and profiles, customer mapping, workspaces, semantic models, RLS and effective identity, token generation, secrets and managed identity, APIs, onboarding, deployment, data sources, capacity, performance, observability, failure handling, backup and recovery, incident response, cost, regional requirements, and evidence from production-like security and load tests."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Power BI Embedded architecture assessment</p>
+        <h1>Prove customer isolation before embedded analytics becomes a product risk.</h1>
+        <p class="page-lede">Review multi-tenant architecture, service principal profiles, RLS and effective identity, embed-token generation, customer lifecycle automation, capacity behavior, observability, and incident controls through production-like tests.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=power_bi_embedded_assessment&amp;utm_medium=organic_content&amp;utm_campaign=embedded_architecture_scoping&amp;utm_content=hero#inquiry-form">Describe the embedded architecture</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Embedded analytics architecture</span><span>10 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#contract">Architecture contract</a><a href="#isolation">Isolation model</a><a href="#workflow">Control plane</a><a href="#validation">Security and load tests</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>Power BI Embedded can make analytics feel native inside a SaaS product, customer portal, or managed-service application. It also places the application team between the end user and Power BI authorization. A wrong customer-to-profile mapping, missing effective identity, overprivileged service principal, reusable token leak, shared capacity overload, or incomplete offboarding can expose data or break every customer's reporting at once.</p>
+        <p>Datrick assesses the full product path: application authentication, authorization, token service, Power BI identities, workspaces, semantic models, RLS, data sources, capacity, frontend embedding, lifecycle automation, monitoring, and support. AI can classify telemetry, summarize configuration, group failures, and propose tests. Deterministic authorization and named engineers control token claims, customer mapping, deployments, security decisions, and production changes.</p>
+
+        <section class="readiness-actions"><p><strong>Are you embedding Power BI for external customers, adding the next hundred tenants, or unsure whether RLS and token generation fail closed?</strong> Test the architecture before scale amplifies the risk.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=power_bi_embedded_assessment&amp;utm_medium=organic_content&amp;utm_campaign=embedded_architecture_scoping&amp;utm_content=article_intro#inquiry-form">Send the product context</a><a class="button secondary" href="ai-power-bi-row-level-security-permission-external-sharing-audit">Review Power BI security</a></div></section>
+
+        <h2 id="contract">Define the customer-isolation contract</h2>
+        <p>Identify customer types, data sensitivity, supported regions, authentication providers, user and admin personas, content customization, authoring, export, embedding surfaces, performance objectives, onboarding volume, customer deletion, legal hold, support hours, and incident authority. Define whether separation must be logical, workspace-based, capacity-based, tenant-based, or regional.</p>
+        <div class="article-table-wrap" role="region" aria-label="Power BI Embedded architecture assessment contract" tabindex="0"><table class="article-table"><caption class="sr-only">Power BI Embedded architecture assessment contract</caption>
+          <thead><tr><th scope="col">Architecture domain</th><th scope="col">Evidence to review</th><th scope="col">Failure to prevent</th></tr></thead>
+          <tbody>
+            <tr><td>Application identity</td><td>User authentication, customer membership, roles, session, authorization source, admin path, impersonation, and offboarding.</td><td>A valid user requests another customer's report, role, export, or administrative operation.</td></tr>
+            <tr><td>Power BI identity</td><td>Service principals, profiles, managed identities, secrets, certificates, permissions, ownership, rotation, and deletion recovery.</td><td>One credential exposes all customers, profile mapping is lost, or deleted identity breaks every workspace.</td></tr>
+            <tr><td>Content isolation</td><td>Workspaces, semantic models, reports, RLS roles, effective identities, data sources, regions, deployments, and customer mapping.</td><td>Cross-customer data access, wrong model binding, unrestricted token, or content published to the wrong workspace.</td></tr>
+            <tr><td>Token service</td><td>Server-side generation, claims, resource IDs, identity and roles, lifetime, caching, logging, authorization, rate limit, and errors.</td><td>Client-controlled claims, token replay, overbroad resources, silent fallback, or sensitive token logging.</td></tr>
+            <tr><td>Capacity and experience</td><td>SKU, model memory, concurrency, cold load, refresh, background work, peak demand, latency, throttling, scaling, and cost.</td><td>Noisy customer, slow first render, refresh starvation, overload, uncontrolled cost, or no graceful degradation.</td></tr>
+            <tr><td>Operations</td><td>Provisioning, update, backup, restore, monitoring, customer support, deployment, rollback, incident, audit, retention, and deletion.</td><td>Partial onboarding, failed upgrade, orphaned content, unrecoverable mapping, or no evidence during an incident.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="isolation">Choose the isolation model from risk and scale</h2>
+        <p>A shared semantic model with RLS can simplify content maintenance and customer onboarding, but all customer data shares one model, capacity, refresh design, and security boundary. It requires correct effective identity on every embed token and strong negative tests. Microsoft notes that when service-principal token generation lacks required RLS identity information, token generation fails; do not build application fallback that converts this failure into unrestricted access.</p>
+        <p>Customer-specific workspaces and semantic models managed with service principal profiles create stronger logical containers and can distribute customers across capacities and regions. Microsoft describes profiles as first-class Power BI security principals that can own workspaces, semantic models, and credentials. The application must maintain an authoritative customer-to-profile and workspace mapping and protect profile lifecycle.</p>
+        <p>Separate service principals or Power BI tenants can create stronger blast-radius or regional boundaries at greater operational cost. Choose deliberately. Do not claim physical isolation from a workspace-based design, and do not adopt thousands of duplicated models without automation for deployment, connection updates, refresh, schema change, monitoring, and recovery.</p>
+
+        <h2>Make the token service a security boundary</h2>
+        <p>Generate embed tokens only on a trusted backend after application authorization. Derive customer, profile, workspace, report, semantic model, identity, and RLS role from server-controlled mapping, not browser input. Validate that the requesting user belongs to the customer and is allowed the requested product capability before calling Power BI APIs.</p>
+        <p>Use short-lived tokens and avoid logging token values, secrets, connection strings, or sensitive effective identities. Log safe request identifiers, customer and resource references, policy decision, profile, roles, duration, result, and correlation IDs. Rate-limit token creation, distinguish dependency failure from authorization denial, and alert on unusual cross-customer or administrative patterns.</p>
+
+        <h2 id="workflow">Build an automated customer-content control plane</h2>
+        <div class="article-table-wrap" role="region" aria-label="Power BI Embedded control plane" tabindex="0"><table class="article-table"><caption class="sr-only">Power BI Embedded control plane</caption>
+          <thead><tr><th scope="col">Control-plane function</th><th scope="col">Responsibility</th><th scope="col">Production control</th></tr></thead>
+          <tbody>
+            <tr><td>Customer registry</td><td>Stores authoritative customer, region, tier, profile, workspace, capacity, model, connection, content version, and lifecycle state.</td><td>Unique constraints, encryption, audit, idempotency key, state transitions, and reconciliation with Power BI.</td></tr>
+            <tr><td>Provisioning</td><td>Creates profile and workspace, assigns capacity, deploys content, sets connections, refreshes, validates, and activates the customer.</td><td>Idempotent steps, least privilege, partial-failure recovery, secret handling, readiness tests, and no activation before acceptance.</td></tr>
+            <tr><td>Token service</td><td>Authorizes user and customer, resolves resources, supplies effective identity, generates token, and returns embed configuration.</td><td>Server-side policy, fail closed, short lifetime, safe logs, rate limit, correlation, and negative tests.</td></tr>
+            <tr><td>Content delivery</td><td>Promotes report and model versions, applies customer configuration, updates bindings, refreshes, validates, and rolls back.</td><td>Source-controlled artifact, version compatibility, staged rollout, canary customers, rollback, and customer communication.</td></tr>
+            <tr><td>Capacity operations</td><td>Monitors queries, memory, refresh, overload, latency, errors, customer demand, scale, and cost.</td><td>Per-customer attribution, SLO, alert action, workload isolation, scaling policy, budget, and post-change validation.</td></tr>
+            <tr><td>Offboarding and recovery</td><td>Revokes product access, expires tokens, archives or deletes content and data by policy, removes mappings, and validates closure.</td><td>Approval, hold check, retention, recoverability, dependency check, immutable evidence, and no orphan profile or workspace.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2>Operate capacity as part of the product SLO</h2>
+        <p>Size from measured workloads, not registered users. Capture concurrent sessions, query and render latency, semantic-model memory, cold-load behavior, refresh duration and overlap, background jobs, peak customer patterns, report complexity, exports, and growth. Load-test representative reports with realistic filters and customer distributions.</p>
+        <p>Monitor capacity metrics alongside application telemetry so a slow embed can be traced through browser, token service, Power BI render, semantic model, DirectQuery source, gateway, or capacity. Attribute consumption to customers and workloads where architecture permits. Define overload protection, scaling, customer-tier policy, and cost guardrails before a launch event creates uncontrolled spend.</p>
+
+        <h2 id="validation">Test isolation with prohibited actions</h2>
+        <p>For every representative customer and role, test allowed reports, rows, objects, exports, authoring, and administrative actions. Then attempt another customer's report ID, semantic model, workspace, profile, effective identity, role, and cached embed configuration. Test missing identity, empty role, malformed customer mapping, disabled user, offboarded customer, expired token, deleted profile, secret rotation, partial provisioning, and rollback.</p>
+        <p>Verify that authorization fails closed and produces an actionable internal event without leaking customer or infrastructure detail to the browser. Re-run negative tests after content, model, token-service, SDK, identity, workspace, and profile changes. A successful demo with two friendly users is not a multi-tenant security test.</p>
+        <p>Run performance and resilience tests for cold models, concurrent first load, refresh overlap, capacity throttling, source latency, token-service failure, Power BI service incident, deployment regression, and regional dependency. Record objective, load, configuration, result, threshold, owner, and remediation.</p>
+
+        <h2 id="assessment">Run a three-to-five-week embedded architecture assessment</h2>
+        <ol>
+          <li>Define customer, data, region, authentication, isolation, customization, scale, performance, support, and compliance requirements.</li>
+          <li>Inventory application, token service, identities, profiles, workspaces, models, RLS, sources, capacities, deployments, monitoring, and lifecycle automation.</li>
+          <li>Trace user-to-data authorization and customer-to-profile mapping with evidence from code, configuration, APIs, and production-like requests.</li>
+          <li>Model isolation alternatives and quantify blast radius, automation, capacity, region, customization, and cost trade-offs.</li>
+          <li>Run negative cross-customer, missing-identity, role, token, provisioning, offboarding, and recovery tests.</li>
+          <li>Load-test representative customer and report patterns with refresh and background workloads.</li>
+          <li>Validate one controlled remediation or architecture improvement with rollback and post-change testing.</li>
+          <li>Deliver the architecture decision, threat and failure model, findings, test evidence, capacity baseline, prioritized backlog, runbooks, and target operating model.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>How do you build multi-tenant Power BI Embedded analytics?</summary><p>Choose an isolation model based on security, scale, cost, regional, and operational requirements. Common patterns include a shared semantic model protected by RLS or customer-specific workspaces and semantic models managed with service principal profiles. Build a server-side token service, authoritative customer-to-profile mapping, automated onboarding and offboarding, capacity monitoring, deployment controls, and negative tests that prove one customer cannot access another customer's content or data.</p></details>
+          <details><summary>Are Power BI service principal profiles required for multi-tenancy?</summary><p>No. A smaller solution can use one semantic model with RLS, while service principal profiles support customer-specific workspaces and stronger logical separation at larger scale. Profiles are first-class Power BI security principals and can own content and credentials. The correct pattern depends on customer count, model size, customization, data residency, isolation, automation, and operational capability.</p></details>
+          <details><summary>How do you test Power BI Embedded row-level security?</summary><p>Test the complete server-side identity and token path, not only the report. For each representative customer and persona, generate an embed token with the expected identity and roles, verify allowed rows and objects, attempt prohibited cross-customer and cross-role access, test exports and downstream reports, and confirm that missing or malformed identity input fails closed. Retain token-request metadata without logging reusable secrets or tokens.</p></details>
+          <details><summary>How do you size Power BI Embedded capacity?</summary><p>Measure concurrent users, query and render latency, semantic-model size and memory, cold-load behavior, refresh concurrency, background work, peak customer patterns, customization, and growth. Load-test representative reports and onboarding scenarios, monitor capacity metrics, isolate noisy workloads where required, and define scaling, throttling, and cost guardrails rather than sizing from viewer count alone.</p></details>
+          <details><summary>What is included in a Power BI Embedded architecture assessment?</summary><p>The assessment covers authentication, authorization, service principals and profiles, customer mapping, workspaces, semantic models, RLS and effective identity, token generation, secrets and managed identity, APIs, onboarding, deployment, data sources, capacity, performance, observability, failure handling, backup and recovery, incident response, cost, regional requirements, and evidence from production-like security and load tests.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/developer/embedded/embed-multi-tenancy">Microsoft service principal profiles for Power BI Embedded multi-tenancy</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/guidance/develop-scalable-multitenancy-apps-with-powerbi-embedding">Microsoft scalable multi-tenancy guidance for Power BI embedding</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/developer/embedded/embedded-row-level-security">Microsoft security guidance for Power BI Embedded analytics</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/developer/embedded/cloud-rls">Microsoft cloud RLS guidance for embedded content</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/developer/embedded/embedded-capacity">Microsoft Power BI Embedded capacity planning guidance</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the authentication-to-data path and one representative customer lifecycle.</strong> Datrick can test isolation, capacity behavior, automation, and operational recovery before the next scale milestone.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=power_bi_embedded_assessment&amp;utm_medium=organic_content&amp;utm_campaign=embedded_architecture_scoping&amp;utm_content=article_end#inquiry-form">Scope the Embedded assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="ai-power-bi-row-level-security-permission-external-sharing-audit"><span>Power BI security</span><strong>Audit RLS and effective access</strong></a><a href="ai-microsoft-fabric-capacity-throttling-cost-performance-optimization"><span>Capacity operations</span><strong>Control throttling, performance, and cost</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

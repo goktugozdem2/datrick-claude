@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Advanced Prompt Engineering: Techniques &amp; Evaluation | Datrick</title>
+    <meta name="description" content="Choose advanced prompt engineering techniques by failure mode, then verify them with structured outputs, retrieval, tools, evaluations, safety controls, and production fallbacks.">
+    <link rel="canonical" href="https://datrick.com/advanced-prompt-engineering-guide">
+    <meta property="og:title" content="Advanced Prompt Engineering: Techniques &amp; Evaluation | Datrick">
+    <meta property="og:description" content="A production-focused guide to choosing advanced prompting techniques, testing reliability, controlling risk, and deciding when a prompt is not the answer.">
+    <meta property="og:url" content="https://datrick.com/advanced-prompt-engineering-guide">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "headline": "Advanced Prompt Engineering: Techniques, Examples, and Evaluation",
+            "description": "Choose advanced prompt engineering techniques by failure mode and verify them with structured output, retrieval, tools, evaluation, safety controls, and production fallbacks.",
+            "url": "https://datrick.com/advanced-prompt-engineering-guide",
+            "datePublished": "2026-08-02",
+            "dateModified": "2026-08-02",
+            "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"},
+            "reviewedBy": {"@type": "Person", "name": "Can Goktug Ozdem", "url": "https://datrick.com/about.html"},
+            "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}},
+            "mainEntityOfPage": "https://datrick.com/advanced-prompt-engineering-guide"
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {"@type": "Question", "name": "What is advanced prompt engineering?", "acceptedAnswer": {"@type": "Answer", "text": "Advanced prompt engineering is the disciplined selection of instructions, examples, context, retrieval, tools, structured outputs, and evaluation controls for a defined task and failure mode. It includes knowing when a prompt cannot solve the underlying problem."}},
+              {"@type": "Question", "name": "Which advanced prompting technique should I learn first?", "acceptedAnswer": {"@type": "Answer", "text": "Learn evaluation first. Without a representative test set and explicit success criteria, you cannot know whether few-shot examples, decomposition, retrieval, tools, or another technique actually improved the workflow."}},
+              {"@type": "Question", "name": "Is chain-of-thought prompting required for reliable results?", "acceptedAnswer": {"@type": "Answer", "text": "No. Hidden reasoning is not an auditable reliability control. Prefer a defined output contract, stated assumptions, citations where relevant, externally checkable steps, evaluation cases, and a safe fallback."}},
+              {"@type": "Question", "name": "When should I use retrieval instead of a longer prompt?", "acceptedAnswer": {"@type": "Answer", "text": "Use retrieval when the answer depends on changing, private, or document-specific facts that should come from an approved source collection. Test retrieval coverage separately from answer quality."}},
+              {"@type": "Question", "name": "How do I test an advanced prompt for production?", "acceptedAnswer": {"@type": "Answer", "text": "Build a versioned evaluation set from representative inputs, define pass criteria and critical failures, compare against a baseline, segment the results, review errors, and test permissions, latency, cost, and fallback behavior before release."}}
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Resources", "item": "https://datrick.com/resources.html"},
+              {"@type": "ListItem", "position": 2, "name": "Advanced Prompt Engineering", "item": "https://datrick.com/advanced-prompt-engineering-guide"}
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai" data-content-id="advanced-prompt-engineering-guide" data-content-group="prompt-engineering" data-funnel-stage="awareness">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Production prompt engineering</p>
+          <h1>Advanced prompt engineering starts with the failure mode.</h1>
+          <p class="page-lede">Choose examples, decomposition, retrieval, tools, or structured output for a reason. Then prove the workflow is more reliable with representative evaluations, safety boundaries, and a fallback outside the model.</p>
+          <div class="hero-actions article-hero-actions"><a class="button primary" data-funnel-stage="consideration" data-next-stage="implementation" data-cta-name="open_production_ai_workflow" href="resource-production-ai-workflow.html?utm_source=advanced_prompt_engineering_guide&amp;utm_medium=website&amp;utm_campaign=prompt_reliability&amp;utm_content=hero">Open the production workflow guide</a></div>
+          <div class="article-meta"><a href="resources.html">Resource library</a><span>Technique selection and evaluation</span><span>15 min read</span></div>
+          <p class="article-review">Reviewed for prompt architecture, evaluation, and production controls by <a href="about.html">Can Goktug Ozdem</a>, founder and senior technical lead. Last reviewed August 2, 2026.</p>
+        </div>
+      </section>
+
+      <section class="section service-band">
+        <article class="article-body">
+          <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#definition">What advanced means</a><a href="#selection">Technique selector</a><a href="#examples">Examples</a><a href="#evaluation">Evaluation system</a><a href="#safety">Safety</a></nav>
+
+          <h2 id="definition">What is advanced prompt engineering?</h2>
+          <p><strong>Advanced prompt engineering is the disciplined selection of prompt structure, examples, context, retrieval, tools, output constraints, and validation for a known task and failure mode.</strong> It is not a contest to write the longest instruction or collect the most named techniques. The work is advanced when the behavior is defined, tested, observed, and maintained as part of a real system.</p>
+          <p>Begin with a baseline prompt and a representative set of inputs. Record where it fails. Only then introduce a technique that addresses the observed error. Anthropic's prompt engineering guidance begins with success criteria and empirical tests. OpenAI's guidance similarly connects instructions, message roles, examples, context, and evaluations. That order matters: without a measurable problem, a technique adds complexity without evidence.</p>
+
+          <section class="readiness-actions">
+            <p><strong>Use this guide as a decision path.</strong> Diagnose the failure here, practice controlled revisions, then move the successful pattern into a versioned workflow with an evaluation gate.</p>
+            <div class="readiness-action-links"><a class="button primary" data-funnel-stage="consideration" data-next-stage="practice" data-cta-name="practice_prompt_feedback" href="practice-ai-prompting-with-feedback?utm_source=advanced_prompt_engineering_guide&amp;utm_medium=website&amp;utm_campaign=prompt_reliability&amp;utm_content=article_intro">Run the feedback loop</a><a class="button secondary" data-funnel-stage="consideration" data-next-stage="implementation" data-cta-name="review_production_workflow" href="resource-production-ai-workflow.html?utm_source=advanced_prompt_engineering_guide&amp;utm_medium=website&amp;utm_campaign=prompt_reliability&amp;utm_content=article_intro">Review the production path</a></div>
+          </section>
+
+          <h2 id="selection">Choose the technique by failure mode</h2>
+          <p>Change one meaningful variable at a time and keep a control result. If the technique does not improve the relevant metric without creating an unacceptable regression, remove it.</p>
+          <div class="article-table-wrap" role="region" aria-label="Advanced prompt engineering technique selector" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Prompt engineering techniques mapped to failure modes and verification</caption>
+              <thead><tr><th scope="col">Observed failure</th><th scope="col">Technique to test</th><th scope="col">Verification</th><th scope="col">Do not confuse it with</th></tr></thead>
+              <tbody>
+                <tr><td>Output repeatedly violates a known format</td><td>Explicit schema, constrained fields, valid example, and programmatic validation.</td><td>Schema-valid rate and field-level accuracy.</td><td>Asking for “better formatting” with no contract.</td></tr>
+                <tr><td>A long task loses constraints or mixes stages</td><td>Task decomposition or prompt chaining with an approved intermediate state.</td><td>Pass rate at each stage and end-to-end error attribution.</td><td>Making one prompt longer.</td></tr>
+                <tr><td>The answer needs changing, private, or document-specific facts</td><td>Retrieval from an approved corpus with source identifiers and a refusal boundary.</td><td>Retrieval recall, groundedness, citation support, and answer quality.</td><td>Treating retrieved text as automatically true or safe.</td></tr>
+                <tr><td>The workflow needs current data or must perform an action</td><td>Typed tool calls with least-privilege permissions, validation, confirmation, and audit logs.</td><td>Correct tool selection, argument validity, authorization, and action outcome.</td><td>Giving the model direct, unrestricted system access.</td></tr>
+                <tr><td>A classification boundary is ambiguous</td><td>Label definitions, edge-case examples, counterexamples, and a confidence or escalation rule.</td><td>Precision, recall, confusion matrix, and human-review volume.</td><td>Optimizing only overall accuracy on an imbalanced set.</td></tr>
+                <tr><td>A high-variance answer requires a robust candidate</td><td>Multiple independent candidates with a separate, testable selection rule.</td><td>Quality lift, cost, latency, and selector error.</td><td>Assuming more samples always improve truthfulness.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Advanced techniques that deserve separate tests</h2>
+          <h3>Few-shot examples</h3>
+          <p>Examples are useful when a verbal rule does not fully communicate the intended boundary, style, or transformation. Select examples that represent the real distribution, including difficult cases. Keep the correct output clear and avoid accidental patterns such as always placing one label first. Re-run the evaluation when examples change because the examples are executable behavior, not decoration.</p>
+          <h3>Decomposition and prompt chaining</h3>
+          <p>Split a task when an intermediate result can be defined and checked: extract facts, validate them, then draft; classify a request, retrieve the correct policy, then respond. Chaining helps observability because a failure can be assigned to a stage. It also creates new interfaces, latency, and failure modes, so every stage needs an input contract, output contract, timeout, and fallback.</p>
+          <h3>Retrieval-augmented generation</h3>
+          <p>Retrieval is appropriate when the model needs approved knowledge not reliably contained in its parameters. Evaluate retrieval and generation separately. A wrong answer may come from a missing document, weak ranking, lost metadata, confusing context, or unsupported synthesis. Add source identifiers and require the answer to stay within the retrieved evidence; do not merely paste more text into the prompt.</p>
+          <h3>Tools and structured outputs</h3>
+          <p>Use tools for deterministic calculation, database lookup, system actions, or fresh external data. Give each tool a narrow contract and minimal authority. Validate arguments before execution, require confirmation for consequential changes, and log both the request and result. Structured outputs improve machine readability, but schema validity does not prove that the values are correct.</p>
+          <h3>Reasoning requests and checkable evidence</h3>
+          <p>Requesting hidden or private chain-of-thought is not a production reliability control. A fluent explanation can still support a wrong answer, and hidden internal reasoning is not an audit trail. Ask instead for a concise rationale, stated assumptions, source references where relevant, and externally checkable intermediate artifacts such as calculations, extracted evidence, tool results, or validation errors.</p>
+
+          <h2 id="examples">Five production-shaped examples</h2>
+          <ol>
+            <li><strong>Invoice extraction:</strong> define a JSON schema, include one representative example, reject invalid dates, compare totals to line items, and route low-confidence or inconsistent records to review.</li>
+            <li><strong>Support classification:</strong> define mutually exclusive labels, add boundary examples, measure per-class precision and recall, and escalate messages that match a safety or account-access rule.</li>
+            <li><strong>Policy question answering:</strong> retrieve only current, approved policy sections, preserve document version and section IDs, require supported citations, and decline when evidence is absent or conflicting.</li>
+            <li><strong>Operational tool use:</strong> let the model propose a typed ticket update, validate identity and allowed fields outside the model, show the proposed change to the operator, and execute only after confirmation.</li>
+            <li><strong>Document-grounded analysis:</strong> extract claims and evidence into a reviewable table before drafting conclusions; test citation support and material omissions separately from writing quality.</li>
+          </ol>
+          <p>Each pattern combines probabilistic model work with deterministic checks and a human or system boundary. That combination is usually more valuable than another layer of persuasive prompt wording.</p>
+
+          <h2 id="evaluation">Build an evaluation system before production</h2>
+          <p>A strong evaluation set represents the task, not just the happy path. Include common inputs, edge cases, missing information, conflicting sources, adversarial instructions, sensitive-data situations, and cases that should be refused or escalated. Preserve a small holdout set so repeated tuning does not optimize only the known examples.</p>
+          <div class="article-table-wrap" role="region" aria-label="Production prompt evaluation plan" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Steps and evidence for a production prompt evaluation system</caption>
+              <thead><tr><th scope="col">Evaluation layer</th><th scope="col">Define</th><th scope="col">Evidence to retain</th></tr></thead>
+              <tbody>
+                <tr><td>Task success</td><td>Observable pass criteria, partial credit, and critical failures.</td><td>Versioned case, expected behavior, actual output, score, and reviewer.</td></tr>
+                <tr><td>Segment quality</td><td>Performance by language, source type, customer group, label, or risk class.</td><td>Per-segment metrics and the smallest segments that need review.</td></tr>
+                <tr><td>System behavior</td><td>Latency, token or API cost, retries, timeouts, and tool errors.</td><td>Traces tied to prompt, model, retrieval, tool, and configuration versions.</td></tr>
+                <tr><td>Safety</td><td>Data boundary, refusal rules, injection cases, permissions, and escalation.</td><td>Critical-failure count, blocked actions, approvals, and incident path.</td></tr>
+                <tr><td>Release decision</td><td>Baseline, minimum lift, regression limits, owner, and rollback trigger.</td><td>Comparison report, approval, deployment version, and fallback status.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Version the prompt, examples, system instructions, model, retrieval settings, tool schemas, evaluator, and dataset together. A result without those versions is difficult to reproduce. Monitor the same high-value metrics after release because user behavior and source data can change even when the prompt does not.</p>
+
+          <h2 id="safety">Prompt injection, sensitive data, and action safety</h2>
+          <p>Treat external documents, retrieved passages, websites, emails, and tool results as untrusted data. They can contain instructions that conflict with the system's purpose. Keep authority in application controls: isolate instructions from data, restrict tool permissions, validate every consequential action, and require human confirmation where impact cannot be safely reversed.</p>
+          <p>Do not put secrets or unnecessary personal data into prompts. Define retention and provider settings, minimize the data sent, redact where practical, and give reviewers an explicit escalation path. For high-impact workflows, a safe refusal or manual fallback is a product requirement, not a model failure.</p>
+
+          <h2>When prompt engineering is the wrong intervention</h2>
+          <p>Use a deterministic rule when the answer must always follow a stable formula. Improve retrieval when the correct source never reaches the model. Change the workflow when ownership or approvals are missing. Consider a different model when the required capability is absent. Consider fine-tuning only when there is a stable, repeated behavior supported by sufficient quality data and evaluation. No prompt can repair an undefined goal, inaccessible evidence, excessive permissions, or the absence of an accountable owner.</p>
+
+          <h2>Primary reading behind this guide</h2>
+          <p>The broad technique landscape is catalogued in <a href="https://arxiv.org/abs/2406.06608">The Prompt Report</a>. Foundational research includes <a href="https://arxiv.org/abs/2201.11903">chain-of-thought prompting</a>, <a href="https://arxiv.org/abs/2203.11171">self-consistency</a>, <a href="https://arxiv.org/abs/2210.03629">ReAct</a>, and <a href="https://arxiv.org/abs/2005.11401">retrieval-augmented generation</a>. Translate research claims into tests on your own task. For current model behavior and supported controls, use the <a href="https://developers.openai.com/api/docs/guides/prompt-engineering">OpenAI prompt engineering guide</a> and <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview">Claude prompt engineering overview</a>.</p>
+
+          <section class="readiness-actions">
+            <p><strong>Need to turn a promising prompt into a reliable workflow?</strong> Share one target process, its inputs, failure cost, approved data sources, current baseline, required actions, and review boundary. Datrick can map the smallest evaluation and implementation path before you commit to a broad build.</p>
+            <div class="readiness-action-links"><a class="button primary" data-offer="prompt_workflow_assessment" data-cta-name="request_prompt_workflow_assessment" data-funnel-stage="conversion" data-next-stage="lead" href="index.html?buyer_type=Business%20%2F%20operations%20leader&amp;service=AI%20workflow%20automation&amp;engagement_type=Assessment%20%2F%20roadmap&amp;offer=prompt_workflow_assessment&amp;utm_source=advanced_prompt_engineering_guide&amp;utm_medium=organic_content&amp;utm_campaign=prompt_reliability&amp;utm_content=page_end#inquiry-form">Request a workflow assessment</a><a class="button secondary" data-funnel-stage="decision" data-next-stage="offer" data-cta-name="review_ai_workflows" href="ai-workflows.html?utm_source=advanced_prompt_engineering_guide&amp;utm_medium=website&amp;utm_campaign=prompt_reliability&amp;utm_content=page_end">Review AI workflow services</a></div>
+          </section>
+
+          <h2>Frequently asked questions</h2>
+          <details><summary>What is advanced prompt engineering?</summary><p>It is the disciplined selection of instructions, examples, context, retrieval, tools, structured outputs, and evaluation controls for a defined task and failure mode. It includes knowing when a prompt cannot solve the underlying problem.</p></details>
+          <details><summary>Which advanced prompting technique should I learn first?</summary><p>Learn evaluation first. Without a representative test set and explicit success criteria, you cannot know whether a technique actually improved the workflow.</p></details>
+          <details><summary>Is chain-of-thought prompting required for reliable results?</summary><p>No. Hidden reasoning is not an auditable reliability control. Prefer a defined output contract, stated assumptions, externally checkable evidence, evaluation cases, and a safe fallback.</p></details>
+          <details><summary>When should I use retrieval instead of a longer prompt?</summary><p>Use retrieval when the answer depends on changing, private, or document-specific facts from an approved source collection. Test retrieval coverage separately from answer quality.</p></details>
+          <details><summary>How do I test an advanced prompt for production?</summary><p>Use a versioned evaluation set of representative inputs, define pass criteria and critical failures, compare with a baseline, segment the results, review errors, and test permissions, latency, cost, and fallback behavior.</p></details>
+
+          <nav class="article-next" aria-label="Prompt engineering next steps"><a data-funnel-stage="consideration" data-next-stage="education" data-cta-name="open_claudequest_course_scorecard" href="https://claudequest.app/blog/best-prompt-engineering-course?utm_source=datrick_advanced_prompt_guide&amp;utm_medium=referral&amp;utm_campaign=cross_brand_learning"><span>ClaudeQuest learning path</span><strong>Choose training with a 100-point scorecard</strong></a><a data-funnel-stage="consideration" data-next-stage="practice" data-cta-name="open_claudequest_feedback_practice" href="https://claudequest.app/blog/practice-ai-prompting-with-feedback?utm_source=datrick_advanced_prompt_guide&amp;utm_medium=referral&amp;utm_campaign=cross_brand_learning"><span>ClaudeQuest practice loop</span><strong>Improve prompts with controlled feedback</strong></a></nav>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weaviate Production Support and Managed Services | Datrick</title>
+    <meta name="description" content="Managed Weaviate production support for Cloud or Kubernetes, indexing queues, replicas, multi-tenancy, retrieval, monitoring, backups, releases, and cost.">
+    <link rel="canonical" href="https://datrick.com/weaviate-production-support-managed-services-vector-database-operations">
+    <meta property="og:title" content="Weaviate Production Support and Managed Services | Datrick">
+    <meta property="og:description" content="Operate Weaviate with accountable indexing, replica consistency, tenant isolation, retrieval quality, capacity, backups, incidents, releases, and cost.">
+    <meta property="og:url" content="https://datrick.com/weaviate-production-support-managed-services-vector-database-operations">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "WebPage", "name": "Weaviate Production Support and Managed Services", "url": "https://datrick.com/weaviate-production-support-managed-services-vector-database-operations", "dateModified": "2026-08-03", "reviewedBy": {"@type": "Person", "name": "Can Goktug Ozdem", "url": "https://datrick.com/about.html"}},
+          {"@type": "Service", "name": "Weaviate Production Support and Managed Services", "description": "Ongoing Weaviate operations covering Cloud or self-managed Kubernetes, collections, vectorizers, indexing queues, shards, replicas, consistency, multi-tenancy, tenant states, retrieval, monitoring, backups, security, incidents, releases, cost, runbooks, and reporting.", "url": "https://datrick.com/weaviate-production-support-managed-services-vector-database-operations", "provider": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "areaServed": "Global", "audience": {"@type": "BusinessAudience", "audienceType": "Software companies, enterprises, managed service providers, and AI delivery firms operating production Weaviate retrieval workloads"}},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is included in Weaviate production support?", "acceptedAnswer": {"@type": "Answer", "text": "A defined service can include Weaviate Cloud or self-managed Kubernetes, collection and vectorizer design, ingestion and asynchronous indexing, vector queue monitoring, HNSW, flat, dynamic, or HFresh indexes, shards and replicas, tunable consistency, multi-tenancy and tenant states, hybrid retrieval, Prometheus and node health, backups and restore, security, incidents, releases, cost, runbooks, and reporting."}},
+            {"@type": "Question", "name": "How do you monitor Weaviate asynchronous indexing in production?", "acceptedAnswer": {"@type": "Answer", "text": "Monitor each node and shard through the nodes endpoint and Prometheus metrics. The vectorQueueLength field shows objects still waiting for vector indexing, while vectorIndexingStatus distinguishes indexing from ready states. Because asynchronous indexing lets object writes complete before HNSW is current, freshness acceptance should include bounded queue thresholds and retrieval checks rather than object counts alone."}},
+            {"@type": "Question", "name": "How should Weaviate multi-tenancy be operated?", "acceptedAnswer": {"@type": "Answer", "text": "Each tenant is stored in a separate shard and data is not visible across tenants, but applications must still supply the correct tenant identity. Operate creation, activation, inactivity, offloading, deletion, quotas, file-descriptor limits, placement, backup eligibility, and restore tests as one lifecycle. Adding nodes does not automatically redistribute existing tenant shards."}},
+            {"@type": "Question", "name": "Can a Weaviate vectorizer be changed without downtime?", "acceptedAnswer": {"@type": "Answer", "text": "A collection's vectorizer cannot be changed in place. For production migrations, Weaviate recommends building a separate collection with the new vectorizer and using a collection alias for a reversible cutover. Adding another named vector can support experimentation, but the old vector cannot be removed and storage usage remains higher."}},
+            {"@type": "Question", "name": "How long does Weaviate production support onboarding take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused onboarding commonly takes two to four weeks for a representative production portfolio. It covers deployment and collection inventory, queue, replica and tenant baselines, retrieval and capacity, security, backup and restore, incidents, releases, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data" data-content-id="weaviate_production_operations" data-content-group="vector_databases" data-content-type="commercial_resource" data-commercial-cluster="ai_operations">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Weaviate Vector Database Operations</p>
+        <h1>A distributed vector database can stay available while its replicas disagree.</h1>
+        <p class="page-lede">Operate Weaviate with accountable ingestion and indexing queues, shard and replica consistency, tenant isolation, retrieval quality, Cloud or Kubernetes capacity, backup and restore, controlled releases, and cost evidence.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" data-cta-name="weaviate_hero_to_inquiry" data-funnel-stage="content_to_inquiry" data-next-stage="written_scoping" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=weaviate_production_support&amp;utm_medium=organic_content&amp;utm_campaign=weaviate_vector_database_operations&amp;utm_content=hero#inquiry-form">Describe the Weaviate estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Weaviate Operations</span><span>14 min read</span></div>
+        <p class="article-review">Reviewed against official Weaviate documentation for vector database operations by <a href="about.html">Can Goktug Ozdem</a>, founder and senior technical lead. Last reviewed August 3, 2026.</p>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Service boundary</a><a href="#scope">Operating scope</a><a href="#consistency">Index and consistency</a><a href="#incidents">Incident response</a><a href="#onboarding">Onboarding</a></nav>
+
+        <p>Weaviate can operate as Shared or Dedicated Cloud, Hybrid SaaS, or self-managed Kubernetes; vectorize objects; build HNSW, flat, dynamic, or HFresh indexes; shard and replicate data; isolate tenants; combine vector and keyword retrieval; expose Prometheus metrics and node status; move replicas; and back up collections. Those controls do not decide who owns an object that committed before asynchronous vector indexing completed, replicas that return inconsistent results, a tenant shard stranded on an overloaded node, a backup that excluded offloaded tenants or authorization state, or a vectorizer migration that improved benchmark recall while breaking live answers.</p>
+        <p>Datrick provides an ongoing operating layer for an agreed Weaviate estate. Named engineers correlate source objects, collection definitions, vectorizers, embeddings, inverted and vector indexes, queues, shards, replicas, consistency levels, tenants and states, queries, filters, scores, application citations, nodes, Kubernetes or Cloud dependencies, metrics, backups, security events, releases, usage, cost, and business outcomes. Weaviate Support remains the escalation path for platform defects. Datrick owns the client-specific diagnosis, containment, validation, communication, change, and prevention accepted in the service boundary.</p>
+
+        <section class="readiness-actions"><p><strong>Do you have Weaviate in production but no team accountable for turning queue growth, inconsistent replicas, wrong tenant state, slow retrieval, memory pressure, failed restore, or vectorizer drift into a verified outcome?</strong> Start with one representative collection portfolio.</p><div class="readiness-action-links"><a class="button primary" data-cta-name="weaviate_intro_to_inquiry" data-funnel-stage="content_to_inquiry" data-next-stage="written_scoping" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=weaviate_production_support&amp;utm_medium=organic_content&amp;utm_campaign=weaviate_vector_database_operations&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" data-cta-name="weaviate_to_msp_offer" data-funnel-stage="content_to_commercial" data-next-stage="service_landing" href="white-label-ai-agent-operations-managed-support-for-msps">Review the MSP model</a></div></section>
+
+        <h2 id="boundary">Define ownership from source object to shard, replica, retrieval result, and business answer</h2>
+        <p>A production path can include source systems and document pipelines; chunking, metadata, vectorization, and reranking providers; import clients; Weaviate clusters, nodes, collections, shards, replicas, tenants, objects, vector and inverted indexes; query, filter, aggregate, update, and delete operations; an agent or application; answer synthesis and citations; and the target user or workflow. Name which layers the managed service owns, observes, changes, coordinates, or excludes.</p>
+        <p>Document hosting model, cloud, region and version; collections and workloads; properties, vectorizers, dimensions and distance; index type and mutable settings; shard and replication topology; read and write consistency; tenants and states; source freshness; ingestion and queue behavior; retrieval patterns; latency, availability and quality SLOs; security principals; backup and restore; support hours; severity; change authority; budget; fallback; and Weaviate escalation.</p>
+
+        <h2 id="scope">Operate the complete Weaviate production surface</h2>
+        <div class="article-table-wrap" role="region" aria-label="Weaviate production support scope" tabindex="0"><table class="article-table"><caption class="sr-only">Weaviate production support scope</caption>
+          <thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead>
+          <tbody>
+            <tr><td>Collection and vector design</td><td>Collection purpose, properties, object IDs, vectorizers, named vectors, distance, HNSW, flat, dynamic, or HFresh index, inverted index, filters, retention, TTL, and deletion.</td><td>Authoritative source, embedding compatibility, mutable settings, sensitive metadata, reindex route, retention, and deletion SLA.</td></tr>
+            <tr><td>Ingestion and indexing</td><td>Batch and single-object imports, update and delete, deduplication, vector generation, asynchronous indexing, persistent queue, vectorQueueLength, indexing status, backfill, and reconciliation.</td><td>Source owner, object and vector freshness SLOs, accepted queue lag, idempotency, throughput, retry, and exception route.</td></tr>
+            <tr><td>Shards, replicas, and tenants</td><td>Sharding, replication factor, replica placement and movement, ONE, QUORUM, or ALL consistency, tenant creation, ACTIVE, INACTIVE, or OFFLOADED state, quotas, placement, and deletion.</td><td>Availability and consistency target, noisy-neighbor policy, state authority, file limits, rebalance, isolation, and offboarding.</td></tr>
+            <tr><td>Retrieval and quality</td><td>Vector, keyword, hybrid, filtered and generative queries, target vector, limits, scores, reranking, returned properties, citations, evaluation, drift, and regression.</td><td>Expected evidence, quality metrics, latency SLO, filter policy, reviewer, release threshold, and business consequence.</td></tr>
+            <tr><td>Capacity and observability</td><td>Nodes, shards, replicas, object counts, queue length, memory and GOMEMLIMIT, disk, HNSW cache, compression, latency, import rate, errors, Prometheus, Grafana, logs, profiling, and alerts.</td><td>Traffic and growth profile, headroom, availability, scale authority, storage class, metric labels, retention, and performance target.</td></tr>
+            <tr><td>Security, backup, and hosting</td><td>Weaviate Cloud or Kubernetes boundary, API keys, OIDC or RBAC, TLS, network controls, secrets, audit, S3, GCS, Azure or local backup, tenant inclusion, authorization data, restore, and upgrades.</td><td>Least privilege, rotation, audit ownership, RTO and RPO, managed versus self-hosted responsibility, compliance, and vendor escalation.</td></tr>
+            <tr><td>Release, cost, and value</td><td>Database and client versions, collection schema, vectorizer and reranker, index settings, consistency, tenant lifecycle, query logic, infrastructure, tests, rollout, rollback, Cloud resources, storage, inference, and anomaly.</td><td>Source of truth, environments, approval, compatibility, budget, forecast, unit economics, canary, and acceptance evidence.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="consistency">Treat object freshness, vector indexing, replica consistency, tenancy, and capacity as one design</h2>
+        <p>With synchronous indexing, Weaviate updates the object store and vector index together. With asynchronous indexing, object imports, updates, and deletes enter a persistent on-disk vector queue so the API can finish before HNSW is current. That improves ingestion throughput but creates a deliberate interval in which objects exist and vector search can use an incomplete index. Monitor vectorQueueLength and vectorIndexingStatus per shard, alert on age and growth, and define separate object and vector freshness acceptance.</p>
+        <p>Weaviate uses Raft for strongly consistent metadata and leaderless, tunably consistent data replication. ONE, QUORUM, and ALL trade latency and availability against read or write certainty. A healthy cluster can therefore serve while replicas converge. Set consistency per business consequence, enable asynchronous replication where appropriate, reconcile inconsistent results, and test node loss. Replication is disabled by default for a collection, and collection-definition updates do not directly change its replication factor; version-aware replica movement is a controlled topology change, not a checkbox.</p>
+        <p>Each Weaviate tenant is a separate shard. The application must still submit the right tenant, while operations must govern tenant creation, activation, inactivity, offloading, deletion, quota, placement, backup, and restore. Adding a node does not redistribute existing tenants automatically. Large numbers of active tenants can reach operating-system open-file limits, while inactive or offloaded tenants change cost, latency, and backup behavior. Treat tenant state as business state, not merely storage optimization.</p>
+        <p>HNSW offers high query throughput with a significant memory footprint; flat indexes suit small indexes; dynamic indexes start flat and make a one-way conversion to HNSW at a threshold; HFresh trades peak throughput for lower memory use. Compression, shards, replicas, vector dimensions, cache, ingestion and query concurrency all affect quality, latency, resilience, and cost. Weaviate Cloud Shared clusters charge by resource usage and support plan, while self-managed Kubernetes transfers capacity, storage, network, monitoring, backup, and upgrade accountability to the operator.</p>
+
+        <h2 id="incidents">Distinguish indexing, replica, tenant, retrieval, capacity, restore, release, and cost failures</h2>
+        <div class="article-table-wrap" role="region" aria-label="Weaviate production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Weaviate production incident matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead>
+          <tbody>
+            <tr><td>Objects exist but vector search misses them</td><td>Source event, object ID, collection and tenant, object count, vector presence, vectorQueueLength, vectorIndexingStatus, queue age, import errors, node and shard status, query vector, and timestamp.</td><td>Pause dependent automation, stop noncritical ingest if the queue grows, use keyword or accepted snapshot fallback, avoid duplicate blind writes, and disclose lag.</td><td>Separate object and vector freshness SLOs, queue-age alerts, capacity tests, idempotent import, reconciliation, backpressure, and recovery runbook.</td></tr>
+            <tr><td>Replicas return inconsistent results or consensus degrades</td><td>Collection and shard, replica placement, node health, replication factor, consistency level, asynchronous replication metrics, returned object versions, network, disk, logs, and recent topology change.</td><td>Route away from unhealthy nodes, raise consistency for critical reads where capacity permits, stop topology changes, preserve evidence, and escalate platform defects.</td><td>Explicit RF and consistency policy, multi-AZ placement, replica monitoring, node-loss test, repair and movement procedure, capacity headroom, and version gate.</td></tr>
+            <tr><td>Tenant is unavailable, slow, misplaced, or exposed</td><td>Authenticated tenant, tenant shard and state, node placement, open files, object count, query trace, application mapping, filters, backup inclusion, audit events, and recent lifecycle action.</td><td>Disable affected path, correct server-side mapping, activate or restore the tenant deliberately, revoke access, investigate exposure, and notify the data owner.</td><td>Tenant state machine, least privilege, negative isolation tests, quotas, placement review, file-limit monitoring, offload policy, backup test, and offboarding control.</td></tr>
+            <tr><td>Relevant objects disappear or ranking regresses</td><td>Query and expected IDs, tenant, object version, vectorizer and model, named vector, dimension, distance, index type and settings, filters, hybrid alpha, limit, scores, reranker, source chunk, and release.</td><td>Restore accepted query and model path, switch a collection alias back, narrow the affected cohort, increase review, use source fallback, and block consequential automation.</td><td>Labelled retrieval set, hit-rate and ranking measures, golden objects, vectorizer compatibility gate, filter tests, aliases, canary, and quality threshold.</td></tr>
+            <tr><td>Latency, memory, disk, or import pressure rises</td><td>Query and import rate, queue length, nodes, shards, replicas, HNSW cache, vector dimensions, compression, memory and GOMEMLIMIT, disk thresholds, garbage collection, filter selectivity, and profiling.</td><td>Shed low-priority traffic, throttle ingestion, scale tested capacity, activate compression only through a plan, protect disk headroom, and avoid emergency topology changes.</td><td>Workload model, SLO alerts, index selection, quantization evaluation, growth forecast, load test, storage expansion, sharding and replication policy, and capacity runbook.</td></tr>
+            <tr><td>Backup, restore, upgrade, or hosting dependency fails</td><td>Backup backend and status, collection and tenant inclusion, authorization-data option, version compatibility, restore target, object and shard counts, retrieval tests, Kubernetes or Cloud health, storage, network, secrets, and change.</td><td>Keep source read-only where possible, stop cutover, cancel a stuck backup if required, restore accepted dependency or target, preserve evidence, and use tested fallback.</td><td>Cloud backup policy, version matrix, tenant and RBAC inclusion check, restore exercise, post-restore retrieval acceptance, Kubernetes readiness, upgrade canary, and rollback.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>A retry is not automatically safe. Before replaying an import, update, delete, restore, tenant transition, replica movement, or migration, determine whether objects already exist under the same IDs, whether tenant and property context are correct, whether vector creation or indexing remains queued, whether replicas agree, whether the embedding representation changed, and whether the application already exposed a result. Reconcile source, object, vector, replica, query, and business state before reopening traffic.</p>
+
+        <h2>Release collection schema, vectorizers, indexes, topology, query logic, and applications together</h2>
+        <p>A production Weaviate release includes source and object contracts, properties and IDs, vectorizers and model versions, named vectors, distance and index settings, inverted indexes, shards and replicas, consistency, tenant lifecycle, import and queue behavior, filters and hybrid query logic, reranking, database and client versions, Cloud or Kubernetes infrastructure, security principals, monitoring, backups, budgets, rollout, and rollback. Many collection settings are immutable, and adding a property does not re-vectorize existing objects; a syntactically valid change can create two semantic populations.</p>
+        <p>A collection's vectorizer cannot be changed in place. For production model changes, build a separate collection, evaluate the same representative corpus, synchronize changes, and switch through a collection alias so rollback remains immediate. Adding a named vector can support experiments, but that vector cannot later be removed and permanently increases storage. Before release, test create, update and delete; drain or bound the vector queue; run tenant isolation negatives; compare expected retrieval; load realistic filters and concurrency; validate Prometheus and node alerts; restore a backup; canary; and preserve the accepted collection and application configuration.</p>
+
+        <h2 id="onboarding">Onboard through inventory, baselines, controlled failures, and shadow operations</h2>
+        <ol>
+          <li><strong>Inventory:</strong> organizations, clusters, regions, hosting model, versions, nodes, collections, shards, replicas, tenants and states, objects, properties, vectorizers, indexes, ingestion clients, query applications, principals, backups, and outcomes.</li>
+          <li><strong>Responsibility:</strong> define supported layers, object and vector freshness, latency and availability SLOs, consistency, severity, access, tenant isolation, quality, change authority, budget, dependencies, fallback, Weaviate escalation, and exclusions.</li>
+          <li><strong>Baseline:</strong> measure ingestion success, vector queue length and age, node and shard status, replica consistency, tenant states, retrieval quality and latency, throughput, memory, disk, backup status, cost, and incidents.</li>
+          <li><strong>Controls:</strong> validate stable IDs, schema, tenant mapping, consistency, least privilege, deletion, backpressure, capacity alerts, retrieval evaluation, backup and restore, releases, aliases, rollback, attribution, and alerts.</li>
+          <li><strong>Exercise:</strong> rehearse queue growth, node loss, replica disagreement, wrong or inactive tenant, filter and embedding regression, memory or disk pressure, backup restore, credential rotation, and Cloud or Kubernetes outage.</li>
+          <li><strong>Transition:</strong> operate in shadow, close or accept material gaps, publish runbooks and escalation routes, and accept the steady-state support scope.</li>
+        </ol>
+
+        <section class="readiness-actions"><p><strong>Start with the Weaviate collections that already influence customer, financial, operational, compliance, or workforce decisions.</strong> Datrick can define the operating boundary, close material control gaps, and transition one portfolio into managed support.</p><a class="button primary" data-cta-name="weaviate_end_to_inquiry" data-funnel-stage="content_to_inquiry" data-next-stage="written_scoping" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=weaviate_production_support&amp;utm_medium=organic_content&amp;utm_campaign=weaviate_vector_database_operations&amp;utm_content=article_end#inquiry-form">Request a Weaviate operations review</a></section>
+
+        <h2>Official references and adjacent operating guides</h2>
+        <ul>
+          <li><a href="https://docs.weaviate.io/weaviate/concepts/vector-index">Weaviate vector indexes and asynchronous indexing</a></li>
+          <li><a href="https://docs.weaviate.io/weaviate/concepts/replication-architecture">Weaviate replication architecture and tunable consistency</a></li>
+          <li><a href="https://docs.weaviate.io/weaviate/manage-collections/multi-tenancy">Weaviate multi-tenancy and tenant states</a></li>
+          <li><a href="https://docs.weaviate.io/deploy/configuration/monitoring">Weaviate Prometheus monitoring, node health, and profiling</a></li>
+          <li><a href="https://docs.weaviate.io/deploy/configuration/backups">Weaviate backup and restore boundaries</a></li>
+          <li><a href="https://docs.weaviate.io/weaviate/tutorials/vectorizer-migration">Weaviate production vectorizer migration</a></li>
+          <li><a href="https://docs.weaviate.io/deploy/production/kubernetes/production-readiness">Weaviate Kubernetes production readiness</a></li>
+          <li><a href="https://docs.weaviate.io/cloud/platform/billing">Weaviate Cloud billing and support boundary</a></li>
+          <li><a href="pinecone-vector-database-production-support-managed-services">Pinecone vector database operations</a></li>
+          <li><a href="white-label-ai-agent-operations-managed-support-for-msps">White-label AI agent managed support for MSPs</a></li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is included in Weaviate production support?</summary><p>A defined service can include Weaviate Cloud or self-managed Kubernetes, collection and vectorizer design, ingestion and asynchronous indexing, vector queue monitoring, HNSW, flat, dynamic, or HFresh indexes, shards and replicas, tunable consistency, multi-tenancy and tenant states, hybrid retrieval, Prometheus and node health, backups and restore, security, incidents, releases, cost, runbooks, and reporting.</p></details>
+          <details><summary>How do you monitor Weaviate asynchronous indexing in production?</summary><p>Monitor each node and shard through the nodes endpoint and Prometheus metrics. The vectorQueueLength field shows objects still waiting for vector indexing, while vectorIndexingStatus distinguishes indexing from ready states. Because asynchronous indexing lets object writes complete before HNSW is current, freshness acceptance should include bounded queue thresholds and retrieval checks rather than object counts alone.</p></details>
+          <details><summary>How should Weaviate multi-tenancy be operated?</summary><p>Each tenant is stored in a separate shard and data is not visible across tenants, but applications must still supply the correct tenant identity. Operate creation, activation, inactivity, offloading, deletion, quotas, file-descriptor limits, placement, backup eligibility, and restore tests as one lifecycle. Adding nodes does not automatically redistribute existing tenant shards.</p></details>
+          <details><summary>Can a Weaviate vectorizer be changed without downtime?</summary><p>A collection's vectorizer cannot be changed in place. For production migrations, Weaviate recommends building a separate collection with the new vectorizer and using a collection alias for a reversible cutover. Adding another named vector can support experimentation, but the old vector cannot be removed and storage usage remains higher.</p></details>
+          <details><summary>How long does Weaviate production support onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for a representative production portfolio. It covers deployment and collection inventory, queue, replica and tenant baselines, retrieval and capacity, security, backup and restore, incidents, releases, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope.</p></details>
+        </div>
+
+        <div class="article-next"><p>Comparing distributed vector database operating boundaries?</p><a href="qdrant-production-support-managed-services-vector-database-operations">Review the Qdrant production support boundary</a></div>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

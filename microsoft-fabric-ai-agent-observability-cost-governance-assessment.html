@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Microsoft Fabric AI Agent Observability and Cost Governance Assessment | Datrick</title>
+    <meta name="description" content="Assess Fabric Data Agent, Operations Agent, and Copilot observability, CU consumption, query cost, throttling risk, attribution, SLOs, and unit economics.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-ai-agent-observability-cost-governance-assessment">
+    <meta property="og:title" content="Microsoft Fabric AI Agent Observability and Cost Governance Assessment | Datrick">
+    <meta property="og:description" content="Connect Fabric AI agent quality and business value to total capacity consumption and workload impact.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-ai-agent-observability-cost-governance-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric AI Agent Observability and Cost Governance Assessment", "description": "Assess Fabric Data Agent, Operations Agent, and Copilot observability, CU consumption, query cost, throttling risk, attribution, SLOs, and unit economics.", "url": "https://datrick.com/microsoft-fabric-ai-agent-observability-cost-governance-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-ai-agent-observability-cost-governance-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "How is Fabric Data Agent consumption measured?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft documents Data Agent AI consumption as the AI Query operation, reported under the LlmPlugin item kind in the Fabric Capacity Metrics app. Input and output tokens consume capacity, and generated SQL, DAX, or KQL queries are billed separately through the corresponding query engine. Total cost therefore includes both agent reasoning and the data work triggered to answer the question."}},
+            {"@type": "Question", "name": "How is Microsoft Fabric Operations Agent consumption measured?", "acceptedAnswer": {"@type": "Answer", "text": "Operations Agent can consume Copilot capacity during configuration, agent compute while monitoring, autonomous-reasoning capacity when a condition matches, Eventhouse query capacity, OneLake storage, and downstream action costs such as Power Automate. Published rates and billing activation can change, so the assessment captures the current tenant metrics and effective rates rather than relying on a static estimate."}},
+            {"@type": "Question", "name": "Can Fabric AI agents cause capacity throttling?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Fabric AI activity is commonly classified as background work and is smoothed across the relevant capacity window. Agent consumption, generated queries, and other workloads accumulate together. Sustained overload can delay or reject interactive and background operations. Monitor total capacity utilization, carryforward, throttling states, item and operation contribution, and business-critical workload SLOs."}},
+            {"@type": "Question", "name": "What should a Fabric AI agent cost dashboard show?", "acceptedAnswer": {"@type": "Answer", "text": "A useful dashboard should connect agent, owner, workspace, capacity, users, requests, successful outcomes, quality score, latency, AI Query or Copilot consumption, generated query-engine consumption, Operations Agent compute and reasoning, storage, action cost, throttling impact, cost per accepted answer or intervention, and trend against budget and SLO."}},
+            {"@type": "Question", "name": "How long does a Fabric AI agent observability and cost assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment can often be completed in three to five weeks for a defined set of capacities, Data Agents, Operations Agents, Copilot workloads, and business use cases. The work includes metric inventory, attribution, representative load tests, quality and value baselines, throttling analysis, unit economics, guardrails, and an optimization roadmap."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric AI agent observability and cost</p>
+        <h1>Know which AI agents create value, consume capacity, and threaten shared workloads.</h1>
+        <p class="page-lede">Attribute Data Agent, Operations Agent, Copilot, generated-query, storage, and action consumption; connect it to answer quality, operational outcomes, SLOs, and capacity risk.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_cost_governance&amp;utm_medium=organic_content&amp;utm_campaign=fabric_ai_observability_assessment&amp;utm_content=hero#inquiry-form">Describe the capacity problem</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>AI FinOps and operations</span><span>10 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#inventory">Consumption inventory</a><a href="#attribution">Cost attribution</a><a href="#slo">Quality and SLO</a><a href="#guardrails">Guardrails</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>A Fabric AI agent does not have one cost. A Data Agent consumes tokens and then generates work in a semantic model, warehouse, lakehouse, or Eventhouse. An Operations Agent continuously monitors data, reasons when rules match, stores state, and can invoke downstream actions. Copilot experiences share capacity with reports, refreshes, pipelines, notebooks, and other production workloads.</p>
+        <p>Datrick evaluates the complete economic and operational path. The objective is not simply to reduce tokens. It is to determine which agent use cases deliver accepted answers or interventions at a defensible total capacity cost without degrading business-critical workloads.</p>
+
+        <section class="readiness-actions"><p><strong>Can you state the cost per correct answer or accepted intervention for each Fabric agent?</strong> Build attribution before scaling usage.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_cost_governance&amp;utm_medium=organic_content&amp;utm_campaign=fabric_ai_observability_assessment&amp;utm_content=article_intro#inquiry-form">Send the agent and capacity scope</a><a class="button secondary" href="microsoft-fabric-managed-services-support-operations">Review managed Fabric operations</a></div></section>
+
+        <h2 id="inventory">Inventory every AI workload and consuming capacity</h2>
+        <p>Map Fabric capacities, SKUs, regions, workspaces, tenant settings, Copilot capacity designation, Data Agents, Operations Agents, Copilot workloads, AI Functions, AI Services, owners, user groups, connected sources, generated query engines, actions, schedules, and business purposes. Record which capacity receives the AI charge and which capacity executes the underlying data query.</p>
+        <p>Establish a metric dictionary from Capacity Metrics and Azure billing. Data Agent AI work appears as AI Query and the LlmPlugin item kind, while generated SQL, DAX, or KQL is charged to its corresponding engine. Operations Agent adds configuration-time Copilot, monitoring compute, autonomous reasoning, Eventhouse queries, OneLake storage, and downstream action consumption.</p>
+
+        <h2 id="attribution">Build a total-consumption contract</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric AI agent consumption attribution matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric AI agent consumption attribution matrix</caption>
+          <thead><tr><th scope="col">Consumption component</th><th scope="col">Attribution evidence</th><th scope="col">Governance question</th></tr></thead>
+          <tbody>
+            <tr><td>Data Agent reasoning</td><td>AI Query input/output tokens, LlmPlugin item, user, request volume, time, capacity, and published CU rate.</td><td>Which agents and users consume AI capacity, and for what accepted outcome?</td></tr>
+            <tr><td>Generated data query</td><td>Semantic model, SQL, Spark, or KQL operation, item, duration, CU, rows scanned, cache behavior, and result.</td><td>Does one natural-language question trigger expensive or repeated engine work?</td></tr>
+            <tr><td>Operations Agent setup</td><td>Copilot use, playbook generation, schema inspection, Eventhouse queries, configuration version, and owner.</td><td>How much capacity is spent creating and changing the agent?</td></tr>
+            <tr><td>Continuous monitoring</td><td>Agent compute, evaluation cadence, monitored rules, source queries, active hours, capacity, and storage.</td><td>Is always-on monitoring justified compared with deterministic alternatives?</td></tr>
+            <tr><td>Autonomous reasoning</td><td>Matched conditions, reasoning tokens, recommendations, recipients, approvals, rejections, and expirations.</td><td>What is the cost per useful recommendation and accepted intervention?</td></tr>
+            <tr><td>Downstream action</td><td>Pipeline, notebook, user data function, Power Automate, external API, retries, licenses, and outcome.</td><td>Which non-agent cost is caused by the recommended action?</td></tr>
+            <tr><td>Shared-capacity impact</td><td>Utilization, carryforward, interactive delay/rejection, background rejection, overage, surge protection, and affected SLOs.</td><td>Does AI usage degrade reports, ingestion, refresh, or other critical services?</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Preserve the rate effective date because Microsoft can change workload consumption rates. Avoid converting every CU directly into a fictional incremental invoice: a running Fabric capacity costs the same when partially or fully used until usage forces scaling, overage, prolonged runtime, or service degradation. Report both capacity share and the economic consequence.</p>
+
+        <h2>Measure unit economics by outcome, not request</h2>
+        <p>Define a unit that the buyer values: correct answer accepted without analyst escalation, incident detected, recommendation approved, remediation completed, operator minutes saved, or decision cycle reduced. Pair each unit with quality, latency, risk, and total consumption. A low-cost wrong answer has negative value; a more expensive correct answer can be justified if it replaces costly manual work.</p>
+        <p>Segment by agent, use case, source, user group, workspace, time, answer class, and outcome. Track p50 and p95 consumption rather than averages alone. Expensive outliers often reveal broad schemas, inefficient generated queries, verbose output, repeated retries, ambiguous instructions, missing caches, or a source model that was not prepared for AI.</p>
+
+        <h2 id="slo">Connect observability to quality and workload SLOs</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric AI agent observability and SLO matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric AI agent observability and SLO matrix</caption>
+          <thead><tr><th scope="col">Dimension</th><th scope="col">Measure</th><th scope="col">Release or scaling gate</th></tr></thead>
+          <tbody>
+            <tr><td>Answer quality</td><td>Correctness, source choice, query correctness, completeness, explanation, security, and human acceptance.</td><td>Quality remains above the use-case threshold as usage grows.</td></tr>
+            <tr><td>Agent latency</td><td>Prompt receipt, source selection, generated query, engine execution, reasoning, response, and action completion.</td><td>p50 and p95 meet the user or operational decision window.</td></tr>
+            <tr><td>Reliability</td><td>Successful requests, authorization failures, empty answers, query failures, timeouts, retries, and unavailable agents.</td><td>Error budget and dependency failures remain within SLO.</td></tr>
+            <tr><td>Capacity</td><td>AI, query-engine, monitoring, reasoning, storage, and action CU; utilization; carryforward; throttling state.</td><td>AI workload stays within allocation and capacity safety margin.</td></tr>
+            <tr><td>Business value</td><td>Accepted answers, approved interventions, avoided incidents, analyst effort, resolution time, and adoption.</td><td>Value per total CU improves or remains defensible by cohort.</td></tr>
+            <tr><td>Shared workload</td><td>Report latency, refresh completion, pipeline delay, Eventhouse performance, interactive rejection, and background rejection.</td><td>No material regression for priority workloads.</td></tr>
+            <tr><td>Governance</td><td>Owner, budget, purpose, active users, last evaluation, configuration version, exceptions, and retirement decision.</td><td>Every production agent remains accountable and reviewed.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Run representative concurrency and duration tests. Fabric smooths background consumption over longer windows, so a short test can understate later carryforward or rejection. Observe the capacity after the load ends, including interactive delay, background rejection risk, and the time required to recover.</p>
+
+        <h2 id="guardrails">Apply cost guardrails in risk order</h2>
+        <p>Start with visibility and ownership: agent register, capacity attribution, budget, SLO, quality gate, and review cadence. Optimize the semantic model, warehouse, KQL, instructions, few-shot examples, source selection, output length, and rule design before buying capacity. Remove unused agents and stop Operations Agents outside required monitoring windows where the business process permits it.</p>
+        <p>Use controlled access groups, staged rollout, per-use-case budgets, anomaly alerts, capacity separation, Copilot capacity designation, surge protection, and autoscale or overage only with explicit consequences. Overage can prevent CU-exhaustion throttling but does not increase memory or performance and can carry a premium; it is a safety net, not a sizing strategy.</p>
+        <p>When AI and critical reporting share a capacity, define priority and failure behavior. A separate capacity can isolate consumption but increases fixed cost and still requires observability. Choose separation based on measured interference, compliance boundary, ownership, and sustained usage rather than architecture fashion.</p>
+
+        <h2 id="assessment">Run a three-to-five-week observability and cost assessment</h2>
+        <ol>
+          <li>Select capacities, agents, Copilot workloads, owners, user cohorts, critical services, current incidents, budgets, and business outcomes.</li>
+          <li>Inventory tenant and capacity settings, Copilot capacity designation, AI items, connected sources, generated engines, monitoring cadence, storage, and actions.</li>
+          <li>Extract Capacity Metrics and billing evidence; define operation names, item kinds, effective rates, smoothing windows, throttling states, and attribution limits.</li>
+          <li>Create representative quality, concurrency, duration, source, and action scenarios with deterministic expected outcomes and business-value units.</li>
+          <li>Run tests and measure total CU, latency, reliability, quality, accepted outcome, shared-workload impact, carryforward, and recovery time.</li>
+          <li>Identify expensive or low-value cohorts, generated-query inefficiency, unused monitoring, misallocated capacities, missing owners, and throttling exposure.</li>
+          <li>Deliver the metric dictionary, agent register, attribution model, dashboard specification, unit-economics baseline, SLOs, guardrails, optimization backlog, and capacity roadmap.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>How is Fabric Data Agent consumption measured?</summary><p>Microsoft documents Data Agent AI consumption as the AI Query operation, reported under the LlmPlugin item kind in the Fabric Capacity Metrics app. Input and output tokens consume capacity, and generated SQL, DAX, or KQL queries are billed separately through the corresponding query engine. Total cost therefore includes both agent reasoning and the data work triggered to answer the question.</p></details>
+          <details><summary>How is Microsoft Fabric Operations Agent consumption measured?</summary><p>Operations Agent can consume Copilot capacity during configuration, agent compute while monitoring, autonomous-reasoning capacity when a condition matches, Eventhouse query capacity, OneLake storage, and downstream action costs such as Power Automate. Published rates and billing activation can change, so the assessment captures the current tenant metrics and effective rates rather than relying on a static estimate.</p></details>
+          <details><summary>Can Fabric AI agents cause capacity throttling?</summary><p>Yes. Fabric AI activity is commonly classified as background work and is smoothed across the relevant capacity window. Agent consumption, generated queries, and other workloads accumulate together. Sustained overload can delay or reject interactive and background operations. Monitor total capacity utilization, carryforward, throttling states, item and operation contribution, and business-critical workload SLOs.</p></details>
+          <details><summary>What should a Fabric AI agent cost dashboard show?</summary><p>A useful dashboard should connect agent, owner, workspace, capacity, users, requests, successful outcomes, quality score, latency, AI Query or Copilot consumption, generated query-engine consumption, Operations Agent compute and reasoning, storage, action cost, throttling impact, cost per accepted answer or intervention, and trend against budget and SLO.</p></details>
+          <details><summary>How long does a Fabric AI agent observability and cost assessment take?</summary><p>A focused assessment can often be completed in three to five weeks for a defined set of capacities, Data Agents, Operations Agents, Copilot workloads, and business use cases. The work includes metric inventory, attribution, representative load tests, quality and value baselines, throttling analysis, unit economics, guardrails, and an optimization roadmap.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/fundamentals/data-agent-consumption">Fabric Data Agent consumption</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-billing">Operations Agent capacity and billing</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/fundamentals/copilot-fabric-consumption">Copilot in Fabric consumption</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/enterprise/metrics-app">Fabric Capacity Metrics app</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/enterprise/capacity-planning-manage-capacity-growth-governance">Fabric capacity growth and governance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/enterprise/capacity-overage-overview">Fabric capacity overage</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the capacities where AI agents share resources with business-critical workloads.</strong> Datrick can build the attribution model, measure quality and total CU, define guardrails, and produce a defensible scaling plan.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_cost_governance&amp;utm_medium=organic_content&amp;utm_campaign=fabric_ai_observability_assessment&amp;utm_content=article_end#inquiry-form">Scope the cost assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-cicd-lifecycle-governance-assessment"><span>Agent releases</span><strong>Govern Data Agent CI/CD and rollback</strong></a><a href="microsoft-fabric-managed-services-support-operations"><span>Capacity operations</span><strong>Operate Fabric as a managed service</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

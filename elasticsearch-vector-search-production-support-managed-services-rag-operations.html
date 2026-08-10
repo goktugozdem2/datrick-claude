@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elasticsearch Vector Search Production Support | Datrick</title>
+    <meta name="description" content="Managed Elasticsearch production support for vector and hybrid RAG search, semantic_text, inference, shards, indexing, security, monitoring, snapshots, upgrades, and cost.">
+    <link rel="canonical" href="https://datrick.com/elasticsearch-vector-search-production-support-managed-services-rag-operations">
+    <meta property="og:title" content="Elasticsearch Vector Search Production Support | Datrick">
+    <meta property="og:description" content="Operate Elasticsearch vector and hybrid search with accountable relevance, inference, shards, capacity, security, snapshots, upgrades, incidents, and cost.">
+    <meta property="og:url" content="https://datrick.com/elasticsearch-vector-search-production-support-managed-services-rag-operations">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Service", "name": "Elasticsearch Vector Search Production Support and Managed Services", "description": "Ongoing Elastic Cloud and self-managed Elasticsearch operations covering ingestion, mappings, shards, replicas, dense and sparse vectors, semantic_text, inference endpoints, hybrid retrieval, relevance evaluation, security, monitoring, incidents, snapshots, upgrades, cost, runbooks, and reporting.", "url": "https://datrick.com/elasticsearch-vector-search-production-support-managed-services-rag-operations", "provider": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "areaServed": "Global", "audience": {"@type": "BusinessAudience", "audienceType": "Software companies, enterprises, managed service providers, and AI delivery firms operating production Elasticsearch enterprise search and RAG workloads"}},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is included in Elasticsearch vector search production support?", "acceptedAnswer": {"@type": "Answer", "text": "A defined service can include source ingestion, mappings, aliases and lifecycle policies, shard and replica design, dense and sparse vectors, semantic_text, inference endpoints, hybrid retrieval and reranking, relevance evaluation, cluster health, security, monitoring, incidents, snapshots and restore, upgrades, cost, runbooks, and reporting."}},
+            {"@type": "Question", "name": "Does green Elasticsearch cluster health prove RAG retrieval quality?", "acceptedAnswer": {"@type": "Answer", "text": "No. Green health means primary and replica shards are assigned. It does not prove source freshness, embedding compatibility, chunk quality, hybrid ranking, tenant filters, semantic relevance, or answer grounding. Monitor cluster health and retrieval quality as separate production objectives."}},
+            {"@type": "Question", "name": "How should Elasticsearch vector search memory be reduced?", "acceptedAnswer": {"@type": "Answer", "text": "Elastic supports quantization strategies including BBQ, int8, and int4 for dense vectors. They can reduce memory and improve search speed but trade precision and can change recall. Benchmark quantized and unquantized retrieval on labelled queries, representative filters, shard sizes, concurrency, and the same embedding model before production rollout."}},
+            {"@type": "Question", "name": "Why can Elasticsearch semantic_text rankings change after an upgrade?", "acceptedAnswer": {"@type": "Answer", "text": "The default inference endpoint can vary by Elastic deployment type and version. New backing indexes, aliases spanning several indexes, multi-index search, or cross-cluster search can therefore mix embeddings from different models and produce unexpected rankings. Pin an explicit inference endpoint and gate model or index changes with retrieval evaluation."}},
+            {"@type": "Question", "name": "How long does Elasticsearch managed support onboarding take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused onboarding commonly takes two to four weeks for a representative production cluster and search workload. It covers ingestion, mappings, shards, vectors, inference, query and relevance baselines, security, monitoring, snapshots, incidents, upgrades, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Elasticsearch Vector Search Operations</p>
+        <h1>A green Elasticsearch cluster can still return the wrong evidence.</h1>
+        <p class="page-lede">Operate Elastic Cloud or self-managed Elasticsearch with accountable ingestion freshness, shard health, vector and hybrid relevance, inference endpoints, memory and disk capacity, security, snapshots, controlled upgrades, and cost evidence.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=elasticsearch_vector_search_support&amp;utm_medium=organic_content&amp;utm_campaign=elasticsearch_rag_operations&amp;utm_content=hero#inquiry-form">Describe the Elastic estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Elasticsearch VectorOps</span><span>14 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Service boundary</a><a href="#scope">Operating scope</a><a href="#relevance">Relevance and cluster health</a><a href="#incidents">Incident response</a><a href="#onboarding">Onboarding</a></nav>
+
+        <p>Elasticsearch can ingest documents through pipelines, distribute Lucene indexes across primary and replica shards, run full-text, dense-vector, sparse-vector and hybrid retrieval, execute inference, rerank candidates, isolate data through roles and document-level controls, and recover indexes from snapshots. Those controls do not decide who owns a green cluster that retrieves weak evidence, a yellow cluster accepted for too long, an unassigned primary shard, an inference endpoint that scaled to zero, mixed embedding models across rolled-over indexes, a vector quantization change that reduced recall, oversharding, disk watermark pressure, a corrupted snapshot repository, or a rolling upgrade with no safe downgrade.</p>
+        <p>Datrick provides an ongoing operating layer for an agreed Elastic estate. Named engineers correlate authoritative sources, ingest pipelines, index templates, mappings, aliases, data streams and lifecycle policies, shards and replicas, dense and sparse vectors, semantic_text fields, inference endpoints and models, hybrid queries and rerankers, filters, relevance labels, security roles, nodes, JVM and disk, cluster health, snapshots, releases, cloud resources, cost, and business outcomes. Elastic support remains the escalation path for platform defects. Datrick owns the client-specific diagnosis, containment, validation, communication, change, and prevention accepted in the service boundary.</p>
+
+        <section class="readiness-actions"><p><strong>Do you have Elasticsearch in production but no team accountable for turning ingestion lag, relevance regression, mixed embeddings, shard pressure, yellow or red health, inference failure, snapshot risk, or upgrade drift into a verified outcome?</strong> Start with one representative cluster, index family, and consuming search or RAG workflow.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=elasticsearch_vector_search_support&amp;utm_medium=organic_content&amp;utm_campaign=elasticsearch_rag_operations&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" href="ai-workflows.html">Review AI workflow operations</a></div></section>
+
+        <h2 id="boundary">Define ownership from source event to indexed segment, retrieved evidence, citation, and business answer</h2>
+        <p>A production path can include source databases, files, streams and applications; Beats, Logstash, connectors or custom ingest clients; ingest pipelines and processors; index templates, mappings, aliases, data streams and ILM; primary and replica shards; dense_vector, sparse_vector or semantic_text fields; ELSER, E5, Elastic Inference Service, ML nodes or external model providers; keyword, vector, hybrid and reranked queries; filters and document-level access; an agent or application; answer synthesis and citations; and the target workflow. Name which layers the managed service owns, observes, changes, coordinates, or excludes.</p>
+        <p>Document deployment type, cloud, regions, Stack version, node roles and tiers; sources, pipelines and document IDs; templates, mappings, aliases, data streams, lifecycle and retention; shard and replica counts; embedding and reranking endpoints; query patterns and filters; freshness, relevance, latency and availability SLOs; identities and networks; snapshots and restore; support hours; severity; change authority; budget; fallback; and Elastic escalation.</p>
+
+        <h2 id="scope">Operate the complete Elasticsearch vector search production surface</h2>
+        <div class="article-table-wrap" role="region" aria-label="Elasticsearch vector search production support scope" tabindex="0"><table class="article-table"><caption class="sr-only">Elasticsearch vector search production support scope</caption>
+          <thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead>
+          <tbody>
+            <tr><td>Sources and ingestion</td><td>Authoritative source, connectors and clients, ingest pipelines, processors, stable IDs, bulk behavior, refresh, update and delete semantics, retries, dead-letter handling, backfill, and source-to-index reconciliation.</td><td>Source owner, freshness and deletion SLOs, idempotency, throughput, refresh budget, failure tolerance, replay authority, and exception route.</td></tr>
+            <tr><td>Mappings and lifecycle</td><td>Component and index templates, field mappings, analyzers, synonyms, aliases, data streams, ILM rollover and retention, shard and replica counts, tier allocation, segment growth, and reindex.</td><td>Schema ownership, dynamic mapping policy, shard target, retention, rollover, migration window, compatibility, and rollback.</td></tr>
+            <tr><td>Vectors and inference</td><td>dense_vector, sparse_vector and semantic_text, embedding and reranking endpoints, ELSER and E5, external providers, chunking, dimensions, similarity, HNSW or DiskBBQ, BBQ, int8 or int4 quantization, allocations, model versions, and cost.</td><td>Model and endpoint ownership, language, compatibility, memory and accuracy trade-off, cold-start tolerance, dependency SLO, and fallback.</td></tr>
+            <tr><td>Retrieval and quality</td><td>BM25, kNN, sparse retrieval, hybrid fusion, RRF, rerankers, filters, routing, source fields, scores, citations, labelled relevance, drift, query regression, grounded answers, and user feedback.</td><td>Expected evidence, query cohorts, relevance and latency SLOs, filters, reviewer, business consequence, and release threshold.</td></tr>
+            <tr><td>Cluster and observability</td><td>Nodes and roles, primary and replica shards, allocation, recovery, cluster state, JVM heap, circuit breakers, thread pools, CPU, disk watermarks, cache, segment merges, QPS, latency, errors, logs, alerts, and incident evidence.</td><td>Traffic and growth profile, availability, headroom, shard strategy, scale authority, metric retention, alert ownership, performance target, and budget.</td></tr>
+            <tr><td>Security and recovery</td><td>Users, roles, API keys, TLS, network controls, field and document-level security, secrets, audit, snapshot lifecycle, repositories, restore, cross-cluster options, RTO, and RPO.</td><td>Least privilege, tenant isolation, rotation, audit ownership, repository responsibility, restore acceptance, compliance, and provider escalation.</td></tr>
+            <tr><td>Release, upgrade, and value</td><td>Elastic Stack, clients and plugins, templates, mappings, pipelines, indexes, aliases, models, inference endpoints, query and application versions, tests, rolling upgrade, rollback through snapshot or rebuild, compute, storage, transfer, inference, and anomaly.</td><td>Source of truth, environments, upgrade order, approval, compatibility, budget, forecast, unit economics, canary, and acceptance evidence.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="relevance">Treat relevance, inference, shard health, memory, lifecycle, and recovery as one design</h2>
+        <p>Keyword, dense-vector, sparse-vector and hybrid retrieval fail differently. The query embedding must use the same model as the indexed documents; hybrid fusion and reranking can improve ranking but also hide a weak candidate set. Maintain labelled queries and expected evidence across filters, tenants, languages and content age. Measure retrieval and grounded-answer quality independently from cluster health, latency and model availability.</p>
+        <p>The semantic_text field can simplify chunking, embedding and query inference, but defaults vary by deployment and Elastic version. A rollover can create a new backing index with a different default model than older indexes; an alias or cross-cluster query can then combine incompatible embedding spaces. Pin explicit inference endpoints, inventory model versions per index, and gate upgrades and rollovers with cross-index relevance tests.</p>
+        <p>Dense vectors consume substantial memory at scale. BBQ, int8 and int4 quantization reduce memory and can improve speed, but they are lossy and change recall. HNSW, DiskBBQ, shard size, segment count, filters, candidate counts and reranking all affect the capacity-quality curve. Benchmark representative production data and hardware instead of adopting a compression ratio or shard count in isolation.</p>
+        <p>Green health means all primaries and replicas are assigned; yellow means replica shards are unassigned and resilience is reduced; red means primary shards are unavailable and some search or indexing can fail. Health color still does not prove snapshot restorability, source freshness or retrieval quality. Operate cluster allocation, disk watermarks, JVM pressure, snapshots and labelled relevance as separate but connected controls.</p>
+
+        <h2 id="incidents">Distinguish ingestion, relevance, inference, shard, memory, snapshot, upgrade, and cost failures</h2>
+        <div class="article-table-wrap" role="region" aria-label="Elasticsearch vector search production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Elasticsearch vector search production incident matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead>
+          <tbody>
+            <tr><td>Documents are missing, duplicated, stale, or mapped incorrectly</td><td>Source events, document IDs and versions, bulk responses, ingest-pipeline failures, dead-letter records, refresh, aliases, target index, mappings, update and delete behavior, index count, sampled documents, and application cache.</td><td>Pause dependent automation, stop unsafe replay, restore the accepted pipeline and alias, isolate affected IDs, use source fallback, and disclose freshness risk.</td><td>Source-to-index reconciliation, stable-ID contract, bulk item checks, failed-document queue, mapping tests, freshness SLO, deletion test, sampling, and alerting.</td></tr>
+            <tr><td>Vector, sparse, hybrid, or reranked retrieval regresses</td><td>Labelled query and expected evidence, BM25 and vector candidates, fusion and reranking result, k and candidates, filters, routing, analyzers, synonyms, source freshness, embedding and reranker versions, quantization, scores, and release.</td><td>Restore the accepted query, index, inference endpoint or quantization, narrow affected cohorts, increase human review, and block consequential answer automation.</td><td>Query-cohort evaluation, recall and ranking thresholds, grounded-answer tests, filter negatives, model and compression gates, canary, drift monitoring, and rollback.</td></tr>
+            <tr><td>semantic_text or inference endpoint is unavailable or mixes models</td><td>Deployment and Stack version, semantic_text mapping, inference_id, model, endpoint state and allocations, EIS or ML node, external provider response, backing indexes, aliases, rollover, cross-cluster targets, latency, and recent upgrade.</td><td>Pin the accepted endpoint, remove incompatible indexes from the query path, route to a tested lexical fallback, restore minimum allocations where justified, and disclose quality or latency risk.</td><td>Explicit inference IDs, model registry per index, cross-index compatibility tests, endpoint capacity alerts, dependency SLO, rollover gate, fallback evaluation, and cost policy.</td></tr>
+            <tr><td>Cluster is yellow or red because shards are unassigned</td><td>Cluster health, unassigned primary or replica shards, allocation explanation, node roles, disk watermarks, allocation filters, shard limits, versions, recovery, snapshots, recent node loss or scaling, and affected indexes.</td><td>Protect primary availability, stop noncritical indexing, avoid blind allocation overrides, restore disk or eligible nodes, use a valid replica or snapshot path, and communicate data and resilience risk.</td><td>Shard strategy, replica and zone policy, disk forecast, allocation alerts, node-role validation, recovery capacity, failure exercise, snapshot acceptance, and escalation runbook.</td></tr>
+            <tr><td>Circuit breaker, JVM, disk, merge, or oversharding pressure rejects work</td><td>HTTP 429 errors, breaker stats, JVM pressure, heap and non-heap use, thread pools, shard and segment counts, mapped fields, disk watermarks, merges, indexing pressure, query shape, vector memory, and recent load.</td><td>Throttle ingestion, reduce expensive queries, protect critical traffic, clear only safe caches, scale or rebalance through an approved plan, preserve evidence, and communicate degraded capacity.</td><td>Production benchmark, 85 percent JVM pressure warning, shard and field budgets, rollover policy, disk headroom, vector compression evaluation, query guardrails, scale runbook, and cost forecast.</td></tr>
+            <tr><td>Snapshot, restore, upgrade, security, or cost control fails</td><td>Snapshot policy and status, repository verification and ownership, affected indices and feature states, restore target, cluster and index health, Stack and plugin versions, role changes, compute and storage, inference usage, and recent change.</td><td>Stop cutover or repository writes, keep the current cluster and index available, restore in isolation, revoke unsafe access, cap noncritical consumption, and communicate RTO, RPO, quality, or budget risk.</td><td>Repository analysis, restore exercise, version and plugin matrix, rolling-upgrade order, snapshot rollback plan, post-restore relevance and access tests, cost attribution, and alerts.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>A retry is not automatically safe. Before replaying a bulk request, rerunning an ingest pipeline, reindexing, changing aliases, forcing shard allocation, clearing caches, restoring a snapshot, scaling inference, or continuing an upgrade, determine which item operations succeeded, which index or alias received the write, whether primary and replica state is current, whether mappings or embeddings changed, whether a snapshot is complete, and whether the application already exposed a response. Reconcile source, document, pipeline, index, shard, model, query, application, and business state before reopening traffic.</p>
+
+        <h2>Release pipelines, mappings, indexes, models, shards, security, and applications together</h2>
+        <p>A production Elasticsearch release includes source contracts, clients and pipelines, templates and mappings, analyzers and synonyms, aliases and data streams, ILM, shards and replicas, dense and sparse vector settings, semantic_text and inference endpoints, hybrid queries and rerankers, filters and security roles, cluster and node configuration, monitoring, snapshots, budgets, rollout, and rollback. A valid mapping, model, shard, or query change can still alter freshness, relevance, latency, access, availability, and cost.</p>
+        <p>Before release, ingest a representative corpus; reconcile counts and sampled documents; test keyword, dense, sparse, hybrid and reranked retrieval; run tenant and role negatives; benchmark realistic indexing and query concurrency; inspect heap, disk, shards, segments and inference allocations; restore a snapshot in isolation; rehearse node loss; canary the application and index change together; and preserve the previous alias, index, model and cluster state. Elasticsearch does not support downgrading an upgraded cluster, so a rollback can require rebuilding an earlier cluster and restoring a compatible snapshot.</p>
+
+        <h2 id="onboarding">Onboard through inventory, baselines, controlled failures, and shadow operations</h2>
+        <ol>
+          <li><strong>Inventory:</strong> deployment type, clouds and regions, Stack versions, clusters, nodes and roles, sources, clients, pipelines, templates, mappings, aliases, data streams, ILM, indexes, shards, vectors, inference endpoints, queries, identities, repositories, and outcomes.</li>
+          <li><strong>Responsibility:</strong> define supported layers, document and index freshness, relevance, latency and availability SLOs, severity, access, change authority, budget, dependencies, fallback, Elastic escalation, and exclusions.</li>
+          <li><strong>Baseline:</strong> measure source and index counts, ingest failures, mapping drift, shard and segment state, cluster health, heap and disk, vector memory, inference allocations, query-cohort relevance and latency, access, snapshot status, cost, and incidents.</li>
+          <li><strong>Controls:</strong> validate stable IDs, deletion, mappings, aliases and lifecycle, embedding compatibility, retrieval configurations, shard sizing, least privilege, capacity alerts, relevance evaluation, snapshot and restore, upgrades, rollback, attribution, and alerts.</li>
+          <li><strong>Exercise:</strong> rehearse missing documents, mapping rejection, mixed embeddings, relevance regression, inference failure, unassigned shards, circuit breaker, disk watermark, node loss, snapshot restore, rolling upgrade, credential rotation, and model-provider outage.</li>
+          <li><strong>Transition:</strong> operate in shadow, close or accept material gaps, publish runbooks and escalation routes, and accept the steady-state support scope.</li>
+        </ol>
+
+        <section class="readiness-actions"><p><strong>Start with the Elasticsearch index family that already influences customer, financial, operational, compliance, or workforce decisions.</strong> Datrick can define the operating boundary, close material control gaps, and transition one representative cluster and search or RAG workload into managed support.</p><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=elasticsearch_vector_search_support&amp;utm_medium=organic_content&amp;utm_campaign=elasticsearch_rag_operations&amp;utm_content=article_end#inquiry-form">Request an Elasticsearch operations review</a></section>
+
+        <h2>Official references and adjacent operating guides</h2>
+        <ul>
+          <li><a href="https://www.elastic.co/docs/solutions/search/vector">Elasticsearch vector search and production storage optimization</a></li>
+          <li><a href="https://www.elastic.co/docs/reference/elasticsearch/mapping-reference/semantic-text-setup-configuration">semantic_text inference endpoints and mixed-model risks</a></li>
+          <li><a href="https://www.elastic.co/docs/solutions/search/vector/knn">Elasticsearch kNN and embedding compatibility</a></li>
+          <li><a href="https://www.elastic.co/docs/deploy-manage/production-guidance/optimize-performance/size-shards">Elasticsearch production shard sizing guidance</a></li>
+          <li><a href="https://www.elastic.co/docs/troubleshoot/elasticsearch/red-yellow-cluster-status">Red and yellow Elasticsearch cluster health</a></li>
+          <li><a href="https://www.elastic.co/docs/troubleshoot/elasticsearch/circuit-breaker-errors">Elasticsearch circuit breaker and JVM pressure troubleshooting</a></li>
+          <li><a href="https://www.elastic.co/docs/troubleshoot/elasticsearch/restore-from-snapshot">Restore Elasticsearch indexes from snapshot</a></li>
+          <li><a href="https://www.elastic.co/docs/deploy-manage/upgrade/deployment-or-cluster/elasticsearch">Elasticsearch rolling upgrade and downgrade limitations</a></li>
+          <li><a href="azure-ai-search-production-support-managed-services-rag-operations">Azure AI Search production support and RAG operations</a></li>
+          <li><a href="ai-workflows.html">Production AI workflow automation and operations</a></li>
+          <li><a href="white-label-ai-agent-operations-managed-support-for-msps">White-label AI agent managed support for MSPs</a></li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is included in Elasticsearch vector search production support?</summary><p>A defined service can include source ingestion, mappings, aliases and lifecycle policies, shard and replica design, dense and sparse vectors, semantic_text, inference endpoints, hybrid retrieval and reranking, relevance evaluation, cluster health, security, monitoring, incidents, snapshots and restore, upgrades, cost, runbooks, and reporting.</p></details>
+          <details><summary>Does green Elasticsearch cluster health prove RAG retrieval quality?</summary><p>No. Green health means primary and replica shards are assigned. It does not prove source freshness, embedding compatibility, chunk quality, hybrid ranking, tenant filters, semantic relevance, or answer grounding. Monitor cluster health and retrieval quality as separate production objectives.</p></details>
+          <details><summary>How should Elasticsearch vector search memory be reduced?</summary><p>Elastic supports quantization strategies including BBQ, int8, and int4 for dense vectors. They can reduce memory and improve search speed but trade precision and can change recall. Benchmark quantized and unquantized retrieval on labelled queries, representative filters, shard sizes, concurrency, and the same embedding model before production rollout.</p></details>
+          <details><summary>Why can Elasticsearch semantic_text rankings change after an upgrade?</summary><p>The default inference endpoint can vary by Elastic deployment type and version. New backing indexes, aliases spanning several indexes, multi-index search, or cross-cluster search can therefore mix embeddings from different models and produce unexpected rankings. Pin an explicit inference endpoint and gate model or index changes with retrieval evaluation.</p></details>
+          <details><summary>How long does Elasticsearch managed support onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for a representative production cluster and search workload. It covers ingestion, mappings, shards, vectors, inference, query and relevance baselines, security, monitoring, snapshots, incidents, upgrades, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope.</p></details>
+        </div>
+
+        <div class="article-next"><p>Comparing Elastic and AWS-managed search operating boundaries?</p><a href="amazon-opensearch-service-vector-search-production-support-managed-services-rag-operations">Review the Amazon OpenSearch production support boundary</a></div>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

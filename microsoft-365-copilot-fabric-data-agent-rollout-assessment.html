@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Microsoft 365 Copilot Fabric Data Agent Rollout Assessment | Datrick</title>
+    <meta name="description" content="Assess a Fabric Data Agent rollout to Microsoft 365 Copilot across Agent Store publishing, discovery, permissions, final-answer fidelity, governance, and adoption.">
+    <link rel="canonical" href="https://datrick.com/microsoft-365-copilot-fabric-data-agent-rollout-assessment">
+    <meta property="og:title" content="Microsoft 365 Copilot Fabric Data Agent Rollout Assessment | Datrick">
+    <meta property="og:description" content="Publish governed Fabric knowledge into Microsoft 365 Copilot with tested user access, discovery, answer fidelity, visualization, and support controls.">
+    <meta property="og:url" content="https://datrick.com/microsoft-365-copilot-fabric-data-agent-rollout-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft 365 Copilot Fabric Data Agent Rollout Assessment", "description": "Assess a Fabric Data Agent rollout to Microsoft 365 Copilot across Agent Store publishing, discovery, permissions, final-answer fidelity, governance, and adoption.", "url": "https://datrick.com/microsoft-365-copilot-fabric-data-agent-rollout-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-365-copilot-fabric-data-agent-rollout-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Can a Fabric Data Agent be published to Microsoft 365 Copilot?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Microsoft documents a preview publishing option that makes a validated Fabric Data Agent available through the Agent Store in Microsoft 365 Copilot. Users can open it directly in Teams or mention it from the main Copilot chat. The Data Agent and Microsoft 365 Copilot must be in the same tenant, required Fabric settings and capacities must be enabled, and users need the appropriate licenses and access."}},
+            {"@type": "Question", "name": "Does sharing a Fabric Data Agent link grant access to its data?", "acceptedAnswer": {"@type": "Answer", "text": "No. Sharing an Agent Store link helps colleagues discover the Data Agent, but recipients still need access to the published Data Agent and every underlying source required for their questions. The requesting user's source permissions, row-level security, column-level security, and applicable Purview controls continue to determine which results can be returned."}},
+            {"@type": "Question", "name": "Does Microsoft 365 Copilot change Fabric Data Agent answers?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft 365 Copilot has its own orchestrator, which uses conversation context and model reasoning to form the final response from Data Agent output. Publishing instructions can ask Copilot to minimize summarization or interpretation, but Microsoft notes that some change is inevitable. Evaluate the final Copilot answer, not only the direct Data Agent answer."}},
+            {"@type": "Question", "name": "How should we test Fabric Data Agent visualizations in Microsoft 365 Copilot?", "acceptedAnswer": {"@type": "Answer", "text": "When users ask code interpreter to visualize a Data Agent result, validate that the input result is complete enough, the chart uses the correct fields, units, filters, grain, labels, and time window, and the narrative does not imply unsupported causality. Compare the visualization with an approved report or deterministic query and warn when the agent response is summarized or truncated."}},
+            {"@type": "Question", "name": "How long does a Microsoft 365 Copilot Fabric Data Agent rollout assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused rollout pilot can often be completed in three to five weeks for one published Data Agent, one governed domain, and a named user cohort. The work covers prerequisites, Agent Store publishing, permissions, descriptions, discovery, final-answer and visualization evaluation, governance, monitoring, support, adoption measurement, and a rollout recommendation."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Microsoft 365 Copilot + Fabric Data Agent</p>
+        <h1>Put governed Fabric answers in the flow of work without losing source truth or user permissions.</h1>
+        <p class="page-lede">Prepare and publish a Fabric Data Agent to the Microsoft 365 Copilot Agent Store. Prove discovery, individual access, final-answer fidelity, code-interpreter visualizations, governance, support, and measurable adoption before broad release.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=m365_copilot_fabric_agent&amp;utm_medium=organic_content&amp;utm_campaign=m365_fabric_rollout&amp;utm_content=hero#inquiry-form">Describe the rollout use case</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Enterprise Copilot rollout</span><span>10 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#readiness">Rollout readiness</a><a href="#publishing">Publishing and discovery</a><a href="#permissions">User permissions</a><a href="#fidelity">Answer fidelity</a><a href="#pilot">Pilot plan</a></nav>
+
+        <p>Publishing a Fabric Data Agent to Microsoft 365 Copilot moves governed analytics from a specialist workspace into everyday chat. Users can open the agent from the Agent Store, mention it with `@`, share its link in Teams, and ask for visualizations. The easier access increases value only when users discover the right agent, receive answers within their individual permissions, and understand how Copilot has transformed the Data Agent output.</p>
+        <p>Datrick treats this as an adoption and control program, not a publishing checkbox. The pilot starts with one business domain, one approved Data Agent, one cohort, and a versioned set of questions. It evaluates direct Data Agent output, Copilot's final response, user access, visualization, capacity consumption, support demand, and business behavior after release.</p>
+
+        <section class="readiness-actions"><p><strong>Which business decisions should become faster when the Data Agent appears in Copilot?</strong> Use those decisions to define quality, access, and adoption gates.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=m365_copilot_fabric_agent&amp;utm_medium=organic_content&amp;utm_campaign=m365_fabric_rollout&amp;utm_content=article_intro#inquiry-form">Send the rollout context</a><a class="button secondary" href="microsoft-fabric-data-agent-implementation-evaluation-services">Prepare the Data Agent</a></div></section>
+
+        <h2 id="readiness">Define a rollout contract before Agent Store publishing</h2>
+        <div class="article-table-wrap" role="region" aria-label="Microsoft 365 Copilot Fabric Data Agent rollout contract" tabindex="0"><table class="article-table"><caption class="sr-only">Microsoft 365 Copilot Fabric Data Agent rollout contract</caption>
+          <thead><tr><th scope="col">Rollout area</th><th scope="col">Required decision</th><th scope="col">Acceptance evidence</th></tr></thead>
+          <tbody>
+            <tr><td>Business scope</td><td>Users, supported questions, decisions, authoritative sources, prohibited use, quality, escalation, and value metric.</td><td>Named cohort and ground-truth question set approved by data and business owners.</td></tr>
+            <tr><td>Platform prerequisites</td><td>Fabric capacity, Data Agent settings, Copilot capacity designation, cross-geo settings, tenant alignment, licenses, and extensibility.</td><td>Builders and users can access the preview feature in the intended tenant and region.</td></tr>
+            <tr><td>Published agent</td><td>Production source bindings, description, instructions, examples, permissions, evaluation, owner, version, and Agent Store status.</td><td>Direct Data Agent tests meet source, query, result, security, latency, and consumption thresholds.</td></tr>
+            <tr><td>Discovery</td><td>Agent name, description for users and model, search terms, `@` mention behavior, sharing, training, and support entry point.</td><td>Users can find the correct agent and distinguish it from reports, semantic models, and other agents.</td></tr>
+            <tr><td>Permissions</td><td>Agent sharing, source access, RLS, CLS, Purview, security groups, joiner/mover/leaver process, and recertification.</td><td>Allowed users receive permitted data; denied users fail closed even when they have the shared link.</td></tr>
+            <tr><td>Answer fidelity</td><td>Copilot orchestration, response instructions, summarization, conversation context, code interpreter, visualization, and limitations.</td><td>Final responses and charts preserve approved metrics, qualifiers, source meaning, and uncertainty.</td></tr>
+            <tr><td>Operations</td><td>Usage, feedback, corrections, Fabric consumption, incidents, changes, support, review cadence, and retirement.</td><td>Quality and access regressions are detectable, attributable, and recoverable.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="publishing">Publish for discovery, not accidental exposure</h2>
+        <p>Validate the Data Agent in Fabric, publish the approved production version, and select publication to the Microsoft 365 Copilot Agent Store. Use an accountable production owner and restrict publishing from development workspaces. A production workspace containing a draft is not enough; consumption channels require the published version.</p>
+        <p>Write the public description for people and the orchestrator. State the business domain, authoritative sources, supported questions, time coverage, intended audience, and exclusions. Users can open the agent directly or attach it with `@` from Copilot chat. Test both paths because discovery, prior conversation context, and selected-agent state can affect behavior.</p>
+        <p>Sharing the Agent Store link improves distribution but does not grant Fabric permissions. Roll out through named security groups, confirm Copilot extensibility settings, and provide a clear owner, support route, data freshness statement, approved examples, and limitations. Avoid broad launch announcements before the permission and answer-quality evidence is complete.</p>
+
+        <h2 id="permissions">Prove effective access for every user persona</h2>
+        <p>Microsoft documents that users see results based on their access to the underlying sources and that RLS and CLS remain enforced. Test the complete path as the actual user, not as the builder. Include executives, analysts, regional users, restricted users, new hires, leavers, and users with access to the agent but not one attached source.</p>
+        <p>Map Data Agent sharing, semantic model Read, lakehouse or warehouse permissions, KQL roles, ontology dependencies, Purview access policies, and group inheritance. A user can discover or open the agent and still receive authorization errors or empty results when the selected source is inaccessible. Do not solve that by granting workspace-wide roles.</p>
+
+        <h2 id="fidelity">Evaluate the answer after Copilot orchestration</h2>
+        <p>Microsoft 365 Copilot has its own orchestrator. It uses user intent, chat context, and model reasoning to shape the final response from the Fabric Data Agent output. The publishing description becomes model-facing guidance and can request that output be delivered without summarizing or adding interpretation, but Microsoft notes that some transformation is inevitable.</p>
+        <p>Evaluate three artifacts: the generated Fabric query and source result, the direct Data Agent answer, and the final Copilot answer. Score metric, filter, period, grain, qualifier, uncertainty, source attribution, truncation, and unsupported causal language. Repeat with fresh and continuing chats because prior context can alter the request or synthesis.</p>
+
+        <div class="article-table-wrap" role="region" aria-label="Microsoft 365 Copilot Fabric Data Agent evaluation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Microsoft 365 Copilot Fabric Data Agent evaluation matrix</caption>
+          <thead><tr><th scope="col">Experience</th><th scope="col">Failure to test</th><th scope="col">Release control</th></tr></thead>
+          <tbody>
+            <tr><td>Agent Store discovery</td><td>User cannot find the agent, chooses a similarly named item, or misunderstands its scope.</td><td>Distinct name, concise domain description, approved examples, audience targeting, and discovery testing.</td></tr>
+            <tr><td>`@` mention</td><td>Agent is attached after unrelated context or receives a rephrased question that changes business meaning.</td><td>Fresh-chat and continuing-chat tests, clarification rules, and visible scope guidance.</td></tr>
+            <tr><td>Direct answer</td><td>Wrong source, query, result, permission, summary, or refusal before Copilot synthesis.</td><td>Versioned Data Agent evaluation against deterministic source controls and personas.</td></tr>
+            <tr><td>Copilot final answer</td><td>Correct Data Agent result is reworded into an incorrect metric, causal claim, missing qualifier, or false certainty.</td><td>Publishing instructions, final-answer evaluation, critical-field checks, and human escalation for material decisions.</td></tr>
+            <tr><td>Code interpreter visualization</td><td>Chart uses incomplete data, wrong units, grain, labels, ordering, filter, or time window.</td><td>Chart-specific test cases, approved comparison report, completeness checks, and explicit limitations.</td></tr>
+            <tr><td>Sharing</td><td>Recipient assumes the link grants data access or shares it outside the intended cohort.</td><td>Security-group rollout, access request process, user guidance, audit, and periodic recertification.</td></tr>
+            <tr><td>Scale</td><td>Adoption creates capacity pressure, slow answers, repeated corrections, or support demand without measurable value.</td><td>Cohort gates, usage and cost monitoring, SLOs, feedback triage, and expansion tied to accepted-answer outcomes.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2>Govern and operate the released agent</h2>
+        <ul>
+          <li>Track active users, accepted questions, repeat use, unsupported requests, corrections, business outcomes, and support cases by cohort.</li>
+          <li>Monitor Fabric AI Query consumption, generated source-query workload, latency, failures, throttling, and shared-capacity impact.</li>
+          <li>Review source schemas, measures, refresh, permissions, descriptions, examples, publishing state, Copilot behavior, and licenses on a defined cadence.</li>
+          <li>Preserve audit evidence and apply Purview, retention, privacy, and investigation requirements to agent interactions and underlying sources.</li>
+          <li>Maintain a kill switch, known-good published version, user communication, incident runbook, and support owner for wrong-answer or access incidents.</li>
+        </ul>
+
+        <h2 id="pilot">Run a three-to-five-week Microsoft 365 Copilot rollout pilot</h2>
+        <ol>
+          <li>Select one approved Data Agent, business domain, decision set, production owner, and named Microsoft 365 Copilot user cohort.</li>
+          <li>Validate prerequisites, tenant and capacity settings, licenses, production sources, permissions, Purview controls, and Agent Store governance.</li>
+          <li>Refine the published name and description, publish to Agent Store, configure group access, and establish user support and training.</li>
+          <li>Build direct, `@` mention, continuing-chat, permission, unsupported, adversarial, visualization, latency, and consumption tests.</li>
+          <li>Compare Fabric query, direct Data Agent response, final Copilot response, and visualization against ground truth and approved reports.</li>
+          <li>Run the cohort, monitor adoption and corrections, remediate the correct layer, exercise incident and rollback, and repeat the suite.</li>
+          <li>Deliver rollout architecture, permission matrix, evaluation scorecard, publishing and support runbook, operating dashboard, training, and go, limit, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Can a Fabric Data Agent be published to Microsoft 365 Copilot?</summary><p>Yes. Microsoft documents a preview publishing option that makes a validated Fabric Data Agent available through the Agent Store in Microsoft 365 Copilot. Users can open it directly in Teams or mention it from the main Copilot chat. The Data Agent and Microsoft 365 Copilot must be in the same tenant, required Fabric settings and capacities must be enabled, and users need the appropriate licenses and access.</p></details>
+          <details><summary>Does sharing a Fabric Data Agent link grant access to its data?</summary><p>No. Sharing an Agent Store link helps colleagues discover the Data Agent, but recipients still need access to the published Data Agent and every underlying source required for their questions. The requesting user's source permissions, row-level security, column-level security, and applicable Purview controls continue to determine which results can be returned.</p></details>
+          <details><summary>Does Microsoft 365 Copilot change Fabric Data Agent answers?</summary><p>Microsoft 365 Copilot has its own orchestrator, which uses conversation context and model reasoning to form the final response from Data Agent output. Publishing instructions can ask Copilot to minimize summarization or interpretation, but Microsoft notes that some change is inevitable. Evaluate the final Copilot answer, not only the direct Data Agent answer.</p></details>
+          <details><summary>How should we test Fabric Data Agent visualizations in Microsoft 365 Copilot?</summary><p>When users ask code interpreter to visualize a Data Agent result, validate that the input result is complete enough, the chart uses the correct fields, units, filters, grain, labels, and time window, and the narrative does not imply unsupported causality. Compare the visualization with an approved report or deterministic query and warn when the agent response is summarized or truncated.</p></details>
+          <details><summary>How long does a Microsoft 365 Copilot Fabric Data Agent rollout assessment take?</summary><p>A focused rollout pilot can often be completed in three to five weeks for one published Data Agent, one governed domain, and a named user cohort. The work covers prerequisites, Agent Store publishing, permissions, descriptions, discovery, final-answer and visualization evaluation, governance, monitoring, support, adoption measurement, and a rollout recommendation.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-microsoft-365-copilot">Consume Fabric Data Agent in Microsoft 365 Copilot</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-sharing">Fabric Data Agent sharing and source permissions</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-source-control">Source control, publishing, and consumption channels</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent">Fabric Data Agent governance and limitations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/publish">Publish agents for Microsoft 365 Copilot</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/fundamentals/data-agent-consumption">Fabric Data Agent consumption and capacity reporting</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with one decision domain and one named Copilot cohort.</strong> Datrick can prepare the Data Agent, prove the final Copilot experience, and deliver a controlled rollout recommendation.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=m365_copilot_fabric_agent&amp;utm_medium=organic_content&amp;utm_campaign=m365_fabric_rollout&amp;utm_content=article_end#inquiry-form">Scope the Copilot rollout pilot</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-code-interpreter-python-accuracy-security-assessment"><span>Validate generated analysis</span><strong>Assess Python and visualization accuracy</strong></a><a href="microsoft-copilot-studio-fabric-data-agent-integration-assessment"><span>Custom agent orchestration</span><strong>Compare the Copilot Studio path</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

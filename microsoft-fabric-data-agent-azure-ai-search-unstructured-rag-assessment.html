@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Data Agent Azure AI Search RAG Assessment | Datrick</title>
+    <meta name="description" content="Assess Microsoft Fabric Data Agent with Azure AI Search for unstructured RAG across index design, retrieval, citations, permissions, routing, evaluation, and preview risk.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-azure-ai-search-unstructured-rag-assessment">
+    <meta property="og:title" content="Fabric Data Agent Azure AI Search RAG Assessment | Datrick">
+    <meta property="og:description" content="Connect governed documents to Fabric Data Agent without weak retrieval, missing citations, unsafe access, or untested structured and unstructured routing.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-azure-ai-search-unstructured-rag-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Azure AI Search Unstructured RAG Assessment", "description": "Assess Microsoft Fabric Data Agent with Azure AI Search for unstructured RAG across index design, retrieval, citations, permissions, routing, evaluation, and preview risk.", "url": "https://datrick.com/microsoft-fabric-data-agent-azure-ai-search-unstructured-rag-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-azure-ai-search-unstructured-rag-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Can Microsoft Fabric Data Agent use Azure AI Search for unstructured data?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, in preview. Microsoft's current source-specific documentation describes connecting an Azure AI Search index built in Microsoft Foundry to a Fabric Data Agent by resource URL so the agent can retrieve content from PDFs, text files, and other indexed documents and combine it with structured sources."}},
+            {"@type": "Question", "name": "How does Fabric Data Agent preserve Azure AI Search permissions?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft documents role-based authentication and says the asking user's identity is sent to the Azure AI Search index so the resource's access controls and permissions are respected. Test the exact user, service principal, index roles, consumption channel, and denied cases rather than assuming access from either product alone."}},
+            {"@type": "Question", "name": "How do citations work with Fabric Data Agent and Azure AI Search?", "acceptedAnswer": {"@type": "Answer", "text": "Citations can appear when the index contains at least one supported case-sensitive location field: url, sourceUrl, filePath, path, or folderPath. Citation presence is not enough; evaluation should verify that each citation identifies the document and passage that actually supports the material claim."}},
+            {"@type": "Question", "name": "Does Build agent with AI configure Azure AI Search sources?", "acceptedAnswer": {"@type": "Answer", "text": "No. Microsoft's current Build agent with AI preview is limited to SQL and Eventhouse data sources and lists unstructured data as unsupported. Azure AI Search context, search type, document count, routing instructions, and response behavior need manual design and evaluation."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent Azure AI Search assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment commonly takes three to five weeks for one document domain, one search index, one Data Agent, and a representative question set. It covers content inventory, index and citation design, identity, retrieval quality, answer groundedness, mixed-source routing, failure tests, preview risk, and operating controls."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent + Azure AI Search</p>
+        <h1>Make every document answer retrievable, attributable, and permitted.</h1>
+        <p class="page-lede">Prepare an Azure AI Search index for one governed document domain, prove retrieval and citations, preserve the asking user's access, and evaluate structured and unstructured routing before the preview becomes a trusted knowledge channel.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_ai_search&amp;utm_medium=organic_content&amp;utm_campaign=unstructured_rag_assessment&amp;utm_content=hero#inquiry-form">Describe the document use case</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Governed unstructured RAG</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#contract">Use-case contract</a><a href="#index">Index design</a><a href="#evaluation">RAG evaluation</a><a href="#operations">Security and operations</a><a href="#pilot">Assessment plan</a></nav>
+
+        <p>A document answer can sound grounded while retrieving the wrong version, the wrong section, an obsolete policy, a neighboring tenant's content, or a passage that does not support the final claim. Adding a citation field can make the failure look more credible. Production RAG quality depends on content boundaries, index design, retrieval evidence, identity, and answer evaluation working together.</p>
+        <p>Microsoft's current source-specific documentation describes a preview connection from Fabric Data Agent to an Azure AI Search index built in Microsoft Foundry. The Data Agent can retrieve unstructured content and combine it with structured sources. Because some broader concept documentation still carries older unstructured-data limitations, confirm tenant availability and behavior in the target region and capacity before promising a rollout.</p>
+
+        <section class="readiness-actions"><p><strong>Which document-backed decision needs a faster, evidence-linked answer?</strong> Start with that domain, not every file the organization owns.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_ai_search&amp;utm_medium=organic_content&amp;utm_campaign=unstructured_rag_assessment&amp;utm_content=article_intro#inquiry-form">Send the index and question context</a><a class="button secondary" href="microsoft-fabric-data-agent-implementation-evaluation-services">Review the broader Data Agent program</a></div></section>
+
+        <h2 id="contract">Define the document answer contract</h2>
+        <p>Select one document domain, user cohort, accountable content owner, decisions supported, authoritative repositories, prohibited content, freshness target, citation standard, access boundary, and measurable outcome. Define when the answer must quote or cite evidence, ask a clarifying question, return no answer, or escalate to a person.</p>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent Azure AI Search assessment contract" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent Azure AI Search assessment contract</caption>
+          <thead><tr><th scope="col">Contract area</th><th scope="col">Required decision</th><th scope="col">Evidence</th><th scope="col">Failure to prevent</th></tr></thead>
+          <tbody>
+            <tr><td>Content scope</td><td>Document types, repositories, owners, versions, languages, classifications, retention, and exclusions.</td><td>Approved corpus inventory and authority rules.</td><td>Draft, obsolete, duplicate, or unauthorized content becomes evidence.</td></tr>
+            <tr><td>Question scope</td><td>Supported intents, required qualifiers, prohibited advice, no-answer behavior, and escalation.</td><td>Representative question and refusal catalogue.</td><td>Agent answers beyond the indexed evidence or intended decision.</td></tr>
+            <tr><td>Retrieval</td><td>Search type, chunking, fields, enrichment, filters, document count, ranking, and citation locations.</td><td>Retrieval ground truth with relevant chunks.</td><td>Relevant document exists but the wrong passage reaches the answer.</td></tr>
+            <tr><td>Identity</td><td>User and service identities, Azure AI Search roles, document access, sharing channel, and denied cases.</td><td>Effective-access matrix and negative tests.</td><td>Data Agent access is mistaken for permission to every indexed document.</td></tr>
+            <tr><td>Quality</td><td>Retrieval recall, ranking, groundedness, citation correctness, completeness, latency, and severity thresholds.</td><td>Versioned evaluation suite and release gate.</td><td>Fluent, cited answer passes despite unsupported material claims.</td></tr>
+            <tr><td>Preview gate</td><td>Target tenant support, environment, fallback, SLA assumption, expansion criteria, and risk owner.</td><td>Go, limit, or stop recommendation.</td><td>Preview and documentation drift become a production commitment.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="index">Design an index the agent can retrieve safely</h2>
+        <p>Clean the corpus before tuning retrieval. Resolve duplicate and superseded documents, define version precedence, preserve effective dates and owners, exclude unsupported or sensitive material, and keep stable source identifiers. OCR, layout extraction, tables, images, footnotes, and scanned attachments need explicit preprocessing and acceptance tests; an index cannot retrieve content it parsed incorrectly.</p>
+        <p>Choose chunk boundaries that preserve the unit of meaning needed by the question. Keep headings, document identity, section path, version, effective date, classification, tenant or audience, and source location as retrievable metadata. Test whether adjacent chunks or parent context are required for definitions, exceptions, procedures, and tables. More chunks are not automatically better context.</p>
+        <p>Microsoft exposes full-text, hybrid, and semantic search choices and recommends retrieving 3–20 documents per query. Treat those as tunable variables, not defaults to accept blindly. Compare search types and document counts on the same question set, measuring relevant-chunk recall, irrelevant context, latency, answer quality, and processing cost.</p>
+        <p>Design citation fields before indexing. Microsoft says citations appear only when at least one supported case-sensitive field exists: <code>url</code>, <code>sourceUrl</code>, <code>filePath</code>, <code>path</code>, or <code>folderPath</code>. Use a durable location a reviewer can open and tie it to document version and section metadata. A link to the correct file is still an incorrect citation if the cited passage does not support the claim.</p>
+
+        <h2 id="evaluation">Evaluate retrieval, grounding, and source routing</h2>
+        <p>Create ground truth with real user questions and an approved set of relevant documents and passages. Preserve expected answer points, unacceptable claims, citation targets, access persona, source route, freshness, and severity. Include synonyms, acronyms, version conflicts, tables, exceptions, no-answer questions, adversarial instructions inside documents, inaccessible content, and questions that need both a structured metric and an unstructured explanation.</p>
+        <p>Use the Data Agent source context to describe the index, key fields, authority, and intended question types. Use agent instructions to define routing, evidence requirements, conflict handling, citation behavior, and no-answer policy. Build agent with AI does not currently support unstructured sources, so manually review these settings and validate every change against the same evaluation set.</p>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent unstructured RAG evaluation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent unstructured RAG evaluation matrix</caption>
+          <thead><tr><th scope="col">Dimension</th><th scope="col">Test</th><th scope="col">Pass condition</th><th scope="col">Remediation</th></tr></thead>
+          <tbody>
+            <tr><td>Retrieval recall</td><td>Whether authoritative passages appear in the retrieved set across wording, acronyms, and filters.</td><td>Required evidence is retrieved for every critical supported question.</td><td>Corpus cleanup, enrichment, fields, chunking, synonyms, hybrid or semantic search.</td></tr>
+            <tr><td>Ranking precision</td><td>Relevant versus obsolete, duplicate, neighboring, or weakly related chunks.</td><td>Top context prioritizes current authoritative evidence.</td><td>Version metadata, filters, scoring, semantic configuration, or fewer documents.</td></tr>
+            <tr><td>Groundedness</td><td>Every material answer claim against retrieved text.</td><td>No claim exceeds or contradicts the available evidence.</td><td>Stricter instructions, better context, refusal, or human escalation.</td></tr>
+            <tr><td>Citation fidelity</td><td>Document, version, section, passage, and link for each material claim.</td><td>Citation opens the evidence that supports the exact claim.</td><td>Index location fields, metadata, answer format, or claim-level evaluation.</td></tr>
+            <tr><td>Routing</td><td>Unstructured index versus SQL, semantic, KQL, graph, or ontology source selection.</td><td>Each question uses the authoritative source or an explicit combination.</td><td>Source context, agent instructions, domain separation, or clarification.</td></tr>
+            <tr><td>Access</td><td>Allowed and denied users, roles, sensitive documents, channel identity, and permission changes.</td><td>Unauthorized content is never retrieved or exposed in answer or citation.</td><td>Azure AI Search RBAC and index security correction, source separation, or channel redesign.</td></tr>
+            <tr><td>Operations</td><td>Freshness, failed indexing, partial corpus, latency, throttling, dependency outage, and cost.</td><td>Service stays within SLOs and fails with a clear limitation.</td><td>Monitoring, ingestion recovery, capacity tuning, fallback, or stop rule.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="operations">Prove identity and operate the retrieval chain</h2>
+        <p>Enable role-based authentication on Azure AI Search and test the exact identity used by the consumption channel. Microsoft's setup guidance lists Search Index Data Contributor and Search Index Data Reader for the connecting user or service principal and says the asking user's identity is sent to the index. Validate least privilege, denied users, permission removal, group changes, mixed-source questions, and whether citations reveal metadata a user should not see.</p>
+        <p>Monitor source ingestion, failed and skipped documents, parsing quality, index freshness, index schema version, retrieval latency, search type, document count, retrieved chunks, citation coverage, answer corrections, denied requests, Data Agent routing, capacity, and Azure AI Search consumption. Keep sensitive prompt and document content out of broad logs by default while retaining enough correlation metadata to reproduce failures.</p>
+        <p>Test search unavailable, index empty, stale index, malformed document, missing citation field, permission revoked, retrieval timeout, throttling, irrelevant context, conflicting documents, and structured source unavailable. The answer should expose the limitation or abstain rather than fabricate a synthesis. Maintain a known-good index and Data Agent configuration with rollback and re-evaluation steps.</p>
+
+        <h2 id="pilot">Run a three-to-five-week unstructured RAG assessment</h2>
+        <ol>
+          <li>Select one document-backed decision, corpus, user cohort, content owner, risk boundary, and measurable outcome.</li>
+          <li>Inventory authority, versions, duplicates, formats, access, classifications, freshness, OCR and enrichment needs, and existing search behavior.</li>
+          <li>Build or refine the Azure AI Search index, metadata, chunking, citation fields, RBAC, ingestion, and observability.</li>
+          <li>Connect the index by resource URL; configure context, search type, document count, routing, evidence, conflict, and no-answer instructions.</li>
+          <li>Create retrieval and answer ground truth; run relevance, citation, access, mixed-source, stale-data, adversarial, outage, latency, and cost tests.</li>
+          <li>Classify failures by corpus, parsing, enrichment, index schema, retrieval, routing, permission, answer, runtime, or documentation drift; remediate and repeat.</li>
+          <li>Deliver the corpus contract, index design, evaluation scorecard, access matrix, runbooks, preview decision, and go, limit, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Can Microsoft Fabric Data Agent use Azure AI Search for unstructured data?</summary><p>Yes, in preview. Microsoft's current source-specific documentation describes connecting an Azure AI Search index built in Microsoft Foundry to a Fabric Data Agent by resource URL so the agent can retrieve content from PDFs, text files, and other indexed documents and combine it with structured sources.</p></details>
+          <details><summary>How does Fabric Data Agent preserve Azure AI Search permissions?</summary><p>Microsoft documents role-based authentication and says the asking user's identity is sent to the Azure AI Search index so the resource's access controls and permissions are respected. Test the exact user, service principal, index roles, consumption channel, and denied cases rather than assuming access from either product alone.</p></details>
+          <details><summary>How do citations work with Fabric Data Agent and Azure AI Search?</summary><p>Citations can appear when the index contains at least one supported case-sensitive location field: <code>url</code>, <code>sourceUrl</code>, <code>filePath</code>, <code>path</code>, or <code>folderPath</code>. Citation presence is not enough; evaluation should verify that each citation identifies the document and passage that actually supports the material claim.</p></details>
+          <details><summary>Does Build agent with AI configure Azure AI Search sources?</summary><p>No. Microsoft's current Build agent with AI preview is limited to SQL and Eventhouse data sources and lists unstructured data as unsupported. Azure AI Search context, search type, document count, routing instructions, and response behavior need manual design and evaluation.</p></details>
+          <details><summary>How long does a Fabric Data Agent Azure AI Search assessment take?</summary><p>A focused assessment commonly takes three to five weeks for one document domain, one search index, one Data Agent, and a representative question set. It covers content inventory, index and citation design, identity, retrieval quality, answer groundedness, mixed-source routing, failure tests, preview risk, and operating controls.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-ai-search-index">Connect Fabric Data Agent to an Azure AI Search index</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-add-datasources">Configure unstructured sources in Fabric Data Agent</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-creator-agent-overview">Build agent with AI supported source limitations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/search/search-what-is-azure-search">Azure AI Search retrieval architecture</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/search/search-security-rbac">Azure AI Search role-based access control</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview">Azure AI Search RAG patterns and retrieval choices</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with one document domain, its real questions, and the passages that should answer them.</strong> Datrick can turn that evidence into a governed index, Data Agent source, retrieval evaluation, and rollout recommendation.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_ai_search&amp;utm_medium=organic_content&amp;utm_campaign=unstructured_rag_assessment&amp;utm_content=article_end#inquiry-form">Scope the unstructured RAG assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-graph-nl2gql-accuracy-assessment"><span>Reason over connected data</span><strong>Assess Graph and NL2GQL accuracy</strong></a><a href="microsoft-fabric-data-agent-implementation-evaluation-services"><span>Build the governed agent</span><strong>Prepare and evaluate Fabric Data Agents</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

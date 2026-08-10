@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Datrick PostgreSQL Notes</title>
+  <subtitle>Practical PostgreSQL operations, recovery, migration, and reliability notes by Can Goktug Ozdem.</subtitle>
+  <link href="https://datrick.com/postgresql.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://datrick.com/resources.html" rel="alternate" type="text/html"/>
+  <id>https://datrick.com/postgresql.xml</id>
+  <updated>2026-07-23T00:00:00Z</updated>
+  <author><name>Can Goktug Ozdem</name><uri>https://datrick.com/about.html</uri></author>
+  <entry>
+    <title>PostgreSQL Backup Verification and Restore Drill</title>
+    <link href="https://datrick.com/postgresql-backup-verification-restore-drill" rel="alternate" type="text/html"/>
+    <id>https://datrick.com/postgresql-backup-verification-restore-drill</id>
+    <published>2026-07-23T00:00:00Z</published>
+    <updated>2026-07-23T00:00:00Z</updated>
+    <author><name>Can Goktug Ozdem</name><uri>https://datrick.com/about.html</uri></author>
+    <category term="PostgreSQL"/>
+    <summary>A four-layer runbook for proving that a PostgreSQL backup is present, intact, restorable, and usable before an incident.</summary>
+    <content type="html">&lt;p&gt;A green backup job proves that a process completed. A recovery drill proves whether the team can restore the right data, on compatible infrastructure, inside a useful recovery window.&lt;/p&gt;&lt;p&gt;This guide separates backup presence, integrity, restorability, and business usability, with practical steps for pg_restore, pg_verifybackup, validation queries, and recovery evidence.&lt;/p&gt;&lt;p&gt;&lt;a href="https://datrick.com/postgresql-backup-verification-restore-drill"&gt;Read the complete PostgreSQL backup verification and restore drill&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
+</feed>

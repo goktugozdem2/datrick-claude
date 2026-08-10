@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Microsoft Copilot Studio and Fabric Data Agent Integration Assessment | Datrick</title>
+    <meta name="description" content="Implement a Copilot Studio connected Fabric Data Agent with tested authentication, source permissions, orchestration, channels, evaluation, and governance.">
+    <link rel="canonical" href="https://datrick.com/microsoft-copilot-studio-fabric-data-agent-integration-assessment">
+    <meta property="og:title" content="Microsoft Copilot Studio and Fabric Data Agent Integration Assessment | Datrick">
+    <meta property="og:description" content="Connect a low-code Copilot Studio agent to governed Fabric answers without obscuring user access, source authority, or production behavior.">
+    <meta property="og:url" content="https://datrick.com/microsoft-copilot-studio-fabric-data-agent-integration-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Copilot Studio and Fabric Data Agent Integration Assessment", "description": "Implement a Copilot Studio connected Fabric Data Agent with tested authentication, source permissions, orchestration, channels, evaluation, and governance.", "url": "https://datrick.com/microsoft-copilot-studio-fabric-data-agent-integration-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-copilot-studio-fabric-data-agent-integration-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Can Copilot Studio connect to a Microsoft Fabric Data Agent?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Microsoft documents a preview connected-agent integration that allows a custom Copilot Studio agent to invoke a published Fabric Data Agent. The resources must be in the same tenant, the maker needs access to the Data Agent and its sources, and generative AI orchestration must be enabled. Validate the current license, tenant, capacity, authentication, and channel requirements before rollout."}},
+            {"@type": "Question", "name": "Should a connected Fabric Data Agent use user authentication or agent author authentication?", "acceptedAnswer": {"@type": "Answer", "text": "Use user authentication when Fabric answers must reflect each user's source permissions, groups, RLS, or CLS. Every user then needs access to the published Data Agent and relevant sources. Agent author authentication uses the maker's connection and creates a shared authorization context, so it should be limited to explicitly approved low-risk scenarios with data that every intended user may access."}},
+            {"@type": "Question", "name": "Why does our Fabric Data Agent not appear in Copilot Studio?", "acceptedAnswer": {"@type": "Answer", "text": "Confirm that the Data Agent is published and running, both resources are in the same tenant, the maker is signed in with the correct account, the maker has access to the Fabric workspace and underlying sources, required tenant and capacity settings are enabled, and the Copilot Studio environment allows the integration. An unpublished or inaccessible Data Agent isn't available for selection."}},
+            {"@type": "Question", "name": "How do we test a Copilot Studio agent with a connected Fabric Data Agent?", "acceptedAnswer": {"@type": "Answer", "text": "Test the complete connected-agent path with representative users and the intended published channel. Measure orchestration choice, Fabric source routing, generated query, source result, final response, security behavior, clarification, refusal, latency, consumption, and errors. Include user and author authentication where considered, denied personas, competing topics or agents, prompt injection, source changes, and channel-specific sign-in."}},
+            {"@type": "Question", "name": "How long does a Copilot Studio and Fabric Data Agent integration assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused pilot can often be completed in three to five weeks for one custom agent, one published Fabric Data Agent, one authentication model, one governed domain, and one target channel. The work covers prerequisites, connection, descriptions and orchestration, permissions, data policies, evaluation, publishing, channel acceptance, monitoring, support, and an adoption recommendation."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Copilot Studio + Fabric Data Agent</p>
+        <h1>Connect low-code agents to governed Fabric answers with an authentication model users can trust.</h1>
+        <p class="page-lede">Implement a connected Fabric Data Agent in Copilot Studio. Prove user or author authentication, source access, generative orchestration, answer quality, channel sign-in, data policy, lifecycle, and operating controls before release.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=copilot_studio_fabric_data_agent&amp;utm_medium=organic_content&amp;utm_campaign=copilot_studio_fabric_pilot&amp;utm_content=hero#inquiry-form">Describe the connected-agent use case</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Low-code enterprise agents</span><span>10 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#architecture">Connected-agent design</a><a href="#authentication">Authentication</a><a href="#orchestration">Orchestration</a><a href="#evaluation">Evaluation and channels</a><a href="#pilot">Pilot plan</a></nav>
+
+        <p>Copilot Studio can use a published Fabric Data Agent as a connected agent. The custom agent handles conversation, orchestration, topics, actions, and channel delivery; the Fabric Data Agent answers structured-data questions over approved sources. The low-code connection is easy to demonstrate, but production quality still depends on two agents, two permission layers, source semantics, authentication, policy, and the final channel.</p>
+        <p>Datrick starts with one business domain, one connected Data Agent, one authentication model, one user cohort, and one target channel. The pilot proves who authorizes each query, when orchestration selects Fabric, which source and query produce the result, how the custom agent presents it, and whether release and support teams can reproduce failures.</p>
+
+        <section class="readiness-actions"><p><strong>Will every user see only the Fabric data they are individually allowed to see?</strong> Decide that before selecting the connected agent's authentication mode.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=copilot_studio_fabric_data_agent&amp;utm_medium=organic_content&amp;utm_campaign=copilot_studio_fabric_pilot&amp;utm_content=article_intro#inquiry-form">Send the user and data context</a><a class="button secondary" href="microsoft-fabric-data-agent-implementation-evaluation-services">Prepare the Fabric agent</a></div></section>
+
+        <h2 id="architecture">Build the connected-agent contract first</h2>
+        <p>Confirm Fabric capacity and tenant settings, cross-geo AI requirements, a working and published Data Agent, same-tenant alignment, Copilot Studio maker permissions and licenses, source access, and the target environment. Publish the Data Agent with a detailed description because the custom agent uses descriptions and generative orchestration to decide when collaboration is relevant.</p>
+        <p>Add the Fabric Data Agent from the connected agents experience, review or refine its description, choose authentication, enable generative AI orchestration, and test in the authoring pane. Treat that as integration validation, not production acceptance. The published custom agent and final channel can introduce different identity, sign-in, topic, and policy behavior. If the goal is direct Agent Store consumption rather than a custom connected agent, use the separate <a href="microsoft-365-copilot-fabric-data-agent-rollout-assessment">Microsoft 365 Copilot Fabric Data Agent rollout guide</a>.</p>
+
+        <div class="article-table-wrap" role="region" aria-label="Copilot Studio and Fabric Data Agent integration contract" tabindex="0"><table class="article-table"><caption class="sr-only">Copilot Studio and Fabric Data Agent integration contract</caption>
+          <thead><tr><th scope="col">Design area</th><th scope="col">Required decision</th><th scope="col">Acceptance evidence</th></tr></thead>
+          <tbody>
+            <tr><td>Business scope</td><td>Users, decisions, supported questions, excluded topics, authoritative sources, risk, quality, escalation, and owner.</td><td>A bounded question set and ground truth approved by business and data owners.</td></tr>
+            <tr><td>Fabric Data Agent</td><td>Published version, sources, descriptions, instructions, examples, permissions, capacity, evaluation, and lifecycle.</td><td>Direct tests prove source selection, generated query, result, RLS or CLS, and latency.</td></tr>
+            <tr><td>Connected agent</td><td>Copilot Studio environment, description, authentication, generative orchestration, topics, triggers, actions, competing agents, and version.</td><td>Representative prompts invoke the correct agent and unsupported prompts clarify or refuse.</td></tr>
+            <tr><td>Identity</td><td>User authentication or agent author authentication, user sign-in, maker connection, source access, security groups, and recertification.</td><td>Allowed users receive permitted answers; denied users fail closed in the production channel.</td></tr>
+            <tr><td>Channel</td><td>Teams, website, or other supported channel, SSO, user-authentication support, sharing, license, and rollout group.</td><td>End-to-end acceptance passes in the actual channel, not only in test chat.</td></tr>
+            <tr><td>Governance</td><td>Power Platform data policy, maker credential policy, Fabric/Purview controls, audit, retention, privacy, publishing, and support.</td><td>Admins can inventory, restrict, investigate, disable, and review the integration.</td></tr>
+            <tr><td>Operations</td><td>Usage, Fabric consumption, failures, corrections, latency, cost, source changes, incidents, release, and rollback.</td><td>Quality and access regressions are detectable and mapped to an accountable owner.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="authentication">Choose user or author authentication deliberately</h2>
+        <p>Use user authentication when answers must follow each user's Fabric permissions. Every user needs at least read access to the published Data Agent and effective access to the underlying sources. Power BI RLS and CLS and other source-level controls remain part of the answer boundary. The intended channel must support user authentication and, for Teams scenarios, required SSO configuration must be validated.</p>
+        <p>Agent author authentication uses the maker's connection on behalf of users. This can simplify access for data every intended user is allowed to see, but it removes per-user Fabric authorization from the query path. Inventory the author's effective source access, narrow it to the approved domain, prevent personal credentials from becoming an unmanaged production dependency, and use Copilot Studio credential policies to restrict maker-provided credentials where appropriate.</p>
+        <p>Do not select author authentication merely because user access is difficult to configure. If source permissions are the intended control, bypassing them changes the security architecture. Document the decision, data classification, user population, maker ownership, credential lifecycle, review cadence, and emergency disablement path.</p>
+
+        <h2 id="orchestration">Make collaboration predictable</h2>
+        <p>Generative orchestration decides when to invoke the connected Fabric Data Agent. Give both the custom agent and connected agent specific descriptions: domain, sources, supported metrics, intended users, time scope, and exclusions. Add topics or trigger phrases only where they improve deterministic handling without duplicating or conflicting with generative routing.</p>
+        <p>Test questions that should invoke Fabric, should invoke another connected agent or action, require clarification, and must not be answered. Include ambiguous terms, multi-turn context, conflicting sources, prompt injection, requests for unsupported documents or writes, and questions that combine Fabric data with an action. Verify that the custom agent does not overstate a summarized or incomplete Data Agent result.</p>
+
+        <h2>Diagnose common integration failures</h2>
+        <div class="article-table-wrap" role="region" aria-label="Copilot Studio Fabric Data Agent integration failure matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Copilot Studio Fabric Data Agent integration failure matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Likely boundary</th><th scope="col">Diagnostic action</th></tr></thead>
+          <tbody>
+            <tr><td>Data Agent is missing from the list</td><td>Unpublished item, wrong tenant or account, missing workspace access, disabled tenant setting, or unavailable environment.</td><td>Verify publish state, same-tenant alignment, maker identity, workspace/source access, capacity, settings, and environment.</td></tr>
+            <tr><td>Connected agent is never invoked</td><td>Generative orchestration disabled, vague description, conflicting topic or connected agent, or unsupported question.</td><td>Inspect orchestration behavior, tighten descriptions, use representative triggers, and compare in-domain with out-of-domain prompts.</td></tr>
+            <tr><td>User is prompted or authentication fails</td><td>Channel does not support user auth, SSO is incomplete, token expired, or connection was not authorized.</td><td>Test sign-in in the published channel, validate SSO and connection settings, and confirm the user's account and tenant.</td></tr>
+            <tr><td>Unauthorized or empty Fabric answer</td><td>User lacks Data Agent or source permission, RLS or CLS removes data, or author connection is invalid.</td><td>Reproduce as the affected user, inspect selected source and effective access, and test the direct Data Agent.</td></tr>
+            <tr><td>Wrong or inconsistent answer</td><td>Custom-agent routing, connected-agent routing, generated query, source data, conversation context, or final synthesis.</td><td>Capture both agents' steps, query the source directly, and identify the first divergence from ground truth.</td></tr>
+            <tr><td>Works in test chat but not Teams</td><td>Published version, sharing, license, channel support, SSO, authentication mode, or rollout group differs.</td><td>Run production-channel acceptance with named users and inspect sign-in, connection, permissions, and release version.</td></tr>
+            <tr><td>Cost or latency grows after rollout</td><td>Verbose orchestration, repeated connected-agent calls, long context, retries, Fabric AI Query, generated source queries, or capacity.</td><td>Trace call count and tokens, measure end-to-end timings, remove duplicate calls, bound retry, and monitor Fabric consumption.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="evaluation">Evaluate the actual published channel</h2>
+        <ul>
+          <li>Test orchestration selection, connected-agent handoff, Fabric source selection, generated query, raw result, final answer, and refusal separately.</li>
+          <li>Run allowed, restricted, and denied users under the selected authentication model across all sources and sensitive topics.</li>
+          <li>Exercise the intended channel's login, SSO, consent, connection refresh, license, sharing, and session behavior.</li>
+          <li>Measure correctness, relevance, grounding, clarification, latency, failures, retries, Copilot usage, Fabric AI Query, generated-query workload, and cost per accepted answer.</li>
+          <li>Retest after custom-agent, Data Agent, description, topic, source, semantic model, permission, policy, channel, or platform changes.</li>
+          <li>Block rollout when critical questions regress, authentication fails for intended users, a denied persona receives data, or the supported channel matrix does not match the use case.</li>
+        </ul>
+
+        <h2 id="pilot">Run a three-to-five-week connected-agent pilot</h2>
+        <ol>
+          <li>Select one custom agent, one published Fabric Data Agent, one business domain, one authentication mode, one channel, and a named user cohort.</li>
+          <li>Define ground truth, source authority, permission personas, quality thresholds, latency and cost targets, data policy, support, and preview risk ownership.</li>
+          <li>Configure prerequisites, connect the Data Agent, refine descriptions, enable orchestration, and establish controlled maker and user access.</li>
+          <li>Build orchestration, answer-quality, security, unsupported, adversarial, failure, channel, and consumption test sets.</li>
+          <li>Publish to an isolated audience, test real sign-in and permissions, trace failures, remediate the correct layer, and repeat.</li>
+          <li>Exercise source and permission changes, credential expiry, connected-agent unavailability, disablement, release, and rollback.</li>
+          <li>Deliver architecture, authentication and permission matrix, evaluation suite, scorecard, policy decisions, channel runbook, support model, and go, limit, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Can Copilot Studio connect to a Microsoft Fabric Data Agent?</summary><p>Yes. Microsoft documents a preview connected-agent integration that allows a custom Copilot Studio agent to invoke a published Fabric Data Agent. The resources must be in the same tenant, the maker needs access to the Data Agent and its sources, and generative AI orchestration must be enabled. Validate the current license, tenant, capacity, authentication, and channel requirements before rollout.</p></details>
+          <details><summary>Should a connected Fabric Data Agent use user authentication or agent author authentication?</summary><p>Use user authentication when Fabric answers must reflect each user's source permissions, groups, RLS, or CLS. Every user then needs access to the published Data Agent and relevant sources. Agent author authentication uses the maker's connection and creates a shared authorization context, so it should be limited to explicitly approved low-risk scenarios with data that every intended user may access.</p></details>
+          <details><summary>Why does our Fabric Data Agent not appear in Copilot Studio?</summary><p>Confirm that the Data Agent is published and running, both resources are in the same tenant, the maker is signed in with the correct account, the maker has access to the Fabric workspace and underlying sources, required tenant and capacity settings are enabled, and the Copilot Studio environment allows the integration. An unpublished or inaccessible Data Agent isn't available for selection.</p></details>
+          <details><summary>How do we test a Copilot Studio agent with a connected Fabric Data Agent?</summary><p>Test the complete connected-agent path with representative users and the intended published channel. Measure orchestration choice, Fabric source routing, generated query, source result, final response, security behavior, clarification, refusal, latency, consumption, and errors. Include user and author authentication where considered, denied personas, competing topics or agents, prompt injection, source changes, and channel-specific sign-in.</p></details>
+          <details><summary>How long does a Copilot Studio and Fabric Data Agent integration assessment take?</summary><p>A focused pilot can often be completed in three to five weeks for one custom agent, one published Fabric Data Agent, one authentication model, one governed domain, and one target channel. The work covers prerequisites, connection, descriptions and orchestration, permissions, data policies, evaluation, publishing, channel acceptance, monitoring, support, and an adoption recommendation.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-microsoft-copilot-studio">Consume a Fabric Data Agent in Microsoft Copilot Studio</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/configure-enduser-authentication">Configure user authentication for Copilot Studio tools</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/configure-no-maker-authentication">Control maker-provided credentials</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Configure data policies for Copilot Studio agents</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-sharing">Fabric Data Agent sharing and source permissions</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-source-control">Source control, publishing, and Data Agent consumption channels</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with one connected Data Agent and one explicit authentication decision.</strong> Datrick can implement the pilot, test the real channel and personas, and deliver a defensible rollout recommendation.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=copilot_studio_fabric_data_agent&amp;utm_medium=organic_content&amp;utm_campaign=copilot_studio_fabric_pilot&amp;utm_content=article_end#inquiry-form">Scope the Copilot Studio pilot</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-copilot-studio-managed-services-production-support"><span>After go-live</span><strong>Operate Copilot Studio as a managed service</strong></a><a href="microsoft-foundry-fabric-data-agent-integration-implementation-assessment"><span>Pro-code orchestration</span><strong>Compare the Foundry integration path</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

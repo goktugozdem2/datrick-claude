@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Microsoft Fabric Data Agent MCP Server Implementation and Security Assessment | Datrick</title>
+    <meta name="description" content="Implement and assess a Fabric Data Agent MCP server across identity, permissions, tool routing, client data handling, testing, observability, and preview risk.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-mcp-server-implementation-security-assessment">
+    <meta property="og:title" content="Microsoft Fabric Data Agent MCP Server Implementation and Security Assessment | Datrick">
+    <meta property="og:description" content="Expose governed OneLake knowledge to AI clients through a tested Fabric Data Agent MCP server without losing identity, policy, or data-boundary control.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-mcp-server-implementation-security-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent MCP Server Implementation and Security Assessment", "description": "Implement and assess a Fabric Data Agent MCP server across identity, permissions, tool routing, client data handling, testing, observability, and preview risk.", "url": "https://datrick.com/microsoft-fabric-data-agent-mcp-server-implementation-security-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-mcp-server-implementation-security-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Can a Microsoft Fabric Data Agent be used as an MCP server?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Microsoft documents that a published Fabric Data Agent can expose a single tool through a streamable HTTP MCP endpoint. The client performs the MCP initialize, tool discovery, and tool call flow and attaches a valid Fabric bearer token. The feature is currently preview, so validate supported clients, identity behavior, data handling, reliability, and operational controls before production adoption."}},
+            {"@type": "Question", "name": "Does the Fabric Data Agent MCP server support service principal authentication?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft documents that the MCP endpoint can accept a bearer token representing a user or a service principal. For unattended use, the service principal needs access to the published agent workspace and explicit read access to every attached source. Managed identities and dynamic client registration are not currently supported, and service principal authentication has documented source limitations including KQL Data Agent scenarios."}},
+            {"@type": "Question", "name": "Does a Fabric Data Agent MCP server preserve user data permissions?", "acceptedAnswer": {"@type": "Answer", "text": "The Data Agent queries only sources available to the identity represented by the Fabric token, subject to source permissions and controls such as RLS and CLS. The identity architecture must be explicit: a shared service principal creates a different authorization model from per-user delegated access. Test effective access for every persona, source, client, and prohibited question rather than assuming that sharing the agent grants source access."}},
+            {"@type": "Question", "name": "Can Fabric Data Agent MCP responses leave the Fabric compliance boundary?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft warns that responses consumed through an MCP client can be sent outside Fabric's compliance boundary or geographic region and processed or stored under the client's terms and data-handling policies. Assess the client, orchestrator, model provider, logging, retention, telemetry, support access, and downstream tools before exposing sensitive organizational data."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent MCP server implementation assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused production-shaped pilot can often be completed in three to five weeks for one published Data Agent, one approved MCP client, one identity pattern, and a representative question set. The work covers prerequisites, endpoint and client integration, identity, source permissions, tool description and routing, security tests, answer evaluation, observability, failure handling, and an adoption decision."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent MCP server implementation</p>
+        <h1>Connect AI clients to governed Fabric knowledge with an identity and data boundary you can defend.</h1>
+        <p class="page-lede">Pilot a Fabric Data Agent as a remote MCP server. Validate the published tool contract, authentication, source permissions, client and orchestrator handling, answer quality, observability, failure modes, and preview risk before wider adoption.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=fabric_data_agent_mcp&amp;utm_medium=organic_content&amp;utm_campaign=mcp_security_pilot&amp;utm_content=hero#inquiry-form">Describe the MCP use case</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Enterprise MCP</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#architecture">Architecture</a><a href="#identity">Identity model</a><a href="#security">Security assessment</a><a href="#evaluation">Pilot gates</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>A Fabric Data Agent MCP server turns a published conversational data capability into a tool that external AI clients can discover and call. This removes custom integration code at the protocol layer, but it does not remove decisions about identity, authorization, client trust, model routing, data residency, logging, reliability, and answer quality.</p>
+        <p>Datrick treats the MCP connection as a production data interface. The pilot starts with one governed domain, one published Data Agent, one approved client, one identity pattern, and a bounded set of business questions. Expansion requires evidence that the tool is invoked correctly, returns defensible answers, respects permissions, and keeps sensitive data inside approved processing and retention boundaries.</p>
+
+        <section class="readiness-actions"><p><strong>Which AI client needs governed answers from Fabric, and under whose identity?</strong> Define that before copying an MCP endpoint into a client.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=fabric_data_agent_mcp&amp;utm_medium=organic_content&amp;utm_campaign=mcp_security_pilot&amp;utm_content=article_intro#inquiry-form">Send the client and data context</a><a class="button secondary" href="microsoft-fabric-data-agent-implementation-evaluation-services">Prepare the Data Agent</a></div></section>
+
+        <h2 id="architecture">Understand the complete MCP request path</h2>
+        <p>Microsoft documents a streamable HTTP endpoint for each published Data Agent. The client authenticates to Fabric, performs the MCP initialization handshake, discovers the single Data Agent tool, and calls it with a natural-language question. The Data Agent then selects an attached source, generates and validates SQL, DAX, or KQL as supported, executes under the calling identity, and returns an answer to the MCP client.</p>
+        <p>The endpoint is not a generic REST endpoint. A client that skips `initialize`, `tools/list`, or the expected `tools/call` message flow will fail even when the URL and token are valid. Dynamic client registration is not supported; the solution must acquire Fabric credentials through its own approved authentication flow and attach a bearer token to each request.</p>
+
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent MCP server implementation contract" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent MCP server implementation contract</caption>
+          <thead><tr><th scope="col">Contract area</th><th scope="col">Implementation decision</th><th scope="col">Evidence required</th></tr></thead>
+          <tbody>
+            <tr><td>Published Data Agent</td><td>Select sources, schema, instructions, examples, description, owner, release version, capacity, tenant, and supported question domain.</td><td>Published endpoint works, source bindings are production-approved, and baseline questions meet quality thresholds.</td></tr>
+            <tr><td>MCP endpoint</td><td>Use the workspace and Data Agent IDs from the approved production item; manage configuration by environment.</td><td>Client completes initialize, tool discovery, and tool call without hard-coded tool-name assumptions.</td></tr>
+            <tr><td>Tool description</td><td>Write a specific description of what the agent knows, when to call it, and what it cannot answer.</td><td>Orchestrator invokes the tool for in-domain questions and avoids it for out-of-domain requests.</td></tr>
+            <tr><td>Identity</td><td>Choose user, delegated, or service-principal behavior based on who should authorize each data query.</td><td>Effective access is tested for allowed and denied personas across every attached source.</td></tr>
+            <tr><td>MCP client</td><td>Approve the client, orchestrator, model, plugins, downstream tools, telemetry, retention, support access, and update process.</td><td>Data-flow and vendor review show where prompts and responses are processed, stored, and disclosed.</td></tr>
+            <tr><td>Runtime</td><td>Set timeouts, bounded retry, concurrency, token refresh, error handling, logging, correlation, and capacity safeguards.</td><td>Load and failure tests meet SLOs without retry amplification or secret leakage.</td></tr>
+            <tr><td>Lifecycle</td><td>Version agent definitions, client configuration, evaluation sets, permissions, publish state, and rollback procedures.</td><td>Dev-to-prod promotion and recovery preserve endpoint, identity, source, and answer behavior.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2>Make the published description a routing control</h2>
+        <p>The Data Agent publishes one MCP tool, and its published description becomes the tool description seen by clients and orchestrators. Generic descriptions such as “answers questions about company data” invite false-positive invocation and ambiguous routing. Name the domain, authoritative sources, supported metrics, time horizon, intended users, and exclusions in concise language. For Microsoft's managed agent platform, review the separate <a href="microsoft-foundry-fabric-data-agent-integration-implementation-assessment">Foundry and Fabric Data Agent integration guide</a> because its OBO identity path differs from direct MCP.</p>
+        <p>Evaluate tool selection separately from answer quality. The orchestrator can fail by not calling the Fabric tool when it should, by calling it for an unsupported question, or by combining its response with untrusted context from another tool. Test competing tools, ambiguous requests, prompt injection, multi-step tasks, and explicit no-answer behavior.</p>
+
+        <h2 id="identity">Choose identity before choosing the client</h2>
+        <p>Every MCP request needs a Fabric bearer token with access to the target workspace and Data Agent. Microsoft documents user and service-principal tokens for the direct MCP endpoint. The Data Agent can query only attached sources available to that identity. Sharing the agent does not automatically grant source access.</p>
+        <p>A user token preserves per-user permissions and controls such as RLS and CLS, but requires an interactive or delegated authentication path the chosen client can support. A service principal enables unattended workloads, but all users of that application effectively operate through its fixed permissions unless the architecture adds a separate authorization layer. Treat that as a service identity, not a substitute for user-level authorization.</p>
+        <p>Microsoft currently documents no dynamic client registration and no managed-identity support for Data Agent authentication. Service principals need explicit access to every attached source, and Data Agents connected to KQL databases have a documented service-principal limitation. Keep direct MCP, Foundry tool integration, and other consumption channels separate: their supported identity patterns are not identical.</p>
+
+        <h2 id="security">Assess the client and the data path, not only Fabric</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent MCP security assessment controls" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent MCP security assessment controls</caption>
+          <thead><tr><th scope="col">Risk</th><th scope="col">Test</th><th scope="col">Control</th></tr></thead>
+          <tbody>
+            <tr><td>Compliance and geography</td><td>Trace prompts, generated queries, results, and answers across Fabric, client, orchestrator, model provider, telemetry, logs, and support systems.</td><td>Approve only clients and regions whose processing, storage, retention, and subcontractor terms meet the data classification.</td></tr>
+            <tr><td>Token exposure</td><td>Inspect source control, client configuration, logs, error traces, browser storage, CI/CD, support bundles, and memory handling.</td><td>Use approved credential flows, short-lived tokens, secure secret storage, rotation, redaction, and no token logging.</td></tr>
+            <tr><td>Excessive application access</td><td>Enumerate every workspace, agent, source, table, model, row, and column available to the service identity.</td><td>Use a dedicated principal and security group, least privilege, narrow sources, separation by sensitivity, and periodic recertification.</td></tr>
+            <tr><td>Cross-tool prompt injection</td><td>Feed malicious or conflicting content through user input and other connected tools; observe tool routing and data disclosure.</td><td>Separate instructions from data, constrain tool use, classify sources, filter untrusted context, and require approval for sensitive workflows.</td></tr>
+            <tr><td>Wrong or unsupported answer</td><td>Compare tool selection, source, generated query, raw result, narrative, citations, ambiguity, and refusal against ground truth.</td><td>Use deterministic evaluation, verified business definitions, clear tool descriptions, bounded use cases, and human review for high-impact decisions.</td></tr>
+            <tr><td>Uncontrolled client change</td><td>Review model, client, extension, dependency, tool configuration, logging, and policy changes across versions.</td><td>Pin and approve versions where possible, maintain an inventory, test upgrades, monitor release notes, and preserve a kill switch.</td></tr>
+            <tr><td>Availability and cost</td><td>Exercise token expiry, publication changes, invalid IDs, source failure, timeout, throttling, concurrency, and retries.</td><td>Use bounded retry with jitter, circuit breaking, explicit degradation, capacity monitoring, budgets, and tested incident response.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Microsoft explicitly warns that Data Agent responses consumed through MCP can leave Fabric's compliance boundary or geographic region and be processed or stored under the MCP client's terms. This is an architectural control point. A Fabric permission review alone does not approve the full data flow.</p>
+
+        <h2 id="evaluation">Require a production-shaped pilot gate</h2>
+        <ul>
+          <li>Verify prerequisites, tenant settings, published state, endpoint, client protocol support, token scope, and identity lifecycle.</li>
+          <li>Measure tool-selection precision and recall with in-domain, adjacent, unsupported, adversarial, and multi-tool requests.</li>
+          <li>Score answer correctness against expected source, generated query, raw result, business definition, narrative, and refusal behavior.</li>
+          <li>Test allowed, restricted, and denied identities across agent sharing, source access, RLS, CLS, Purview policy, and client behavior.</li>
+          <li>Validate client data handling, logging, telemetry, retention, deletion, vendor access, regional processing, and downstream tool boundaries.</li>
+          <li>Load-test latency, concurrency, token refresh, timeout, retry, throttling, Fabric capacity impact, and recovery procedures.</li>
+          <li>Approve expansion only when the use case has an owner, SLO, quality threshold, support path, cost envelope, incident runbook, and exit plan for preview change.</li>
+        </ul>
+
+        <h2 id="assessment">Run a three-to-five-week MCP implementation assessment</h2>
+        <ol>
+          <li>Select one bounded business question domain, published Data Agent, approved client, orchestrator, identity pattern, and accountable data owner.</li>
+          <li>Map the end-to-end data flow, compliance boundary, client terms, regions, telemetry, retention, dependencies, and consumption channels.</li>
+          <li>Configure the production-shaped endpoint and authentication flow; establish least-privilege agent and source access for test personas.</li>
+          <li>Refine the published tool description and build tool-selection, answer-quality, permission, adversarial, failure, performance, and cost tests.</li>
+          <li>Exercise interactive and unattended paths where applicable, including token expiry, invalid IDs, unpublished state, source failures, and bounded retry.</li>
+          <li>Deploy through controlled environments, run acceptance tests, verify observability and incident handling, and test disablement or rollback.</li>
+          <li>Deliver the target architecture, identity and permission matrix, client risk review, test evidence, runbook, lifecycle controls, and go, limit, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Can a Microsoft Fabric Data Agent be used as an MCP server?</summary><p>Yes. Microsoft documents that a published Fabric Data Agent can expose a single tool through a streamable HTTP MCP endpoint. The client performs the MCP initialize, tool discovery, and tool call flow and attaches a valid Fabric bearer token. The feature is currently preview, so validate supported clients, identity behavior, data handling, reliability, and operational controls before production adoption.</p></details>
+          <details><summary>Does the Fabric Data Agent MCP server support service principal authentication?</summary><p>Microsoft documents that the MCP endpoint can accept a bearer token representing a user or a service principal. For unattended use, the service principal needs access to the published agent workspace and explicit read access to every attached source. Managed identities and dynamic client registration are not currently supported, and service principal authentication has documented source limitations including KQL Data Agent scenarios.</p></details>
+          <details><summary>Does a Fabric Data Agent MCP server preserve user data permissions?</summary><p>The Data Agent queries only sources available to the identity represented by the Fabric token, subject to source permissions and controls such as RLS and CLS. The identity architecture must be explicit: a shared service principal creates a different authorization model from per-user delegated access. Test effective access for every persona, source, client, and prohibited question rather than assuming that sharing the agent grants source access.</p></details>
+          <details><summary>Can Fabric Data Agent MCP responses leave the Fabric compliance boundary?</summary><p>Microsoft warns that responses consumed through an MCP client can be sent outside Fabric's compliance boundary or geographic region and processed or stored under the client's terms and data-handling policies. Assess the client, orchestrator, model provider, logging, retention, telemetry, support access, and downstream tools before exposing sensitive organizational data.</p></details>
+          <details><summary>How long does a Fabric Data Agent MCP server implementation assessment take?</summary><p>A focused production-shaped pilot can often be completed in three to five weeks for one published Data Agent, one approved MCP client, one identity pattern, and a representative question set. The work covers prerequisites, endpoint and client integration, identity, source permissions, tool description and routing, security tests, answer evaluation, observability, failure handling, and an adoption decision.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-mcp-server">Fabric Data Agent as a Model Context Protocol server</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-service-principal">Service principal authentication with Fabric Data Agent</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-sharing">Fabric Data Agent sharing and permission management</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent">Fabric Data Agent concept, governance, and limitations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/fabric">Fabric Data Agent with Microsoft Foundry agents</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with one MCP client, one identity, and one governed question domain.</strong> Datrick can build the production-shaped connection, test security and answer quality, and deliver a defensible adoption decision.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=fabric_data_agent_mcp&amp;utm_medium=organic_content&amp;utm_campaign=mcp_security_pilot&amp;utm_content=article_end#inquiry-form">Scope the MCP pilot</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-service-principal-custom-application-integration"><span>Build unattended access</span><strong>Integrate a service-principal application</strong></a><a href="microsoft-fabric-onelake-security-ai-agent-access-assessment"><span>Prove effective access</span><strong>Test OneLake and AI agent security</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

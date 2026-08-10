@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Data Agent Build Agent with AI Review | Datrick</title>
+    <meta name="description" content="Review Microsoft Fabric Data Agent Build agent with AI across schema and query-history evidence, instructions, few-shots, conflicts, regression tests, and release controls.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-build-agent-with-ai-configuration-review">
+    <meta property="og:title" content="Fabric Data Agent Build Agent with AI Review | Datrick">
+    <meta property="og:description" content="Use the creator assistant to accelerate configuration without replacing business definitions, query validation, regression evidence, or release control.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-build-agent-with-ai-configuration-review">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Build Agent with AI Configuration Review", "description": "Review Microsoft Fabric Data Agent Build agent with AI across schema and query-history evidence, instructions, few-shots, conflicts, regression tests, and release controls.", "url": "https://datrick.com/microsoft-fabric-data-agent-build-agent-with-ai-configuration-review", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-build-agent-with-ai-configuration-review"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What does Build agent with AI do in Microsoft Fabric Data Agent?", "acceptedAnswer": {"@type": "Answer", "text": "Build agent with AI is a preview creator assistant that can explore supported SQL or Eventhouse sources, inspect query history when permissions allow, propose Agent Instructions, Data Source Instructions, Data Source Descriptions, and example queries, and execute read-only queries during configuration."}},
+            {"@type": "Question", "name": "Which data sources support Build agent with AI?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft's current preview documentation limits Build agent with AI to SQL and Eventhouse data sources. It doesn't support semantic models, ontology, Graph, or unstructured data, and it doesn't work when unsupported sources are added to the same Data Agent."}},
+            {"@type": "Question", "name": "Does Build agent with AI validate business correctness?", "acceptedAnswer": {"@type": "Answer", "text": "It can run read-only queries and help inspect schema and query patterns, but a successful query doesn't prove the intended metric, grain, time rule, join, permission behavior, or natural-language answer. Business owners and data engineers still need deterministic ground truth and end-to-end regression tests."}},
+            {"@type": "Question", "name": "Can Build agent with AI overwrite existing Data Agent configuration?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft warns that accepted suggestions replace the applicable existing configuration blocks during the current preview. Capture the before state, review the proposed diff, test in draft, and keep a rollback path before accepting changes."}},
+            {"@type": "Question", "name": "How long does a Build agent with AI configuration review take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused review commonly takes two to four weeks for one Data Agent, one supported business domain, and a representative question set. It covers source readiness, permissions, current configuration, generated suggestions, few-shot quality, regression testing, release evidence, and an improvement backlog."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent configuration review</p>
+        <h1>Let AI accelerate the build, not approve its own work.</h1>
+        <p class="page-lede">Use Build agent with AI to explore supported sources and propose instructions and few-shots, then independently prove business logic, query results, conflicts, permissions, answer quality, and rollback before accepting configuration changes.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_build_agent_ai&amp;utm_medium=organic_content&amp;utm_campaign=configuration_review&amp;utm_content=hero#inquiry-form">Describe the Data Agent configuration</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>AI-assisted Data Agent configuration</span><span>10 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#scope">Review scope</a><a href="#evidence">Evidence inputs</a><a href="#changes">Change review</a><a href="#evaluation">Evaluation</a><a href="#pilot">Review plan</a></nav>
+
+        <p>A creator assistant can generate polished instructions and runnable example queries faster than a team can agree on the business meaning of revenue, active customer, incident, or fiscal period. The dangerous failure is not malformed SQL or KQL. It is a syntactically valid configuration that encodes the wrong grain, join, time rule, status, source priority, or exception and then improves confidence in the wrong answer.</p>
+        <p>Build agent with AI is a preview mode for SQL and Eventhouse sources. It can explore schema, inspect query history when the creator has permission, generate four configuration artifacts, and execute read-only queries. Microsoft explicitly recommends reviewing suggestions before acceptance because accepted updates replace existing configuration blocks. Treat it as a configuration accelerator inside an evidence-based build process.</p>
+
+        <section class="readiness-actions"><p><strong>Which critical questions improved, regressed, or remained unproven after the AI-generated configuration?</strong> Review that evidence before adding more instructions.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_build_agent_ai&amp;utm_medium=organic_content&amp;utm_campaign=configuration_review&amp;utm_content=article_intro#inquiry-form">Send the current configuration</a><a class="button secondary" href="microsoft-fabric-data-agent-implementation-evaluation-services">Review the complete Data Agent program</a></div></section>
+
+        <h2 id="scope">Define what the assistant may change</h2>
+        <p>Establish the supported Data Agent domain, source types, selected schema, user cohort, critical questions, business owners, current baseline, evaluation threshold, and release owner. Build agent with AI does not select data sources or schema, publish the agent description, or configure semantic models, ontology, Graph, or unstructured data. If the Data Agent includes an unsupported source, the current preview mode does not work.</p>
+        <div class="article-table-wrap" role="region" aria-label="Build agent with AI configuration review scope" tabindex="0"><table class="article-table"><caption class="sr-only">Build agent with AI configuration review scope</caption>
+          <thead><tr><th scope="col">Artifact</th><th scope="col">Assistant contribution</th><th scope="col">Required human evidence</th><th scope="col">Failure to prevent</th></tr></thead>
+          <tbody>
+            <tr><td>Agent Instructions</td><td>Propose routing, global terminology, response rules, and source priority.</td><td>Approved cross-source decision rules and prohibited behavior.</td><td>Global instruction overrides the intended source-specific meaning.</td></tr>
+            <tr><td>Data Source Instructions</td><td>Describe tables, columns, joins, filters, grain, time, and query patterns.</td><td>Data contract, semantic map, authoritative queries, and owner sign-off.</td><td>Plausible join or filter becomes a durable wrong-answer rule.</td></tr>
+            <tr><td>Data Source Description</td><td>Summarize content and intended use to support source routing.</td><td>Domain boundary and authoritative source catalogue.</td><td>Overbroad description routes unrelated questions to the source.</td></tr>
+            <tr><td>Example Queries</td><td>Generate natural-language and SQL or KQL pairs from schema and patterns.</td><td>Question intent, approved query, result, grain, literals, and conflict review.</td><td>Few-shot teaches a conflicting metric or hidden exception.</td></tr>
+            <tr><td>Configuration update</td><td>Replace accepted configuration blocks in the current preview.</td><td>Before state, diff, draft test, regression result, approval, and rollback.</td><td>Useful existing behavior disappears after an unreviewed acceptance.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="evidence">Control schema and query-history evidence</h2>
+        <p>Select only the tables and columns required for the question set before invoking the assistant. Microsoft recommends focused domain agents and a limited source scope; Build agent with AI does not perform schema selection for you. Clear names and descriptions, stable keys, explicit grain, date roles, status values, units, joins, exclusions, and source ownership produce better suggestions than a broad ambiguous schema.</p>
+        <p>Query history can reveal common joins, filters, and aggregation patterns, but history is evidence of usage, not correctness. It can contain exploratory queries, incidents, deprecated logic, bypasses, one-off fixes, or access patterns that should not become product behavior. Review query authorship, recency, source version, performance, business approval, and exceptions before turning a recurring pattern into an instruction or few-shot.</p>
+        <p>Access to query history requires the corresponding source permission. When history is unavailable, Microsoft says the assistant falls back to schema-driven recommendations. Record which evidence mode generated each proposal. A schema-only suggestion should not inherit the confidence of a pattern backed by approved production queries.</p>
+
+        <h2 id="changes">Review every proposed configuration change</h2>
+        <p>Capture the current draft configuration before the session. Ask the assistant to explain the evidence, source entities, intended questions, generated query pattern, assumptions, and known exceptions behind each proposal. Reject generic instructions, duplicated rules, negative-only guidance, contradictions, unsupported source behavior, and examples that do not match real user language.</p>
+        <p>For SQL few-shots, use Microsoft's evaluation utility where available to inspect Clarity, Relatedness, Mapping, and conflict detection. The utility is currently documented for SQL examples, not KQL or other query types. Independent deterministic checks remain necessary: execute every query, compare results and grain with approved ground truth, and inspect whether literals, date windows, joins, filters, and aggregations match the question.</p>
+        <p>Accept changes only in the draft version, then compare draft with the published baseline. Because accepted suggestions can replace configuration blocks, keep a versioned before state and a tested rollback. Do not rely on chat history as the system of record for why a business rule changed.</p>
+
+        <h2 id="evaluation">Measure configuration impact end to end</h2>
+        <p>Build a representative question set before applying suggestions. Include common questions, high-risk metrics, ambiguous terms, unsupported requests, no-data periods, rare values, permission boundaries, prompt manipulation, and known failure cases. Preserve the expected source, query, result, answer, clarification, refusal, latency, and severity.</p>
+        <div class="article-table-wrap" role="region" aria-label="Build agent with AI evaluation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Build agent with AI evaluation matrix</caption>
+          <thead><tr><th scope="col">Dimension</th><th scope="col">Test</th><th scope="col">Pass condition</th><th scope="col">Remediation</th></tr></thead>
+          <tbody>
+            <tr><td>Instruction fidelity</td><td>Business terms, source purpose, positive rules, exceptions, precedence, and contradictions.</td><td>Configuration encodes the approved contract without overlap.</td><td>Split global and source rules, simplify, or remove unsupported assumptions.</td></tr>
+            <tr><td>Few-shot quality</td><td>Clarity, relatedness, literal mapping, schema validity, query result, uniqueness, and conflicts.</td><td>Each pair teaches one correct representative pattern.</td><td>Rewrite the question/query, add comments, remove overlap, or reject the example.</td></tr>
+            <tr><td>Source routing</td><td>Questions that could map to multiple SQL or Eventhouse sources.</td><td>Agent consistently chooses the authoritative source or asks for clarification.</td><td>Source descriptions, routing instructions, or domain separation.</td></tr>
+            <tr><td>Query correctness</td><td>Join, grain, time, filter, aggregation, null, distinct, value, and performance.</td><td>Generated query and result match deterministic ground truth.</td><td>Schema, instruction, few-shot, governed view/function, or use-case boundary.</td></tr>
+            <tr><td>Security</td><td>Creator permissions, query history, consumer identities, restricted schema, and adversarial prompts.</td><td>Assistant evidence and published answers remain within approved access.</td><td>Permission correction, source separation, logging control, or stop rule.</td></tr>
+            <tr><td>Regression</td><td>Published baseline versus changed draft over the full question suite.</td><td>Critical accuracy improves without unacceptable new failures.</td><td>Revert the block, isolate the change, or refine and retest.</td></tr>
+            <tr><td>Operations</td><td>Latency, errors, drift, source changes, feedback, release, and rollback.</td><td>Configuration has an owner, threshold, monitor, and recovery path.</td><td>Release gate, scheduled review, runbook, or managed support.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Classify every failure by source data, schema selection, instruction, description, few-shot retrieval, generated query, permission, runtime, or final answer. This prevents the team from adding more prompt text to a source or identity problem. Track which suggestions were accepted, their evidence, evaluation delta, approver, release, and rollback version.</p>
+
+        <h2 id="pilot">Run a two-to-four-week configuration review</h2>
+        <ol>
+          <li>Select one SQL or Eventhouse Data Agent, business domain, user cohort, critical question set, owners, and measurable accuracy target.</li>
+          <li>Capture the published and draft configuration, selected schema, permissions, source contracts, current failures, and baseline evaluation.</li>
+          <li>Review schema and query-history quality; identify authoritative patterns, deprecated logic, conflicts, sensitive evidence, and unsupported sources.</li>
+          <li>Use Build agent with AI to explore, learn, generate, and execute while preserving each proposal, evidence, assumption, and proposed diff.</li>
+          <li>Validate instructions and descriptions; execute and score few-shots; run deterministic query, permission, routing, answer, and adversarial tests.</li>
+          <li>Apply approved changes only to draft; compare with the published baseline, classify regressions, remediate, and prove rollback.</li>
+          <li>Deliver the reviewed configuration, few-shot catalogue, evaluation scorecard, decision log, release gate, runbook, and prioritized backlog.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What does Build agent with AI do in Microsoft Fabric Data Agent?</summary><p>Build agent with AI is a preview creator assistant that can explore supported SQL or Eventhouse sources, inspect query history when permissions allow, propose Agent Instructions, Data Source Instructions, Data Source Descriptions, and example queries, and execute read-only queries during configuration.</p></details>
+          <details><summary>Which data sources support Build agent with AI?</summary><p>Microsoft's current preview documentation limits Build agent with AI to SQL and Eventhouse data sources. It doesn't support semantic models, ontology, Graph, or unstructured data, and it doesn't work when unsupported sources are added to the same Data Agent.</p></details>
+          <details><summary>Does Build agent with AI validate business correctness?</summary><p>It can run read-only queries and help inspect schema and query patterns, but a successful query doesn't prove the intended metric, grain, time rule, join, permission behavior, or natural-language answer. Business owners and data engineers still need deterministic ground truth and end-to-end regression tests.</p></details>
+          <details><summary>Can Build agent with AI overwrite existing Data Agent configuration?</summary><p>Microsoft warns that accepted suggestions replace the applicable existing configuration blocks during the current preview. Capture the before state, review the proposed diff, test in draft, and keep a rollback path before accepting changes.</p></details>
+          <details><summary>How long does a Build agent with AI configuration review take?</summary><p>A focused review commonly takes two to four weeks for one Data Agent, one supported business domain, and a representative question set. It covers source readiness, permissions, current configuration, generated suggestions, few-shot quality, regression testing, release evidence, and an improvement backlog.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-creator-agent-overview">Build agent with AI capabilities and limitations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-example-queries">Example-query validation and conflict detection</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-configuration-best-practices">Data Agent configuration best practices</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-add-datasources">Source-specific configuration support</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-sharing">Draft, published, sharing, and permission behavior</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the current configuration, the questions it must answer, and the wrong answers it already produces.</strong> Datrick can turn the assistant's proposals into reviewed changes, measurable regressions, and a controlled release decision.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_build_agent_ai&amp;utm_medium=organic_content&amp;utm_campaign=configuration_review&amp;utm_content=article_end#inquiry-form">Scope the configuration review</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-nl2sql-accuracy-sql-source-configuration-assessment"><span>Prove SQL behavior</span><strong>Assess NL2SQL source accuracy</strong></a><a href="microsoft-fabric-data-agent-mixed-source-routing-accuracy-assessment"><span>Prove source selection</span><strong>Assess mixed-source routing accuracy</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

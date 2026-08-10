@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Data Agent Example Query Quality Assessment | Datrick</title>
+    <meta name="description" content="Assess Microsoft Fabric Data Agent example queries and few-shot retrieval across SQL and KQL quality, schema validation, overlap, run steps, generated queries, and regression.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-example-query-few-shot-retrieval-quality-assessment">
+    <meta property="og:title" content="Fabric Data Agent Example Query Quality Assessment | Datrick">
+    <meta property="og:description" content="Prove that Fabric Data Agent retrieves the right question-query examples and that each one improves generated SQL or KQL without adjacent regressions.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-example-query-few-shot-retrieval-quality-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Example Query and Few-Shot Retrieval Quality Assessment", "description": "Assess Microsoft Fabric Data Agent example queries and few-shot retrieval across SQL and KQL quality, schema validation, overlap, run steps, generated queries, and regression.", "url": "https://datrick.com/microsoft-fabric-data-agent-example-query-few-shot-retrieval-quality-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-example-query-few-shot-retrieval-quality-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What are example queries in Microsoft Fabric Data Agent?", "acceptedAnswer": {"@type": "Answer", "text": "Example queries are natural-language question and SQL or KQL query pairs that guide Fabric Data Agent query generation. They demonstrate approved patterns such as joins, filters, aggregations, date logic, substitutions, and complex business rules for supported data sources."}},
+            {"@type": "Question", "name": "How many example queries can a Fabric Data Agent use?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft currently documents up to 100 example queries per data source. More examples are not automatically better: overlapping, contradictory, stale, or weak pairs can retrieve the wrong pattern and reduce query accuracy."}},
+            {"@type": "Question", "name": "How many example queries does Fabric Data Agent retrieve for a question?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft's current example-query guidance says the agent typically retrieves the top four most relevant examples. Teams should inspect run steps in the target runtime rather than hard-coding an assumption, then test whether the retrieved set is relevant, non-conflicting, and sufficient."}},
+            {"@type": "Question", "name": "Why is a Fabric Data Agent example query not being used?", "acceptedAnswer": {"@type": "Answer", "text": "A common cause is failed schema validation: Microsoft says examples that don't validate against the selected source schema aren't sent to the agent. The example may also be irrelevant to the user question, too ambiguous, contradicted by another example or instruction, stale after a schema change, or unsupported for that source type."}},
+            {"@type": "Question", "name": "Do Power BI semantic models support Fabric Data Agent example queries?", "acceptedAnswer": {"@type": "Answer", "text": "No. Microsoft currently says sample question-query pairs aren't supported for Power BI semantic model sources. Configure AI Data Schema, AI Instructions, and Verified Answers in Power BI Prep for AI instead, then test generated DAX separately."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent few-shot quality</p>
+        <h1>A valid example can still be the wrong example.</h1>
+        <p class="page-lede">Curate and test question-query pairs, schema validation, retrieval relevance, overlap, contradictions, joins, substitutions, generated SQL or KQL, runtime behavior, source changes, and regression before examples steer production answers.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_example_queries&amp;utm_medium=organic_content&amp;utm_campaign=few_shot_retrieval_quality_assessment&amp;utm_content=hero#inquiry-form">Describe the query failure</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Conversational query engineering</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#contract">Example contract</a><a href="#curation">Curation</a><a href="#retrieval">Retrieval tests</a><a href="#lifecycle">Validation lifecycle</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>An example query is not documentation the agent passively reads. It is a candidate pattern retrieved into query generation. A perfect SQL example can damage accuracy when its natural-language question attracts the wrong user intent. A relevant example can be ignored when schema validation fails. Two individually correct examples can contradict each other when their date, join, grain, or metric conventions overlap.</p>
+        <p>Microsoft currently allows up to 100 example queries per data source and says the agent typically retrieves the top four most relevant examples for a user question. Run steps can reveal which examples were passed. The goal is therefore not to maximize count; it is to make the retrieved set relevant, non-conflicting, valid, current, and sufficient for the intended SQL or KQL pattern.</p>
+
+        <section class="readiness-actions"><p><strong>Can you show which examples were retrieved for a failed question and why each one belonged?</strong> If not, the few-shot layer is not yet observable enough for production ownership.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_example_queries&amp;utm_medium=organic_content&amp;utm_campaign=few_shot_retrieval_quality_assessment&amp;utm_content=article_intro#inquiry-form">Send the examples and failures</a><a class="button secondary" href="microsoft-fabric-data-agent-nl2sql-accuracy-sql-source-configuration-assessment">Assess the complete NL2SQL path</a></div></section>
+
+        <h2 id="contract">Define each example as a versioned query-generation contract</h2>
+        <p>Record the owner, supported source, schema version, business intent, natural-language question, approved SQL or KQL, required tables and columns, joins, grain, filters, literals, substitutions, aggregation, ordering, time semantics, expected result, allowed generalization, prohibited neighboring intents, validator result, and regression tests.</p>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent example query contract" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent example query contract</caption>
+          <thead><tr><th scope="col">Contract element</th><th scope="col">Required evidence</th><th scope="col">Failure risk</th><th scope="col">Control</th></tr></thead>
+          <tbody>
+            <tr><td>Question intent</td><td>One clear metric or operation, dimensions, timeframe, filters, literals, and business owner.</td><td>A vague or multi-intent question retrieves the pattern for unrelated prompts.</td><td>Clarity review, boundary questions, and explicit unsupported variants.</td></tr>
+            <tr><td>Query relatedness</td><td>Every requested metric, filter, grain, and period represented in approved SQL or KQL.</td><td>The query is valid but solves a different business question.</td><td>Independent result reconciliation and Relatedness review.</td></tr>
+            <tr><td>Literal mapping</td><td>Numbers, dates, categories, thresholds, regions, and IDs mapped or intentionally parameterized.</td><td>A value in the question disappears or becomes a hard-coded stale constant.</td><td>Mapping score, substitution comments, and variation tests.</td></tr>
+            <tr><td>Complex pattern</td><td>Join keys, cardinality, UDFs, time windows, aggregations, nulls, and business rules.</td><td>The agent copies syntax but misses the condition that makes it correct.</td><td>Focused query comments, source instructions, and component controls.</td></tr>
+            <tr><td>Retrieval boundary</td><td>Questions that should retrieve the example and near-neighbors that must not.</td><td>Overlapping examples deliver contradictory guidance in the same prompt.</td><td>Collision matrix, distinct scopes, consolidation, and run-step inspection.</td></tr>
+            <tr><td>Lifecycle</td><td>Source and schema version, validation status, deployment, consumers, owner, review date, and rollback.</td><td>Renamed objects or changed logic leave a stale example active or invalid.</td><td>Dependency checks, CI validation, regression suite, and versioned release.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="curation">Curate for distinct patterns, not example volume</h2>
+        <p>Use examples where the query pattern is difficult to express through schema alone: multi-table joins, fiscal calendars, slowly changing dimensions, sessionization, state reconstruction, conditional aggregation, KQL functions, domain-specific exclusions, and controlled parameter substitution. Simple cases already generated correctly do not need to consume retrieval space.</p>
+        <p>Microsoft recommends comments that explain substitutions and complex logic. Keep comments factual and executable-query-safe. Do not place policy bypasses, hidden credentials, sensitive values, or unsupported instructions in examples. The agent remains read-only and constrained by selected schema, user permissions, and organizational policy.</p>
+        <p>Avoid duplicate paraphrases that all teach the same query while crowding out other patterns. Avoid near-identical questions paired with different joins or metrics. If two patterns share vocabulary, make the business distinction explicit in the question and source instructions, then test both together.</p>
+
+        <h2 id="retrieval">Test retrieval before scoring the final answer</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent example retrieval evaluation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent example retrieval evaluation matrix</caption>
+          <thead><tr><th scope="col">Test family</th><th scope="col">Test</th><th scope="col">Pass condition</th><th scope="col">Remediation</th></tr></thead>
+          <tbody>
+            <tr><td>Schema validation</td><td>Validate every pair against the selected source schema and current objects.</td><td>All intended examples pass; invalid pairs are identified before release.</td><td>Fix query, schema selection, object reference, permission, or remove example.</td></tr>
+            <tr><td>Retrieval precision</td><td>Inspect run steps for exact, paraphrased, and nearby negative questions.</td><td>Retrieved examples belong to the intent and exclude contradictory neighbors.</td><td>Rewrite question, split scope, remove overlap, or change source instructions.</td></tr>
+            <tr><td>Retrieval coverage</td><td>Run production-shaped question families across every approved complex pattern.</td><td>At least one useful pattern appears when needed without irrelevant crowding.</td><td>Add a distinct example, improve wording, or redesign the question taxonomy.</td></tr>
+            <tr><td>Query generation</td><td>Compare generated SQL or KQL with and without the example under the same runtime.</td><td>The example improves valid structure and business correctness without copying stale literals.</td><td>Query comments, source instructions, parameterization, or example removal.</td></tr>
+            <tr><td>Collision</td><td>Ask questions between two examples that differ by metric, date, join, grain, or source.</td><td>The generated query follows the correct pattern or asks for clarification.</td><td>Narrow examples, make distinctions explicit, consolidate, or separate sources.</td></tr>
+            <tr><td>Security</td><td>Repeat under allowed, restricted, RLS, CLS, DLP, and denied personas.</td><td>Retrieval never expands schema or access; query and result fail closed.</td><td>Schema, permission, policy, source split, or rollout block.</td></tr>
+            <tr><td>Runtime regression</td><td>Replay the suite on standard and preview runtimes and after service changes.</td><td>Retrieval set, generated query, result, and latency remain within thresholds.</td><td>Runtime pin, example revision, rollback, or use-case restriction.</td></tr>
+            <tr><td>Source change</td><td>Rename, remove, or alter referenced fields, joins, functions, and formats in test.</td><td>Dependency checks catch impact and no stale example reaches production.</td><td>Update and validate pair, migration gate, or rollback source change.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Use Microsoft's Clarity, Relatedness, and Mapping scores as diagnostics, not the release decision. An example is high quality only when all three are positive, but production approval also requires deterministic query correctness, retrieval precision, security, performance, and no material regression across neighboring questions.</p>
+
+        <h2 id="lifecycle">Observe the actual runtime and validate every change</h2>
+        <p>Microsoft's current example-query page says the agent typically retrieves the top four examples. Other documentation or runtimes can change over time. Do not design a control that assumes an immutable count. Inspect run steps for the target release, record the observed retrieved set, and gate on relevance and result rather than a fixed implementation detail.</p>
+        <p>Examples that fail schema validation aren't sent to the agent. Validate after schema selection, rename, type change, function change, source migration, runtime change, or deployment. Track the denominator: a library of 80 examples with 20 silent validation failures is not an 80-example production asset.</p>
+        <p>Power BI semantic models use a different mechanism. Microsoft currently does not support sample question-query pairs for semantic model sources; configure AI Data Schema, AI Instructions, and Verified Answers in Prep for AI. Keep SQL/KQL example-query governance separate from DAX grounding, even when one Data Agent routes across both.</p>
+
+        <h2 id="assessment">Run a two-to-four-week example-query assessment</h2>
+        <ol>
+          <li>Select one Data Agent, supported SQL or KQL sources, runtime, question families, owners, current example library, and known wrong queries.</li>
+          <li>Inventory schema selection, source instructions, examples, validation state, run-step retrieval, generated queries, permissions, deployments, and changes.</li>
+          <li>Define each example contract, expected retrieval boundary, deterministic result, substitutions, prohibited neighbors, and owner.</li>
+          <li>Run validator scores, schema execution, exact and paraphrase retrieval, negative collisions, with/without comparison, security, performance, runtime, and source-drift tests.</li>
+          <li>Classify failures by question clarity, query relatedness, literal mapping, schema, retrieval, overlap, instruction conflict, generated query, permission, or runtime.</li>
+          <li>Remove weak and duplicate examples, refine distinct patterns, rerun the complete suite, and compare draft with published behavior.</li>
+          <li>Deliver the curated library, validation register, collision map, retrieval scorecard, regression suite, lifecycle controls, monitoring, runbooks, and go, limit, redesign, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What are example queries in Microsoft Fabric Data Agent?</summary><p>Example queries are natural-language question and SQL or KQL query pairs that guide Fabric Data Agent query generation. They demonstrate approved patterns such as joins, filters, aggregations, date logic, substitutions, and complex business rules for supported data sources.</p></details>
+          <details><summary>How many example queries can a Fabric Data Agent use?</summary><p>Microsoft currently documents up to 100 example queries per data source. More examples are not automatically better: overlapping, contradictory, stale, or weak pairs can retrieve the wrong pattern and reduce query accuracy.</p></details>
+          <details><summary>How many example queries does Fabric Data Agent retrieve for a question?</summary><p>Microsoft's current example-query guidance says the agent typically retrieves the top four most relevant examples. Teams should inspect run steps in the target runtime rather than hard-coding an assumption, then test whether the retrieved set is relevant, non-conflicting, and sufficient.</p></details>
+          <details><summary>Why is a Fabric Data Agent example query not being used?</summary><p>A common cause is failed schema validation: Microsoft says examples that don't validate against the selected source schema aren't sent to the agent. The example may also be irrelevant to the user question, too ambiguous, contradicted by another example or instruction, stale after a schema change, or unsupported for that source type.</p></details>
+          <details><summary>Do Power BI semantic models support Fabric Data Agent example queries?</summary><p>No. Microsoft currently says sample question-query pairs aren't supported for Power BI semantic model sources. Configure AI Data Schema, AI Instructions, and Verified Answers in Power BI Prep for AI instead, then test generated DAX separately.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-example-queries">Fabric Data Agent example-query creation, retrieval, and validation</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent">Fabric Data Agent configuration and 100-example limit</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-add-datasources">Example-query support by Data Agent source type</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-configuration-best-practices">Fabric Data Agent source instruction and example guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-source-control">Fabric Data Agent example-query source control and ALM</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the failed question whose run steps retrieved a plausible but wrong join or date pattern.</strong> Datrick can trace the retrieval set, validate every pair, remove collisions, reconcile generated queries, and turn the library into a governed production asset.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_example_queries&amp;utm_medium=organic_content&amp;utm_campaign=few_shot_retrieval_quality_assessment&amp;utm_content=article_end#inquiry-form">Scope the example-query assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-nl2sql-accuracy-sql-source-configuration-assessment"><span>Validate generated SQL</span><strong>Assess the complete NL2SQL path</strong></a><a href="microsoft-fabric-data-agent-eventhouse-kql-nl2kql-accuracy-assessment"><span>Validate real-time queries</span><strong>Assess Eventhouse NL2KQL accuracy</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

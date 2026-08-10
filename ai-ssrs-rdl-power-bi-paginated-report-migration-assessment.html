@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI SSRS RDL to Power BI Paginated Report Migration Assessment | Datrick</title>
+    <meta name="description" content="Assess and migrate SSRS RDL and Power BI Report Server content to Power BI paginated reports with inventory, compatibility, data sources, subscriptions, security, validation, cutover, and decommission controls.">
+    <link rel="canonical" href="https://datrick.com/ai-ssrs-rdl-power-bi-paginated-report-migration-assessment">
+    <meta property="og:title" content="AI SSRS RDL to Power BI Paginated Report Migration Assessment | Datrick">
+    <meta property="og:description" content="Move supported RDL content and redesign exceptions without losing distribution, security, or rendering controls.">
+    <meta property="og:url" content="https://datrick.com/ai-ssrs-rdl-power-bi-paginated-report-migration-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "AI SSRS RDL to Power BI Paginated Report Migration Assessment", "description": "Assess and migrate SSRS RDL and Power BI Report Server content to Power BI paginated reports with inventory, compatibility, data sources, subscriptions, security, validation, cutover, and decommission controls.", "url": "https://datrick.com/ai-ssrs-rdl-power-bi-paginated-report-migration-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/ai-ssrs-rdl-power-bi-paginated-report-migration-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Can SSRS reports be migrated to Power BI?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Supported RDL reports can be published to Power BI as paginated reports. Microsoft provides built-in publishing for newer SSRS and Power BI Report Server versions and an RDL Migration Tool for earlier versions. Unsupported data sources, custom code, report features, subscriptions, security, connections, and distribution patterns still require assessment, redesign, testing, and controlled cutover."}},
+            {"@type": "Question", "name": "What does the RDL Migration Tool automate?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft's tool checks for unsupported data sources and components, converts shared data sources and shared datasets into embedded resources, publishes reports that pass validation to a Power BI workspace, and produces a success and failure summary. It does not prove business correctness, recreate every subscription and security pattern, validate rendering, or decommission the source server."}},
+            {"@type": "Question", "name": "Should an SSRS report become a paginated report or an interactive Power BI report?", "acceptedAnswer": {"@type": "Answer", "text": "Use paginated reports when exact page layout, printing, PDF, detailed tables, parameters, or scheduled document delivery are central. Use interactive Power BI reports when exploration, cross-filtering, visuals, reusable semantic models, and self-service analysis are more important. Some portfolios need both; decide per business outcome rather than applying one target to every RDL."}},
+            {"@type": "Question", "name": "How do you validate an SSRS to Power BI migration?", "acceptedAnswer": {"@type": "Answer", "text": "Compare parameters, data, totals, grouping, sorting, pagination, headers and footers, fonts, images, PDF and Excel output, security personas, data-source credentials, gateway behavior, subscriptions, performance, and business deadlines. Record source and target versions, expected and observed results, tolerances, exceptions, reviewer, and owner approval."}},
+            {"@type": "Question", "name": "How long does an SSRS migration assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A bounded assessment and pilot commonly takes four to six weeks when server access, report catalog metadata, execution history, RDL files, owners, sources, and target tenant decisions are available. Full migration duration depends on active report count, compatibility exceptions, shared resources, custom code, subscriptions, security, data gateways, rendering requirements, and user acceptance."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">AI-assisted SSRS and RDL migration</p>
+        <h1>Move paginated reporting without losing the controls users depend on.</h1>
+        <p class="page-lede">Inventory active SSRS and Report Server content, classify compatibility, map data sources and subscriptions, migrate supported RDLs, redesign exceptions, validate rendering and security, and retire infrastructure through measured cutover waves.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=ssrs_to_power_bi_migration&amp;utm_medium=organic_content&amp;utm_campaign=rdl_migration_scoping&amp;utm_content=hero#inquiry-form">Describe the RDL estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>SSRS and RDL migration</span><span>9 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#inventory">Inventory</a><a href="#target">Target decision</a><a href="#workflow">Migration workflow</a><a href="#validation">Validation</a><a href="#pilot">Pilot plan</a></nav>
+
+        <p>Publishing an RDL file is only one part of an SSRS or Power BI Report Server migration. The existing service also includes folders, shared data sources, shared datasets, credentials, Windows groups, schedules, standard and data-driven subscriptions, file-share delivery, parameters, linked reports, custom assemblies, URLs, printing, exports, execution history, operations, and business deadlines. A successful upload does not prove that the reporting service has been migrated.</p>
+        <p>Datrick starts with catalog and usage evidence, then selects the right target for each active report. AI can classify RDL features, summarize queries and expressions, cluster similar reports, propose test cases, and draft mapping documentation. Engineers review compatibility, design connections and security, implement exceptions, and validate data and rendering with report owners.</p>
+
+        <section class="readiness-actions"><p><strong>Do you need to retire SSRS or Power BI Report Server without disrupting scheduled documents and operational reports?</strong> Begin with an inventory and representative pilot before committing to a factory estimate.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=ssrs_to_power_bi_migration&amp;utm_medium=organic_content&amp;utm_campaign=rdl_migration_scoping&amp;utm_content=article_intro#inquiry-form">Send the server context</a><a class="button secondary" href="resource-migration-support-playbook.html">Use the migration playbook</a></div></section>
+
+        <h2 id="inventory">Inventory the service, not only the RDL folder</h2>
+        <p>Collect report-server catalog metadata, RDL definitions, execution logs, subscriptions, schedules, data sources, datasets, folders, security, owners, linked reports, resources, history snapshots, and configuration. Reconcile usage with report owners and business calendars. Classify reports as retire, consolidate, retain temporarily, migrate as paginated, redesign as interactive Power BI, or replace with another service.</p>
+        <div class="article-table-wrap" role="region" aria-label="SSRS to Power BI migration assessment" tabindex="0"><table class="article-table"><caption class="sr-only">SSRS to Power BI migration assessment</caption>
+          <thead><tr><th scope="col">Assessment area</th><th scope="col">Evidence</th><th scope="col">Migration decision</th></tr></thead>
+          <tbody>
+            <tr><td>Business use</td><td>Owner, audience, frequency, deadline, criticality, output format, delivery channel, usage, and replacement.</td><td>Retire, consolidate, paginated migration, interactive redesign, or temporary coexistence.</td></tr>
+            <tr><td>RDL compatibility</td><td>Version, data regions, expressions, parameters, drill, images, maps, custom code, assemblies, extensions, and fonts.</td><td>Direct publish, revise, custom redevelopment, alternative target, or unsupported exception.</td></tr>
+            <tr><td>Data access</td><td>Shared and embedded sources, datasets, credentials, Windows authentication, custom providers, query parameters, and gateways.</td><td>Embedded resource, cloud connection, enterprise gateway, source change, credential model, or redesign.</td></tr>
+            <tr><td>Distribution</td><td>Standard and data-driven subscriptions, email, file share, PDF, Excel, Word, URL access, applications, and automation.</td><td>Power BI subscription, Power Automate, API or application change, controlled manual process, or retained dependency.</td></tr>
+            <tr><td>Security</td><td>Folder roles, item permissions, AD groups, data-source security, parameters, sensitive output, recipients, and external access.</td><td>Workspace, app, direct access, RLS, gateway identity, recipient control, label, and audit design.</td></tr>
+            <tr><td>Operations</td><td>Schedules, failures, execution time, concurrency, caching, snapshots, monitoring, support, backups, and server dependencies.</td><td>Capacity, performance, monitoring, SLA, archive, rollback, and decommission requirements.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="target">Choose paginated or interactive Power BI per outcome</h2>
+        <p>Power BI paginated reports retain the RDL format and are designed for precise pages, printing, PDF, parameterized detail, and document-style distribution. Interactive Power BI reports are better suited to exploration, visual analysis, cross-filtering, and reusable semantic models. Some legacy reports should be retired or replaced by an alert, export, API, or operational application rather than rebuilt.</p>
+        <p>Do not convert an invoice, regulatory statement, or pixel-sensitive form into an interactive report merely to reduce RDL count. Do not preserve a static management dashboard as paginated when users need exploration. Record the business action, required output, interaction, latency, security, distribution, and accessibility before choosing the target.</p>
+
+        <h2>Use Microsoft's migration tooling inside a controlled process</h2>
+        <p>Microsoft provides built-in publishing for newer SSRS and Power BI Report Server versions and an RDL Migration Tool for earlier versions. The tool checks unsupported data sources and components, converts shared data sources and datasets into embedded resources, publishes reports that pass checks, and records successes and failures. It does not change or remove source reports.</p>
+        <p>Run compatibility scans on preserved copies and retain logs. Treat every failed item as a classified exception and every successful item as “published, not yet accepted.” Custom DLL references are not supported in Power BI paginated reports, and supported data sources differ. Shared-resource conversion can increase duplicated configuration, so define connection ownership, credential rotation, parameterization, and environment promotion.</p>
+
+        <h2 id="workflow">Build a migration factory with exception paths</h2>
+        <div class="article-table-wrap" role="region" aria-label="SSRS RDL migration workflow" tabindex="0"><table class="article-table"><caption class="sr-only">SSRS RDL migration workflow</caption>
+          <thead><tr><th scope="col">Stage</th><th scope="col">Delivery action</th><th scope="col">Exit evidence</th></tr></thead>
+          <tbody>
+            <tr><td>Discover and rationalize</td><td>Extract catalog, definitions, execution, subscriptions, security, sources, owners, outputs, and business requirements.</td><td>Reconciled inventory, disposition, criticality, compatibility class, owner, and wave candidate.</td></tr>
+            <tr><td>Design target</td><td>Choose paginated, interactive, replacement, or retire; design workspace, connection, gateway, capacity, security, distribution, and support.</td><td>Target mapping, architecture, feature-gap decision, acceptance tests, estimate range, and exception owner.</td></tr>
+            <tr><td>Convert and remediate</td><td>Run supported tooling, revise RDL, replace custom code, configure connections, rebuild unsupported distribution, and source-control changes.</td><td>Conversion log, reviewed definition, environment configuration, security mapping, and reproducible deployment.</td></tr>
+            <tr><td>Validate</td><td>Compare parameters, data, layout, pagination, exports, subscriptions, security, performance, failure behavior, and business deadlines.</td><td>Expected versus observed results, tolerance, exception, reviewer, owner approval, and operational readiness.</td></tr>
+            <tr><td>Cut over</td><td>Freeze source changes, refresh source and target, switch links and recipients, monitor, support users, and retain rollback.</td><td>Cutover checklist, communications, access and output verification, incident path, rollback, and stabilization period.</td></tr>
+            <tr><td>Decommission</td><td>Confirm no active dependencies, archive required definitions and evidence, revoke access, remove schedules, and retire infrastructure by approval.</td><td>Owner sign-off, archive and recovery record, dependency recheck, cost removal, security closure, and audit trail.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="validation">Validate document behavior and business delivery</h2>
+        <p>Compare parameters, defaults, cascading behavior, query results, totals, grouping, sorting, page breaks, headers, footers, images, fonts, barcodes, charts, hyperlinks, drillthrough, and localization. Render representative PDF, Excel, and Word outputs and compare page count, dimensions, clipping, non-Latin text, print behavior, and downstream processing.</p>
+        <p>Test data-source credentials, gateways, SSO where supported, timeouts, concurrency, capacity, subscriptions, recipients, attachment size, security personas, and failed-delivery alerts. Validate the business deadline: a report that renders correctly but arrives after a regulatory cutoff has failed acceptance.</p>
+        <p>Use deterministic comparisons for data and layout signals where possible. AI can identify likely visual differences and summarize failure logs, but a named owner decides whether output is materially equivalent.</p>
+
+        <h2>Plan coexistence and decommission explicitly</h2>
+        <p>Microsoft notes that migration can proceed without removing source reports or creating immediate downtime. Use this to run controlled coexistence for critical outputs. Freeze or govern changes so source and target do not diverge silently. Define which platform is authoritative during each wave and how emergency fixes are synchronized.</p>
+        <p>Before decommissioning, inspect execution history, subscriptions, file shares, application URLs, browser bookmarks, scheduled jobs, archives, APIs, service accounts, firewall rules, databases, backups, and support procedures. Retire by approved dependency evidence, not by the fact that all known RDLs were uploaded.</p>
+
+        <h2 id="pilot">Run a four-to-six-week assessment and pilot</h2>
+        <ol>
+          <li>Define migration drivers, server versions, target tenant and capacity, contract dates, security constraints, stakeholders, and success measures.</li>
+          <li>Extract and reconcile catalog, definitions, usage, sources, subscriptions, security, owners, outputs, and infrastructure dependencies.</li>
+          <li>Rationalize the estate and classify direct migration, revision, interactive redesign, replacement, retention, and retirement candidates.</li>
+          <li>Select representative RDLs covering shared resources, parameters, subscriptions, rendering, security, custom features, and performance.</li>
+          <li>Design target workspaces, connections, gateways, security, distribution, deployment, monitoring, and support.</li>
+          <li>Run tooling, remediate exceptions, and deliver the pilot through controlled environments.</li>
+          <li>Validate data, rendering, exports, subscriptions, security, performance, failure handling, and owner acceptance.</li>
+          <li>Deliver the wave plan, estimate range, exception backlog, coexistence and cutover model, decommission controls, and operational runbooks.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Can SSRS reports be migrated to Power BI?</summary><p>Yes. Supported RDL reports can be published to Power BI as paginated reports. Microsoft provides built-in publishing for newer SSRS and Power BI Report Server versions and an RDL Migration Tool for earlier versions. Unsupported data sources, custom code, report features, subscriptions, security, connections, and distribution patterns still require assessment, redesign, testing, and controlled cutover.</p></details>
+          <details><summary>What does the RDL Migration Tool automate?</summary><p>Microsoft's tool checks for unsupported data sources and components, converts shared data sources and shared datasets into embedded resources, publishes reports that pass validation to a Power BI workspace, and produces a success and failure summary. It does not prove business correctness, recreate every subscription and security pattern, validate rendering, or decommission the source server.</p></details>
+          <details><summary>Should an SSRS report become a paginated report or an interactive Power BI report?</summary><p>Use paginated reports when exact page layout, printing, PDF, detailed tables, parameters, or scheduled document delivery are central. Use interactive Power BI reports when exploration, cross-filtering, visuals, reusable semantic models, and self-service analysis are more important. Some portfolios need both; decide per business outcome rather than applying one target to every RDL.</p></details>
+          <details><summary>How do you validate an SSRS to Power BI migration?</summary><p>Compare parameters, data, totals, grouping, sorting, pagination, headers and footers, fonts, images, PDF and Excel output, security personas, data-source credentials, gateway behavior, subscriptions, performance, and business deadlines. Record source and target versions, expected and observed results, tolerances, exceptions, reviewer, and owner approval.</p></details>
+          <details><summary>How long does an SSRS migration assessment take?</summary><p>A bounded assessment and pilot commonly takes four to six weeks when server access, report catalog metadata, execution history, RDL files, owners, sources, and target tenant decisions are available. Full migration duration depends on active report count, compatibility exceptions, shared resources, custom code, subscriptions, security, data gateways, rendering requirements, and user acceptance.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/guidance/migrate-ssrs-reports-to-power-bi">Microsoft guidance for migrating RDL reports to Power BI</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/guidance/using-rdl-migration-tool">Microsoft RDL Migration Tool guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/guidance/report-paginated-data-retrieval">Microsoft paginated-report data retrieval guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/paginated-reports/paginated-reports-data-sources">Microsoft supported data sources for Power BI paginated reports</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/paginated-reports/paginated-reports-report-builder-power-bi">Microsoft overview of Power BI paginated reports</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the active report catalog and a pilot that includes real compatibility exceptions.</strong> Datrick can establish the migration baseline, prove the target patterns, and build a controlled path to server retirement.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=ssrs_to_power_bi_migration&amp;utm_medium=organic_content&amp;utm_campaign=rdl_migration_scoping&amp;utm_content=article_end#inquiry-form">Scope the RDL pilot</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="ai-tableau-to-power-bi-migration-assessment-validation"><span>Interactive BI migration</span><strong>Move Tableau analytics to Power BI</strong></a><a href="white-label-power-bi-fabric-managed-support-services"><span>Post-cutover support</span><strong>Operate Power BI under a managed SLA</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

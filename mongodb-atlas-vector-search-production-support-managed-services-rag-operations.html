@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MongoDB Atlas Vector Search Production Support | Datrick</title>
+    <meta name="description" content="Managed MongoDB Atlas Vector Search production support for index freshness, ANN and ENN relevance, Search Nodes, tenant filters, private networking, backups, incidents, releases, and cost.">
+    <link rel="canonical" href="https://datrick.com/mongodb-atlas-vector-search-production-support-managed-services-rag-operations">
+    <meta property="og:title" content="MongoDB Atlas Vector Search Production Support | Datrick">
+    <meta property="og:description" content="Operate Atlas Vector Search with accountable index freshness, retrieval quality, Search Node capacity, tenant access, recovery, releases, and cost.">
+    <meta property="og:url" content="https://datrick.com/mongodb-atlas-vector-search-production-support-managed-services-rag-operations">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Service", "name": "MongoDB Atlas Vector Search Production Support and Managed Services", "description": "Ongoing MongoDB Atlas Vector Search operations covering source collections, change-driven index synchronization, Search indexes, vector and filter mappings, ANN and ENN retrieval, quantization, labelled evaluation, dedicated Search Nodes, tenant access, private networking, monitoring, incidents, backups, releases, cost, runbooks, and reporting.", "url": "https://datrick.com/mongodb-atlas-vector-search-production-support-managed-services-rag-operations", "provider": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "areaServed": "Global", "audience": {"@type": "BusinessAudience", "audienceType": "Software companies, enterprises, managed service providers, and AI delivery firms operating production MongoDB Atlas Vector Search and RAG workloads"}},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is included in MongoDB Atlas Vector Search production support?", "acceptedAnswer": {"@type": "Answer", "text": "A defined service can include source collections, Search index definitions and synchronization, vector and filter mappings, ANN and ENN retrieval, quantization, hybrid search, relevance evaluation, dedicated Search Nodes, tenant access, private networking, monitoring, incidents, backups and restore, releases, Atlas cost, runbooks, and reporting."}},
+            {"@type": "Question", "name": "Can an Atlas Vector Search index return stale data?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. MongoDB Search indexes are eventually consistent. Atlas can continue serving a Stale index even when replication has stopped, so results may contain stale data. Production operations should monitor index status by node, indexed document coverage, disk pressure, freshness samples, and source-to-index reconciliation."}},
+            {"@type": "Question", "name": "When should Atlas use dedicated Search Nodes?", "acceptedAnswer": {"@type": "Answer", "text": "MongoDB recommends dedicated Search Nodes for production-ready search workloads. They isolate mongot resources from database nodes and allow search capacity to scale independently, but index migration, initial sync, node sizing, availability, regional support, cost, and controlled failure behavior still require acceptance testing."}},
+            {"@type": "Question", "name": "How should MongoDB Vector Search recall be tested?", "acceptedAnswer": {"@type": "Answer", "text": "Use labelled production-like queries and compare approximate nearest-neighbor results against an exact nearest-neighbor baseline. Test numCandidates, limit, pre-filters, vector dimensions, similarity, quantization, concurrency, tenant cohorts, latency, and grounded-answer quality before accepting a configuration."}},
+            {"@type": "Question", "name": "How long does MongoDB Atlas Vector Search managed support onboarding take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused onboarding commonly takes two to four weeks for a representative collection, index family, and consuming RAG workflow. It covers synchronization, mappings, relevance, Search Node capacity, access, private networking, monitoring, recovery, releases, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">MongoDB Atlas VectorOps</p>
+        <h1>A healthy Atlas cluster does not prove that its Search index is current.</h1>
+        <p class="page-lede">Operate Atlas Vector Search with accountable source-to-index freshness, ANN and ENN relevance, filter mappings, dedicated Search Node capacity, tenant access, private networking, recovery, controlled releases, and cost.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=mongodb_atlas_vector_support&amp;utm_medium=organic_content&amp;utm_campaign=atlas_vector_rag_operations&amp;utm_content=hero#inquiry-form">Describe the Atlas estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>MongoDB Atlas VectorOps</span><span>14 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Service boundary</a><a href="#scope">Operating scope</a><a href="#relevance">Freshness and relevance</a><a href="#incidents">Incident response</a><a href="#onboarding">Onboarding</a></nav>
+
+        <p>MongoDB Atlas can store operational records and embeddings together, maintain Search indexes from collection changes, run approximate or exact vector search, pre-filter by indexed metadata, isolate search workloads on dedicated Search Nodes, expose metrics and alerts, support private endpoints on dedicated clusters, and back up database state. Those controls do not decide who owns a Search index that remains queryable while Stale, an added shard whose initial sync interrupts queries, a filter field missing from the index definition, a low-latency ANN setting that loses relevant evidence, an oversized document that cannot be indexed, or a restored database whose retrieval path was never revalidated.</p>
+        <p>Datrick provides an ongoing operating layer for an agreed Atlas Vector Search estate. Named engineers correlate authoritative collections, writes and deletes, change-driven synchronization, Search index definitions and status by node, embeddings, vector and filter mappings, ANN and ENN queries, quantization, labelled relevance, dedicated Search Nodes, cluster topology, tenant identity, private networking, metrics, alerts, backups, releases, Atlas resources, cost, and business outcomes. MongoDB support remains the escalation path for platform defects. Datrick owns the client-specific diagnosis, containment, validation, communication, change, and prevention accepted in the service boundary.</p>
+
+        <section class="readiness-actions"><p><strong>Do you have Atlas Vector Search in production but no team accountable for turning stale indexes, initial-sync gaps, weak recall, tenant-filter defects, Search Node pressure, private-network failures, or restore uncertainty into a verified outcome?</strong> Start with one representative collection, index family, and consuming search or RAG workflow.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=mongodb_atlas_vector_support&amp;utm_medium=organic_content&amp;utm_campaign=atlas_vector_rag_operations&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" href="ai-workflows.html">Review AI workflow operations</a></div></section>
+
+        <h2 id="boundary">Define ownership from authoritative MongoDB document to indexed vector, retrieved evidence, citation, and business answer</h2>
+        <p>A production path can include application writes, imports and deletions; an Atlas collection and change stream; embedding generation; a Vector Search index with vector and filter fields; the <code>$vectorSearch</code> stage; ANN or ENN retrieval; keyword or hybrid candidates; tenant filters and reranking; an agent or application; answer synthesis and citations; and the target workflow. Name which layers the managed service owns, observes, changes, coordinates, or excludes.</p>
+        <p>Document Atlas organizations, projects, clusters, cloud providers and regions; databases, collections and shards; Search indexes and status by node; source IDs and deletion semantics; embedding model, dimensions, similarity and quantization; query patterns, <code>numCandidates</code>, <code>limit</code>, exact baselines and filters; freshness, relevance, latency and availability SLOs; Search Node topology; identities and network paths; backups and restore; support hours; severity; change authority; budget; fallback; and MongoDB escalation.</p>
+
+        <h2 id="scope">Operate the complete MongoDB Atlas Vector Search production surface</h2>
+        <div class="article-table-wrap" role="region" aria-label="MongoDB Atlas Vector Search production support scope" tabindex="0"><table class="article-table"><caption class="sr-only">MongoDB Atlas Vector Search production support scope</caption>
+          <thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead>
+          <tbody>
+            <tr><td>Collections and synchronization</td><td>Authoritative documents, stable IDs, writes, updates and deletes, embedding creation, change-driven Search index updates, initial sync, indexed-document coverage, large-document limits, backfill, and reconciliation.</td><td>Source owner, freshness and deletion SLOs, idempotency, embedding authority, change-stream assumptions, replay authority, and exception route.</td></tr>
+            <tr><td>Search indexes and lifecycle</td><td>Vector and filter field mappings, static or dynamic Search mappings, index versions, Pending, Building, Ready, Stale and Failed status, status by node, rebuilds, sharding changes, resharding, migration to Search Nodes, and retirement.</td><td>Schema owner, index source of truth, rebuild window, query availability, shard-change procedure, two-billion-document limit, compatibility, and rollback.</td></tr>
+            <tr><td>Retrieval and evaluation</td><td>ANN and ENN queries, <code>numCandidates</code>, <code>limit</code>, vector dimensions and similarity, pre-filters, quantization, keyword and hybrid retrieval, reranking, recall, latency, drift, and grounded-answer evaluation.</td><td>Exact baseline, labelled cohorts, acceptable recall, filter and tenant negatives, model compatibility, accuracy-memory trade-off, reviewer, and business consequence.</td></tr>
+            <tr><td>Cluster and Search Nodes</td><td>Database and <code>mongot</code> resource behavior, dedicated Search Node migration, independent search sizing, regions and tiers, CPU, memory, disk, IOPS, concurrent index builds, initial sync, node replacement, scaling, and availability.</td><td>Deployment choice, M10-or-higher and regional eligibility, traffic and growth profile, headroom, scale authority, maintenance impact, availability, and budget.</td></tr>
+            <tr><td>Identity, tenant access, and networking</td><td>Atlas organization and project roles, database users and application identities, tenant metadata and filter enforcement, IP access lists, peering or private endpoints, encryption, secrets, audit evidence, and break glass.</td><td>Least privilege, project boundary, tenant isolation, public exposure, private-endpoint-aware connection strings, credential rotation, audit ownership, and incident route.</td></tr>
+            <tr><td>Observability and recovery</td><td>Index status and coverage, Search process CPU, memory and disk, paused replication or initial sync, query latency and errors, cluster metrics, alerts, logs, database snapshots, cross-region copy where configured, restore, RTO, RPO, and post-restore Search validation.</td><td>Metric retention, alert ownership, database backup scope, Search index rebuild assumptions, restore acceptance, regional strategy, and MongoDB escalation.</td></tr>
+            <tr><td>Release and value</td><td>Collection contracts, embedding jobs, Search index definitions, query pipelines, Search Node or cluster configuration, identities, networks, application versions, tests, rollout, rollback, Atlas consumption, model cost, attribution, forecast, and anomaly.</td><td>Source of truth, environments, change window, approval, compatibility, budget, canary, rollback, and acceptance evidence.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="relevance">Treat index freshness, retrieval quality, Search Node capacity, tenant isolation, and recovery as one design</h2>
+        <p>Atlas Search indexes are eventually consistent. The <code>mongot</code> process monitors change streams, but the latest collection state might not be immediately queryable. Atlas can continue serving a Stale index when replication pauses or fails, including after high disk utilization or when <code>mongot</code> falls off the oplog. Monitor status by node, indexed-document percentage, source-to-index samples, deletion behavior, and business freshness instead of treating successful queries as proof of currency.</p>
+        <p>Approximate nearest-neighbor search trades exhaustive comparison for speed. Use ENN as a representative recall baseline, then test <code>numCandidates</code>, <code>limit</code>, pre-filters, tenant cohorts, similarity, dimensions, quantization, concurrency, reranking, latency, and grounded answers. Filter fields must be represented in the vector index definition. A query that returns quickly can still omit the only evidence a user was authorized and expected to see.</p>
+        <p>MongoDB recommends dedicated Search Nodes for production-ready search workloads. They isolate <code>mongot</code> resources and allow search to scale independently from database nodes, but migration builds all indexes before routing changes. Initial sync, shard additions, resharding, node replacement, disk or memory pressure, and some storage or version changes can delay, rebuild, or interrupt Search. Capacity tests must include indexing, query concurrency, failure, rebuild time, and the Atlas cost of the accepted topology.</p>
+        <p>Database recovery and retrieval recovery are connected but not identical. A database snapshot protects collection state; the operational plan must also validate Search index status, mappings, indexed-document coverage, tenant filters, embeddings, exact-baseline recall, private connectivity, and application behavior after restore or regional recovery.</p>
+
+        <h2 id="incidents">Distinguish collection, index, retrieval, Search Node, tenant, network, recovery, release, and cost failures</h2>
+        <div class="article-table-wrap" role="region" aria-label="MongoDB Atlas Vector Search production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">MongoDB Atlas Vector Search production incident matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead>
+          <tbody>
+            <tr><td>Search results are missing recent updates or deleted documents</td><td>Collection document and operation time, stable ID, change-stream continuity, Search index status by node, indexed-document count and percentage, Stale reason, disk use, oplog window, sampled queries, and application cache.</td><td>Disclose freshness risk, pause consequential automation, use authoritative collection fallback where safe, protect disk headroom, stop unsafe replay, and isolate affected cohorts.</td><td>Freshness SLO, source-to-index reconciliation, update and deletion tests, status-by-node alerts, disk forecast, large-document guard, oplog and initial-sync runbook, and fallback.</td></tr>
+            <tr><td>ANN or hybrid retrieval loses relevant evidence</td><td>Labelled query and expected documents, ENN baseline, <code>numCandidates</code>, <code>limit</code>, vector dimensions and similarity, quantization, pre-filters, tenant cohort, hybrid candidates, reranking, embedding version, latency, and release.</td><td>Restore accepted index and query settings, increase candidates within tested limits, narrow affected cohorts, use a validated exact or lexical fallback, and block high-consequence automation.</td><td>Recall and ranking thresholds, exact-baseline evaluation, filter negatives, model compatibility gate, query-cohort canary, drift monitoring, cost limit, and rollback.</td></tr>
+            <tr><td>Index is Building, Stale, Failed, or unavailable after topology change</td><td>Status by node, queryable flag, failure message, indexed coverage, shard add or reshard event, <code>movePrimary</code>, Search Node migration, initial sync, node replacement, disk and memory, concurrent builds, and elapsed time.</td><td>Keep the last valid index where Atlas supports it, stop dependent cutover, protect source state, avoid overlapping rebuilds, restore capacity, preserve evidence, and escalate platform faults.</td><td>Topology-change precheck, rebuild-time baseline, index-as-code, migration acceptance, shard-change procedure, capacity reserve, status alerts, tested fallback, and rollback.</td></tr>
+            <tr><td>Search Node runs out of memory, disk, or cannot serve queries</td><td>Search Process CPU, memory and disk metrics, out-of-memory and paused-sync alerts, index size and complexity, stored source, concurrency, query latency, initial sync, node topology, region and tier, workload spike, and recent change.</td><td>Protect critical traffic, reduce nonessential queries or builds, scale through approved authority, use healthy nodes or fallback, preserve evidence, and communicate freshness and availability impact.</td><td>Dedicated Search Node sizing, load and rebuild test, disk and memory alarms, query budget, scale runbook, region and tier matrix, capacity forecast, and cost guardrail.</td></tr>
+            <tr><td>Tenant filter, identity, or private network path denies or exposes data</td><td>Caller and Atlas project role, database user, query and indexed filter fields, tenant value and negative tests, IP access list, peering or private endpoint, connection string, DNS and route, credentials, audit evidence, and recent change.</td><td>Revoke unsafe access, stop public fallback, restore the accepted identity and private path, block affected tenant queries, use approved break glass, preserve audit evidence, and notify the owner.</td><td>Effective-access matrix, mandatory tenant filter tests, denied-tenant negatives, least privilege, policy and network checks, credential rotation, private-connectivity canary, and audit alerts.</td></tr>
+            <tr><td>Backup, restore, cluster change, model release, or cost control fails</td><td>Snapshot and restore status, restored collection counts, Search index definitions and status, embeddings, query evaluation, Search Node and cluster changes, application version, private connectivity, Atlas and model consumption, and recent release.</td><td>Stop cutover, preserve current environments and snapshots, rebuild and validate in isolation, restore accepted model and query settings, cap noncritical consumption, and communicate RTO, RPO, quality, or budget risk.</td><td>Restore exercise, Search post-restore checklist, release matrix, index and embedding rollback, canary evaluation, change approval, cost attribution, forecast, alarms, and rollback.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>A retry is not automatically safe. Before replaying writes, rebuilding an index, increasing candidates, resharding, moving a primary, migrating to Search Nodes, restoring a snapshot, rotating credentials, or reopening traffic, determine which writes and deletes succeeded, which index version and nodes serve queries, whether indexed coverage is current, whether embeddings or filters changed, and whether the application already acted on a response. Reconcile collection, index, query, identity, application, and business state first.</p>
+
+        <h2>Release collection contracts, embeddings, Search indexes, queries, nodes, access, and applications together</h2>
+        <p>A production Atlas Vector Search release includes source document contracts, stable IDs and deletes, embedding model and dimensions, vector and filter mappings, Search index definitions, ANN or ENN query parameters, hybrid and reranking logic, tenant enforcement, Search Node or cluster configuration, private networking, monitoring, backups, application versions, budgets, rollout, and rollback. A valid Atlas configuration change can still alter freshness, relevance, latency, access, availability, and cost.</p>
+        <p>Before release, ingest a representative corpus; reconcile collection and indexed coverage; test updates and deletes; compare ANN against an ENN baseline; run tenant and identity negatives; benchmark realistic indexing and query concurrency; exercise initial sync and Search Node loss; restore database state in isolation and validate Search afterward; canary the application, index, embedding, and filter change together; and preserve the prior accepted definitions and model.</p>
+
+        <h2 id="onboarding">Onboard through inventory, baselines, controlled failures, and shadow operations</h2>
+        <ol>
+          <li><strong>Inventory:</strong> Atlas organizations, projects, clusters, regions, collections, shards, Search indexes, embeddings, query pipelines, Search Nodes, identities, network paths, backups, applications, and outcomes.</li>
+          <li><strong>Responsibility:</strong> define supported layers, freshness, relevance, latency and availability SLOs, severity, access, change authority, budget, dependencies, fallback, MongoDB escalation, and exclusions.</li>
+          <li><strong>Baseline:</strong> measure collection and indexed coverage, update and deletion lag, index status by node, query-cohort recall and latency, Search process CPU, memory and disk, access, private connectivity, backup status, Atlas cost, and incidents.</li>
+          <li><strong>Controls:</strong> validate stable IDs, large-document limits, mappings, exact recall baselines, tenant filters, Search Node capacity, least privilege, alerts, backup and restore, releases, rollback, attribution, and runbooks.</li>
+          <li><strong>Exercise:</strong> rehearse a Stale index, failed build, initial-sync interruption, ANN regression, filter omission, Search Node memory or disk pressure, tenant denial, private-endpoint outage, restore, credential rotation, and embedding dependency outage.</li>
+          <li><strong>Transition:</strong> operate in shadow, close or accept material gaps, publish runbooks and escalation routes, and accept the steady-state support scope.</li>
+        </ol>
+
+        <section class="readiness-actions"><p><strong>Start with the Atlas collection and Vector Search index that already influences customer, financial, operational, compliance, or workforce decisions.</strong> Datrick can define the operating boundary, close material control gaps, and transition one representative search or RAG workload into managed support.</p><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=mongodb_atlas_vector_support&amp;utm_medium=organic_content&amp;utm_campaign=atlas_vector_rag_operations&amp;utm_content=article_end#inquiry-form">Request an Atlas VectorOps review</a></section>
+
+        <h2>Official references and adjacent operating guides</h2>
+        <ul>
+          <li><a href="https://www.mongodb.com/docs/atlas/atlas-search/delete-index/">Manage Atlas Search indexes, consistency, status, and rebuild behavior</a></li>
+          <li><a href="https://www.mongodb.com/docs/atlas/atlas-search/about/deployment-options/">MongoDB Search deployment options and dedicated Search Nodes</a></li>
+          <li><a href="https://www.mongodb.com/docs/atlas/reference/alert-resolutions/atlas-search-alerts/">MongoDB Search alerts and production remediation</a></li>
+          <li><a href="https://www.mongodb.com/docs/atlas/atlas-search/performance/">Improve MongoDB Search performance</a></li>
+          <li><a href="https://www.mongodb.com/docs/atlas/atlas-search/operators-collectors/vectorSearch/">Vector Search ANN, ENN, filters, candidates, and limits</a></li>
+          <li><a href="https://www.mongodb.com/docs/atlas/atlas-vector-search/vector-quantization/">MongoDB Vector Search quantization</a></li>
+          <li><a href="https://www.mongodb.com/docs/atlas/security-private-endpoint/">MongoDB Atlas private endpoints and shared responsibility</a></li>
+          <li><a href="https://www.mongodb.com/docs/atlas/architecture/current/backups/">MongoDB Atlas backup guidance</a></li>
+          <li><a href="amazon-opensearch-service-vector-search-production-support-managed-services-rag-operations">Amazon OpenSearch Service vector search production support</a></li>
+          <li><a href="ai-workflows.html">Production AI workflow automation and operations</a></li>
+          <li><a href="white-label-ai-agent-operations-managed-support-for-msps">White-label AI agent managed support for MSPs</a></li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is included in MongoDB Atlas Vector Search production support?</summary><p>A defined service can include source collections, Search index definitions and synchronization, vector and filter mappings, ANN and ENN retrieval, quantization, hybrid search, relevance evaluation, dedicated Search Nodes, tenant access, private networking, monitoring, incidents, backups and restore, releases, Atlas cost, runbooks, and reporting.</p></details>
+          <details><summary>Can an Atlas Vector Search index return stale data?</summary><p>Yes. MongoDB Search indexes are eventually consistent. Atlas can continue serving a Stale index even when replication has stopped, so results may contain stale data. Production operations should monitor index status by node, indexed document coverage, disk pressure, freshness samples, and source-to-index reconciliation.</p></details>
+          <details><summary>When should Atlas use dedicated Search Nodes?</summary><p>MongoDB recommends dedicated Search Nodes for production-ready search workloads. They isolate <code>mongot</code> resources from database nodes and allow search capacity to scale independently, but index migration, initial sync, node sizing, availability, regional support, cost, and controlled failure behavior still require acceptance testing.</p></details>
+          <details><summary>How should MongoDB Vector Search recall be tested?</summary><p>Use labelled production-like queries and compare approximate nearest-neighbor results against an exact nearest-neighbor baseline. Test <code>numCandidates</code>, <code>limit</code>, pre-filters, vector dimensions, similarity, quantization, concurrency, tenant cohorts, latency, and grounded-answer quality before accepting a configuration.</p></details>
+          <details><summary>How long does MongoDB Atlas Vector Search managed support onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for a representative collection, index family, and consuming RAG workflow. It covers synchronization, mappings, relevance, Search Node capacity, access, private networking, monitoring, recovery, releases, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope.</p></details>
+        </div>
+
+        <div class="article-next"><p>Comparing document-native and in-memory vector search operating boundaries?</p><a href="redis-vector-search-production-support-managed-services-rag-operations">Review the Redis vector search production support boundary</a></div>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

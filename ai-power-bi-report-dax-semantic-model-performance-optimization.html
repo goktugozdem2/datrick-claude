@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Power BI Report, DAX, and Semantic Model Performance Optimization | Datrick</title>
+    <meta name="description" content="Diagnose slow Power BI reports across visuals, DAX, semantic models, DirectQuery, Power Query, gateways, sources, and capacity with measured before-and-after validation.">
+    <link rel="canonical" href="https://datrick.com/ai-power-bi-report-dax-semantic-model-performance-optimization">
+    <meta property="og:title" content="AI Power BI Report, DAX, and Semantic Model Performance Optimization | Datrick">
+    <meta property="og:description" content="Find the layer making a Power BI report slow, preserve metric correctness, and validate each performance change against real user interactions.">
+    <meta property="og:url" content="https://datrick.com/ai-power-bi-report-dax-semantic-model-performance-optimization">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "AI Power BI Report, DAX, and Semantic Model Performance Optimization", "description": "Diagnose slow Power BI reports across visuals, DAX, semantic models, DirectQuery, Power Query, gateways, sources, and capacity with measured before-and-after validation.", "url": "https://datrick.com/ai-power-bi-report-dax-semantic-model-performance-optimization", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/ai-power-bi-report-dax-semantic-model-performance-optimization"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "How do you diagnose why a Power BI report is slow?", "acceptedAnswer": {"@type": "Answer", "text": "Replay representative user interactions and capture Performance Analyzer evidence for each visual. Separate DAX query, DirectQuery, visual display, and other time, then correlate slow operations with model structure, measures, source queries, gateway, network, capacity, concurrency, and report design. Optimize the measured bottleneck and verify the same interaction against an unchanged business result."}},
+            {"@type": "Question", "name": "What is included in a Power BI performance optimization assessment?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment can include user scenarios, Performance Analyzer captures, DAX query and measure analysis, model size and cardinality, relationships, storage mode, Power Query and folding, source execution, DirectQuery round trips, visual design, gateway and network evidence, service and capacity behavior, prioritized remediation, and before-and-after validation."}},
+            {"@type": "Question", "name": "Can AI optimize DAX measures automatically?", "acceptedAnswer": {"@type": "Answer", "text": "AI can explain a measure, identify suspicious patterns, relate query and model evidence, draft alternatives, and generate test cases. It should not replace a production measure automatically. DAX semantics depend on filter context, relationships, totals, row-level security, calculation groups, and business definitions. Every change requires deterministic result comparison, performance measurement, review, and controlled deployment."}},
+            {"@type": "Question", "name": "Why is a Power BI report fast in Desktop but slow in the Service?", "acceptedAnswer": {"@type": "Answer", "text": "Desktop and Service can differ in data-source path, gateway, network, capacity load, concurrency, cache state, region, browser rendering, security context, storage mode, credentials, and deployed model version. Capture the same interaction in both environments and join report evidence with gateway, source, semantic model, and capacity evidence before changing DAX."}},
+            {"@type": "Question", "name": "How long does a Power BI performance tuning engagement take?", "acceptedAnswer": {"@type": "Answer", "text": "One critical report and semantic model can often be assessed in one to three weeks when the PBIX or project source, representative data, Performance Analyzer captures, business result controls, source access, Service evidence, and owners are available. Implementation and observation can take two to six weeks depending on model redesign, source work, deployment controls, and user acceptance."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Power BI performance assessment and tuning</p>
+        <h1>Diagnose why a Power BI report is slow before rewriting DAX or buying more capacity.</h1>
+        <p class="page-lede">Measure visuals, DAX, semantic-model design, storage mode, Power Query, DirectQuery, source execution, gateways, network, concurrency, and capacity against representative user interactions and verified business results.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Immediately%20%2F%20this%20week&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=ai_power_bi_performance&amp;utm_medium=organic_content&amp;utm_campaign=power_bi_performance_scoping&amp;utm_content=hero#inquiry-form">Describe the slow report</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Power BI performance optimization</span><span>12 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#contract">Measurement contract</a><a href="#layers">Failure layers</a><a href="#architecture">Assessment workflow</a><a href="#validation">Validation</a><a href="#pilot">Engagement plan</a></nav>
+
+        <p>A slow Power BI report is an observed symptom, not a DAX diagnosis. The delay can occur while preparing visual queries, evaluating DAX, translating or executing DirectQuery, waiting on a gateway or source, queuing behind other visuals, rendering a visual, retrieving images, enforcing security, or competing for capacity. Rewriting a measure without identifying the dominant layer can change business results while leaving the user experience unchanged.</p>
+        <p>Datrick treats performance tuning as controlled engineering. We capture a reproducible interaction, preserve the result and filter context, locate the bottleneck, make one bounded change, and replay the same workload. AI can assemble evidence, explain model and DAX dependencies, rank suspicious patterns, and draft alternatives. It cannot replace a production measure, relationship, storage mode, or business definition without deterministic result comparison, review, deployment control, and rollback.</p>
+
+        <section class="readiness-actions"><p><strong>Does one executive report take seconds per interaction, behave differently in the Service, or consume disproportionate capacity?</strong> Datrick can assess the report and semantic model, identify the measured bottleneck, and provide an implementation-ready remediation plan.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Immediately%20%2F%20this%20week&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=ai_power_bi_performance&amp;utm_medium=organic_content&amp;utm_campaign=power_bi_performance_scoping&amp;utm_content=article_intro#inquiry-form">Send one report scenario</a><a class="button secondary" href="resource-bi-reporting-reliability-checklist.html">Use the BI reliability checklist</a></div></section>
+
+        <h2 id="contract">Define a reproducible performance contract</h2>
+        <p>Do not baseline by opening a report once. Define the report, page, user or role, filter state, slicer action, drill path, browser or Desktop version, Service workspace, semantic-model version, storage mode, cache condition, time of day, capacity, data volume, expected result, and acceptable response time. Include cold and warm behavior where both matter. Repeat enough times to separate normal variation from a material change.</p>
+        <div class="article-table-wrap" role="region" aria-label="Power BI performance measurement contract" tabindex="0"><table class="article-table"><caption class="sr-only">Power BI performance measurement contract</caption>
+          <thead><tr><th scope="col">Layer</th><th scope="col">Evidence</th><th scope="col">Question answered</th></tr></thead>
+          <tbody>
+            <tr><td>User interaction</td><td>Report, page, visual, action, filters, role, browser, location, timestamp, total latency, expected result, and user impact.</td><td>Which exact experience is slow and how much improvement is required?</td></tr>
+            <tr><td>Performance Analyzer</td><td>Visual duration, DAX query, DirectQuery, visual display, other time, evaluated parameters, order, and exported JSON.</td><td>Is the delay query execution, rendering, queueing, or another report operation?</td></tr>
+            <tr><td>DAX execution</td><td>Generated query, measures, filter context, formula and storage-engine work, scans, callbacks, materialization, rows, and cache state.</td><td>Which expression or execution pattern consumes time and why?</td></tr>
+            <tr><td>Semantic model</td><td>Tables, columns, cardinality, data types, relationships, direction, measures, calculated objects, hierarchies, security, and size.</td><td>Does model structure force expensive queries, large scans, or ambiguous filters?</td></tr>
+            <tr><td>Source and transformation</td><td>Power Query steps, folding, generated source query, plan, rows, bytes, indexes, statistics, latency, concurrency, and source load.</td><td>Is work performed efficiently at the right layer, especially for DirectQuery?</td></tr>
+            <tr><td>Environment</td><td>Storage mode, gateway, network, region, capacity timepoint, concurrency, throttling, cache, deployment version, and recent changes.</td><td>Why does the same report differ by environment, user, or time?</td></tr>
+            <tr><td>Correctness and outcome</td><td>Control totals, selected cells, filter cases, row-level security, edge cases, performance delta, CU delta, and owner approval.</td><td>Did the change preserve meaning and improve the intended service outcome?</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Microsoft Performance Analyzer records the time each visual takes and separates DAX query, DirectQuery, visual display, and other work. The exported JSON and copied DAX query make a useful starting point. Durations can include queueing because report operations share UI resources, so interpret the order and interaction rather than treating every number as isolated compute time.</p>
+
+        <h2 id="layers">Locate the slow layer before choosing a fix</h2>
+        <h3>Report and visual design</h3>
+        <p>Every visual can issue queries, participate in interactions, and consume rendering time. Test whether the page requests too many visuals at once, contains expensive custom visuals, renders high-cardinality tables, loads remote images or maps, or triggers unnecessary cross-filtering. Use query reduction and interaction design where appropriate, but preserve the questions users need to answer. Removing information is not an optimization if users recreate it through exports and manual work.</p>
+
+        <h3>DAX measures and filter context</h3>
+        <p>Measure performance depends on the exact query and model context. Inspect expensive iterators, repeated expressions, context transitions, broad filters, virtual relationships, nested calculations, high-cardinality intermediate results, and operations pushed into the formula engine. Avoid generic rules such as “never use this function.” A function can be efficient in one filter context and expensive in another.</p>
+        <p>For each proposed rewrite, compare totals and detail across representative dimensions, no-selection and multi-selection states, missing values, period boundaries, inactive relationships, many-to-many paths, row-level security roles, and calculation groups. A faster wrong measure is a regression.</p>
+
+        <h3>Semantic-model structure</h3>
+        <p>A well-designed star schema reduces ambiguity and supports efficient filtering. Review fact and dimension grain, relationship cardinality and direction, snowflaking, role-playing dimensions, bridge tables, hidden technical columns, unused columns, data types, calculated columns, and column cardinality. Large text or identifier columns can increase model size even when they never appear in a report.</p>
+        <p>Model reduction can improve memory, refresh, and query behavior, but verify lineage and external consumers before removing objects. Excel connections, thin reports, paginated reports, APIs, and other semantic models may depend on fields not visible in the target report.</p>
+
+        <h3>Import, DirectQuery, Direct Lake, and composite behavior</h3>
+        <p>Storage mode determines where work executes and which constraints dominate. Import models depend heavily on model design, compression, and DAX execution. DirectQuery depends on generated queries, source design, network and gateway latency, concurrency, and round trips. Composite and hybrid models can cross storage engines and create unexpected paths. Direct Lake adds its own fallback and model considerations.</p>
+        <p>For DirectQuery, capture the generated source query and actual source plan where authorized. Check query folding, predicates, joins, indexes, statistics, partitions, result size, source concurrency, and gateway path. Reducing a DAX duration in Desktop is not enough if the Service still waits on an overloaded source.</p>
+
+        <h3>Power Query and source preparation</h3>
+        <p>Transformation choices affect refresh and sometimes interactive performance. Review folding boundaries, data-type conversions, row and column reduction, merge and group operations, parameterization, source views, and repeated queries. Push appropriate set-based work to capable sources, but do not duplicate business logic across unmanaged layers. Record where each transformation is owned and tested.</p>
+
+        <h3>Service, gateway, network, and capacity</h3>
+        <p>A report that is fast in Desktop and slow in the Service needs an environment comparison. Check deployed versions, user security context, gateway mapping, source route, region, browser rendering, cache, concurrent users, semantic model operations, and capacity timepoints. Use the Fabric Capacity Metrics app to determine whether the report was affected by shared overload or throttling. Do not rewrite DAX to compensate for a capacity incident.</p>
+
+        <h2 id="architecture">Run an evidence-led optimization workflow</h2>
+        <div class="article-table-wrap" role="region" aria-label="Power BI performance optimization workflow" tabindex="0"><table class="article-table"><caption class="sr-only">Power BI performance optimization workflow</caption>
+          <thead><tr><th scope="col">Stage</th><th scope="col">Work performed</th><th scope="col">Control</th></tr></thead>
+          <tbody>
+            <tr><td>Scope and preserve</td><td>Select representative interactions, capture source and deployed artifacts, record business controls, owners, security roles, and current performance.</td><td>Versioned baseline, approved data access, reproducible steps, and no production edits.</td></tr>
+            <tr><td>Instrument</td><td>Collect Performance Analyzer, DAX query, model, source, gateway, Service, capacity, browser, and user-impact evidence.</td><td>Clock alignment, cache state, sensitive-data handling, and evidence completeness.</td></tr>
+            <tr><td>Diagnose</td><td>Separate visual, DAX, model, source, DirectQuery, gateway, network, concurrency, and capacity contributors.</td><td>Ranked hypotheses, alternatives, citations, and tests that can disprove each cause.</td></tr>
+            <tr><td>Design change</td><td>Propose bounded report, measure, model, storage, query, source, gateway, or capacity remediation.</td><td>Expected latency and CU effect, correctness risk, dependencies, effort, rollback, and owner.</td></tr>
+            <tr><td>Validate</td><td>Replay matched interactions, compare results and security, measure cold and warm latency, and observe shared-environment impact.</td><td>Deterministic controls, statistical variation, no shifted bottleneck, and acceptance threshold.</td></tr>
+            <tr><td>Release and observe</td><td>Deploy through the approved path, monitor user experience, errors, refresh, source, gateway, and capacity after release.</td><td>Change window, rollback trigger, stakeholder approval, and post-release evidence.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2>Use AI as an analyst, not an autonomous model editor</h2>
+        <p>AI can summarize Performance Analyzer traces, map visual queries to measures, explain filter context, compare measure versions, group repeated patterns, identify likely high-cardinality drivers, draft source and model questions, and generate a test matrix. It is especially useful when evidence spans report, model, source, gateway, and capacity owners.</p>
+        <p>Keep production write access out of the analysis agent. Require exact artifact versions, evidence links, confidence, alternatives, and missing information. Never send business data, DAX, schema, queries, or user information to an unapproved model endpoint. Log prompts and outputs according to the engagement's data-handling policy.</p>
+
+        <h2 id="validation">Validate performance and business semantics together</h2>
+        <p>Compare the same report page, interaction, filter state, role, data version, environment, and cache condition. Run multiple samples and report distributions, not the best run. Measure total user latency and the layer-specific change. If a query becomes faster but visual rendering or queueing dominates, the user may receive little benefit.</p>
+        <p>Build result controls before modifying DAX or relationships. Compare approved totals, detail samples, dimension slices, period boundaries, blanks, unknown members, subtotal behavior, and security roles. For source or Power Query changes, reconcile row counts, keys, duplicates, aggregates, and late data. For storage-mode changes, test freshness, concurrency, source impact, and failure behavior.</p>
+        <p>Observe after deployment during representative load. A Desktop improvement can disappear under Service concurrency. Confirm report latency, semantic-model query behavior, capacity CU, source load, gateway health, refresh duration, errors, and user feedback. Preserve before-and-after evidence and identify any demand shifted to another system.</p>
+
+        <h2>Prioritize changes by user value and engineering risk</h2>
+        <ul>
+          <li><strong>User experience:</strong> page load, slicer response, drill, tooltip, export, mobile use, abandonment, and decision deadline.</li>
+          <li><strong>Query:</strong> DAX and DirectQuery duration, formula and storage-engine work, round trips, rows returned, cache behavior, and variability.</li>
+          <li><strong>Model:</strong> size, cardinality, unused data, relationship complexity, scan volume, storage mode, and shared-consumer impact.</li>
+          <li><strong>Environment:</strong> gateway and source latency, concurrency, capacity CU, throttling, network path, region, and deployed-version drift.</li>
+          <li><strong>Control:</strong> incorrect total, broken filter, RLS exposure, unsupported external consumer, refresh regression, source overload, and unapproved change.</li>
+        </ul>
+        <p>Sequence high-confidence, high-user-impact changes with bounded risk first. Some issues need architecture work rather than a quick formula rewrite. Label temporary containment, permanent remediation, prerequisite data work, and capacity decisions separately so stakeholders understand what each change accomplishes.</p>
+
+        <h2 id="pilot">Assess one critical report in one to three weeks</h2>
+        <ol>
+          <li>Select a report with measurable slowness, meaningful use, an accessible semantic model, and named business and technical owners.</li>
+          <li>Define representative interactions, security roles, data versions, cache conditions, business results, performance targets, and deployment environments.</li>
+          <li>Collect report, model, DAX, Power Query, source, gateway, Service, capacity, usage, change, and incident evidence.</li>
+          <li>Baseline total and layer-specific latency with Performance Analyzer and approved complementary diagnostics.</li>
+          <li>Rank visual, DAX, model, source, storage-mode, gateway, network, concurrency, and capacity contributors.</li>
+          <li>Design bounded remediations with expected impact, correctness controls, dependency analysis, effort, rollback, and owner.</li>
+          <li>Implement selected changes in a controlled copy and replay the matched result and performance test matrix.</li>
+          <li>Deliver prioritized findings, implementation changes where scoped, before-and-after evidence, release plan, monitoring, and maintenance guidance.</li>
+        </ol>
+        <p>A one-report assessment can often finish in one to three weeks. Implementation can take two to six weeks when source changes, model redesign, storage-mode changes, shared semantic-model dependencies, or formal release controls are required. The engagement should end with measured findings and an approval-ready change plan, not a generic best-practice checklist.</p>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>How do you diagnose why a Power BI report is slow?</summary><p>Replay representative user interactions and capture Performance Analyzer evidence for each visual. Separate DAX query, DirectQuery, visual display, and other time, then correlate slow operations with model structure, measures, source queries, gateway, network, capacity, concurrency, and report design. Optimize the measured bottleneck and verify the same interaction against an unchanged business result.</p></details>
+          <details><summary>What is included in a Power BI performance optimization assessment?</summary><p>A focused assessment can include user scenarios, Performance Analyzer captures, DAX query and measure analysis, model size and cardinality, relationships, storage mode, Power Query and folding, source execution, DirectQuery round trips, visual design, gateway and network evidence, service and capacity behavior, prioritized remediation, and before-and-after validation.</p></details>
+          <details><summary>Can AI optimize DAX measures automatically?</summary><p>AI can explain a measure, identify suspicious patterns, relate query and model evidence, draft alternatives, and generate test cases. It should not replace a production measure automatically. DAX semantics depend on filter context, relationships, totals, row-level security, calculation groups, and business definitions. Every change requires deterministic result comparison, performance measurement, review, and controlled deployment.</p></details>
+          <details><summary>Why is a Power BI report fast in Desktop but slow in the Service?</summary><p>Desktop and Service can differ in data-source path, gateway, network, capacity load, concurrency, cache state, region, browser rendering, security context, storage mode, credentials, and deployed model version. Capture the same interaction in both environments and join report evidence with gateway, source, semantic model, and capacity evidence before changing DAX.</p></details>
+          <details><summary>How long does a Power BI performance tuning engagement take?</summary><p>One critical report and semantic model can often be assessed in one to three weeks when the PBIX or project source, representative data, Performance Analyzer captures, business result controls, source access, Service evidence, and owners are available. Implementation and observation can take two to six weeks depending on model redesign, source work, deployment controls, and user acceptance.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/create-reports/performance-analyzer">Microsoft Power BI Performance Analyzer</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/guidance/power-bi-optimization">Microsoft Power BI optimization guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/guidance/star-schema">Microsoft Power BI star schema guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/guidance/directquery-model-guidance">Microsoft Power BI DirectQuery model guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-implementation-planning-auditing-monitoring-report-level-auditing">Microsoft Power BI report-level auditing guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/transform-model/dax-query-view">Microsoft Power BI DAX query view</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with one slow report and the interaction users cannot tolerate.</strong> Datrick can isolate the report, query, model, source, gateway, or capacity bottleneck and validate a bounded remediation against business results.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Immediately%20%2F%20this%20week&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=ai_power_bi_performance&amp;utm_medium=organic_content&amp;utm_campaign=power_bi_performance_scoping&amp;utm_content=article_end#inquiry-form">Scope a Power BI performance assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="ai-power-bi-fabric-copilot-readiness-semantic-model-evaluation"><span>Copilot readiness</span><strong>Evaluate semantic model answer quality</strong></a><a href="ai-microsoft-fabric-capacity-throttling-cost-performance-optimization"><span>Shared capacity</span><strong>Diagnose Fabric throttling and CU cost</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

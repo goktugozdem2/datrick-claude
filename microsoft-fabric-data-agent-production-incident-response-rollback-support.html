@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Microsoft Fabric Data Agent Incident Response and Rollback Support | Datrick</title>
+    <meta name="description" content="Urgent support for Fabric Data Agent wrong answers, routing failures, authorization errors, empty results, broken published configurations, and release rollback.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-production-incident-response-rollback-support">
+    <meta property="og:title" content="Microsoft Fabric Data Agent Incident Response and Rollback Support | Datrick">
+    <meta property="og:description" content="Triage a production Data Agent failure, contain unreliable answers, identify the failing layer, and restore a tested known-good version.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-production-incident-response-rollback-support">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Production Incident Response and Rollback Support", "description": "Urgent support for Fabric Data Agent wrong answers, routing failures, authorization errors, empty results, broken published configurations, and release rollback.", "url": "https://datrick.com/microsoft-fabric-data-agent-production-incident-response-rollback-support", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-production-incident-response-rollback-support"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Why did our Fabric Data Agent suddenly start returning wrong answers?", "acceptedAnswer": {"@type": "Answer", "text": "A regression can come from the agent definition, instructions, example queries, source routing, a changed semantic model or schema, source data, permissions, policy, published state, an integration, or capacity conditions. Preserve the failing question, identity, channel, run steps, generated query, source result, and current definitions before changing the configuration. Comparing that evidence with the last known-good release narrows the failing layer."}},
+            {"@type": "Question", "name": "Can we roll back a Fabric Data Agent deployment?", "acceptedAnswer": {"@type": "Answer", "text": "A practical rollback restores the last known-good item definition and environment bindings, publishes the restored version, and reruns critical answer, permission, and channel tests. Do not treat deployment-pipeline backward deployment as a universal rollback: Microsoft documents backward deployment only when the target stage is empty. Recovery must also account for changed source schemas, semantic models, permissions, and integrations."}},
+            {"@type": "Question", "name": "Why can a user open a Fabric Data Agent but get unauthorized or empty results?", "acceptedAnswer": {"@type": "Answer", "text": "Sharing the Data Agent does not automatically grant access to every underlying source. Microsoft documents minimum source permissions for semantic models, lakehouses, warehouses, KQL databases, and ontologies. The investigation should reproduce the issue as the affected user and verify effective source access, RLS or CLS, Purview policy, published state, and the source selected for the failing question."}},
+            {"@type": "Question", "name": "What should we capture before changing a failing Fabric Data Agent?", "acceptedAnswer": {"@type": "Answer", "text": "Capture the exact question, expected and actual answer, affected identity and channel, timestamp, conversation state, run steps, selected source, generated SQL DAX or KQL, direct source result, draft and published definitions, recent deployment and source changes, permissions, policy, integration logs, capacity state, and a list of impacted decisions. This evidence protects the diagnosis and the rollback path."}},
+            {"@type": "Question", "name": "How does Datrick handle an urgent Fabric Data Agent incident?", "acceptedAnswer": {"@type": "Answer", "text": "Datrick starts with written scoping and an evidence checklist, then establishes severity, containment, ownership, and a diagnostic timeline. The response separates configuration, routing, query generation, data, identity, policy, publishing, integration, and capacity failures; restores a known-good service path; validates critical questions and personas; and delivers a root-cause record plus prevention backlog."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent production incident support</p>
+        <h1>Restore trustworthy Data Agent answers before the incident becomes a business decision.</h1>
+        <p class="page-lede">Triage wrong answers, routing failures, authorization errors, empty results, broken published configurations, and release regressions. Contain the impact, isolate the failing layer, and restore a tested known-good service path.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Immediately%20%2F%20this%20week&amp;engagement_type=Urgent%20support&amp;utm_source=fabric_data_agent_incident_response&amp;utm_medium=organic_content&amp;utm_campaign=data_agent_production_recovery&amp;utm_content=hero#inquiry-form">Describe the production incident</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>AI agent operations</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#triage">Incident triage</a><a href="#containment">Containment</a><a href="#diagnosis">Failure isolation</a><a href="#rollback">Recovery and rollback</a><a href="#support">Urgent support</a></nav>
+
+        <p>A Data Agent incident is not limited to an error screen. The more dangerous failure is a fluent answer that routes to the wrong source, applies the wrong business logic, omits a security boundary, or uses stale context while appearing credible. If operational or financial decisions depend on the answer, answer quality is a production reliability concern.</p>
+        <p>Incident response must preserve evidence before edits erase it. Datrick separates the agent definition from its draft and published state, underlying sources, requesting identity, policy controls, consuming channel, generated query, source result, integration behavior, and Fabric capacity. Recovery is proven only when critical questions, affected personas, and production channels work again.</p>
+
+        <section class="readiness-actions"><p><strong>Is a production agent returning answers you can no longer defend?</strong> Send the failing question, affected user or channel, first observed time, recent change, and business impact.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Immediately%20%2F%20this%20week&amp;engagement_type=Urgent%20support&amp;utm_source=fabric_data_agent_incident_response&amp;utm_medium=organic_content&amp;utm_campaign=data_agent_production_recovery&amp;utm_content=article_intro#inquiry-form">Send the incident context</a><a class="button secondary" href="microsoft-fabric-data-agent-cicd-lifecycle-governance-assessment">Review release governance</a></div></section>
+
+        <h2 id="triage">Classify the incident by user impact, not by error message</h2>
+        <p>Start with the decisions at risk, affected users, channels, sources, and time window. A visible authorization error can be lower risk than a plausible but incorrect executive metric. Assign one incident owner, preserve the current state, freeze unrelated changes, and maintain a timestamped decision log.</p>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent production incident triage matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent production incident triage matrix</caption>
+          <thead><tr><th scope="col">Production symptom</th><th scope="col">Evidence to capture</th><th scope="col">Immediate action</th></tr></thead>
+          <tbody>
+            <tr><td>Wrong or inconsistent answer</td><td>Exact question, expected result, actual answer, conversation state, run steps, selected source, generated query, direct source result, and affected decisions.</td><td>Mark the answer path unreliable, retest in a fresh conversation, and route critical decisions to an approved report or human owner.</td></tr>
+            <tr><td>Wrong source or no source selected</td><td>Source names and descriptions, selected schema, example queries, routing instructions, routing-tool step, and similar questions that behave differently.</td><td>Limit the affected question class, preserve routing evidence, and avoid adding broad instructions before the source ambiguity is understood.</td></tr>
+            <tr><td>Unauthorized or empty result</td><td>Affected identity, sharing grant, effective source permissions, RLS or CLS role, Purview policy, selected source, tenant, region, and channel.</td><td>Reproduce as the affected user; do not grant broad workspace access as a diagnostic shortcut.</td></tr>
+            <tr><td>Item or configuration not found</td><td>Workspace and artifact IDs, published state, current source bindings, deployment history, channel connection, and integration logs.</td><td>Confirm the agent exists, is published, has valid sources, and the consumer references the intended production item.</td></tr>
+            <tr><td>Timeout, active-run, or intermittent failure</td><td>Timestamp, request ID, thread state, client timeout, retry behavior, service health, capacity metrics, query duration, concurrency, and downstream source latency.</td><td>Use bounded retries only for transient failures, start a new conversation when thread state is blocked, and protect capacity from retry amplification.</td></tr>
+            <tr><td>Regression after release or source change</td><td>Approved commit, deployed definition, draft and published versions, source schema or model diff, permission change, evaluation baseline, and release timestamp.</td><td>Stop promotion, compare against the last known-good release, and prepare a dependency-aware restore.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2>Use the first 60 minutes to preserve a diagnosable state</h2>
+        <ol>
+          <li>Record severity, decisions at risk, blast radius, owner, responders, communication channel, and the next update time.</li>
+          <li>Freeze agent edits, publishing, source-model changes, permission changes, and deployment activity unless required for containment.</li>
+          <li>Export or record the current draft and published definitions, source bindings, sharing, permissions, tenant settings, integrations, and recent deployment history.</li>
+          <li>Reproduce the exact question with the affected identity and channel, then repeat in a fresh conversation to separate conversation-state effects.</li>
+          <li>Expand run steps. Capture source routing, context, generated SQL, DAX, or KQL, validation, execution result, and final narrative.</li>
+          <li>Run the generated query directly against the governed source and compare the raw result with the expected business definition.</li>
+          <li>Check Fabric service health, capacity pressure, throttling, source latency, integration timeouts, and retry volume without assuming infrastructure is the cause.</li>
+        </ol>
+
+        <h2 id="containment">Contain unreliable answers without destroying evidence</h2>
+        <p>Containment depends on scope. Restrict or pause the affected consumption path, remove an impacted group from distribution, warn users not to rely on a question class, or direct them to an authoritative report. Preserve a minimal diagnostic path for responders. For a permission incident, narrow access first; do not widen permissions to make the error disappear.</p>
+        <p>Published and draft versions have different operational roles. Microsoft documents that a published read-only version can continue serving users while builders refine the draft. That separation can reduce change risk, but it also means a production workspace may contain a fixed draft while consumers still use an older published version. Record both states before deciding what to restore.</p>
+
+        <h2 id="diagnosis">Isolate the failing layer before applying a fix</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent incident diagnostic layers" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent incident diagnostic layers</caption>
+          <thead><tr><th scope="col">Layer</th><th scope="col">Diagnostic question</th><th scope="col">Correction pattern</th></tr></thead>
+          <tbody>
+            <tr><td>Question and conversation</td><td>Is the request ambiguous, multi-intent, influenced by previous limited context, or different from the tested question?</td><td>Start a fresh conversation, make the business definition explicit, and add a regression case rather than hiding ambiguity.</td></tr>
+            <tr><td>Routing</td><td>Did the orchestrator choose the expected source, and which description, schema, examples, or instructions influenced it?</td><td>Reduce noisy schema, clarify source descriptions, add distinct examples, then use concise routing rules only when necessary.</td></tr>
+            <tr><td>Query generation</td><td>Does generated SQL, DAX, or KQL implement the requested metric, filters, joins, grain, time window, and security context?</td><td>Correct semantic metadata, source instructions, examples, model design, or unsupported expectations; add deterministic evaluation.</td></tr>
+            <tr><td>Data and semantic model</td><td>Does the direct query return the expected governed result, and did schema, measures, relationships, refresh, or source data change?</td><td>Repair the source contract or semantic model, validate refresh and lineage, then rerun agent tests.</td></tr>
+            <tr><td>Identity and policy</td><td>Does the affected principal have minimum effective source access, and are RLS, CLS, DLP, or access restriction policies changing the result?</td><td>Restore intentional least-privilege access or policy behavior; test allowed and denied personas separately.</td></tr>
+            <tr><td>Published state and integration</td><td>Is the intended version published, are source references valid, and does the channel point to the right workspace and artifact IDs?</td><td>Restore bindings, publish the approved version, refresh the integration, and run channel-specific smoke tests.</td></tr>
+            <tr><td>Capacity and dependency</td><td>Are AI Query work, generated-engine queries, concurrency, retries, or source latency causing timeouts or throttling?</td><td>Stop retry amplification, optimize the source path, isolate workloads, adjust capacity deliberately, and validate latency under representative load.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Microsoft's routing guidance recommends inspecting run steps before changing descriptions, schema, examples, or instructions. Example queries must validate and should map questions clearly to query logic. For authorization and empty-result incidents, sharing the agent is not enough: the requesting identity also needs effective access to the selected source, subject to RLS, CLS, and policy.</p>
+
+        <h2 id="rollback">Restore a known-good service path, then prove it</h2>
+        <p>A Data Agent rollback is a controlled forward deployment of a known-good state. Restore the approved item definition from source control, apply the correct production bindings, verify dependencies and permissions, deploy to the production workspace, publish the restored version, and run critical acceptance questions through every affected channel and persona.</p>
+        <p>Do not rely on deployment-pipeline backward deployment as a universal rollback. Microsoft documents backward deployment only when the target stage is empty. Existing production content needs a release procedure that can redeploy a prior definition without losing environment mappings or publishing the wrong state.</p>
+        <p>An agent-only restore is insufficient when the cause is a source schema, semantic model, data refresh, permission, policy, connection, integration, or capacity change. Choose the smallest coherent recovery unit. Preserve the failed version and evidence for root-cause analysis after service is stable.</p>
+
+        <h2>Use a production acceptance gate after recovery</h2>
+        <ul>
+          <li>Run critical golden questions and compare selected source, generated query, raw result, final answer, and prior baseline.</li>
+          <li>Test allowed, restricted, and denied personas across RLS, CLS, Purview, sharing, and underlying source permissions.</li>
+          <li>Verify the published version through Fabric and every connected channel, not only in the builder experience.</li>
+          <li>Measure latency, failures, retries, AI Query consumption, generated-engine workload, and shared-capacity impact.</li>
+          <li>Confirm that monitoring, ownership, escalation, rollback artifacts, and user communication are active before closing containment.</li>
+        </ul>
+
+        <h2 id="support">Structure urgent support around evidence and recovery</h2>
+        <p>Datrick begins with written scoping so a senior lead can review the incident without delaying on calendar coordination. Provide the exact symptom, first observed time, affected users and channels, business impact, recent changes, workspace and agent identifiers, and any captured run steps or error text. Do not include credentials, tokens, or sensitive production data in the inquiry.</p>
+        <p>The initial engagement establishes severity, containment, access requirements, evidence preservation, and a diagnostic sequence. Deliverables can include a restored production path, tested rollback, root-cause record, question-quality regression suite, persona permission matrix, release and publishing controls, monitoring plan, and a prioritized prevention backlog.</p>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Why did our Fabric Data Agent suddenly start returning wrong answers?</summary><p>A regression can come from the agent definition, instructions, example queries, source routing, a changed semantic model or schema, source data, permissions, policy, published state, an integration, or capacity conditions. Preserve the failing question, identity, channel, run steps, generated query, source result, and current definitions before changing the configuration. Comparing that evidence with the last known-good release narrows the failing layer.</p></details>
+          <details><summary>Can we roll back a Fabric Data Agent deployment?</summary><p>A practical rollback restores the last known-good item definition and environment bindings, publishes the restored version, and reruns critical answer, permission, and channel tests. Do not treat deployment-pipeline backward deployment as a universal rollback: Microsoft documents backward deployment only when the target stage is empty. Recovery must also account for changed source schemas, semantic models, permissions, and integrations.</p></details>
+          <details><summary>Why can a user open a Fabric Data Agent but get unauthorized or empty results?</summary><p>Sharing the Data Agent does not automatically grant access to every underlying source. Microsoft documents minimum source permissions for semantic models, lakehouses, warehouses, KQL databases, and ontologies. The investigation should reproduce the issue as the affected user and verify effective source access, RLS or CLS, Purview policy, published state, and the source selected for the failing question.</p></details>
+          <details><summary>What should we capture before changing a failing Fabric Data Agent?</summary><p>Capture the exact question, expected and actual answer, affected identity and channel, timestamp, conversation state, run steps, selected source, generated SQL DAX or KQL, direct source result, draft and published definitions, recent deployment and source changes, permissions, policy, integration logs, capacity state, and a list of impacted decisions. This evidence protects the diagnosis and the rollback path.</p></details>
+          <details><summary>How does Datrick handle an urgent Fabric Data Agent incident?</summary><p>Datrick starts with written scoping and an evidence checklist, then establishes severity, containment, ownership, and a diagnostic timeline. The response separates configuration, routing, query generation, data, identity, policy, publishing, integration, and capacity failures; restores a known-good service path; validates critical questions and personas; and delivers a root-cause record plus prevention backlog.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-routing">Improve data source routing in a Fabric Data Agent</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-sharing">Fabric Data Agent sharing and permission management</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent">Fabric Data Agent concept, governance, and limitations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/fabric">Fabric Data Agent integration troubleshooting</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-example-queries">Fabric Data Agent example queries and validation</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-source-control">Source control, CI/CD, and ALM for Fabric Data Agent</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the question or error that made production trust uncertain.</strong> Datrick can isolate the failing layer, restore a known-good path, validate the recovery, and leave the team with a repeatable incident and rollback runbook.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Immediately%20%2F%20this%20week&amp;engagement_type=Urgent%20support&amp;utm_source=fabric_data_agent_incident_response&amp;utm_medium=organic_content&amp;utm_campaign=data_agent_production_recovery&amp;utm_content=article_end#inquiry-form">Request urgent Data Agent support</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-standard-preview-runtime-evaluation-migration-assessment"><span>Isolate runtime regressions</span><strong>Compare standard and preview behavior</strong></a><a href="microsoft-fabric-data-agent-implementation-evaluation-services"><span>Answer quality</span><strong>Evaluate sources, queries, and responses</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

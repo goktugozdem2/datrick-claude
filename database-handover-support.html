@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Database Handover Recovery &amp; Ownership Support | Datrick</title>
+    <meta name="description" content="Recover database ownership after a failed handover: system inventory, access matrix, dependency mapping, risk register, runbooks, and stabilization planning.">
+    <link rel="canonical" href="https://datrick.com/database-handover-support.html">
+    <meta property="og:title" content="Database Handover Recovery &amp; Ownership Support | Datrick">
+    <meta property="og:description" content="Reconstruct database, BI, migration, reporting, access, dependency, runbook, and support ownership after a failed technical handover.">
+    <meta property="og:url" content="https://datrick.com/database-handover-support.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Service",
+            "name": "Database Handover Recovery",
+            "url": "https://datrick.com/database-handover-support.html",
+            "description": "Database ownership recovery after a failed or incomplete technical handover, including inventory, access, dependencies, risks, runbooks, stabilization planning, and support ownership.",
+            "provider": {
+              "@type": "Organization",
+              "name": "Datrick",
+              "url": "https://datrick.com/"
+            },
+            "areaServed": "Global"
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How is database handover recovery different from ordinary DBA support?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Ordinary DBA support assumes the operating environment, access, ownership, and procedures are already understood. Handover recovery reconstructs that missing control first: systems, credentials, dependencies, jobs, backups, reports, known issues, change history, runbooks, escalation paths, and accountable owners."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What if the previous database owner is unavailable or uncooperative?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Datrick works from evidence the organization is authorized to access: platform configuration, repositories, monitoring, logs, tickets, cloud accounts, reports, schedules, vendor records, and stakeholder interviews. Missing information is recorded as risk rather than guessed."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does Datrick recover or reset database credentials?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Datrick can help map access and coordinate an authorized recovery or rotation plan. Credential changes require a named approver, approved secure channels, dependency review, and a rollback or recovery path. Passwords and secrets should never be submitted through the website form."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What deliverables come from a database handover recovery engagement?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Typical deliverables include a system inventory, access and ownership matrix, dependency map, risk register, operating runbook, recurring-work calendar, stabilization backlog, escalation path, and an agreed ongoing support model. Final deliverables depend on scope and available evidence."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can the handover include BI reporting, pipelines, and migration work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Database ownership often crosses pipelines, scheduled jobs, dashboards, KPI definitions, integrations, migration plans, and stakeholder reporting. Datrick scopes those dependencies when they are required for operational continuity."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How long does database handover recovery take?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Timing is confirmed after written intake and initial inventory. It depends on environment size, access, evidence quality, stakeholder availability, platform complexity, active incidents, and the number of undocumented dependencies. Datrick uses phase gates rather than promising a fixed completion date before discovery."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero visual-hero">
+        <div>
+          <p class="eyebrow">Database handover recovery</p>
+          <h1>Reconstruct technical ownership before the next incident exposes the gap.</h1>
+          <p class="page-lede">Datrick rebuilds the operating context a team needs after a DBA, developer, manager, vendor, or reporting owner leaves without a usable transfer of knowledge.</p>
+          <div class="hero-actions"><a class="button primary" href="index.html?service=Database+handover+recovery&amp;engagement_type=Urgent+support&amp;utm_source=database_handover_support&amp;utm_medium=website&amp;utm_campaign=database_handover_recovery&amp;utm_content=hero&amp;buyer_type=CTO+%2F+technical+leader#contact">Describe the ownership gap</a><a class="button secondary" href="resource-database-handover.html">Use the handover checklist</a></div>
+        </div>
+        <div class="hero-visual-panel" aria-label="Database handover recovery map">
+          <div class="visual-header"><span>Ownership recovery</span><span>Evidence before assumptions</span></div>
+          <div class="flow-visual">
+            <div class="flow-step"><i>1</i><div><strong>Inventory</strong><small>Systems, databases, jobs, repositories, reports, integrations, environments, vendors, and stakeholders.</small></div><em>Surface</em></div>
+            <div class="flow-step"><i>2</i><div><strong>Access</strong><small>Authorized admin paths, service accounts, credential owners, permission gaps, and secure recovery decisions.</small></div><em>Control</em></div>
+            <div class="flow-step"><i>3</i><div><strong>Dependencies</strong><small>Backups, schedules, pipelines, dashboards, applications, alerts, migrations, and recurring work.</small></div><em>Trace</em></div>
+            <div class="flow-step"><i>4</i><div><strong>Ownership</strong><small>Runbooks, risks, escalation, stabilization backlog, named owners, and ongoing support boundaries.</small></div><em>Transfer</em></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section service-band">
+        <div class="section-heading"><p class="eyebrow">When recovery is needed</p><h2>A handover has failed when the organization cannot operate, change, or explain the environment without one person.</h2></div>
+        <div class="service-detail-grid">
+          <article><span class="service-tag">Departure</span><h3>The technical owner left before transfer</h3><p>Essential database, deployment, backup, reporting, migration, and incident knowledge remains in private notes, personal memory, or inaccessible accounts.</p></article>
+          <article><span class="service-tag">Responsiveness</span><h3>The current owner will not complete the handover</h3><p>A manager, vendor, developer, or contractor is unavailable, unresponsive, or provides partial information without a usable operating path.</p></article>
+          <article><span class="service-tag">Access</span><h3>Credentials and authority are unclear</h3><p>The organization does not know which accounts exist, who owns them, what depends on them, or how to recover access without causing another failure.</p></article>
+          <article><span class="service-tag">Operations</span><h3>Recurring work is undocumented</h3><p>Backups, refreshes, maintenance, deployments, alert review, data corrections, month-end jobs, and stakeholder reports depend on informal routines.</p></article>
+          <article><span class="service-tag">Change</span><h3>A migration or backlog is partly complete</h3><p>Plans, branches, validation decisions, defects, rollback notes, deadlines, and unresolved risks are spread across people and tools.</p></article>
+          <article><span class="service-tag">Transition</span><h3>A new internal or external team must take over</h3><p>The incoming owner needs evidence, access, priorities, runbooks, acceptance criteria, and a clear boundary between inherited risk and new responsibility.</p></article>
+        </div>
+      </section>
+
+      <section class="section architecture">
+        <div class="section-heading"><p class="eyebrow">Discovery inventory</p><h2>Recover the operating surface, not only the database list.</h2></div>
+        <div class="system-diagram" aria-label="Database handover discovery inventory">
+          <div class="diagram-row">
+            <div class="diagram-label">Technical estate<span>What exists</span></div>
+            <div class="diagram-cells">
+              <span><strong>Platforms</strong>Database engines, versions, hosting, environments, clusters, replicas, and storage.</span>
+              <span><strong>Applications</strong>Services, owners, connection paths, schemas, release processes, and critical transactions.</span>
+              <span><strong>Data movement</strong>Pipelines, schedules, integrations, queues, transformations, files, and external feeds.</span>
+              <span><strong>Reporting</strong>Dashboards, semantic models, KPI definitions, refresh paths, consumers, and deadlines.</span>
+            </div>
+          </div>
+          <div class="diagram-row">
+            <div class="diagram-label">Operating controls<span>How it stays reliable</span></div>
+            <div class="diagram-cells">
+              <span><strong>Access</strong>Named users, service accounts, privileged paths, approvers, secrets ownership, and rotation needs.</span>
+              <span><strong>Recovery</strong>Backups, retention, restore evidence, replication, recovery expectations, and tested procedures.</span>
+              <span><strong>Monitoring</strong>Alerts, dashboards, thresholds, on-call contacts, noise, known blind spots, and incident history.</span>
+              <span><strong>Change</strong>Repositories, tickets, migrations, deployment notes, approvals, rollback, vendors, and open commitments.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section service-band">
+        <div class="section-heading"><p class="eyebrow">Access recovery</p><h2>Regain control without treating credential rotation as an isolated task.</h2></div>
+        <div class="service-detail-grid two-up">
+          <article>
+            <span class="service-tag">Map first</span>
+            <h3>Identify accounts, owners, and dependencies</h3>
+            <ul>
+              <li>Human and service accounts across database, cloud, host, BI, pipeline, and monitoring systems.</li>
+              <li>Applications, jobs, reports, integrations, and vendors that depend on each credential or permission.</li>
+              <li>Named business and technical approvers for recovery, rotation, disablement, and emergency use.</li>
+              <li>Unknown, shared, dormant, over-privileged, or personally controlled access recorded as risk.</li>
+            </ul>
+          </article>
+          <article>
+            <span class="service-tag">Change safely</span>
+            <h3>Coordinate authorized recovery and rotation</h3>
+            <ul>
+              <li>Use approved secure channels; never submit passwords, keys, tokens, or private records through the website form.</li>
+              <li>Confirm dependency impact before disabling or rotating an account.</li>
+              <li>Sequence changes with monitoring, validation, communications, and rollback or recovery decisions.</li>
+              <li>Document the new owner, storage location, review cadence, and removal process.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section packages">
+        <div class="section-heading"><p class="eyebrow">Risk classification</p><h2>Classify missing knowledge by operating consequence, not documentation volume.</h2></div>
+        <div class="service-detail-grid two-up">
+          <article><span class="service-tag">Critical</span><h3>Control or recovery is immediately uncertain</h3><p>No authorized admin path, unknown backup or restore state, active production risk, unsupported client commitment, or a single inaccessible account controlling essential operations.</p></article>
+          <article><span class="service-tag">High</span><h3>Failure can interrupt a core service or deadline</h3><p>Recurring jobs, reporting, replication, releases, migrations, integrations, or vendor actions lack a verified owner, runbook, or escalation path.</p></article>
+          <article><span class="service-tag">Moderate</span><h3>Operations continue but depend on fragile knowledge</h3><p>Partial documentation exists, but it is stale, untested, scattered, or understood by too few people to support safe change and absence coverage.</p></article>
+          <article><span class="service-tag">Planned</span><h3>A transition is approaching with time to prepare</h3><p>The current owner remains available and the team can complete evidence capture, access transfer, runbook validation, and acceptance before responsibility changes.</p></article>
+        </div>
+        <p class="evidence-note"><strong>Classification is provisional until evidence is reviewed.</strong> A missing document is not automatically critical, and a healthy-looking system is not automatically low risk.</p>
+      </section>
+
+      <section class="section process dark-page">
+        <div class="section-heading"><p class="eyebrow">Recovery sequence</p><h2>Use phase gates so responsibility moves only when the evidence is usable.</h2></div>
+        <ol class="timeline">
+          <li><span>1</span><h3>Qualify</h3><p>Clarify why ownership changed, what is at risk, the required timeline, available stakeholders, current incidents, and legal authority.</p></li>
+          <li><span>2</span><h3>Inventory</h3><p>Map systems, environments, access paths, applications, jobs, reports, vendors, repositories, tickets, and unfinished commitments.</p></li>
+          <li><span>3</span><h3>Classify</h3><p>Separate critical access and recovery gaps from high, moderate, and planned transition work using operating consequences.</p></li>
+          <li><span>4</span><h3>Document</h3><p>Create runbooks, dependency maps, ownership records, recurring-work calendars, escalation paths, and known-issue notes.</p></li>
+          <li><span>5</span><h3>Validate</h3><p>Walk through or test essential procedures where authorized: access, monitoring, backups, restores, deployments, reporting, and handoff decisions.</p></li>
+          <li><span>6</span><h3>Transfer</h3><p>Agree the stabilization backlog, responsible owners, acceptance boundaries, support cadence, and any ongoing Datrick delivery scope.</p></li>
+        </ol>
+        <p class="commercial-note">Timing is confirmed after initial inventory. Environment size, access, evidence quality, active incidents, stakeholder availability, and dependency complexity determine the duration of each phase.</p>
+      </section>
+
+      <section class="section service-band">
+        <div class="section-heading"><p class="eyebrow">Core deliverables</p><h2>The output is a usable ownership system, not a document archive.</h2></div>
+        <div class="deliverable-grid">
+          <article><span>01</span><h3>Inventory and dependency map</h3><p>Systems, environments, applications, reports, pipelines, integrations, repositories, vendors, stakeholders, and critical dependencies.</p></article>
+          <article><span>02</span><h3>Access and ownership matrix</h3><p>Accounts, permission levels, current owners, approvers, recovery needs, rotation decisions, service dependencies, and review cadence.</p></article>
+          <article><span>03</span><h3>Risk register and runbooks</h3><p>Critical unknowns, recurring procedures, backup and restore expectations, monitoring, incident steps, reporting deadlines, and escalation paths.</p></article>
+          <article><span>04</span><h3>Stabilization and support plan</h3><p>Prioritized work, acceptance boundaries, named owners, validation needs, communication cadence, and the proposed ongoing operating model.</p></article>
+        </div>
+      </section>
+
+      <section class="section evidence-patterns">
+        <div class="section-heading"><p class="eyebrow">Representative recovery pattern</p><h2>A failed handover often begins as a people problem and becomes an operating risk.</h2></div>
+        <div class="service-detail-grid two-up">
+          <article><span class="service-tag">Situation</span><h3>A key person leaves or stops responding</h3><p>The organization still owns the systems and client commitments, but databases, reports, migrations, credentials, and recurring work cannot be explained or safely changed by the remaining team.</p></article>
+          <article><span class="service-tag">Recovery</span><h3>Evidence is reconstructed across tools and stakeholders</h3><p>Datrick maps the estate, records missing access and dependencies as risk, creates runbooks and ownership records, validates critical procedures where authorized, and defines the stabilization or support path.</p></article>
+        </div>
+        <p class="evidence-note"><strong>Evidence boundary</strong>This is a representative operating pattern, not a promise that every missing artifact can be recovered or that every environment can be accepted.</p>
+      </section>
+
+      <section class="section packages">
+        <div class="section-heading"><p class="eyebrow">Engagement options</p><h2>Choose the smallest scope that restores responsible ownership.</h2></div>
+        <div class="package-grid">
+          <article><span class="package-label">Assessment</span><h3>Handover risk and inventory review</h3><p>Establish the known estate, missing access, critical dependencies, evidence quality, immediate risks, and a phased recovery recommendation.</p><strong>Best for</strong><span>Teams that need to understand the size of the gap.</span></article>
+          <article><span class="package-label">Recovery sprint</span><h3>Ownership reconstruction and validation</h3><p>Build the inventory, access matrix, dependency map, risk register, runbooks, recurring-work calendar, and stabilization backlog.</p><strong>Best for</strong><span>Incomplete or failed handovers requiring active recovery.</span></article>
+          <article><span class="package-label">Ongoing operations</span><h3>Continue with named delivery ownership</h3><p>Operate the recovered environment through monitoring context, incident support, backups, restore readiness, performance, reporting, documentation, and improvement cadence.</p><strong>Best for</strong><span>Teams that need sustained DBA and data operations capacity.</span></article>
+        </div>
+      </section>
+
+      <section class="section service-band">
+        <div class="section-heading"><p class="eyebrow">FAQ</p><h2>Questions teams ask when technical ownership has not transferred cleanly.</h2></div>
+        <div class="faq-list">
+          <details><summary>How is database handover recovery different from ordinary DBA support?</summary><p>Ordinary DBA support assumes the operating environment, access, ownership, and procedures are already understood. Handover recovery reconstructs that missing control first: systems, credentials, dependencies, jobs, backups, reports, known issues, change history, runbooks, escalation paths, and accountable owners.</p></details>
+          <details><summary>What if the previous database owner is unavailable or uncooperative?</summary><p>Datrick works from evidence the organization is authorized to access: platform configuration, repositories, monitoring, logs, tickets, cloud accounts, reports, schedules, vendor records, and stakeholder interviews. Missing information is recorded as risk rather than guessed.</p></details>
+          <details><summary>Does Datrick recover or reset database credentials?</summary><p>Datrick can help map access and coordinate an authorized recovery or rotation plan. Credential changes require a named approver, approved secure channels, dependency review, and a rollback or recovery path. Passwords and secrets should never be submitted through the website form.</p></details>
+          <details><summary>What deliverables come from a database handover recovery engagement?</summary><p>Typical deliverables include a system inventory, access and ownership matrix, dependency map, risk register, operating runbook, recurring-work calendar, stabilization backlog, escalation path, and an agreed ongoing support model. Final deliverables depend on scope and available evidence.</p></details>
+          <details><summary>Can the handover include BI reporting, pipelines, and migration work?</summary><p>Yes. Database ownership often crosses pipelines, scheduled jobs, dashboards, KPI definitions, integrations, migration plans, and stakeholder reporting. Datrick scopes those dependencies when they are required for operational continuity.</p></details>
+          <details><summary>How long does database handover recovery take?</summary><p>Timing is confirmed after written intake and initial inventory. It depends on environment size, access, evidence quality, stakeholder availability, platform complexity, active incidents, and the number of undocumented dependencies. Datrick uses phase gates rather than promising a fixed completion date before discovery.</p></details>
+        </div>
+        <p class="evidence-note"><strong>Comparing recovery and ongoing support?</strong> <a href="outsourced-dba-services-pricing">Review the outsourced DBA pricing and proposal checklist.</a> If an active production incident cannot wait for the handover assessment, use the <a href="emergency-dba-support.html">emergency DBA support intake</a>.</p>
+      </section>
+
+      <section class="cta-band">
+        <div><p class="eyebrow">Start with incomplete evidence</p><h2>Describe who left, what the team cannot operate, and the timeline for ownership transfer.</h2><p>A senior lead will review the gap and respond with a recovery recommendation or the qualifying questions needed to scope responsible support.</p></div>
+        <a class="button dark-button" href="index.html?service=Database+handover+recovery&amp;engagement_type=Urgent+support&amp;utm_source=database_handover_support&amp;utm_medium=website&amp;utm_campaign=database_handover_recovery&amp;utm_content=page_end&amp;buyer_type=CTO+%2F+technical+leader#contact">Start handover scoping</a>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

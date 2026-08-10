@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Private Repository Coding Agent Benchmark Guide | Datrick</title>
+    <meta name="description" content="How to benchmark coding agents on private repositories using isolated runners, protected tasks, executable checks, human review, and controlled evidence.">
+    <link rel="canonical" href="https://datrick.com/coding-agent-benchmark-private-repositories">
+    <meta property="og:title" content="Private Repository Coding Agent Benchmark Guide | Datrick">
+    <meta property="og:description" content="Build a useful private-repository coding benchmark without exposing unrestricted source, secrets, protected tests, or production access.">
+    <meta property="og:url" content="https://datrick.com/coding-agent-benchmark-private-repositories">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "headline": "How to Benchmark Coding Agents on Private Repositories Without Exposing Source Code",
+            "description": "How to benchmark coding agents on private repositories using isolated runners, protected tasks, executable checks, human review, and controlled evidence.",
+            "url": "https://datrick.com/coding-agent-benchmark-private-repositories",
+            "datePublished": "2026-07-14",
+            "dateModified": "2026-07-14",
+            "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"},
+            "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}},
+            "mainEntityOfPage": "https://datrick.com/coding-agent-benchmark-private-repositories"
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Can coding agents be benchmarked on private repositories without sharing the source code publicly?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Yes. A private benchmark can run inside an authorized, isolated environment where the repository, task data, credentials, tests, traces, and artifacts remain under defined access, retention, and deletion controls. The organization must still review the selected model provider, deployment route, data terms, network path, logging, and personnel access."}
+              },
+              {
+                "@type": "Question",
+                "name": "How do you create coding-agent tasks from a private repository?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Use representative issue types, incidents, maintenance work, and planned changes, then convert them into versioned tasks with a fixed baseline commit, clear requirements, allowed tools, prohibited changes, reference evidence, executable checks, and known limitations. Remove secrets and customer data before authoring or running tasks."}
+              },
+              {
+                "@type": "Question",
+                "name": "Which graders should a private coding-agent benchmark use?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Use deterministic checks for required behavior, regressions, repository state, builds, types, lint, security rules, and policy boundaries. Add technical human review for ambiguous requirements, architecture, maintainability, security consequences, and completion claims. Model-based graders can assist only after calibration against trusted decisions."}
+              },
+              {
+                "@type": "Question",
+                "name": "How do you prevent contamination in a private coding benchmark?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Keep release tasks and hidden checks access-controlled, separate authoring from evaluation roles, avoid reusing benchmark solutions in prompts or training examples, version task exposure, rotate compromised tasks, monitor unusual memorization signals, and report results with the exact task-suite version."}
+              },
+              {
+                "@type": "Question",
+                "name": "What should a private repository coding-agent pilot deliver?",
+                "acceptedAnswer": {"@type": "Answer", "text": "A pilot should deliver an approved threat model, task-suite specification, isolated runner design, representative tasks, executable and human graders, reviewer calibration, repeated baseline runs, error analysis, limitations, and a recommendation to expand, revise, or stop."}
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Private repository coding-agent benchmarks</p>
+          <h1>How do you benchmark coding agents on private repositories without exposing source code?</h1>
+          <p class="page-lede">A practical design for protected task suites, isolated execution, least-privilege access, executable graders, technical review, contamination controls, and repeatable release evidence.</p>
+          <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=private_repo_coding_benchmark&amp;utm_medium=organic_content&amp;utm_campaign=technical_ai_evaluation&amp;utm_content=hero#inquiry-form">Scope a private benchmark pilot</a></div>
+          <div class="article-meta"><a href="resources.html">Resource library</a><span>Private coding evaluation</span><span>13 min read</span></div>
+        </div>
+      </section>
+
+      <section class="section service-band">
+        <article class="article-body">
+          <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#task-suite">Task suite</a><a href="#secure-runner">Secure runner</a><a href="#grading">Grading</a><a href="#pilot">Pilot plan</a></nav>
+
+          <p>Public coding benchmarks answer a useful but limited question: how an agent performs on a shared task suite under a particular harness and environment. They do not show whether that agent can work safely and effectively inside a specific organization's architecture, conventions, languages, tooling, security boundaries, or maintenance workload.</p>
+
+          <p>A private-repository benchmark can provide that missing evidence, but it introduces two linked responsibilities. The benchmark must protect source code, credentials, customer data, hidden checks, and internal context. It must also produce a valid measurement. A secure benchmark with broken tasks is not useful, and a rigorous benchmark that leaks protected assets is not acceptable.</p>
+
+          <section class="readiness-actions"><p><strong>Need repository-level evidence before selecting or releasing a coding agent?</strong> Datrick supports private task design, reference solutions, executable graders, technical review, calibration, error analysis, and managed evaluation delivery under agreed access controls.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=private_repo_coding_benchmark&amp;utm_medium=organic_content&amp;utm_campaign=technical_ai_evaluation&amp;utm_content=article_intro#inquiry-form">Describe the repository benchmark</a><a class="button secondary" href="coding-agent-evaluation-services">Review the evaluation system</a></div></section>
+
+          <h2>Start with the decision the benchmark must support</h2>
+          <p>State whether the result will select a model, compare agent harnesses, approve a release, qualify a new workflow, set permission boundaries, or measure regression over time. Then name the decision owner and the consequences of false confidence. A benchmark for autocomplete, autonomous issue resolution, security remediation, and migration work should not use the same tasks or acceptance thresholds.</p>
+
+          <p>Record the exact model, version, agent harness, prompts, tools, permissions, repository commit, dependency state, compute limits, network policy, retries, time budget, and grader versions. Anthropic's <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">agent evaluation guidance</a> distinguishes the model from the agent harness and the evaluation harness. That distinction matters: the result belongs to the complete tested system, not to the model name alone.</p>
+
+          <h2 id="task-suite">Build representative tasks without turning private history into a leak</h2>
+          <p>Mine candidate tasks from authorized issue types, maintenance work, incidents, code review findings, migrations, feature changes, and support patterns. Do not copy production secrets, customer records, credentials, restricted logs, or sensitive business rules into prompts. Where a real task contains protected information that is irrelevant to the capability, redact, replace, or reconstruct it in a controlled fixture.</p>
+
+          <p>Each task needs a fixed baseline commit, visible requirements, allowed tools, prohibited changes, environment definition, setup steps, reference evidence, fail-to-pass checks, pass-to-pass checks, expected state, and known limitations. A task author should demonstrate that required checks fail before the intended change and pass after a trusted solution.</p>
+
+          <div class="article-table-wrap" role="region" aria-label="Private repository benchmark task specification" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Private repository benchmark task specification</caption>
+              <thead><tr><th scope="col">Task component</th><th scope="col">Required evidence</th><th scope="col">Failure to avoid</th></tr></thead>
+              <tbody>
+                <tr><td>Baseline</td><td>Immutable repository commit, dependencies, configuration, fixtures, and tool versions.</td><td>The same task behaves differently because the environment moved.</td></tr>
+                <tr><td>Prompt</td><td>Observable requirement, context reasonably available in the repository, constraints, and acceptance language.</td><td>Hidden tests enforce behavior the prompt and codebase do not imply.</td></tr>
+                <tr><td>Reference</td><td>Trusted patch or outcome, author notes, alternatives, and known edge cases.</td><td>One implementation is treated as the only valid solution without justification.</td></tr>
+                <tr><td>Required checks</td><td>Tests or state checks that fail before the fix and pass after it.</td><td>A visible happy-path test passes while the required behavior remains incomplete.</td></tr>
+                <tr><td>Regression checks</td><td>Existing tests, build, types, lint, integration checks, and protected behavior.</td><td>The task is solved by breaking an adjacent workflow or weakening a test.</td></tr>
+                <tr><td>Security class</td><td>Repository sensitivity, data restrictions, allowed providers, network rules, artifacts, and retention.</td><td>A low-risk task silently exposes high-risk repository material or secrets.</td></tr>
+              </tbody>
+            </table></div>
+
+          <h2>Audit tasks before trusting a score</h2>
+          <p>Review prompt quality, test coverage, reference behavior, repository context, environment stability, and whether the task measures the intended capability. OpenAI's <a href="https://openai.com/index/separating-signal-from-noise-coding-evaluations/">coding-evaluation audit</a> identifies overly strict tests, underspecified prompts, low test coverage, and misleading prompts as benchmark failure classes. A private suite needs the same skepticism, even when tasks came from real engineering work.</p>
+
+          <p>Use independent technical review for a sample of tasks before scaling. Classify defects separately from model failures. If an experienced engineer can reasonably satisfy the written task and still fail protected checks, the benchmark may be measuring author assumptions rather than coding ability.</p>
+
+          <h2 id="secure-runner">Run the agent in an isolated, least-privilege environment</h2>
+          <p>The benchmark runner should receive only the repository material, tools, network destinations, credentials, and time required for the task. Start from an approved baseline, create an ephemeral writable workspace, execute under a non-production identity, capture defined evidence, and destroy the environment after the retention step completes.</p>
+
+          <div class="article-table-wrap" role="region" aria-label="Private coding benchmark security controls" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Private coding benchmark security controls</caption>
+              <thead><tr><th scope="col">Control</th><th scope="col">Purpose</th><th scope="col">Implementation question</th></tr></thead>
+              <tbody>
+                <tr><td>Repository scope</td><td>Limit exposure to the minimum code and history required by the task.</td><td>Does the agent need the full monorepo, commit history, sibling services, or only a bounded checkout?</td></tr>
+                <tr><td>Ephemeral compute</td><td>Prevent residue, cross-run influence, and persistence after evaluation.</td><td>Is each run isolated, reset from a trusted image, and destroyed after artifacts are collected?</td></tr>
+                <tr><td>Least privilege</td><td>Reduce the consequence of agent or workflow failure.</td><td>Are tokens read-only by default, scoped to the task, short-lived, attributable, and revocable?</td></tr>
+                <tr><td>Secret isolation</td><td>Keep credentials and protected configuration out of prompts, logs, patches, and model context.</td><td>Can the task use fixtures or brokered capabilities instead of raw production secrets?</td></tr>
+                <tr><td>Network control</td><td>Restrict data movement and uncontrolled dependency or tool access.</td><td>Which endpoints are required, logged, denied, or replaced with internal mirrors?</td></tr>
+                <tr><td>Artifact policy</td><td>Control patches, traces, test output, screenshots, caches, and generated files.</td><td>Who can access artifacts, what is redacted, and when are they deleted?</td></tr>
+                <tr><td>Human access</td><td>Apply the same protection to authors, reviewers, operators, and vendors.</td><td>Are roles separated, access approved, activity logged, and removal verified?</td></tr>
+              </tbody>
+            </table></div>
+
+          <p>GitHub's <a href="https://docs.github.com/en/actions/reference/security/secure-use">secure-use guidance for Actions</a> recommends least privilege and warns about untrusted code and secret exposure. Those principles apply directly to coding-agent benchmarks: generated code and task-controlled text should be treated as untrusted, and a runner must not inherit broad repository or production authority merely because it lives inside an engineering environment.</p>
+
+          <h2>Separate the model connection from repository custody</h2>
+          <p>Document where prompts and code context are processed, which provider or deployment receives them, whether data may be retained or used for training, which regions and subprocessors apply, how logs are handled, and who can inspect requests. Do not claim that source code never leaves the organization unless the architecture and contracts actually establish that fact.</p>
+
+          <p>Several deployment patterns may be valid: an organization-controlled environment calling an approved model API, a cloud deployment inside an approved tenant, a provider-managed coding agent with enterprise controls, or a fully internal model. The correct choice depends on source sensitivity, contractual terms, threat model, performance, model capability, and operational ownership. Benchmark the deployment pattern that could actually be approved for production.</p>
+
+          <h2 id="grading">Combine executable evidence with bounded technical review</h2>
+          <p>Use deterministic checks for claims software can prove: required behavior, regressions, repository state, file boundaries, builds, types, lint, security rules, migrations, and policy constraints. Preserve command output and final state. Run checks outside the agent's control where weakening or replacing the grader is a plausible shortcut.</p>
+
+          <p>Use qualified engineers where correctness is contextual: architecture, maintainability, security consequences, appropriate scope, repository conventions, ambiguous requirements, and whether the completion claim matches the evidence. Reviewers should cite the patch, task, tests, codebase, or trajectory rather than assign an unexplained quality score.</p>
+
+          <h2>Control infrastructure noise before comparing small score differences</h2>
+          <p>Repeat a sample of runs and track environment failures separately from agent failures. Record dependency downloads, timeouts, resource limits, flaky tests, network errors, runner initialization, tool failures, and retry policy. Anthropic's <a href="https://www.anthropic.com/engineering/infrastructure-noise">research on infrastructure noise in agentic coding evals</a> shows that configuration can materially change benchmark outcomes. A private comparison needs matched environments and uncertainty, not one run presented as precision.</p>
+
+          <p>Publish task-level outcomes, error categories, repeated-run behavior, latency, cost, intervention, and limitations alongside aggregate scores. Averages can hide that one agent succeeds on routine edits but fails security-sensitive or cross-module tasks.</p>
+
+          <h2>Protect the holdout set from contamination</h2>
+          <p>Separate development tasks from protected release tasks. Restrict access to prompts, hidden checks, reference patches, and results; track which people, systems, and model workflows have seen them. Do not use release solutions as few-shot examples, reviewer training material, or debugging context for the agent being measured. Rotate tasks when exposure can no longer be bounded.</p>
+
+          <p>Contamination is not only a public-benchmark problem. Internal agents may retain conversation history, developers may tune prompts against the same tasks repeatedly, and task authors may unintentionally reveal expected implementation details. Report the suite version and exposure status with every result.</p>
+
+          <h2 id="pilot">What a private repository benchmark pilot should deliver</h2>
+          <ol>
+            <li>An approved decision statement, repository scope, threat model, provider review, data classification, and named owners.</li>
+            <li>A versioned task specification and a small representative suite with baseline commits, reference evidence, and author validation.</li>
+            <li>An isolated runner design covering identity, repository access, network, secrets, compute, artifacts, logging, retention, and destruction.</li>
+            <li>Executable graders for required behavior, regressions, state, build, types, security, and task-specific constraints.</li>
+            <li>A technical review rubric, independent calibration sample, disagreement classes, adjudication, and escalation rules.</li>
+            <li>Repeated baseline runs, infrastructure-failure accounting, task audit, contamination status, error analysis, and limitations.</li>
+            <li>A release, selection, revise, or stop recommendation tied to the original decision rather than a leaderboard claim.</li>
+          </ol>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-list">
+            <details><summary>Can coding agents be benchmarked on private repositories without sharing the source code publicly?</summary><p>Yes. A private benchmark can run inside an authorized, isolated environment where the repository, task data, credentials, tests, traces, and artifacts remain under defined access, retention, and deletion controls. The organization must still review the selected model provider, deployment route, data terms, network path, logging, and personnel access.</p></details>
+            <details><summary>How do you create coding-agent tasks from a private repository?</summary><p>Use representative issue types, incidents, maintenance work, and planned changes, then convert them into versioned tasks with a fixed baseline commit, clear requirements, allowed tools, prohibited changes, reference evidence, executable checks, and known limitations. Remove secrets and customer data before authoring or running tasks.</p></details>
+            <details><summary>Which graders should a private coding-agent benchmark use?</summary><p>Use deterministic checks for required behavior, regressions, repository state, builds, types, lint, security rules, and policy boundaries. Add technical human review for ambiguous requirements, architecture, maintainability, security consequences, and completion claims. Model-based graders can assist only after calibration against trusted decisions.</p></details>
+            <details><summary>How do you prevent contamination in a private coding benchmark?</summary><p>Keep release tasks and hidden checks access-controlled, separate authoring from evaluation roles, avoid reusing benchmark solutions in prompts or training examples, version task exposure, rotate compromised tasks, monitor unusual memorization signals, and report results with the exact task-suite version.</p></details>
+            <details><summary>What should a private repository coding-agent pilot deliver?</summary><p>A pilot should deliver an approved threat model, task-suite specification, isolated runner design, representative tasks, executable and human graders, reviewer calibration, repeated baseline runs, error analysis, limitations, and a recommendation to expand, revise, or stop.</p></details>
+          </div>
+
+          <section class="readiness-actions"><p><strong>Start with one repository and one representative task family.</strong> Datrick can review the security boundary, task quality, runner design, graders, expert review, and evidence needed for a useful model or release decision.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=private_repo_coding_benchmark&amp;utm_medium=organic_content&amp;utm_campaign=technical_ai_evaluation&amp;utm_content=article_end#inquiry-form">Scope the private benchmark</a></div></section>
+
+          <nav class="article-next" aria-label="Resource next steps"><a href="coding-agent-evaluation-services"><span>Evaluation system</span><strong>Coding agent evaluation services</strong></a><a href="llm-as-judge-calibration-code"><span>Automated review</span><strong>Code judge calibration guide</strong></a></nav>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

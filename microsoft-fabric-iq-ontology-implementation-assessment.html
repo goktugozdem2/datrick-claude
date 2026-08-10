@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Microsoft Fabric IQ Ontology Implementation Assessment | Datrick</title>
+    <meta name="description" content="Design and evaluate a Microsoft Fabric IQ Ontology across business vocabulary, entities, properties, relationships, source bindings, governance, and AI agent grounding.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-iq-ontology-implementation-assessment">
+    <meta property="og:title" content="Microsoft Fabric IQ Ontology Implementation Assessment | Datrick">
+    <meta property="og:description" content="Turn one business domain into a governed ontology and prove whether it improves agent grounding.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-iq-ontology-implementation-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric IQ Ontology Implementation Assessment", "description": "Design and evaluate a Microsoft Fabric IQ Ontology across business vocabulary, entities, properties, relationships, source bindings, governance, and AI agent grounding.", "url": "https://datrick.com/microsoft-fabric-iq-ontology-implementation-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-iq-ontology-implementation-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is an ontology in Microsoft Fabric IQ?", "acceptedAnswer": {"@type": "Answer", "text": "A Fabric IQ Ontology is a business-semantic model that defines domain entities, their properties, relationships, and source bindings. It provides a shared vocabulary and connected business context over data in Fabric. Ontologies can support graph exploration and serve as a grounding source for supported Fabric and Copilot agent experiences."}},
+            {"@type": "Question", "name": "When should an organization use a Fabric IQ Ontology?", "acceptedAnswer": {"@type": "Answer", "text": "Use an ontology when important questions require consistent business entities and relationships across multiple data products or processes, and when agents or users need more context than a single table or semantic model provides. Do not create one merely to rename columns. Start with a bounded domain, measurable questions, accountable subject-matter experts, and suitable governed data."}},
+            {"@type": "Question", "name": "Can Fabric IQ create an ontology from a Power BI semantic model?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft provides paths to shape an initial ontology from an existing Power BI semantic model or OneLake data. This can accelerate entity and relationship discovery, but generated structure still needs business review. The ontology must represent approved business identity, meaning, relationships, source authority, cardinality, quality, security, and lifecycle rather than simply mirror technical metadata."}},
+            {"@type": "Question", "name": "How do you evaluate whether a Fabric IQ Ontology improves an AI agent?", "acceptedAnswer": {"@type": "Answer", "text": "Build matched question sets with and without ontology grounding. Measure entity resolution, relationship traversal, source selection, query correctness, calculation accuracy, security, explanation, ambiguity handling, reproducibility, latency, and user utility against deterministic expected results. Inspect failures and require a material improvement over a simpler semantic model or data-agent baseline."}},
+            {"@type": "Question", "name": "How long does a Fabric IQ Ontology pilot take?", "acceptedAnswer": {"@type": "Answer", "text": "A bounded discovery, ontology design, source binding, and Data Agent evaluation pilot can often be completed in four to six weeks for one domain when owners, business vocabulary, representative sources, permissions, and target questions are available. Broader enterprise ontology work takes longer and should expand only after the first domain demonstrates maintainable value."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Microsoft Fabric IQ Ontology assessment</p>
+        <h1>Turn one business domain into governed context that AI agents can understand.</h1>
+        <p class="page-lede">Define entities and relationships, bind them to authoritative Fabric data, govern semantic change, and prove whether ontology grounding improves agent answers.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=fabric_iq_ontology&amp;utm_medium=organic_content&amp;utm_campaign=fabric_ontology_pilot_scoping&amp;utm_content=hero#inquiry-form">Describe the business domain</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Ontology and AI grounding</span><span>9 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#case">Use-case selection</a><a href="#design">Ontology design</a><a href="#binding">Source binding</a><a href="#evaluation">Agent evaluation</a><a href="#pilot">Pilot plan</a></nav>
+
+        <p>Enterprise data often describes the same customer, product, order, asset, location, or service differently across systems. A report can hide that fragmentation behind one curated model. An AI agent answering cross-domain questions must resolve identity, terminology, properties, and relationships across a wider operational context. Without governed semantics, fluent answers can connect the wrong things.</p>
+        <p>Datrick treats Fabric IQ Ontology as a controlled semantic product, not a diagramming exercise. AI can accelerate candidate entity discovery, terminology mapping, relationship extraction, source profiling, question generation, and failure classification. Domain owners approve meaning and authority; engineers bind the model to tested data; evaluation proves whether the ontology improves the intended agent use case.</p>
+
+        <section class="readiness-actions"><p><strong>Do multiple teams and agents use different meanings for the same business entity?</strong> Start with one domain and the questions that require connected context.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=fabric_iq_ontology&amp;utm_medium=organic_content&amp;utm_campaign=fabric_ontology_pilot_scoping&amp;utm_content=article_intro#inquiry-form">Send the ontology context</a><a class="button secondary" href="microsoft-fabric-data-agent-implementation-evaluation-services">Review Data Agent implementation</a></div></section>
+
+        <h2 id="case">Select a use case that needs an ontology</h2>
+        <p>Choose questions that span entities, relationships, time, and multiple governed data products: customer exposure across contracts and service incidents, asset dependencies and maintenance risk, supplier orders and delivery disruption, product inventory and demand, or account relationships across sales and support. Define user, decision, source systems, expected graph traversal, business value, risk, and deterministic answer.</p>
+        <p>Compare the ontology approach with simpler alternatives. A single semantic model, governed view, Data Agent source instruction, or explicit API may solve a bounded question with less complexity. The pilot should prove that cross-domain consistency, relationship reasoning, reuse, or agent grounding creates material value beyond those options.</p>
+
+        <h2 id="design">Build an accountable ontology design contract</h2>
+        <div class="article-table-wrap" role="region" aria-label="Microsoft Fabric IQ Ontology design contract" tabindex="0"><table class="article-table"><caption class="sr-only">Microsoft Fabric IQ Ontology design contract</caption>
+          <thead><tr><th scope="col">Design domain</th><th scope="col">Evidence</th><th scope="col">Decision</th></tr></thead>
+          <tbody>
+            <tr><td>Business vocabulary</td><td>Terms, definitions, synonyms, prohibited conflations, source terminology, owners, and examples.</td><td>What does each concept mean, and who can approve that meaning?</td></tr>
+            <tr><td>Entity identity</td><td>Keys, natural identifiers, survivorship, duplicates, history, source authority, and lifecycle.</td><td>When are two records the same business thing?</td></tr>
+            <tr><td>Properties</td><td>Type, unit, allowed values, derivation, quality, sensitivity, temporality, and source field.</td><td>Which attributes are stable, calculated, sensitive, or context-dependent?</td></tr>
+            <tr><td>Relationships</td><td>Direction, cardinality, validity period, business rule, source evidence, confidence, and owner.</td><td>How are entities connected, and when is that connection valid?</td></tr>
+            <tr><td>Source binding</td><td>Fabric items, tables, semantic models, joins, refresh, lineage, permissions, and reconciliation.</td><td>Which governed data proves each entity, property, and relationship?</td></tr>
+            <tr><td>Consumption</td><td>Data Agents, graph exploration, Copilot Studio, Foundry, MCP tools, users, questions, and service levels.</td><td>Which supported experience consumes the ontology, under what identity and limitation?</td></tr>
+            <tr><td>Governance</td><td>Versions, environments, review, change impact, testing, deployment, monitoring, incidents, and retirement.</td><td>How does semantic change reach production without breaking consumers?</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Start narrow. Define only entities and relationships needed by the selected decisions. An enterprise-wide model created before real questions often becomes abstract, disputed, and unmaintained. Establish naming conventions, modeling principles, ownership, acceptance tests, and a process for unresolved semantic conflict.</p>
+
+        <h2 id="binding">Bind business meaning to governed data</h2>
+        <p>Profile candidate OneLake sources and Power BI semantic models for keys, duplicates, nulls, relationships, historical behavior, quality, latency, sensitivity, and ownership. Map ontology entity types and properties to authoritative fields. Test relationship cardinality and orphan behavior. Record transformations and avoid binding the same concept to conflicting sources without an explicit authority rule.</p>
+        <p>Microsoft provides paths to begin from an existing semantic model or OneLake data. Treat generated or inferred structure as a draft. A technical relationship does not automatically represent the business relationship an agent should use. Domain experts must approve identity, meaning, temporal validity, and exceptions.</p>
+
+        <h2>Design security and preview boundaries</h2>
+        <p>Fabric IQ Ontology capabilities are currently preview and can change. Record region, capacity, item, integration, deployment, API, permission, and support assumptions. Define a production decision gate and an exit path that preserves source models, definitions, tests, and business documentation if preview behavior changes or does not meet requirements.</p>
+        <p>Test ontology and connected-agent access with representative personas. The ontology must not become a path around source security, RLS, CLS, sensitivity, restricted access, or Purview policy. Document how identities flow through Fabric Data Agents, Copilot Studio, Foundry, or MCP integrations, and verify negative access outcomes end to end.</p>
+
+        <h2 id="evaluation">Prove agent improvement with matched evaluation</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric IQ Ontology evaluation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric IQ Ontology evaluation matrix</caption>
+          <thead><tr><th scope="col">Evaluation dimension</th><th scope="col">Matched test</th><th scope="col">Failure example</th></tr></thead>
+          <tbody>
+            <tr><td>Entity resolution</td><td>Ask questions using identifiers, synonyms, partial names, duplicate records, and historical identities.</td><td>Agent merges two customers or treats one renamed asset as two entities.</td></tr>
+            <tr><td>Relationship traversal</td><td>Test approved paths, direction, cardinality, multi-hop questions, missing links, and temporal validity.</td><td>Current supplier relationship is applied to a historical order before the contract existed.</td></tr>
+            <tr><td>Source and metric correctness</td><td>Compare selected sources, queries, measures, filters, periods, and results with deterministic controls.</td><td>Ontology context is correct but the agent uses a non-authoritative revenue source.</td></tr>
+            <tr><td>Security</td><td>Run the same graph questions across permitted, restricted, external, and application identities.</td><td>A relationship reveals existence of a restricted account even when properties are hidden.</td></tr>
+            <tr><td>Ambiguity and scope</td><td>Test conflicting definitions, missing time, unsupported actions, incomplete relationships, and expected clarification.</td><td>Agent chooses one regional definition of active customer without asking for scope.</td></tr>
+            <tr><td>Comparative value</td><td>Run matched questions against ontology grounding and the simpler baseline.</td><td>Ontology adds latency and maintenance but does not improve correctness or supported coverage.</td></tr>
+            <tr><td>Change resilience</td><td>Repeat after source schema, semantic model, relationship, instruction, permission, or product changes.</td><td>Binding silently breaks and the agent falls back to an incorrect source.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Version question, persona, expected entities, traversal, source, query, result, data snapshot, narrative, prohibited content, and score. Include positive, negative, ambiguity, missing-data, stale-data, and malicious-data tests. Require a measurable improvement in correctness, coverage, or user effort before expanding the ontology.</p>
+
+        <h2>Govern semantic change as production change</h2>
+        <p>Every entity, property, relationship, binding, and definition change can alter agent answers. Require an owner, reason, impact analysis, review, test, deployment record, rollback, and communication. Monitor binding failures, orphan rates, source freshness, entity duplication, agent errors, low-confidence questions, access failures, and user corrections.</p>
+        <p>Establish a domain steward and technical owner. Review the ontology with data-product owners rather than creating a central team that changes business meaning alone. Expand to adjacent domains only when ownership, reuse, quality, evaluation, and maintenance cost support it.</p>
+
+        <h2 id="pilot">Run a four-to-six-week ontology pilot</h2>
+        <ol>
+          <li>Select one domain, high-value questions, users, sources, accountable experts, agent consumer, baseline, and measurable success criteria.</li>
+          <li>Assess whether an ontology is justified compared with a semantic model, governed view, source instructions, or explicit application logic.</li>
+          <li>Define business vocabulary, entity identity, properties, relationships, temporal rules, sensitivity, owners, and unresolved conflicts.</li>
+          <li>Profile and prepare authoritative Fabric sources, then bind the ontology and reconcile representative entity and relationship data.</li>
+          <li>Connect a Fabric Data Agent or supported pilot consumer under representative user permissions and documented preview constraints.</li>
+          <li>Create matched baseline and ontology-grounded evaluation suites for correctness, security, ambiguity, latency, and utility.</li>
+          <li>Run the pilot, classify failures, improve the durable semantic or source layer, and repeat the tests.</li>
+          <li>Deliver the ontology, glossary, binding map, source controls, evaluation suite, security model, governance workflow, limitations, backlog, and scale/hold/stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is an ontology in Microsoft Fabric IQ?</summary><p>A Fabric IQ Ontology is a business-semantic model that defines domain entities, their properties, relationships, and source bindings. It provides a shared vocabulary and connected business context over data in Fabric. Ontologies can support graph exploration and serve as a grounding source for supported Fabric and Copilot agent experiences.</p></details>
+          <details><summary>When should an organization use a Fabric IQ Ontology?</summary><p>Use an ontology when important questions require consistent business entities and relationships across multiple data products or processes, and when agents or users need more context than a single table or semantic model provides. Do not create one merely to rename columns. Start with a bounded domain, measurable questions, accountable subject-matter experts, and suitable governed data.</p></details>
+          <details><summary>Can Fabric IQ create an ontology from a Power BI semantic model?</summary><p>Microsoft provides paths to shape an initial ontology from an existing Power BI semantic model or OneLake data. This can accelerate entity and relationship discovery, but generated structure still needs business review. The ontology must represent approved business identity, meaning, relationships, source authority, cardinality, quality, security, and lifecycle rather than simply mirror technical metadata.</p></details>
+          <details><summary>How do you evaluate whether a Fabric IQ Ontology improves an AI agent?</summary><p>Build matched question sets with and without ontology grounding. Measure entity resolution, relationship traversal, source selection, query correctness, calculation accuracy, security, explanation, ambiguity handling, reproducibility, latency, and user utility against deterministic expected results. Inspect failures and require a material improvement over a simpler semantic model or data-agent baseline.</p></details>
+          <details><summary>How long does a Fabric IQ Ontology pilot take?</summary><p>A bounded discovery, ontology design, source binding, and Data Agent evaluation pilot can often be completed in four to six weeks for one domain when owners, business vocabulary, representative sources, permissions, and target questions are available. Broader enterprise ontology work takes longer and should expand only after the first domain demonstrates maintainable value.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/iq/overview">Microsoft Fabric IQ overview</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/training/paths/get-started-fabric-iq/">Microsoft Fabric IQ learning path</a></li>
+          <li><a href="https://www.microsoft.com/en-us/microsoft-fabric/features/iq">Microsoft Fabric IQ product overview</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-create-agent-copilot-studio">Microsoft Fabric IQ Ontology and Copilot Studio integration</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent">Microsoft Fabric Data Agent concepts</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with one domain where agents need connected business context that current models cannot provide consistently.</strong> Datrick can design the ontology, bind governed data, evaluate the agent, and define a defensible expansion decision.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=fabric_iq_ontology&amp;utm_medium=organic_content&amp;utm_campaign=fabric_ontology_pilot_scoping&amp;utm_content=article_end#inquiry-form">Scope a Fabric IQ Ontology pilot</a></div></section>
+        <p>For continuous monitoring and action recommendations grounded in ontology entities, <a href="microsoft-fabric-operations-agent-fabric-iq-ontology-knowledge-source-implementation-assessment">assess the Operations Agent knowledge source, graph freshness, generated playbook, rule evidence, permissions, and action mapping</a>.</p>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-implementation-evaluation-services"><span>Fabric Data Agents</span><strong>Implement and evaluate the agent consumer</strong></a><a href="microsoft-fabric-operations-agent-implementation-evaluation-services"><span>Real-time decisions</span><strong>Monitor ontology signals with an Operations Agent</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

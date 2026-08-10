@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Data Agent Multilingual Rollout Assessment | Datrick</title>
+    <meta name="description" content="Assess multilingual and non-English rollout risk for Microsoft Fabric Data Agent across translation, terminology, query fidelity, numbers, dates, security, and governance.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-multilingual-non-english-rollout-assessment">
+    <meta property="og:title" content="Fabric Data Agent Multilingual Rollout Assessment | Datrick">
+    <meta property="og:description" content="Design a controlled multilingual mediation layer without presenting non-English Fabric Data Agent use as a natively supported capability.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-multilingual-non-english-rollout-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Multilingual and Non-English Rollout Assessment", "description": "Assess multilingual and non-English rollout risk for Microsoft Fabric Data Agent across translation, terminology, query fidelity, numbers, dates, security, and governance.", "url": "https://datrick.com/microsoft-fabric-data-agent-multilingual-non-english-rollout-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-multilingual-non-english-rollout-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Does Microsoft Fabric Data Agent support non-English languages?", "acceptedAnswer": {"@type": "Answer", "text": "No. Microsoft currently states that Fabric Data Agent doesn't support non-English languages and recommends English questions, instructions, and example queries for optimal performance. Treat any translated mediation layer as a custom, separately tested application pattern rather than native multilingual support."}},
+            {"@type": "Question", "name": "Can a translation layer make Fabric Data Agent multilingual?", "acceptedAnswer": {"@type": "Answer", "text": "A custom application can translate a user's request into English and translate the response back, but that doesn't change Microsoft's support statement. It adds two probabilistic transformations that can alter terminology, entities, filters, numbers, dates, units, and caveats, so the complete path needs independent validation and clear user disclosure."}},
+            {"@type": "Question", "name": "Should Fabric Data Agent instructions and example queries be written in English?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Microsoft's current guidance recommends English for questions, instructions, and example queries. Keep canonical configuration and business definitions in English, then maintain an approved multilingual terminology map at the application boundary if a controlled translated experience is required."}},
+            {"@type": "Question", "name": "How do you test a translated Fabric Data Agent answer?", "acceptedAnswer": {"@type": "Answer", "text": "Compare the original non-English intent, English translation, selected source, generated SQL, DAX, KQL, or Graph query, source result, English answer, translated answer, and user interpretation. Test terminology, entities, filters, dates, decimal and thousands separators, currencies, units, permissions, truncation, ambiguity, and refusal behavior separately."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent multilingual rollout assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment commonly takes two to four weeks for one language, one Data Agent, target clients, critical question families, and representative user roles. It covers translation architecture, terminology, query fidelity, numeric and date integrity, security, UX disclosure, evaluation, monitoring, release, and rollback."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent language boundary</p>
+        <h1>Translation can make an unsupported answer sound approved.</h1>
+        <p class="page-lede">Assess a multilingual mediation layer across language detection, terminology, English question generation, source query fidelity, translated responses, numbers, dates, units, security, disclosure, monitoring, and rollback.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_multilingual&amp;utm_medium=organic_content&amp;utm_campaign=non_english_rollout_assessment&amp;utm_content=hero#inquiry-form">Describe the language requirement</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Global conversational analytics</span><span>10 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Support boundary</a><a href="#architecture">Mediation contract</a><a href="#evaluation">Language tests</a><a href="#governance">Governance</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>A translation layer can preserve fluent prose while changing the business question. A local term can map to the wrong measure, a Turkish decimal can become an English thousands separator, a fiscal date can shift format, a negation can disappear, or a translated summary can strengthen a caveat. The final answer may sound native even when the source query no longer represents the user's intent.</p>
+        <p>Microsoft currently states that Fabric Data Agent doesn't support non-English languages and recommends English questions, instructions, and example queries for optimal performance. A custom translation path therefore remains an application-owned mediation layer, not native multilingual support. It needs explicit scope, evidence, user disclosure, and fallback.</p>
+
+        <section class="readiness-actions"><p><strong>Can you reconcile the original question, English translation, generated query, source result, and translated answer?</strong> If not, do not present the experience as decision-ready.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_multilingual&amp;utm_medium=organic_content&amp;utm_campaign=non_english_rollout_assessment&amp;utm_content=article_intro#inquiry-form">Send the language and questions</a><a class="button secondary" href="microsoft-fabric-data-agent-implementation-evaluation-services">Assess the core Data Agent</a></div></section>
+
+        <h2 id="boundary">State the unsupported boundary before designing mediation</h2>
+        <p>Document that the current Microsoft service contract is English-only. Define the proposed language, countries, user roles, question families, clients, sources, decisions, prohibited uses, translation provider, processing region, data handling, retention, latency, human review, and support owner. Do not promise parity with an English experience until measured evidence supports a narrower claim.</p>
+        <p>Keep canonical Data Agent instructions, data source instructions, example questions, and example queries in English. Maintain a controlled multilingual terminology map outside the agent for business terms, product names, legal phrases, entities, currencies, units, date conventions, abbreviations, and words that must not be translated.</p>
+
+        <h2 id="architecture">Define an end-to-end mediation contract</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent multilingual mediation contract" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent multilingual mediation contract</caption>
+          <thead><tr><th scope="col">Layer</th><th scope="col">Evidence</th><th scope="col">Failure risk</th><th scope="col">Control</th></tr></thead>
+          <tbody>
+            <tr><td>Language detection</td><td>Declared language, detected language, mixed-language content, confidence, and user correction.</td><td>The wrong language or dialect selects an incorrect translation path.</td><td>Supported-language allowlist, confirmation, and fail-closed threshold.</td></tr>
+            <tr><td>Input translation</td><td>Original question, English translation, protected terms, entities, literals, dates, units, and negation.</td><td>Translation changes metric, filter, comparison, actor, or time meaning.</td><td>Glossary, placeholders, back-translation, deterministic literal checks, and clarification.</td></tr>
+            <tr><td>Agent request</td><td>English prompt, source route, instructions, examples, conversation context, and user identity.</td><td>Mediation adds unsupported guidance or stale context.</td><td>Bounded template, clean-session tests, source contract, and prompt minimization.</td></tr>
+            <tr><td>Generated query</td><td>SQL, DAX, KQL, or Graph query, filters, joins, grain, date logic, and execution result.</td><td>Fluent translation hides a query that answers another question.</td><td>Deterministic control query and component-level reconciliation.</td></tr>
+            <tr><td>Output translation</td><td>English answer, translated answer, numbers, tables, labels, caveats, citations, and truncation.</td><td>Translation changes values, units, uncertainty, refusal, or completeness.</td><td>Structured value protection, glossary, numeric checks, and approved phrasing.</td></tr>
+            <tr><td>User experience</td><td>Support disclosure, source language, correction path, fallback, escalation, and feedback.</td><td>Users assume native support and over-trust an experimental mediation path.</td><td>Clear status, reversible correction, human route, and prohibited-use notice.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="evaluation">Test language fidelity and analytical fidelity separately</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent multilingual evaluation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent multilingual evaluation matrix</caption>
+          <thead><tr><th scope="col">Test family</th><th scope="col">Test</th><th scope="col">Pass condition</th><th scope="col">Remediation</th></tr></thead>
+          <tbody>
+            <tr><td>Terminology</td><td>Business terms, synonyms, homonyms, acronyms, product names, and untranslatable labels.</td><td>Approved meaning survives both directions and routes to the correct source objects.</td><td>Glossary, protected token, clarification, or unsupported term.</td></tr>
+            <tr><td>Entity and filter</td><td>Customer, region, product, status, IDs, names with accents, and mixed scripts.</td><td>Every entity and filter maps exactly to the intended source value.</td><td>Entity resolver, value dictionary, quoted literals, or user confirmation.</td></tr>
+            <tr><td>Numbers and units</td><td>Decimal and thousands separators, percentages, currency, scale, negative values, and conversion.</td><td>Query literals, source values, and translated output reconcile exactly.</td><td>Structured numeric channel, locale formatter, no implicit conversion, or block.</td></tr>
+            <tr><td>Date and time</td><td>Ambiguous numeric dates, fiscal periods, weekdays, time zones, relative dates, and partial periods.</td><td>English request and generated query use the approved calendar and instant.</td><td>ISO date normalization, timezone, explicit period, or clarification.</td></tr>
+            <tr><td>Negation and comparison</td><td>Not, except, before, after, more/less, increase/decrease, and double negatives.</td><td>Logical direction and exclusions remain identical end to end.</td><td>Rule-based checks, simplified question, or mandatory confirmation.</td></tr>
+            <tr><td>Security and privacy</td><td>Sensitive text, personal data, translation provider, logs, region, permissions, RLS, CLS, and DLP.</td><td>No additional disclosure occurs and source access remains user-scoped.</td><td>Data minimization, regional service, redaction, policy, or rollout block.</td></tr>
+            <tr><td>Conversation drift</td><td>Pronouns, omitted subjects, code-switching, follow-ups, and new-chat comparison.</td><td>Context carries only intended meaning; reset produces the same grounded answer.</td><td>Standalone rewrite, context summary, language lock, or new chat.</td></tr>
+            <tr><td>Failure behavior</td><td>Low confidence, unsupported language, translation outage, blocked content, and query failure.</td><td>System fails visibly and safely without inventing continuity or translated certainty.</td><td>English fallback, human escalation, retry rule, or feature disablement.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Score input translation fidelity, query correctness, numeric and date integrity, security, output translation fidelity, user interpretation, latency, and abstention separately. A high translation-quality score does not prove analytical correctness. Preserve the full trace for each critical case without retaining more sensitive text than policy allows.</p>
+
+        <h2 id="governance">Keep translation outside the trust boundary it cannot satisfy</h2>
+        <p>A custom translator can process prompts and responses outside Fabric. Document its provider, region, retention, model, logging, encryption, access, subprocessor, incident, deletion, and contract. Apply the same review to Foundry, Copilot Studio, M365 Copilot, MCP, or custom applications that carry the mediated response.</p>
+        <p>Do not allow translation to rewrite policy refusals, omit uncertainty, add explanation not present in the source response, or transform a limited 25-row answer into language implying completeness. Preserve values and control metadata as structured fields wherever possible, then translate only approved narrative.</p>
+        <p>Monitor language mix, translation confidence, clarification rate, query differences, numeric discrepancies, wrong-answer reports, security events, latency, cost, model changes, and release versions. Keep a kill switch that returns users to the supported English path and a rollback to the last approved glossary and mediation version.</p>
+
+        <h2 id="assessment">Run a two-to-four-week multilingual rollout assessment</h2>
+        <ol>
+          <li>Select one language, one Data Agent, target clients, user roles, critical question families, source owners, and prohibited decisions.</li>
+          <li>Map the English support boundary, translation architecture, provider, data flow, regions, retention, identities, terminology, locale rules, and current failures.</li>
+          <li>Create bilingual ground truth for intent, protected terms, entities, literals, dates, units, expected query, source result, English answer, and approved translation.</li>
+          <li>Run terminology, entity, numeric, date, negation, ambiguity, code-switching, context, permission, policy, truncation, outage, and low-confidence tests.</li>
+          <li>Classify failures by detection, input translation, source route, query generation, source result, output translation, locale formatting, security, or user interpretation.</li>
+          <li>Refine glossary, structured value handling, templates, clarification, unsupported-use boundaries, disclosure, escalation, monitoring, and rollback.</li>
+          <li>Deliver the language contract, data-flow review, terminology registry, scorecard, regression suite, UX requirements, risk register, runbooks, and go, limited pilot, English-only, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Does Microsoft Fabric Data Agent support non-English languages?</summary><p>No. Microsoft currently states that Fabric Data Agent doesn't support non-English languages and recommends English questions, instructions, and example queries for optimal performance. Treat any translated mediation layer as a custom, separately tested application pattern rather than native multilingual support.</p></details>
+          <details><summary>Can a translation layer make Fabric Data Agent multilingual?</summary><p>A custom application can translate a user's request into English and translate the response back, but that doesn't change Microsoft's support statement. It adds two probabilistic transformations that can alter terminology, entities, filters, numbers, dates, units, and caveats, so the complete path needs independent validation and clear user disclosure.</p></details>
+          <details><summary>Should Fabric Data Agent instructions and example queries be written in English?</summary><p>Yes. Microsoft's current guidance recommends English for questions, instructions, and example queries. Keep canonical configuration and business definitions in English, then maintain an approved multilingual terminology map at the application boundary if a controlled translated experience is required.</p></details>
+          <details><summary>How do you test a translated Fabric Data Agent answer?</summary><p>Compare the original non-English intent, English translation, selected source, generated SQL, DAX, KQL, or Graph query, source result, English answer, translated answer, and user interpretation. Test terminology, entities, filters, dates, decimal and thousands separators, currencies, units, permissions, truncation, ambiguity, and refusal behavior separately.</p></details>
+          <details><summary>How long does a Fabric Data Agent multilingual rollout assessment take?</summary><p>A focused assessment commonly takes two to four weeks for one language, one Data Agent, target clients, critical question families, and representative user roles. It covers translation architecture, terminology, query fidelity, numeric and date integrity, security, UX disclosure, evaluation, monitoring, release, and rollback.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent">Fabric Data Agent non-English language limitation</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-configuration-best-practices">Fabric Data Agent English configuration and scope guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-example-queries">Fabric Data Agent example-query language and quality guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/semantic-model-best-practices">Fabric Data Agent semantic model accuracy guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-tenant-settings">Fabric Data Agent tenant settings and connected-service data handling</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the non-English question where one mistranslated metric, date, or negation would change a material decision.</strong> Datrick can trace the complete path, build bilingual ground truth, test analytical fidelity, and define a controlled pilot boundary.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_multilingual&amp;utm_medium=organic_content&amp;utm_campaign=non_english_rollout_assessment&amp;utm_content=article_end#inquiry-form">Scope the multilingual assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-implementation-evaluation-services"><span>Validate the English baseline</span><strong>Assess Data Agent implementation and accuracy</strong></a><a href="microsoft-fabric-data-agent-conversation-history-context-drift-output-truncation-assessment"><span>Control multi-turn meaning</span><strong>Assess context drift and truncation</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

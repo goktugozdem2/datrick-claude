@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Power BI and Fabric CI/CD Deployment and Release Governance | Datrick</title>
+    <meta name="description" content="Design Power BI and Microsoft Fabric CI/CD with Git, deployment pipelines, fabric-cicd, environment configuration, tests, approvals, rollback, and release evidence.">
+    <link rel="canonical" href="https://datrick.com/ai-power-bi-fabric-cicd-deployment-pipeline-release-governance-automation">
+    <meta property="og:title" content="AI Power BI and Fabric CI/CD Deployment and Release Governance | Datrick">
+    <meta property="og:description" content="Replace manual production publishing with an auditable, tested, reversible Power BI and Fabric release path.">
+    <meta property="og:url" content="https://datrick.com/ai-power-bi-fabric-cicd-deployment-pipeline-release-governance-automation">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "AI Power BI and Fabric CI/CD Deployment Pipeline Release Governance Automation", "description": "Design Power BI and Microsoft Fabric CI/CD with Git, deployment pipelines, fabric-cicd, environment configuration, tests, approvals, rollback, and release evidence.", "url": "https://datrick.com/ai-power-bi-fabric-cicd-deployment-pipeline-release-governance-automation", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/ai-power-bi-fabric-cicd-deployment-pipeline-release-governance-automation"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "How do you implement CI/CD for Power BI and Microsoft Fabric?", "acceptedAnswer": {"@type": "Answer", "text": "Define the source of truth, supported item types, repository and branch strategy, development workspaces, test and production environments, environment-specific configuration, identity and permissions, build validations, deployment mechanism, approvals, rollback, and post-deployment checks. Use Git integration, deployment pipelines, fabric-cicd, APIs, or a controlled combination based on the solution and current platform support."}},
+            {"@type": "Question", "name": "What is the difference between Fabric Git integration and deployment pipelines?", "acceptedAnswer": {"@type": "Answer", "text": "Git integration connects a workspace to a repository and supports source control and team collaboration. Deployment pipelines promote supported Fabric content between assigned environment workspaces and can apply deployment rules. They solve different lifecycle stages and are often combined, but supported items, permissions, bindings, and limitations must be verified for each solution."}},
+            {"@type": "Question", "name": "Can Power BI and Fabric deployments be fully automated?", "acceptedAnswer": {"@type": "Answer", "text": "Many deployment steps can be automated through supported APIs, DevOps tools, deployment pipelines, Git operations, and fabric-cicd. Production automation still needs identity boundaries, tested item support, environment configuration, dependency sequencing, approval policy, concurrency controls, immutable evidence, rollback, and post-deployment validation. Unsupported or destructive changes require explicit handling."}},
+            {"@type": "Question", "name": "How do you test a Power BI or Fabric release?", "acceptedAnswer": {"@type": "Answer", "text": "Validate item definitions, dependencies, parameters, data-source and gateway bindings, credentials, permissions, semantic-model schema, DAX results, refresh, pipeline and notebook execution, reports, row-level security, performance, capacity impact, apps, subscriptions, and critical business controls in a production-like test environment. Repeat targeted smoke checks after deployment."}},
+            {"@type": "Question", "name": "How long does a Power BI and Fabric CI/CD assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment for one solution can often be completed in two to four weeks when workspace, repository, item, dependency, environment, identity, and release evidence is available. A production pilot commonly takes four to eight weeks depending on item support, existing source control, test coverage, environment configuration, security approvals, and deployment complexity."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Power BI and Microsoft Fabric release engineering</p>
+        <h1>Replace manual production publishing with a tested, auditable, and reversible release path.</h1>
+        <p class="page-lede">Align Git integration, branched workspaces, deployment pipelines, fabric-cicd, environment configuration, dependencies, identities, tests, approvals, rollback, and post-deployment evidence.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Data%20platform%20or%20BI%20work&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=ai_power_bi_fabric_cicd&amp;utm_medium=organic_content&amp;utm_campaign=fabric_cicd_scoping&amp;utm_content=hero#inquiry-form">Describe the release risk</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Fabric CI/CD and release governance</span><span>12 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#contract">Release contract</a><a href="#choices">Tooling choices</a><a href="#architecture">Controlled pipeline</a><a href="#validation">Validation</a><a href="#pilot">Pilot plan</a></nav>
+
+        <p>Power BI and Microsoft Fabric solutions are software systems, even when their primary authoring experience is visual. They contain semantic definitions, queries, transformations, notebooks, pipelines, warehouses, lakehouses, reports, parameters, identities, schedules, gateways, permissions, and environment-specific connections. Manual publishing can overwrite another developer's work, deploy the wrong data source, bypass tests, change production security, or leave no reproducible version.</p>
+        <p>Datrick designs a release path around the solution's supported item types and operating risk. AI can explain diffs, group dependencies, draft release notes, identify missing tests, and summarize failed validation. It cannot merge code, change environment variables, approve production, deploy items, alter credentials, or declare a release safe without deterministic checks and accountable approval.</p>
+
+        <section class="readiness-actions"><p><strong>Are production reports still published from a laptop, or do Fabric releases require manual reconfiguration?</strong> Datrick can assess one solution and design a controlled CI/CD path that fits current platform support.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Data%20platform%20or%20BI%20work&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=ai_power_bi_fabric_cicd&amp;utm_medium=organic_content&amp;utm_campaign=fabric_cicd_scoping&amp;utm_content=article_intro#inquiry-form">Send one solution</a><a class="button secondary" href="ai-power-bi-fabric-tenant-governance-workspace-lifecycle-automation">Review tenant governance</a></div></section>
+
+        <h2 id="contract">Define the release contract before selecting tools</h2>
+        <p>Inventory every item, source, dependency, environment, workspace, branch, repository, identity, parameter, secret, gateway, schedule, app, consumer, and owner in the release scope. Record which artifacts can be represented in source control, which deployment mechanisms support them, and which settings remain external. Current Microsoft Fabric support changes frequently; verify documentation and a test tenant rather than assuming every item behaves like a Power BI report.</p>
+        <div class="article-table-wrap" role="region" aria-label="Power BI and Fabric release evidence contract" tabindex="0"><table class="article-table"><caption class="sr-only">Power BI and Fabric release evidence contract</caption>
+          <thead><tr><th scope="col">Release layer</th><th scope="col">Required evidence</th><th scope="col">Acceptance question</th></tr></thead>
+          <tbody>
+            <tr><td>Source of truth</td><td>Repository, branch, commit, item definitions, workspace sync state, generated artifacts, ownership, and protected-branch policy.</td><td>Can the deployed solution be traced to an approved immutable version?</td></tr>
+            <tr><td>Environment</td><td>Dev, test and production workspaces, capacity, region, source, gateway, connection, parameter, variable, identity, schedule, and app.</td><td>Are environment differences explicit and applied without embedding secrets?</td></tr>
+            <tr><td>Dependencies</td><td>Item graph, semantic models, reports, pipelines, notebooks, lakehouses, warehouses, dataflows, shortcuts, source objects, and external consumers.</td><td>Will items deploy in a safe order with valid bindings and no hidden breakage?</td></tr>
+            <tr><td>Quality</td><td>Definition validation, linting, unit and integration tests, DAX controls, schema, data quality, refresh, execution, performance, and security.</td><td>Does the candidate preserve business results and meet nonfunctional targets?</td></tr>
+            <tr><td>Authorization</td><td>Service principal, workspace and repository roles, approvals, separation of duties, secret source, token scope, and audit trail.</td><td>Can the pipeline do only the required actions in the correct environment?</td></tr>
+            <tr><td>Release and recovery</td><td>Change record, deployment plan, diff, backup or prior version, rollback method, maintenance window, smoke tests, and owner.</td><td>Can the team detect failure, stop, recover, and explain what changed?</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="choices">Choose Git integration, deployment pipelines, or code-first deployment by responsibility</h2>
+        <p>Fabric Git integration connects a workspace with a supported Git provider and branch. It supports version control, collaboration, commit, and update operations for supported item definitions. Decide whether developers use individual or shared workspaces, feature branches or trunk-based flow, pull requests, protected branches, and an integration workspace. Prevent two sources of truth: a production workspace should not drift independently from the approved repository or release mechanism.</p>
+        <p>Deployment pipelines promote supported content through assigned stages such as development, test, and production. They are release tools, not complete source-control systems. Define stage ownership, workspace access, deployment rules, comparison, approval, automation, and unsupported-item handling. A pipeline and its associated workspaces must remain in the same Microsoft Entra tenant.</p>
+        <p>Microsoft's `fabric-cicd` Python library supports code-first deployment from item definitions and handles discovery, create-or-update decisions, dependency sequencing, and item relationship binding for supported scenarios. APIs and DevOps pipelines can provide additional orchestration. Select a mechanism after proving support and behavior for the actual item graph. A mixed solution may need more than one deployment path, but it should still produce one release record and coordinated gate.</p>
+
+        <h2>Separate configuration from deployable definitions</h2>
+        <p>Environment-specific values include data sources, connection IDs, gateways, lakehouse or warehouse references, workspace IDs, URLs, parameters, variable libraries, schedules, app audiences, and credentials. Store nonsecret configuration in controlled variables or templates. Store secrets in an approved secret manager and inject them through a least-privilege identity. Do not commit credentials, tokens, connection strings, or production identifiers into reusable definitions.</p>
+        <p>Validate every binding after deployment. A successful item creation does not prove that the report points to the intended model, the pipeline uses the production connection, the notebook targets the correct lakehouse, or the semantic model refreshes through the approved gateway. Preserve the resolved configuration as release evidence without exposing secret values.</p>
+
+        <h2 id="architecture">Build a controlled CI/CD architecture</h2>
+        <div class="article-table-wrap" role="region" aria-label="Power BI and Fabric CI CD architecture" tabindex="0"><table class="article-table"><caption class="sr-only">Power BI and Fabric CI CD architecture</caption>
+          <thead><tr><th scope="col">Stage</th><th scope="col">Responsibility</th><th scope="col">Production control</th></tr></thead>
+          <tbody>
+            <tr><td>Developer change</td><td>Creates a bounded branch or workspace change with linked requirement, item scope, migration notes, and tests.</td><td>Named author, supported item format, no secrets, local validation, and isolated development target.</td></tr>
+            <tr><td>Continuous integration</td><td>Validates definitions, repository structure, dependencies, policies, parameters, schemas, DAX controls, and test artifacts.</td><td>Immutable commit, repeatable runner, versioned tools, protected logs, and fail-closed required checks.</td></tr>
+            <tr><td>Review and approval</td><td>Presents semantic and operational diff, test results, risk, environment changes, rollback, and affected owners.</td><td>Required reviewers, separation of duties, signed decision, exception expiry, and no AI self-approval.</td></tr>
+            <tr><td>Test deployment</td><td>Deploys supported items in dependency order, resolves test configuration, runs integration, security, refresh, performance, and user-acceptance checks.</td><td>Production-like workspace, bounded identity, clean target rules, idempotency, and evidence retention.</td></tr>
+            <tr><td>Production deployment</td><td>Uses the approved commit and configuration to promote or deploy during the authorized window.</td><td>Concurrency lock, preflight, checkpoint, stop conditions, least privilege, and immutable execution record.</td></tr>
+            <tr><td>Post-deployment validation</td><td>Checks item bindings, refresh, jobs, reports, DAX results, RLS, apps, subscriptions, performance, capacity, and business controls.</td><td>Independent smoke tests, owner acknowledgement, rollback threshold, and monitored observation window.</td></tr>
+            <tr><td>Recovery and learning</td><td>Rolls back or forward through an approved method, documents failure, restores service, and updates tests and runbooks.</td><td>Known recovery point, data-state consideration, incident record, and verified restoration.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2>Test semantics, data behavior, and operations</h2>
+        <p>File validity and deployment success are weak gates. Power BI semantic models need schema, relationship, measure, role, calculation, and result checks. Reports need binding, page, visual, filter, drill, bookmark, accessibility, and critical interaction checks. Fabric pipelines, notebooks, dataflows, warehouses, lakehouses, and event components need execution, data quality, dependency, permission, retry, idempotency, and failure-path tests.</p>
+        <p>Use representative but controlled data in test. Validate critical business totals, period boundaries, row-level security, incremental partitions, schema compatibility, source and gateway connections, refresh, report-visible freshness, performance, capacity impact, and downstream consumers. A test environment that uses different item shapes or never executes the workload cannot predict production risk.</p>
+
+        <h2>Handle destructive and unsupported changes explicitly</h2>
+        <p>Create-or-update behavior does not automatically remove retired items, migrate data, preserve every configuration, or roll back stateful changes. Identify rename, delete, move, schema migration, partition, shortcut, connection, security, and dependency changes. Require a migration plan for stateful items and a retirement decision for objects that remain in target environments.</p>
+        <p>For unsupported item types or limitations, choose a documented manual gate, supported API, code-first path, or deferred scope. Do not add brittle browser automation to production release merely to claim full automation. Track platform roadmap assumptions and retest when capabilities change.</p>
+
+        <h2>Design identity and permissions for each boundary</h2>
+        <p>Separate developer, CI validation, test deployment, production deployment, and emergency recovery identities where risk warrants it. Define repository, tenant, workspace, capacity, item, connection, source, and secret-manager permissions. Prefer service principals or workload identities supported by the chosen path, rotate credentials, restrict allowed environments, and monitor use.</p>
+        <p>A pipeline identity should not be a permanent Fabric administrator unless an approved operation truly requires that role. Do not let the same unreviewed commit author approve and deploy high-risk production changes. Preserve who initiated, approved, executed, and validated each release.</p>
+
+        <h2 id="validation">Treat deployment as incomplete until production evidence passes</h2>
+        <p>After production deployment, verify expected items and versions, environment bindings, credentials, schedules, semantic-model refresh, pipeline and notebook runs, DAX controls, RLS roles, report interactions, apps, subscriptions, lineage, performance, and capacity. Compare critical outputs with pre-release controls. Monitor for delayed failures such as scheduled refresh, gateway access, token expiry, or downstream subscription delivery.</p>
+        <p>Define rollback by change type. Reapplying a prior item definition may not reverse a source schema migration, data write, permission change, or deleted item. Record recovery point, data-state requirements, expected downtime, responsible owner, and conditions that make rollback unsafe. Practice recovery before the first urgent production release.</p>
+
+        <h2>Measure release reliability and delivery speed together</h2>
+        <ul>
+          <li><strong>Flow:</strong> lead time, review time, deployment frequency, queued releases, manual steps, environment drift, and failed handoffs.</li>
+          <li><strong>Quality:</strong> required-check pass rate, escaped defect, semantic regression, configuration error, failed refresh, broken dependency, and rollback.</li>
+          <li><strong>Recovery:</strong> time to detect, stop, restore, validate, communicate, and add a preventing test.</li>
+          <li><strong>Control:</strong> unapproved deployment, secret exposure, excessive identity, bypassed gate, missing evidence, concurrent release, and unsupported automation.</li>
+          <li><strong>Service:</strong> report availability, freshness, performance, capacity impact, data quality, stakeholder acceptance, and recurrence.</li>
+        </ul>
+        <p>Automation should reduce risk and wait time, not only clicks. Track manual reconfiguration, production-only fixes, emergency publishes, drift, and dependency failures. A slower controlled path can be justified initially, but recurring safe releases should become faster as tests and reusable components mature.</p>
+
+        <h2 id="pilot">Pilot one solution in four to eight weeks</h2>
+        <ol>
+          <li>Select one actively maintained solution with meaningful production use, identifiable item boundaries, and owners willing to validate results.</li>
+          <li>Inventory source artifacts, workspaces, environments, items, dependencies, configurations, identities, releases, failures, and current manual steps.</li>
+          <li>Choose the source of truth, branch and workspace model, deployment mechanism, supported scope, and explicit manual or deferred boundaries.</li>
+          <li>Build definition, policy, dependency, semantic, data, security, refresh, execution, and smoke validations.</li>
+          <li>Configure test and production identities, variables, secret injection, approvals, concurrency controls, evidence, and alerts.</li>
+          <li>Deploy repeatedly to a production-like test environment, verify idempotency, simulate failure, and rehearse rollback or forward recovery.</li>
+          <li>Run one approved production release, complete post-deployment checks, observe scheduled behavior, and resolve findings.</li>
+          <li>Deliver architecture, repository and workspace standards, pipeline implementation, test suite, runbooks, ownership, support model, and expansion backlog.</li>
+        </ol>
+        <p>A focused design assessment can finish in two to four weeks. A production pilot often takes four to eight weeks depending on source-control maturity, item support, data and environment complexity, test coverage, and security approvals. Expand by repeatable solution pattern rather than connecting every workspace at once.</p>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>How do you implement CI/CD for Power BI and Microsoft Fabric?</summary><p>Define the source of truth, supported item types, repository and branch strategy, development workspaces, test and production environments, environment-specific configuration, identity and permissions, build validations, deployment mechanism, approvals, rollback, and post-deployment checks. Use Git integration, deployment pipelines, fabric-cicd, APIs, or a controlled combination based on the solution and current platform support.</p></details>
+          <details><summary>What is the difference between Fabric Git integration and deployment pipelines?</summary><p>Git integration connects a workspace to a repository and supports source control and team collaboration. Deployment pipelines promote supported Fabric content between assigned environment workspaces and can apply deployment rules. They solve different lifecycle stages and are often combined, but supported items, permissions, bindings, and limitations must be verified for each solution.</p></details>
+          <details><summary>Can Power BI and Fabric deployments be fully automated?</summary><p>Many deployment steps can be automated through supported APIs, DevOps tools, deployment pipelines, Git operations, and fabric-cicd. Production automation still needs identity boundaries, tested item support, environment configuration, dependency sequencing, approval policy, concurrency controls, immutable evidence, rollback, and post-deployment validation. Unsupported or destructive changes require explicit handling.</p></details>
+          <details><summary>How do you test a Power BI or Fabric release?</summary><p>Validate item definitions, dependencies, parameters, data-source and gateway bindings, credentials, permissions, semantic-model schema, DAX results, refresh, pipeline and notebook execution, reports, row-level security, performance, capacity impact, apps, subscriptions, and critical business controls in a production-like test environment. Repeat targeted smoke checks after deployment.</p></details>
+          <details><summary>How long does a Power BI and Fabric CI/CD assessment take?</summary><p>A focused assessment for one solution can often be completed in two to four weeks when workspace, repository, item, dependency, environment, identity, and release evidence is available. A production pilot commonly takes four to eight weeks depending on item support, existing source control, test coverage, environment configuration, security approvals, and deployment complexity.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/fundamentals/understand-best-practices-fabric-cicd">Microsoft Fabric CI/CD concepts and best practices</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/cicd/git-integration/git-get-started">Microsoft Fabric Git integration</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines">Microsoft Fabric deployment pipelines</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/cicd/best-practices-cicd">Microsoft Fabric lifecycle management best practices</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/cicd/manage-deployment">Microsoft Fabric CI/CD workflow options</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-implementation-planning-content-lifecycle-management-deploy">Microsoft Power BI content deployment planning</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with one solution, one approved source of truth, and one production release.</strong> Datrick can design the CI/CD path, implement the controls, and operate the release with your team or under your brand.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Data%20platform%20or%20BI%20work&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=ai_power_bi_fabric_cicd&amp;utm_medium=organic_content&amp;utm_campaign=fabric_cicd_scoping&amp;utm_content=article_end#inquiry-form">Scope a Fabric CI/CD pilot</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="ai-microsoft-fabric-disaster-recovery-business-continuity-assessment"><span>Recovery readiness</span><strong>Test reconstruction, RPO, and RTO</strong></a><a href="ai-power-bi-fabric-tenant-governance-workspace-lifecycle-automation"><span>Tenant governance</span><strong>Align ownership and workspace lifecycle</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

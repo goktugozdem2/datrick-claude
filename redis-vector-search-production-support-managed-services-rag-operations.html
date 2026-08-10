@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Redis Vector Search Production Support | Datrick</title>
+    <meta name="description" content="Managed Redis Vector Search production support for indexes, HNSW, FLAT, SVS-VAMANA, filtered retrieval, shards, memory, persistence, backups, security, incidents, and cost.">
+    <link rel="canonical" href="https://datrick.com/redis-vector-search-production-support-managed-services-rag-operations">
+    <meta property="og:title" content="Redis Vector Search Production Support | Datrick">
+    <meta property="og:description" content="Operate Redis Query Engine and vector search with accountable recall, indexes, shard behavior, memory, durability, access, recovery, releases, and cost.">
+    <meta property="og:url" content="https://datrick.com/redis-vector-search-production-support-managed-services-rag-operations">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Service", "name": "Redis Vector Search Production Support and Managed Services", "description": "Ongoing Redis Query Engine and vector search operations covering source keys and JSON documents, Search indexes and aliases, FLAT, HNSW and SVS-VAMANA retrieval, filtering, sharding, recall evaluation, memory and latency, Redis Cloud or Software capacity, persistence, replication, backups, security, incidents, releases, cost, runbooks, and reporting.", "url": "https://datrick.com/redis-vector-search-production-support-managed-services-rag-operations", "provider": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "areaServed": "Global", "audience": {"@type": "BusinessAudience", "audienceType": "Software companies, enterprises, managed service providers, and AI delivery firms operating production Redis vector search and RAG workloads"}},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is included in Redis Vector Search production support?", "acceptedAnswer": {"@type": "Answer", "text": "A defined service can include source keys and JSON documents, embedding writes, Search indexes and aliases, FLAT, HNSW or SVS-VAMANA configuration, filtered and hybrid queries, recall evaluation, shards, memory and latency, Redis Cloud or Software capacity, persistence, replication, backups, private access, monitoring, incidents, releases, cost, runbooks, and reporting."}},
+            {"@type": "Question", "name": "Should Redis vector search use FLAT, HNSW, or SVS-VAMANA?", "acceptedAnswer": {"@type": "Answer", "text": "FLAT provides exact nearest-neighbor results and is useful for smaller datasets or a recall baseline. HNSW provides approximate search with tunable accuracy, memory, build, and latency trade-offs. SVS-VAMANA adds compression-oriented options on supported versions and hardware. Select through representative recall, filter, latency, ingestion, memory, failover, and cost tests."}},
+            {"@type": "Question", "name": "Can a Redis KNN query return fewer results than requested?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The default query LIMIT is 10 unless explicitly changed, and filtered or clustered queries can return fewer candidates depending on filter selectivity, shard balance, and shard candidate settings. Production tests should verify count, ranking, filters, tenant isolation, and recall for every important query cohort."}},
+            {"@type": "Question", "name": "Does Redis persistence replace backups and replication?", "acceptedAnswer": {"@type": "Answer", "text": "No. AOF or RDB persistence, replication, and remote backups address different failure and recovery needs. The accepted design should define data-loss tolerance, failover behavior, backup location and frequency, restore procedure, index readiness, application reconnection, RTO, and RPO."}},
+            {"@type": "Question", "name": "How long does Redis Vector Search managed support onboarding take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused onboarding commonly takes two to four weeks for a representative database, index family, and consuming RAG workflow. It covers source and index coverage, relevance, shard and memory capacity, access, monitoring, persistence, recovery, releases, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Redis VectorOps</p>
+        <h1>Low p95 latency is not proof that Redis retrieved the right evidence.</h1>
+        <p class="page-lede">Operate Redis vector search with accountable source and index coverage, FLAT baselines, HNSW or SVS-VAMANA recall, filtered retrieval, shard behavior, memory, durability, private access, recovery, releases, and cost.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=redis_vector_support&amp;utm_medium=organic_content&amp;utm_campaign=redis_vector_rag_operations&amp;utm_content=hero#inquiry-form">Describe the Redis estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Redis VectorOps</span><span>14 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Service boundary</a><a href="#scope">Operating scope</a><a href="#relevance">Recall and resilience</a><a href="#incidents">Incident response</a><a href="#onboarding">Onboarding</a></nav>
+
+        <p>Redis can store source records in hashes or JSON, index vectors and structured fields, execute KNN and vector-range queries, combine vector similarity with text, tag, numeric or geo filters, distribute queries across shards, persist data with AOF or RDB, replicate for failover, emit operational metrics, and back up managed databases. Those controls do not decide who owns an HNSW setting that met latency while losing recall, a filtered query that switched execution mode under a new tenant cohort, a clustered search that gathered too few candidates from an imbalanced shard, an index consuming unexpected memory, an eviction policy that removed source keys, or a backup that was never restored with the Search index validated.</p>
+        <p>Datrick provides an ongoing operating layer for an agreed Redis vector search estate. Named engineers correlate authoritative sources, hashes or JSON documents, stable keys, embedding writes, Search schemas and aliases, indexed-document coverage, FLAT, HNSW or SVS-VAMANA settings, filters and hybrid queries, shard behavior, labelled relevance, memory and latency, Redis Cloud or Software capacity, eviction, persistence, replication, backups, private connectivity, monitoring, releases, cost, and business outcomes. Redis support remains the escalation path for platform defects. Datrick owns the client-specific diagnosis, containment, validation, communication, change, and prevention accepted in the service boundary.</p>
+
+        <section class="readiness-actions"><p><strong>Do you have Redis vector search in production but no team accountable for turning recall regression, index drift, shard imbalance, filter defects, memory pressure, eviction, persistence gaps, or restore uncertainty into a verified outcome?</strong> Start with one representative database, index family, and consuming search or RAG workflow.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=redis_vector_support&amp;utm_medium=organic_content&amp;utm_campaign=redis_vector_rag_operations&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" href="ai-workflows.html">Review AI workflow operations</a></div></section>
+
+        <h2 id="boundary">Define ownership from source record to Redis key, vector index, retrieved evidence, citation, and business answer</h2>
+        <p>A production path can include a source database or event stream; embedding generation; Redis hashes or JSON documents and stable keys; an <code>FT.CREATE</code> schema and alias; FLAT, HNSW or SVS-VAMANA index; text, tag, numeric or geo fields; <code>FT.SEARCH</code> or <code>FT.AGGREGATE</code>; filters, shard candidate collection, reranking and application caching; an agent or application; answer synthesis and citations; and the target workflow. Name which layers the managed service owns, observes, changes, coordinates, or excludes.</p>
+        <p>Document Redis Cloud subscriptions or Software clusters, regions, databases, shards and replicas; source systems, key prefixes and deletion semantics; Search indexes and aliases; embedding model, type, dimensions and distance metric; index algorithm, build and runtime parameters; query dialect, top K, LIMIT, filters and shard settings; freshness, recall, latency and availability SLOs; memory, eviction and capacity; identities and private paths; persistence, backups and restore; support hours; severity; change authority; budget; fallback; and Redis escalation.</p>
+
+        <h2 id="scope">Operate the complete Redis vector search production surface</h2>
+        <div class="article-table-wrap" role="region" aria-label="Redis vector search production support scope" tabindex="0"><table class="article-table"><caption class="sr-only">Redis vector search production support scope</caption>
+          <thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead>
+          <tbody>
+            <tr><td>Source keys and ingestion</td><td>Authoritative sources, hashes or JSON documents, prefixes, stable keys, embeddings, writes and deletes, TTL, retries, replay, backfill, indexed-document coverage, and reconciliation.</td><td>Source owner, freshness and deletion SLOs, idempotency, embedding authority, TTL contract, eviction tolerance, replay authority, and exception route.</td></tr>
+            <tr><td>Indexes and lifecycle</td><td>Search schema, vector and filter fields, prefixes, aliases, background indexing, population verification, memory, schema replacement, blue-green index build, alias switch, garbage collection, retirement, and version compatibility.</td><td>Schema source of truth, index naming, readiness threshold, memory headroom, cutover, query compatibility, old-index retention, and rollback.</td></tr>
+            <tr><td>Retrieval and evaluation</td><td>FLAT exact search, HNSW or SVS-VAMANA approximate search, build and runtime parameters, vector type, dimensions and metric, compression, KNN and range queries, filters, hybrid execution mode, shard candidate ratio, reranking, recall, latency, and drift.</td><td>Exact baseline, labelled cohorts, acceptable recall, filter and tenant negatives, platform and hardware support, accuracy-memory trade-off, reviewer, and business consequence.</td></tr>
+            <tr><td>Capacity and topology</td><td>Redis Cloud or Software database sizing, RAM or supported flash tier, shards and replicas, cluster hashing, key distribution, index memory, CPU, search worker and cursor limits, concurrency, scaling, failover, and client reconnect.</td><td>Hosting model, traffic and growth profile, shard balance, availability, headroom, scale authority, maintenance behavior, and budget.</td></tr>
+            <tr><td>Security and networking</td><td>Redis users and ACLs, control-plane roles, TLS, passwords or certificates, CIDR allow lists, VPC peering or supported private connectivity, secrets, audit evidence, tenant prefixes and filters, and break glass.</td><td>Least privilege, public endpoint policy, tenant isolation, connection-string ownership, credential rotation, audit ownership, compliance, and incident route.</td></tr>
+            <tr><td>Durability and recovery</td><td>Replication, persistence policy, AOF fsync or RDB snapshots, remote backups, backup storage, shard-level backup files, restore or import, application reconnect, Search index readiness, RTO, and RPO.</td><td>Data-loss tolerance, failover semantics, persistence overhead, backup frequency and access, restore target, rebuild and validation, and Redis escalation.</td></tr>
+            <tr><td>Observability, release, and value</td><td>Database, shard, node and proxy metrics, Search <code>FT.INFO</code>, query <code>FT.PROFILE</code>, memory, latency, errors, alerts, source and index versions, application releases, rollout, rollback, subscription, storage, transfer, model cost, attribution, and forecast.</td><td>Metric retention, alert owner, change window, approval, compatibility, budget, canary, rollback, and acceptance evidence.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="relevance">Treat recall, filters, shard behavior, memory, eviction, persistence, and recovery as one design</h2>
+        <p>FLAT computes exact vector distance and provides a useful baseline for smaller or sampled corpora. HNSW reduces query work through an approximate graph; higher construction and runtime candidate settings generally improve quality while increasing build time, memory, or latency. SVS-VAMANA adds compression-oriented controls on supported Redis versions and hardware, with documented fallback behavior on other platforms. Benchmark the exact deployment instead of assuming an algorithm name guarantees the same recall-cost curve.</p>
+        <p>Filtered vector search can use batched nearest-neighbor retrieval or ad-hoc brute force based on selectivity and runtime heuristics. In clustered deployments, shard candidate collection affects global ranking, and imbalanced shards can return fewer results than expected. The default query LIMIT can also cap returned KNN results. Validate top K, LIMIT, sort field, filter mode, tenant cohorts, shard behavior, range thresholds, and failure conditions against labelled expected evidence.</p>
+        <p>Search indexes consume memory in addition to source keys. Over-indexing fields, aggressive graph settings, concurrent builds, open cursors, replication, persistence and backups all have capacity consequences. A volatile eviction policy can be valid for a cache but destructive when Redis is the authoritative retrieval store. Set memory headroom, eviction policy, index budgets, shard balance, query timeouts, and capacity alarms from measured workload and recovery requirements.</p>
+        <p>AOF, RDB snapshots, replication and remote backups address different risks. Persistence can trade latency and resource use for durability; replication reduces failover risk; backups create a separate recovery artifact. A restored database is not accepted until source keys, Search index coverage, aliases, recall, filters, tenant isolation, private connectivity, client reconnection, and application behavior are revalidated.</p>
+
+        <h2 id="incidents">Distinguish source, index, relevance, shard, memory, security, durability, release, and cost failures</h2>
+        <div class="article-table-wrap" role="region" aria-label="Redis vector search production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Redis vector search production incident matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead>
+          <tbody>
+            <tr><td>Documents are missing, stale, duplicated, expired, or evicted</td><td>Authoritative source, Redis key and type, prefix, TTL, write and delete event, retry outcome, eviction policy and counters, memory pressure, index document count, <code>FT.INFO</code>, sampled query, and application cache.</td><td>Pause consequential automation, stop unsafe replay, protect memory, restore accepted source writes, isolate affected keys, use source fallback, and disclose freshness risk.</td><td>Source-to-key and key-to-index reconciliation, stable-key contract, TTL and eviction test, idempotent retry, deletion check, memory alarm, sampling, and freshness SLO.</td></tr>
+            <tr><td>HNSW, SVS-VAMANA, filtered, or hybrid retrieval regresses</td><td>Labelled query and expected evidence, FLAT baseline, index algorithm and parameters, compression and hardware path, query LIMIT and sort, runtime candidates, filter mode and selectivity, shard candidate ratio, embedding version, latency, and release.</td><td>Restore accepted index and query settings, increase candidates within tested limits, narrow affected cohorts, use FLAT or lexical fallback where valid, and block high-consequence automation.</td><td>Recall and ranking thresholds, exact-baseline suite, filter and tenant negatives, hardware compatibility gate, query-cohort canary, drift monitoring, cost limit, and rollback.</td></tr>
+            <tr><td>Index build, alias cutover, or schema change is incomplete</td><td>Index existence, alias target, <code>FT.INFO</code> population and errors, source key count and prefixes, background indexing, memory and CPU, schema fields, query compatibility, deployment version, and recent cutover.</td><td>Keep the last accepted alias, stop cutover, protect source keys, avoid overlapping builds, restore capacity, preserve evidence, and route critical queries to the valid index.</td><td>Index-as-code, blue-green naming, population threshold, source-index count checks, memory precheck, alias runbook, compatibility tests, old-index retention, and rollback.</td></tr>
+            <tr><td>Shard, memory, latency, failover, or client reconnect degrades</td><td>Shard and key distribution, primary and replica state, node and proxy metrics, RAM and flash use, index memory, CPU, commands and query latency, timeouts, cursor use, failover events, client retry and topology refresh, and workload spike.</td><td>Protect critical traffic, stop nonessential builds and queries, avoid blind retry storms, rebalance or scale through approved authority, use healthy replicas or fallback, and communicate impact.</td><td>Load and failover test, shard-key strategy, memory and latency alarms, client reconnect policy, query and cursor budget, capacity forecast, scale runbook, and cost guardrail.</td></tr>
+            <tr><td>ACL, tenant filter, TLS, CIDR, or private path denies or exposes data</td><td>Caller and Redis ACL, command and key pattern, tenant prefix and filter, TLS and certificate, public endpoint and CIDR, VPC peering or private endpoint, DNS and route, credentials, audit evidence, and recent change.</td><td>Revoke unsafe access, stop public fallback, restore accepted ACL and private path, block affected tenant queries, use approved break glass, preserve evidence, and notify the owner.</td><td>Effective-access matrix, mandatory tenant filter tests, denied-tenant negatives, least privilege, TLS and network canary, credential rotation, and audit alerts.</td></tr>
+            <tr><td>Persistence, backup, restore, upgrade, or cost control fails</td><td>AOF or RDB policy and status, replication, remote backup files and storage access, restore or import target, source and index counts, aliases, recall tests, version and module compatibility, subscription, memory, transfer and model cost, and recent release.</td><td>Stop cutover, preserve current database and backups, restore in isolation, prevent overwrite of valid data, rebuild and validate Search, cap noncritical consumption, and communicate RTO, RPO, quality, or budget risk.</td><td>Persistence decision record, restore exercise, Search post-restore checklist, version matrix, backup access test, canary evaluation, cost attribution, alarms, and rollback.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>A retry is not automatically safe. Before replaying writes, rebuilding an index, switching an alias, changing HNSW parameters, resharding, increasing memory, restoring an RDB file, rotating credentials, or reopening traffic, determine which writes and deletes succeeded, which index and alias serve queries, whether shards and replicas are current, whether embeddings or filters changed, and whether the application already acted on a result. Reconcile source, Redis key, index, query, identity, application, and business state first.</p>
+
+        <h2>Release key contracts, embeddings, indexes, queries, topology, durability, access, and applications together</h2>
+        <p>A production Redis vector search release includes source contracts, stable keys, TTL and deletion behavior, embedding model and dimensions, Search schema and aliases, FLAT, HNSW or SVS-VAMANA configuration, filtered and hybrid queries, shard and replica topology, memory and eviction, persistence and backups, ACLs and private networking, monitoring, application versions, budgets, rollout, and rollback. A valid Redis change can still alter freshness, recall, latency, access, durability, availability, and cost.</p>
+        <p>Before release, ingest a representative corpus; reconcile keys and indexed documents; test updates, expiry and deletes; compare approximate retrieval against FLAT; run tenant and ACL negatives; benchmark realistic indexing and query concurrency across shards; inspect memory and eviction; exercise failover and client reconnect; restore backup data in isolation and validate Search; canary the application, index, embedding and filter change together; and preserve the prior accepted alias and definitions.</p>
+
+        <h2 id="onboarding">Onboard through inventory, baselines, controlled failures, and shadow operations</h2>
+        <ol>
+          <li><strong>Inventory:</strong> Redis subscriptions or clusters, regions, databases, shards, replicas, sources, keys, TTLs, indexes, aliases, embeddings, queries, identities, networks, persistence, backups, applications, and outcomes.</li>
+          <li><strong>Responsibility:</strong> define supported layers, freshness, recall, latency, durability and availability SLOs, severity, access, change authority, budget, dependencies, fallback, Redis escalation, and exclusions.</li>
+          <li><strong>Baseline:</strong> measure source, key and index coverage, update and deletion lag, query-cohort recall and latency, shard balance, memory, eviction, replication, persistence, backup status, private access, Redis cost, and incidents.</li>
+          <li><strong>Controls:</strong> validate stable keys, TTL, deletion, aliases, exact recall baselines, tenant filters, shard capacity, eviction, least privilege, alerts, persistence, backup and restore, releases, rollback, attribution, and runbooks.</li>
+          <li><strong>Exercise:</strong> rehearse missing keys, partial index population, recall regression, selective filter, shard imbalance, memory pressure, eviction, primary failure, retry storm, ACL denial, private-network outage, restore, credential rotation, and embedding outage.</li>
+          <li><strong>Transition:</strong> operate in shadow, close or accept material gaps, publish runbooks and escalation routes, and accept the steady-state support scope.</li>
+        </ol>
+
+        <section class="readiness-actions"><p><strong>Start with the Redis database and vector index that already influences customer, financial, operational, compliance, or workforce decisions.</strong> Datrick can define the operating boundary, close material control gaps, and transition one representative search or RAG workload into managed support.</p><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=redis_vector_support&amp;utm_medium=organic_content&amp;utm_campaign=redis_vector_rag_operations&amp;utm_content=article_end#inquiry-form">Request a Redis VectorOps review</a></section>
+
+        <h2>Official references and adjacent operating guides</h2>
+        <ul>
+          <li><a href="https://redis.io/docs/latest/develop/ai/search-and-query/vectors/">Redis vector search concepts, algorithms, filters, and runtime parameters</a></li>
+          <li><a href="https://redis.io/docs/latest/develop/ai/search-and-query/best-practices/index-mgmt-best-practices/">Redis Search index management best practices</a></li>
+          <li><a href="https://redis.io/docs/latest/develop/ai/search-and-query/administration/configuration/">Redis Search configuration parameters and resource limits</a></li>
+          <li><a href="https://redis.io/docs/latest/operate/rc/resilient-apps/">Redis Cloud resilient application and persistence guidance</a></li>
+          <li><a href="https://redis.io/docs/latest/operate/rc/databases/back-up-data/">Redis Cloud database backups and exports</a></li>
+          <li><a href="https://redis.io/docs/latest/operate/rs/databases/configure/database-persistence/">Redis Software AOF and RDB persistence options</a></li>
+          <li><a href="https://redis.io/docs/latest/operate/rs/databases/durability-ha/">Redis Software durability and high availability</a></li>
+          <li><a href="https://redis.io/docs/latest/operate/rs/monitoring/">Redis Software monitoring, metrics, and alerts</a></li>
+          <li><a href="mongodb-atlas-vector-search-production-support-managed-services-rag-operations">MongoDB Atlas Vector Search production support</a></li>
+          <li><a href="ai-workflows.html">Production AI workflow automation and operations</a></li>
+          <li><a href="white-label-ai-agent-operations-managed-support-for-msps">White-label AI agent managed support for MSPs</a></li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is included in Redis Vector Search production support?</summary><p>A defined service can include source keys and JSON documents, embedding writes, Search indexes and aliases, FLAT, HNSW or SVS-VAMANA configuration, filtered and hybrid queries, recall evaluation, shards, memory and latency, Redis Cloud or Software capacity, persistence, replication, backups, private access, monitoring, incidents, releases, cost, runbooks, and reporting.</p></details>
+          <details><summary>Should Redis vector search use FLAT, HNSW, or SVS-VAMANA?</summary><p>FLAT provides exact nearest-neighbor results and is useful for smaller datasets or a recall baseline. HNSW provides approximate search with tunable accuracy, memory, build, and latency trade-offs. SVS-VAMANA adds compression-oriented options on supported versions and hardware. Select through representative recall, filter, latency, ingestion, memory, failover, and cost tests.</p></details>
+          <details><summary>Can a Redis KNN query return fewer results than requested?</summary><p>Yes. The default query LIMIT is 10 unless explicitly changed, and filtered or clustered queries can return fewer candidates depending on filter selectivity, shard balance, and shard candidate settings. Production tests should verify count, ranking, filters, tenant isolation, and recall for every important query cohort.</p></details>
+          <details><summary>Does Redis persistence replace backups and replication?</summary><p>No. AOF or RDB persistence, replication, and remote backups address different failure and recovery needs. The accepted design should define data-loss tolerance, failover behavior, backup location and frequency, restore procedure, index readiness, application reconnection, RTO, and RPO.</p></details>
+          <details><summary>How long does Redis Vector Search managed support onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for a representative database, index family, and consuming RAG workflow. It covers source and index coverage, relevance, shard and memory capacity, access, monitoring, persistence, recovery, releases, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope.</p></details>
+        </div>
+
+        <div class="article-next"><p>Comparing in-memory and Google-managed vector search operating boundaries?</p><a href="google-vertex-ai-vector-search-production-support-managed-services-rag-operations">Review the Vertex AI Vector Search production support boundary</a></div>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Snowflake Cortex Agents Managed Services and Support | Datrick</title>
+    <meta name="description" content="Managed Snowflake Cortex Agents production support for monitoring, evaluations, CORTEX_AGENT_USAGE_HISTORY, tools, RBAC, incidents, releases, and AI Credit cost.">
+    <link rel="canonical" href="https://datrick.com/snowflake-cortex-agents-managed-services-production-support">
+    <meta property="og:title" content="Snowflake Cortex Agents Managed Services and Support | Datrick">
+    <meta property="og:description" content="Operate Cortex Agents with accountable request traces, evaluation, governed data and tools, role-based access, incident response, releases, and cost controls.">
+    <meta property="og:url" content="https://datrick.com/snowflake-cortex-agents-managed-services-production-support">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Service", "name": "Snowflake Cortex Agents Managed Services and Production Support", "description": "Ongoing Cortex Agents operations covering request monitoring, evaluations, Cortex Analyst, Cortex Search, custom tools, default-role access, incidents, releases, cost controls, runbooks, and reporting.", "url": "https://datrick.com/snowflake-cortex-agents-managed-services-production-support", "provider": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "areaServed": "Global", "audience": {"@type": "BusinessAudience", "audienceType": "Enterprises, managed service providers, and Snowflake service firms operating production Cortex Agents"}},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is included in Snowflake Cortex Agents managed services?", "acceptedAnswer": {"@type": "Answer", "text": "A defined service can include request and thread monitoring, trace investigation, Cortex Agent evaluations, Cortex Analyst semantic views, Cortex Search services, custom tools, user default roles and object privileges, incidents, release control, AI Credit usage and budgets, runbooks, and reporting. Scope depends on the agents, tools, data, channels, access, support hours, and accepted responsibility boundary."}},
+            {"@type": "Question", "name": "How do you monitor Snowflake Cortex Agents in production?", "acceptedAnswer": {"@type": "Answer", "text": "Cortex Agent monitoring records conversation history, planning, tool selection and execution, SQL and chart generation, final responses, and user feedback in AI observability events. Operators need MONITOR or OWNERSHIP on the agent plus the required Snowflake database role. Full conversation and tool payloads require separate unredacted-observability privilege, so monitoring access and sensitive-data handling must be designed deliberately."}},
+            {"@type": "Question", "name": "Which Snowflake role does a Cortex Agent use?", "acceptedAnswer": {"@type": "Answer", "text": "Cortex Agents determine session permissions from the querying user's default role. That role needs access to the agent and to the objects used by its tools, including Cortex Search services, semantic-view data, functions, and stored procedures. A procedure can then run with owner or caller rights according to its definition, so the effective identity must be tested end to end."}},
+            {"@type": "Question", "name": "How do you control Cortex Agents cost and budgets?", "acceptedAnswer": {"@type": "Answer", "text": "Track per-agent usage in CORTEX_AGENT_USAGE_HISTORY and account for additive costs from Cortex Analyst, Cortex Search, generated SQL warehouse compute, and other invoked services. Resource budgets can use tags and threshold actions, but standard enforcement can lag by up to eight hours and some Snowflake CoWork-originated use is attributed separately. Operational alerts should therefore trigger before the hard limit."}},
+            {"@type": "Question", "name": "What does CORTEX_AGENT_USAGE_HISTORY show?", "acceptedAnswer": {"@type": "Answer", "text": "Snowflake's ACCOUNT_USAGE.CORTEX_AGENT_USAGE_HISTORY view records Cortex Agent calls with timing, user, request, agent, token, credit, underlying-service, and interaction-interface details. Use it for usage attribution and cost investigation, then correlate the request ID with observability events and business outcomes. Snowflake CoWork-originated requests are recorded separately in SNOWFLAKE_INTELLIGENCE_USAGE_HISTORY."}},
+            {"@type": "Question", "name": "How long does Snowflake Cortex Agents support onboarding take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused onboarding commonly takes two to four weeks for a representative production portfolio. It covers agent and tool inventory, observability and evaluation baselines, semantic views and search services, default-role permissions, incidents, releases, cost attribution, runbooks, controlled failure exercises, and acceptance of the steady-state operating scope."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Snowflake Cortex AgentOps</p>
+        <h1>Cortex Agents can plan across your data. They cannot own the answer when the business trusts it.</h1>
+        <p class="page-lede">Operate Snowflake Cortex Agents with accountable request traces and evaluation, Cortex Analyst and Search, governed custom tools, default-role access, incident response, controlled releases, and AI Credit evidence.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=snowflake_cortex_agent_support&amp;utm_medium=organic_content&amp;utm_campaign=snowflake_agentops&amp;utm_content=hero#inquiry-form">Describe the Snowflake estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Snowflake AgentOps</span><span>12 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Service boundary</a><a href="#scope">Operating scope</a><a href="#monitoring">Monitoring and identity</a><a href="#incidents">Incident response</a><a href="#onboarding">Onboarding</a></nav>
+
+        <p>Snowflake Cortex Agents can plan a request, choose Cortex Analyst for structured data, use Cortex Search for unstructured retrieval, execute custom functions or procedures, call MCP tools, maintain thread context, generate SQL and charts, collect feedback, and log detailed traces. Agent evaluations and resource budgets add important platform controls. They do not decide who owns a semantically valid SQL query that answers the wrong business question, an over-privileged owner-rights procedure, a stale Search service, a default-role mismatch, or a budget action that arrives hours after spend crossed the threshold.</p>
+        <p>Datrick provides an ongoing operating layer for an agreed Cortex Agents estate. Named engineers correlate thread and request traces, planning, tool selection, SQL, search results, semantic views, functions and procedures, user default roles, object privileges, target-system audits, evaluation results, feedback, releases, AI Credit use, warehouse compute, and business outcomes. Snowflake Support remains the escalation path for platform defects. Datrick owns the client-specific diagnosis, containment, validation, communication, change, and prevention accepted in the service boundary.</p>
+
+        <section class="readiness-actions"><p><strong>Do you have Cortex Agents in production but no team accountable for turning a wrong answer, failed tool, role denial, stale search result, evaluation regression, or cost spike into a verified outcome?</strong> Start with one representative portfolio.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=snowflake_cortex_agent_support&amp;utm_medium=organic_content&amp;utm_campaign=snowflake_agentops&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" href="white-label-ai-agent-operations-managed-support-for-msps">Review the MSP model</a></div></section>
+
+        <h2 id="boundary">Define ownership across agents, data tools, roles, clients, and outcomes</h2>
+        <p>A production path can include Snowflake CoWork, a custom application, REST API, or MCP client; a Cortex Agent object and thread; orchestration model; Cortex Analyst and semantic views; Cortex Search services and source pipelines; code execution, charts, web search, skills, MCP connectors, functions, or procedures; warehouses; the querying user's default role; OAuth, JWT, or programmatic access token; and a downstream system or decision that creates the actual outcome. Name which layers the managed service owns, observes, changes, coordinates, or excludes.</p>
+        <p>Document accounts and regions, databases and schemas, agents, clients, threads, tools, semantic views, Search services, source tables and pipelines, functions and procedures, warehouses, roles and users, authentication, observability access, data classes, support hours, severity, quality bars, change authority, budgets, fallback, and Snowflake escalation.</p>
+
+        <h2 id="scope">Operate the complete Cortex Agents production surface</h2>
+        <div class="article-table-wrap" role="region" aria-label="Snowflake Cortex Agents managed services scope" tabindex="0"><table class="article-table"><caption class="sr-only">Snowflake Cortex Agents managed services scope</caption>
+          <thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead>
+          <tbody>
+            <tr><td>Requests and threads</td><td>Conversation history, thread depth, planning, response generation, latency, errors, completion, feedback, client behavior, and fallback.</td><td>Supported agents and clients, users, languages, hours, SLO, expected answer, thread retention, and human handoff.</td></tr>
+            <tr><td>Observability and evaluation</td><td>Trace spans, tool selection and execution, SQL and chart generation, token use, error severity, user feedback, GPA metrics, datasets, custom metrics, and regression.</td><td>MONITOR access, unredacted privilege, sensitive fields, retention, metrics, thresholds, model availability, evaluator cost, and reviewer.</td></tr>
+            <tr><td>Structured and unstructured data</td><td>Semantic views, Cortex Analyst, generated SQL, warehouse execution, Cortex Search, indexed data, source freshness, filters, retrieval quality, lineage, and grounding.</td><td>Authoritative sources, business definitions, freshness SLO, warehouse, query policy, data owner, masking, and recovery.</td></tr>
+            <tr><td>Custom tools and MCP</td><td>Functions, stored procedures, code execution, skills, MCP connectors, contracts, inputs and outputs, timeout, retry, side effects, approvals, and target reconciliation.</td><td>Allowed tools, owner or caller rights, warehouse, action authority, prompt trust, idempotency, rollback, and emergency disable path.</td></tr>
+            <tr><td>Identity and access</td><td>CORTEX roles, agent USAGE and MONITOR, querying-user default role, database and schema grants, semantic and Search access, procedure rights, tokens, and audits.</td><td>Default-role owner, least privilege, service user, OAuth or JWT scope, PUBLIC grants, access review, and incident route.</td></tr>
+            <tr><td>Release and change</td><td>Agent specification, instructions, models, tools, semantic views, Search services, functions, procedures, warehouses, roles, clients, evaluation gate, rollout, and rollback.</td><td>Source of truth, environments, change authority, freeze, approval, compatibility, canary, and acceptance evidence.</td></tr>
+            <tr><td>Cost and value</td><td>Agent tokens and AI Credits, Analyst and Search calls, generated SQL warehouse compute, custom tools, evaluations, retries, loops, attribution, budget, anomaly, and outcome.</td><td>Commercial owner, tags, entry point, budget latency, threshold, business KPI, forecast, unit economics, and optimization authority.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="monitoring">Trace requests without exposing sensitive data or confusing metadata with outcomes</h2>
+        <p>Cortex Agent monitoring records conversations, planning, tool selection and results, LLM response generation, SQL execution, chart generation, span inputs and outputs, errors, and feedback in <code>SNOWFLAKE.LOCAL.AI_OBSERVABILITY_EVENTS</code>. The event rows cannot be modified. A role needs OWNERSHIP or MONITOR on the agent and the relevant Cortex database role to view logs. Full conversation text and tool inputs and outputs require the separate READ UNREDACTED AI OBSERVABILITY EVENTS TABLE account privilege; without it, operators can still see metadata such as tool names, token usage, latency, evaluation summaries, model, and error severity.</p>
+        <p>Treat unredacted observability as production data. Define who can see prompts, SQL, retrieved text, tool arguments, outputs, and feedback; how long events remain; when deletion is allowed; and which fields can leave Snowflake. Do not grant broad unredacted access merely to make incident response convenient.</p>
+        <p>Cortex Agent evaluations trace the Goal-Plan-Action path, including tool selection, tool execution, logical consistency, answer correctness, and custom metrics. Evaluation datasets and judge results must represent current business questions and source states. Agent response times and detailed traces can constrain evaluation throughput, and some metrics or models have availability limits. A passing evaluation is a release input, not proof that production data, roles, tools, or downstream outcomes remain correct.</p>
+
+        <h2 id="incidents">Distinguish planning, semantic, search, tool, role, release, and cost failures</h2>
+        <div class="article-table-wrap" role="region" aria-label="Snowflake Cortex Agents production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Snowflake Cortex Agents production incident matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead>
+          <tbody>
+            <tr><td>Wrong answer or inefficient plan</td><td>Thread and request ID, planning spans, selected tools, agent specification, model, SQL, retrieved context, evaluation scores, feedback, expected answer, and recent change.</td><td>Narrow the affected use case, route to human review, restore accepted agent or tool configuration, preserve traces, and correct impacted decisions.</td><td>Representative GPA evaluation, business-grounded datasets, custom metrics, cohort monitoring, feedback review, and release threshold.</td></tr>
+            <tr><td>Cortex Analyst returns wrong SQL or meaning</td><td>Semantic view, business definitions, generated SQL, role and row access, source schema and freshness, warehouse result, query history, and expected metric.</td><td>Disable affected analytical path, use an approved query or dashboard, label uncertainty, preserve SQL evidence, and reconcile decisions.</td><td>Semantic-model ownership, verified queries, definition tests, schema contracts, row-access tests, and metric acceptance.</td></tr>
+            <tr><td>Cortex Search misses or returns stale context</td><td>Search service, source pipeline, target lag, indexed rows, filters, searchable attributes, retrieved chunks, role grants, freshness, and expected source.</td><td>Pause affected source or answer path, use an accepted snapshot or manual lookup, rebuild or resume safely, and communicate staleness.</td><td>Freshness SLO, pipeline and service alerts, retrieval evaluation, source ownership, filter tests, and recovery exercise.</td></tr>
+            <tr><td>Custom tool fails or changes the wrong state</td><td>Function or procedure signature, owner or caller rights, default role, warehouse, inputs and outputs, timeout, retries, external audit, idempotency, and target state.</td><td>Disable tool, block replay, revoke or narrow access if needed, isolate records, use manual fallback, and reconcile side effects.</td><td>Contract and negative tests, restricted rights, least privilege, approval, idempotency, target verification, and emergency disable path.</td></tr>
+            <tr><td>Works for one user but fails for another</td><td>Querying user's default role and warehouse, CORTEX database role, agent USAGE, database and schema grants, semantic and Search privileges, procedure rights, and client auth.</td><td>Stop privilege escalation, restore only approved grants, use a controlled service path, preserve access evidence, and communicate affected users.</td><td>Default-role matrix, access-as-code, per-persona tests, PUBLIC grant review, least privilege, entitlement review, and drift alert.</td></tr>
+            <tr><td>Unexpected AI Credit or warehouse spend</td><td>CORTEX_AGENT_USAGE_HISTORY, request and agent IDs, entry point, Analyst and Search calls, generated SQL, warehouse use, model, tokens, retries, loops, evaluations, tags, and outcomes.</td><td>Stop loops, restrict agent access, lower traffic, suspend noncritical Search or warehouse use where safe, and notify the commercial owner.</td><td>Per-agent and per-team attribution, early alerts, resource budgets, quota design, iteration limits, forecast, and unit economics.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Safe replay is a business decision, not merely repeating <code>agent:run</code>. Before retrying, determine whether a stored procedure, UDF, MCP tool, generated SQL process, or external system already created, changed, approved, sent, paid, assigned, or closed a record. Use idempotency, target-state reconciliation, and explicit approval for consequential actions.</p>
+
+        <h2>Test the effective default role and every privilege hop</h2>
+        <p>Cortex Agents determine session permissions from the querying user's default role. That role needs USAGE on the database, schema, and agent and the privileges required by each tool. Cortex Search requires service access; Cortex Analyst depends on semantic-view and underlying data access; functions and procedures require USAGE; and a procedure preserves its owner-rights or caller-rights definition. The effective authority can therefore change at the tool boundary even when the agent call succeeds.</p>
+        <p>Inventory default roles, default warehouses, CORTEX_USER or CORTEX_AGENT_USER grants, PUBLIC exposure, agent USAGE and MONITOR, semantic and Search objects, functions and procedures, OAuth or JWT scopes, PAT restrictions, and MCP trust. Test representative user personas in the actual client. A creator preview under an administrative role is not production authorization evidence.</p>
+
+        <h2>Control releases and cost with evidence, not object existence</h2>
+        <p>Snowflake provides CREATE, ALTER, DESCRIBE, SHOW, and DROP commands for Cortex Agent objects, but an agent specification is only one part of the release. Preserve instructions, orchestration model, tool descriptions and identifiers, semantic views, Search services, source pipelines, function and procedure code and rights, warehouses, default-role expectations, authentication, monitoring access, evaluation dataset and results, budget tags, approvals, rollout, and rollback in a release manifest.</p>
+        <p>Cortex Agents are billed in AI Credits by tokens, and costs are additive across invoked services such as Cortex Analyst and Cortex Search. Generated SQL incurs warehouse compute. <code>CORTEX_AGENT_USAGE_HISTORY</code> reports agent calls, tokens, credits, user, request, and underlying-service detail, but Snowflake CoWork-originated usage is attributed separately. Resource budget actions are periodic and can lag by up to eight hours under standard configuration, so use early thresholds and operational alerts rather than treating a monthly hard limit as immediate protection.</p>
+
+        <h2 id="onboarding">Onboard through inventory, baselines, controlled failures, and shadow operations</h2>
+        <ol>
+          <li><strong>Inventory:</strong> accounts, regions, agents, clients, threads, tools, semantic views, Search services, sources, functions, procedures, warehouses, roles, authentication, and outcomes.</li>
+          <li><strong>Responsibility:</strong> define supported layers, SLOs, severity, access, data handling, quality, change authority, budget, dependencies, fallback, Snowflake escalation, and exclusions.</li>
+          <li><strong>Baseline:</strong> measure request success, latency, trace coverage, GPA evaluation, Analyst and Search quality, tool and target-state success, access denials, cost, and incidents.</li>
+          <li><strong>Controls:</strong> validate redacted and unredacted monitoring, default roles, object grants, procedure rights, evaluation datasets, safe replay, release evidence, rollback, attribution, and alerts.</li>
+          <li><strong>Exercise:</strong> rehearse a wrong plan, invalid SQL, stale search result, duplicate side effect, role denial, missing trace, regression, loop, cost spike, and platform incident.</li>
+          <li><strong>Transition:</strong> operate in shadow, close or accept material gaps, publish runbooks and escalation routes, and accept the steady-state support scope.</li>
+        </ol>
+
+        <section class="readiness-actions"><p><strong>Start with the Cortex Agents that already influence customer, financial, operational, compliance, or workforce decisions.</strong> Datrick can define the operating boundary, close material control gaps, and transition one portfolio into managed support.</p><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=snowflake_cortex_agent_support&amp;utm_medium=organic_content&amp;utm_campaign=snowflake_agentops&amp;utm_content=article_end#inquiry-form">Request a Snowflake AgentOps review</a></section>
+
+        <h2>Official references and adjacent operating guides</h2>
+        <ul>
+          <li><a href="https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents">Snowflake Cortex Agents overview</a></li>
+          <li><a href="https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-monitor">Monitor Cortex Agent requests</a></li>
+          <li><a href="https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-evaluations">Cortex Agent evaluations</a></li>
+          <li><a href="https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-setup">Cortex Agents access control and authentication</a></li>
+          <li><a href="https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-manage">Create and manage Cortex Agents</a></li>
+          <li><a href="https://docs.snowflake.com/en/user-guide/snowflake-cortex/pricing">Snowflake AI pricing and Cortex Agents cost</a></li>
+          <li><a href="https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-resource-budgets">Resource budgets for Cortex Agents</a></li>
+          <li><a href="https://docs.snowflake.com/en/sql-reference/account-usage/cortex_agent_usage_history">CORTEX_AGENT_USAGE_HISTORY view</a></li>
+          <li><a href="white-label-ai-agent-operations-managed-support-for-msps">White-label AI agent managed support for MSPs</a></li>
+          <li><a href="managed-human-evaluation-ai-agents">Managed human evaluation for AI agents</a></li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is included in Snowflake Cortex Agents managed services?</summary><p>A defined service can include request and thread monitoring, trace investigation, Cortex Agent evaluations, Cortex Analyst semantic views, Cortex Search services, custom tools, user default roles and object privileges, incidents, release control, AI Credit usage and budgets, runbooks, and reporting. Scope depends on the agents, tools, data, channels, access, support hours, and accepted responsibility boundary.</p></details>
+          <details><summary>How do you monitor Snowflake Cortex Agents in production?</summary><p>Cortex Agent monitoring records conversation history, planning, tool selection and execution, SQL and chart generation, final responses, and user feedback in AI observability events. Operators need MONITOR or OWNERSHIP on the agent plus the required Snowflake database role. Full conversation and tool payloads require separate unredacted-observability privilege, so monitoring access and sensitive-data handling must be designed deliberately.</p></details>
+          <details><summary>Which Snowflake role does a Cortex Agent use?</summary><p>Cortex Agents determine session permissions from the querying user's default role. That role needs access to the agent and to the objects used by its tools, including Cortex Search services, semantic-view data, functions, and stored procedures. A procedure can then run with owner or caller rights according to its definition, so the effective identity must be tested end to end.</p></details>
+          <details><summary>How do you control Cortex Agents cost and budgets?</summary><p>Track per-agent usage in CORTEX_AGENT_USAGE_HISTORY and account for additive costs from Cortex Analyst, Cortex Search, generated SQL warehouse compute, and other invoked services. Resource budgets can use tags and threshold actions, but standard enforcement can lag by up to eight hours and some Snowflake CoWork-originated use is attributed separately. Operational alerts should therefore trigger before the hard limit.</p></details>
+          <details><summary>What does CORTEX_AGENT_USAGE_HISTORY show?</summary><p>Snowflake's <code>ACCOUNT_USAGE.CORTEX_AGENT_USAGE_HISTORY</code> view records Cortex Agent calls with timing, user, request, agent, token, credit, underlying-service, and interaction-interface details. Use it for usage attribution and cost investigation, then correlate the request ID with observability events and business outcomes. Snowflake CoWork-originated requests are recorded separately in <code>SNOWFLAKE_INTELLIGENCE_USAGE_HISTORY</code>.</p></details>
+          <details><summary>How long does Snowflake Cortex Agents support onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for a representative production portfolio. It covers agent and tool inventory, observability and evaluation baselines, semantic views and search services, default-role permissions, incidents, releases, cost attribution, runbooks, controlled failure exercises, and acceptance of the steady-state operating scope.</p></details>
+        </div>
+
+        <div class="article-next"><p>Need the same support model across several data and agent platforms?</p><a href="databricks-mosaic-ai-agent-framework-managed-services-production-support">Compare the Databricks AgentOps boundary</a></div>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

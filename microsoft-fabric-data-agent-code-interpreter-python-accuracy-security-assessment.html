@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Data Agent Code Interpreter Assessment | Datrick</title>
+    <meta name="description" content="Assess Fabric Data Agent Code Interpreter accuracy, generated Python, input completeness, visualizations, sandbox governance, permissions, latency, and release risk.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-code-interpreter-python-accuracy-security-assessment">
+    <meta property="og:title" content="Fabric Data Agent Code Interpreter Assessment | Datrick">
+    <meta property="og:description" content="Validate generated Python, analytical inputs, charts, permissions, limits, and operational controls before rollout.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-code-interpreter-python-accuracy-security-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Code Interpreter Python Accuracy and Security Assessment", "description": "Assess Fabric Data Agent Code Interpreter accuracy, generated Python, input completeness, visualizations, sandbox governance, permissions, latency, and release risk.", "url": "https://datrick.com/microsoft-fabric-data-agent-code-interpreter-python-accuracy-security-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-code-interpreter-python-accuracy-security-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What does Code Interpreter do in Microsoft Fabric Data Agent?", "acceptedAnswer": {"@type": "Answer", "text": "Code Interpreter gives a Fabric Data Agent a secure, sandboxed Python environment. The agent queries its connected sources, passes retrieved results to the tool, and generates Python for analysis, mathematical calculations, forecasting, or visualizations. Generated code, inputs, outputs, and charts are visible in run steps."}},
+            {"@type": "Question", "name": "Can Fabric Data Agent Code Interpreter be given its own instructions?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft currently says instructions can't be added directly to the Code Interpreter tool. Agent-level instructions can guide when the agent should invoke it, what context to pass, and how the final response should be formatted."}},
+            {"@type": "Question", "name": "How should generated Python and charts be validated?", "acceptedAnswer": {"@type": "Answer", "text": "Capture the selected source, input rows and columns, generated Python, library behavior, calculations, chart encoding, output, and narrative. Compare each layer with an independently approved query or analytical control and test missing values, truncation, units, filters, grain, outliers, and unsupported causal claims."}},
+            {"@type": "Question", "name": "Does the Code Interpreter sandbox make the analysis automatically safe?", "acceptedAnswer": {"@type": "Answer", "text": "No. Sandboxing limits the execution environment, but teams must still validate effective source permissions, sensitive inputs, generated analysis, misleading outputs, retention and audit requirements, preview changes, latency, capacity, and which decisions require human review."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent Code Interpreter assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment commonly takes three to five weeks for one agent and a bounded set of analytical tasks. It covers route and input contracts, Python and visualization ground truth, permission personas, adversarial tests, latency and capacity, instructions, monitoring, release gates, and rollback."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent Code Interpreter</p>
+        <h1>Validate the Python analysis behind every confident chart.</h1>
+        <p class="page-lede">Prove that the agent selected complete and authorized inputs, generated correct Python, represented the analysis honestly, and stayed within approved security, latency, capacity, and decision boundaries.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_code_interpreter&amp;utm_medium=organic_content&amp;utm_campaign=python_accuracy_security_assessment&amp;utm_content=hero#inquiry-form">Describe the analytical risk</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Governed conversational analysis</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#pipeline">Analysis pipeline</a><a href="#accuracy">Accuracy tests</a><a href="#governance">Security and governance</a><a href="#operations">Operations</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>A chart can be technically valid and analytically wrong. The source query may omit rows, the Python may aggregate at the wrong grain, a correlation may be described as causation, missing values may disappear, a forecast may ignore seasonality, or a visual may hide the unit and time range that make the result meaningful. A sandbox does not detect these business failures.</p>
+        <p>Microsoft's preview Code Interpreter tool gives Fabric Data Agent a secure, sandboxed Python environment. The agent queries its governed sources, passes retrieved results to the tool, and generates Python for analysis, calculations, forecasting, or visualizations. Run steps expose the generated code, inputs, outputs, and charts. That evidence makes systematic validation possible, but only when each layer has an explicit contract and independent control.</p>
+
+        <section class="readiness-actions"><p><strong>Can an analyst reproduce the chart from the exact rows, columns, filters, and Python shown in run steps?</strong> If not, the result is not ready to influence a business decision.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_code_interpreter&amp;utm_medium=organic_content&amp;utm_campaign=python_accuracy_security_assessment&amp;utm_content=article_intro#inquiry-form">Send the tasks and run steps</a><a class="button secondary" href="microsoft-fabric-data-agent-python-sdk-automated-evaluation-regression-testing">Build automated evaluation</a></div></section>
+
+        <h2 id="pipeline">Treat the result as a multi-stage analytical pipeline</h2>
+        <p>Define when Code Interpreter should be used, which source must answer first, what data must be transferred, what analysis is allowed, and when the agent should refuse or escalate. Microsoft currently does not support tool-specific instructions; use agent-level instructions to guide invocation, context, and final formatting, then test whether those instructions work across adjacent questions.</p>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent Code Interpreter control layers" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent Code Interpreter control layers</caption>
+          <thead><tr><th scope="col">Layer</th><th scope="col">Evidence</th><th scope="col">Failure mode</th><th scope="col">Control</th></tr></thead>
+          <tbody>
+            <tr><td>Intent and route</td><td>User question, conversation state, chosen source and tools, and invocation order.</td><td>Python is used when a governed measure or simple query should answer directly.</td><td>Use-case contract, routing tests, clarification, and no-tool cases.</td></tr>
+            <tr><td>Source query</td><td>Generated SQL, DAX, KQL, GQL, filters, permissions, result size, and freshness.</td><td>Incomplete or unauthorized input reaches a mathematically correct script.</td><td>Independent source query, persona tests, completeness check, and snapshot.</td></tr>
+            <tr><td>Python input</td><td>Rows, columns, data types, units, missingness, ordering, sampling, and truncation.</td><td>The script analyzes a partial, mislabeled, coerced, or stale dataset.</td><td>Input manifest, row reconciliation, schema assertions, and limit warnings.</td></tr>
+            <tr><td>Generated code</td><td>Libraries, transformations, formulas, parameters, random seed, and exceptions.</td><td>Wrong denominator, leakage, unstable sampling, silent coercion, or unsupported model.</td><td>Code review, deterministic reference implementation, and adversarial fixtures.</td></tr>
+            <tr><td>Output and visual</td><td>Computed values, chart type, axes, labels, units, scale, sorting, confidence, and image.</td><td>Misleading encoding or narrative overstates the evidence.</td><td>Analytical rubric, approved chart, accessibility, and causality rules.</td></tr>
+            <tr><td>Final response</td><td>Summary, caveats, source attribution, freshness, limitations, and recommended action.</td><td>Correct output becomes an overconfident or incomplete business conclusion.</td><td>Response contract, human review, and prohibited-decision boundary.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="accuracy">Build ground truth for calculations, forecasts, and visuals</h2>
+        <p>Create representative tasks for descriptive statistics, ratios, rankings, correlations, segmentation, anomaly detection, time-series transformations, forecasting, and charting. For each task, preserve the source snapshot, expected input, reference Python or analytical control, expected result, tolerance, chart specification, required caveats, user persona, latency target, and severity.</p>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent Code Interpreter evaluation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent Code Interpreter evaluation matrix</caption>
+          <thead><tr><th scope="col">Test family</th><th scope="col">Risk</th><th scope="col">Pass condition</th><th scope="col">Required challenge</th></tr></thead>
+          <tbody>
+            <tr><td>Aggregation</td><td>Wrong denominator, duplicate rows, weighted versus unweighted mean, or total mismatch.</td><td>Intermediate and final values reconcile with the reference calculation.</td><td>Duplicates, zero denominator, nulls, negative values, and mixed grain.</td></tr>
+            <tr><td>Correlation</td><td>Pairwise deletion, outliers, nonlinear relationship, or causal language.</td><td>Method, population, missing-data rule, coefficient, and limitation are correct.</td><td>Confounding, constant column, sparse segment, and Simpson's paradox.</td></tr>
+            <tr><td>Forecast</td><td>Leakage, insufficient history, ignored seasonality, unstable extrapolation, or false precision.</td><td>Training window, method, horizon, uncertainty, backtest, and limitations are disclosed.</td><td>Regime change, missing periods, structural break, and naive-baseline comparison.</td></tr>
+            <tr><td>Visualization</td><td>Wrong chart, truncated categories, misleading scale, missing units, or hidden filter.</td><td>Encoding matches the data and question; labels and caveats preserve meaning.</td><td>Long tail, negative values, dual scale, unsorted time, and inaccessible colors.</td></tr>
+            <tr><td>Permission</td><td>Author testing hides consumer RLS, CLS, source denial, or filtered result.</td><td>Input and output match each persona's effective access and fail closed.</td><td>Allowed, restricted, denied, and permission-revoked identities.</td></tr>
+            <tr><td>Reproducibility</td><td>Nondeterministic code, random sampling, library change, or context-dependent result.</td><td>Approved tolerance holds across clean sessions and controlled repeated runs.</td><td>Repeat run, new chat, reordered rows, runtime change, and seed variation.</td></tr>
+            <tr><td>Failure behavior</td><td>Timeout, empty input, code exception, unsupported analysis, or blocked source.</td><td>Agent states the limitation and does not fabricate a chart or conclusion.</td><td>Empty, malformed, oversized, stale, and out-of-scope inputs.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Score source correctness, input completeness, code correctness, numeric correctness, visual fidelity, explanation fidelity, permission behavior, latency, and abstention separately. Preserve run steps with every result. A final-answer score alone cannot tell whether to fix routing, source configuration, data shape, Python, instructions, or the user-facing response.</p>
+
+        <h2 id="governance">Define what the sandbox does and does not control</h2>
+        <p>Sandboxing constrains Python execution, but the business risk still depends on which governed source results enter the tool and what the generated output reveals. Test with actual identities and verify that source permissions, RLS, CLS, Purview restrictions, and data-agent sharing behavior remain effective before the tool receives the result.</p>
+        <p>Classify allowed analytical tasks and data domains. Exclude or require approval for sensitive attributes, small cohorts, protected-class analysis, high-impact forecasts, compliance decisions, automated personnel or credit decisions, and outputs that could expose restricted values through derived statistics. Define minimum cohort sizes, output suppression, human review, and escalation paths.</p>
+        <p>Review cross-geo processing and storing settings, interaction auditability, diagnostics access, retention, eDiscovery, support evidence, and preview risk with security and legal owners. Do not infer Fabric Code Interpreter's exact isolation or retention behavior from a different Microsoft 365 Code Interpreter product; validate the controls documented and configured for the Fabric deployment.</p>
+
+        <h2 id="operations">Control preview changes, latency, capacity, and client differences</h2>
+        <p>Code Interpreter is a preview feature. Maintain a published baseline, versioned instructions, task suite, run-step evidence, and rollback procedure. Compare runtime, tool, model, source, and configuration changes with identical inputs. Monitor tool invocation rate, source-query failures, Python exceptions, wrong-chart feedback, latency, capacity, repeated retries, and high-cost task patterns.</p>
+        <p>Data Agent consumption includes AI Query input and output tokens, while generated source queries consume the corresponding engine separately. Treat Code Interpreter latency and capacity as an empirical workload dimension: measure end-to-end response time and Fabric utilization for representative tasks rather than estimating from prompt length alone.</p>
+        <p>Keep native Fabric Data Agent visual responses separate from Code Interpreter visuals. Microsoft documents native chart types and a 200-row visualization limit in the Fabric Data Agent experience, while Code Interpreter follows a different tool path and can also be used through Microsoft 365 Copilot. Test the exact client, input path, and output limit that users will experience.</p>
+
+        <h2 id="assessment">Run a three-to-five-week Code Interpreter assessment</h2>
+        <ol>
+          <li>Select one Data Agent, target clients, analytical tasks, data domains, personas, decision owners, security owners, and prohibited uses.</li>
+          <li>Map source routes, query tools, permissions, input transfer, instructions, Code Interpreter run steps, client behavior, preview dependencies, capacity, and current failures.</li>
+          <li>Create deterministic source, Python, numeric, visual, explanation, permission, latency, and abstention ground truth with production-shaped snapshots.</li>
+          <li>Run baseline, missing-data, truncation, duplicate, outlier, leakage, causality, prompt-ambiguity, permission, exception, timeout, and repeated-session tests.</li>
+          <li>Classify every failure by route, source query, input, generated Python, output, visualization, response, permission, platform, or test control.</li>
+          <li>Refine agent instructions and use-case boundaries, rerun the full suite, compare draft and published behavior, and prove rollback.</li>
+          <li>Deliver the task contract, risk register, evaluation suite, Python and chart scorecards, permission matrix, monitoring, release gates, runbooks, and go, limit, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What does Code Interpreter do in Microsoft Fabric Data Agent?</summary><p>Code Interpreter gives a Fabric Data Agent a secure, sandboxed Python environment. The agent queries its connected sources, passes retrieved results to the tool, and generates Python for analysis, mathematical calculations, forecasting, or visualizations. Generated code, inputs, outputs, and charts are visible in run steps.</p></details>
+          <details><summary>Can Fabric Data Agent Code Interpreter be given its own instructions?</summary><p>Microsoft currently says instructions can't be added directly to the Code Interpreter tool. Agent-level instructions can guide when the agent should invoke it, what context to pass, and how the final response should be formatted.</p></details>
+          <details><summary>How should generated Python and charts be validated?</summary><p>Capture the selected source, input rows and columns, generated Python, library behavior, calculations, chart encoding, output, and narrative. Compare each layer with an independently approved query or analytical control and test missing values, truncation, units, filters, grain, outliers, and unsupported causal claims.</p></details>
+          <details><summary>Does the Code Interpreter sandbox make the analysis automatically safe?</summary><p>No. Sandboxing limits the execution environment, but teams must still validate effective source permissions, sensitive inputs, generated analysis, misleading outputs, retention and audit requirements, preview changes, latency, capacity, and which decisions require human review.</p></details>
+          <details><summary>How long does a Fabric Data Agent Code Interpreter assessment take?</summary><p>A focused assessment commonly takes three to five weeks for one agent and a bounded set of analytical tasks. It covers route and input contracts, Python and visualization ground truth, permission personas, adversarial tests, latency and capacity, instructions, monitoring, release gates, and rollback.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-code-interpreter">Microsoft Fabric Data Agent Code Interpreter guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-visuals">Fabric Data Agent visual responses and limitations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent">Fabric Data Agent operation, governance, and limitations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-sharing">Fabric Data Agent source permissions and sharing</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/fundamentals/data-agent-consumption">Fabric Data Agent consumption and monitoring</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the chart or forecast users are most likely to trust without checking.</strong> Datrick can reconstruct its source-to-Python evidence, build deterministic controls, test security and failure behavior, and convert preview functionality into a bounded production decision.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_code_interpreter&amp;utm_medium=organic_content&amp;utm_campaign=python_accuracy_security_assessment&amp;utm_content=article_end#inquiry-form">Scope the Code Interpreter assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-visual-response-chart-accuracy-truncation-assessment"><span>Validate native charts</span><strong>Assess visual response truncation and accuracy</strong></a><a href="microsoft-purview-fabric-ai-agent-governance-assessment"><span>Govern sensitive interactions</span><strong>Assess Purview controls and evidence</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

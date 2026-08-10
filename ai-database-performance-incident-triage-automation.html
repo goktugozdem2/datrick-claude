@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Database Performance Incident Triage Automation | Datrick</title>
+    <meta name="description" content="Automate database performance incident triage with workload baselines, waits, locks, queries, plans, changes, infrastructure evidence, DBA review, and measurable controls.">
+    <link rel="canonical" href="https://datrick.com/ai-database-performance-incident-triage-automation">
+    <meta property="og:title" content="AI Database Performance Incident Triage Automation | Datrick">
+    <meta property="og:description" content="Turn a database slowdown into an evidence-backed triage path before the incident spreads.">
+    <meta property="og:url" content="https://datrick.com/ai-database-performance-incident-triage-automation">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "AI Database Performance Incident Triage Automation", "description": "Automate database performance incident triage with workload baselines, waits, locks, queries, plans, changes, infrastructure evidence, DBA review, and measurable controls.", "url": "https://datrick.com/ai-database-performance-incident-triage-automation", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/ai-database-performance-incident-triage-automation"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is AI database performance incident triage?", "acceptedAnswer": {"@type": "Answer", "text": "AI database performance incident triage assembles workload, latency, throughput, wait, lock, query, plan, connection, storage, replication, infrastructure, deployment, and business-impact evidence to rank plausible hypotheses and prepare safe diagnostic actions for a DBA. It accelerates investigation without replacing engine-native evidence or accountable judgment."}},
+            {"@type": "Question", "name": "Can AI identify the root cause of a slow database automatically?", "acceptedAnswer": {"@type": "Answer", "text": "AI can rank likely causes and connect evidence, but a single symptom can support several explanations. High CPU might result from a plan regression, traffic growth, missing statistics, a deployment, or concurrent maintenance. The workflow should present alternatives, confidence, missing evidence, and discriminating tests rather than declare an unsupported root cause."}},
+            {"@type": "Question", "name": "Which database signals should an incident triage workflow collect?", "acceptedAnswer": {"@type": "Answer", "text": "Collect service impact, workload and throughput, latency distributions, active sessions, waits, blockers and lock chains, query fingerprints, plans and plan history, errors, connection pools, CPU, memory, storage and I/O, replication, maintenance, configuration, schema and deployment changes, and a comparable healthy baseline. Collection must be engine-aware and time-aligned."}},
+            {"@type": "Question", "name": "Should AI automatically terminate sessions or force query plans?", "acceptedAnswer": {"@type": "Answer", "text": "Not during initial triage. Session termination, plan forcing, index changes, configuration changes, failover, and scaling can have broad side effects. Keep diagnosis read-only first. Any remediation should use an approved runbook with eligibility checks, scoped identity, human authorization, verification, rollback, and a full audit trail."}},
+            {"@type": "Question", "name": "How long does an AI database triage pilot take?", "acceptedAnswer": {"@type": "Answer", "text": "A pilot for one database engine and one recurring incident class can often reach supervised operation in two to six weeks when telemetry, query and plan history, changes, incidents, runbooks, access, and DBA owners are available. Missing historical baselines, unsafe query-text exposure, multi-tenant constraints, and sparse incident labels can extend the schedule."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Database operations intelligence</p>
+          <h1>Turn a database slowdown into an evidence-backed triage path before the incident spreads.</h1>
+          <p class="page-lede">Time-align workload, waits, locks, queries, plans, infrastructure, deployments, and customer impact so the DBA receives ranked hypotheses, missing evidence, and safe next diagnostics instead of another generic anomaly.</p>
+          <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Database%20operations&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=ai_database_triage&amp;utm_medium=organic_content&amp;utm_campaign=data_operations_scoping&amp;utm_content=hero#inquiry-form">Describe the database incident</a></div>
+          <div class="article-meta"><a href="resources.html">Resource library</a><span>Database performance triage</span><span>10 min read</span></div>
+        </div>
+      </section>
+
+      <section class="section service-band">
+        <article class="article-body">
+          <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#contract">Triage contract</a><a href="#architecture">Architecture</a><a href="#evaluation">Evaluation</a><a href="#pilot">Pilot</a></nav>
+
+          <p>A database performance incident rarely arrives with one clean cause. Application latency can rise while CPU, storage latency, connection count, lock waits, replication lag, and one changed execution plan move at the same time. Static alerts report each symptom independently and leave the operator to reconstruct the sequence under pressure.</p>
+
+          <p>AI can accelerate that reconstruction, but it must remain grounded in database-engine evidence. The workflow should rank hypotheses, show supporting and conflicting observations, request the next discriminating check, and abstain when telemetry is incomplete. Diagnosis stays read-only until a DBA chooses an approved response.</p>
+
+          <section class="readiness-actions"><p><strong>Are senior DBAs rebuilding the same evidence bundle during every performance incident?</strong> Datrick can assess one recurring incident class, replay historical events, and build a supervised triage workflow around the current monitoring and database estate.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Database%20operations&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=ai_database_triage&amp;utm_medium=organic_content&amp;utm_campaign=data_operations_scoping&amp;utm_content=article_intro#inquiry-form">Send one incident pattern</a><a class="button secondary" href="data-operations.html">Review database operations</a></div></section>
+
+          <h2 id="contract">Define the database triage contract</h2>
+          <div class="article-table-wrap" role="region" aria-label="Database performance incident triage contract" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Database performance incident triage contract</caption>
+              <thead><tr><th scope="col">Triage element</th><th scope="col">Required evidence</th><th scope="col">Output</th></tr></thead>
+              <tbody>
+                <tr><td>Impact and scope</td><td>Affected service, tenant, operation, region, database, latency, errors, throughput, start time, and customer impact.</td><td>Incident boundary, severity evidence, and affected workload.</td></tr>
+                <tr><td>Baseline delta</td><td>Comparable healthy period by time, traffic, release, season, maintenance, and resource shape.</td><td>What changed beyond expected workload variation.</td></tr>
+                <tr><td>Contention</td><td>Active sessions, wait classes, blockers, lock chain, deadlocks, transactions, queues, and connection pools.</td><td>Who is waiting on what, for how long, and with what blast radius.</td></tr>
+                <tr><td>Query and plan</td><td>Normalized fingerprint, runtime distribution, calls, rows, I/O, CPU, memory, plan, plan history, estimates, and statistics.</td><td>Regressed or newly dominant workload with plan evidence.</td></tr>
+                <tr><td>Platform</td><td>CPU, memory, cache, storage latency, IOPS, network, replication, checkpoint, log, temp, quota, and capacity.</td><td>Resource bottleneck, saturation, or downstream constraint.</td></tr>
+                <tr><td>Change and hypothesis</td><td>Deployment, schema, index, statistics, configuration, maintenance, failover, scaling, and traffic change.</td><td>Ranked hypotheses, confidence, alternatives, missing evidence, and next diagnostic.</td></tr>
+              </tbody>
+            </table></div>
+
+          <p>Database engines expose the raw evidence differently. PostgreSQL provides activity, wait-event, lock, and cumulative statistics views, with <code>pg_stat_statements</code> for normalized planning and execution statistics. MySQL Performance Schema records current, historical, and summarized statement and wait activity. SQL Server Query Store retains query, plan, and runtime history by time window to identify plan-related changes. Oracle AWR and ASH provide historical workload and active-session evidence. The triage layer must understand each engine rather than flatten every signal into generic CPU and latency.</p>
+
+          <h2>Time-align symptoms, workload, and changes</h2>
+          <p>A performance snapshot taken after the incident may miss the blocking session or plan transition that caused it. Preserve event time, collection time, timezone, sampling interval, aggregation window, and source freshness. Query-level data, infrastructure metrics, application traces, deployments, and incident actions should be aligned to one timeline.</p>
+
+          <p>Use query fingerprints and low-cardinality operation names where possible. Raw SQL can contain customer identifiers, literals, secrets, or regulated data. OpenTelemetry database semantic conventions explicitly address query-text sanitization. Collect only what the diagnostic requires, parameterize or redact literals, restrict access, and keep tenant boundaries intact.</p>
+
+          <h2 id="architecture">Build a read-only evidence and hypothesis workflow</h2>
+          <div class="article-table-wrap" role="region" aria-label="AI database incident triage architecture" tabindex="0">
+            <table class="article-table"><caption class="sr-only">AI database incident triage architecture</caption>
+              <thead><tr><th scope="col">Component</th><th scope="col">Responsibility</th><th scope="col">Production control</th></tr></thead>
+              <tbody>
+                <tr><td>Engine collector</td><td>Captures activity, waits, locks, queries, plans, errors, replication, maintenance, and engine state.</td><td>Read-only identity, bounded queries, timeout, sampling budget, and version-aware adapters.</td></tr>
+                <tr><td>Platform collector</td><td>Captures host or service CPU, memory, storage, network, connection, quota, and scaling evidence.</td><td>Time synchronization, source freshness, and no uncontrolled high-cardinality labels.</td></tr>
+                <tr><td>Change and trace collector</td><td>Maps deployments, schema, configuration, application traces, service ownership, and customer impact.</td><td>Sanitized query context, tenant isolation, access control, and source links.</td></tr>
+                <tr><td>Baseline and delta engine</td><td>Compares the incident window with a valid healthy period and ranks abnormal workload components.</td><td>Comparable-period rules, seasonality, confidence, and explicit absence of baseline.</td></tr>
+                <tr><td>Hypothesis engine</td><td>Connects evidence into ranked causes, alternatives, contradictions, and next discriminating checks.</td><td>Evidence citations, abstention, model version, and no remediation authority.</td></tr>
+                <tr><td>DBA workspace</td><td>Presents timeline, impact, blockers, top queries, plan changes, platform limits, and safe diagnostics.</td><td>Human confirmation, immutable notes, role-based redaction, and incident-system integration.</td></tr>
+                <tr><td>Outcome register</td><td>Records accepted diagnosis, tests, action, verification, rollback, root cause, and recurrence.</td><td>Reviewed labels, audit history, and feedback separated from model-generated text.</td></tr>
+              </tbody>
+            </table></div>
+
+          <h2>Separate diagnosis from remediation authority</h2>
+          <p>Terminating a blocker, forcing a plan, adding an index, updating statistics, changing memory, scaling a tier, failing over, or restarting a service can restore performance or worsen the incident. The initial AI workflow should collect and interpret evidence without write access.</p>
+
+          <p>If remediation is later automated, route it through a versioned runbook. Check engine and workload eligibility, business impact, transaction state, replication health, resource headroom, change window, and rollback. Use a scoped identity, named approver, execution timeout, post-action verification, and automatic stop when observed behavior diverges from the runbook.</p>
+
+          <h2 id="evaluation">Evaluate whether triage reaches a correct and useful next step</h2>
+          <ul>
+            <li><strong>Evidence:</strong> incident-window coverage, source freshness, missing critical signal, timeline accuracy, and query-text redaction.</li>
+            <li><strong>Diagnosis:</strong> correct hypothesis in top one and top three, false root cause, calibrated confidence, abstention, and discriminating-test quality.</li>
+            <li><strong>Operations:</strong> time to first evidence bundle, time to viable hypothesis, DBA acknowledgement, duplicate investigation, handoff, and MTTR.</li>
+            <li><strong>Safety:</strong> unsupported recommendation, dangerous diagnostic, excessive collection load, tenant leakage, credential misuse, and unauthorized action.</li>
+            <li><strong>Learning:</strong> outcome-label completeness, recurring signature coverage, runbook reuse, post-change verification, and incident recurrence.</li>
+          </ul>
+
+          <p>Replay historical incidents with the evidence that existed at each point in time. Do not give the model the final postmortem, later plan capture, or after-the-fact query sample while asking it to reproduce an earlier diagnosis. Include false alarms, workload spikes without incidents, maintenance periods, and incidents with overlapping causes.</p>
+
+          <p>A useful pilot should beat the current process on time to an evidence-backed next step without increasing unsafe recommendations. Root-cause agreement alone is insufficient if the workflow cannot tell the operator which observation would confirm or reject the hypothesis.</p>
+
+          <h2 id="pilot">Pilot one engine and one recurring incident class</h2>
+          <ol>
+            <li>Select one database engine and one painful incident class such as blocking, plan regression, connection exhaustion, storage latency, or replication lag.</li>
+            <li>Define service impact, severity, evidence window, healthy baseline, diagnostic boundary, owner, and escalation path.</li>
+            <li>Inventory engine views, monitoring history, query and plan retention, platform metrics, deployments, traces, incidents, and runbooks.</li>
+            <li>Create a reviewed replay set with timelines, accepted hypotheses, discriminating checks, actions, outcomes, and known missing evidence.</li>
+            <li>Build read-only collection, normalization, time alignment, baseline comparison, hypothesis ranking, and source-linked summaries.</li>
+            <li>Evaluate historical incidents and non-incidents for diagnosis, evidence, safety, redaction, and operational usefulness.</li>
+            <li>Run in shadow mode beside the DBA, capture disagreements and missing telemetry, and improve the evidence contract.</li>
+            <li>Enable supervised incident notes or diagnostic tasks, monitor outcomes, and add remediation only through separately approved runbooks.</li>
+          </ol>
+
+          <p>A bounded pilot can often reach supervised operation in two to six weeks when engine telemetry, query and plan history, platform metrics, changes, incidents, access, and DBA owners are available. Instrumentation gaps should become explicit readiness work rather than hallucinated certainty.</p>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-list">
+            <details><summary>What is AI database performance incident triage?</summary><p>AI database performance incident triage assembles workload, latency, throughput, wait, lock, query, plan, connection, storage, replication, infrastructure, deployment, and business-impact evidence to rank plausible hypotheses and prepare safe diagnostic actions for a DBA. It accelerates investigation without replacing engine-native evidence or accountable judgment.</p></details>
+            <details><summary>Can AI identify the root cause of a slow database automatically?</summary><p>AI can rank likely causes and connect evidence, but a single symptom can support several explanations. High CPU might result from a plan regression, traffic growth, missing statistics, a deployment, or concurrent maintenance. The workflow should present alternatives, confidence, missing evidence, and discriminating tests rather than declare an unsupported root cause.</p></details>
+            <details><summary>Which database signals should an incident triage workflow collect?</summary><p>Collect service impact, workload and throughput, latency distributions, active sessions, waits, blockers and lock chains, query fingerprints, plans and plan history, errors, connection pools, CPU, memory, storage and I/O, replication, maintenance, configuration, schema and deployment changes, and a comparable healthy baseline. Collection must be engine-aware and time-aligned.</p></details>
+            <details><summary>Should AI automatically terminate sessions or force query plans?</summary><p>Not during initial triage. Session termination, plan forcing, index changes, configuration changes, failover, and scaling can have broad side effects. Keep diagnosis read-only first. Any remediation should use an approved runbook with eligibility checks, scoped identity, human authorization, verification, rollback, and a full audit trail.</p></details>
+            <details><summary>How long does an AI database triage pilot take?</summary><p>A pilot for one database engine and one recurring incident class can often reach supervised operation in two to six weeks when telemetry, query and plan history, changes, incidents, runbooks, access, and DBA owners are available. Missing historical baselines, unsafe query-text exposure, multi-tenant constraints, and sparse incident labels can extend the schedule.</p></details>
+          </div>
+
+          <h2>Official implementation references</h2>
+          <ul>
+            <li><a href="https://www.postgresql.org/docs/current/monitoring.html">PostgreSQL monitoring database activity</a></li>
+            <li><a href="https://www.postgresql.org/docs/current/pgstatstatements.html">PostgreSQL pg_stat_statements</a></li>
+            <li><a href="https://dev.mysql.com/doc/refman/8.0/en/performance-schema-summary-tables.html">MySQL Performance Schema summary tables</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store">SQL Server Query Store</a></li>
+            <li><a href="https://docs.oracle.com/en/database/oracle/oracle-database/19/tgdba/database-performance-tuning-guide.pdf">Oracle Database performance tuning guide</a></li>
+            <li><a href="https://opentelemetry.io/docs/specs/semconv/db/database-spans/">OpenTelemetry database span conventions</a></li>
+          </ul>
+
+          <section class="readiness-actions"><p><strong>Start with one engine and the incident class that consumes the most senior DBA time.</strong> Datrick can assess telemetry, access, historical evidence, evaluation, workflow integration, safety boundaries, and operating ownership before proposing a pilot.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Database%20operations&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=ai_database_triage&amp;utm_medium=organic_content&amp;utm_campaign=data_operations_scoping&amp;utm_content=article_end#inquiry-form">Scope database triage</a></div></section>
+
+          <nav class="article-next" aria-label="Resource next steps"><a href="ai-database-connection-pool-exhaustion-saturation-incident-automation"><span>Connection saturation</span><strong>Classify pool exhaustion</strong></a><a href="ai-database-observability-monitoring-telemetry-cost-optimization-automation"><span>Telemetry coverage</span><strong>Optimize database observability cost</strong></a></nav>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

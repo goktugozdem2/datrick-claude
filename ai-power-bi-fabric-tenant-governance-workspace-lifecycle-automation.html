@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Power BI and Fabric Tenant Governance and Workspace Lifecycle | Datrick</title>
+    <meta name="description" content="Govern Power BI and Microsoft Fabric workspaces, owners, permissions, unused content, metadata, activity, lifecycle, domains, archive, and remediation with supervised AI analysis.">
+    <link rel="canonical" href="https://datrick.com/ai-power-bi-fabric-tenant-governance-workspace-lifecycle-automation">
+    <meta property="og:title" content="AI Power BI and Fabric Tenant Governance and Workspace Lifecycle | Datrick">
+    <meta property="og:description" content="Turn tenant sprawl into an owned, measurable lifecycle without deleting content from activity data alone.">
+    <meta property="og:url" content="https://datrick.com/ai-power-bi-fabric-tenant-governance-workspace-lifecycle-automation">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "AI Power BI and Fabric Tenant Governance and Workspace Lifecycle Automation", "description": "Govern Power BI and Microsoft Fabric workspaces, owners, permissions, unused content, metadata, activity, lifecycle, domains, archive, and remediation with supervised AI analysis.", "url": "https://datrick.com/ai-power-bi-fabric-tenant-governance-workspace-lifecycle-automation", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/ai-power-bi-fabric-tenant-governance-workspace-lifecycle-automation"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "How do you govern a Power BI or Microsoft Fabric tenant?", "acceptedAnswer": {"@type": "Answer", "text": "Establish a tenant inventory from supported admin and metadata APIs, retain activity evidence, assign accountable workspace and item owners, define workspace and domain standards, review effective permissions, classify criticality and lifecycle state, monitor exceptions, and use approved archive or retirement workflows. Governance should enable supported self-service while making ownership and risk visible."}},
+            {"@type": "Question", "name": "How do you find orphaned Power BI workspaces and Fabric items?", "acceptedAnswer": {"@type": "Answer", "text": "Compare workspace roles and contacts with the current identity directory and HR or contractor status, then identify workspaces without an active accountable administrator and items owned by departed or inactive users. Validate dependencies, credentials, schedules, child items, apps, external consumers, and business ownership before transferring ownership or changing access."}},
+            {"@type": "Question", "name": "Can unused Power BI reports be deleted automatically?", "acceptedAnswer": {"@type": "Answer", "text": "Deletion should not be based on view count alone. A report can support infrequent financial, regulatory, operational, embedded, export, subscription, or disaster-recovery use. Combine an approved inactivity window with lineage, refresh, sharing, app, export, subscription, dependency, criticality, owner attestation, archive evidence, recovery testing, and a reversible decision workflow."}},
+            {"@type": "Question", "name": "What data is needed for a Power BI tenant governance assessment?", "acceptedAnswer": {"@type": "Answer", "text": "Useful evidence includes metadata scanner output, workspace and item inventory, roles and effective permissions, tenant settings, domains and tags, activity logs, refresh and capacity evidence, lineage, endorsement and sensitivity labels, data sources, apps, subscriptions, external sharing, identity status, costs, incidents, and owner attestations."}},
+            {"@type": "Question", "name": "How long does a Power BI tenant governance assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment can often produce a verified inventory, risk segmentation, and prioritized remediation in three to six weeks when admin API access, identity data, activity history, governance policies, and owners are available. Remediation and a recurring managed governance cycle depend on tenant size, lineage, access complexity, business attestation, and archive requirements."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Power BI and Microsoft Fabric managed governance</p>
+        <h1>Turn tenant sprawl into owned workspaces, accountable content, and a reversible lifecycle.</h1>
+        <p class="page-lede">Connect metadata scanning, activity, identity, permissions, lineage, refresh, capacity, domains, labels, business ownership, archive evidence, and policy into a managed governance queue.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Data%20platform%20or%20BI%20work&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=ai_power_bi_tenant_governance&amp;utm_medium=organic_content&amp;utm_campaign=power_bi_governance_scoping&amp;utm_content=hero#inquiry-form">Describe the tenant risk</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Tenant governance and lifecycle</span><span>12 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#contract">Governance contract</a><a href="#inventory">Inventory and activity</a><a href="#architecture">Managed workflow</a><a href="#lifecycle">Lifecycle decisions</a><a href="#pilot">Assessment plan</a></nav>
+
+        <p>Power BI and Microsoft Fabric tenants accumulate workspaces, semantic models, reports, apps, notebooks, lakehouses, warehouses, pipelines, dataflows, shortcuts, permissions, credentials, schedules, and external dependencies faster than a small platform team can review them manually. The visible problem is clutter. The operating risk is unowned content, excessive access, duplicated metrics, unsupported sources, unknown lineage, failed refreshes, unmanaged capacity consumption, and critical reporting that depends on a departed employee.</p>
+        <p>Datrick builds a managed governance queue from supported tenant evidence. AI can classify metadata, group similar exceptions, identify missing owners, summarize dependencies, and draft outreach. It cannot delete or archive content, revoke access, transfer ownership, alter tenant settings, block a workspace, apply a label, or approve an exception without deterministic policy checks and accountable authorization.</p>
+
+        <section class="readiness-actions"><p><strong>Do you have hundreds of workspaces, departed owners, duplicate semantic models, or reports nobody can safely retire?</strong> Datrick can establish a verified inventory and prioritize the first governance cycle.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Data%20platform%20or%20BI%20work&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=ai_power_bi_tenant_governance&amp;utm_medium=organic_content&amp;utm_campaign=power_bi_governance_scoping&amp;utm_content=article_intro#inquiry-form">Send the tenant scope</a><a class="button secondary" href="resource-bi-reporting-reliability-checklist.html">Use the BI reliability checklist</a></div></section>
+
+        <h2 id="contract">Define the governance contract before collecting data</h2>
+        <p>Agree which tenant, clouds, capacities, domains, workspaces, item types, identities, external users, and time period are in scope. Define business ownership, technical ownership, support ownership, security review, lifecycle states, inactivity windows, criticality, retention, legal hold, archive requirements, acceptable exceptions, and approval authority. A standard can vary by domain: a daily operational report and an annual regulatory pack should not share one inactivity rule.</p>
+        <div class="article-table-wrap" role="region" aria-label="Power BI and Fabric tenant governance evidence contract" tabindex="0"><table class="article-table"><caption class="sr-only">Power BI and Fabric tenant governance evidence contract</caption>
+          <thead><tr><th scope="col">Governance domain</th><th scope="col">Required evidence</th><th scope="col">Example finding</th></tr></thead>
+          <tbody>
+            <tr><td>Ownership</td><td>Workspace admins and contacts, item owner, identity status, business owner, technical owner, support group, and last attestation.</td><td>Orphaned workspace, departed item owner, one-person dependency, or no business accountability.</td></tr>
+            <tr><td>Access</td><td>Workspace roles, group and direct assignments, item permissions, Build, sharing links, apps, external users, service principals, and effective access.</td><td>Excessive admin role, stale user, direct grant sprawl, unsupported external sharing, or no least-privilege rationale.</td></tr>
+            <tr><td>Content and lineage</td><td>Item type, source, downstream consumers, endorsements, labels, app, subscriptions, refresh, gateway, capacity, and cross-workspace dependencies.</td><td>Duplicate model, unknown source, uncertified critical content, hidden consumer, or unsupported dependency.</td></tr>
+            <tr><td>Activity and adoption</td><td>Views, queries, exports, shares, refreshes, edits, deployments, API use, subscriptions, consumers, dates, failures, and seasonality.</td><td>Unused candidate, low adoption, active unendorsed report, dormant but scheduled workload, or suspicious activity.</td></tr>
+            <tr><td>Lifecycle</td><td>Environment, status, creation, last change, owner decision, retention class, hold, archive package, recovery test, and deletion approval.</td><td>Production content without release path, expired temporary workspace, or retirement candidate lacking recovery evidence.</td></tr>
+            <tr><td>Platform policy</td><td>Tenant settings, domain delegation, workspace settings, tags, capacity placement, Git or deployment integration, monitoring, and exceptions.</td><td>Inconsistent workspace pattern, unassigned domain, missing tags, manual production publishing, or unreviewed tenant exception.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="inventory">Build a tenant inventory that can survive change</h2>
+        <p>Microsoft recommends metadata scanning APIs, commonly called scanner APIs, for tenant-level inventory because they return workspaces and their Power BI items with richer metadata than older workspace-only approaches. Collect raw responses before transformation so new fields are not silently discarded. Add schema monitoring, pagination, retries, rate handling, collection health, and an immutable extraction timestamp.</p>
+        <p>Join metadata to the Power BI activity log. The API offers a limited online history, commonly up to four weeks, so extract and retain it continuously when longer adoption or lifecycle analysis is required. Preserve raw events and transform later. Activity schemas vary by event and can evolve; a rigid extraction parser can lose evidence.</p>
+        <p>Inventory is not truth until reconciled. Compare API output with admin views, known capacities, domains, deployment pipelines, business registries, identity data, and owner attestations. Track scan failures and inaccessible workspaces. “Not returned” is not the same as “does not exist.”</p>
+
+        <h2>Resolve ownership before enforcing lifecycle</h2>
+        <p>Microsoft recommends at least two workspace administrators so one remains when the primary is unavailable. A workspace without an active admin is orphaned. Identify administrators, contacts, members, item owners, service identities, credential owners, and business owners. Compare users with current directory and workforce status while respecting privacy and employment-data controls.</p>
+        <p>When an owner leaves or has been inactive, Fabric items can stop functioning correctly. Ownership transfer can affect child items, credentials, refreshes, gateways, pipelines, and service connections. Map dependencies and validate the successor before takeover. Record who authorized the transfer, what changed, which credentials require re-entry, and how operation was tested.</p>
+
+        <h2>Review effective permissions, not only workspace roles</h2>
+        <p>Workspace Admin, Member, Contributor, and Viewer roles are only part of the permission model. Add item-level permissions, Build, app audiences, sharing links, external users, service principals, semantic-model permissions, OneLake security, source-system access, and policy restrictions. A user can lack a workspace role and still have access to an item.</p>
+        <p>Prioritize excessive administrators, departed users, direct assignments where groups are required, broad Build rights, external sharing, high use of per-item permissions, stale service principals, and access to sensitive or critical content. Do not revoke automatically from inactivity alone; confirm job role, ownership, subscriptions, embedded use, automation, and approved exceptions.</p>
+
+        <h2 id="architecture">Build a supervised tenant-governance workflow</h2>
+        <div class="article-table-wrap" role="region" aria-label="Power BI and Fabric tenant governance architecture" tabindex="0"><table class="article-table"><caption class="sr-only">Power BI and Fabric tenant governance architecture</caption>
+          <thead><tr><th scope="col">Component</th><th scope="col">Responsibility</th><th scope="col">Production control</th></tr></thead>
+          <tbody>
+            <tr><td>Tenant collectors</td><td>Collect metadata scans, activity logs, admin monitoring, capacities, domains, tags, settings, identities, costs, refreshes, and incidents.</td><td>Read-only service principal, secret rotation, pagination, retries, raw retention, latency, and collection health.</td></tr>
+            <tr><td>Governance graph</td><td>Connect workspaces, items, sources, reports, apps, users, groups, permissions, gateways, capacities, domains, and downstream dependencies.</td><td>Stable identifiers, edge provenance, scan time, confidence, and explicit unknown relationships.</td></tr>
+            <tr><td>Deterministic policy engine</td><td>Evaluates ownership, access, lifecycle, naming, tags, environment, endorsement, activity, refresh, capacity, and exception rules.</td><td>Versioned policies, domain scope, effective date, approved exceptions, and no model-generated rule.</td></tr>
+            <tr><td>AI governance analyst</td><td>Groups findings, summarizes dependencies, detects likely duplicates, proposes owner questions, and drafts remediation briefs.</td><td>Evidence citations, confidence, alternatives, sensitive-data redaction, and no write authority.</td></tr>
+            <tr><td>Attestation workflow</td><td>Routes findings to workspace, item, business, security, compliance, and platform owners for decision.</td><td>Named approver, due date, reminder, conflict handling, reason, exception expiry, and escalation.</td></tr>
+            <tr><td>Controlled remediation</td><td>Transfers ownership, adjusts access, updates metadata, archives, retires, reassigns capacity, or fixes operational dependencies.</td><td>Approval, dependency precheck, backup or definition export, rollback, change window, and independent validation.</td></tr>
+            <tr><td>Evidence and reporting</td><td>Records findings, decisions, changes, failures, exceptions, recovery tests, risk reduction, adoption, and recurring backlog.</td><td>Immutable audit trail, tenant isolation, retention, access controls, and reconciled outcome.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="lifecycle">Retire content from evidence, not view count alone</h2>
+        <p>Microsoft's lifecycle guidance recommends analyzing unused or occasionally used content at report, workspace, capacity, or domain level and choosing a time window appropriate to the business purpose. Three months can be reasonable for some quarterly content; a daily operational report may need attention after one month. Annual, regulatory, disaster-recovery, embedded, export-driven, or subscription-delivered content needs different evidence.</p>
+        <p>Before retirement, check views, queries, refreshes, subscriptions, exports, apps, sharing, embedded use, lineage, downstream models, Excel connections, APIs, source dependencies, sensitivity, legal hold, retention, owner attestation, and business calendar. Identify whether “unused” means inaccessible, undiscoverable, duplicated, broken, or genuinely unnecessary.</p>
+        <p>Use explicit states such as active, under review, owner required, remediate, consolidate, archive candidate, archived, retire approved, retired, hold, and exception. Require an archive package or supported recovery method where policy requires it. Test restoration before bulk cleanup. Record identifiers, definitions, dependencies, permissions, credentials that cannot be exported, owner, approval, deletion date, and recovery window.</p>
+
+        <h2>Use domains and tags to support federated accountability</h2>
+        <p>Fabric domains organize workspaces and enable parts of governance to be delegated to domain administrators. Tags add metadata for cost allocation, lifecycle, criticality, environment, owner group, support tier, and policy enforcement. A taxonomy is useful only when values have definitions, owners, allowed transitions, and quality checks.</p>
+        <p>Do not classify thousands of items with AI-generated tags and treat the result as governance. AI can propose values from names, lineage, activity, and owners. Require deterministic validation for fields that drive access, retention, cost, or enforcement. Track unassigned workspaces and stale or contradictory metadata as a backlog.</p>
+
+        <h2>Operate a recurring governance cycle</h2>
+        <ol>
+          <li>Collect and reconcile tenant, identity, activity, lineage, capacity, cost, and policy evidence.</li>
+          <li>Detect new, changed, orphaned, overprivileged, inactive, unsupported, unlabeled, duplicated, failed, or unusually costly content.</li>
+          <li>Prioritize by business criticality, sensitivity, external exposure, operational failure, capacity impact, age, and owner status.</li>
+          <li>Send evidence-backed attestations with a proposed action, alternatives, deadline, and exception path.</li>
+          <li>Execute approved ownership, access, metadata, consolidation, archive, or retirement changes through controlled runbooks.</li>
+          <li>Verify effective access, refresh, apps, downstream consumers, capacity, archive recovery, and stakeholder outcomes.</li>
+          <li>Report unresolved ownership, expired exceptions, policy coverage, risk reduction, adoption, cost, and recurring failure.</li>
+        </ol>
+        <p>Monthly governance is often appropriate for high-change tenants, with quarterly business-owner attestations and event-driven handling for leavers, critical failures, external sharing, and tenant-setting changes. The cadence should match risk and change volume rather than produce meetings without action.</p>
+
+        <h2>Measure risk reduction and enablement together</h2>
+        <ul>
+          <li><strong>Ownership:</strong> workspaces with two active admins, items with accountable owner, orphan age, takeover completion, and single-person dependencies.</li>
+          <li><strong>Access:</strong> excessive admin and Build permissions, stale direct grants, external exposure, exception age, and verified revocation.</li>
+          <li><strong>Lifecycle:</strong> classified content, owner response, archive candidates, successful recovery tests, approved retirements, failed changes, and backlog age.</li>
+          <li><strong>Operations:</strong> refresh failures, unsupported sources, credential-owner gaps, capacity hotspots, duplicate models, and unowned incidents.</li>
+          <li><strong>Adoption:</strong> active consumers, critical report use, certified-content share, duplicate reduction, discoverability, and user support demand.</li>
+          <li><strong>Control:</strong> unauthorized deletion, broken dependency, lost recovery path, access exposure, incorrect classification, and unsupported automated decision.</li>
+        </ul>
+        <p>Do not celebrate deletion count. A healthy program reduces risk and noise while preserving useful, trusted content and enabling teams to publish through clear patterns. Track time from finding to accountable decision and the recurrence of the same governance failure.</p>
+
+        <h2 id="pilot">Run a three-to-six-week tenant governance assessment</h2>
+        <ol>
+          <li>Define tenant scope, stakeholders, business domains, policy sources, target outcomes, data handling, and change authority.</li>
+          <li>Configure read-only admin and metadata access, preserve raw scans and activity, and establish collection health.</li>
+          <li>Build the workspace, item, ownership, access, source, lineage, capacity, domain, activity, and lifecycle inventory.</li>
+          <li>Reconcile identities, administrators, contacts, service accounts, gateways, credentials, and business owners.</li>
+          <li>Apply versioned finding rules and rank orphaned, excessive-access, inactive, duplicated, unsupported, failed, and costly content.</li>
+          <li>Validate a sample with workspace, business, security, and platform owners; measure false positives and missing evidence.</li>
+          <li>Run one controlled remediation wave with dependency checks, approval, archive or rollback, and post-change validation.</li>
+          <li>Deliver the governance baseline, prioritized backlog, ownership matrix, lifecycle policy, operating runbooks, dashboards, managed-service cadence, and acceptance measures.</li>
+        </ol>
+        <p>Assessment length depends on tenant size, API access, retained activity, identity quality, lineage, external sharing, and owner responsiveness. Begin with a bounded domain or capacity if the tenant is large. The first cycle should prove that findings lead to safe decisions, not attempt bulk deletion.</p>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>How do you govern a Power BI or Microsoft Fabric tenant?</summary><p>Establish a tenant inventory from supported admin and metadata APIs, retain activity evidence, assign accountable workspace and item owners, define workspace and domain standards, review effective permissions, classify criticality and lifecycle state, monitor exceptions, and use approved archive or retirement workflows. Governance should enable supported self-service while making ownership and risk visible.</p></details>
+          <details><summary>How do you find orphaned Power BI workspaces and Fabric items?</summary><p>Compare workspace roles and contacts with the current identity directory and HR or contractor status, then identify workspaces without an active accountable administrator and items owned by departed or inactive users. Validate dependencies, credentials, schedules, child items, apps, external consumers, and business ownership before transferring ownership or changing access.</p></details>
+          <details><summary>Can unused Power BI reports be deleted automatically?</summary><p>Deletion should not be based on view count alone. A report can support infrequent financial, regulatory, operational, embedded, export, subscription, or disaster-recovery use. Combine an approved inactivity window with lineage, refresh, sharing, app, export, subscription, dependency, criticality, owner attestation, archive evidence, recovery testing, and a reversible decision workflow.</p></details>
+          <details><summary>What data is needed for a Power BI tenant governance assessment?</summary><p>Useful evidence includes metadata scanner output, workspace and item inventory, roles and effective permissions, tenant settings, domains and tags, activity logs, refresh and capacity evidence, lineage, endorsement and sensitivity labels, data sources, apps, subscriptions, external sharing, identity status, costs, incidents, and owner attestations.</p></details>
+          <details><summary>How long does a Power BI tenant governance assessment take?</summary><p>A focused assessment can often produce a verified inventory, risk segmentation, and prioritized remediation in three to six weeks when admin API access, identity data, activity history, governance policies, and owners are available. Remediation and a recurring managed governance cycle depend on tenant size, lineage, access complexity, business attestation, and archive requirements.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-implementation-planning-auditing-monitoring-tenant-level-auditing">Microsoft Power BI tenant-level auditing guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/guidance/admin-activity-log">Microsoft Power BI activity log guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-implementation-planning-content-lifecycle-management-retire-archive">Microsoft Power BI content retirement and archive planning</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-implementation-planning-security-content-creator-planning">Microsoft Power BI content creator security planning</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/fundamentals/item-ownership-take-over">Microsoft Fabric item ownership takeover</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/governance/domains">Microsoft Fabric domains</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/governance/tags-overview">Microsoft Fabric tags</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with one domain, capacity, or high-risk workspace group.</strong> Datrick can build the inventory, validate ownership and permissions, rank lifecycle findings, and operate a controlled remediation cycle.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=IT%20service%20firm%20%2F%20agency&amp;service=Data%20platform%20or%20BI%20work&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=ai_power_bi_tenant_governance&amp;utm_medium=organic_content&amp;utm_campaign=power_bi_governance_scoping&amp;utm_content=article_end#inquiry-form">Scope tenant governance</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="ai-microsoft-fabric-readiness-assessment-adoption-roadmap"><span>Fabric adoption</span><strong>Build an evidence-backed 90-day roadmap</strong></a><a href="ai-power-bi-row-level-security-permission-external-sharing-audit"><span>Power BI security</span><strong>Audit RLS and effective access</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

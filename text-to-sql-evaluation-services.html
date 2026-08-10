@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Enterprise Text-to-SQL Evaluation Services | Datrick</title>
+    <meta name="description" content="How to evaluate enterprise text-to-SQL systems for result correctness, business semantics, permissions, performance, ambiguity, and production risk.">
+    <link rel="canonical" href="https://datrick.com/text-to-sql-evaluation-services">
+    <meta property="og:title" content="Enterprise Text-to-SQL Evaluation Services | Datrick">
+    <meta property="og:description" content="A practical guide to evaluating SQL agents with controlled data, execution checks, business-semantic review, edge cases, and managed technical evaluation.">
+    <meta property="og:url" content="https://datrick.com/text-to-sql-evaluation-services">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "headline": "Enterprise Text-to-SQL Evaluation Services",
+            "description": "How to evaluate enterprise text-to-SQL systems for result correctness, business semantics, permissions, performance, ambiguity, and production risk.",
+            "url": "https://datrick.com/text-to-sql-evaluation-services",
+            "datePublished": "2026-07-14",
+            "dateModified": "2026-07-14",
+            "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"},
+            "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}},
+            "mainEntityOfPage": "https://datrick.com/text-to-sql-evaluation-services"
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is text-to-SQL evaluation?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Text-to-SQL evaluation measures whether a model or agent correctly interprets a natural-language question, generates authorized SQL, returns the intended result, handles business semantics and edge cases, and avoids unacceptable performance or security risk."}
+              },
+              {
+                "@type": "Question",
+                "name": "Is execution accuracy enough for text-to-SQL evaluation?",
+                "acceptedAnswer": {"@type": "Answer", "text": "No. Execution accuracy is useful, but two different queries can return the same result on one test dataset by coincidence. Evaluation should also inspect query semantics, use counterexample data, test permissions and performance, and apply technical review where business meaning is ambiguous."}
+              },
+              {
+                "@type": "Question",
+                "name": "How do you build an enterprise text-to-SQL benchmark?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Start from representative user questions, schemas, metric definitions, permissions, and historical failures. Include normal, boundary, ambiguous, adversarial, empty-set, duplicate, null, timezone, and large-scan cases. Version the dataset and preserve protected holdout tasks for release decisions."}
+              },
+              {
+                "@type": "Question",
+                "name": "When does text-to-SQL evaluation need human SQL experts?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Human SQL and data experts are needed when correctness depends on business definitions, multiple queries may be valid, datasets do not expose a semantic error, operational risk matters, or the system must decide whether to ask a clarifying question rather than invent an assumption."}
+              },
+              {
+                "@type": "Question",
+                "name": "What does a managed text-to-SQL evaluation pilot include?",
+                "acceptedAnswer": {"@type": "Answer", "text": "A managed pilot includes one bounded use case, controlled schemas and data, representative questions, reference evidence, execution and state checks, a technical review rubric, reviewer calibration, disagreement adjudication, error analysis, and a recommendation to expand, revise, or stop."}
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Enterprise text-to-SQL evaluation</p>
+          <h1>Test whether a SQL agent answers the business question, not only whether the query runs.</h1>
+          <p class="page-lede">A practical guide to controlled datasets, execution checks, semantic review, permissions, performance risk, ambiguity handling, and managed evaluation pilots for text-to-SQL systems.</p>
+          <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=text_to_sql_evaluation&amp;utm_medium=organic_content&amp;utm_campaign=technical_ai_evaluation&amp;utm_content=hero#inquiry-form">Scope a text-to-SQL pilot</a></div>
+          <div class="article-meta"><a href="resources.html">Resource library</a><span>SQL-agent evaluation</span><span>11 min read</span></div>
+        </div>
+      </section>
+
+      <section class="section service-band">
+        <article class="article-body">
+          <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#evaluation-design">Evaluation design</a><a href="#semantic-review">Semantic review</a><a href="#enterprise-controls">Enterprise controls</a><a href="#managed-pilot">Managed pilot</a></nav>
+
+          <p>A text-to-SQL system can generate valid SQL, execute successfully, and still answer the wrong question. It may join at the wrong grain, include cancelled records, double-count revenue, mix timezones, ignore tenant boundaries, or invent a definition for an ambiguous metric. The result can look credible precisely because the query ran.</p>
+
+          <p>Enterprise text-to-SQL evaluation must connect natural-language intent to data semantics and operating consequences. That requires representative questions, controlled schemas and datasets, execution evidence, counterexamples, access boundaries, performance checks, and human SQL or analytics review where correctness cannot be reduced to one result comparison.</p>
+
+          <section class="readiness-actions"><p><strong>Need SQL and data experts for model evaluation?</strong> Datrick supports text-to-SQL task design, reference queries, model-output review, business-semantic rubrics, calibration, adjudication, and managed technical evaluation delivery.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=text_to_sql_evaluation&amp;utm_medium=organic_content&amp;utm_campaign=technical_ai_evaluation&amp;utm_content=article_intro#inquiry-form">Describe the SQL evaluation need</a><a class="button secondary" href="ai-model-training.html">Review the managed service</a></div></section>
+
+          <h2 id="evaluation-design">Define the intended decision and operating context</h2>
+          <p>State whether the evaluation will compare models, approve a release, validate an analytics assistant, qualify contributors, or improve a text-to-SQL pipeline. Define the target users, database engines, schemas, question types, metric definitions, permissions, latency and cost limits, expected ambiguity behavior, and consequences of a wrong answer.</p>
+
+          <p>Public benchmarks provide useful external context. <a href="https://spider2-sql.github.io/">Spider 2.0</a> focuses on real-world text-to-SQL workflows derived from enterprise database use cases. A production evaluation still needs private tasks that reflect the organization's schemas, terminology, access policies, data distributions, and historical failures.</p>
+
+          <div class="article-table-wrap" role="region" aria-label="Enterprise text-to-SQL evaluation matrix" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Enterprise text-to-SQL evaluation matrix</caption>
+              <thead><tr><th scope="col">Dimension</th><th scope="col">What to verify</th><th scope="col">Example failure</th></tr></thead>
+              <tbody>
+                <tr><td>Intent interpretation</td><td>The generated query answers the user's actual question and follows defined business terms.</td><td>"Active customer" is interpreted differently from the approved metric definition.</td></tr>
+                <tr><td>Result correctness</td><td>Rows, aggregates, ordering, grouping, and limits match trusted reference evidence.</td><td>The query runs but returns lifetime revenue instead of the requested quarter.</td></tr>
+                <tr><td>Join semantics</td><td>Keys, direction, cardinality, grain, and fan-out are correct.</td><td>A many-to-many join silently duplicates invoices.</td></tr>
+                <tr><td>Edge cases</td><td>Nulls, duplicates, empty sets, boundary dates, late data, and timezone rules are handled.</td><td>Orders at midnight move into the wrong reporting period.</td></tr>
+                <tr><td>Authorization</td><td>The query uses permitted databases, tables, columns, rows, and operations.</td><td>A correct result is obtained through restricted customer data.</td></tr>
+                <tr><td>Performance</td><td>Scan size, predicates, joins, recursion, concurrency, and warehouse cost stay within limits.</td><td>A simple question triggers a full production-table scan.</td></tr>
+                <tr><td>Ambiguity</td><td>The system asks, states an assumption, or applies an approved default.</td><td>The agent silently invents the meaning of net revenue.</td></tr>
+              </tbody>
+            </table></div>
+
+          <h2>Execution accuracy is necessary but not sufficient</h2>
+          <p>Comparing the result of a generated query with a trusted query is a strong starting point. It verifies behavior rather than SQL string similarity and allows several syntactically different queries to be accepted. Tools such as the <a href="https://pypi.org/project/text2sql-eval-toolkit/">Text-to-SQL Evaluation Toolkit</a> and the <a href="https://docs.ragas.io/en/v0.4.0/howtos/applications/text2sql/">Ragas text-to-SQL evaluation guide</a> demonstrate execution-oriented approaches.</p>
+
+          <p>One static dataset can still hide semantic differences. Two non-equivalent queries may return the same rows by coincidence because the data does not contain the case that separates them. Create counterexample data for join fan-out, duplicates, nulls, boundary dates, missing dimensions, and conflicting status values. Where appropriate, compare query structure, test multiple datasets, or use formal and property-based techniques in addition to execution checks.</p>
+
+          <h2 id="semantic-review">Use technical human review for business semantics</h2>
+          <p>A SQL expert should inspect cases where a reference result does not fully define correctness, multiple queries may be valid, or the approved answer depends on business policy. The reviewer should cite the question, schema, metric definition, query, result, and relevant data behavior rather than assign a general quality score.</p>
+
+          <div class="article-table-wrap" role="region" aria-label="Text-to-SQL human review rubric" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Text-to-SQL human review rubric</caption>
+              <thead><tr><th scope="col">Review question</th><th scope="col">Required evidence</th><th scope="col">Escalate when</th></tr></thead>
+              <tbody>
+                <tr><td>Does the query preserve the intended grain?</td><td>Join keys, source-table grain, grouping, and representative row traces.</td><td>The business owner has not defined the unit of analysis.</td></tr>
+                <tr><td>Are metric definitions applied correctly?</td><td>Approved KPI definition, filters, statuses, time window, and exclusions.</td><td>Two authorized definitions conflict.</td></tr>
+                <tr><td>Is the assumption defensible?</td><td>User question, available context, system policy, and stated assumption.</td><td>The answer should have required clarification.</td></tr>
+                <tr><td>Is the query safe to execute?</td><td>Read-only enforcement, permissions, query plan, scan estimate, and timeout.</td><td>Production impact or data access cannot be bounded.</td></tr>
+              </tbody>
+            </table></div>
+
+          <h2>Build the evaluation set from real question families</h2>
+          <p>Sample questions from analytics requests, support tickets, dashboard definitions, data incidents, onboarding sessions, query logs where authorized, and known failure cases. Remove sensitive content and preserve provenance. Cover routine questions, hard joins, vague business language, incomplete context, permission boundaries, and cases where the correct behavior is to ask a question or refuse.</p>
+
+          <p>Keep a protected holdout set for release decisions. If prompt authors, model developers, or evaluators repeatedly see every task and reference answer, the program can measure familiarity instead of generalization. Version schemas, data snapshots, definitions, graders, model settings, and environment dependencies so results remain explainable.</p>
+
+          <h2 id="enterprise-controls">Control access and execution risk</h2>
+          <p>Use isolated or replicated data where possible, read-only credentials, row and column restrictions, query timeouts, scan and cost limits, audit logs, and an explicit approval path for any production access. Mask or synthesize sensitive data without removing the edge cases the evaluation is meant to test. Record which reviewers can see schemas, data samples, query outputs, and business definitions.</p>
+
+          <p>Evaluation should distinguish a model-quality failure from an environment failure. Missing schema context, stale metadata, unavailable tables, incorrect permissions, and broken reference queries can make the model appear wrong when the task itself is not executable. Validate the task and environment before using the result to compare models or reviewers.</p>
+
+          <h2>Calibrate SQL reviewers and adjudicate disagreement</h2>
+          <p>Have qualified reviewers independently score the same sample. Classify disagreement into reviewer error, weak reference evidence, ambiguous business meaning, multiple valid SQL formulations, dataset blind spots, and environment instability. An authorized data or business owner must resolve definition conflicts; an evaluation vendor should not invent the client's metric policy.</p>
+
+          <p>Track acceptance, rework, disagreement, query-error category, ambiguity rate, security escalation, execution failure, and rubric changes. Aggregate accuracy can hide a critical weakness in one high-risk task family, so report by domain, schema, complexity, failure type, and decision threshold.</p>
+
+          <h2 id="managed-pilot">What a managed text-to-SQL evaluation pilot should deliver</h2>
+          <ol>
+            <li>A bounded use case, named decision owner, target users, databases, permissions, and business definitions.</li>
+            <li>A representative question set with normal, difficult, ambiguous, adversarial, and protected holdout cases.</li>
+            <li>Controlled schemas and data with reference evidence, counterexamples, access controls, and reproducible resets.</li>
+            <li>Execution, result, state, permission, and performance checks matched to each task family.</li>
+            <li>A technical review rubric, calibration sample, disagreement taxonomy, and adjudication route.</li>
+            <li>A pilot report with failure patterns, limitations, rubric changes, and an expand, revise, or stop recommendation.</li>
+          </ol>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-list">
+            <details><summary>What is text-to-SQL evaluation?</summary><p>Text-to-SQL evaluation measures whether a model or agent correctly interprets a natural-language question, generates authorized SQL, returns the intended result, handles business semantics and edge cases, and avoids unacceptable performance or security risk.</p></details>
+            <details><summary>Is execution accuracy enough for text-to-SQL evaluation?</summary><p>No. Execution accuracy is useful, but two different queries can return the same result on one test dataset by coincidence. Evaluation should also inspect query semantics, use counterexample data, test permissions and performance, and apply technical review where business meaning is ambiguous.</p></details>
+            <details><summary>How do you build an enterprise text-to-SQL benchmark?</summary><p>Start from representative user questions, schemas, metric definitions, permissions, and historical failures. Include normal, boundary, ambiguous, adversarial, empty-set, duplicate, null, timezone, and large-scan cases. Version the dataset and preserve protected holdout tasks for release decisions.</p></details>
+            <details><summary>When does text-to-SQL evaluation need human SQL experts?</summary><p>Human SQL and data experts are needed when correctness depends on business definitions, multiple queries may be valid, datasets do not expose a semantic error, operational risk matters, or the system must decide whether to ask a clarifying question rather than invent an assumption.</p></details>
+            <details><summary>What does a managed text-to-SQL evaluation pilot include?</summary><p>A managed pilot includes one bounded use case, controlled schemas and data, representative questions, reference evidence, execution and state checks, a technical review rubric, reviewer calibration, disagreement adjudication, error analysis, and a recommendation to expand, revise, or stop.</p></details>
+          </div>
+
+          <section class="readiness-actions"><p><strong>Start with one schema and one question family.</strong> Datrick can review the data model, questions, reference evidence, graders, SQL rubric, security controls, calibration method, and pilot findings before recurring delivery is proposed.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=text_to_sql_evaluation&amp;utm_medium=organic_content&amp;utm_campaign=technical_ai_evaluation&amp;utm_content=article_end#inquiry-form">Scope a text-to-SQL pilot</a></div></section>
+
+          <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-implementation-evaluation-services"><span>Fabric Data Agents</span><strong>Implement and evaluate enterprise data agents</strong></a><a href="technical-llm-evaluation-coding-sql"><span>Evaluation system</span><strong>Technical LLM evaluation guide</strong></a></nav>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

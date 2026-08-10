@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Microsoft Copilot Studio Services: Implementation &amp; Support</title>
+    <meta name="description" content="Microsoft Copilot Studio implementation, advisory, and managed support for agent design, knowledge, tools, identity, evaluation, releases, incidents, and Copilot Credits.">
+    <link rel="canonical" href="https://datrick.com/microsoft-copilot-studio-managed-services-production-support">
+    <meta property="og:title" content="Microsoft Copilot Studio Services: Implementation &amp; Support">
+    <meta property="og:description" content="Implement and operate Copilot Studio agents with accountable design, evaluation, monitoring, incident response, governance, releases, and cost control.">
+    <meta property="og:url" content="https://datrick.com/microsoft-copilot-studio-managed-services-production-support">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Service", "name": "Microsoft Copilot Studio Implementation and Managed Support Services", "serviceType": "Copilot Studio advisory, implementation, evaluation, production support, incident response, governance, release control, and operations", "description": "Microsoft Copilot Studio implementation, advisory, and managed support for agent design, knowledge, tools, identity, evaluation, releases, incidents, and Copilot Credits.", "url": "https://datrick.com/microsoft-copilot-studio-managed-services-production-support", "provider": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "areaServed": "Global", "audience": {"@type": "BusinessAudience", "audienceType": "Enterprises, managed service providers, and IT service firms implementing or operating Microsoft Copilot Studio agents"}},
+          {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://datrick.com/"},
+            {"@type": "ListItem", "position": 2, "name": "AI Workflow Automation", "item": "https://datrick.com/ai-workflows.html"},
+            {"@type": "ListItem", "position": 3, "name": "Microsoft Copilot Studio Services", "item": "https://datrick.com/microsoft-copilot-studio-managed-services-production-support"}
+          ]},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is included in Microsoft Copilot Studio managed services?", "acceptedAnswer": {"@type": "Answer", "text": "A managed service can include production monitoring, session and error review, agent-quality evaluation, knowledge and connector support, trigger and flow operations, identity and data-policy governance, incident response, controlled changes, solution and environment lifecycle, Copilot Credit monitoring, reporting, and a prioritized improvement backlog. Exact coverage depends on the agreed service boundary and available access and telemetry."}},
+            {"@type": "Question", "name": "Do you provide Microsoft Copilot Studio implementation services?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. A bounded implementation can cover use-case and risk definition, environment and policy readiness, conversation and orchestration design, knowledge and connector integration, identity, tools and flows, evaluation, deployment, documentation, handover, and an operating plan. Existing agents can instead begin with an advisory assessment and stabilization before managed support."}},
+            {"@type": "Question", "name": "Can Datrick provide Copilot Studio support under an MSP's brand?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Datrick can operate as a white-label L2 and L3 back line while the MSP retains the client relationship, commercial terms, L1 intake, communication authority, and final approval. Identities, ticket routing, meeting participation, client updates, confidentiality, non-solicitation, access, change authority, and escalation are documented before service begins."}},
+            {"@type": "Question", "name": "How do you monitor a Copilot Studio agent in production?", "acceptedAnswer": {"@type": "Answer", "text": "Use Copilot Studio analytics and monitoring for sessions, engagement, satisfaction, response quality, tools, knowledge sources, failures, rejected runs, triggers, and consumption, then reconcile those signals with Power Platform administration, service health, connector and flow runs, client incidents, deterministic tests, and business outcomes. Trigger analytics begin only after the trigger payload reaches the agent, so upstream trigger failures need separate monitoring."}},
+            {"@type": "Question", "name": "How do you troubleshoot a Copilot Studio agent that stopped working?", "acceptedAnswer": {"@type": "Answer", "text": "First define the affected users, channel, environment, agent version, time, impact, and recent change. Then check service health, publish state, authentication, user and maker credentials, data policies, knowledge availability, connector and flow runs, trigger delivery, session errors, capacity and Copilot Credit enforcement, and channel-specific behavior. Contain risk before changing production and validate recovery with a representative user and task."}},
+            {"@type": "Question", "name": "How long does Copilot Studio managed-service onboarding take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused onboarding commonly takes two to four weeks for one environment and a representative agent portfolio. It covers inventory, responsibility, access, telemetry, quality and consumption baselines, security and data policies, open incidents, release paths, runbooks, escalation exercises, a shadow period, and explicit acceptance of the steady-state scope."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Copilot Studio implementation and managed support</p>
+        <h1>Microsoft Copilot Studio services from implementation through production support.</h1>
+        <p class="page-lede">Design, implement, evaluate, and operate Microsoft Copilot Studio agents with accountable knowledge and tools, identity controls, monitoring, incident response, releases, Copilot Credit governance, and measurable service improvement.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=copilot_studio_managed_support&amp;utm_medium=organic_content&amp;utm_campaign=copilot_studio_production_operations&amp;utm_content=hero#inquiry-form">Describe the agent estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Copilot Studio managed support</span><span>12 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#model">Service model</a><a href="#scope">Support scope</a><a href="#incidents">Incident response</a><a href="#governance">Governance and release</a><a href="#onboarding">Onboarding</a></nav>
+
+        <p>Copilot Studio makes it possible to publish conversational and event-triggered agents across Microsoft 365, Teams, SharePoint, websites, and other channels. Once users or automated processes depend on an agent, production responsibility extends beyond the canvas. Knowledge changes, tools lose authentication, triggers fail upstream, data policies block connectors, maker credentials become unsafe dependencies, releases alter orchestration, Copilot Credits approach enforcement, and answer quality changes without a conventional application error.</p>
+        <p>Datrick can implement a bounded new agent or provide an advisory assessment and stabilization plan for an existing estate before ongoing support begins. The service can work directly with an enterprise owner or as an L2/L3 back line under an MSP's brand. Named engineers reconcile Copilot Studio evidence with Power Platform, Microsoft 365, connected systems, evaluation results, incidents, changes, and business outcomes. Microsoft product support remains important for platform defects; managed operations owns the client-specific architecture, diagnosis, remediation, validation, communication, and prevention around the product.</p>
+
+        <section class="readiness-actions"><p><strong>Are production agents being operated by the same makers who built the first version, with no explicit support boundary?</strong> Start with one environment and the agents users already depend on.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=copilot_studio_managed_support&amp;utm_medium=organic_content&amp;utm_campaign=copilot_studio_production_operations&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" href="white-label-ai-agent-operations-managed-support-for-msps">Review the MSP model</a></div></section>
+
+        <h2 id="model">Choose direct, co-managed, or white-label Copilot Studio support</h2>
+        <p>In a direct model, Datrick works with the enterprise's product owner, Power Platform administrator, security team, service desk, data owners, and business stakeholders. In a co-managed model, an internal platform team retains administration and policy while Datrick owns an agreed operational queue and engineering backlog. In a white-label model, the MSP keeps L1 intake, the client relationship, commercials, and final communication while Datrick provides qualified L2/L3 diagnosis, change, and evidence.</p>
+        <p>For every model, document supported environments, agents, channels, business hours, severity, response and update targets, monitoring sources, access, data handling, change authority, vendor escalation, exclusions, client dependencies, and exit. Response, restoration, permanent resolution, and quality improvement are different obligations and should not be hidden behind one SLA percentage.</p>
+
+        <h2 id="scope">Define what Copilot Studio managed support covers</h2>
+        <div class="article-table-wrap" role="region" aria-label="Copilot Studio managed services support scope" tabindex="0"><table class="article-table"><caption class="sr-only">Copilot Studio managed services support scope</caption>
+          <thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead>
+          <tbody>
+            <tr><td>Sessions and channels</td><td>Availability, failed or rejected sessions, latency, channel sign-in, message delivery, handoff, user impact, and fallback.</td><td>Supported channels, user groups, hours, experience SLO, Microsoft dependency, and restoration authority.</td></tr>
+            <tr><td>Answer and task quality</td><td>Response quality, topic coverage, groundedness, task completion, refusal, escalation, feedback, sampled review, and regression testing.</td><td>Approved use cases, test set, thresholds, reviewer, prohibited outcomes, and business acceptance.</td></tr>
+            <tr><td>Knowledge</td><td>SharePoint, Dataverse, websites, files, Fabric, and other source availability, permissions, freshness, retrieval, citation, and conflict.</td><td>Authoritative source, owner, access inheritance, refresh objective, retention, region, and unsupported content.</td></tr>
+            <tr><td>Tools and agent flows</td><td>Connector, flow, action, input, output, authentication, authorization, timeout, retry, side effect, approval, and rollback failures.</td><td>Allowed tools, credential pattern, action owner, environment, DLP group, human approval, and emergency disable path.</td></tr>
+            <tr><td>Triggers and autonomy</td><td>Trigger payload, condition, run, duplicate, missed event, schedule, downstream action, and exception reconciliation.</td><td>Upstream monitoring, idempotency, recurrence, allowed consumption, business calendar, and deterministic control.</td></tr>
+            <tr><td>Identity and policy</td><td>User authentication, maker-provided credentials, service principal, environment roles, data policies, channel policy, sharing, and access lifecycle.</td><td>Security authority, least privilege, segregation, credential rotation, exception process, and evidence retention.</td></tr>
+            <tr><td>Lifecycle and cost</td><td>Solutions, environments, pipelines, publish state, version, release, rollback, Copilot Credit consumption, limits, forecast, and optimization.</td><td>Source of truth, promotion path, change authority, budget, capacity allocation, enforcement risk, and scale decision.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2>Monitor what Copilot Studio analytics cannot prove alone</h2>
+        <p>Copilot Studio analytics can show conversation volume, engagement, satisfaction, response quality, topic coverage, tool use, session status, duration, transcripts, knowledge use, failed or rejected runs, and consumption. That evidence is valuable but not complete. A business outcome may fail after a successful tool call; a correct answer may use stale source content; an agent can remain available while a protected user group cannot authenticate.</p>
+        <p>Autonomous trigger analytics have a specific blind spot: Microsoft states that an analytics session begins only after the trigger payload reaches the agent. If the upstream trigger fails, no session begins. Monitor the source event, connector or Power Automate path, agent receipt, actions, target-system outcome, and reconciliation separately. Also account for analytics refresh delay before treating a missing record as a missing run.</p>
+
+        <h2 id="incidents">Investigate the complete path before editing the agent</h2>
+        <div class="article-table-wrap" role="region" aria-label="Copilot Studio production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Copilot Studio production incident matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead>
+          <tbody>
+            <tr><td>Agent unavailable</td><td>Microsoft service health, environment, publish state, channel, authentication, data policy, billing and capacity, agent status, and user scope.</td><td>Approved fallback channel, service notice, capacity action, or restore known version.</td><td>Availability checks, capacity guardrail, publish acceptance, channel test, and owner escalation.</td></tr>
+            <tr><td>Wrong or unsafe answer</td><td>Transcript, user and role, topic or orchestration, knowledge sources, retrieved content, instructions, model, tool output, version, and expected result.</td><td>Disable affected topic or source, narrow audience, route to human review, or rollback.</td><td>Golden set, source ownership, release gate, sampled production evaluation, and feedback closure.</td></tr>
+            <tr><td>Tool or flow failure</td><td>Tool invocation, parameters, connection, credential owner, DLP, flow run, connector response, timeout, rate limit, target state, and duplicate risk.</td><td>Pause action, use manual runbook, prevent retry side effects, rotate access, or disable trigger.</td><td>User-scoped identity where appropriate, schema validation, idempotency, run monitoring, and expiry alerts.</td></tr>
+            <tr><td>Trigger did not run</td><td>Source event, trigger registration and condition, payload, connection, DLP, capacity, agent receipt, analytics session, action run, and target outcome.</td><td>Use deterministic alert or manual queue and stop unsafe duplicate replay.</td><td>End-to-end synthetic event, source-to-target reconciliation, deduplication, and missed-run alert.</td></tr>
+            <tr><td>Unexpected access</td><td>User identity, maker credentials, tool connection, environment roles, sharing, knowledge permissions, DLP, channel, service principal, and audit trail.</td><td>Disable tool or agent, revoke connection, restrict sharing, preserve evidence, and invoke security response.</td><td>Credential restriction, least privilege, access review, policy-as-code evidence, and negative persona tests.</td></tr>
+            <tr><td>Copilot Credit spike</td><td>Agent, environment, user type, conversations, triggers, orchestration, knowledge, tools, flows, model choice, repeats, and limit state.</td><td>Set or reduce monthly limit, disable runaway trigger, reallocate capacity, or use approved pay-as-you-go.</td><td>Usage forecast, unit cost per successful task, anomaly alert, design optimization, and budget owner.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Preserve the original session, traceable identifiers, timing, user, environment, version, source state, action result, and recent changes before remediation. Apply read-only diagnostics first. Production edits without reproduction or rollback can destroy the evidence needed to distinguish platform, policy, identity, data, orchestration, and business-logic failures.</p>
+
+        <h2 id="governance">Control credentials, data policies, environments, and releases together</h2>
+        <p>Microsoft warns that a maker can add a tool using personal credentials, causing end users to invoke the maker's access instead of their own. Restrict maker-provided credentials in sensitive environments where user-scoped authentication is required, inventory every connection owner, monitor credential lifecycle, and eliminate departed-person dependencies. Test denied users as carefully as permitted users.</p>
+        <p>Use Power Platform data policies to require authentication; classify business, non-business, and blocked connectors; control knowledge sources, HTTP, skills, tools, channels, event triggers, Application Insights, and other data movement. Since data-policy enforcement occurs in real time, every policy change is also a production-change risk. Test affected agents and flows before broad enforcement and after release.</p>
+        <p>Manage agents in custom solutions across development, test, pilot, and production environments. Use pipelines or controlled export and import, environment-specific configuration, source ownership, peer review, evaluation gates, approval, publish verification, channel acceptance, and rollback. Microsoft documents custom solutions for multi-environment ALM and ring deployments; the managed service should prove the actual deployed and published version, not infer it from a successful import.</p>
+
+        <h2>Connect Copilot Credits to service value and enforcement risk</h2>
+        <p>Copilot Credits depend on agent design, traffic, orchestration, knowledge, tools, and flows. Monitor tenant and environment allocation, agent consumption, monthly limits, forecast, overage path, and pay-as-you-go decisions. Microsoft's current guidance states that prepaid custom agents can be disabled when applicable consumption reaches the enforcement threshold, while new agent-flow runs can be blocked when prepaid flow capacity is exhausted.</p>
+        <p>Track cost per successful business outcome, not only credits per message. Repeated questions, avoidable tool calls, runaway triggers, poorly scoped knowledge, ineffective responses, and high human correction can make a low-latency agent expensive. Link consumption to quality, task completion, user group, environment, business process, and avoided work before changing capacity or design.</p>
+
+        <h2 id="onboarding">Onboard through inventory, stabilization, shadow operations, and acceptance</h2>
+        <ol>
+          <li>Define direct, co-managed, or white-label responsibilities; stakeholders; supported hours; severity; communication; escalation; and commercial boundaries.</li>
+          <li>Inventory environments, solutions, agents, versions, channels, topics, knowledge, tools, connections, triggers, flows, identities, policies, owners, and business processes.</li>
+          <li>Validate least-privilege access, maker credentials, authentication, DLP, sharing, source permissions, telemetry, analytics, service health, and retention.</li>
+          <li>Baseline representative tasks, quality, latency, tool success, trigger delivery, escalation, Copilot Credits, incident history, and unresolved technical debt.</li>
+          <li>Build the service map, RACI, severity model, runbooks, evaluation set, release path, rollback, communication templates, dashboard, and monthly report.</li>
+          <li>Resolve or explicitly accept critical risks such as personal production credentials, no rollback, missing trigger monitoring, unknown source owner, or no quality baseline.</li>
+          <li>Exercise an unavailable agent, wrong answer, connector failure, missed trigger, access violation, capacity spike, rollback, and client update.</li>
+          <li>Run a shadow period and accept only the steady-state responsibilities that access, evidence, authority, and staffing can support.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is included in Microsoft Copilot Studio managed services?</summary><p>A managed service can include production monitoring, session and error review, agent-quality evaluation, knowledge and connector support, trigger and flow operations, identity and data-policy governance, incident response, controlled changes, solution and environment lifecycle, Copilot Credit monitoring, reporting, and a prioritized improvement backlog. Exact coverage depends on the agreed service boundary and available access and telemetry.</p></details>
+          <details><summary>Do you provide Microsoft Copilot Studio implementation services?</summary><p>Yes. A bounded implementation can cover use-case and risk definition, environment and policy readiness, conversation and orchestration design, knowledge and connector integration, identity, tools and flows, evaluation, deployment, documentation, handover, and an operating plan. Existing agents can instead begin with an advisory assessment and stabilization before managed support.</p></details>
+          <details><summary>Can Datrick provide Copilot Studio support under an MSP's brand?</summary><p>Yes. Datrick can operate as a white-label L2 and L3 back line while the MSP retains the client relationship, commercial terms, L1 intake, communication authority, and final approval. Identities, ticket routing, meeting participation, client updates, confidentiality, non-solicitation, access, change authority, and escalation are documented before service begins.</p></details>
+          <details><summary>How do you monitor a Copilot Studio agent in production?</summary><p>Use Copilot Studio analytics and monitoring for sessions, engagement, satisfaction, response quality, tools, knowledge sources, failures, rejected runs, triggers, and consumption, then reconcile those signals with Power Platform administration, service health, connector and flow runs, client incidents, deterministic tests, and business outcomes. Trigger analytics begin only after the trigger payload reaches the agent, so upstream trigger failures need separate monitoring.</p></details>
+          <details><summary>How do you troubleshoot a Copilot Studio agent that stopped working?</summary><p>First define the affected users, channel, environment, agent version, time, impact, and recent change. Then check service health, publish state, authentication, user and maker credentials, data policies, knowledge availability, connector and flow runs, trigger delivery, session errors, capacity and Copilot Credit enforcement, and channel-specific behavior. Contain risk before changing production and validate recovery with a representative user and task.</p></details>
+          <details><summary>How long does Copilot Studio managed-service onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for one environment and a representative agent portfolio. It covers inventory, responsibility, access, telemetry, quality and consumption baselines, security and data policies, open incidents, release paths, runbooks, escalation exercises, a shadow period, and explicit acceptance of the steady-state scope.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/analytics-overview">Microsoft Copilot Studio agent monitoring overview</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/analytics-overview">Microsoft Copilot Studio analytics overview</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/admin-data-loss-prevention">Microsoft Copilot Studio data policies</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/configure-no-maker-authentication">Control maker-provided credentials</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/authoring-solutions-overview">Copilot Studio custom solutions and ALM</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/requirements-messages-management">Copilot Studio billing rates and capacity management</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Begin with the environment where Copilot Studio agents already affect users, tickets, data, or business actions.</strong> Datrick can stabilize the highest risks, establish operating evidence, and accept a defined recurring support scope.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=copilot_studio_managed_support&amp;utm_medium=organic_content&amp;utm_campaign=copilot_studio_production_operations&amp;utm_content=article_end#inquiry-form">Scope Copilot Studio support</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="white-label-ai-agent-operations-managed-support-for-msps"><span>MSP delivery</span><strong>Operate AI agents under your brand</strong></a><a href="microsoft-copilot-studio-fabric-data-agent-integration-assessment"><span>Fabric integration</span><strong>Validate connected Data Agent behavior</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

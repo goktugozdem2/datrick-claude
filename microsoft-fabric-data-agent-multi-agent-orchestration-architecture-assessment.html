@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Data Agent Multi-Agent Orchestration Assessment | Datrick</title>
+    <meta name="description" content="Design a Microsoft Fabric Data Agent multi-agent architecture with domain routing, identity boundaries, answer evaluation, action isolation, observability, and recovery controls.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-multi-agent-orchestration-architecture-assessment">
+    <meta property="og:title" content="Fabric Data Agent Multi-Agent Orchestration Assessment | Datrick">
+    <meta property="og:description" content="Use multiple governed Fabric Data Agents as specialist analytics tools without creating an untestable web of agents, identities, and actions.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-multi-agent-orchestration-architecture-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Multi-Agent Orchestration Architecture Assessment", "description": "Design a Microsoft Fabric Data Agent multi-agent architecture with domain routing, identity boundaries, answer evaluation, action isolation, observability, and recovery controls.", "url": "https://datrick.com/microsoft-fabric-data-agent-multi-agent-orchestration-architecture-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-multi-agent-orchestration-architecture-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Can Microsoft Fabric Data Agents be used in a multi-agent architecture?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Microsoft describes Fabric Data Agents as conversational analytics components that external orchestrators and multi-agent runtimes can invoke. Each Data Agent remains focused on read-only, governed access to its attached Fabric sources while an orchestrator handles routing, conversation, synthesis, and any separate action workflow."}},
+            {"@type": "Question", "name": "When should we use multiple Fabric Data Agents instead of one?", "acceptedAnswer": {"@type": "Answer", "text": "Use multiple Data Agents when domains have different owners, source permissions, business vocabularies, quality tests, release cadences, or risk boundaries. Keep one agent when the sources serve one coherent decision domain and can be governed and evaluated as one unit. Splitting agents only to mirror technical systems usually adds routing complexity without improving trust."}},
+            {"@type": "Question", "name": "Should a Fabric Data Agent perform business actions in a multi-agent workflow?", "acceptedAnswer": {"@type": "Answer", "text": "Fabric Data Agents are designed for read-only governed data access. Keep analytics and action execution separate. The orchestrator can request evidence from a Data Agent, but a separately authorized action tool or agent should apply deterministic validation, approval, idempotency, and audit controls before changing a business system."}},
+            {"@type": "Question", "name": "How should identity work across multiple Fabric Data Agents?", "acceptedAnswer": {"@type": "Answer", "text": "Choose the identity pattern per route and consumption channel. User delegated or On-Behalf-Of access preserves individual source permissions where supported. A service principal creates a fixed data persona and needs explicit access to each agent workspace and attached source. Do not mix identity assumptions between direct MCP, Foundry, Copilot Studio, and custom application paths."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent multi-agent architecture assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused architecture pilot commonly takes four to six weeks for two specialist Data Agents, one orchestrator, one user cohort, and one controlled workflow. The work should prove domain boundaries, routing, identity, answer synthesis, failure isolation, evaluation, observability, capacity, and recovery before broader expansion."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent + multi-agent systems</p>
+        <h1>Use governed data specialists without building an untestable web of agents.</h1>
+        <p class="page-lede">Design a multi-agent architecture in which Microsoft Fabric Data Agents answer bounded analytics questions, an orchestrator routes and synthesizes, and separate action components operate behind explicit authorization and approval controls.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_multi_agent&amp;utm_medium=organic_content&amp;utm_campaign=fabric_multi_agent_architecture&amp;utm_content=hero#inquiry-form">Describe the multi-agent workflow</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Agent architecture</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundaries">Agent boundaries</a><a href="#routing">Routing</a><a href="#identity">Identity and actions</a><a href="#evaluation">Evaluation</a><a href="#pilot">Pilot plan</a></nav>
+
+        <p>Adding more agents does not automatically create a better system. It creates more routing decisions, identity transitions, model calls, failure modes, versions, and owners. A useful multi-agent architecture starts with business boundaries that can be governed and tested independently. Microsoft positions Fabric Data Agents as conversational analytics specialists: they select among attached Fabric sources, generate read-only SQL, DAX, or KQL where supported, and return governed answers. External orchestrators and multi-agent runtimes can invoke those specialists as part of a broader workflow.</p>
+        <p>The architecture should preserve that specialization. The orchestrator owns intent classification, workflow state, tool selection, answer composition, and escalation. Each Fabric Data Agent owns one coherent analytics domain, authoritative sources, instructions, examples, permissions, and evaluation set. Any component that changes a ticket, order, customer record, deployment, or financial state remains outside the Data Agent behind deterministic action controls.</p>
+
+        <section class="readiness-actions"><p><strong>Which two business domains need different owners, permissions, vocabulary, or release gates?</strong> If that question has no clear answer, one well-designed Data Agent is probably safer than a multi-agent system.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_multi_agent&amp;utm_medium=organic_content&amp;utm_campaign=fabric_multi_agent_architecture&amp;utm_content=article_intro#inquiry-form">Send the architecture context</a><a class="button secondary" href="microsoft-fabric-data-agent-implementation-evaluation-services">Prepare the first specialist</a></div></section>
+
+        <h2 id="boundaries">Split agents by governed decision domain</h2>
+        <p>A Fabric Data Agent can connect to a limited set of supported sources. That technical limit is not the primary reason to split. Create separate agents when the business domains have different accountable owners, permission models, semantic definitions, data freshness, risk, evaluation questions, or change cadence. Finance margin analysis and service operations may both use Fabric, but they should not necessarily share instructions, sources, release approval, or a single generic tool description.</p>
+        <p>Write a contract for every specialist. State the decisions it supports, authoritative sources, supported question classes, prohibited questions, identity model, freshness, expected evidence, quality threshold, owner, release version, and escalation route. The contract becomes the basis for the orchestrator's routing policy and the specialist's regression suite. Avoid agents named after platforms or databases; route by business capability and decision intent.</p>
+
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent multi-agent boundary decisions" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent multi-agent boundary decisions</caption>
+          <thead><tr><th scope="col">Boundary signal</th><th scope="col">Keep one Data Agent when</th><th scope="col">Separate Data Agents when</th><th scope="col">Evidence</th></tr></thead>
+          <tbody>
+            <tr><td>Business ownership</td><td>One owner accepts metric definitions, answer quality, access, and release risk.</td><td>Different executives or data owners must approve scope and changes independently.</td><td>Named domain owner and responsibility matrix.</td></tr>
+            <tr><td>Semantic language</td><td>Terms, measures, time grains, and exclusions are coherent across the question set.</td><td>The same term has different definitions or source truth across domains.</td><td>Business glossary and ground-truth examples.</td></tr>
+            <tr><td>Data access</td><td>The intended users and effective source permissions substantially overlap.</td><td>Users, regions, customers, or sensitivity boundaries require different identities or policies.</td><td>Persona-to-source permission matrix.</td></tr>
+            <tr><td>Quality and release</td><td>One evaluation set and release cadence can safely cover all sources.</td><td>Domains need independent tests, incidents, rollback, or regulatory approval.</td><td>Versioned scorecards and release gates.</td></tr>
+            <tr><td>Runtime behavior</td><td>One agent can select the correct source reliably and stay within acceptable latency and consumption.</td><td>Source selection is persistently ambiguous or one workload destabilizes the others.</td><td>Routing confusion, latency, capacity, and error analysis.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="routing">Make routing explicit, observable, and reversible</h2>
+        <p>The orchestrator should have a compact catalog of specialist contracts rather than access to vague agent descriptions. For each route, include domain, supported intents, exclusions, required identity, sensitivity, expected latency, cost class, and fallback. A Fabric Data Agent's published description also influences tool selection in supported clients, so keep public descriptions aligned with the orchestrator catalog and version them with the agent.</p>
+        <p>Use deterministic routing before model routing where practical. Tenant, product, geography, workflow state, user role, and selected domain can eliminate invalid specialists without an LLM decision. A model can classify the remaining intent, but require a confidence threshold, record the alternatives considered, and ask a clarifying question when the request spans domains or remains ambiguous. Do not silently query every specialist and let a model choose the answer; that multiplies data exposure, consumption, latency, and synthesis risk.</p>
+        <p>Define composition before implementation. Some questions need one specialist. Others need sequential evidence, such as retrieving current revenue before evaluating a support intervention. Parallel calls are appropriate only when the sources and permissions are independent and the final synthesis preserves units, time windows, filters, and uncertainty. The orchestrator should cite which specialist supplied each material claim and must not invent a cross-domain join that no governed source or tested rule supports.</p>
+
+        <h2 id="identity">Preserve identity and isolate actions</h2>
+        <p>Identity support differs by consumption path. A Foundry Fabric tool uses end-user On-Behalf-Of authorization in Microsoft's documented integration and does not support a service principal for that specific tool path. Direct MCP and custom application paths can use a user token or, in documented preview scenarios, a service principal that has explicit workspace and source access. Copilot Studio and Microsoft 365 Copilot introduce their own authentication and sharing behavior. Select a pattern per route and test the exact production identity.</p>
+        <p>A shared service principal creates a fixed data persona. It does not automatically preserve each application user's source permissions. The orchestrator and application must enforce their own user-to-domain authorization before invoking that route. If individual source security must follow the user, use a supported delegated path and prove RLS, CLS, workspace, source, and Purview behavior for each persona. Never transform one broad service principal into a universal analytics back door.</p>
+        <p>Fabric Data Agents are read-only. Keep them read-only inside the architecture. If an answer should lead to an action, pass a structured proposal to a separate action component. That component should validate required fields, retrieve authoritative state, enforce user and service authorization, check policy, require human approval for high-impact changes, use idempotency keys, record the exact request and result, and support compensation or rollback. The orchestrator must not convert generated narrative directly into executable parameters.</p>
+
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent multi-agent production test matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent multi-agent production test matrix</caption>
+          <thead><tr><th scope="col">Test family</th><th scope="col">Scenario</th><th scope="col">Required result</th></tr></thead>
+          <tbody>
+            <tr><td>Route selection</td><td>Clear, ambiguous, unsupported, overlapping, adversarial, and cross-domain questions.</td><td>Correct specialist, justified clarification, or safe refusal with no unnecessary tool call.</td></tr>
+            <tr><td>Identity</td><td>Allowed, restricted, wrong tenant, revoked, expired, service-principal, and delegated personas.</td><td>Every route uses the intended identity and fails closed at both orchestrator and source.</td></tr>
+            <tr><td>Specialist quality</td><td>Metrics, filters, joins, time windows, empty results, stale data, and prohibited questions.</td><td>Generated query, source result, and answer meet the domain-specific ground truth.</td></tr>
+            <tr><td>Synthesis</td><td>Parallel and sequential answers with conflicting units, dates, scopes, and uncertainty.</td><td>Claims remain attributable; conflicts are surfaced rather than averaged or hidden.</td></tr>
+            <tr><td>Action isolation</td><td>Prompt injection, missing approval, duplicated request, changed source state, and action failure.</td><td>No direct Data Agent write; deterministic validation, authorization, idempotency, audit, and recovery.</td></tr>
+            <tr><td>Resilience</td><td>One specialist unavailable, slow, throttled, misconfigured, or rolled back.</td><td>Bounded retries, route-specific degradation, clear user state, and no cascade across healthy specialists.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="evaluation">Evaluate the system at three levels</h2>
+        <p>Specialist evaluation asks whether each Fabric Data Agent selected the right source, generated the right query, respected permissions, and explained the result accurately. Routing evaluation asks whether the orchestrator chose the right specialist, avoided invalid routes, clarified ambiguity, and stayed within latency and consumption budgets. End-to-end evaluation asks whether the synthesized response helped the user make the intended decision without losing provenance, scope, or uncertainty.</p>
+        <p>Maintain one versioned test set per specialist and a separate orchestration set. Include real user language, known overlaps, unsupported requests, access boundaries, prompt injection, source outages, answer conflicts, and action attempts. Record the orchestrator version, specialist version, identity, source versions, generated queries, outputs, final response, latency, consumption, and evaluator decision. A change to any specialist description or instruction can alter routing and therefore requires both local and end-to-end regression.</p>
+        <p>Trace every request across orchestrator decisions and specialist calls with one correlation ID. Monitor route distribution, clarification rate, no-route rate, wrong-route corrections, tool failures, answer quality, latency, consumption per successful decision, user feedback, and action approvals. Establish route-level circuit breakers and known-good versions. One unhealthy specialist should degrade its domain without taking down the entire assistant.</p>
+
+        <h2 id="pilot">Run a four-to-six-week multi-agent architecture pilot</h2>
+        <ol>
+          <li>Select one end-to-end decision workflow, two genuinely distinct data domains, one orchestrator, one user cohort, and accountable owners.</li>
+          <li>Define specialist contracts, source truth, supported questions, identity, permissions, quality thresholds, release gates, and prohibited actions.</li>
+          <li>Choose the orchestration platform and consumption path, then document trust boundaries, state, routing, synthesis, data handling, and failure isolation.</li>
+          <li>Implement deterministic filters, specialist catalog, model routing where needed, clarification, correlation, timeout, bounded retry, and safe fallback.</li>
+          <li>Build specialist, routing, synthesis, permission, adversarial, outage, capacity, and action-isolation tests using production-shaped identities.</li>
+          <li>Run the cohort, review wrong routes and wrong answers, remediate the responsible layer, exercise rollback, and repeat the full suite.</li>
+          <li>Deliver the architecture, agent catalog, permission matrix, evaluation scorecards, observability dashboard, runbooks, and go, limit, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Can Microsoft Fabric Data Agents be used in a multi-agent architecture?</summary><p>Yes. Microsoft describes Fabric Data Agents as conversational analytics components that external orchestrators and multi-agent runtimes can invoke. Each Data Agent remains focused on read-only, governed access to its attached Fabric sources while an orchestrator handles routing, conversation, synthesis, and any separate action workflow.</p></details>
+          <details><summary>When should we use multiple Fabric Data Agents instead of one?</summary><p>Use multiple Data Agents when domains have different owners, source permissions, business vocabularies, quality tests, release cadences, or risk boundaries. Keep one agent when the sources serve one coherent decision domain and can be governed and evaluated as one unit. Splitting agents only to mirror technical systems usually adds routing complexity without improving trust.</p></details>
+          <details><summary>Should a Fabric Data Agent perform business actions in a multi-agent workflow?</summary><p>Fabric Data Agents are designed for read-only governed data access. Keep analytics and action execution separate. The orchestrator can request evidence from a Data Agent, but a separately authorized action tool or agent should apply deterministic validation, approval, idempotency, and audit controls before changing a business system.</p></details>
+          <details><summary>How should identity work across multiple Fabric Data Agents?</summary><p>Choose the identity pattern per route and consumption channel. User delegated or On-Behalf-Of access preserves individual source permissions where supported. A service principal creates a fixed data persona and needs explicit access to each agent workspace and attached source. Do not mix identity assumptions between direct MCP, Foundry, Copilot Studio, and custom application paths.</p></details>
+          <details><summary>How long does a Fabric Data Agent multi-agent architecture assessment take?</summary><p>A focused architecture pilot commonly takes four to six weeks for two specialist Data Agents, one orchestrator, one user cohort, and one controlled workflow. The work should prove domain boundaries, routing, identity, answer synthesis, failure isolation, evaluation, observability, capacity, and recovery before broader expansion.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent">Fabric Data Agents in external and multi-agent architectures</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-runtime">Fabric Data Agent standard and preview runtimes</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/foundry/agents/overview">Microsoft Foundry prompt, workflow, and hosted agent architecture</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/fabric">Fabric Data Agent tool integration and identity passthrough</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog">Foundry tool catalog, MCP, and Agent-to-Agent options</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/agent-framework/journey/agent-to-agent">Agent Framework Agent-to-Agent and workflow patterns</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with two specialists and one decision workflow.</strong> Datrick can define the boundaries, build the routing and identity test harness, and deliver a production architecture recommendation before agent sprawl begins.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_multi_agent&amp;utm_medium=organic_content&amp;utm_campaign=fabric_multi_agent_architecture&amp;utm_content=article_end#inquiry-form">Scope the architecture assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-foundry-fabric-data-agent-integration-implementation-assessment"><span>Use a managed orchestrator</span><strong>Evaluate the Foundry integration path</strong></a><a href="microsoft-fabric-data-agent-service-principal-custom-application-integration"><span>Build a direct application path</span><strong>Design service-principal runtime access</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

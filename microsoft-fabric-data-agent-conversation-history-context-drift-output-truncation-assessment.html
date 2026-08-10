@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Data Agent Context Drift Assessment | Datrick</title>
+    <meta name="description" content="Assess Microsoft Fabric Data Agent conversation history, context drift, 25-row and 25-column output truncation, follow-up accuracy, retention, and reset controls.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-conversation-history-context-drift-output-truncation-assessment">
+    <meta property="og:title" content="Fabric Data Agent Context Drift Assessment | Datrick">
+    <meta property="og:description" content="Prove when a Fabric Data Agent follow-up is grounded in source data, limited prior output, or stale conversation context.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-conversation-history-context-drift-output-truncation-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Conversation History, Context Drift, and Output Truncation Assessment", "description": "Assess Microsoft Fabric Data Agent conversation history, context drift, 25-row and 25-column output truncation, follow-up accuracy, retention, and reset controls.", "url": "https://datrick.com/microsoft-fabric-data-agent-conversation-history-context-drift-output-truncation-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-conversation-history-context-drift-output-truncation-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is the Fabric Data Agent chat output limit?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft currently documents a maximum of 25 rows and 25 columns for Fabric Data Agent chat outputs. Responses can be limited or summarized, so an apparently complete answer might represent only part of the executed result. Teams should test row counts, column counts, ordering, summaries, and disclosures against a trusted control."}},
+            {"@type": "Question", "name": "Can previous Fabric Data Agent chat history affect a follow-up answer?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Microsoft states that previous chat history can influence subsequent responses and that follow-up questions might be answered from already limited context. A request to show all rows still returns no more than 25 rows. High-impact follow-ups should be tested both in sequence and in a new chat."}},
+            {"@type": "Question", "name": "Does Fabric Data Agent conversation history always persist?", "acceptedAnswer": {"@type": "Answer", "text": "No. Microsoft notes that conversation history might be reset or lost during some backend infrastructure changes, service updates, or model upgrades. Workflows should not use chat history as the system of record or the only place where analytical assumptions are retained."}},
+            {"@type": "Question", "name": "How long can Fabric Data Agent conversation history be stored?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft's tenant-setting documentation says cross-session conversation history can be stored for as long as the user allows, up to 28 days when the relevant cross-geo setting applies, and users can clear it. Exact behavior depends on tenant configuration, geography, client, and current service behavior, so verify the target environment."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent context drift assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment commonly takes two to four weeks for one agent, target clients, representative multi-turn questions, and critical user roles. It covers 25-row and 25-column boundaries, follow-up dependence, new-chat controls, history persistence, permissions, query fidelity, regression testing, release gates, and monitoring."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent multi-turn accuracy</p>
+        <h1>A follow-up can inherit a limit the user can no longer see.</h1>
+        <p class="page-lede">Validate 25-row and 25-column output boundaries, conversation-history influence, context drift, new-chat controls, retention, permissions, and query fidelity before a multi-turn answer becomes decision evidence.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_context_drift&amp;utm_medium=organic_content&amp;utm_campaign=conversation_history_truncation_assessment&amp;utm_content=hero#inquiry-form">Describe the context risk</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Conversational analytics assurance</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#contract">Conversation contract</a><a href="#limits">25-by-25 limit</a><a href="#evaluation">Sequence tests</a><a href="#retention">History lifecycle</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>Conversational analytics makes omission difficult to see. A first answer can be correct for the 25 rows it displays, while a follow-up such as “which of those declined fastest?” silently reasons over that limited set instead of the complete source result. The generated query, formatted answer, retained context, and user's interpretation can each be locally plausible while the final decision is wrong.</p>
+        <p>Microsoft documents that Fabric Data Agent chat outputs are capped at 25 rows and 25 columns, previous chat history can influence later responses, and follow-ups can be answered from already limited context. Microsoft recommends starting a new chat in such cases. It also notes that conversation history might not always persist. These are product-contract issues, not prompt-writing details.</p>
+
+        <section class="readiness-actions"><p><strong>Can you prove whether a follow-up used the complete source result, a 25-row display, or a prior summary?</strong> If not, do not treat the answer as decision-ready.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_context_drift&amp;utm_medium=organic_content&amp;utm_campaign=conversation_history_truncation_assessment&amp;utm_content=article_intro#inquiry-form">Send the failing conversation</a><a class="button secondary" href="microsoft-fabric-data-agent-python-sdk-automated-evaluation-regression-testing">Build automated regression tests</a></div></section>
+
+        <h2 id="contract">Define an approved conversation contract</h2>
+        <p>For every high-impact question family, define the authoritative source, expected query, full row and column population, permitted summary, required disclosure, follow-up semantics, session boundary, user identity, retention expectation, reset behavior, target clients, and the point at which the agent must ask for clarification or direct the user to a governed report.</p>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent conversation accuracy contract" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent conversation accuracy contract</caption>
+          <thead><tr><th scope="col">Contract element</th><th scope="col">Failure risk</th><th scope="col">Required evidence</th><th scope="col">Safe control</th></tr></thead>
+          <tbody>
+            <tr><td>Source population</td><td>The displayed 25 rows are mistaken for the complete query result.</td><td>Executed query, source row count, returned row count, ordering, filters, and user permissions.</td><td>Aggregate at the required grain, disclose the limit, or link to a governed dataset.</td></tr>
+            <tr><td>Column population</td><td>Omitted fields hide denominators, units, dates, identifiers, or decision caveats.</td><td>Expected schema, returned 25-column boundary, selected fields, and excluded-field rationale.</td><td>Request only decision-critical fields or use an approved report/export path.</td></tr>
+            <tr><td>Follow-up scope</td><td>“Those,” “them,” “same period,” or “compare again” binds to stale or limited context.</td><td>Resolved references, rewritten standalone question, query diff, and approved interpretation.</td><td>Restate the scope, confirm assumptions, or start a new chat.</td></tr>
+            <tr><td>Session state</td><td>History is reset, unavailable, or retained differently than the workflow assumes.</td><td>Client, tenant setting, geography, elapsed time, clear-chat behavior, and persistence test.</td><td>Store approved assumptions outside chat and make each critical request reproducible.</td></tr>
+            <tr><td>Identity and policy</td><td>A follow-up crosses source, RLS, CLS, DLP, or access boundaries unexpectedly.</td><td>Effective user, source permissions, generated query, policy outcome, and audit evidence.</td><td>Fail closed, reauthenticate, narrow scope, or route to a governed workflow.</td></tr>
+            <tr><td>Decision meaning</td><td>A concise summary overstates completeness, causality, confidence, or freshness.</td><td>Ground-truth answer, as-of time, full population, caveats, and reviewer interpretation.</td><td>Human review, approved language, or prohibit the question family.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="limits">Treat the 25-row and 25-column boundary as part of the answer</h2>
+        <p>Microsoft says Fabric Data Agent is designed for conversational insight rather than complete dataset delivery. Chat responses can be limited or summarized and currently return no more than 25 rows and 25 columns. A request to “show all rows” does not remove that ceiling. The interface may therefore answer a broad request with a narrow representation while preserving fluent language.</p>
+        <p>Test 24, 25, and 26 rows; 24, 25, and 26 columns; unsorted and explicitly ordered results; ties at the boundary; nulls; duplicate labels; permission-filtered populations; and summaries whose conclusion changes when the omitted records are included. Record the source result and displayed response separately.</p>
+        <p>Do not solve the problem by asking the agent to paginate conversationally unless the complete ordered population and state transition are independently controlled. For complete datasets, reconciliation, regulatory evidence, or repeatable operational handoffs, use an approved query, report, export, API, or application workflow rather than chat output.</p>
+
+        <h2 id="evaluation">Test single-turn truth and multi-turn drift separately</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent context drift evaluation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent context drift evaluation matrix</caption>
+          <thead><tr><th scope="col">Test family</th><th scope="col">Test sequence</th><th scope="col">Pass condition</th><th scope="col">Remediation</th></tr></thead>
+          <tbody>
+            <tr><td>Boundary fidelity</td><td>Ask questions returning 24/25/26 rows and columns with deterministic controls.</td><td>Limit behavior is known, stable, disclosed, and doesn't alter the approved conclusion.</td><td>Aggregate, narrow, reorder, disclose, or use a non-chat delivery path.</td></tr>
+            <tr><td>Pronoun resolution</td><td>Use “those,” “same,” “remaining,” and “compare them” after limited responses.</td><td>Each reference resolves to the intended full or explicitly limited population.</td><td>Rewrite as standalone questions or require scope confirmation.</td></tr>
+            <tr><td>Context contamination</td><td>Introduce an incorrect premise, then ask a valid follow-up in the same and a new chat.</td><td>The agent rejects the premise or produces the same grounded answer after reset.</td><td>Instructions, clarification rules, reset guidance, examples, or blocked use case.</td></tr>
+            <tr><td>Sequence invariance</td><td>Ask the same target question after different preceding conversations.</td><td>Material query logic and answer remain correct across approved histories.</td><td>Standalone request templates, context isolation, or workflow redesign.</td></tr>
+            <tr><td>History loss</td><td>Clear chat, revisit later, and test service/runtime changes in the target client.</td><td>The workflow detects missing context and never invents continuity.</td><td>External state, explicit restart, session indicator, or user confirmation.</td></tr>
+            <tr><td>Security drift</td><td>Repeat sequences across allowed, restricted, RLS, CLS, DLP, and denied personas.</td><td>Every turn uses the current user's effective permissions and fails closed.</td><td>Permission correction, policy update, source split, or rollout block.</td></tr>
+            <tr><td>Regression</td><td>Replay approved multi-turn suites after configuration, source, runtime, or model changes.</td><td>Query, result, disclosure, and decision metrics stay within release thresholds.</td><td>Rollback, retune, update controls, or restrict affected question families.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>For semantic models, Microsoft states that DAX generation can use schema, metadata, Prep for AI context, and conversation history. That makes sequence testing essential: a query that passes in isolation can differ after a prior turn changes the inferred metric, period, region, or comparison set. Keep both the generated query and source result in the evaluation evidence.</p>
+
+        <h2 id="retention">Separate analytical context from history retention</h2>
+        <p>Conversation context affects answer quality; history retention determines whether that context is available later. Microsoft notes that history might be reset or lost during some backend infrastructure changes, service updates, or model upgrades. The Clear chat control erases history and starts a new session, and deleted history can't be retrieved.</p>
+        <p>Microsoft's tenant-setting documentation also describes cross-session storage for as long as the user allows, up to 28 days when the relevant cross-geo setting applies. Do not convert that into a universal retention promise. Verify tenant settings, capacity geography, client behavior, policy, user deletion, and the current service release for the exact deployment.</p>
+        <p>Never use chat history as the system of record for definitions, approvals, incident evidence, or operational state. Persist approved assumptions, queries, evaluation traces, and decisions in governed systems. A critical follow-up should be reproducible as a standalone request even when the chat history is empty.</p>
+
+        <h2 id="assessment">Run a two-to-four-week context drift assessment</h2>
+        <ol>
+          <li>Select one Data Agent, target clients, decision owners, user personas, critical question families, prohibited uses, and source owners.</li>
+          <li>Map chat limits, generated-query visibility, history behavior, tenant settings, geography, permissions, retention, clear-chat flow, and current failures.</li>
+          <li>Create single-turn and multi-turn ground truth with approved questions, standalone rewrites, source queries, full results, expected summaries, and caveats.</li>
+          <li>Run row and column boundaries, ordering, ties, pronouns, changed assumptions, conflicting premises, new-chat controls, history loss, permissions, and client-path tests.</li>
+          <li>Classify failures by source, query generation, truncation, summarization, reference resolution, stale context, missing context, identity, policy, client, or user interpretation.</li>
+          <li>Refine data shape, instructions, examples, question templates, reset UX, non-chat fallbacks, retention guidance, and release thresholds.</li>
+          <li>Deliver the conversation contract, evaluation suite, history lifecycle matrix, approved-use boundaries, monitoring, rollback rules, runbooks, and go, limit, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is the Fabric Data Agent chat output limit?</summary><p>Microsoft currently documents a maximum of 25 rows and 25 columns for Fabric Data Agent chat outputs. Responses can be limited or summarized, so an apparently complete answer might represent only part of the executed result. Teams should test row counts, column counts, ordering, summaries, and disclosures against a trusted control.</p></details>
+          <details><summary>Can previous Fabric Data Agent chat history affect a follow-up answer?</summary><p>Yes. Microsoft states that previous chat history can influence subsequent responses and that follow-up questions might be answered from already limited context. A request to show all rows still returns no more than 25 rows. High-impact follow-ups should be tested both in sequence and in a new chat.</p></details>
+          <details><summary>Does Fabric Data Agent conversation history always persist?</summary><p>No. Microsoft notes that conversation history might be reset or lost during some backend infrastructure changes, service updates, or model upgrades. Workflows should not use chat history as the system of record or the only place where analytical assumptions are retained.</p></details>
+          <details><summary>How long can Fabric Data Agent conversation history be stored?</summary><p>Microsoft's tenant-setting documentation says cross-session conversation history can be stored for as long as the user allows, up to 28 days when the relevant cross-geo setting applies, and users can clear it. Exact behavior depends on tenant configuration, geography, client, and current service behavior, so verify the target environment.</p></details>
+          <details><summary>How long does a Fabric Data Agent context drift assessment take?</summary><p>A focused assessment commonly takes two to four weeks for one agent, target clients, representative multi-turn questions, and critical user roles. It covers 25-row and 25-column boundaries, follow-up dependence, new-chat controls, history persistence, permissions, query fidelity, regression testing, release gates, and monitoring.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent">Fabric Data Agent conversation history and 25-by-25 output limitations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/how-to-create-data-agent">Fabric Data Agent clear-chat behavior and query transparency</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-tenant-settings">Fabric Data Agent tenant settings and conversation-history storage</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/semantic-model-best-practices">Semantic model query generation and conversation context</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-configuration-best-practices">Fabric Data Agent configuration and example-query guidance</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the follow-up that would cause the largest decision error if “those” meant only the displayed 25 rows.</strong> Datrick can reproduce the sequence, reconcile every query, test history and reset behavior, and define a reliable conversation contract.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_context_drift&amp;utm_medium=organic_content&amp;utm_campaign=conversation_history_truncation_assessment&amp;utm_content=article_end#inquiry-form">Scope the context assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-visual-response-chart-accuracy-truncation-assessment"><span>Validate native visuals</span><strong>Assess chart accuracy and 200-row behavior</strong></a><a href="microsoft-fabric-data-agent-cross-region-capacity-tenant-settings-deployment-assessment"><span>Map the deployment boundary</span><strong>Assess regions, capacities, and tenant settings</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Operations Agent CI/CD and REST API | Datrick</title>
+    <meta name="description" content="Automate Microsoft Fabric Operations Agent deployment with REST APIs, public definitions, environment rebinding, delegated identity, tests, approvals, and rollback.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-operations-agent-rest-api-cicd-deployment-automation-assessment">
+    <meta property="og:title" content="Fabric Operations Agent CI/CD and REST API | Datrick">
+    <meta property="og:description" content="Control OperationsAgentV1 definitions, user-only API identity, long-running updates, source and action rebinding, shouldRun state, release evidence, and recovery.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-operations-agent-rest-api-cicd-deployment-automation-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Operations Agent REST API CI/CD and Deployment Automation Assessment", "description": "Automate Microsoft Fabric Operations Agent deployment with REST APIs, public definitions, environment rebinding, delegated identity, tests, approvals, and rollback.", "url": "https://datrick.com/microsoft-fabric-operations-agent-rest-api-cicd-deployment-automation-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-operations-agent-rest-api-cicd-deployment-automation-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Can Microsoft Fabric Operations Agent be deployed through a REST API?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Microsoft documents Operations Agent REST APIs to create items, retrieve public definitions, and update definitions. The OperationsAgentV1 public-definition format is specifically described as supporting CI/CD scenarios. Create and updateDefinition can complete immediately or as long-running operations."}},
+            {"@type": "Question", "name": "What is included in an Operations Agent public definition?", "acceptedAnswer": {"@type": "Answer", "text": "The current definition specification includes user-authored goals, instructions, data-source references, action references and parameters, an optional recipient, a playbook object, and the shouldRun state. Environment-specific workspace, source, action, recipient, and execution values must be controlled during promotion."}},
+            {"@type": "Question", "name": "Does the Operations Agent REST API support service principals?", "acceptedAnswer": {"@type": "Answer", "text": "Not for the current create and update-definition operations documented by Microsoft. Those references list delegated user identity as supported and service principals and managed identities as unsupported. Do not assume generic Fabric API identity support applies to an Operations Agent endpoint; verify each operation's current identity table."}},
+            {"@type": "Question", "name": "Can an Operations Agent deployment start monitoring automatically?", "acceptedAnswer": {"@type": "Answer", "text": "The public definition includes a shouldRun boolean that represents whether the agent should run or remain stopped. A release process should keep nonproduction and newly promoted production agents inactive until source, action, playbook, permission, and regression checks pass and an accountable owner approves activation."}},
+            {"@type": "Question", "name": "How long does an Operations Agent CI/CD assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment commonly takes two to four weeks for one agent, three environments, a representative source, bounded action set, and an existing DevOps platform. It covers definition baselining, identity, environment rebinding, API orchestration, validation, release gates, audit, and rollback."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Operations Agent release assurance</p>
+        <h1>Deployment automation should not silently start a new control loop.</h1>
+        <p class="page-lede">Build a governed REST API and CI/CD path for Microsoft Fabric Operations Agent definitions, then prove environment rebinding, delegated identity, long-running operations, playbook validation, inactive-first promotion, audit, and rollback.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_operations_agent_cicd&amp;utm_medium=organic_content&amp;utm_campaign=rest_api_deployment_assessment&amp;utm_content=hero#inquiry-form">Describe the release process</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Agent lifecycle governance</span><span>12 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#contract">Release contract</a><a href="#definition">Definition controls</a><a href="#testing">Deployment tests</a><a href="#operations">Promotion and recovery</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>Microsoft exposes an Operations Agent public definition and item-specific REST APIs that support CI/CD scenarios. A definition can carry the goals, instructions, data sources, actions, recipient, playbook placeholder, and `shouldRun` state that determine what the control loop monitors, who it contacts, what it can invoke, and whether it is active.</p>
+        <p>That makes deployment correctness a production safety issue. A technically successful update can still point at a development KQL database, retain a test recipient, bind a production action to the wrong flow, overwrite a reviewed instruction, or set the agent running before the new playbook and permissions are validated.</p>
+
+        <section class="readiness-actions"><p><strong>Can the release prove the exact definition, source IDs, action IDs, recipient, identity, playbook evidence, and run state that reached production?</strong> If not, the automation is moving risk faster rather than controlling it.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_operations_agent_cicd&amp;utm_medium=organic_content&amp;utm_campaign=rest_api_deployment_assessment&amp;utm_content=article_intro#inquiry-form">Send the definition and pipeline</a><a class="button secondary" href="microsoft-fabric-operations-agent-implementation-evaluation-services">Review the agent pilot</a></div></section>
+
+        <h2 id="contract">Define the supported automation and identity boundary</h2>
+        <p>Inventory the current Fabric API operations used to create, get, list, update, retrieve definitions, update definitions, and delete Operations Agent items. Record delegated scope, workspace and item role, supported identity, request and correlation IDs, long-running-operation behavior, retry policy, rate limit, preview status, and rollback method for each call.</p>
+        <p>Microsoft currently documents `Item.ReadWrite.All` and a delegated user identity for create and update-definition operations, while service principals and managed identities are listed as unsupported. A generic Fabric service principal used elsewhere in the pipeline does not make these Operations Agent calls supported. Use an approved user-bound release mechanism or keep the step manual until the required workload identity is documented and tested.</p>
+
+        <h2 id="definition">Control every deployable and environment-specific field</h2>
+        <div class="article-table-wrap" role="region" aria-label="Operations Agent CI/CD definition controls" tabindex="0"><table class="article-table"><caption class="sr-only">Operations Agent CI/CD definition controls</caption>
+          <thead><tr><th scope="col">Artifact</th><th scope="col">Release evidence</th><th scope="col">Promotion risk</th><th scope="col">Required control</th></tr></thead>
+          <tbody>
+            <tr><td>Goals and instructions</td><td>Reviewed text, owner, version, diff, test mapping, and approved environment substitutions.</td><td>A broad or stale instruction changes generated monitoring behavior.</td><td>Source control, peer review, policy checks, regression suite, and immutable release hash.</td></tr>
+            <tr><td>Data sources</td><td>Alias, source ID, workspace ID, type, environment, schema, access, and current watermark.</td><td>Production agent reads test data, the wrong workspace, or an incompatible schema.</td><td>Typed environment manifest, allowlisted IDs, existence and permission preflight, and no free-form replacement.</td></tr>
+            <tr><td>Actions</td><td>Alias, action ID, kind, display name, description, parameter metadata, authority, and environment.</td><td>A recommendation invokes the wrong flow or uses unvalidated production parameters.</td><td>Action allowlist, contract tests, least privilege, approval owner, idempotency, and postcondition checks.</td></tr>
+            <tr><td>Recipient</td><td>Approved user or channel, item write permission, environment, escalation, and offboarding owner.</td><td>Test messages reach production users or approvals go to an unauthorized recipient.</td><td>Environment mapping, membership and permission validation, canary message, and review.</td></tr>
+            <tr><td>Playbook</td><td>Generation status, summary, glossary, rules, queries, bindings, evaluation result, and approval.</td><td>A deployment assumes the prior generated playbook remains valid after configuration changes.</td><td>Regenerate when required, inspect diff, replay ground truth, and block activation until approved.</td></tr>
+            <tr><td>`shouldRun`</td><td>Expected inactive or active state, activation approver, window, health checks, and stop owner.</td><td>Promotion immediately activates unverified rules and actions or disables a required control.</td><td>Inactive-first default, explicit post-deploy activation, state reconciliation, alerting, and emergency stop.</td></tr>
+            <tr><td>Item metadata</td><td>Display name, description, folder, sensitivity label, `.platform` behavior, tags, and ownership.</td><td>Metadata or label differs from approved governance expectations.</td><td>Separate metadata policy, understand `updateMetadata`, and verify resulting item properties.</td></tr>
+            <tr><td>API response</td><td>Status, `Location`, `x-ms-operation-id`, `Retry-After`, request ID, final state, and retrieved definition.</td><td>A 202 response is treated as success before the long-running operation completes.</td><td>Bounded polling, retry-after compliance, terminal-state handling, and post-deploy readback.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Keep one normalized source definition and explicit environment manifests for workspace, source, action, recipient, and state. Validate the current Operations Agent definition specification before release. Microsoft documents evolving preview schemas and rejects unknown data-source types or action kinds; do not silently drop fields to make a payload pass.</p>
+
+        <h2 id="testing">Test identity, payload, failure, state, and behavior</h2>
+        <div class="article-table-wrap" role="region" aria-label="Operations Agent deployment automation test matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Operations Agent deployment automation test matrix</caption>
+          <thead><tr><th scope="col">Test</th><th scope="col">Method</th><th scope="col">Pass condition</th><th scope="col">Failure response</th></tr></thead>
+          <tbody>
+            <tr><td>Identity and authorization</td><td>Run with approved user, expired and revoked token, wrong tenant, Reader, Contributor, Admin, service principal, and managed identity.</td><td>Only currently supported and authorized identities perform each operation; denials are visible.</td><td>Correct release identity and role, revoke access, or keep deployment manual.</td></tr>
+            <tr><td>Schema validation</td><td>Test missing parts, invalid Base64, malformed JSON, unknown type or kind, duplicate alias, invalid UUID, and unexpected fields.</td><td>Invalid definitions fail before production and no partial configuration is accepted.</td><td>Local schema gate, payload repair, contract update, or release block.</td></tr>
+            <tr><td>Environment rebinding</td><td>Promote to test and production using intentionally similar IDs, missing dependencies, wrong workspaces, and changed schemas.</td><td>Only allowlisted target resources are selected and every dependency passes preflight.</td><td>Manifest correction, dependency deployment, source or action rollback, and incident review.</td></tr>
+            <tr><td>Long-running operation</td><td>Exercise 200, 202, delayed completion, 429, retry-after, timeout, terminal failure, network interruption, and duplicate submission.</td><td>The pipeline waits for terminal state, retries safely, and never reports an ambiguous release as successful.</td><td>Reconcile operation and item state, bounded retry, idempotent orchestration, or manual recovery.</td></tr>
+            <tr><td>Definition readback</td><td>Retrieve the public definition after create or update and compare normalized content with the approved release artifact.</td><td>Goals, instructions, references, recipient, metadata behavior, and `shouldRun` match exactly.</td><td>Stop agent, reject release, restore prior definition, and investigate transformation.</td></tr>
+            <tr><td>Playbook regression</td><td>Generate and inspect rules, then replay positive, negative, boundary, transition, stale, permission, and action cases.</td><td>Behavior meets the same or approved improved quality and safety gates as the prior version.</td><td>Keep inactive, fix definition or source, regenerate, and rerun evaluation.</td></tr>
+            <tr><td>Activation gate</td><td>Deploy inactive, run canary checks, request approval, start, observe initial cycles, and exercise emergency stop.</td><td>No production monitoring starts before explicit approval and verified dependencies.</td><td>Stop agent, revoke write path, restore prior version, and notify owner.</td></tr>
+            <tr><td>Rollback</td><td>Restore prior definition, environment references, recipient, playbook, state, and action contract after a simulated bad release.</td><td>Known-good monitoring resumes within the recovery objective with complete evidence.</td><td>Manual containment, downstream action reconciliation, and pipeline redesign.</td></tr>
+            <tr><td>Audit and separation</td><td>Trace commit, reviewer, release identity, approver, API calls, operation IDs, definition hash, tests, activation, and outcome.</td><td>No single actor can author, approve, deploy, and activate a material production change without detection.</td><td>Branch protection, environment approval, role separation, logging, or production hold.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Run behavioral tests after deployment, not only JSON validation. The agent is an LLM-assisted control loop; the same syntactically valid configuration can generate different or unsafe operational behavior when sources, schema, instructions, runtime, or actions change.</p>
+
+        <h2 id="operations">Promote inactive, reconcile state, and retain recovery evidence</h2>
+        <p>Use a release sequence of validate, authenticate, preflight dependencies, create or update inactive, poll the long-running operation, retrieve and compare the definition, generate and inspect the playbook, run regression and permission tests, obtain approval, activate, observe a canary window, and record evidence. Never set `shouldRun` from a developer branch or unreviewed environment default.</p>
+        <p>Store the last known-good definition, environment manifest, generated-rule evidence, evaluation result, item and operation IDs, owner, and stop procedure. Alert on definition drift, direct UI or MCP changes outside the pipeline, unsupported identity use, failed long-running operations, unexpected active state, source or action changes, missing approvals, and regression deterioration.</p>
+        <p>Preview API and schema behavior can change. Pin the tested contract, monitor official documentation, validate unknown fields and new enum values deliberately, and rerun API plus behavioral tests after Fabric releases. Separate item creation, definition update, metadata update, playbook generation, and activation so each step has a clear failure and rollback boundary.</p>
+
+        <h2 id="assessment">Run a two-to-four-week CI/CD assessment</h2>
+        <ol>
+          <li>Select one Operations Agent, dev/test/prod workspaces, source and action dependencies, DevOps platform, release owners, and existing manual baseline.</li>
+          <li>Inventory definitions, schema version, item APIs, supported identities, delegated scopes, roles, source and action IDs, recipients, playbook process, state, logs, and rollback.</li>
+          <li>Create the normalized source definition, environment manifests, schema and policy checks, identity model, API orchestration, approval matrix, and release evidence format.</li>
+          <li>Implement create or update inactive, long-running-operation polling, retry-after handling, readback comparison, dependency preflight, and failure reconciliation in nonproduction.</li>
+          <li>Generate and inspect the playbook, run the rule and action evaluation suite, test permissions, and block activation when any quality or safety gate fails.</li>
+          <li>Exercise wrong-environment, malformed payload, unsupported identity, 429, timeout, duplicate call, partial failure, direct drift, activation, emergency stop, and rollback scenarios.</li>
+          <li>Run a controlled production canary with human approval, inactive-first promotion, post-deploy readback, behavioral tests, monitored activation, and complete audit evidence.</li>
+          <li>Deliver the architecture, source definition, manifests, pipeline, tests, runbook, identity constraints, scorecard, recovery evidence, and automate, limited automation, manual gate, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Can Microsoft Fabric Operations Agent be deployed through a REST API?</summary><p>Yes. Microsoft documents Operations Agent REST APIs to create items, retrieve public definitions, and update definitions. The OperationsAgentV1 public-definition format is specifically described as supporting CI/CD scenarios. Create and updateDefinition can complete immediately or as long-running operations.</p></details>
+          <details><summary>What is included in an Operations Agent public definition?</summary><p>The current definition specification includes user-authored goals, instructions, data-source references, action references and parameters, an optional recipient, a playbook object, and the shouldRun state. Environment-specific workspace, source, action, recipient, and execution values must be controlled during promotion.</p></details>
+          <details><summary>Does the Operations Agent REST API support service principals?</summary><p>Not for the current create and update-definition operations documented by Microsoft. Those references list delegated user identity as supported and service principals and managed identities as unsupported. Do not assume generic Fabric API identity support applies to an Operations Agent endpoint; verify each operation's current identity table.</p></details>
+          <details><summary>Can an Operations Agent deployment start monitoring automatically?</summary><p>The public definition includes a shouldRun boolean that represents whether the agent should run or remain stopped. A release process should keep nonproduction and newly promoted production agents inactive until source, action, playbook, permission, and regression checks pass and an accountable owner approves activation.</p></details>
+          <details><summary>How long does an Operations Agent CI/CD assessment take?</summary><p>A focused assessment commonly takes two to four weeks for one agent, three environments, a representative source, bounded action set, and an existing DevOps platform. It covers definition baselining, identity, environment rebinding, API orchestration, validation, release gates, audit, and rollback.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/rest/api/fabric/articles/item-management/definitions/operations-agent-definition">Operations Agent public definition and OperationsAgentV1 schema</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/rest/api/fabric/operationsagent/items/create-operations-agent">Create Operations Agent REST API, identity, scopes, and long-running operations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/rest/api/fabric/operationsagent/items/update-operations-agent-definition">Update Operations Agent definition REST API</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/rest/api/fabric/operationsagent/items/get-operations-agent-definition">Get Operations Agent definition REST API</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/rest/api/fabric/articles/identity-support">Microsoft Fabric REST API identity support and per-API verification</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with one agent and make inactive-first promotion non-negotiable.</strong> Datrick can baseline the definition, implement the API release path, test identity and environment failures, add behavioral gates, and prove recovery.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_operations_agent_cicd&amp;utm_medium=organic_content&amp;utm_campaign=rest_api_deployment_assessment&amp;utm_content=article_end#inquiry-form">Scope the CI/CD assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-operations-agent-remote-mcp-server-implementation-security-assessment"><span>Control direct configuration</span><strong>Secure the remote MCP surface</strong></a><a href="microsoft-fabric-operations-agent-rule-not-triggering-state-transition-duplicate-alert-assessment"><span>Gate behavior changes</span><strong>Assess rule and alert accuracy</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

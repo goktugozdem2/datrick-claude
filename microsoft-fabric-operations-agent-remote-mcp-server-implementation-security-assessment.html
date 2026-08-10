@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Operations Agent Remote MCP Security | Datrick</title>
+    <meta name="description" content="Implement and secure the Microsoft Fabric Operations Agent remote MCP server across OAuth, configure and query tools, approvals, audit, testing, and rollback.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-operations-agent-remote-mcp-server-implementation-security-assessment">
+    <meta property="og:title" content="Fabric Operations Agent Remote MCP Security | Datrick">
+    <meta property="og:description" content="Control the write-capable Operations Agent MCP endpoint across identity, tool permissions, source and action changes, playbook generation, start and stop, evidence, and recovery.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-operations-agent-remote-mcp-server-implementation-security-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Operations Agent Remote MCP Server Implementation and Security Assessment", "description": "Implement and secure the Microsoft Fabric Operations Agent remote MCP server across OAuth, configure and query tools, approvals, audit, testing, and rollback.", "url": "https://datrick.com/microsoft-fabric-operations-agent-remote-mcp-server-implementation-security-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-operations-agent-remote-mcp-server-implementation-security-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is the Microsoft Fabric Operations Agent remote MCP server?", "acceptedAnswer": {"@type": "Answer", "text": "It is a preview HTTP-based Model Context Protocol server that lets supported AI clients interact with one Fabric Operations Agent. Microsoft documents separate configure and query endpoints. The configure endpoint can read and change setup, manage knowledge sources and actions, generate a playbook, and start or stop monitoring; the query endpoint inspects state and operations."}},
+            {"@type": "Question", "name": "What can the Operations Agent MCP configure endpoint change?", "acceptedAnswer": {"@type": "Answer", "text": "The documented configure tools can update agent instructions; add, update, or remove Eventhouse and Fabric ontology knowledge sources; add, update, or remove actions; generate a playbook; and start or stop the agent. It also exposes read tools for instructions, sources, actions, playbook rules, rule details, and generation status."}},
+            {"@type": "Question", "name": "Is the Operations Agent remote MCP server read-only?", "acceptedAnswer": {"@type": "Answer", "text": "No. The query endpoint is read-oriented, but the configure endpoint includes write-capable tools that can change sources, actions, instructions, playbooks, and monitoring state. Treat access to the configure URL and its OAuth identity as privileged production administration."}},
+            {"@type": "Question", "name": "How should Operations Agent MCP access be secured?", "acceptedAnswer": {"@type": "Answer", "text": "Use a dedicated least-privilege Entra identity, approved client configuration, per-item endpoint inventory, separate read and write access, explicit tool allowlists, human approval for material changes, source and action validation, secrets controls, audit evidence, regression tests, and a tested stop and rollback procedure. Microsoft currently requires Contributor or Admin workspace access."}},
+            {"@type": "Question", "name": "How long does an Operations Agent MCP security assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment commonly takes two to four weeks for one Operations Agent, approved MCP client, representative knowledge source, bounded action set, and accountable owners. It covers endpoint and identity scope, tool authorization, adversarial and failure testing, audit, release gates, and recovery."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Operations Agent MCP control assurance</p>
+        <h1>A natural-language control plane needs stricter boundaries than a chat window.</h1>
+        <p class="page-lede">Implement the preview Microsoft Fabric Operations Agent remote MCP server without turning a convenient AI client into an ungoverned path for changing instructions, sources, actions, playbooks, or monitoring state.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_operations_agent_remote_mcp&amp;utm_medium=organic_content&amp;utm_campaign=mcp_security_assessment&amp;utm_content=hero#inquiry-form">Describe the MCP use case</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>AI control-plane security</span><span>12 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Trust boundary</a><a href="#endpoints">Endpoint controls</a><a href="#testing">Security tests</a><a href="#operations">Operations</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>The remote MCP server makes an Operations Agent operable from Visual Studio Code or GitHub Copilot CLI through natural language. The documented query endpoint can inspect state and operations. The configure endpoint can also change agent instructions, connect or remove knowledge sources, add or remove actions, regenerate the playbook, and start or stop monitoring.</p>
+        <p>That is a privileged production administration surface, not a read-only assistant integration. Its security case must prove who can connect, which item they can reach, which tools the client may call, what evidence is reviewed before a write, how changes are audited, and how the team recovers from a harmful or unintended call.</p>
+
+        <section class="readiness-actions"><p><strong>Can the same MCP session inspect the agent and then change what it monitors or executes?</strong> Separate read and write authority before connecting production data or actions.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_operations_agent_remote_mcp&amp;utm_medium=organic_content&amp;utm_campaign=mcp_security_assessment&amp;utm_content=article_intro#inquiry-form">Send the endpoint and control scope</a><a class="button secondary" href="microsoft-fabric-operations-agent-implementation-evaluation-services">Review the broader agent pilot</a></div></section>
+
+        <h2 id="boundary">Define the identity, item, client, and change boundary</h2>
+        <p>Microsoft documents an HTTP-based MCP server using OAuth and a Microsoft Entra ID token. GitHub Copilot can handle token acquisition, while the connecting identity needs Contributor or Admin access to the workspace that contains the Operations Agent. Each configure and query URL embeds one workspace ID and one agent artifact ID; working with multiple agents requires separate server entries.</p>
+        <p>Inventory the user or workload identity, tenant, conditional-access policy, client, extension and version, local configuration file, workspace role, item ID, endpoint type, permitted tools, knowledge sources, action targets, approval owner, logging path, environment, expiry, and revocation procedure. Do not distribute a write-capable server entry as a generic team convenience.</p>
+
+        <h2 id="endpoints">Separate query visibility from configuration authority</h2>
+        <div class="article-table-wrap" role="region" aria-label="Operations Agent remote MCP endpoint and tool controls" tabindex="0"><table class="article-table"><caption class="sr-only">Operations Agent remote MCP endpoint and tool controls</caption>
+          <thead><tr><th scope="col">Surface</th><th scope="col">Documented capability</th><th scope="col">Primary risk</th><th scope="col">Required control</th></tr></thead>
+          <tbody>
+            <tr><td>Query endpoint</td><td>Read agent summary and state, list monitored rules, retrieve operation details, and search operations.</td><td>Sensitive operating state or incident data reaches an unintended user, client, log, or model context.</td><td>Least-privilege identity, approved client, item scope, data-handling policy, output filtering, and access review.</td></tr>
+            <tr><td>Instructions</td><td>Read and update the detailed behavioral guidance used by the agent.</td><td>A broad or injected instruction changes monitoring intent, thresholds, priorities, or action reasoning.</td><td>Versioned baseline, constrained input, material-change approval, diff review, regression replay, and rollback.</td></tr>
+            <tr><td>Knowledge sources</td><td>Add, update, or remove Eventhouse/KQL and Fabric ontology sources.</td><td>The agent monitors the wrong database, schema, environment, object, or adversarial source.</td><td>Allowlisted workspace and source IDs, ownership validation, schema checks, environment separation, and source-removal approval.</td></tr>
+            <tr><td>Agent actions</td><td>Add, update, or remove actions available to the agent.</td><td>A new target or editable parameter expands downstream authority beyond the approved process.</td><td>Action allowlist, parameter schema, least privilege, human approval, idempotency, postcondition verification, and containment.</td></tr>
+            <tr><td>Playbook</td><td>Generate a playbook and read its summary, rules, rule details, and generation status.</td><td>Regeneration silently changes executable monitoring logic after an instruction, source, or action edit.</td><td>Immutable release evidence, generated-rule diff, independent query replay, owner approval, and version pinning.</td></tr>
+            <tr><td>Agent state</td><td>Start or stop monitoring through write tools.</td><td>An unintended call disables a control or activates unapproved rules and actions.</td><td>Restricted tool access, current-state check, explicit confirmation, maintenance window, alerting, and emergency stop owner.</td></tr>
+            <tr><td>Client configuration</td><td>Manually register per-item configure and query URLs in VS Code or GitHub Copilot CLI.</td><td>Endpoints are copied across users, repositories, environments, logs, or unmanaged machines.</td><td>Managed configuration, secret scanning, endpoint inventory, device policy, environment labels, and offboarding.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Prefer separate server entries, identities, and operating procedures for read and write use. A user who only needs operational inspection should not receive the configure endpoint. Where the MCP client cannot enforce a dependable per-tool policy, place a reviewed gateway or operating procedure in front of write calls, and keep production configuration changes human-approved.</p>
+
+        <h2 id="testing">Test allowed, denied, adversarial, and failed calls</h2>
+        <div class="article-table-wrap" role="region" aria-label="Operations Agent remote MCP security test matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Operations Agent remote MCP security test matrix</caption>
+          <thead><tr><th scope="col">Test</th><th scope="col">Method</th><th scope="col">Pass condition</th><th scope="col">Failure response</th></tr></thead>
+          <tbody>
+            <tr><td>Authentication and item scope</td><td>Use valid, expired, revoked, wrong-tenant, Reader, Contributor, Admin, and offboarded identities against approved and unapproved item URLs.</td><td>Only current approved identities reach the intended item and endpoint; denied attempts are visible.</td><td>Role correction, conditional access, token revocation, endpoint removal, or rollout block.</td></tr>
+            <tr><td>Tool allowlist</td><td>Call every read and write tool from each approved client role, including direct start, stop, remove, and update requests.</td><td>Each role can invoke only the documented tools required by its operating purpose.</td><td>Separate endpoint, identity, client profile, gateway control, or manual-only administration.</td></tr>
+            <tr><td>Prompt injection</td><td>Place hostile instructions in user prompts, source values, schema descriptions, action metadata, issue text, and copied documentation.</td><td>Untrusted content cannot authorize a write, change scope, reveal protected data, or bypass approval.</td><td>Content isolation, prompt boundary, tool confirmation, parameter validation, or disable write access.</td></tr>
+            <tr><td>Source substitution</td><td>Attempt to replace production with development, a similarly named database, another workspace, unsupported source, or source with altered schema.</td><td>Only approved source IDs and environments can be connected; changes trigger review and replay.</td><td>Allowlist enforcement, inventory correction, source rollback, token revocation, and incident review.</td></tr>
+            <tr><td>Action substitution</td><td>Change action targets, URLs, operation IDs, parameters, recipient assumptions, or permissions before and after playbook generation.</td><td>The action contract remains bounded, approved, attributable, idempotent, and recoverable.</td><td>Remove action, stop agent, revoke authority, restore version, inspect downstream effects, and notify owner.</td></tr>
+            <tr><td>Playbook change</td><td>Modify one instruction, source, or action, regenerate, and diff summary, glossary, rules, query bindings, thresholds, and actions.</td><td>No playbook reaches active state without deterministic review and regression evidence.</td><td>Reject generation, restore prior configuration, rerun tests, or keep agent inactive.</td></tr>
+            <tr><td>Start and stop</td><td>Issue repeated, concurrent, stale-state, unauthorized, and ambiguous activation requests during normal and incident conditions.</td><td>State changes are intentional, confirmed, logged, alerted, and safe under retry or concurrency.</td><td>Emergency stop, remove configure access, reconcile state, and investigate audit history.</td></tr>
+            <tr><td>Client and transport failure</td><td>Interrupt OAuth, network, MCP session, client process, and playbook generation; retry writes and inspect partial outcomes.</td><td>Failures are visible, retries don't duplicate harmful changes, and actual state is reconciled before another call.</td><td>State inspection, idempotency key or manual check, rollback, and bounded retry policy.</td></tr>
+            <tr><td>Audit and evidence</td><td>Trace requestor, client, token subject, endpoint, tool, arguments, result, changed object, approval, timestamp, and resulting agent state.</td><td>Each material call is attributable and reconstructable without exposing secrets or unnecessary sensitive data.</td><td>Logging enhancement, retention control, SIEM integration, access suspension, or production hold.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Validate the connection with harmless read prompts first. Microsoft recommends checking agent state before start or stop operations and notes that playbook generation typically takes one to three minutes. Reconcile the returned status and final configuration rather than treating a conversational confirmation as proof that the intended production state exists.</p>
+
+        <h2 id="operations">Operate the MCP integration as privileged infrastructure</h2>
+        <p>Maintain a registry of every server entry, endpoint type, workspace and item ID, environment, identity, client owner, approved tools, knowledge sources, actions, current playbook version, agent state, last access review, expiry, and revocation path. Detect configuration drift between this registry, client files, Fabric workspace roles, and the current agent.</p>
+        <p>Alert on new configure clients, role elevation, unusual write calls, source or action changes, playbook generation, start or stop operations, repeated failures, wrong-item attempts, off-hours administration, and configuration changes without linked approval. Keep MCP client logs and Fabric evidence correlated by time, identity, item, and change ticket.</p>
+        <p>The remote MCP server is currently preview and manually configured. Microsoft also limits each endpoint pair to one Operations Agent and currently supports Eventhouse/KQL and Fabric ontology knowledge sources. Record these constraints in the production exception, reassess after Fabric or client updates, and do not imply a general-purpose automatic discovery or multi-agent management surface.</p>
+
+        <h2 id="assessment">Run a two-to-four-week MCP implementation and security assessment</h2>
+        <ol>
+          <li>Select one Operations Agent, workspace, approved client, accountable owner, representative knowledge source, bounded action set, and measurable use case.</li>
+          <li>Inventory identities, OAuth flow, workspace roles, configure and query URLs, local client configuration, tools, sources, actions, playbook, agent state, logs, and recovery owners.</li>
+          <li>Define separate read and write roles, tool allowlists, source and action contracts, approval thresholds, environment boundaries, retention, and preview acceptance criteria.</li>
+          <li>Connect the query endpoint first, validate harmless inspection prompts, and prove item scope, data handling, logging, revocation, and offboarding.</li>
+          <li>Enable a constrained configure path in nonproduction and test instructions, source and action changes, playbook regeneration, start and stop, denied calls, prompt injection, failures, and rollback.</li>
+          <li>Replay the Operations Agent rule and action evaluation suite after every material MCP change and reconcile conversational output with actual Fabric state.</li>
+          <li>Run a limited production pilot with change approval, monitoring, emergency stop, daily evidence review, and no expansion until all release gates pass.</li>
+          <li>Deliver endpoint and identity inventory, architecture, tool matrix, test evidence, configuration baseline, audit mapping, operating runbook, rollback, preview risks, and go, limited pilot, read-only, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is the Microsoft Fabric Operations Agent remote MCP server?</summary><p>It is a preview HTTP-based Model Context Protocol server that lets supported AI clients interact with one Fabric Operations Agent. Microsoft documents separate configure and query endpoints. The configure endpoint can read and change setup, manage knowledge sources and actions, generate a playbook, and start or stop monitoring; the query endpoint inspects state and operations.</p></details>
+          <details><summary>What can the Operations Agent MCP configure endpoint change?</summary><p>The documented configure tools can update agent instructions; add, update, or remove Eventhouse and Fabric ontology knowledge sources; add, update, or remove actions; generate a playbook; and start or stop the agent. It also exposes read tools for instructions, sources, actions, playbook rules, rule details, and generation status.</p></details>
+          <details><summary>Is the Operations Agent remote MCP server read-only?</summary><p>No. The query endpoint is read-oriented, but the configure endpoint includes write-capable tools that can change sources, actions, instructions, playbooks, and monitoring state. Treat access to the configure URL and its OAuth identity as privileged production administration.</p></details>
+          <details><summary>How should Operations Agent MCP access be secured?</summary><p>Use a dedicated least-privilege Entra identity, approved client configuration, per-item endpoint inventory, separate read and write access, explicit tool allowlists, human approval for material changes, source and action validation, secrets controls, audit evidence, regression tests, and a tested stop and rollback procedure. Microsoft currently requires Contributor or Admin workspace access.</p></details>
+          <details><summary>How long does an Operations Agent MCP security assessment take?</summary><p>A focused assessment commonly takes two to four weeks for one Operations Agent, approved MCP client, representative knowledge source, bounded action set, and accountable owners. It covers endpoint and identity scope, tool authorization, adversarial and failure testing, audit, release gates, and recovery.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/mcp-remote-operations-agent">Operations Agent remote MCP server endpoints, tools, authentication, examples, and limitations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent">Microsoft Fabric Operations Agent overview and configuration</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-actions">Operations Agent action and approval behavior</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-limitations">Operations Agent source, rule, runtime, and messaging limitations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-transparency-note">Operations Agent responsible-use and security considerations</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with one Operations Agent and split query visibility from configuration authority.</strong> Datrick can implement the MCP connection, prove the tool boundary, test adversarial and failed calls, and establish audited release and recovery controls.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_operations_agent_remote_mcp&amp;utm_medium=organic_content&amp;utm_campaign=mcp_security_assessment&amp;utm_content=article_end#inquiry-form">Scope the MCP security assessment</a></div></section>
+        <p>When reviewed MCP changes must move consistently across environments, <a href="microsoft-fabric-operations-agent-rest-api-cicd-deployment-automation-assessment">establish a versioned public definition, environment manifests, delegated release identity, behavioral gates, and inactive-first deployment path</a>.</p>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-operations-agent-creator-identity-teams-approval-action-security-assessment"><span>Secure downstream authority</span><strong>Assess identity and action security</strong></a><a href="microsoft-fabric-operations-agent-rule-not-triggering-state-transition-duplicate-alert-assessment"><span>Prove monitoring logic</span><strong>Assess rule and alert accuracy</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

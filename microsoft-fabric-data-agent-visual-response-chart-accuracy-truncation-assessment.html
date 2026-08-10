@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Data Agent Visual Response Assessment | Datrick</title>
+    <meta name="description" content="Assess Fabric Data Agent chart accuracy, 200-row truncation, visual selection, labels, source query fidelity, permissions, instructions, and cross-client behavior.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-visual-response-chart-accuracy-truncation-assessment">
+    <meta property="og:title" content="Fabric Data Agent Visual Response Assessment | Datrick">
+    <meta property="og:description" content="Prove that native Data Agent charts preserve the underlying query, population, units, ordering, permissions, and client contract.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-visual-response-chart-accuracy-truncation-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Visual Response Chart Accuracy and Truncation Assessment", "description": "Assess Fabric Data Agent chart accuracy, 200-row truncation, visual selection, labels, source query fidelity, permissions, instructions, and cross-client behavior.", "url": "https://datrick.com/microsoft-fabric-data-agent-visual-response-chart-accuracy-truncation-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-visual-response-chart-accuracy-truncation-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "How many rows can a native Fabric Data Agent visual display?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft currently documents a 200-row limit for native visual responses. When the underlying query returns more than 200 rows, only the first 200 are charted, so the visual represents a truncated result set. Teams must control ordering, population, aggregation, and disclosure before relying on the chart."}},
+            {"@type": "Question", "name": "Which chart types does Fabric Data Agent support?", "acceptedAnswer": {"@type": "Answer", "text": "Current documented native types are line, multi-line, column, multi-column, stacked column, pie, scatter, area, and stacked area charts. The agent can infer a chart or respond to an explicit requested type."}},
+            {"@type": "Question", "name": "Can Fabric Data Agent visual styling be customized?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft currently says colors, font sizes, titles, and labels are preset and can't be customized. Agent instructions can guide whether visuals should appear and can express chart-type preferences for particular data patterns."}},
+            {"@type": "Question", "name": "Do native Fabric Data Agent charts work in SDK, Microsoft 365 Copilot, Teams, or Foundry?", "acceptedAnswer": {"@type": "Answer", "text": "No. Microsoft currently limits native visual responses to the Data Agent experience in Fabric. They aren't supported in SDK, Microsoft 365 Copilot, Teams, or Foundry clients. Microsoft 365 Copilot can instead use Code Interpreter to visualize Data Agent results, which is a different path that requires separate testing."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent visual response assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment commonly takes two to four weeks for one agent, target clients, and a representative visual question set. It covers source queries, row limits, ordering, chart selection, encoding, labels, permissions, instructions, accessibility, cross-client fallback, latency, release controls, and monitoring."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent native visual responses</p>
+        <h1>A truncated chart is a different claim, not a smaller answer.</h1>
+        <p class="page-lede">Validate the source query, full population, first-200-row behavior, chart selection, encoding, labels, permissions, instructions, and client fallback before an attractive visual hides an incomplete or misleading result.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_visual_response&amp;utm_medium=organic_content&amp;utm_campaign=chart_accuracy_truncation_assessment&amp;utm_content=hero#inquiry-form">Describe the visual risk</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Conversational data visualization</span><span>10 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#contract">Visual contract</a><a href="#truncation">200-row limit</a><a href="#evaluation">Chart evaluation</a><a href="#clients">Client behavior</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>A chart compresses data into a visual argument. If the source query is wrong, the first 200 rows are not representative, categories are sorted arbitrarily, a pie chart hides the long tail, a line chart uses an incomplete time series, or labels omit the unit, the user may trust the image more than the evidence warrants.</p>
+        <p>Fabric Data Agent's preview native visual responses can appear when users explicitly ask for a chart, implicitly ask to be shown data, or when the agent infers that a visual would help. Visuals are enabled by default. Microsoft documents nine supported chart types, preset styling, a 200-row chart limit, and availability only in the Fabric Data Agent experience. These constraints must be part of the product contract and test plan.</p>
+
+        <section class="readiness-actions"><p><strong>Can you prove what was excluded, reordered, aggregated, or relabeled before the user saw the chart?</strong> If not, treat the visual as exploratory rather than decision-ready.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_visual_response&amp;utm_medium=organic_content&amp;utm_campaign=chart_accuracy_truncation_assessment&amp;utm_content=article_intro#inquiry-form">Send the questions and charts</a><a class="button secondary" href="microsoft-fabric-data-agent-code-interpreter-python-accuracy-security-assessment">Assess generated Python visuals</a></div></section>
+
+        <h2 id="contract">Define when a native visual is an approved response</h2>
+        <p>For each visual use case, define the user, question, authoritative source, source query, required grain, full population, sort order, expected chart type, x and y fields, grouping, aggregation, unit, time range, labels, tooltip content, maximum categories, accessibility requirements, and fallback when the data cannot be represented safely.</p>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent native visual response contract" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent native visual response contract</caption>
+          <thead><tr><th scope="col">Contract element</th><th scope="col">Failure risk</th><th scope="col">Required evidence</th><th scope="col">Safe fallback</th></tr></thead>
+          <tbody>
+            <tr><td>Population</td><td>Only a subset, first page, or permission-filtered result is visualized without disclosure.</td><td>Source row count, charted row count, filters, permissions, and truncation status.</td><td>Aggregate upstream, narrow the question, or return a disclosed table.</td></tr>
+            <tr><td>Ordering</td><td>The first 200 rows depend on arbitrary source order and change between runs.</td><td>Explicit ORDER BY, ranking logic, tie rule, and stable query plan.</td><td>Request Top N with a defined metric or refuse an unordered chart.</td></tr>
+            <tr><td>Encoding</td><td>Wrong chart type, axis, stacking, grouping, or aggregation changes the perceived pattern.</td><td>Approved chart specification and comparison with a deterministic reference.</td><td>Return the values and explain why a safe chart isn't available.</td></tr>
+            <tr><td>Meaning</td><td>Missing units, period, freshness, denominator, or caveat creates a stronger claim than the data.</td><td>Title, labels, tooltip, source, as-of time, units, and business definition.</td><td>Accompany the visual with explicit limitations and reconciled values.</td></tr>
+            <tr><td>Client</td><td>A workflow expects native charts in SDK, M365 Copilot, Teams, or Foundry where they aren't supported.</td><td>Channel capability matrix, target-client test, and approved alternative.</td><td>Text/table response, linked report, or separately governed Code Interpreter path.</td></tr>
+            <tr><td>Accessibility</td><td>Preset colors, compact labels, or tooltip-only detail excludes users or obscures categories.</td><td>Keyboard, zoom, contrast, screen-reader context, and nonvisual equivalent.</td><td>Provide an accessible table or approved report experience.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="truncation">Treat the first-200-row behavior as a data product decision</h2>
+        <p>Microsoft states that native visuals support up to 200 rows and chart only the first 200 when a query returns more. That is not a neutral display optimization. If the query returns customers alphabetically, the visual represents early names. If it returns transactions by ingestion order, the pattern may be arbitrary. If it returns the highest values first, the chart intentionally excludes the tail. Every case requires an explicit population claim.</p>
+        <p>Prefer source-level aggregation at the chart's intended grain. For category charts, define Top N plus an “Other” control where the business meaning requires the remainder. For time series, ensure the query returns the complete ordered window or a declared sample. For scatter plots and distributions, do not assume the first 200 form a representative sample; use an approved sampling or aggregation method outside the visual layer.</p>
+        <p>Fabric Data Agent concept documentation separately describes 25-row by 25-column limits for conversational outputs. Native visual documentation describes the 200-row visual limit. Test the exact current behavior of the target experience and release because the two surfaces may apply at different stages. Do not infer that either limit guarantees completeness.</p>
+
+        <h2 id="evaluation">Evaluate the query, chart, and user conclusion separately</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent visual response evaluation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent visual response evaluation matrix</caption>
+          <thead><tr><th scope="col">Test family</th><th scope="col">Test</th><th scope="col">Pass condition</th><th scope="col">Remediation</th></tr></thead>
+          <tbody>
+            <tr><td>Query fidelity</td><td>Compare route, generated query, result, filters, grain, units, and freshness with an approved control.</td><td>Complete source result matches the business question and consumer identity.</td><td>Source, schema, Prep for AI, instructions, examples, or question scope.</td></tr>
+            <tr><td>Truncation</td><td>Run 199, 200, 201, and much-larger result sets with controlled orderings.</td><td>Chart population is correct or truncation is prevented and disclosed.</td><td>Upstream aggregate, Top N, stable ordering, separate report, or no chart.</td></tr>
+            <tr><td>Chart selection</td><td>Explicit, implicit, and inferred visual requests across supported and unsuitable patterns.</td><td>Selected type preserves comparison, trend, composition, or relationship honestly.</td><td>Agent instruction, explicit prompt, use-case limit, or visual suppression.</td></tr>
+            <tr><td>Encoding</td><td>Axes, categories, stacking, sort, missing periods, negative values, outliers, and tooltips.</td><td>Every visible property and tooltip reconciles to the source result.</td><td>Question redesign, upstream shape, different chart, or table fallback.</td></tr>
+            <tr><td>Security</td><td>Same chart question under allowed, restricted, RLS, CLS, and denied personas.</td><td>Visual and tooltips expose only each user's effective result and fail closed.</td><td>Permission, model security, source sharing, agent scope, or rollout block.</td></tr>
+            <tr><td>Client parity</td><td>Fabric experience, SDK, M365 Copilot, Teams, and Foundry consumption paths.</td><td>Each client follows its documented visual or fallback contract.</td><td>Channel-specific UX, Code Interpreter assessment, linked report, or scope change.</td></tr>
+            <tr><td>Decision fidelity</td><td>Ask users to interpret the chart and compare conclusions with the approved meaning.</td><td>Chart supports the intended conclusion without hiding material limitations.</td><td>Labels, narrative, data shape, chart choice, training, or human review.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Include line, multi-line, column, multi-column, stacked column, pie, scatter, area, and stacked area cases only where the underlying data pattern warrants them. Add unsorted time, sparse series, missing categories, duplicate labels, long tails, negative values, high-cardinality groups, nulls, and permission-filtered populations. Visual beauty is not an evaluation metric; correctness, completeness, interpretability, and decision fidelity are.</p>
+
+        <h2 id="clients">Design a cross-client response contract</h2>
+        <p>Microsoft currently supports native visual responses only inside the Fabric Data Agent experience, not SDK, Microsoft 365 Copilot, Teams, or Foundry. Document this before stakeholders design a workflow around charts that disappear in the target channel. For every client, specify whether the response is a native chart, text, table, Code Interpreter output, or link to an approved report.</p>
+        <p>Microsoft 365 Copilot can use Code Interpreter to visualize results returned by Data Agent, but that path generates and executes Python and has different evidence, limitations, and governance. Do not call it parity with the native chart. Test its inputs, code, output, permissions, and analytical claims independently.</p>
+        <p>Because native colors, fonts, titles, and labels are preset and can't currently be customized, test whether the experience meets branding, localization, accessibility, and terminology requirements. Use agent instructions to guide when visuals appear or which chart types are preferred, then regression-test adjacent questions because instructions are interpreted rather than guaranteed.</p>
+
+        <h2 id="assessment">Run a two-to-four-week visual response assessment</h2>
+        <ol>
+          <li>Select one Data Agent, target clients, user personas, decision owners, visual question families, source owners, and prohibited chart uses.</li>
+          <li>Map source queries, row and column limits, ordering, permissions, supported chart types, instructions, client capabilities, accessibility, and current failures.</li>
+          <li>Create deterministic query, population, chart specification, tooltip, narrative, permission, and cross-client ground truth.</li>
+          <li>Run 199/200/201-row boundaries, ordering changes, chart-type selection, missing data, outliers, negative values, long tails, RLS/CLS, and unsupported-client tests.</li>
+          <li>Classify failures by source, query, truncation, ordering, chart selection, encoding, labels, permissions, client, instruction, or user interpretation.</li>
+          <li>Refine queries, data shape, instructions, use-case boundaries, fallback UX, and release controls; compare draft and published behavior.</li>
+          <li>Deliver the visual contract, row-limit controls, evaluation suite, client matrix, accessibility findings, monitoring, release gates, runbooks, and go, limit, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>How many rows can a native Fabric Data Agent visual display?</summary><p>Microsoft currently documents a 200-row limit for native visual responses. When the underlying query returns more than 200 rows, only the first 200 are charted, so the visual represents a truncated result set. Teams must control ordering, population, aggregation, and disclosure before relying on the chart.</p></details>
+          <details><summary>Which chart types does Fabric Data Agent support?</summary><p>Current documented native types are line, multi-line, column, multi-column, stacked column, pie, scatter, area, and stacked area charts. The agent can infer a chart or respond to an explicit requested type.</p></details>
+          <details><summary>Can Fabric Data Agent visual styling be customized?</summary><p>Microsoft currently says colors, font sizes, titles, and labels are preset and can't be customized. Agent instructions can guide whether visuals should appear and can express chart-type preferences for particular data patterns.</p></details>
+          <details><summary>Do native Fabric Data Agent charts work in SDK, Microsoft 365 Copilot, Teams, or Foundry?</summary><p>No. Microsoft currently limits native visual responses to the Data Agent experience in Fabric. They aren't supported in SDK, Microsoft 365 Copilot, Teams, or Foundry clients. Microsoft 365 Copilot can instead use Code Interpreter to visualize Data Agent results, which is a different path that requires separate testing.</p></details>
+          <details><summary>How long does a Fabric Data Agent visual response assessment take?</summary><p>A focused assessment commonly takes two to four weeks for one agent, target clients, and a representative visual question set. It covers source queries, row limits, ordering, chart selection, encoding, labels, permissions, instructions, accessibility, cross-client fallback, latency, release controls, and monitoring.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-visuals">Microsoft Fabric Data Agent visual responses and limitations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-code-interpreter">Fabric Data Agent Code Interpreter visuals</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent">Fabric Data Agent operation, governance, and output limits</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-configuration-best-practices">Data Agent instruction and scope guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-sharing">Data Agent effective source permissions</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the chart that would drive the largest decision if its population were incomplete.</strong> Datrick can reconcile its source query, control the 200-row boundary, test every encoding and persona, and define a reliable response contract for each client.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_visual_response&amp;utm_medium=organic_content&amp;utm_campaign=chart_accuracy_truncation_assessment&amp;utm_content=article_end#inquiry-form">Scope the visual assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-code-interpreter-python-accuracy-security-assessment"><span>Validate generated visuals</span><strong>Assess Code Interpreter Python and charts</strong></a><a href="microsoft-fabric-data-agent-conversation-history-context-drift-output-truncation-assessment"><span>Test multi-turn accuracy</span><strong>Assess conversation history and context drift</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

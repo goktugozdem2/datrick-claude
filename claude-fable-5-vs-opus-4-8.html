@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Claude Fable 5 vs Opus 4.8 for AI Agents | Datrick</title><meta name="description" content="Compare Claude Fable 5 vs Opus 4.8 for long-running agents, coding, enterprise work, pricing, context, refusals, fallback, and data retention."><link rel="canonical" href="https://datrick.com/claude-fable-5-vs-opus-4-8"><meta property="og:title" content="Claude Fable 5 vs Opus 4.8"><meta property="og:description" content="When Fable's long-horizon capability justifies twice the Opus token price and additional operating constraints."><meta property="og:url" content="https://datrick.com/claude-fable-5-vs-opus-4-8"><meta property="og:type" content="article"><meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png"><link rel="icon" href="assets/datrick-logo.png"><link rel="stylesheet" href="styles.css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Claude Fable 5 better than Opus 4.8?","acceptedAnswer":{"@type":"Answer","text":"Anthropic positions Fable 5 as its most capable widely released model and reports improvements over Opus 4.8 on long-horizon autonomy, complex first-shot work, vision, enterprise workflows, code review, ambiguity, and sub-agent delegation. Opus 4.8 can still be the better production choice when it passes the workload evaluation at half the base token price and with fewer retention and refusal constraints."}},{"@type":"Question","name":"How much more expensive is Claude Fable 5 than Opus 4.8?","acceptedAnswer":{"@type":"Answer","text":"Fable 5 base API pricing is $10 per million input tokens and $50 per million output tokens. Opus 4.8 is $5 and $25. For the same token volume, Fable's base token cost is twice Opus before accounting for retries, caching, tools, and review."}},{"@type":"Question","name":"When should I use Claude Fable 5?","acceptedAnswer":{"@type":"Answer","text":"Evaluate Fable 5 for demanding reasoning, multi-day goal-directed agents, complex ambiguous work, difficult code review and debugging, dense visual tasks, and sustained coordination of parallel sub-agents. Use it when measured outcome improvement outweighs the added cost and operating constraints."}},{"@type":"Question","name":"Does Claude Fable 5 support zero data retention?","acceptedAnswer":{"@type":"Answer","text":"No. Anthropic states that Fable 5 carries 30-day data retention and is not available under zero data retention. Data policy must therefore be part of the model-selection decision."}}]}</script></head>
+<body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a><header class="site-header"><a class="brand" href="index.html"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav><a class="header-cta" href="index.html#contact">Start a conversation</a></header>
+<main id="main-content" tabindex="-1"><section class="page-hero"><div><p class="eyebrow">Long-horizon model decision</p><h1>Claude Fable 5 vs Opus 4.8: when does Fable justify the premium?</h1><p class="page-lede">Fable targets the hardest long-running and ambiguous work. Opus remains a powerful enterprise agent model at half the base token price and with fewer deployment constraints.</p><div class="article-meta"><a href="claude-models-comparison">All-model comparison</a><span>Updated July 2026</span><span>8 min read</span></div><p class="article-review">Reviewed against official Anthropic product documentation by <a href="about.html">Can Goktug Ozdem</a>. Last checked July 16, 2026.</p></div></section>
+<section class="section service-band"><article class="article-body"><p>The choice between Fable 5 and Opus 4.8 is not simply “best” versus “second best.” Fable introduces capability gains and a different operating contract. It costs twice as much per token, always uses adaptive thinking, can return classifier refusals that require fallback handling, and carries 30-day retention rather than zero data retention.</p><p>Opus 4.8 remains designed for complex agentic coding and enterprise work. If it meets the acceptance threshold, the lower price and simpler policy fit can make it the stronger system decision.</p><p><strong>Source note:</strong> This comparison uses Anthropic's <a href="https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5">Fable 5 integration guide</a>, <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5">Fable prompting guidance</a>, and <a href="https://platform.claude.com/docs/en/about-claude/models/whats-new-claude-4-8">Opus 4.8 documentation</a>, reviewed July 11, 2026.</p>
+<h2>Fable 5 vs Opus 4.8 specifications</h2><div class="article-table-wrap" role="region" aria-label="Fable 5 vs Opus 4.8 specifications" tabindex="0"><table class="article-table"><caption class="sr-only">Fable 5 vs Opus 4.8 specifications</caption><thead><tr><th scope="col">Factor</th><th scope="col">Claude Fable 5</th><th scope="col">Claude Opus 4.8</th></tr></thead><tbody><tr><td>Published role</td><td>Most demanding reasoning and long-horizon agentic work</td><td>Complex agentic coding and enterprise work</td></tr><tr><td>Base input / output price</td><td>$10 / $50 per MTok</td><td>$5 / $25 per MTok</td></tr><tr><td>Context / max output</td><td>1M / 128k tokens</td><td>1M / 128k tokens</td></tr><tr><td>Thinking</td><td>Adaptive thinking always on</td><td>Adaptive thinking supported and controllable</td></tr><tr><td>Refusal behavior</td><td>Safety classifiers can return HTTP 200 with <code>stop_reason: refusal</code></td><td>Standard Opus Messages API behavior</td></tr><tr><td>Data retention</td><td>30 days; no zero data retention</td><td>Eligible for ZDR agreements</td></tr><tr><td>Relative latency</td><td>Slower</td><td>Moderate; optional fast mode research preview</td></tr></tbody></table></div>
+<h2>Where Fable 5 is materially different</h2><p>Anthropic reports that Fable improves on Opus 4.8 in long-horizon autonomy, first-shot correctness on complex specified work, dense vision, enterprise document workflows, code review and debugging, navigation of ambiguity, and sustained delegation to parallel sub-agents. Those are not generic benchmark claims; they describe workloads where repeated planning and coordination failures create real cost.</p><p>A good Fable candidate is a task that takes a person hours or days, crosses multiple tools or artifacts, and requires the model to retain goals while deciding intermediate steps. Testing Fable only on short prompts will not reveal whether its long-horizon advantage matters.</p>
+<h2>Where Opus 4.8 remains the better choice</h2><p>Choose Opus when it passes the same production-shaped evaluation. Opus supports complex codebase work, research, computer use, vision-heavy workflows, architecture, and long-running agents. Its lower token price creates room for more evaluation, retries, review, or volume.</p><p>Opus also avoids Fable-specific classifier integration and retention constraints. For sensitive data under a ZDR agreement, Fable may be disqualified regardless of capability. For interactive use, Opus's lower relative latency and optional fast mode can also matter more than peak long-horizon performance.</p>
+<h2>Fable refusal and fallback design</h2><p>A Fable refusal is a successful API response, not a transport error. The application must inspect the stop reason, avoid treating the response as completed work, and decide whether to retry through server-side fallback, SDK middleware, or client logic. Anthropic states that fallback credit can avoid paying the prompt-cache switching cost twice.</p><p>Fallback should be tested as part of the workflow, not added after launch. Define the fallback model, preserve only compatible conversation state, log the classifier and route, and ensure the retry still meets data and tool policies.</p>
+<h2>A practical evaluation plan</h2><ol><li>Select 30-50 tasks that Opus handles inconsistently, including long runs, ambiguous inputs, and difficult review cases.</li><li>Run both models with comparable tools, context, effort, and acceptance criteria.</li><li>Measure accepted completion, unsupported claims, tool errors, steps, latency, tokens, human correction, and total cost.</li><li>Review Fable refusals and whether the proposed fallback produces an acceptable result.</li><li>Confirm retention and data classification before exposing production information.</li><li>Use Fable only for the subset where its improvement creates measurable value.</li></ol>
+<section class="readiness-actions"><p><strong>Prove whether the premium changes accepted outcomes.</strong> Datrick can build a production-shaped evaluation, test refusal and fallback behavior, compare total workflow cost, and document the model boundary.</p><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fable_vs_opus&amp;utm_medium=website&amp;utm_campaign=claude_model_selection&amp;utm_content=article_end#contact">Request a Fable vs Opus evaluation</a></section>
+<h2>Frequently asked questions</h2><div class="faq-list"><details><summary>Is Claude Fable 5 better than Opus 4.8?</summary><p>Anthropic positions Fable 5 as its most capable widely released model and reports improvements over Opus 4.8 on long-horizon autonomy, complex first-shot work, vision, enterprise workflows, code review, ambiguity, and sub-agent delegation. Opus can still be the better production choice when it passes the workload evaluation at half the base token price and with fewer retention and refusal constraints.</p></details><details><summary>How much more expensive is Claude Fable 5 than Opus 4.8?</summary><p>Fable base API pricing is $10 per million input tokens and $50 per million output tokens. Opus is $5 and $25. For the same token volume, Fable's base token cost is twice Opus before accounting for retries, caching, tools, and review.</p></details><details><summary>When should I use Claude Fable 5?</summary><p>Evaluate Fable for demanding reasoning, multi-day goal-directed agents, complex ambiguous work, difficult code review and debugging, dense visual tasks, and sustained coordination of parallel sub-agents. Use it when measured outcome improvement outweighs added cost and operating constraints.</p></details><details><summary>Does Claude Fable 5 support zero data retention?</summary><p>No. Anthropic states that Fable 5 carries 30-day data retention and is not available under zero data retention. Data policy must therefore be part of the model-selection decision.</p></details></div>
+<nav class="article-next"><a href="claude-models-comparison"><span>All models</span><strong>Compare the current Claude lineup</strong></a><a href="claude-sonnet-5-vs-opus-4-8"><span>Cost-performance boundary</span><strong>Sonnet 5 vs Opus 4.8</strong></a></nav></article></section></main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer><script src="script.js"></script></body></html>

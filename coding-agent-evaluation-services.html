@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coding Agent Evaluation Services &amp; Human Review | Datrick</title>
+    <meta name="description" content="How to evaluate coding agents with repository tasks, executable tests, trajectory review, calibrated engineering rubrics, and managed human evaluation.">
+    <link rel="canonical" href="https://datrick.com/coding-agent-evaluation-services">
+    <meta property="og:title" content="Coding Agent Evaluation Services &amp; Human Review | Datrick">
+    <meta property="og:description" content="A practical buyer's guide to coding-agent evaluations using controlled repositories, executable checks, technical human review, and managed quality operations.">
+    <meta property="og:url" content="https://datrick.com/coding-agent-evaluation-services">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "headline": "Coding Agent Evaluation Services and Human Review",
+            "description": "How to evaluate coding agents with repository tasks, executable tests, trajectory review, calibrated engineering rubrics, and managed human evaluation.",
+            "url": "https://datrick.com/coding-agent-evaluation-services",
+            "datePublished": "2026-07-14",
+            "dateModified": "2026-07-14",
+            "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"},
+            "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}},
+            "mainEntityOfPage": "https://datrick.com/coding-agent-evaluation-services"
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What should a coding agent evaluation measure?",
+                "acceptedAnswer": {"@type": "Answer", "text": "A coding agent evaluation should measure required behavior, regressions, repository and environment state, constraint compliance, tool use, security, maintainability, and whether the agent's completion claim matches the evidence. The exact dimensions depend on the release decision and task family."}
+              },
+              {
+                "@type": "Question",
+                "name": "Why are unit tests not enough to evaluate coding agents?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Unit tests verify selected behavior but can miss unsafe shortcuts, unrelated regressions, inappropriate file changes, poor architecture, misleading completion claims, and failures in the agent's reasoning or tool-use process. Tests should be combined with state checks and bounded technical review."}
+              },
+              {
+                "@type": "Question",
+                "name": "When does coding agent evaluation need human software engineers?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Human software engineers are needed when correctness depends on repository context, several implementations may be valid, tests are incomplete, engineering tradeoffs matter, errors carry operational risk, or a rubric and automated grader have not yet been calibrated against trusted technical decisions."}
+              },
+              {
+                "@type": "Question",
+                "name": "Can a coding agent evaluation use private repositories?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Yes, if the evaluation uses explicit authorization, least-privilege access, approved environments, controlled data handling, contributor confidentiality, logging, and a defined retention and removal process. Sensitive repositories should not be copied into an unmanaged benchmark workflow."}
+              },
+              {
+                "@type": "Question",
+                "name": "How does a managed coding agent evaluation pilot work?",
+                "acceptedAnswer": {"@type": "Answer", "text": "A managed pilot selects one bounded task family, prepares representative repository tasks, defines executable checks and a technical review rubric, calibrates reviewers on a small sample, runs controlled evaluations, adjudicates disagreement, and closes with findings and a recommendation to expand, revise, or stop."}
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Coding agent evaluation services</p>
+          <h1>Evaluate coding agents with executable evidence and technical human review.</h1>
+          <p class="page-lede">A buyer's guide to repository-level tasks, test design, trajectory review, engineering rubrics, calibration, and managed evaluation pilots for coding models and agents.</p>
+          <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=coding_agent_evaluation&amp;utm_medium=organic_content&amp;utm_campaign=technical_ai_evaluation&amp;utm_content=hero#inquiry-form">Scope a coding evaluation pilot</a></div>
+          <div class="article-meta"><a href="resources.html">Resource library</a><span>Coding-agent evaluation</span><span>12 min read</span></div>
+        </div>
+      </section>
+
+      <section class="section service-band">
+        <article class="article-body">
+          <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#evaluation-design">Evaluation design</a><a href="#human-review">Human review</a><a href="#quality-operations">Quality operations</a><a href="#managed-pilot">Managed pilot</a></nav>
+
+          <p>A coding agent can produce a patch that looks reasonable, passes one visible test, and still leaves the repository in a worse state. It may edit the wrong boundary, skip a required check, hide a failure behind a mock, introduce a security defect, or report completion without running the command that would prove it.</p>
+
+          <p>Coding agent evaluation therefore needs more than a benchmark score or a reviewer reading the final answer. A useful program combines controlled repository tasks, fail-to-pass and regression checks, final-state inspection, trajectory evidence, and calibrated software-engineering judgment. The purpose is not to generate one impressive number. It is to support a specific product, release, procurement, or model-improvement decision.</p>
+
+          <section class="readiness-actions"><p><strong>Need engineering reviewers rather than generic annotators?</strong> Datrick supports coding-task design, reference solutions, model-output review, rubric calibration, adjudication, and managed technical evaluation delivery.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=coding_agent_evaluation&amp;utm_medium=organic_content&amp;utm_campaign=technical_ai_evaluation&amp;utm_content=article_intro#inquiry-form">Describe the evaluation need</a><a class="button secondary" href="ai-model-training.html">Review the managed service</a></div></section>
+
+          <h2 id="evaluation-design">Start with the decision, not the leaderboard</h2>
+          <p>Define what the evaluation must decide: whether to ship a release, compare two models, select an agent harness, qualify a contributor pool, improve a grader, or determine whether a task family is ready for scaled evaluation. Then define the repositories, languages, tools, permissions, time limits, expected behaviors, failure costs, and evidence that the decision owner will accept.</p>
+
+          <p>Public benchmarks can provide external context, but they are not a substitute for tasks that represent the intended product. <a href="https://www.swebench.com/">SWE-bench</a> uses real software issues and repositories, while OpenAI's recent <a href="https://openai.com/index/separating-signal-from-noise-coding-evaluations/">coding-evaluation audit</a> illustrates why task quality and contamination can affect the meaning of a benchmark result. A private evaluation set should be inspected, versioned, and protected with the same care as the grader.</p>
+
+          <div class="article-table-wrap" role="region" aria-label="Coding agent evaluation evidence matrix" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Coding agent evaluation evidence matrix</caption>
+              <thead><tr><th scope="col">Evaluation layer</th><th scope="col">What it verifies</th><th scope="col">Evidence to retain</th></tr></thead>
+              <tbody>
+                <tr><td>Task contract</td><td>The issue, constraints, allowed tools, prohibited changes, and success criteria are unambiguous enough to judge.</td><td>Versioned task, repository commit, environment definition, author decisions, and known limitations.</td></tr>
+                <tr><td>Required behavior</td><td>The patch creates the intended user-visible or system-visible outcome.</td><td>Fail-to-pass tests, state checks, command output, and reproducible steps.</td></tr>
+                <tr><td>Regression safety</td><td>Existing behavior and unrelated surfaces remain intact.</td><td>Pass-to-pass tests, type checks, lint, integration checks, and changed-file review.</td></tr>
+                <tr><td>Trajectory</td><td>The agent used tools and evidence responsibly rather than arriving at a plausible result by accident.</td><td>Tool calls, command output, retries, errors, file reads, and final completion claim.</td></tr>
+                <tr><td>Engineering quality</td><td>The implementation is maintainable, appropriately scoped, secure, and consistent with the codebase.</td><td>Rubric decision with citations to the patch, repository, tests, or trajectory.</td></tr>
+                <tr><td>Program quality</td><td>Review decisions stay consistent as tasks, reviewers, and models change.</td><td>Calibration results, disagreement classes, adjudication, rework, and rubric versions.</td></tr>
+              </tbody>
+            </table></div>
+
+          <h2>Use executable graders for claims that software can prove</h2>
+          <p>Executable checks should verify required behavior, regressions, repository state, file boundaries, schema changes, build output, security rules, and other deterministic claims. New tests should fail before the intended fix and pass afterward. Existing tests should remain green. A test that passes before any change does not demonstrate that the patch solved the issue.</p>
+
+          <p>Do not optimize the evaluation around tests alone. An agent can overfit visible tests, modify fixtures, weaken assertions, hard-code a sample, or introduce a second defect outside the checked path. Inspect the patch and the final repository state, and use hidden or protected checks where exposure would change the task.</p>
+
+          <h2>Review the coding-agent trajectory</h2>
+          <p>For an agent, the process is part of the product. Review whether it found the relevant context, respected file and tool boundaries, interpreted errors correctly, validated its own work, recovered from failures, and reported what actually happened. The final response should be checked against the final repository state and command evidence.</p>
+
+          <p>Anthropic's <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">agent-evaluation guidance</a> separates code-based, model-based, and human graders. That separation is useful for coding programs: deterministic checks establish what can be proven, model-based graders can scale explicit criteria, and human engineers handle ambiguity, tradeoffs, and consequential judgment.</p>
+
+          <h2 id="human-review">Use human software engineers where correctness is contextual</h2>
+          <p>Human review is necessary when several implementations may be valid, repository conventions matter, tests are incomplete, the correct scope is debatable, or security and operational consequences cannot be reduced to one assertion. The reviewer should not assign a vague quality score. Each decision should cite observable evidence and use explicit severity and escalation rules.</p>
+
+          <div class="article-table-wrap" role="region" aria-label="Human coding evaluation rubric" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Human coding evaluation rubric</caption>
+              <thead><tr><th scope="col">Rubric dimension</th><th scope="col">Reviewer question</th><th scope="col">Typical critical failure</th></tr></thead>
+              <tbody>
+                <tr><td>Correctness</td><td>Does the patch satisfy the task across normal, boundary, and failure cases?</td><td>The visible example works but a required branch remains wrong.</td></tr>
+                <tr><td>Scope control</td><td>Did the agent change only what was necessary and authorized?</td><td>Unrelated behavior, configuration, tests, or dependencies were modified.</td></tr>
+                <tr><td>Security</td><td>Does the change preserve trust boundaries, validation, secrets handling, and permissions?</td><td>The patch bypasses authorization or introduces unsafe input handling.</td></tr>
+                <tr><td>Maintainability</td><td>Does the implementation fit existing architecture and remain understandable?</td><td>A brittle workaround passes today but creates hidden ownership cost.</td></tr>
+                <tr><td>Evidence integrity</td><td>Does the completion claim match tests, logs, and repository state?</td><td>The agent claims checks passed when they were not run or failed.</td></tr>
+              </tbody>
+            </table></div>
+
+          <h2 id="quality-operations">Calibrate reviewers before increasing volume</h2>
+          <p>Give qualified reviewers the same bounded sample and require independent decisions. Classify disagreements into reviewer error, rubric ambiguity, missing context, multiple valid solutions, environment instability, and genuinely borderline cases. An authorized technical owner then adjudicates the disagreement and updates the task, examples, or rubric.</p>
+
+          <p>Track acceptance, rework, disagreement, escalation, error category, turnaround distribution, and rubric changes. Reviewer agreement alone is not proof of correctness; reviewers can consistently apply a weak standard. Pair agreement data with executable evidence, challenge tasks, and periodic expert review.</p>
+
+          <h2>Protect private repositories and evaluation sets</h2>
+          <p>Use least-privilege access, isolated environments, approved tooling, named repository owners, contributor confidentiality, logging, and explicit retention and removal rules. Separate public training examples from protected release tasks. Do not place credentials, customer data, production secrets, or unrestricted private repositories into an unmanaged evaluation queue.</p>
+
+          <h2 id="managed-pilot">What a managed coding-agent evaluation pilot should deliver</h2>
+          <ol>
+            <li>A written decision, bounded task family, repository and environment inventory, and named quality owner.</li>
+            <li>Representative tasks with versioned instructions, reference evidence, constraints, and protected checks.</li>
+            <li>An executable grading plan covering required behavior, regressions, state, and policy boundaries.</li>
+            <li>A technical human-review rubric with examples, severity definitions, and escalation rules.</li>
+            <li>An independent calibration sample, disagreement analysis, adjudication record, and revised guidance.</li>
+            <li>A controlled pilot with delivery evidence, error taxonomy, limitations, and an expand, revise, or stop recommendation.</li>
+          </ol>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-list">
+            <details><summary>What should a coding agent evaluation measure?</summary><p>A coding agent evaluation should measure required behavior, regressions, repository and environment state, constraint compliance, tool use, security, maintainability, and whether the agent's completion claim matches the evidence. The exact dimensions depend on the release decision and task family.</p></details>
+            <details><summary>Why are unit tests not enough to evaluate coding agents?</summary><p>Unit tests verify selected behavior but can miss unsafe shortcuts, unrelated regressions, inappropriate file changes, poor architecture, misleading completion claims, and failures in the agent's reasoning or tool-use process. Tests should be combined with state checks and bounded technical review.</p></details>
+            <details><summary>When does coding agent evaluation need human software engineers?</summary><p>Human software engineers are needed when correctness depends on repository context, several implementations may be valid, tests are incomplete, engineering tradeoffs matter, errors carry operational risk, or a rubric and automated grader have not yet been calibrated against trusted technical decisions.</p></details>
+            <details><summary>Can a coding agent evaluation use private repositories?</summary><p>Yes, if the evaluation uses explicit authorization, least-privilege access, approved environments, controlled data handling, contributor confidentiality, logging, and a defined retention and removal process. Sensitive repositories should not be copied into an unmanaged benchmark workflow.</p></details>
+            <details><summary>How does a managed coding agent evaluation pilot work?</summary><p>A managed pilot selects one bounded task family, prepares representative repository tasks, defines executable checks and a technical review rubric, calibrates reviewers on a small sample, runs controlled evaluations, adjudicates disagreement, and closes with findings and a recommendation to expand, revise, or stop.</p></details>
+          </div>
+
+          <section class="readiness-actions"><p><strong>Start with one repository task family.</strong> Datrick can review the task, environment, contributor profile, graders, rubric, calibration method, security controls, and pilot evidence before recurring delivery is proposed.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=coding_agent_evaluation&amp;utm_medium=organic_content&amp;utm_campaign=technical_ai_evaluation&amp;utm_content=article_end#inquiry-form">Scope a coding evaluation pilot</a></div></section>
+
+          <nav class="article-next" aria-label="Resource next steps"><a href="coding-agent-benchmark-private-repositories"><span>Private repositories</span><strong>Private coding-agent benchmark guide</strong></a><a href="technical-llm-evaluation-coding-sql"><span>Evaluation system</span><strong>Technical LLM evaluation guide</strong></a></nav>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
