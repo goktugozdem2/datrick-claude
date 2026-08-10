@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Datrick social card</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 1200px;
+        height: 630px;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      body {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 430px;
+        color: #effbfd;
+        background: #09171c;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 68px 40px 62px 72px;
+      }
+
+      .brand {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        font-size: 32px;
+        font-weight: 800;
+      }
+
+      .brand img {
+        width: 72px;
+        height: 72px;
+        object-fit: contain;
+      }
+
+      .eyebrow {
+        margin: 0 0 20px;
+        color: #48d7e9;
+        font-size: 18px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 680px;
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 69px;
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .services {
+        margin: 26px 0 0;
+        color: #b9cbd0;
+        font-size: 22px;
+        line-height: 1.45;
+      }
+
+      .visual {
+        position: relative;
+        border-left: 1px solid #28434a;
+        background: #10252c;
+      }
+
+      .visual::before,
+      .visual::after {
+        position: absolute;
+        content: "";
+        border: 2px solid #48d7e9;
+        border-radius: 50%;
+      }
+
+      .visual::before {
+        top: 82px;
+        right: -184px;
+        width: 550px;
+        height: 550px;
+      }
+
+      .visual::after {
+        top: 175px;
+        right: -74px;
+        width: 320px;
+        height: 320px;
+        border-color: #d766b6;
+      }
+
+      .axis {
+        position: absolute;
+        top: 0;
+        right: 82px;
+        width: 1px;
+        height: 100%;
+        background: #28434a;
+      }
+
+      .node {
+        position: absolute;
+        z-index: 1;
+        width: 16px;
+        height: 16px;
+        border: 3px solid #10252c;
+        border-radius: 50%;
+        background: #48d7e9;
+      }
+
+      .node.one {
+        top: 96px;
+        left: 138px;
+      }
+
+      .node.two {
+        top: 302px;
+        left: 70px;
+        background: #d766b6;
+      }
+
+      .node.three {
+        right: 74px;
+        bottom: 86px;
+      }
+
+      .status {
+        position: absolute;
+        right: 40px;
+        bottom: 42px;
+        z-index: 2;
+        padding: 12px 16px;
+        border: 1px solid #41616a;
+        color: #effbfd;
+        background: #09171c;
+        font-size: 15px;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="brand">
+        <img src="datrick-logo.png" alt="">
+        <span>Datrick</span>
+      </div>
+      <div>
+        <p class="eyebrow">Senior-led AI and data delivery</p>
+        <h1>Decide clearly. Deliver responsibly.</h1>
+        <p class="services">AI strategy · model selection · production workflows · data operations</p>
+      </div>
+    </main>
+    <aside class="visual" aria-hidden="true">
+      <span class="axis"></span>
+      <span class="node one"></span>
+      <span class="node two"></span>
+      <span class="node three"></span>
+      <span class="status">United States · Worldwide delivery</span>
+    </aside>
+  </body>
+</html>

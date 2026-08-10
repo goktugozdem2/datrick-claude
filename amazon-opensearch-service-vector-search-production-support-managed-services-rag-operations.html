@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Amazon OpenSearch Vector Search Production Support | Datrick</title>
+    <meta name="description" content="Managed Amazon OpenSearch Service production support for vector and hybrid RAG search, domains, Serverless collections, OCUs, IAM, VPC, monitoring, snapshots, upgrades, and cost.">
+    <link rel="canonical" href="https://datrick.com/amazon-opensearch-service-vector-search-production-support-managed-services-rag-operations">
+    <meta property="og:title" content="Amazon OpenSearch Vector Search Production Support | Datrick">
+    <meta property="og:description" content="Operate OpenSearch domains and Serverless vector collections with accountable relevance, capacity, IAM, VPC, monitoring, recovery, releases, and cost.">
+    <meta property="og:url" content="https://datrick.com/amazon-opensearch-service-vector-search-production-support-managed-services-rag-operations">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Service", "name": "Amazon OpenSearch Service Vector Search Production Support and Managed Services", "description": "Ongoing Amazon OpenSearch Service operations covering provisioned domains, Serverless vector collections, ingestion, mappings, shards, k-NN engines, hybrid retrieval, relevance evaluation, IAM, VPC, fine-grained access, CloudWatch, incidents, snapshots, upgrades, OCUs, cost, runbooks, and reporting.", "url": "https://datrick.com/amazon-opensearch-service-vector-search-production-support-managed-services-rag-operations", "provider": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "areaServed": "Global", "audience": {"@type": "BusinessAudience", "audienceType": "Software companies, enterprises, managed service providers, and AI delivery firms operating production Amazon OpenSearch Service search and RAG workloads"}},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is included in Amazon OpenSearch Service production support?", "acceptedAnswer": {"@type": "Answer", "text": "A defined service can include provisioned domains or Serverless collections, ingestion pipelines, mappings, shards, k-NN vector indexes, hybrid retrieval, relevance evaluation, IAM and fine-grained access, VPC and encryption, CloudWatch and slow logs, incidents, snapshots and restore, blue-green changes, upgrades, OCU or instance cost, runbooks, and reporting."}},
+            {"@type": "Question", "name": "Should production use an OpenSearch domain or Serverless vector collection?", "acceptedAnswer": {"@type": "Answer", "text": "Provisioned domains provide direct control over instance types, nodes, shards, storage, engines, plugins, and deployment topology. Serverless collections remove node management and automatically scale indexing and search OCUs, but have different feature limits, account-level capacity ceilings, minimum OCU cost, and vector-collection engine constraints. Select through workload, feature, security, latency, recovery, and cost tests."}},
+            {"@type": "Question", "name": "Can Amazon OpenSearch Serverless hit capacity limits while autoscaling?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Serverless scales indexing and search capacity independently but only up to configured account or collection-group OCU limits. Vector collections are often constrained by RAM for vector graphs before disk. Monitor IndexingOCU and SearchOCU, configure alarms before the ceiling, and keep limits high enough for tested workload spikes."}},
+            {"@type": "Question", "name": "How should OpenSearch vector recall and cost be tuned?", "acceptedAnswer": {"@type": "Answer", "text": "Benchmark the supported engine and method, HNSW construction and search parameters, compression or quantization, filters, shard layout, candidate count, concurrency, and reranking against labelled queries. Auto-optimize can recommend configurations for supported deployments, but recommendations still require relevance, latency, ingestion, availability, and cost acceptance before rollout."}},
+            {"@type": "Question", "name": "How long does Amazon OpenSearch managed support onboarding take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused onboarding commonly takes two to four weeks for a representative domain or Serverless collection. It covers ingestion, mappings, vectors, relevance, shards or OCUs, IAM, VPC, monitoring, snapshots, incidents, releases, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Amazon OpenSearch VectorOps</p>
+        <h1>A Serverless collection can autoscale and still stop at an account-level OCU ceiling.</h1>
+        <p class="page-lede">Operate provisioned OpenSearch domains or Serverless vector collections with accountable ingestion, hybrid and k-NN relevance, shard or OCU capacity, IAM and VPC security, CloudWatch evidence, snapshots, controlled changes, and cost.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=amazon_opensearch_support&amp;utm_medium=organic_content&amp;utm_campaign=opensearch_vector_rag_operations&amp;utm_content=hero#inquiry-form">Describe the OpenSearch estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Amazon OpenSearch VectorOps</span><span>14 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Service boundary</a><a href="#scope">Operating scope</a><a href="#relevance">Relevance and cluster health</a><a href="#incidents">Incident response</a><a href="#onboarding">Onboarding</a></nav>
+
+        <p>Amazon OpenSearch Service can operate provisioned domains with managed nodes or Serverless collections with separate indexing and search OCUs, ingest from AWS sources, run k-NN and hybrid retrieval, isolate access through IAM and fine-grained controls, deploy inside a VPC, emit CloudWatch metrics and logs, and create automated snapshots. Those controls do not decide who owns a vector collection that reached its OCU ceiling, a domain with yellow or red shard health, a Faiss configuration that met latency while losing recall, a security policy split across IAM and OpenSearch roles, a blue-green change that exceeded free storage, or a snapshot that was never restored under production conditions.</p>
+        <p>Datrick provides an ongoing operating layer for an agreed OpenSearch estate. Named engineers correlate authoritative sources, OpenSearch Ingestion or custom pipelines, domains or collections, mappings, aliases and lifecycle, shards or OCUs, k-NN engines and parameters, vectors, hybrid queries and normalization, filters, relevance labels, IAM and data access policies, fine-grained roles, VPC paths, CloudWatch, slow and audit logs, snapshots, releases, AWS resources, cost, and business outcomes. AWS support remains the escalation path for platform defects. Datrick owns the client-specific diagnosis, containment, validation, communication, change, and prevention accepted in the service boundary.</p>
+
+        <section class="readiness-actions"><p><strong>Do you have OpenSearch in production but no team accountable for turning ingestion lag, relevance regression, OCU or shard pressure, IAM and role conflicts, yellow or red health, snapshot risk, or domain-change drift into a verified outcome?</strong> Start with one representative domain or collection, index family, and consuming search or RAG workflow.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=amazon_opensearch_support&amp;utm_medium=organic_content&amp;utm_campaign=opensearch_vector_rag_operations&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" href="ai-workflows.html">Review AI workflow operations</a></div></section>
+
+        <h2 id="boundary">Define ownership from AWS source event to indexed vector, retrieved evidence, citation, and business answer</h2>
+        <p>A production path can include S3, Kinesis, DynamoDB, databases, streams and applications; OpenSearch Ingestion or custom clients; processors and embeddings; provisioned domains or Serverless collections; templates, mappings, aliases and lifecycle; primary and replica shards or managed OCUs; Faiss, Lucene or supported k-NN methods; keyword, vector, hybrid and reranked queries; IAM, data access and fine-grained roles; an agent or application; answer synthesis and citations; and the target workflow. Name which layers the managed service owns, observes, changes, coordinates, or excludes.</p>
+        <p>Document AWS accounts, Regions, VPCs, domain or collection type, engine version, instance and node topology or OCU limits; sources, pipelines and document IDs; mappings, aliases, lifecycle and retention; vector engine and parameters; query patterns and filters; freshness, relevance, latency and availability SLOs; identities, policies and networks; snapshots and restore; support hours; severity; change authority; budget; fallback; and AWS escalation.</p>
+
+        <h2 id="scope">Operate the complete Amazon OpenSearch vector search production surface</h2>
+        <div class="article-table-wrap" role="region" aria-label="Amazon OpenSearch vector search production support scope" tabindex="0"><table class="article-table"><caption class="sr-only">Amazon OpenSearch vector search production support scope</caption>
+          <thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead>
+          <tbody>
+            <tr><td>Sources and ingestion</td><td>Authoritative sources, OpenSearch Ingestion or custom clients, processors, vector ingestion, stable IDs, bulk behavior, refresh, update and delete semantics, retries, dead-letter handling, backfill, and reconciliation.</td><td>Source owner, freshness and deletion SLOs, idempotency, throughput, OCU or domain capacity, failure tolerance, replay authority, and exception route.</td></tr>
+            <tr><td>Indexes and lifecycle</td><td>Templates, mappings, analyzers, aliases, lifecycle and retention, provisioned primary and replica shards, Serverless index limits, segment growth, reindex, hot and warm storage where supported, and migration.</td><td>Schema ownership, dynamic mapping, shard target, collection type, retention, rollover, migration window, compatibility, and rollback.</td></tr>
+            <tr><td>Vectors and retrieval</td><td>k-NN fields, Faiss, Lucene or supported engines, HNSW and available methods, construction and search parameters, compression or quantization, filters, BM25 and hybrid pipelines, normalization, reranking, recall, drift, and cost.</td><td>Engine support by deployment, model compatibility, memory and accuracy trade-off, labelled relevance, latency, reviewer, and business consequence.</td></tr>
+            <tr><td>Domain or Serverless capacity</td><td>Provisioned instances, data and dedicated master nodes, Multi-AZ, EBS, JVM, shards and replicas; or Serverless indexing and search OCUs, redundancy, collection groups, account limits, vector graph RAM, index and shard quotas.</td><td>Deployment choice, traffic and growth profile, availability, headroom, scale authority, OCU ceilings, minimum cost, and budget.</td></tr>
+            <tr><td>Security and networking</td><td>IAM resource policies, SigV4 clients, VPC and security groups, encryption, KMS, fine-grained roles, index, document and field controls, Serverless encryption, network and data access policies, secrets, audit, and CloudTrail.</td><td>Least privilege, policy precedence, tenant isolation, public exposure, key rotation, audit ownership, compliance, and incident route.</td></tr>
+            <tr><td>Observability and recovery</td><td>CloudWatch metrics and alarms, error, search slow, index slow and audit logs, CloudTrail, EventBridge, cluster health, shard allocation, OCU events, automated and manual snapshots, restore, RTO, and RPO.</td><td>Metric retention, alert ownership, snapshot scope, restore acceptance, regional strategy, source rebuild, and AWS escalation.</td></tr>
+            <tr><td>Release, upgrade, and value</td><td>Domain configuration and blue-green changes, engine and service software, Serverless managed updates, mappings, pipelines, indexes, aliases, vector parameters, application versions, tests, rollout, rollback, instances, EBS, OCUs, ingestion, storage, transfer, and anomaly.</td><td>Source of truth, environments, change window, free-storage requirement, approval, compatibility, budget, forecast, canary, and acceptance evidence.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="relevance">Treat relevance, engine support, shard or OCU capacity, security, lifecycle, and recovery as one design</h2>
+        <p>Keyword, vector and hybrid retrieval fail differently. The query embedding must match the indexed vector space; normalization and rank-fusion pipelines can improve results but can also hide weak candidates. Maintain labelled queries and expected evidence across filters, tenants, languages and content age. Measure retrieval and grounded-answer quality independently from domain health, Serverless capacity, latency and AWS availability.</p>
+        <p>Provisioned domains and Serverless vector collections do not expose identical engines, APIs or lifecycle controls. Classic Serverless vector collections use HNSW with Faiss and omit some Lucene, warmup, stats, model-training and scripting features. Validate the exact collection generation, engine, Region and OpenSearch version instead of copying domain settings into Serverless or assuming feature parity.</p>
+        <p>Serverless separates indexing and search capacity. With redundancy, each side maintains a minimum footprint, vector collections use RAM for vector graphs, and scaling stops at account or collection-group OCU limits. Provisioned domains instead require explicit instance, node, EBS, shard, replica and JVM planning. Benchmark relevance, concurrency, ingestion and failures against both the capacity ceiling and the steady-state cost floor.</p>
+        <p>Managed infrastructure does not remove recovery or security ownership. Fine-grained OpenSearch roles can coexist with IAM domain or collection policies, VPC or network policies, KMS encryption and SigV4 clients. Automated snapshots are useful only when scope and restore are proven. Operate policy precedence, slow and audit logs, CloudWatch alarms, snapshot acceptance and labelled relevance as connected controls.</p>
+
+        <h2 id="incidents">Distinguish ingestion, relevance, engine, OCU, shard, policy, snapshot, change, and cost failures</h2>
+        <div class="article-table-wrap" role="region" aria-label="Amazon OpenSearch production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Amazon OpenSearch production incident matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead>
+          <tbody>
+            <tr><td>Documents are missing, duplicated, stale, or mapped incorrectly</td><td>AWS source events, document IDs, OSI or custom pipeline responses, failed records, refresh, aliases, target domain or collection and index, mappings, update and delete behavior, sampled documents, and application cache.</td><td>Pause dependent automation, stop unsafe replay, restore the accepted pipeline and alias, isolate affected IDs, use source fallback, and disclose freshness risk.</td><td>Source-to-index reconciliation, stable-ID contract, item-level checks, dead-letter queue, mapping tests, freshness SLO, deletion test, sampling, and CloudWatch alarms.</td></tr>
+            <tr><td>Vector or hybrid retrieval regresses after parameter or engine change</td><td>Labelled query and expected evidence, keyword and vector candidates, engine and method, HNSW m, ef_construction and ef_search, compression, filters, normalization and combination pipeline, shard layout, embedding version, scores, and release.</td><td>Restore the accepted engine, index and query parameters, narrow affected cohorts, increase human review, use a tested lexical fallback, and block consequential automation.</td><td>Query-cohort evaluation, recall and ranking thresholds, engine compatibility matrix, model and compression gates, Auto-optimize acceptance, canary, drift monitoring, and rollback.</td></tr>
+            <tr><td>Serverless search or indexing stalls at an OCU ceiling</td><td>SearchOCU and IndexingOCU, account and collection-group limits, collection redundancy, vector graph RAM, data and shard requirements, index count, latency, throttling, EventBridge limit events, workload spike, and recent policy change.</td><td>Protect critical traffic, throttle noncritical ingestion, raise an approved ceiling, reduce expensive queries, preserve evidence, and communicate capacity and cost impact.</td><td>OCU baseline and spike test, 75 percent event response, collection-group policy, vector memory forecast, account quota process, load shedding, scale runbook, and budget guardrail.</td></tr>
+            <tr><td>Provisioned domain is yellow or red or hits JVM, disk, or shard pressure</td><td>ClusterStatus, unassigned primary or replica shards, nodes and AZs, dedicated masters, JVM and CPU, FreeStorageSpace, disk and shard quotas, allocation explanation, slow logs, recovery, Auto-Tune, and recent scaling.</td><td>Protect primary availability, stop noncritical indexing, avoid blind allocation overrides, restore free storage or eligible nodes, use a valid replica or snapshot path, and communicate data risk.</td><td>Multi-AZ and master policy, shard strategy, JVM and disk alarms, storage forecast, recovery capacity, failure exercise, snapshot acceptance, and escalation runbook.</td></tr>
+            <tr><td>IAM, VPC, fine-grained role, or Serverless policy denies or exposes data</td><td>Caller identity and SigV4 signing, domain resource policy or collection data policy, fine-grained role mapping, index and document permission, VPC endpoint and security group or network policy, KMS key, audit and CloudTrail events, and recent change.</td><td>Revoke unsafe access, stop public fallback, restore the accepted policy and network path, use a time-bound approved break-glass route, preserve audit evidence, and notify the owner.</td><td>Effective-access matrix, least-privilege tests, denied-user negatives, policy-as-code, VPC and endpoint checks, key rotation, audit alerts, and access-change canary.</td></tr>
+            <tr><td>Snapshot, restore, blue-green change, upgrade, or cost control fails</td><td>Automated and manual snapshot status, restore target, domain and index health, free storage for configuration change, engine and service software, change progress, instance and EBS cost, OCU and ingestion use, transfer, and recent release.</td><td>Stop cutover, preserve the current domain or collection, restore in isolation, cap noncritical consumption, avoid overlapping blue-green changes, and communicate RTO, RPO, quality, or budget risk.</td><td>Restore exercise, change precheck and free-space gate, version matrix, snapshot rollback plan, post-change relevance and access tests, cost attribution, alarms, and rollback.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>A retry is not automatically safe. Before replaying a bulk request, rerunning an OSI pipeline, reindexing, changing aliases, adjusting OCUs, forcing shard allocation, restoring a snapshot, or continuing a blue-green change, determine which item operations succeeded, which domain, collection and index received the write, whether primary and replica or Serverless state is current, whether mappings or embeddings changed, and whether the application already exposed a response. Reconcile AWS source, document, pipeline, index, capacity, query, application, and business state before reopening traffic.</p>
+
+        <h2>Release AWS pipelines, mappings, indexes, vector parameters, policies, capacity, and applications together</h2>
+        <p>A production OpenSearch release includes source contracts, OSI or custom pipelines, templates and mappings, aliases and lifecycle, provisioned domain or Serverless collection configuration, shards or OCUs, k-NN engine and parameters, hybrid search pipelines, filters, IAM and fine-grained policies, VPC and encryption, monitoring, snapshots, budgets, rollout, and rollback. A valid AWS or OpenSearch configuration change can still alter freshness, relevance, latency, access, availability, and cost.</p>
+        <p>Before release, ingest a representative corpus; reconcile counts and sampled documents; test keyword, vector and hybrid retrieval; run IAM, role and tenant negatives; benchmark realistic indexing and query concurrency; inspect JVM, disk and shards or OCU scaling; restore a snapshot in isolation; rehearse node or dependency loss; canary the application and index change together; and preserve the previous alias, index, vector parameters and domain or collection configuration.</p>
+
+        <h2 id="onboarding">Onboard through inventory, baselines, controlled failures, and shadow operations</h2>
+        <ol>
+          <li><strong>Inventory:</strong> AWS accounts, Regions, VPCs, domains and collections, engine versions, instances, nodes or OCU limits, sources, OSI and custom pipelines, mappings, aliases, lifecycle, indexes, shards, vectors, search pipelines, identities, policies, snapshots, and outcomes.</li>
+          <li><strong>Responsibility:</strong> define supported layers, document and index freshness, relevance, latency and availability SLOs, severity, access, change authority, budget, dependencies, fallback, AWS escalation, and exclusions.</li>
+          <li><strong>Baseline:</strong> measure source and index counts, ingest failures, mapping drift, query-cohort relevance and latency, shard and domain health or OCU use, JVM, disk, policy access, logs, snapshot status, AWS cost, and incidents.</li>
+          <li><strong>Controls:</strong> validate stable IDs, deletion, mappings, aliases and lifecycle, embedding compatibility, engine and retrieval configurations, shards or OCU limits, least privilege, capacity alarms, relevance evaluation, snapshot and restore, changes, rollback, attribution, and alerts.</li>
+          <li><strong>Exercise:</strong> rehearse missing documents, mapping rejection, relevance regression, OCU ceiling, unassigned shard, JVM and disk pressure, IAM or role denial, VPC outage, snapshot restore, blue-green failure, credential rotation, and model dependency outage.</li>
+          <li><strong>Transition:</strong> operate in shadow, close or accept material gaps, publish runbooks and escalation routes, and accept the steady-state support scope.</li>
+        </ol>
+
+        <section class="readiness-actions"><p><strong>Start with the OpenSearch domain or Serverless vector collection that already influences customer, financial, operational, compliance, or workforce decisions.</strong> Datrick can define the operating boundary, close material control gaps, and transition one representative search or RAG workload into managed support.</p><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=amazon_opensearch_support&amp;utm_medium=organic_content&amp;utm_campaign=opensearch_vector_rag_operations&amp;utm_content=article_end#inquiry-form">Request an OpenSearch operations review</a></section>
+
+        <h2>Official references and adjacent operating guides</h2>
+        <ul>
+          <li><a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/bp.html">Amazon OpenSearch Service operational best practices</a></li>
+          <li><a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless.html">Amazon OpenSearch Serverless architecture and production behavior</a></li>
+          <li><a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-comparison.html">Compare provisioned OpenSearch domains and Serverless collections</a></li>
+          <li><a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-scaling.html">OpenSearch Serverless OCU capacity limits and cost floor</a></li>
+          <li><a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-vector-search.html">OpenSearch Serverless vector collection engines and limits</a></li>
+          <li><a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-monitoring.html">Monitor OpenSearch Serverless with CloudWatch and CloudTrail</a></li>
+          <li><a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html">Amazon OpenSearch Service quotas</a></li>
+          <li><a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html">Amazon OpenSearch Service security, Multi-AZ, snapshots, and monitoring</a></li>
+          <li><a href="elasticsearch-vector-search-production-support-managed-services-rag-operations">Elasticsearch vector search production support</a></li>
+          <li><a href="ai-workflows.html">Production AI workflow automation and operations</a></li>
+          <li><a href="white-label-ai-agent-operations-managed-support-for-msps">White-label AI agent managed support for MSPs</a></li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is included in Amazon OpenSearch Service production support?</summary><p>A defined service can include provisioned domains or Serverless collections, ingestion pipelines, mappings, shards, k-NN vector indexes, hybrid retrieval, relevance evaluation, IAM and fine-grained access, VPC and encryption, CloudWatch and slow logs, incidents, snapshots and restore, blue-green changes, upgrades, OCU or instance cost, runbooks, and reporting.</p></details>
+          <details><summary>Should production use an OpenSearch domain or Serverless vector collection?</summary><p>Provisioned domains provide direct control over instance types, nodes, shards, storage, engines, plugins, and deployment topology. Serverless collections remove node management and automatically scale indexing and search OCUs, but have different feature limits, account-level capacity ceilings, minimum OCU cost, and vector-collection engine constraints. Select through workload, feature, security, latency, recovery, and cost tests.</p></details>
+          <details><summary>Can Amazon OpenSearch Serverless hit capacity limits while autoscaling?</summary><p>Yes. Serverless scales indexing and search capacity independently but only up to configured account or collection-group OCU limits. Vector collections are often constrained by RAM for vector graphs before disk. Monitor IndexingOCU and SearchOCU, configure alarms before the ceiling, and keep limits high enough for tested workload spikes.</p></details>
+          <details><summary>How should OpenSearch vector recall and cost be tuned?</summary><p>Benchmark the supported engine and method, HNSW construction and search parameters, compression or quantization, filters, shard layout, candidate count, concurrency, and reranking against labelled queries. Auto-optimize can recommend configurations for supported deployments, but recommendations still require relevance, latency, ingestion, availability, and cost acceptance before rollout.</p></details>
+          <details><summary>How long does Amazon OpenSearch managed support onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for a representative domain or Serverless collection. It covers ingestion, mappings, vectors, relevance, shards or OCUs, IAM, VPC, monitoring, snapshots, incidents, releases, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope.</p></details>
+        </div>
+
+        <div class="article-next"><p>Comparing AWS-managed and document-native vector search operating boundaries?</p><a href="mongodb-atlas-vector-search-production-support-managed-services-rag-operations">Review the MongoDB Atlas Vector Search production support boundary</a></div>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

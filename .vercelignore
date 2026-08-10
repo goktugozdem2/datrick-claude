@@ -1,0 +1,20 @@
+.DS_Store
+.gstack/
+.vercel/
+.agent-runtime/
+
+# Internal operating material
+docs/
+google-apps-script/
+outputs/
+ops/
+sales-funnel/
+seo-audit/
+
+# Development-only files
+scripts/
+tests/
+*.csv
+*.md
+*.py
+package-lock.json

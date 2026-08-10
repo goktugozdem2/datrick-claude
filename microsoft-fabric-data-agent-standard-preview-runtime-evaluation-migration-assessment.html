@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Data Agent Runtime Evaluation and Migration Assessment | Datrick</title>
+    <meta name="description" content="Compare Microsoft Fabric Data Agent standard and preview runtimes with controlled NL2SQL evaluation, production release gates, republishing, monitoring, and rollback.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-standard-preview-runtime-evaluation-migration-assessment">
+    <meta property="og:title" content="Fabric Data Agent Runtime Evaluation and Migration Assessment | Datrick">
+    <meta property="og:description" content="Evaluate Advanced NL2SQL improvements without making production users the runtime test suite.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-standard-preview-runtime-evaluation-migration-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Standard and Preview Runtime Evaluation and Migration Assessment", "description": "Compare Microsoft Fabric Data Agent standard and preview runtimes with controlled NL2SQL evaluation, production release gates, republishing, monitoring, and rollback.", "url": "https://datrick.com/microsoft-fabric-data-agent-standard-preview-runtime-evaluation-migration-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-standard-preview-runtime-evaluation-migration-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is the difference between the Fabric Data Agent standard and preview runtimes?", "acceptedAnswer": {"@type": "Answer", "text": "The standard runtime is the generally available default and is optimized for stable, predictable behavior. The preview runtime receives newer orchestration, planning, routing, and built-in query-generation improvements more frequently. Microsoft currently lists Advanced NL2SQL improvements such as better example-query following, implied filter substitution, and ambiguity clarification in the preview runtime."}},
+            {"@type": "Question", "name": "Does the Fabric Data Agent runtime control the underlying language model?", "acceptedAnswer": {"@type": "Answer", "text": "No. Microsoft states that model upgrades are applied across the standard and preview runtimes. Runtime selection controls the agent's core orchestration and built-in query-generation components, not which underlying model is used."}},
+            {"@type": "Question", "name": "Can we switch a published Fabric Data Agent back to the standard runtime?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, but the published agent uses the runtime selected in its configuration at publication time. To change production from preview back to standard, update the configuration, validate the candidate, and republish. Keep a known-good definition, evaluation baseline, and rollback runbook rather than treating the setting as an instant production toggle."}},
+            {"@type": "Question", "name": "How should we test the Fabric Data Agent preview runtime?", "acceptedAnswer": {"@type": "Answer", "text": "Run standard and preview candidates against the same agent definition, source schema, data snapshot, identity personas, question set, and scoring rubric. Compare source selection, generated query, example adherence, filter interpretation, clarification behavior, result correctness, security, latency, consumption, and answer quality. Include regressions, not only questions expected to improve."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent runtime evaluation take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment commonly takes three to four weeks for one SQL-focused Data Agent and a representative production question set. The work includes baseline capture, isolated candidate configuration, paired evaluation, security and failure tests, release gates, controlled republishing, monitoring, and rollback evidence."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent runtime evaluation</p>
+        <h1>Change the runtime without making production users the test suite.</h1>
+        <p class="page-lede">Compare the standard and preview Fabric Data Agent runtimes under the same data, configuration, identities, and questions. Prove Advanced NL2SQL gains, detect regressions, and republish with explicit release and rollback evidence.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_runtime&amp;utm_medium=organic_content&amp;utm_campaign=standard_preview_runtime_evaluation&amp;utm_content=hero#inquiry-form">Describe the runtime decision</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Runtime release assurance</span><span>10 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#choice">Runtime choice</a><a href="#baseline">Controlled baseline</a><a href="#evaluation">Paired evaluation</a><a href="#release">Release and rollback</a><a href="#pilot">Assessment plan</a></nav>
+
+        <p>A runtime change can alter how a Fabric Data Agent plans, routes, interprets examples, generates queries, handles implied filters, and responds to ambiguity even when the attached data, instructions, and user question remain unchanged. Those changes may improve difficult NL2SQL cases and still regress a production question that users already trust.</p>
+        <p>Microsoft provides a standard runtime and a preview runtime. The standard runtime is generally available and optimized for stability. The preview runtime receives newer orchestration and query-generation behavior more frequently. This is not a model selector: Microsoft states that underlying model upgrades apply across both runtimes. Treat the choice as a release decision for the agent's core execution behavior.</p>
+
+        <section class="readiness-actions"><p><strong>Which production questions are wrong today, and which correct answers must not change?</strong> A runtime assessment needs both an improvement target and a regression boundary.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_runtime&amp;utm_medium=organic_content&amp;utm_campaign=standard_preview_runtime_evaluation&amp;utm_content=article_intro#inquiry-form">Send the current failure cases</a><a class="button secondary" href="microsoft-fabric-data-agent-cicd-lifecycle-governance-assessment">Review the release path</a></div></section>
+
+        <h2 id="choice">Choose runtime by production objective</h2>
+        <p>Use the standard runtime when predictable behavior and lower change frequency are more important than early access to query-generation improvements. Use the preview runtime in an isolated development or test path when you need to evaluate upcoming behavior, validate a known failure mode, or provide evidence before improvements reach the standard channel. Preview should not mean unmeasured production experimentation.</p>
+        <p>Microsoft currently documents Advanced NL2SQL improvements in the preview runtime for SQL sources. These include closer adherence to example-query patterns, reasoning over implied categorical or boolean filters, and asking a clarifying question when a request is ambiguous rather than committing to an assumption. The current list can change as features enter preview and later graduate, so record the documentation date and observed behavior in every assessment.</p>
+
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent standard and preview runtime comparison" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent standard and preview runtime comparison</caption>
+          <thead><tr><th scope="col">Decision area</th><th scope="col">Standard runtime</th><th scope="col">Preview runtime</th><th scope="col">Required evidence</th></tr></thead>
+          <tbody>
+            <tr><td>Release posture</td><td>GA default with infrequent updates after validation.</td><td>Earlier and more frequent changes to orchestration and built-in query tools.</td><td>Business criticality, support policy, risk acceptance, and owner approval.</td></tr>
+            <tr><td>SQL generation</td><td>GA NL2SQL behavior for supported relational Fabric sources.</td><td>Advanced NL2SQL behavior currently includes example adherence, filter substitution, and ambiguity handling improvements.</td><td>Paired generated-query and result comparison against ground truth.</td></tr>
+            <tr><td>Behavior stability</td><td>Preferred when consistency and minimal churn are production priorities.</td><td>Behavior can change more often as improvements are evaluated.</td><td>Regression suite, monitoring, release window, and rollback readiness.</td></tr>
+            <tr><td>Underlying model</td><td colspan="2">Runtime selection does not choose the underlying LLM; Microsoft applies model upgrades across both runtimes.</td><td>Do not attribute every answer change to the runtime without controlled reproduction.</td></tr>
+            <tr><td>Published state</td><td colspan="2">The published agent uses the runtime configured at publication time until it is republished with a different selection.</td><td>Published version, runtime flag, definition hash, data snapshot, and release record.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="baseline">Build a controlled standard-runtime baseline</h2>
+        <p>Start from the exact production definition: selected sources and schema, agent instructions, source instructions, example queries, published description, and runtime configuration. Record source IDs, workspace, schema versions, data refresh cutoff, identity personas, permissions, capacity, consumption channel, and current published version. If any of those change during the comparison, the result is no longer a runtime-only test.</p>
+        <p>Construct the evaluation set from production questions and known failure cases. Include straightforward metrics, multi-table joins, time windows, categorical filters, boolean filters, business synonyms, example-query patterns, ambiguous wording, unsupported requests, security boundaries, empty results, and high-cardinality output. For each case, store expected source, interpretation, query constraints, deterministic result, acceptable clarification, prohibited claims, and severity.</p>
+        <p>Capture more than the final prose. Preserve source selection, generated SQL where available, validation outcome, result rows, answer, latency, consumption, and any clarification. A fluent answer can hide a wrong join or filter. A different query can still be correct, but it must produce the approved business meaning under the same data snapshot.</p>
+
+        <h2 id="evaluation">Run a paired standard-versus-preview evaluation</h2>
+        <p>Use isolated Data Agent candidates or controlled workspace stages so the standard and preview versions do not overwrite each other. Apply the same definition and source bindings, change only the runtime selection, publish both candidates in restricted environments, and execute the same test set with the same identity personas. Randomize or repeat runs when variation matters, and keep the production agent out of the experiment until a release decision is approved.</p>
+
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent runtime evaluation scorecard" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent runtime evaluation scorecard</caption>
+          <thead><tr><th scope="col">Dimension</th><th scope="col">How to score</th><th scope="col">Preview gain</th><th scope="col">Regression gate</th></tr></thead>
+          <tbody>
+            <tr><td>Example adherence</td><td>Compare generated SQL structure, joins, filters, and business logic with approved example patterns.</td><td>Fewer invented constraints and closer use of relevant examples.</td><td>No loss on existing high-severity patterns.</td></tr>
+            <tr><td>Filter interpretation</td><td>Test implied categories, boolean states, synonyms, exclusions, and multiple simultaneous filters.</td><td>Correct substitutions without requiring unnatural prompt wording.</td><td>No silent broadening, narrowing, or omitted literal.</td></tr>
+            <tr><td>Ambiguity handling</td><td>Define cases that require clarification and cases clear enough to answer directly.</td><td>Clarifies consequential ambiguity before query generation.</td><td>Does not over-clarify routine questions or confidently assume high-risk meaning.</td></tr>
+            <tr><td>Result correctness</td><td>Compare deterministic query results, grain, units, date context, null handling, and totals.</td><td>Higher pass rate on targeted failures.</td><td>Zero critical security or material financial regressions.</td></tr>
+            <tr><td>Response quality</td><td>Score completeness, attribution, uncertainty, limitations, and user utility.</td><td>Clearer answers with less correction effort.</td><td>No unsupported claim or loss of important qualifier.</td></tr>
+            <tr><td>Operations</td><td>Measure latency, errors, retries, capacity consumption, stability, and support burden.</td><td>Acceptable cost per correct answer and user experience.</td><td>Stays within SLO, capacity, and incident thresholds.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Use severity-weighted decisions. A small average accuracy improvement does not justify one new cross-customer exposure, incorrect executive KPI, or silent failure to apply a mandatory filter. Separate must-pass questions from exploratory questions and report wins, ties, regressions, and unresolved variance. Review failures with domain owners and engineers rather than allowing an automated judge to make the only release decision.</p>
+        <p>Investigate each difference at the correct layer. Runtime behavior may explain a changed plan or query, but source data, schema, examples, instructions, identity, prior conversation, capacity, or an underlying model update can also affect output. Reproduce with a new session, fixed data, and preserved configuration before assigning cause.</p>
+
+        <h2 id="release">Republish through a controlled release and rollback path</h2>
+        <p>The runtime used by a published Data Agent is the runtime selected when that version is published. Changing a draft configuration does not silently move current consumers. To release preview behavior, update the controlled candidate, run the complete gate, publish from the approved production path, and record the runtime selection with the definition and test evidence. Confirm the exact consumption channels after publication because MCP, Foundry, Copilot Studio, and Microsoft 365 Copilot can add their own orchestration behavior.</p>
+        <p>Roll out to a named cohort or restricted route first. Monitor wrong-answer reports, clarification rate, query failures, authorization errors, latency, capacity, consumption, user corrections, and questions that changed from the baseline. Keep the standard-runtime known-good definition and republish procedure ready. Rolling back means selecting the standard runtime in the approved configuration and republishing, followed by verification; it is not enough to change an unpublished draft.</p>
+        <p>Define automatic stop conditions for critical wrong answers, permission leakage, material metric drift, sustained SLO breach, abnormal capacity pressure, or a sharp increase in clarification and support demand. Communicate the affected version, known limitations, and restoration state. Preserve evidence for Microsoft support when behavior appears to be a runtime defect.</p>
+
+        <h2 id="pilot">Run a three-to-four-week runtime assessment</h2>
+        <ol>
+          <li>Define the production agent, supported decisions, current runtime, target preview improvements, must-not-regress questions, owners, and release threshold.</li>
+          <li>Capture the published definition, source bindings, data snapshot, identity personas, permissions, channels, capacity baseline, and known-good results.</li>
+          <li>Create isolated standard and preview candidates that differ only in runtime selection and publish them to restricted test environments.</li>
+          <li>Build paired example-adherence, filter, ambiguity, correctness, security, latency, consumption, unsupported, and failure tests.</li>
+          <li>Execute the same suite against both candidates, inspect generated queries and results, classify differences, and reproduce material failures.</li>
+          <li>Review the severity-weighted scorecard with business, data, security, operations, and platform owners and approve go, limit, or remain on standard.</li>
+          <li>Republish through the controlled production path, monitor the cohort, exercise rollback, and retain evidence for the next runtime change.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is the difference between the Fabric Data Agent standard and preview runtimes?</summary><p>The standard runtime is the generally available default and is optimized for stable, predictable behavior. The preview runtime receives newer orchestration, planning, routing, and built-in query-generation improvements more frequently. Microsoft currently lists Advanced NL2SQL improvements such as better example-query following, implied filter substitution, and ambiguity clarification in the preview runtime.</p></details>
+          <details><summary>Does the Fabric Data Agent runtime control the underlying language model?</summary><p>No. Microsoft states that model upgrades are applied across the standard and preview runtimes. Runtime selection controls the agent's core orchestration and built-in query-generation components, not which underlying model is used.</p></details>
+          <details><summary>Can we switch a published Fabric Data Agent back to the standard runtime?</summary><p>Yes, but the published agent uses the runtime selected in its configuration at publication time. To change production from preview back to standard, update the configuration, validate the candidate, and republish. Keep a known-good definition, evaluation baseline, and rollback runbook rather than treating the setting as an instant production toggle.</p></details>
+          <details><summary>How should we test the Fabric Data Agent preview runtime?</summary><p>Run standard and preview candidates against the same agent definition, source schema, data snapshot, identity personas, question set, and scoring rubric. Compare source selection, generated query, example adherence, filter interpretation, clarification behavior, result correctness, security, latency, consumption, and answer quality. Include regressions, not only questions expected to improve.</p></details>
+          <details><summary>How long does a Fabric Data Agent runtime evaluation take?</summary><p>A focused assessment commonly takes three to four weeks for one SQL-focused Data Agent and a representative production question set. The work includes baseline capture, isolated candidate configuration, paired evaluation, security and failure tests, release gates, controlled republishing, monitoring, and rollback evidence.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-runtime">Fabric Data Agent standard and preview runtimes</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-sql-sources">NL2SQL and Advanced NL2SQL for Fabric SQL sources</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-example-queries">Fabric Data Agent example-query design and evaluation</a></li>
+          <li><a href="https://learn.microsoft.com/en-gb/fabric/data-science/fabric-data-agent-sdk">Fabric Data Agent Python SDK configuration and publishing</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-source-control">Fabric Data Agent source control, deployment, and published-state guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-sharing">Draft refinement and published Data Agent behavior</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the questions users already trust and the failures they already report.</strong> Datrick can run the paired evaluation, define severity-weighted release gates, and prove the republish and rollback path.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_runtime&amp;utm_medium=organic_content&amp;utm_campaign=standard_preview_runtime_evaluation&amp;utm_content=article_end#inquiry-form">Scope the runtime assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-nl2sql-accuracy-sql-source-configuration-assessment"><span>Fix the SQL context first</span><strong>Assess schema, instructions, and examples</strong></a><a href="microsoft-fabric-data-agent-cicd-lifecycle-governance-assessment"><span>Control the release</span><strong>Version, promote, and roll back Data Agents</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

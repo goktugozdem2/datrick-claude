@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Claude API Cost Calculator | Datrick</title>
+    <meta name="description" content="Estimate monthly Claude API cost for Fable 5, Opus 4.8, Sonnet 5, and Haiku 4.5 using requests, input tokens, and output tokens.">
+    <link rel="canonical" href="https://datrick.com/claude-api-cost-calculator"><meta property="og:title" content="Claude API Cost Calculator"><meta property="og:description" content="Compare estimated monthly base token cost across the latest Claude models."><meta property="og:url" content="https://datrick.com/claude-api-cost-calculator"><meta property="og:type" content="website"><meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="assets/datrick-logo.png"><link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is Claude API cost calculated?","acceptedAnswer":{"@type":"Answer","text":"Base Claude API cost is calculated separately for input and output tokens: input tokens divided by one million multiplied by the model's input rate, plus output tokens divided by one million multiplied by the output rate. Production bills can also include prompt caching, batch discounts, tools, long-context premiums, and other features."}},{"@type":"Question","name":"Which Claude model is cheapest?","acceptedAnswer":{"@type":"Answer","text":"Among the latest generally available Claude models, Haiku 4.5 has the lowest base token price at $1 per million input tokens and $5 per million output tokens as of July 2026."}},{"@type":"Question","name":"Does the calculator include prompt caching or batch discounts?","acceptedAnswer":{"@type":"Answer","text":"No. The calculator intentionally shows base input and output token cost so models can be compared consistently. Prompt caching, Batch API discounts, long-context pricing, fast mode, and platform-specific charges should be modeled separately for a production forecast."}},{"@type":"Question","name":"Why can the real Claude API bill differ from this estimate?","acceptedAnswer":{"@type":"Answer","text":"Actual token counts vary by prompt, model tokenizer, retrieved context, tool results, retries, thinking behavior, and response length. Prices and temporary promotions also change. Measure real usage and confirm Anthropic's current pricing before approving a budget."}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Claude API Cost Calculator","url":"https://datrick.com/claude-api-cost-calculator","applicationCategory":"BusinessApplication","operatingSystem":"Any","isAccessibleForFree":true,"description":"Estimate and compare monthly base token cost across current Claude models using request volume and average input and output tokens.","publisher":{"@type":"Organization","name":"Datrick","url":"https://datrick.com/"}}</script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header"><a class="brand" href="index.html"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav><a class="header-cta" href="index.html#contact">Start a conversation</a></header>
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div><p class="eyebrow">Interactive cost model</p><h1>Claude API cost calculator.</h1><p class="page-lede">Estimate monthly base token cost across Fable 5, Opus 4.8, Sonnet 5, and Haiku 4.5 before adding caching, batch, tools, retries, or platform-specific charges.</p><div class="article-meta"><a href="claude-models-comparison">Model selection guide</a><span>Updated July 2026</span><span>Base token pricing</span></div></div></section>
+      <section class="section service-band"><article class="article-body">
+        <p>Enter a representative monthly workload. The calculator applies the same input and output volume to each model so the result shows the direct price difference. It is a planning baseline, not a substitute for measuring real production usage.</p>
+        <p><strong>Pricing note:</strong> Sonnet 5 uses its introductory $2 input / $10 output rate through August 31, 2026. Its announced standard rate is $3 / $15. All rates are per million tokens. Confirm <a href="https://platform.claude.com/docs/en/about-claude/models/overview">Anthropic's current model pricing</a> before approving a budget.</p>
+
+        <section class="model-calculator" data-claude-cost-calculator>
+          <div class="calculator-inputs">
+            <div class="form-row"><label for="monthly-requests">Requests per month</label><input id="monthly-requests" type="number" min="0" step="100" value="10000" data-cost-requests></div>
+            <div class="form-row"><label for="input-tokens">Average input tokens per request</label><input id="input-tokens" type="number" min="0" step="100" value="2000" data-cost-input></div>
+            <div class="form-row"><label for="output-tokens">Average output tokens per request</label><input id="output-tokens" type="number" min="0" step="100" value="500" data-cost-output></div>
+          </div>
+          <div class="calculator-summary" aria-live="polite"><span>Monthly workload</span><strong data-cost-volume>25.0M tokens</strong><p data-cost-breakdown>20.0M input + 5.0M output tokens</p></div>
+          <div class="calculator-results" data-cost-results></div>
+        </section>
+
+        <h2>What this estimate includes</h2><p>The calculation is straightforward: monthly requests multiplied by average input tokens and output tokens, then multiplied by each model's base per-million-token rates. It lets a buyer compare the same workload across models without hiding the input/output price difference.</p>
+        <h2>What this estimate excludes</h2><ul><li>Prompt cache writes, one-hour cache writes, and cache reads.</li><li>Batch API discounts for asynchronous workloads.</li><li>Long-context premiums, fast mode, web search, code execution, and other feature charges.</li><li>Retries, refusals, fallback requests, agent loops, tool-result context, and evaluation traffic.</li><li>Cloud-provider or enterprise commercial terms.</li><li>Engineering, review, monitoring, incident handling, and operational support.</li></ul>
+
+        <h2>Why token price is not total workflow cost</h2><p>A lower-cost model can become more expensive when it needs repeated attempts, generates longer output, creates more review work, or fails expensive edge cases. A higher-cost model can be economical when it completes difficult work in fewer steps and reduces human correction. Compare models on accepted outcomes per dollar, not tokens per dollar.</p>
+        <p>Build an evaluation set, measure accepted completion rate, capture actual token usage, and include review time. Datrick's <a href="resource-production-ai-workflow.html">production AI workflow guide</a> covers the controls required around the model.</p>
+
+        <h2>Frequently asked questions</h2><div class="faq-list"><details><summary>How is Claude API cost calculated?</summary><p>Base Claude API cost is calculated separately for input and output tokens: input tokens divided by one million multiplied by the model's input rate, plus output tokens divided by one million multiplied by the output rate. Production bills can also include prompt caching, batch discounts, tools, long-context premiums, and other features.</p></details><details><summary>Which Claude model is cheapest?</summary><p>Among the latest generally available Claude models, Haiku 4.5 has the lowest base token price at $1 per million input tokens and $5 per million output tokens as of July 2026.</p></details><details><summary>Does the calculator include prompt caching or batch discounts?</summary><p>No. It intentionally shows base input and output token cost so models can be compared consistently. Prompt caching, Batch API discounts, long-context pricing, fast mode, and platform-specific charges should be modeled separately for a production forecast.</p></details><details><summary>Why can the real Claude API bill differ from this estimate?</summary><p>Actual token counts vary by prompt, model tokenizer, retrieved context, tool results, retries, thinking behavior, and response length. Prices and temporary promotions also change. Measure real usage and confirm Anthropic's current pricing before approving a budget.</p></details></div>
+
+<section class="readiness-actions"><p><strong>Need an accepted-outcome cost comparison?</strong> Datrick can benchmark your prompts and data across candidate models, then design routing, fallback, monitoring, and budget controls.</p><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=claude_cost_calculator&amp;utm_medium=website&amp;utm_campaign=claude_model_selection&amp;utm_content=calculator_result#contact">Request a model cost assessment</a></section>
+        <nav class="article-next"><a href="claude-models-comparison"><span>Selection guide</span><strong>Compare all current models</strong></a><a href="resource-production-ai-workflow.html"><span>Production guide</span><strong>Control quality and cost</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer><script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Data Agent Python SDK Evaluation &amp; Regression | Datrick</title>
+    <meta name="description" content="Implement Fabric Data Agent Python SDK ground-truth evaluation, calibrated critics, regression scorecards, sandbox-production comparison, and release gates.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-python-sdk-automated-evaluation-regression-testing">
+    <meta property="og:title" content="Fabric Data Agent Python SDK Evaluation &amp; Regression | Datrick">
+    <meta property="og:description" content="Turn Data Agent changes into measured releases with ground truth, diagnostic evidence, and controlled regression gates.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-python-sdk-automated-evaluation-regression-testing">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Python SDK Automated Evaluation and Regression Testing", "description": "Implement Fabric Data Agent Python SDK ground-truth evaluation, calibrated critics, regression scorecards, sandbox-production comparison, and release gates.", "url": "https://datrick.com/microsoft-fabric-data-agent-python-sdk-automated-evaluation-regression-testing", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-python-sdk-automated-evaluation-regression-testing"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Can Microsoft Fabric Data Agent evaluations be automated?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Microsoft's preview Fabric Data Agent Python SDK can run a pandas or CSV ground-truth dataset of questions and expected answers against a sandbox or production Data Agent, store summary and step-level results, and return an evaluation run ID for analysis."}},
+            {"@type": "Question", "name": "What metrics does the Fabric Data Agent Evaluation SDK return?", "acceptedAnswer": {"@type": "Answer", "text": "The documented summary includes total questions, true, false, and unclear counts, and accuracy. Detailed results include question, expected answer, actual answer, evaluation result, diagnostic metadata, and a thread URL available to the user who ran the evaluation."}},
+            {"@type": "Question", "name": "Can the Fabric Data Agent evaluation judge be customized?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The evaluate_data_agent function accepts a custom critic prompt containing query, expected_answer, and actual_answer placeholders. A custom critic should be calibrated against human-labeled cases before it is trusted as a release gate."}},
+            {"@type": "Question", "name": "Does an automated Data Agent evaluation replace human review?", "acceptedAnswer": {"@type": "Answer", "text": "No. Automated comparison is useful for repeatable coverage and regression detection, but business ambiguity, security behavior, source authority, misleading explanations, and high-impact decisions still require deterministic controls and qualified human review."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent automated evaluation implementation take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused implementation commonly takes three to five weeks for one agent, one to three domains, and an initial production-shaped ground-truth suite. It includes dataset design, deterministic controls, SDK notebook, critic calibration, baseline results, release thresholds, reporting, ownership, and runbooks."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent automated evaluation</p>
+        <h1>Turn agent changes into measured releases, not prompt experiments.</h1>
+        <p class="page-lede">Build a production-shaped ground-truth suite, run repeatable sandbox and production evaluations with the Fabric Python SDK, calibrate the critic, diagnose failures, and block releases that degrade business accuracy or security.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_evaluation_sdk&amp;utm_medium=organic_content&amp;utm_campaign=automated_regression_release_gate&amp;utm_content=hero#inquiry-form">Describe the evaluation gap</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Agent quality engineering</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#ground-truth">Ground truth</a><a href="#sdk">SDK workflow</a><a href="#critic">Critic calibration</a><a href="#release">Release gates</a><a href="#implementation">Implementation plan</a></nav>
+
+        <p>Manual chat testing can prove that one prompt worked once. It cannot show whether a schema change broke another domain, an instruction moved route selection, a runtime update changed generated queries, a permission difference altered the answer, or a polished explanation concealed a wrong number. Without a versioned baseline, every release begins from memory.</p>
+        <p>Microsoft's preview Evaluation SDK can run question and expected-answer pairs against a sandbox or production Fabric Data Agent, save summary and step-level output, and classify answers as true, false, or unclear. That capability becomes a production control only when the dataset represents real decisions, expected answers are independently derived, the critic is calibrated, failure evidence is retained, and thresholds reflect business severity rather than one aggregate percentage.</p>
+
+        <section class="readiness-actions"><p><strong>Can you identify which critical questions regressed between the last approved agent and today's draft?</strong> If not, establish the baseline before changing another instruction or example.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_evaluation_sdk&amp;utm_medium=organic_content&amp;utm_campaign=automated_regression_release_gate&amp;utm_content=article_intro#inquiry-form">Send the agent and test cases</a><a class="button secondary" href="microsoft-fabric-data-agent-cicd-lifecycle-governance-assessment">Review the release lifecycle</a></div></section>
+
+        <h2 id="ground-truth">Design ground truth around decisions and failure risk</h2>
+        <p>Start with questions users already ask analysts, support teams, or reports. Assign each case an owner and record the intended user, source, metric or relationship, filters, time interpretation, expected answer, deterministic derivation, acceptable tolerance, prohibited behavior, severity, and review date. Store a stable data-snapshot reference so a source refresh is not mistaken for an agent regression.</p>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent ground truth dataset design" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent ground truth dataset design</caption>
+          <thead><tr><th scope="col">Dataset field</th><th scope="col">Why it matters</th><th scope="col">Weak implementation</th><th scope="col">Production control</th></tr></thead>
+          <tbody>
+            <tr><td>Question and intent</td><td>Connects natural language to one decision and supported agent capability.</td><td>Generic demo prompts with no real owner.</td><td>Observed user wording, domain label, owner, and decision context.</td></tr>
+            <tr><td>Expected answer</td><td>Provides the SDK comparison target.</td><td>Answer copied from the agent under test.</td><td>Independent SQL, DAX, KQL, GQL, policy evidence, or signed business control.</td></tr>
+            <tr><td>Snapshot and tolerance</td><td>Separates data movement and formatting from reasoning failure.</td><td>One timeless string compared after every refresh.</td><td>Source version, timestamp, unit, ordering rule, numeric tolerance, and acceptable variants.</td></tr>
+            <tr><td>Persona and permissions</td><td>Exposes RLS, CLS, item, source, and route-specific differences.</td><td>Every test runs as the author.</td><td>Positive, restricted, denied, and service-principal cohorts where supported.</td></tr>
+            <tr><td>Severity and gate</td><td>Prevents minor phrasing from hiding a critical financial or access failure.</td><td>All questions contribute equally to one accuracy score.</td><td>Critical zero-tolerance cases plus weighted domain thresholds.</td></tr>
+            <tr><td>Expected route and query</td><td>Shows whether a correct-looking result came from the authoritative source and logic.</td><td>Only the final prose is evaluated.</td><td>Expected tool, source, query properties, result, evidence, and response rubric.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Partition the suite into smoke, critical, domain, permission, ambiguity, no-answer, adversarial, latency, and long-tail sets. Keep canonical questions stable for trend comparison and add paraphrases as a separate robustness layer. Review stale cases, but never silently rewrite a failed expected answer to make the current agent pass.</p>
+
+        <h2 id="sdk">Make the SDK run reproducible and diagnosable</h2>
+        <p>Microsoft documents a notebook workflow using the current `fabric-data-agent-sdk`, a pandas DataFrame or CSV with `question` and `expected_answer`, and `evaluate_data_agent`. The call can target the `sandbox` or `production` stage and writes a summary table plus a companion steps table. Preserve the returned evaluation ID, agent and source versions, workspace, stage, runtime, identity, dataset hash, critic version, and execution timestamp with every run.</p>
+        <p>Use `get_evaluation_summary` for total, true, false, unclear, and accuracy trends. Use `get_evaluation_details` for question, expected answer, actual answer, evaluation result, diagnostics, and the per-run thread link. Export configuration and execution diagnostics for failures so remediation can be assigned to routing, schema, instructions, examples, query generation, permissions, source behavior, response synthesis, or the critic.</p>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent automated evaluation operating model" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent automated evaluation operating model</caption>
+          <thead><tr><th scope="col">Stage</th><th scope="col">Automated action</th><th scope="col">Required evidence</th><th scope="col">Gate decision</th></tr></thead>
+          <tbody>
+            <tr><td>Dataset validation</td><td>Check required fields, duplicates, stale snapshots, unsupported personas, and missing owners.</td><td>Versioned dataset manifest and deterministic control references.</td><td>Reject invalid or unowned cases before agent execution.</td></tr>
+            <tr><td>Sandbox baseline</td><td>Run smoke, critical, and changed-domain suites against the draft agent.</td><td>Evaluation ID, summary, detail, step table, configuration, and diagnostics.</td><td>Stop on critical false/unclear or unexplained route/query change.</td></tr>
+            <tr><td>Human adjudication</td><td>Review critic disagreements, ambiguous questions, security cases, and high-impact explanations.</td><td>Reviewer decision, rationale, defect owner, and approved expected-answer change.</td><td>Fix agent, data, test, or critic; never auto-waive silently.</td></tr>
+            <tr><td>Production comparison</td><td>Run the same safe suite against the published baseline and compare case-level outcomes.</td><td>Baseline delta by domain, severity, route, source, and failure layer.</td><td>Promote only when new gains exceed accepted regressions.</td></tr>
+            <tr><td>Release and canary</td><td>Publish through controlled ALM, rerun smoke tests, and monitor real feedback and failures.</td><td>Release version, post-publish evaluation, rollback target, and canary observations.</td><td>Continue, limit, or roll back using pre-agreed thresholds.</td></tr>
+            <tr><td>Trend review</td><td>Track quality, unclear rate, latency, coverage, judge disagreement, and defect recurrence.</td><td>Time series with dataset and platform version changes.</td><td>Expand, consolidate, or retire cases and configurations deliberately.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="critic">Calibrate the critic instead of treating it as ground truth</h2>
+        <p>The SDK's default evaluator decides whether the actual answer matches the expected answer. Microsoft also supports a custom `critic_prompt` with query, expected answer, and actual answer placeholders. That flexibility is useful for numeric tolerance, reordered rows, equivalent labels, required caveats, citations, and domain-specific semantics, but a more detailed prompt is not automatically a more reliable judge.</p>
+        <p>Create a human-labeled calibration set containing clear passes, clear failures, formatting-only differences, partial answers, wrong units, stale values, excessive confidence, missing qualifiers, and permission failures. Measure critic false-pass, false-fail, and unclear rates by severity. Keep deterministic numeric and structural checks outside the LLM critic when possible, and require human adjudication for critical or disputed cases.</p>
+        <p>Version the critic prompt and rerun the calibration set whenever it changes. Do not compare accuracy trends across different critics without a bridge run. Track judge disagreement as its own operational metric; a rising unclear or disagreement rate can signal question drift, expected-answer decay, or output-format changes before headline accuracy collapses.</p>
+
+        <h2 id="release">Connect evaluation to release gates without overstating preview tooling</h2>
+        <p>The evaluation capability is preview and documented as a Fabric notebook workflow. Treat the notebook and its output tables as the evidence-producing test harness, then connect approvals and promotion to your existing Fabric Git integration, deployment pipelines, or controlled release process. Avoid presenting a notebook accuracy number as an infallible CI signal.</p>
+        <p>Require zero regressions for critical security, financial, compliance, and source-authority cases. Set domain thresholds for lower-severity cases, cap unclear answers, enforce latency and failure-rate limits, and require an owner and expiry for every waiver. Compare sandbox and production under the same dataset, snapshot, identity, runtime, and critic before publishing.</p>
+        <p>After publication, rerun a safe smoke suite and monitor real question distributions, failure feedback, authorization errors, route and query changes, latency, capacity, source freshness, and platform releases. Preserve the last approved agent definition, source bindings, test dataset, critic, output tables, diagnostics, and rollback procedure.</p>
+
+        <h2 id="implementation">Run a three-to-five-week evaluation implementation</h2>
+        <ol>
+          <li>Select one Data Agent, target stages, critical domains, release owners, source owners, consumer personas, and current failure history.</li>
+          <li>Inventory agent configuration, source versions, runtime, permissions, ALM path, existing questions, deterministic controls, and observability.</li>
+          <li>Build and review the versioned ground-truth dataset with snapshots, tolerances, routes, queries, severities, owners, and prohibited outcomes.</li>
+          <li>Implement the SDK notebook, output tables, run manifest, summaries, failure extraction, diagnostics retention, and baseline comparison.</li>
+          <li>Calibrate the default or custom critic against human-labeled cases and add deterministic numeric, structural, and security checks.</li>
+          <li>Run sandbox and production baselines, classify defects, remediate the responsible layer, and prove case-level regression reporting.</li>
+          <li>Deliver release thresholds, approval and waiver flow, post-publish smoke tests, dashboards, runbooks, rollback evidence, and expansion roadmap.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Can Microsoft Fabric Data Agent evaluations be automated?</summary><p>Yes. Microsoft's preview Fabric Data Agent Python SDK can run a pandas or CSV ground-truth dataset of questions and expected answers against a sandbox or production Data Agent, store summary and step-level results, and return an evaluation run ID for analysis.</p></details>
+          <details><summary>What metrics does the Fabric Data Agent Evaluation SDK return?</summary><p>The documented summary includes total questions, true, false, and unclear counts, and accuracy. Detailed results include question, expected answer, actual answer, evaluation result, diagnostic metadata, and a thread URL available to the user who ran the evaluation.</p></details>
+          <details><summary>Can the Fabric Data Agent evaluation judge be customized?</summary><p>Yes. The evaluate_data_agent function accepts a custom critic prompt containing query, expected_answer, and actual_answer placeholders. A custom critic should be calibrated against human-labeled cases before it is trusted as a release gate.</p></details>
+          <details><summary>Does an automated Data Agent evaluation replace human review?</summary><p>No. Automated comparison is useful for repeatable coverage and regression detection, but business ambiguity, security behavior, source authority, misleading explanations, and high-impact decisions still require deterministic controls and qualified human review.</p></details>
+          <details><summary>How long does a Fabric Data Agent automated evaluation implementation take?</summary><p>A focused implementation commonly takes three to five weeks for one agent, one to three domains, and an initial production-shaped ground-truth suite. It includes dataset design, deterministic controls, SDK notebook, critic calibration, baseline results, release thresholds, reporting, ownership, and runbooks.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/evaluate-data-agent">Microsoft guide to evaluating a Fabric Data Agent</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/fabric-data-agent-sdk">Fabric Data Agent Python SDK</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-example-queries">Example-query validation and conflict detection</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-source-control">Fabric Data Agent source control, CI/CD, and ALM</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/semantic-model-best-practices">Semantic model automated evaluation guidance</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the releases your team cannot explain or compare today.</strong> Datrick can turn real business questions into a versioned evaluation asset, calibrate the judge, produce case-level evidence, and connect quality thresholds to an accountable release and rollback process.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_evaluation_sdk&amp;utm_medium=organic_content&amp;utm_campaign=automated_regression_release_gate&amp;utm_content=article_end#inquiry-form">Scope automated evaluation</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-power-bi-semantic-model-nl2dax-accuracy-assessment"><span>Deepen semantic tests</span><strong>Assess Power BI NL2DAX accuracy</strong></a><a href="microsoft-fabric-data-agent-cicd-lifecycle-governance-assessment"><span>Control promotion</span><strong>Build the Data Agent release lifecycle</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

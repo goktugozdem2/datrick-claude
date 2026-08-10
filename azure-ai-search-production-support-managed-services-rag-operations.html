@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Azure AI Search Production Support and Managed Services | Datrick</title>
+    <meta name="description" content="Managed Azure AI Search production support for RAG indexing, hybrid and vector relevance, semantic ranking, skillsets, security, capacity, incidents, releases, DR, and cost.">
+    <link rel="canonical" href="https://datrick.com/azure-ai-search-production-support-managed-services-rag-operations">
+    <meta property="og:title" content="Azure AI Search Production Support and Managed Services | Datrick">
+    <meta property="og:description" content="Operate Azure AI Search with accountable RAG freshness, hybrid and vector relevance, indexers, skillsets, security, capacity, resilience, releases, and cost.">
+    <meta property="og:url" content="https://datrick.com/azure-ai-search-production-support-managed-services-rag-operations">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Service", "name": "Azure AI Search Production Support and Managed Services", "description": "Ongoing Azure AI Search operations covering data sources, indexers, skillsets, indexes, vectors, hybrid search, semantic ranker, relevance evaluation, security, private connectivity, replicas, partitions, monitoring, incidents, releases, disaster recovery, cost, runbooks, and reporting.", "url": "https://datrick.com/azure-ai-search-production-support-managed-services-rag-operations", "provider": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "areaServed": "Global", "audience": {"@type": "BusinessAudience", "audienceType": "Software companies, enterprises, managed service providers, and AI delivery firms operating production Azure AI Search enterprise search and RAG workloads"}},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is included in Azure AI Search production support?", "acceptedAnswer": {"@type": "Answer", "text": "A defined service can include data sources, push ingestion and indexers, skillsets and enrichment, index schemas, vectorizers and embeddings, hybrid search, semantic ranker, filters, relevance evaluation, managed identity and private connectivity, monitoring, replicas and partitions, incidents, blue-green releases, multi-region recovery, cost, runbooks, and reporting."}},
+            {"@type": "Question", "name": "How many Azure AI Search replicas are needed for production?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft recommends a billable tier with at least two replicas for production resilience. The Azure AI Search SLA requires at least two replicas for read-only query workloads and at least three replicas for read-write workloads that include indexing. Capacity still needs load testing because replicas improve query throughput while partitions primarily increase storage and indexing capacity."}},
+            {"@type": "Question", "name": "Can an Azure AI Search indexer succeed with document errors?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. An indexer run can report Success when individual documents failed if the failures remain below the configured maximum failed items. Monitor processed and failed counts, warnings, document-level errors, source-to-index reconciliation, and freshness instead of treating the top-level status as proof that the corpus is complete."}},
+            {"@type": "Question", "name": "How should Azure AI Search indexes be released without downtime?", "acceptedAnswer": {"@type": "Answer", "text": "Many index field attributes cannot be changed without a rebuild. For production schema changes, create a versioned index beside the current index, load representative content, test relevance, security, freshness, capacity, and failure behavior, then switch the application through an index alias or controlled configuration change. Index aliases are currently a preview capability, so maintain an explicit rollback path."}},
+            {"@type": "Question", "name": "How long does Azure AI Search managed support onboarding take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused onboarding commonly takes two to four weeks for a representative production service. It covers sources, indexers, skillsets, indexes, vectors, query and relevance baselines, identities, networks, capacity, monitoring, incidents, releases, recovery, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Azure AI Search Operations</p>
+        <h1>An indexer can report Success while production retrieval is already incomplete.</h1>
+        <p class="page-lede">Operate Azure AI Search with accountable source freshness, enrichment, hybrid and vector relevance, semantic ranking, identity and network security, replica and partition capacity, controlled releases, resilience, and cost evidence.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=azure_ai_search_production_support&amp;utm_medium=organic_content&amp;utm_campaign=azure_ai_search_rag_operations&amp;utm_content=hero#inquiry-form">Describe the search estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Azure AI Search Operations</span><span>14 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Service boundary</a><a href="#scope">Operating scope</a><a href="#relevance">Relevance and resilience</a><a href="#incidents">Incident response</a><a href="#onboarding">Onboarding</a></nav>
+
+        <p>Azure AI Search can pull or receive content, enrich documents through skillsets, generate vectors, run full-text and vector retrieval in parallel, merge results through Reciprocal Rank Fusion, apply semantic ranking, preserve filters, and scale query or indexing capacity with replicas and partitions. Those controls do not decide who owns an indexer marked Success while documents failed, a stale high-water mark, an enrichment output mapped to the wrong field, a hybrid query that met latency while missing expected evidence, a managed identity blocked by network policy, vector quota exhaustion, an index schema that requires rebuild, or a region outage with no synchronized secondary service.</p>
+        <p>Datrick provides an ongoing operating layer for an agreed Azure AI Search estate. Named engineers correlate authoritative sources, data sources, push pipelines, indexers, change tracking, skillsets, enrichment cache, vectorizers, embedding models, index schemas and versions, hybrid and semantic queries, filters, relevance labels, document-level access, identities, private links, replicas, partitions, quotas, logs, metrics, alerts, releases, secondary regions, cloud resources, cost, and business outcomes. Microsoft support remains the escalation path for platform defects. Datrick owns the client-specific diagnosis, containment, validation, communication, change, and prevention accepted in the service boundary.</p>
+
+        <section class="readiness-actions"><p><strong>Do you have Azure AI Search in production but no team accountable for turning source drift, indexer warnings, enrichment failures, missing documents, relevance regressions, throttling, access gaps, schema rebuilds, or regional failure into a verified outcome?</strong> Start with one representative search service, index, and consuming RAG workflow.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=azure_ai_search_production_support&amp;utm_medium=organic_content&amp;utm_campaign=azure_ai_search_rag_operations&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" href="ai-workflows.html">Review AI workflow operations</a></div></section>
+
+        <h2 id="boundary">Define ownership from authoritative source to indexed chunk, retrieved evidence, citation, and business answer</h2>
+        <p>A production path can include source databases and document stores; event or batch pipelines; data source connections; indexers or push APIs; document cracking, chunking and skillsets; enrichment cache; Azure OpenAI or Foundry vectorization; search indexes, analyzers, synonyms, vector profiles and semantic configurations; keyword, vector and hybrid queries; filters and document-level access; an agent or application; answer synthesis and citations; and the target workflow. Name which layers the managed service owns, observes, changes, coordinates, or excludes.</p>
+        <p>Document subscriptions, resource groups, regions, service tiers, replicas and partitions; data sources, indexers, schedules and high-water marks; skillsets and dependencies; indexes, schemas, aliases and versions; embedding deployments; query patterns, filters and semantic configurations; freshness, relevance, latency and availability SLOs; identities and networks; recovery; support hours; severity; change authority; budget; fallback; and Microsoft escalation.</p>
+
+        <h2 id="scope">Operate the complete Azure AI Search production surface</h2>
+        <div class="article-table-wrap" role="region" aria-label="Azure AI Search production support scope" tabindex="0"><table class="article-table"><caption class="sr-only">Azure AI Search production support scope</caption>
+          <thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead>
+          <tbody>
+            <tr><td>Sources and ingestion</td><td>Authoritative source, data source definitions, push APIs or indexers, schedules, change tracking, stable document keys, update and delete behavior, high-water marks, resets, retries, backfill, and source-to-index reconciliation.</td><td>Source owner, freshness and deletion SLOs, idempotency, throughput, schedule, reset authority, failed-item tolerance, and exception route.</td></tr>
+            <tr><td>Enrichment and vectors</td><td>Document cracking, chunking, skillsets, input and output mappings, enrichment cache, custom skills, embedding deployment and version, vectorizer, dimensions, quota, warnings, and failed documents.</td><td>Content types, chunk contract, skill dependency, model compatibility, enrichment cost, sensitive content, retry, and fallback.</td></tr>
+            <tr><td>Indexes and retrieval</td><td>Index schema and versions, analyzers, synonyms, searchable and filterable fields, vector profiles, HNSW or exhaustive KNN, full-text, vector and hybrid queries, RRF, semantic ranker, filters, scoring, captions, answers, citations, relevance, drift, and regression.</td><td>Expected evidence, query cohorts, relevance and latency SLOs, filter semantics, semantic-ranker budget, reviewer, and business consequence.</td></tr>
+            <tr><td>Security and networking</td><td>Microsoft Entra roles, managed identities, API keys, document-level access, private endpoints, shared private links, firewalls, Key Vault and customer-managed keys, secrets, logs, and audit.</td><td>Least privilege, user versus service identity, source and query access, network path, key rotation, audit ownership, compliance, and incident route.</td></tr>
+            <tr><td>Capacity and observability</td><td>Tier, replicas, partitions, search units, storage and vector quota, QPS, latency, throttled queries, indexer documents and skill invocations, dependency health, diagnostic logs, Resource Health, Service Health, alerts, and incident evidence.</td><td>Traffic and growth profile, SLA topology, headroom, scale authority, metric retention, alert ownership, performance target, and budget.</td></tr>
+            <tr><td>Reliability and recovery</td><td>Availability-zone eligibility, transient retry, primary-replica behavior, multi-region services, source synchronization, request routing, index and object export, rebuild, recovery exercise, RTO, and RPO.</td><td>Regional strategy, synchronization owner, write-loss tolerance, failover trigger, source availability, restore acceptance, and Microsoft escalation.</td></tr>
+            <tr><td>Release, cost, and value</td><td>Infrastructure, data sources, skillsets, indexes, aliases, vectorizers, semantic configurations, query and application versions, tests, rollout, rollback, replicas, partitions, enrichment, semantic ranker, model usage, storage, transfer, and anomaly.</td><td>Source of truth, environments, preview acceptance, approval, compatibility, budget, forecast, unit economics, canary, and acceptance evidence.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="relevance">Treat freshness, relevance, capacity, schema lifecycle, and regional resilience as one design</h2>
+        <p>Hybrid search runs full-text and vector retrieval in parallel and merges ranked lists through Reciprocal Rank Fusion. Semantic ranker can rerank the candidate set and add captions or answers. The combination often improves relevance, but query text, vector fields, k, filters, analyzers, semantic configuration, source language, chunking, and reranking inputs still need labelled evaluation. A lower latency or higher semantic score is not proof that the retrieved evidence supports the downstream answer.</p>
+        <p>An indexer has its own status and each execution has a separate result. A run can be marked Success while individual documents failed below the configured tolerance. Track processed, succeeded and failed documents, warnings, execution duration, source counts, deletion behavior, change-tracking state and sampled content. A reset clears the internal high-water mark and requires a later run; it cannot be undone, and reset plus rerun does not automatically remove orphaned documents when source rows disappeared outside supported deletion tracking.</p>
+        <p>Replicas and partitions solve different constraints. Replicas improve availability and query throughput; partitions increase storage and indexing capacity, including vector quota. Microsoft requires two replicas for the read-only SLA and three for read-write workloads. Vector HNSW structures consume service-level memory quota per partition, while total index storage includes additional physical structures. Capacity changes therefore need query, indexing, enrichment and cost tests rather than one utilization threshold.</p>
+        <p>Azure AI Search is a single-region service. Multiple replicas can improve intra-region resilience, but regional recovery requires separately configured services, synchronized content and application-level routing. AI Search is not the primary data store and has no self-service backup and restore for a deleted index. Keep rebuildable source truth, export definitions and documents where justified, test a secondary service, and prove relevance and access after recovery.</p>
+
+        <h2 id="incidents">Distinguish ingestion, enrichment, relevance, security, capacity, recovery, release, and cost failures</h2>
+        <div class="article-table-wrap" role="region" aria-label="Azure AI Search production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Azure AI Search production incident matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead>
+          <tbody>
+            <tr><td>Indexer reports Success but expected documents are missing or stale</td><td>Source count and timestamps, document keys, indexer execution and failed-item tolerance, warnings and document errors, high-water mark, reset history, mappings, deletion tracking, index count, sampled content, and application cache.</td><td>Pause dependent automation, preserve execution evidence, lower tolerated errors where safe, run a controlled document or full reprocess, use source fallback, and disclose freshness risk.</td><td>Source-to-index reconciliation, zero-tolerance classes, failed-document queue, freshness SLO, deletion test, reset runbook, sampling, and alerting.</td></tr>
+            <tr><td>Skillset, chunking, or vectorization silently drops useful content</td><td>Input document, extraction output, skill inputs and outputs, field mappings, warnings, debug session, chunk boundaries, language, embedding model and dimensions, custom-skill dependency, enrichment cache, and target fields.</td><td>Stop affected ingestion, isolate the content cohort, restore accepted skillset and mappings, bypass unsafe enrichment where possible, and rebuild only after sample validation.</td><td>Representative document suite, debug-session workflow, mapping contract, chunk-quality checks, model-version gate, dependency SLO, cache policy, and release test.</td></tr>
+            <tr><td>Hybrid, vector, or semantic relevance regresses</td><td>Labelled query and expected evidence, keyword and vector candidates, RRF result, k, filters and filter mode, semantic configuration, analyzer, synonyms, scores, captions, source freshness, embedding version, and release.</td><td>Restore the accepted query, index, vectorizer or semantic configuration, narrow affected cohorts, increase human review, and block consequential answer automation.</td><td>Query-cohort evaluation, recall and ranking thresholds, grounded-answer tests, filter negatives, semantic budget, canary, drift monitoring, and rollback.</td></tr>
+            <tr><td>Managed identity, RBAC, firewall, or private-link path fails</td><td>Caller and search-service identities, role assignments, API or SDK authentication, data source connection, private endpoint and DNS, shared private-link approval, firewall, Key Vault, resource logs, and recent change.</td><td>Revoke unsafe access, stop public fallback, restore the accepted private route and identity, use a time-bound approved break-glass path, preserve audit evidence, and notify the owner.</td><td>End-to-end identity matrix, least-privilege tests, denied-user negatives, private DNS checks, approval inventory, credential rotation, and access-change canary.</td></tr>
+            <tr><td>Queries throttle or latency rises during indexing or enrichment</td><td>QPS, search latency, throttled queries, replicas, partitions, search units, storage and vector quota, indexer schedule, skill invocations, dependency latency, request mix, filters, semantic ranker, and recent scale.</td><td>Throttle or postpone noncritical indexing, reduce expensive query paths, protect critical traffic, scale through approved limits, preserve evidence, and communicate degraded capacity.</td><td>Workload-isolated load test, SLA topology, headroom policy, index schedule, QPS and throttle alerts, vector quota forecast, scale runbook, and cost guardrail.</td></tr>
+            <tr><td>Schema release, deleted index, regional outage, or cost control fails</td><td>Infrastructure and object definitions, source availability, current and candidate indexes, aliases or app configuration, document counts, relevance and access tests, secondary service synchronization, routing, replicas, partitions, model and semantic usage, and recent change.</td><td>Stop cutover, preserve the current index, route to an accepted service or source fallback, rebuild in isolation, cap noncritical consumption, and communicate RTO, RPO, quality, or budget risk.</td><td>Versioned definitions, side-by-side index, recovery corpus, multi-region synchronization, failover exercise, post-recovery evaluation, alias or config rollback, cost attribution, and alerts.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>A retry is not automatically safe. Before rerunning an indexer, resetting its change-tracking state, replaying push ingestion, rebuilding enrichment, deleting documents, switching an alias, scaling a service, or failing over regions, determine what already committed, which documents succeeded or failed, whether orphaned content remains, whether cached enrichments are valid, whether the candidate index preserves access and relevance, and whether the application already exposed a response. Reconcile source, document, enrichment, index, query, region, application, and business state before reopening traffic.</p>
+
+        <h2>Release sources, skillsets, indexes, query behavior, capacity, security, and applications together</h2>
+        <p>A production Azure AI Search release includes source and document contracts, data sources, indexers and schedules, skillsets and dependencies, embedding model and dimensions, index schemas and versions, analyzers and synonyms, vector profiles, semantic configurations, filters and access logic, managed identities and network controls, replicas and partitions, application queries, evaluation sets, monitoring, recovery, budgets, rollout, and rollback. A valid object update can still change freshness, relevance, latency, access, availability, and cost.</p>
+        <p>Many field attributes require an index rebuild. Create a versioned index beside production, load representative content, reconcile counts, inspect failed documents, test keyword, vector, hybrid and semantic relevance, run access negatives, load realistic query and indexing concurrency, verify vector quota, simulate dependency and region failure, prove recovery, canary the application and index change together, then switch through an index alias or controlled application configuration. Index aliases remain preview, so preserve the previous index and an explicit rollback route.</p>
+
+        <h2 id="onboarding">Onboard through inventory, baselines, controlled failures, and shadow operations</h2>
+        <ol>
+          <li><strong>Inventory:</strong> subscriptions, resource groups, regions, tiers, replicas, partitions, services, data sources, indexers, skillsets, indexes, aliases, vectorizers, semantic configurations, queries, applications, identities, networks, alerts, secondary services, and outcomes.</li>
+          <li><strong>Responsibility:</strong> define supported layers, document and index freshness, relevance, latency and availability SLOs, severity, access, change authority, budget, dependencies, fallback, Microsoft escalation, and exclusions.</li>
+          <li><strong>Baseline:</strong> measure source and index counts, failed documents and warnings, indexing duration, chunk and vector quality, query-cohort relevance and latency, QPS, throttling, vector and storage quota, access, replicas, partitions, recovery state, cost, and incidents.</li>
+          <li><strong>Controls:</strong> validate stable keys, deletion, mappings, skillsets, embedding compatibility, index and query configurations, least privilege, private connectivity, capacity alerts, relevance evaluation, rebuild and recovery, releases, rollback, attribution, and alerts.</li>
+          <li><strong>Exercise:</strong> rehearse missing documents, indexer reset, skill failure, embedding mismatch, relevance regression, access denial and exposure, query throttling, vector quota pressure, schema rebuild, regional failure, credential rotation, and model dependency outage.</li>
+          <li><strong>Transition:</strong> operate in shadow, close or accept material gaps, publish runbooks and escalation routes, and accept the steady-state support scope.</li>
+        </ol>
+
+        <section class="readiness-actions"><p><strong>Start with the Azure AI Search index that already influences customer, financial, operational, compliance, or workforce decisions.</strong> Datrick can define the operating boundary, close material control gaps, and transition one representative search and RAG workload into managed support.</p><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=azure_ai_search_production_support&amp;utm_medium=organic_content&amp;utm_campaign=azure_ai_search_rag_operations&amp;utm_content=article_end#inquiry-form">Request an Azure AI Search operations review</a></section>
+
+        <h2>Official references and adjacent operating guides</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/azure/reliability/reliability-ai-search">Azure AI Search reliability, replicas, SLA, zone behavior, and recovery</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/search/search-monitor-indexers">Monitor indexer status, execution history, errors, and warnings</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/search/search-howto-run-reset-indexers">Run, reset, and resynchronize Azure AI Search indexers</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/search/hybrid-search-overview">Azure AI Search hybrid retrieval and Reciprocal Rank Fusion</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/search/vector-search-index-size">Azure AI Search vector index size and quota</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/search/search-howto-reindex">Update or rebuild an Azure AI Search index</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/search/search-how-to-alias">Azure AI Search index aliases</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/search/search-multi-region">Multi-region Azure AI Search deployments</a></li>
+          <li><a href="microsoft-fabric-data-agent-azure-ai-search-unstructured-rag-assessment">Fabric Data Agent and Azure AI Search RAG assessment</a></li>
+          <li><a href="ai-workflows.html">Production AI workflow automation and operations</a></li>
+          <li><a href="white-label-ai-agent-operations-managed-support-for-msps">White-label AI agent managed support for MSPs</a></li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is included in Azure AI Search production support?</summary><p>A defined service can include data sources, push ingestion and indexers, skillsets and enrichment, index schemas, vectorizers and embeddings, hybrid search, semantic ranker, filters, relevance evaluation, managed identity and private connectivity, monitoring, replicas and partitions, incidents, blue-green releases, multi-region recovery, cost, runbooks, and reporting.</p></details>
+          <details><summary>How many Azure AI Search replicas are needed for production?</summary><p>Microsoft recommends a billable tier with at least two replicas for production resilience. The Azure AI Search SLA requires at least two replicas for read-only query workloads and at least three replicas for read-write workloads that include indexing. Capacity still needs load testing because replicas improve query throughput while partitions primarily increase storage and indexing capacity.</p></details>
+          <details><summary>Can an Azure AI Search indexer succeed with document errors?</summary><p>Yes. An indexer run can report Success when individual documents failed if the failures remain below the configured maximum failed items. Monitor processed and failed counts, warnings, document-level errors, source-to-index reconciliation, and freshness instead of treating the top-level status as proof that the corpus is complete.</p></details>
+          <details><summary>How should Azure AI Search indexes be released without downtime?</summary><p>Many index field attributes cannot be changed without a rebuild. For production schema changes, create a versioned index beside the current index, load representative content, test relevance, security, freshness, capacity, and failure behavior, then switch the application through an index alias or controlled configuration change. Index aliases are currently a preview capability, so maintain an explicit rollback path.</p></details>
+          <details><summary>How long does Azure AI Search managed support onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for a representative production service. It covers sources, indexers, skillsets, indexes, vectors, query and relevance baselines, identities, networks, capacity, monitoring, incidents, releases, recovery, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope.</p></details>
+        </div>
+
+        <div class="article-next"><p>Comparing managed and distributed enterprise search operations?</p><a href="elasticsearch-vector-search-production-support-managed-services-rag-operations">Review the Elasticsearch vector search production support boundary</a></div>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

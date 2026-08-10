@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Power BI Developer Handover, Takeover and Rescue Support | Datrick</title>
+    <meta name="description" content="Recover an inherited Power BI or Fabric environment after a developer, consultant, or manager leaves: ownership, credentials, models, reports, pipelines, documentation, and operations.">
+    <link rel="canonical" href="https://datrick.com/power-bi-developer-handover-takeover-rescue-support">
+    <meta property="og:title" content="Power BI Developer Handover, Takeover and Rescue Support | Datrick">
+    <meta property="og:description" content="Restore ownership and reliable operation when Power BI knowledge leaves with a developer or supplier.">
+    <meta property="og:url" content="https://datrick.com/power-bi-developer-handover-takeover-rescue-support">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Power BI Developer Handover, Takeover, and Rescue Support", "description": "Recover an inherited Power BI or Fabric environment after a developer, consultant, or manager leaves: ownership, credentials, models, reports, pipelines, documentation, and operations.", "url": "https://datrick.com/power-bi-developer-handover-takeover-rescue-support", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/power-bi-developer-handover-takeover-rescue-support"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What should we do when our Power BI developer leaves?", "acceptedAnswer": {"@type": "Answer", "text": "Protect service continuity first: preserve source files and repositories, confirm at least two active workspace administrators, identify item and credential owners, secure accounts and secrets, inventory critical reports and business deadlines, capture current failures and changes, and avoid broad ownership or credential changes until dependencies are mapped. Then run a structured takeover and validation."}},
+            {"@type": "Question", "name": "Can you take over Power BI reports without documentation?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, but the takeover begins with discovery rather than immediate modification. Inventory workspaces, reports, semantic models, dataflows, pipelines, gateways, sources, credentials, refreshes, security, apps, subscriptions, deployment paths, and business owners. Reconstruct lineage and logic from supported metadata, definitions, activity, source systems, and stakeholder validation before accepting operational responsibility."}},
+            {"@type": "Question", "name": "What is included in a Power BI handover audit?", "acceptedAnswer": {"@type": "Answer", "text": "A handover audit covers ownership and access, repositories and recoverable definitions, source and gateway connections, refresh and capacity, semantic models and DAX, Power Query and pipelines, security, apps and distribution, business definitions, validation controls, open incidents, release process, monitoring, documentation, and the risks that block safe support."}},
+            {"@type": "Question", "name": "Does taking over a Fabric item transfer everything automatically?", "acceptedAnswer": {"@type": "Answer", "text": "No. Microsoft notes that taking ownership of a Fabric item can also transfer child items, but credentials and connections can require separate action, and service-principal ownership is not covered by the same takeover feature. Validate each item type, child dependency, schedule, credential, gateway, security rule, and downstream consumer after any ownership change."}},
+            {"@type": "Question", "name": "How long does a Power BI takeover and stabilization take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused critical-service takeover can often establish ownership, an evidence-backed inventory, immediate-risk controls, and a prioritized stabilization plan in two to four weeks. Full documentation and remediation take longer when there are many workspaces, local files, personal credentials, missing source access, complex DAX, external users, manual publishing, or no business owner for KPI validation."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Power BI handover and emergency takeover</p>
+        <h1>Restore control when Power BI knowledge leaves with a developer or supplier.</h1>
+        <p class="page-lede">Recover ownership, credentials, source logic, semantic models, reports, pipelines, gateways, security, deployment, monitoring, and business validation before the next failure becomes an outage.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Immediately%20%2F%20this%20week&amp;engagement_type=Urgent%20support&amp;utm_source=power_bi_handover_rescue&amp;utm_medium=organic_content&amp;utm_campaign=power_bi_takeover_scoping&amp;utm_content=hero#inquiry-form">Describe the handover risk</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Power BI takeover and rescue</span><span>10 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#first-48-hours">First 48 hours</a><a href="#inventory">Takeover inventory</a><a href="#workflow">Rescue workflow</a><a href="#stabilize">Stabilization</a><a href="#assessment">Engagement plan</a></nav>
+
+        <p>A Power BI developer, consultant, or technical manager can leave behind reports that still open while their operating dependencies are already failing. Refresh credentials belong to a departing account. Source files exist only on a laptop. The gateway has one administrator. Business logic lives in undocumented DAX and Power Query. Production publishing is manual. Nobody knows which executive report depends on which model or who can approve a changed number.</p>
+        <p>The immediate objective is not to rewrite everything. It is to preserve evidence, restore accountable ownership, identify business-critical services, prevent unsafe changes, and establish which outputs can still be trusted. Datrick uses supported metadata, activity, definitions, source evidence, and stakeholder validation to reconstruct the environment. AI accelerates classification, documentation, lineage hypotheses, and code explanation; engineers verify the evidence and own every production decision.</p>
+
+        <section class="readiness-actions"><p><strong>Has a key Power BI owner left, stopped responding, or provided an incomplete handover?</strong> Secure the environment and critical business deadlines before attempting broad cleanup.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Immediately%20%2F%20this%20week&amp;engagement_type=Urgent%20support&amp;utm_source=power_bi_handover_rescue&amp;utm_medium=organic_content&amp;utm_campaign=power_bi_takeover_scoping&amp;utm_content=article_intro#inquiry-form">Send the current situation</a><a class="button secondary" href="resource-bi-reporting-reliability-checklist.html">Check BI reliability</a></div></section>
+
+        <h2 id="first-48-hours">Protect continuity in the first 48 hours</h2>
+        <ol>
+          <li>Identify the critical reports, business deadlines, current failures, executive consumers, regulatory outputs, and known manual workarounds.</li>
+          <li>Preserve PBIX, PBIP, repository, pipeline, notebook, SQL, deployment, configuration, documentation, ticket, and export evidence without overwriting it.</li>
+          <li>Confirm at least two active workspace administrators and inventory owners for semantic models, gateways, connections, pipelines, warehouses, lakehouses, and apps.</li>
+          <li>Secure the departing identity, tokens, secrets, shared credentials, service accounts, local files, repositories, devices, and privileged access through the client's approved offboarding process.</li>
+          <li>Freeze nonessential production changes until backup, rollback, source access, refresh, lineage, security, and acceptance responsibilities are understood.</li>
+          <li>Record a timestamped baseline: service health, refresh state, gateway state, capacity, failures, active deployments, open incidents, and report-visible data cutoffs.</li>
+        </ol>
+        <p>Do not immediately disable every account or take over every item without mapping dependencies. Microsoft notes that ownership takeover can affect child items, while credentials and service-principal scenarios require separate handling. Coordinate identity security with operational continuity and validate each change.</p>
+
+        <h2 id="inventory">Build a takeover inventory that supports decisions</h2>
+        <div class="article-table-wrap" role="region" aria-label="Power BI handover and takeover inventory" tabindex="0"><table class="article-table"><caption class="sr-only">Power BI handover and takeover inventory</caption>
+          <thead><tr><th scope="col">Domain</th><th scope="col">Evidence to recover</th><th scope="col">Immediate failure risk</th></tr></thead>
+          <tbody>
+            <tr><td>Ownership and access</td><td>Workspace roles and contacts, item owners, groups, guests, service principals, credentials, repository access, and support owners.</td><td>Orphaned workspace, locked repository, excessive access, failed offboarding, or nobody authorized to change production.</td></tr>
+            <tr><td>Sources and connections</td><td>Databases, files, APIs, SharePoint, gateways, cloud connections, privacy settings, credentials, parameters, and network dependencies.</td><td>Local-drive source, personal token, unknown firewall rule, expired secret, or gateway tied to one person.</td></tr>
+            <tr><td>Data transformation</td><td>Power Query, dataflows, pipelines, notebooks, SQL, incremental refresh, CDC, schedules, dependencies, retries, and failure handling.</td><td>Silent partial load, duplicate processing, broken partition, manual repair, or transformation nobody can reproduce.</td></tr>
+            <tr><td>Semantic models</td><td>Tables, relationships, measures, calculated objects, RLS and OLS, storage mode, refresh, XMLA, downstream reports, and business definitions.</td><td>Incorrect KPI, unrestricted data, slow model, hidden dependency, or no owner able to validate a changed result.</td></tr>
+            <tr><td>Reports and distribution</td><td>Reports, apps, audiences, subscriptions, embeds, exports, bookmarks, alerts, owners, consumers, deadlines, and usage.</td><td>Executive report disappears, stale data appears current, audience changes, or a critical report has no tested replacement.</td></tr>
+            <tr><td>Release and recovery</td><td>PBIX or PBIP source, Git, deployment pipelines, environment rules, change history, tests, approval, rollback, backups, and restore evidence.</td><td>Production cannot be reproduced, test differs from production, rollback is impossible, or the only source is older than the service.</td></tr>
+            <tr><td>Operations</td><td>Monitoring, alerts, incidents, SLAs, runbooks, vendor cases, capacity, costs, known errors, backlog, and stakeholder communication.</td><td>Failures are discovered by executives, repeated incidents have no owner, or support begins without diagnostic access.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Use tenant metadata scanning and admin APIs to establish an organizational inventory, then reconcile it with repositories, known business services, source systems, gateways, deployment tools, and owner interviews. Preserve raw API responses and extraction time. An item missing from one API response is an investigation point, not proof that it does not exist.</p>
+
+        <h2>Reconstruct business meaning, not only technical lineage</h2>
+        <p>A technically valid report can still be wrong for the business. For each critical output, identify the decision it supports, metric owner, source of truth, cutoff, filters, currency and time logic, exclusions, manual adjustments, reconciliation, tolerance, and sign-off. Compare report totals with source controls and known historical periods before changing the model.</p>
+        <p>AI can summarize measures, Power Query, SQL, and model relationships and propose documentation. Treat generated explanations as hypotheses until engineers trace dependencies and business owners confirm the meaning. A fluent description of undocumented DAX is not acceptance evidence.</p>
+
+        <h2 id="workflow">Run a controlled takeover and rescue workflow</h2>
+        <div class="article-table-wrap" role="region" aria-label="Power BI takeover and rescue workflow" tabindex="0"><table class="article-table"><caption class="sr-only">Power BI takeover and rescue workflow</caption>
+          <thead><tr><th scope="col">Stage</th><th scope="col">Delivery action</th><th scope="col">Acceptance evidence</th></tr></thead>
+          <tbody>
+            <tr><td>Contain</td><td>Protect identities and evidence, freeze unsafe changes, restore minimum monitoring, and communicate critical deadlines and known risk.</td><td>Named incident owner, preserved artifacts, active administrators, change boundary, impact list, and next update.</td></tr>
+            <tr><td>Discover</td><td>Collect tenant, item, source, model, report, security, refresh, gateway, capacity, release, activity, and business evidence.</td><td>Coverage report, unresolved access, extraction health, evidence provenance, and explicit unknowns.</td></tr>
+            <tr><td>Map</td><td>Connect sources, transformations, models, reports, apps, identities, owners, consumers, schedules, repositories, and deployments.</td><td>Dependency graph, critical path, credential map, owner matrix, and recoverability classification.</td></tr>
+            <tr><td>Validate</td><td>Test refresh, access, KPI totals, report behavior, distribution, deployment, rollback, and representative business scenarios.</td><td>Expected and observed results, tolerance, model version, tester, reviewer, failure record, and owner decision.</td></tr>
+            <tr><td>Stabilize</td><td>Transfer approved ownership, replace personal dependencies, repair critical failures, establish source control, monitoring, and runbooks.</td><td>Change approval, rollback, post-change test, active support owner, alert path, and residual risk.</td></tr>
+            <tr><td>Operate or hand back</td><td>Accept managed responsibility or transfer a documented, tested service to the new internal or partner team.</td><td>Service catalog, RACI, access, documentation, backlog, known errors, SLA, shadow period, and signed acceptance.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="stabilize">Stabilize personal dependencies before optimizing</h2>
+        <p>Move critical source files to approved shared storage, replace personal tokens and credentials, establish supported gateway and connection ownership, add backup administrators, and define group-based access where appropriate. Do not create a generic service account as a universal answer. Use the identity pattern supported by each item, source, API, deployment, and security requirement, with clear owner and rotation.</p>
+        <p>Recover the source of truth for production definitions. If the deployed service is newer than the available PBIX, PBIP, or repository, classify it as a recovery gap. Export supported definitions where possible, preserve the production state, and prove a rebuild or deployment path in a nonproduction environment. Avoid editing production first and documenting later.</p>
+        <p>Fix critical reliability and security risks before refactoring DAX or redesigning visuals. Prioritize failed refresh, unknown freshness, inaccessible source, departed owner, public exposure, broken RLS, no rollback, executive KPI discrepancy, and unsupported release. Performance and aesthetic debt can follow once the service is controlled.</p>
+
+        <h2>Produce documentation that another team can operate</h2>
+        <ul>
+          <li><strong>Service map:</strong> business purpose, critical reports, owners, consumers, deadlines, sources, dependencies, environments, and support path.</li>
+          <li><strong>Technical inventory:</strong> workspaces, items, definitions, repositories, parameters, connections, gateways, refresh, capacity, security, and deployment.</li>
+          <li><strong>Metric catalogue:</strong> approved KPI definitions, DAX or source logic, grain, filters, cutoff, owner, reconciliation, and tolerance.</li>
+          <li><strong>Operations:</strong> monitoring, diagnostic queries, common failures, safe retry, escalation, change, rollback, recovery, and communication templates.</li>
+          <li><strong>Risk register:</strong> unknowns, personal dependencies, unsupported assets, security findings, missing source, backlog, owner, priority, and due date.</li>
+        </ul>
+        <p>Documentation is accepted when a different engineer can diagnose a simulated failure, trace a critical KPI, deploy a controlled change, and recover from rollback using it. File count and page count do not prove handover quality.</p>
+
+        <h2 id="assessment">Run a two-to-four-week takeover and stabilization engagement</h2>
+        <ol>
+          <li>Confirm urgency, critical reports, business deadlines, stakeholders, access authority, departing-person timeline, and communication path.</li>
+          <li>Preserve evidence and establish the minimum identity, repository, tenant, source, gateway, and operational access needed for discovery.</li>
+          <li>Build the technical and business inventory, dependency graph, owner matrix, recoverability classification, and immediate-risk register.</li>
+          <li>Validate critical refreshes, KPI totals, security personas, distribution, report behavior, deployment, and rollback.</li>
+          <li>Execute an approved stabilization wave for the highest risks, including ownership, credentials, source, monitoring, or production failures.</li>
+          <li>Create the service map, runbooks, metric catalogue, known-error records, backlog, and target operating model.</li>
+          <li>Run a shadow-support period or simulated incident with the receiving internal, partner, or Datrick managed-service team.</li>
+          <li>Deliver acceptance evidence, residual risk, prioritized remediation, and a decision to operate, modernize, replace, or hand back.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What should we do when our Power BI developer leaves?</summary><p>Protect service continuity first: preserve source files and repositories, confirm at least two active workspace administrators, identify item and credential owners, secure accounts and secrets, inventory critical reports and business deadlines, capture current failures and changes, and avoid broad ownership or credential changes until dependencies are mapped. Then run a structured takeover and validation.</p></details>
+          <details><summary>Can you take over Power BI reports without documentation?</summary><p>Yes, but the takeover begins with discovery rather than immediate modification. Inventory workspaces, reports, semantic models, dataflows, pipelines, gateways, sources, credentials, refreshes, security, apps, subscriptions, deployment paths, and business owners. Reconstruct lineage and logic from supported metadata, definitions, activity, source systems, and stakeholder validation before accepting operational responsibility.</p></details>
+          <details><summary>What is included in a Power BI handover audit?</summary><p>A handover audit covers ownership and access, repositories and recoverable definitions, source and gateway connections, refresh and capacity, semantic models and DAX, Power Query and pipelines, security, apps and distribution, business definitions, validation controls, open incidents, release process, monitoring, documentation, and the risks that block safe support.</p></details>
+          <details><summary>Does taking over a Fabric item transfer everything automatically?</summary><p>No. Microsoft notes that taking ownership of a Fabric item can also transfer child items, but credentials and connections can require separate action, and service-principal ownership is not covered by the same takeover feature. Validate each item type, child dependency, schedule, credential, gateway, security rule, and downstream consumer after any ownership change.</p></details>
+          <details><summary>How long does a Power BI takeover and stabilization take?</summary><p>A focused critical-service takeover can often establish ownership, an evidence-backed inventory, immediate-risk controls, and a prioritized stabilization plan in two to four weeks. Full documentation and remediation take longer when there are many workspaces, local files, personal credentials, missing source access, complex DAX, external users, manual publishing, or no business owner for KPI validation.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-implementation-planning-security-content-creator-planning">Microsoft Power BI content creator security and ownership planning</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/fundamentals/item-ownership-take-over">Microsoft Fabric item ownership takeover</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-implementation-planning-auditing-monitoring-tenant-level-auditing">Microsoft Power BI tenant-level auditing guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/guidance/fabric-adoption-roadmap-content-ownership-and-management">Microsoft Fabric content ownership and management roadmap</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/governance/metadata-scanning-overview">Microsoft Fabric metadata scanning overview</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the reports that cannot miss their next business deadline.</strong> Datrick can secure the handover, reconstruct the environment, stabilize critical operation, and establish a supportable target state.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Immediately%20%2F%20this%20week&amp;engagement_type=Urgent%20support&amp;utm_source=power_bi_handover_rescue&amp;utm_medium=organic_content&amp;utm_campaign=power_bi_takeover_scoping&amp;utm_content=article_end#inquiry-form">Scope the takeover</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="power-bi-managed-services-support"><span>Ongoing operations</span><strong>Review Power BI managed services</strong></a><a href="ai-power-bi-fabric-tenant-governance-workspace-lifecycle-automation"><span>Tenant governance</span><strong>Restore ownership across the tenant</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

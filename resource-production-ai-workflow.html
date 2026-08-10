@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Production AI Workflow Guide 2026: Architecture &amp; Checklist</title>
+    <meta name="description" content="Build a production-ready AI workflow with integration architecture, evaluation, revision checkpoints, human review, monitoring, fallback and governance.">
+    <link rel="canonical" href="https://datrick.com/resource-production-ai-workflow.html">
+    <meta property="og:title" content="Production AI Workflow Guide 2026: Architecture &amp; Checklist">
+    <meta property="og:description" content="Build a production-ready AI workflow with integration architecture, evaluation, revision checkpoints, human review and operating controls.">
+    <meta property="og:url" content="https://datrick.com/resource-production-ai-workflow.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Production AI Workflow Guide 2026: Architecture and Checklist",
+        "description": "Build a production-ready AI workflow with integration architecture, evaluation, revision checkpoints, human review, monitoring, fallback, and governance.",
+        "url": "https://datrick.com/resource-production-ai-workflow.html",
+        "datePublished": "2026-07-11",
+        "dateModified": "2026-07-28",
+        "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"},
+        "reviewedBy": {"@type": "Person", "name": "Can Goktug Ozdem", "url": "https://datrick.com/about.html"},
+        "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}},
+        "mainEntityOfPage": "https://datrick.com/resource-production-ai-workflow.html"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What makes an AI workflow production-ready?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A production-ready AI workflow has a defined input and output contract, controlled access to context and tools, measurable quality criteria, human review for consequential actions, monitoring, failure handling, and a named operational owner. A successful prompt is only one component of that system."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do you evaluate AI workflow quality?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Create a representative evaluation set from real work, define task-specific scoring criteria, record an initial baseline, and test every material change against that set. Combine automated checks for structure and policy compliance with human review for correctness, usefulness, and judgment."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "When should an AI workflow require human review?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Require human approval before an AI workflow sends customer-facing communication, changes financial or operational records, grants access, deletes data, makes commitments, or acts on low-confidence or conflicting information. Lower-risk drafting and classification tasks can use sampled review once quality is stable."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does it take to deploy a production AI workflow?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A narrowly scoped workflow with available data and one integration can often reach a supervised pilot in two to six weeks. Broader deployments take longer when they require new permissions, multiple systems, extensive evaluation data, compliance review, or changes to existing operating processes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What should an AI workflow automation consultant deliver?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A consultant should deliver a bounded workflow definition, current-process baseline, input and output contracts, integration and permission design, representative evaluation set, human-review policy, monitoring, failure handling, security assumptions, rollout plan, operating runbook, and measurable acceptance evidence."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should AI workflows include revision checkpoints for quality control?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Revision checkpoints should appear before consequential outputs or actions, after material model, prompt, retrieval, or tool changes, and when monitoring detects uncertain or unusual cases. Each checkpoint needs clear acceptance criteria, supporting evidence, an accountable reviewer, and a defined approve, edit, reject, or escalate path."
+            }
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://datrick.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://datrick.com/resources.html"},
+          {"@type": "ListItem", "position": 3, "name": "Production-Ready AI Workflow", "item": "https://datrick.com/resource-production-ai-workflow.html"}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai" data-content-id="production_ai_workflow_guide" data-content-group="ai_workflows" data-content-type="commercial_resource" data-commercial-cluster="ai_workflows">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">AI operations</p>
+          <h1>How to build a production-ready AI workflow.</h1>
+          <p class="page-lede">A production AI workflow needs more than a working prompt. It needs controls, clear ownership, measured quality, and a path for people to supervise the work.</p>
+          <div class="hero-actions article-hero-actions"><a class="button primary" data-cta-name="production_ai_workflow_hero_to_inquiry" data-funnel-stage="content_to_inquiry" data-next-stage="written_scoping" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=production_ai_workflow&amp;utm_medium=organic_content&amp;utm_campaign=ai_workflow_scoping&amp;utm_content=hero#inquiry-form">Describe the workflow</a></div>
+          <div class="article-meta"><a href="resources.html">Resource library</a><span>Operations guide</span><span>10 min read</span></div>
+          <p class="article-review">Reviewed for production AI accuracy by <a href="about.html">Can Goktug Ozdem</a>, founder and senior technical lead. Last reviewed July 16, 2026.</p>
+        </div>
+      </section>
+      <section class="section service-band">
+        <article class="article-body">
+          <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#architecture">Architecture</a><a href="#build-stages">Build stages</a><a href="#readiness-checklist">Checklist</a><a href="#delivery-partner">Delivery partner</a></nav>
+
+          <p>An AI workflow becomes production-ready when a team can trust the complete operating system around the model: what starts the work, which context it can use, what it is allowed to do, how quality is measured, when a person must intervene, and who owns the workflow after launch.</p>
+
+          <p>This distinction matters because a prompt that works in a demonstration can still fail in production. Real inputs are incomplete. Source systems change. Tools time out. Users ask unexpected questions. Models produce plausible but unsupported answers. The production design must make those conditions visible and recoverable.</p>
+
+          <h2>Start with a bounded operational workflow</h2>
+
+          <p>The strongest first use case is a recurring task with recognizable inputs, a reviewable output, enough historical examples to evaluate quality, and a person who already owns the process. Examples include drafting a weekly operating report, classifying support requests, comparing a document against policy, preparing a database handover summary, or extracting structured fields from a standard document set.</p>
+
+          <p>Avoid starting with a broad instruction such as "answer anything about our business" or "automate customer support." Those ideas hide multiple data sources, decision types, permissions, and definitions of success. Narrow the first release until one team can state what enters the workflow, what leaves it, and how they will decide whether the result is acceptable.</p>
+
+          <h2 id="architecture">The production AI workflow architecture</h2>
+
+          <p>A reliable workflow usually contains seven layers. They do not need to be separate products, but each responsibility must be explicit.</p>
+
+          <div class="article-table-wrap" role="region" aria-label="Production AI workflow architecture" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Production AI workflow architecture</caption>
+              <thead><tr><th scope="col">Layer</th><th scope="col">Responsibility</th><th scope="col">Evidence it is ready</th></tr></thead>
+              <tbody>
+                <tr><td>Trigger</td><td>Starts the workflow from a schedule, event, request, or approved user action.</td><td>Duplicate, missing, and malformed triggers are handled.</td></tr>
+                <tr><td>Input contract</td><td>Defines required fields, accepted formats, source systems, and freshness rules.</td><td>Invalid inputs stop with a clear reason.</td></tr>
+                <tr><td>Context and retrieval</td><td>Supplies approved records, documents, examples, policies, and history.</td><td>Every source has permission, scope, and freshness controls.</td></tr>
+                <tr><td>Model step</td><td>Performs reasoning, extraction, classification, comparison, or drafting.</td><td>The instruction and model version are tracked.</td></tr>
+                <tr><td>Tools and actions</td><td>Reads or updates external systems through constrained interfaces.</td><td>Allowed actions, limits, and idempotency are defined.</td></tr>
+                <tr><td>Review and policy</td><td>Applies deterministic checks and routes consequential work to people.</td><td>Approval and escalation rules match business risk.</td></tr>
+                <tr><td>Observability</td><td>Records inputs, outputs, latency, cost, errors, reviews, and outcomes.</td><td>Owners can investigate and replay a failed run.</td></tr>
+              </tbody>
+            </table></div>
+
+          <h2 id="build-stages">How to build the workflow in seven stages</h2>
+
+          <h3>1. Define the outcome and operating owner</h3>
+          <p>Write the business outcome before choosing a model or automation platform. Name the person responsible for the process, the users affected, the expected frequency, and the action taken after the output is produced. Establish a baseline from the current process: time spent, error rate, backlog, turnaround time, or another operational measure.</p>
+
+          <h3>2. Write the input and output contracts</h3>
+          <p>List required fields, accepted file types, source systems, data freshness, and what happens when information is missing. Define the output as a schema or template rather than an open-ended response. Structured outputs are easier to validate, compare, store, and pass into another system.</p>
+
+          <h3>3. Control context, permissions, and tools</h3>
+          <p>Give the workflow the minimum context and permissions needed for its task. Separate read operations from write operations. Constrain queries, file access, destinations, and action types. Tool calls should have timeouts, retries, input validation, and idempotency so a repeated request does not create duplicate tickets, messages, or updates.</p>
+
+          <p>Retrieval quality deserves the same attention as model quality. Record which source passages or records supported an output, and define what the workflow should do when approved sources conflict or contain no answer.</p>
+
+          <h3>4. Build a representative evaluation set</h3>
+          <p>Collect real examples covering common cases, difficult cases, incomplete inputs, conflicting sources, and cases that must escalate. Remove or protect sensitive data as required. For each example, document the expected result or the criteria a reviewer should apply.</p>
+
+          <p>Useful evaluation dimensions include factual correctness, completeness, citation or source support, instruction compliance, tone, structured-output validity, tool selection, and whether the workflow escalated appropriately. A single combined score can hide serious defects, so track critical criteria separately.</p>
+
+          <p>Agentic workflows need both outcome and process evidence. An agent can finish the task while using an unauthorized tool, repeating an action, ignoring an observation, or changing unintended state. Anthropic's <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">agent evaluation guidance</a> recommends combining automated evaluation with manual transcript review and systematic human evaluation. For an operated reviewer model, use Datrick's guide to <a href="managed-human-evaluation-ai-agents">managed human evaluation for AI agents</a>.</p>
+
+          <p>Add revision checkpoints before consequential outputs or actions and after material changes to the model, prompt, retrieval, or tools. A checkpoint should show the supporting evidence, apply explicit acceptance criteria, identify the accountable reviewer, and provide approve, edit, reject, and escalate paths.</p>
+
+          <h3>5. Design human review around risk</h3>
+          <p>Human review is not a single yes-or-no setting. Match it to consequence. A low-risk internal summary may use sampled review after the pilot. A customer message, financial update, access change, deletion, or operational commitment should require approval before execution. Reviewers need the source context, proposed output, reason for escalation, and a clear way to approve, edit, reject, or return the case.</p>
+
+          <h3>6. Add monitoring and failure handling</h3>
+          <p>Monitor more than uptime. Track task volume, completion rate, latency, model and tool errors, token or usage cost, validation failures, human edit rate, escalation rate, and downstream outcomes. Sudden changes can indicate source-data drift, prompt regression, model changes, permission problems, or a new type of request.</p>
+
+          <p>Every production workflow also needs a fallback. Decide whether a failed case retries, enters a human queue, uses the previous process, or stops completely. Preserve enough information for an operator to understand what happened without reproducing the entire run manually.</p>
+
+          <h3>7. Roll out gradually and document operations</h3>
+          <p>Begin with shadow mode or a supervised pilot. Compare AI output with the existing process, review failures, and update the evaluation set before increasing automation. Expand by workflow type, team, or risk level rather than switching every case at once.</p>
+
+          <p>The operating runbook should name the owner, support contact, source systems, permissions, model and prompt versions, review policy, monitoring thresholds, rollback procedure, and change-approval process. Treat prompt, retrieval, tool, and model changes like production changes: test them before release and keep a history.</p>
+
+          <h2 id="readiness-checklist">Production-ready AI workflow checklist</h2>
+          <ul>
+            <li><strong>Scope:</strong> one bounded workflow has a measurable outcome and named owner.</li>
+            <li><strong>Inputs:</strong> required data, formats, sources, freshness, and invalid-input behavior are documented.</li>
+            <li><strong>Outputs:</strong> the response follows a defined structure that downstream systems can validate.</li>
+            <li><strong>Access:</strong> data and tool permissions follow least privilege and are auditable.</li>
+            <li><strong>Evaluation:</strong> representative cases and release thresholds exist before rollout.</li>
+            <li><strong>Human control:</strong> consequential and uncertain cases have explicit approval or escalation paths.</li>
+            <li><strong>Monitoring:</strong> quality, failures, latency, cost, reviews, and outcomes are visible.</li>
+            <li><strong>Recovery:</strong> operators can pause, retry, replay, or fall back without losing the case.</li>
+            <li><strong>Change control:</strong> model, prompt, context, and integration changes are tested and recorded.</li>
+            <li><strong>Operations:</strong> a runbook identifies ownership, support, rollback, and review cadence.</li>
+          </ul>
+
+          <h2>Worked example: a weekly service operations report</h2>
+
+          <p>Consider a workflow that prepares a weekly report for a managed-services team. The trigger is a Friday schedule. The input contract requires ticket data, service-level metrics, incident notes, and the previous report. Retrieval is limited to the relevant client and reporting period.</p>
+
+          <p>The model drafts a structured report containing volume, SLA performance, major incidents, repeated issue categories, unresolved risks, and recommended follow-up. Deterministic checks verify that required sections exist and that reported figures match the supplied metrics. A service manager reviews the narrative and recommendations before the report is sent.</p>
+
+          <p>The evaluation set includes normal weeks, major incidents, missing data, conflicting notes, and weeks with no material change. Monitoring tracks missing-source failures, unsupported claims, manager edit rate, preparation time, and whether recommended actions are accepted. If a source is unavailable, the workflow creates a review task instead of inventing the missing section.</p>
+
+          <p>This is production-ready because its boundaries, evidence, controls, and fallback are defined. The model is important, but reliability comes from the workflow around it.</p>
+
+          <h2>Common failure modes</h2>
+          <ul>
+            <li><strong>Automating before defining success:</strong> the team cannot tell whether the workflow improved the process.</li>
+            <li><strong>Testing only happy paths:</strong> incomplete, contradictory, or novel inputs fail after rollout.</li>
+            <li><strong>Giving broad system access:</strong> the workflow can read or change more than its task requires.</li>
+            <li><strong>Using confidence language as a control:</strong> fluent self-assessment replaces measurable validation and policy rules.</li>
+            <li><strong>Logging without operational alerts:</strong> failures are recorded but nobody is responsible for acting on them.</li>
+            <li><strong>Changing prompts without regression tests:</strong> one improvement silently damages another workflow case.</li>
+            <li><strong>Removing human review too early:</strong> automation expands before the team understands its error patterns.</li>
+          </ul>
+
+          <h2 id="delivery-partner">When to use an AI workflow automation consultant</h2>
+          <p>An internal team should own the business decision, source-system permissions, operating policy, and release acceptance. An AI workflow automation consultant is useful when the team lacks implementation capacity, needs independent evaluation, must connect several systems, is recovering an inherited prototype, or needs a controlled pilot without adding every delivery role permanently.</p>
+
+          <div class="article-table-wrap" role="region" aria-label="AI workflow automation consulting scope" tabindex="0">
+            <table class="article-table"><caption class="sr-only">AI workflow automation consulting scope</caption>
+              <thead><tr><th scope="col">Need</th><th scope="col">Delivery evidence to request</th><th scope="col">Buyer responsibility</th></tr></thead>
+              <tbody>
+                <tr><td>Workflow discovery</td><td>Current-state map, bounded use case, baseline, dependencies, risks, and measurable acceptance criteria.</td><td>Name the process owner and authorize the business definition of success.</td></tr>
+                <tr><td>Prototype recovery</td><td>Reproducible baseline, asset inventory, access review, defect findings, and stabilize, rebuild, or retire recommendation.</td><td>Provide available code, prompts, accounts, logs, and prior decisions.</td></tr>
+                <tr><td>Integration delivery</td><td>Versioned implementation, constrained tool contracts, tests, deployment records, and rollback procedure.</td><td>Approve access, data boundaries, environments, and protected actions.</td></tr>
+                <tr><td>Evaluation</td><td>Representative cases, criterion-level results, critical failure classes, limitations, and release recommendation.</td><td>Supply domain examples and own final acceptance thresholds.</td></tr>
+                <tr><td>Operating handover</td><td>Monitoring, alerts, runbook, support path, change process, training, and named ownership.</td><td>Assign the team that will operate and govern the workflow.</td></tr>
+              </tbody>
+            </table></div>
+
+          <p>Do not buy a generic chatbot or automation promise when the actual requirement is a production operating change. Ask the provider to state what will be built, which assumptions remain with the buyer, how quality will be measured, what is excluded, and what evidence determines whether the workflow can progress from supervised pilot to routine use. Google Cloud's <a href="https://cloud.google.com/blog/topics/developers-practitioners/a-methodical-approach-to-agent-evaluation">methodical approach to agent evaluation</a> similarly starts with a measurable definition of success and examines both outcomes and trajectories.</p>
+
+          <h2>Where Claude fits</h2>
+          <p>Claude is useful for workflows that require long-context reasoning, document understanding, careful summarization, code assistance, analysis, and structured drafting. The same production principles still apply: approved context, constrained tools, evaluation sets, review policy, monitoring, and operating ownership.</p>
+
+          <p>For a broader view of implementation options, see Datrick's <a href="ai-workflows.html">AI workflow automation services</a>, <a href="ai-consulting-rfp-vendor-selection">AI consulting RFP and vendor selection checklist</a>, and <a href="anthropic.html">Claude implementation approach</a>.</p>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-list">
+            <details>
+              <summary>What makes an AI workflow production-ready?</summary>
+              <p>A production-ready AI workflow has a defined input and output contract, controlled access to context and tools, measurable quality criteria, human review for consequential actions, monitoring, failure handling, and a named operational owner. A successful prompt is only one component of that system.</p>
+            </details>
+            <details>
+              <summary>How do you evaluate AI workflow quality?</summary>
+              <p>Create a representative evaluation set from real work, define task-specific scoring criteria, record an initial baseline, and test every material change against that set. Combine automated checks for structure and policy compliance with human review for correctness, usefulness, and judgment.</p>
+            </details>
+            <details>
+              <summary>When should an AI workflow require human review?</summary>
+              <p>Require human approval before an AI workflow sends customer-facing communication, changes financial or operational records, grants access, deletes data, makes commitments, or acts on low-confidence or conflicting information. Lower-risk drafting and classification tasks can use sampled review once quality is stable.</p>
+            </details>
+            <details>
+              <summary>How long does it take to deploy a production AI workflow?</summary>
+              <p>A narrowly scoped workflow with available data and one integration can often reach a supervised pilot in two to six weeks. Broader deployments take longer when they require new permissions, multiple systems, extensive evaluation data, compliance review, or changes to existing operating processes.</p>
+            </details>
+            <details>
+              <summary>What should an AI workflow automation consultant deliver?</summary>
+              <p>A consultant should deliver a bounded workflow definition, current-process baseline, input and output contracts, integration and permission design, representative evaluation set, human-review policy, monitoring, failure handling, security assumptions, rollout plan, operating runbook, and measurable acceptance evidence.</p>
+            </details>
+            <details>
+              <summary>Should AI workflows include revision checkpoints for quality control?</summary>
+              <p>Yes. Revision checkpoints should appear before consequential outputs or actions, after material model, prompt, retrieval, or tool changes, and when monitoring detects uncertain or unusual cases. Each checkpoint needs clear acceptance criteria, supporting evidence, an accountable reviewer, and a defined approve, edit, reject, or escalate path.</p>
+            </details>
+          </div>
+
+          <section class="readiness-actions"><p><strong>Move one bounded workflow into controlled production.</strong> Datrick can map dependencies, build the integration, create evaluation sets, define human review, add monitoring, prepare operating documentation, and train the team that will own it.</p><a class="button primary" data-cta-name="production_ai_workflow_end_to_inquiry" data-funnel-stage="content_to_inquiry" data-next-stage="written_scoping" href="index.html?service=AI+workflow+automation&amp;engagement_type=Assessment+%2F%20healthcheck&amp;utm_source=production_ai_workflow&amp;utm_medium=website&amp;utm_campaign=ai_workflow_scoping&amp;utm_content=article_end&amp;buyer_type=CTO+%2F+technical+leader#contact">Request a production workflow assessment</a></section>
+          <nav class="article-next" aria-label="Resource next steps"><a href="ai-workflow-automation-consulting-it-operations"><span>IT operations</span><strong>Scope an AI automation engagement</strong></a><a href="managed-human-evaluation-ai-agents"><span>Evaluation operations</span><strong>Review agent trajectories with experts</strong></a></nav>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

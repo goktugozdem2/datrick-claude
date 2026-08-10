@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Data Agent Cross-Region Deployment Assessment | Datrick</title>
+    <meta name="description" content="Assess Microsoft Fabric Data Agent capacity regions, cross-geo tenant settings, data residency, source compatibility, non-Fabric clients, migration, and rollout.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-cross-region-capacity-tenant-settings-deployment-assessment">
+    <meta property="og:title" content="Fabric Data Agent Cross-Region Deployment Assessment | Datrick">
+    <meta property="og:description" content="Map every Fabric Data Agent workspace, source capacity, AI processing boundary, client path, and migration control before rollout.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-cross-region-capacity-tenant-settings-deployment-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Cross-Region Capacity and Tenant Settings Deployment Assessment", "description": "Assess Microsoft Fabric Data Agent capacity regions, cross-geo tenant settings, data residency, source compatibility, non-Fabric clients, migration, and rollout.", "url": "https://datrick.com/microsoft-fabric-data-agent-cross-region-capacity-tenant-settings-deployment-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-cross-region-capacity-tenant-settings-deployment-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Can a Fabric Data Agent query a data source in a different capacity region?", "acceptedAnswer": {"@type": "Answer", "text": "No. Microsoft currently states that a Fabric Data Agent can't execute queries when the data source workspace capacity is in a different region from the Data Agent workspace capacity. Place the agent and every required source on compatible same-region capacities or redesign the deployment."}},
+            {"@type": "Question", "name": "What capacity does Fabric Data Agent require?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft currently lists a paid Fabric F2 or higher capacity, or a Power BI Premium per capacity P1 or higher capacity with Fabric enabled, as a prerequisite. The correct production size still depends on agent token use, generated source queries, concurrency, other workloads, and operational headroom."}},
+            {"@type": "Question", "name": "When are Fabric Data Agent cross-geo AI settings required?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft documents cross-geo processing and storage settings for customers whose Fabric capacity geography is outside the EU Data Boundary and the United States. Exact requirements depend on capacity location, tenant and delegated capacity settings, feature path, and current Microsoft guidance."}},
+            {"@type": "Question", "name": "Can non-Fabric clients change the Data Agent data-handling boundary?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Microsoft warns that when a Fabric Data Agent is consumed through services such as Microsoft Foundry, Copilot Studio, Microsoft 365 Copilot, or an MCP server, returned responses may leave Fabric's compliance boundary or geographic region and follow the connected service's terms and data-handling policies."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent cross-region deployment assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment commonly takes two to four weeks for one tenant, a defined set of capacities, workspaces, sources, clients, and target regions. It covers region mapping, tenant settings, data residency, source compatibility, permissions, capacity, migration constraints, validation, rollout, and rollback."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent deployment architecture</p>
+        <h1>A data agent cannot query across a region boundary you forgot to map.</h1>
+        <p class="page-lede">Validate capacity regions, tenant and delegated settings, AI processing and storage boundaries, data-source compatibility, non-Fabric clients, permissions, migration constraints, and production headroom before rollout.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_cross_region&amp;utm_medium=organic_content&amp;utm_campaign=capacity_tenant_settings_assessment&amp;utm_content=hero#inquiry-form">Describe the deployment risk</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>AI platform architecture</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#map">Region map</a><a href="#settings">Tenant settings</a><a href="#validation">Deployment tests</a><a href="#migration">Migration plan</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>A Fabric Data Agent can be configured correctly and still fail at runtime because its workspace capacity and a required data source workspace capacity are in different regions. Enabling a cross-geo AI setting does not remove that source-query restriction. It controls where AI processing or storage may occur; it does not make arbitrary cross-region Fabric data access valid.</p>
+        <p>Microsoft currently requires a paid F2 or higher Fabric capacity, or P1 or higher Power BI Premium capacity with Fabric enabled, plus the relevant tenant settings. For capacities outside the EU Data Boundary and the United States, Microsoft documents additional cross-geo processing and storage requirements. The deployment therefore needs one reconciled architecture across region, capacity, source, identity, policy, client, and cost.</p>
+
+        <section class="readiness-actions"><p><strong>Can you list the physical capacity region for the agent and every source it must query?</strong> If not, pause rollout before a region mismatch becomes a production incident.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_cross_region&amp;utm_medium=organic_content&amp;utm_campaign=capacity_tenant_settings_assessment&amp;utm_content=article_intro#inquiry-form">Send the workspace map</a><a class="button secondary" href="microsoft-fabric-ai-agent-observability-cost-governance-assessment">Assess capacity and cost</a></div></section>
+
+        <h2 id="map">Build a deployment map before enabling the agent</h2>
+        <p>Inventory the tenant home region, every Fabric capacity and SKU, workspace assignment, Data Agent workspace, source workspaces, source types, target clients, user groups, administrators, tenant and delegated settings, Purview policies, processing and storage boundaries, billing region, latency objective, disaster-recovery design, and planned migration.</p>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent cross-region deployment contract" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent cross-region deployment contract</caption>
+          <thead><tr><th scope="col">Architecture element</th><th scope="col">Required evidence</th><th scope="col">Failure risk</th><th scope="col">Deployment control</th></tr></thead>
+          <tbody>
+            <tr><td>Agent workspace</td><td>Workspace ID, assigned capacity, SKU, physical region, admins, environment, and lifecycle owner.</td><td>The agent is created in an incompatible or undersized capacity.</td><td>Approved regional placement, capacity headroom, ownership, and release path.</td></tr>
+            <tr><td>Source workspace</td><td>Every lakehouse, warehouse, semantic model, KQL database, ontology, and its capacity region.</td><td>Queries fail because a source capacity is in a different region.</td><td>Same-region placement or an explicitly approved redesign of source and agent boundaries.</td></tr>
+            <tr><td>AI processing</td><td>Capacity geography, Azure OpenAI availability, tenant setting, delegated scope, and policy approval.</td><td>Feature is unavailable or data is processed outside an expected boundary.</td><td>Documented setting, approved geography, affected groups, and validation evidence.</td></tr>
+            <tr><td>AI storage</td><td>Prompt, response, and conversation-history storage behavior, geography, retention, and deletion.</td><td>Data is retained or located differently than security, privacy, or customer commitments allow.</td><td>Approved setting, retention contract, clear-chat behavior, access, and audit.</td></tr>
+            <tr><td>Client path</td><td>Fabric, Foundry, Copilot Studio, M365 Copilot, MCP, custom app, identity path, and terms.</td><td>Responses leave Fabric's compliance or geographic boundary through another service.</td><td>Client-specific data-flow review, terms, permissions, minimization, and user notice.</td></tr>
+            <tr><td>Capacity economics</td><td>Input/output tokens, generated source queries, concurrency, other workloads, CU budget, and billing region.</td><td>Shared capacity throttles or shuts down operations during peak use.</td><td>Load test, budget, alerting, workload isolation, scaling, and rollback.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="settings">Separate source-region compatibility from cross-geo AI settings</h2>
+        <p>Microsoft's same-region source restriction is direct: the Data Agent can't execute queries when a data source workspace capacity is in a different region from the agent workspace capacity. A lakehouse on North Europe capacity and an agent on France Central capacity are Microsoft's example of an invalid pairing.</p>
+        <p>Cross-geo AI settings solve a different problem. Azure OpenAI models are available in selected data centers, so Microsoft can map processing to another region while treating data residency as a primary constraint and keeping mapping within the same geographic area where possible. Customers are billed using the Fabric pricing in their billing region, even when GPU processing occurs in a mapped consumption region.</p>
+        <p>Microsoft states that tenant-setting changes can take up to one hour to take effect. Record tenant-level and delegated capacity-level scope, included groups, effective time, and validation result. A screenshot of a switch is not proof that every target user, capacity, and client path works as intended.</p>
+
+        <h2 id="validation">Test the real deployment matrix</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent regional deployment validation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent regional deployment validation matrix</caption>
+          <thead><tr><th scope="col">Test family</th><th scope="col">Test</th><th scope="col">Pass condition</th><th scope="col">Remediation</th></tr></thead>
+          <tbody>
+            <tr><td>Same-region source</td><td>Run approved questions against every selected source on the intended capacity.</td><td>Generated query executes under each user's effective permissions and matches ground truth.</td><td>Workspace reassignment, agent relocation, source redesign, or excluded source.</td></tr>
+            <tr><td>Region mismatch</td><td>Prove expected failure for an intentionally incompatible source and capture diagnostics.</td><td>Failure is explicit, monitored, documented, and never presented as an empty business result.</td><td>Architecture correction and a tested incident runbook.</td></tr>
+            <tr><td>Setting scope</td><td>Test enabled, disabled, delegated, included, and excluded groups after propagation time.</td><td>Only approved users and capacities can use the feature, with predictable errors elsewhere.</td><td>Tenant or capacity setting, group assignment, propagation wait, or policy correction.</td></tr>
+            <tr><td>Data boundary</td><td>Trace prompt, source query, response, history, logs, and metadata for each geography and client.</td><td>Every processing, storage, and transfer path matches approved policy and customer terms.</td><td>Client restriction, data minimization, different region, setting change, or rollout block.</td></tr>
+            <tr><td>Non-Fabric client</td><td>Invoke through Foundry, Copilot Studio, M365 Copilot, MCP, or custom app as applicable.</td><td>Identity, permissions, data handling, response fidelity, logging, and deletion follow the client contract.</td><td>Integration redesign, OBO identity, separate agent, policy, or channel exclusion.</td></tr>
+            <tr><td>Capacity load</td><td>Run representative concurrency, token sizes, source queries, and competing Fabric workloads.</td><td>Latency, errors, CU use, source cost, and other workloads remain within objectives.</td><td>Capacity isolation, scaling, prompt/query optimization, quotas, or staged rollout.</td></tr>
+            <tr><td>Change and recovery</td><td>Reassign capacity, change settings, pause or scale, fail a source, and execute rollback in nonproduction.</td><td>Owners detect impact, preserve data, restore service, and reconcile behavior within targets.</td><td>Migration sequencing, freeze window, backups, rollback automation, or architecture revision.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Test effective business answers, not only successful connections. Same-region placement can make a query executable while schema selection, permissions, DLP, source instructions, or generated SQL still produce the wrong answer. Regional validation belongs inside the wider Data Agent accuracy and governance suite.</p>
+
+        <h2 id="migration">Move workspaces only through an evidence-backed plan</h2>
+        <p>Moving an agent or source to align regions can affect every item and consumer in the workspace. Microsoft documents that workspace reassignment cancels item jobs and that cross-region movement can be blocked by non-movable items. Capacity stability, permissions, source dependencies, semantic model refresh, shortcuts, pipelines, reports, APIs, credentials, schedules, and rollback all need review.</p>
+        <p>Prefer the smallest architecture change that satisfies source compatibility and data-residency requirements. Options include locating the agent beside authoritative sources, consolidating approved sources into a same-region serving layer, separating agents by region or domain, or retaining a governed non-conversational path for sources that can't move.</p>
+        <p>Keep source and destination capacities stable during reassignment. Validate inventory before the move, stop or drain jobs deliberately, reconcile item state and permissions afterward, rerun the Data Agent ground-truth suite, and preserve a tested rollback window. Do not discover non-movable items during the production change.</p>
+
+        <h2 id="assessment">Run a two-to-four-week deployment assessment</h2>
+        <ol>
+          <li>Select the tenant, target regions, Data Agents, capacities, workspaces, sources, clients, user groups, owners, and rollout deadline.</li>
+          <li>Inventory home region, physical capacity regions, SKUs, assignments, source dependencies, settings, delegated scopes, policies, identities, clients, and current failures.</li>
+          <li>Create the approved region and data-flow architecture with same-region source rules, AI processing and storage boundaries, client paths, capacity budget, and residual risks.</li>
+          <li>Test same-region queries, intentional mismatches, setting propagation and group scope, non-Fabric clients, permissions, policies, load, failure, and recovery.</li>
+          <li>Design any workspace or source migration with item compatibility, job cancellation, dependency, data, security, schedule, validation, and rollback controls.</li>
+          <li>Reconcile generated queries and answers after the architecture change; compare latency, CU use, source cost, and competing workload impact.</li>
+          <li>Deliver the region map, settings matrix, data-flow record, test evidence, migration plan, capacity forecast, runbooks, release gates, and go, limit, redesign, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Can a Fabric Data Agent query a data source in a different capacity region?</summary><p>No. Microsoft currently states that a Fabric Data Agent can't execute queries when the data source workspace capacity is in a different region from the Data Agent workspace capacity. Place the agent and every required source on compatible same-region capacities or redesign the deployment.</p></details>
+          <details><summary>What capacity does Fabric Data Agent require?</summary><p>Microsoft currently lists a paid Fabric F2 or higher capacity, or a Power BI Premium per capacity P1 or higher capacity with Fabric enabled, as a prerequisite. The correct production size still depends on agent token use, generated source queries, concurrency, other workloads, and operational headroom.</p></details>
+          <details><summary>When are Fabric Data Agent cross-geo AI settings required?</summary><p>Microsoft documents cross-geo processing and storage settings for customers whose Fabric capacity geography is outside the EU Data Boundary and the United States. Exact requirements depend on capacity location, tenant and delegated capacity settings, feature path, and current Microsoft guidance.</p></details>
+          <details><summary>Can non-Fabric clients change the Data Agent data-handling boundary?</summary><p>Yes. Microsoft warns that when a Fabric Data Agent is consumed through services such as Microsoft Foundry, Copilot Studio, Microsoft 365 Copilot, or an MCP server, returned responses may leave Fabric's compliance boundary or geographic region and follow the connected service's terms and data-handling policies.</p></details>
+          <details><summary>How long does a Fabric Data Agent cross-region deployment assessment take?</summary><p>A focused assessment commonly takes two to four weeks for one tenant, a defined set of capacities, workspaces, sources, clients, and target regions. It covers region mapping, tenant settings, data residency, source compatibility, permissions, capacity, migration constraints, validation, rollout, and rollback.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent">Fabric Data Agent prerequisites and same-region source limitation</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-tenant-settings">Fabric Data Agent cross-geo tenant settings and non-Fabric service warning</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/fundamentals/data-agent-consumption">Fabric Data Agent CU consumption, region mapping, and billing</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/admin/find-fabric-home-region">Find the Fabric tenant home region</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/admin/portal-workspace-capacity-reassignment">Fabric workspace capacity reassignment restrictions and migration issues</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the source the agent must query but whose workspace capacity region nobody has verified.</strong> Datrick can map the deployment, validate every setting and client path, test capacity behavior, and design a controlled regional migration when required.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_cross_region&amp;utm_medium=organic_content&amp;utm_campaign=capacity_tenant_settings_assessment&amp;utm_content=article_end#inquiry-form">Scope the deployment assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-implementation-evaluation-services"><span>Build the core agent</span><strong>Assess Data Agent implementation and evaluation</strong></a><a href="microsoft-fabric-ai-agent-observability-cost-governance-assessment"><span>Control production economics</span><strong>Assess Fabric AI capacity and cost</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

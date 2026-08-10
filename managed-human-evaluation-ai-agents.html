@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Managed Human Evaluation for AI Agents | Datrick</title>
+    <meta name="description" content="Design managed human evaluation for AI agents with expert trajectory review, calibrated rubrics, adjudication, risk-based sampling, and quality operations.">
+    <link rel="canonical" href="https://datrick.com/managed-human-evaluation-ai-agents">
+    <meta property="og:title" content="Managed Human Evaluation for AI Agents | Datrick">
+    <meta property="og:description" content="A practical operating model for expert human review of AI agent outcomes, tool calls, trajectories, side effects, and production risks.">
+    <meta property="og:url" content="https://datrick.com/managed-human-evaluation-ai-agents">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "headline": "Managed Human Evaluation for AI Agents and Their Trajectories",
+            "description": "Design managed human evaluation for AI agents with expert trajectory review, calibrated rubrics, adjudication, risk-based sampling, and quality operations.",
+            "url": "https://datrick.com/managed-human-evaluation-ai-agents",
+            "datePublished": "2026-07-14",
+            "dateModified": "2026-07-14",
+            "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"},
+            "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}},
+            "mainEntityOfPage": "https://datrick.com/managed-human-evaluation-ai-agents"
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is managed human evaluation for AI agents?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Managed human evaluation is an operated quality program in which qualified reviewers inspect representative agent trials using versioned tasks and rubrics. They evaluate outcomes, trajectories, tool use, evidence, side effects, safety, and business-policy compliance, while a delivery lead manages calibration, review, adjudication, reporting, and escalation."}
+              },
+              {
+                "@type": "Question",
+                "name": "Why review agent trajectories instead of only final answers?",
+                "acceptedAnswer": {"@type": "Answer", "text": "A final answer can look correct even when the agent used an unauthorized tool, ignored evidence, repeated calls, exposed data, changed unintended state, or recovered from a hidden failure by chance. Trajectory review shows the sequence of tool calls, observations, intermediate decisions, and side effects that produced the outcome."}
+              },
+              {
+                "@type": "Question",
+                "name": "When should human reviewers be used instead of LLM judges?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Use qualified human reviewers when criteria are subjective or changing, domain consequences are material, examples are sparse, automated graders disagree, new failure modes appear, or launch decisions require defensible evidence. Automated judges can handle stable, high-volume checks after they are calibrated against trusted human decisions."}
+              },
+              {
+                "@type": "Question",
+                "name": "What expertise do AI agent evaluators need?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Evaluators need enough domain, system, and tool knowledge to recognize correct outcomes and unsafe paths. A coding agent may require software engineers; a data agent may require SQL and analytics expertise; an operational agent may require process, access-control, or compliance knowledge. All reviewers also need task-specific qualification and calibration."}
+              },
+              {
+                "@type": "Question",
+                "name": "How do you start an outsourced human evaluation pilot?",
+                "acceptedAnswer": {"@type": "Answer", "text": "Start with one bounded agent workflow, a representative set of successful and failed traces, defined decisions, a versioned rubric, matched reviewers, independent quality review, security controls, and an adjudication owner. The pilot should report failure classes, agreement, rework, operational constraints, and a recommendation to expand, revise, automate, or stop."}
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Human-in-the-loop agent evaluation</p>
+          <h1>Managed human evaluation for AI agents and their trajectories.</h1>
+          <p class="page-lede">Inspect whether an agent reached the right outcome through an efficient, authorized, evidence-grounded path with expert reviewers, calibrated rubrics, independent QA, and accountable quality operations.</p>
+          <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=human_agent_evaluation&amp;utm_medium=organic_content&amp;utm_campaign=technical_ai_evaluation&amp;utm_content=hero#inquiry-form">Describe the agent evaluation queue</a></div>
+          <div class="article-meta"><a href="resources.html">Resource library</a><span>Agent trajectory review</span><span>10 min read</span></div>
+        </div>
+      </section>
+
+      <section class="section service-band">
+        <article class="article-body">
+          <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#scope">Scope</a><a href="#evidence">Evidence</a><a href="#operating-model">Operating model</a><a href="#pilot">Pilot</a></nav>
+
+          <p>An AI agent can produce the expected final answer and still take a path you would not permit in production. It may call the wrong tool, repeat an expensive action, ignore contrary evidence, cross an access boundary, modify unintended state, or recover from an error by chance. Outcome-only scoring does not expose those failures.</p>
+
+          <p>Managed human evaluation adds qualified judgment to the agent evaluation stack. Reviewers inspect representative trials, document criterion-level evidence, identify failure modes, and calibrate the automated graders that later scale stable checks. A delivery lead manages qualification, sampling, quality review, adjudication, reporting, and escalation so the buyer receives an operated program rather than an unmanaged reviewer pool.</p>
+
+          <section class="readiness-actions"><p><strong>Need experts to review agent behavior, not just polished answers?</strong> Datrick supports task and rubric design, trajectory review, tool-use evaluation, technical output review, reviewer calibration, adjudication, error analysis, and managed evaluation delivery.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=human_agent_evaluation&amp;utm_medium=organic_content&amp;utm_campaign=technical_ai_evaluation&amp;utm_content=article_intro#inquiry-form">Send one agent workflow</a><a class="button secondary" href="ai-model-training.html">Review the managed service</a></div></section>
+
+          <h2 id="scope">Separate evaluation from live human intervention</h2>
+          <p>Human-in-the-loop can describe two different operating problems. Runtime intervention routes a live decision to a person before an agent acts. Human evaluation reviews completed or simulated trials to measure quality and improve the system. A program may need both, but they have different latency, staffing, tooling, and accountability requirements.</p>
+
+          <div class="article-table-wrap" role="region" aria-label="Human involvement in AI agent systems" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Human involvement in AI agent systems</caption>
+              <thead><tr><th scope="col">Human role</th><th scope="col">When it happens</th><th scope="col">Decision supported</th><th scope="col">Typical output</th></tr></thead>
+              <tbody>
+                <tr><td>Runtime approval</td><td>Before a live agent takes a protected action.</td><td>May this specific action proceed?</td><td>Approve, reject, edit, or take over.</td></tr>
+                <tr><td>Exception handling</td><td>When confidence, policy, or system state triggers escalation.</td><td>How should this live case be resolved?</td><td>Resolution and operational handoff.</td></tr>
+                <tr><td>Human evaluation</td><td>After or during controlled trials and sampled production runs.</td><td>How well did the agent perform and why?</td><td>Scores, evidence, failure classes, and feedback.</td></tr>
+                <tr><td>Adjudication</td><td>After reviewers or graders disagree.</td><td>Which interpretation becomes authoritative?</td><td>Decision, rationale, and rubric update.</td></tr>
+              </tbody>
+            </table></div>
+
+          <p>This guide focuses on human evaluation. If the buyer actually needs continuous approval coverage for live transactions, define that as a separate operational service with explicit response times, decision authority, staffing windows, and liability boundaries.</p>
+
+          <h2 id="evidence">Review the outcome, trajectory, and side effects</h2>
+          <p>Anthropic defines a transcript, trace, or trajectory as the complete record of a trial, including outputs, tool calls, intermediate results, and interactions. Its <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">agent evaluation guidance</a> recommends combining automated evaluation with manual transcript review and systematic human evaluation. Google Cloud likewise distinguishes <a href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-agents">final-response evaluation from trajectory evaluation</a>.</p>
+
+          <div class="article-table-wrap" role="region" aria-label="Evidence for expert AI agent evaluation" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Evidence for expert AI agent evaluation</caption>
+              <thead><tr><th scope="col">Evidence layer</th><th scope="col">Reviewer questions</th><th scope="col">Failure hidden by final-answer scoring</th></tr></thead>
+              <tbody>
+                <tr><td>Task and environment</td><td>Was the task valid, representative, reproducible, and supplied with the required state?</td><td>The trial is marked failed because the environment or reference was broken.</td></tr>
+                <tr><td>Final outcome</td><td>Was the requested work completed correctly, completely, and in the required form?</td><td>The response sounds helpful but leaves the system unchanged.</td></tr>
+                <tr><td>Tool selection</td><td>Did the agent choose permitted tools and use the right one for each step?</td><td>The answer is correct only because an overprivileged tool exposed extra data.</td></tr>
+                <tr><td>Tool arguments and order</td><td>Were parameters, dependencies, sequence, retries, and stopping behavior appropriate?</td><td>A repeated write call creates a duplicate side effect.</td></tr>
+                <tr><td>Evidence use</td><td>Does the conclusion follow from observations, retrieved data, and tool results?</td><td>The agent states a plausible fact that no observed source supports.</td></tr>
+                <tr><td>Side effects and state</td><td>What changed, was it authorized, and can the result be reconciled or rolled back?</td><td>The visible answer is right while an unintended record is modified.</td></tr>
+                <tr><td>Efficiency</td><td>Were calls, tokens, latency, retries, and human escalations proportionate?</td><td>The task succeeds through an unnecessarily expensive loop.</td></tr>
+              </tbody>
+            </table></div>
+
+          <p>Preserve enough evidence to reconstruct each scored trial. A reviewer should not infer hidden tool results from the final answer, and a buyer should not accept an aggregate score that cannot be traced back to task, agent version, environment, rubric version, reviewer, and adjudication history.</p>
+
+          <h2>Use the cheapest trustworthy grader for each criterion</h2>
+          <p>Deterministic checks are best for observable rules such as schema validity, test results, required tool use, latency limits, and protected-action violations. Model-based graders help with stable qualitative criteria at volume. Humans are most valuable where judgment, domain meaning, new failure discovery, or grader calibration matters.</p>
+
+          <p>Microsoft's guidance on <a href="https://learn.microsoft.com/en-us/agents/architecture/common-evaluation-approaches">common agent evaluation approaches</a> recommends hybrid evaluation in which human graders audit and refine model-judge reasoning. Do not treat human review and automation as competing options. Use trusted human decisions to define and periodically test the automation boundary.</p>
+
+          <h2 id="operating-model">Build a managed reviewer pod, not a loose queue</h2>
+          <div class="article-table-wrap" role="region" aria-label="Managed human evaluation team roles" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Managed human evaluation team roles</caption>
+              <thead><tr><th scope="col">Role</th><th scope="col">Accountability</th><th scope="col">Why it matters</th></tr></thead>
+              <tbody>
+                <tr><td>Program lead</td><td>Scope, capacity, schedule, security, reporting, risks, and buyer communication.</td><td>One owner connects evaluation evidence to the buyer's release decision.</td></tr>
+                <tr><td>Task and rubric owner</td><td>Valid trials, criteria, examples, references, edge cases, and version control.</td><td>Reviewers need an authorized route for ambiguous or broken tasks.</td></tr>
+                <tr><td>Domain evaluator</td><td>Independent criterion-level review with cited evidence and confidence.</td><td>Expertise must match the agent's tools, data, workflow, and failure consequences.</td></tr>
+                <tr><td>Quality reviewer</td><td>Risk-based second pass, reviewer feedback, and drift detection.</td><td>Throughput alone cannot establish that first-pass judgments remain reliable.</td></tr>
+                <tr><td>Adjudicator</td><td>Resolve disagreement and authorize interpretations or rubric changes.</td><td>Borderline cases must produce a decision, not silent inconsistency.</td></tr>
+                <tr><td>Quality operations</td><td>Sampling, traceability, metrics, findings, rework, and delivery records.</td><td>The program must remain reconstructable as agents and tasks change.</td></tr>
+              </tbody>
+            </table></div>
+
+          <p>Reviewer profiles should follow the workflow. Coding and data agents may need software engineering, SQL, analytics, pipeline, or cloud-operations experience. Customer-service agents may need product policy and escalation knowledge. High-impact agents may need security, privacy, finance, legal, or regulated-domain review in addition to general usability judgment.</p>
+
+          <h2>Calibrate reviewers before using agreement as a metric</h2>
+          <p>Start with a representative anchor set containing clear passes, clear failures, hard borderline cases, tool errors, policy violations, inefficient successes, and broken tasks. Reviewers score independently, cite evidence, state confidence, and identify missing context. An adjudicator classifies disagreements and updates the rubric or examples when the instrument caused the problem.</p>
+
+          <p>Track criterion-level agreement, but do not optimize for agreement alone. Reviewers can agree because a rubric is narrow, because examples anchor them to the same wrong interpretation, or because the second reviewer saw the first answer. Preserve independent first passes and inspect disagreement by failure class, task family, reviewer cohort, and agent version.</p>
+
+          <h2>Sample by risk and novelty</h2>
+          <p>Review new agent versions, new tools, permission changes, high-impact actions, new customer segments, long trajectories, failed retries, low-confidence cases, grader disagreement, and out-of-distribution tasks more heavily. Stable low-risk classes can move toward automated grading and lighter audit only after evidence supports that change.</p>
+
+          <p>Keep a discovery sample of apparently successful runs. If humans only review known failures, the program cannot discover silent failure modes in traces that automated systems currently pass.</p>
+
+          <h2>Report decisions, failure classes, and limits</h2>
+          <p>A managed program should report more than completed reviews. Useful evidence includes valid-trial rate, outcome success, trajectory failure classes, critical side effects, reviewer disagreement, adjudication, rubric changes, grader-human divergence, rework, turnaround distribution, coverage gaps, and unresolved risks. Every aggregate should identify its sample, exclusions, and agent version.</p>
+
+          <p>Connect findings to action. A result should inform whether to revise a prompt, tool description, permission, workflow, model, environment, test case, grader, human-escalation rule, or release decision. A dashboard without an owner and response path is observation, not quality control.</p>
+
+          <h2 id="pilot">Start with a bounded outsourced evaluation pilot</h2>
+          <ol>
+            <li>Choose one agent workflow and define the release or product decision the evaluation must support.</li>
+            <li>Provide representative successful and failed trials, the agent version, environment details, tools, policies, and known risks.</li>
+            <li>Define outcome, trajectory, safety, efficiency, and business-policy criteria with observable evidence.</li>
+            <li>Match evaluator profiles to the domain and qualify them using realistic work samples.</li>
+            <li>Run independent calibration, classify disagreement, adjudicate hard cases, and revise the instrument.</li>
+            <li>Evaluate a controlled batch with risk-based quality review and task-level traceability.</li>
+            <li>Report failure taxonomy, grader gaps, operating constraints, and an expand, revise, automate, or stop recommendation.</li>
+          </ol>
+
+          <p>The pilot should be large enough to exercise important failure classes but bounded enough to inspect evidence deeply. Do not promise scale before task validity, reviewer fit, security, tooling, review rates, and turnaround behavior are visible.</p>
+
+          <h2>Questions to ask an AI agent evaluation provider</h2>
+          <ul>
+            <li>Which agent types, tools, domains, and technical outputs have your reviewers evaluated?</li>
+            <li>How do you distinguish final-answer quality from trajectory and side-effect quality?</li>
+            <li>How are reviewers qualified, calibrated, sampled, reviewed, and removed?</li>
+            <li>Who owns task defects, rubric changes, adjudication, and unresolved interpretations?</li>
+            <li>Can you preserve traceability across task, environment, agent, rubric, reviewer, and grader versions?</li>
+            <li>How do you protect prompts, traces, credentials, repositories, customer data, and benchmark leakage?</li>
+            <li>Which metrics drive a documented operational or release response?</li>
+          </ul>
+
+          <p>Use the <a href="managed-ai-model-evaluation-rfp">managed AI model evaluation RFP checklist</a> to turn these questions into procurement requirements. For a reviewer pod focused on SQL, BI, coding, and data workflows, see the <a href="ai-model-evaluation-team-data-analytics">data and analytics evaluation team guide</a>. Teams evaluating software agents can use the more specific <a href="coding-agent-evaluation-services">coding agent evaluation services guide</a>.</p>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-list">
+            <details><summary>What is managed human evaluation for AI agents?</summary><p>Managed human evaluation is an operated quality program in which qualified reviewers inspect representative agent trials using versioned tasks and rubrics. They evaluate outcomes, trajectories, tool use, evidence, side effects, safety, and business-policy compliance, while a delivery lead manages calibration, review, adjudication, reporting, and escalation.</p></details>
+            <details><summary>Why review agent trajectories instead of only final answers?</summary><p>A final answer can look correct even when the agent used an unauthorized tool, ignored evidence, repeated calls, exposed data, changed unintended state, or recovered from a hidden failure by chance. Trajectory review shows the sequence of tool calls, observations, intermediate decisions, and side effects that produced the outcome.</p></details>
+            <details><summary>When should human reviewers be used instead of LLM judges?</summary><p>Use qualified human reviewers when criteria are subjective or changing, domain consequences are material, examples are sparse, automated graders disagree, new failure modes appear, or launch decisions require defensible evidence. Automated judges can handle stable, high-volume checks after they are calibrated against trusted human decisions.</p></details>
+            <details><summary>What expertise do AI agent evaluators need?</summary><p>Evaluators need enough domain, system, and tool knowledge to recognize correct outcomes and unsafe paths. A coding agent may require software engineers; a data agent may require SQL and analytics expertise; an operational agent may require process, access-control, or compliance knowledge. All reviewers also need task-specific qualification and calibration.</p></details>
+            <details><summary>How do you start an outsourced human evaluation pilot?</summary><p>Start with one bounded agent workflow, a representative set of successful and failed traces, defined decisions, a versioned rubric, matched reviewers, independent quality review, security controls, and an adjudication owner. The pilot should report failure classes, agreement, rework, operational constraints, and a recommendation to expand, revise, automate, or stop.</p></details>
+          </div>
+
+          <section class="readiness-actions"><p><strong>Start with one agent workflow and a representative trace set.</strong> Datrick can review the evaluation decision, domain, evidence, rubric, security boundary, reviewer profile, expected volume, and quality model before proposing a pilot.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=human_agent_evaluation&amp;utm_medium=organic_content&amp;utm_campaign=technical_ai_evaluation&amp;utm_content=article_end#inquiry-form">Scope human agent evaluation</a></div></section>
+
+          <nav class="article-next" aria-label="Resource next steps"><a href="ai-model-evaluation-team-data-analytics"><span>Technical reviewers</span><strong>Data and analytics evaluation team</strong></a><a href="llm-as-judge-calibration-code"><span>Judge calibration</span><strong>Calibrate automated code evaluation</strong></a></nav>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

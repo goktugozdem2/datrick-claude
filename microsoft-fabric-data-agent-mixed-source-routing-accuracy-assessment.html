@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Data Agent Mixed-Source Routing Assessment | Datrick</title>
+    <meta name="description" content="Assess Microsoft Fabric Data Agent routing across SQL, semantic models, Eventhouse, Graph, ontology, and Azure AI Search with source contracts and regression tests.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-mixed-source-routing-accuracy-assessment">
+    <meta property="og:title" content="Fabric Data Agent Mixed-Source Routing Assessment | Datrick">
+    <meta property="og:description" content="Make one Data Agent choose the authoritative source, preserve permissions, combine evidence deliberately, and remain stable across runtime changes.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-mixed-source-routing-accuracy-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Mixed-Source Routing Accuracy Assessment", "description": "Assess Microsoft Fabric Data Agent routing across SQL, semantic models, Eventhouse, Graph, ontology, and Azure AI Search with source contracts and regression tests.", "url": "https://datrick.com/microsoft-fabric-data-agent-mixed-source-routing-accuracy-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-mixed-source-routing-accuracy-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "How many data sources can one Microsoft Fabric Data Agent use?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft's current documentation says one Fabric Data Agent can use up to five data sources in any combination. Supported categories include SQL sources, Eventhouse KQL databases, Power BI semantic models, Graph, ontology, and preview Azure AI Search indexes."}},
+            {"@type": "Question", "name": "How does Fabric Data Agent choose between multiple data sources?", "acceptedAnswer": {"@type": "Answer", "text": "The orchestrator evaluates the user question against available source metadata, schema, descriptions, instructions, and examples, then invokes the relevant query or retrieval tool. Clear non-overlapping source contracts and regression tests are required because overlapping domains can route a question to a plausible but non-authoritative source."}},
+            {"@type": "Question", "name": "Where should semantic model instructions go in a mixed-source Data Agent?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft says semantic-model-specific guidance belongs in Power BI Prep for AI because the DAX generation tool uses those AI instructions and verified answers. Agent-level instructions should contain cross-source routing rules and global behavior, not semantic-model query logic."}},
+            {"@type": "Question", "name": "Can a Fabric Data Agent combine structured and unstructured sources?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft's newer source-specific preview documentation describes combining Azure AI Search unstructured content with structured Data Agent sources. Validate tenant availability, source routing, permissions, evidence attribution, and failure behavior because some broader concept documentation may lag preview support."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent routing assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment commonly takes three to five weeks for one Data Agent, two to five sources, and a representative cross-source question set. It covers source authority, configuration asymmetries, permissions, routing ground truth, generated queries, answer synthesis, runtime comparison, and release controls."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent mixed-source routing</p>
+        <h1>Make the agent choose the source your business would trust.</h1>
+        <p class="page-lede">Define authority across SQL, semantic, real-time, graph, ontology, and document sources; prove source selection and permissions; and regression-test routing and answer synthesis before one conversational endpoint hides conflicting truths.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_routing&amp;utm_medium=organic_content&amp;utm_campaign=mixed_source_accuracy&amp;utm_content=hero#inquiry-form">Describe the source conflict</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Cross-source conversational analytics</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#contract">Source contracts</a><a href="#configuration">Configuration map</a><a href="#evaluation">Routing evaluation</a><a href="#operations">Security and runtime</a><a href="#pilot">Assessment plan</a></nav>
+
+        <p>A customer metric may exist in a curated semantic model, raw Lakehouse tables, a Warehouse mart, an Eventhouse stream, and a policy document. Each can return a defensible answer with a different grain, freshness, owner, permission boundary, and business meaning. A multi-source Data Agent fails when it chooses the technically relevant source instead of the authoritative source for the decision.</p>
+        <p>Fabric Data Agent supports up to five sources in one agent and uses orchestration, planning, and routing logic to invoke source-specific tools. Microsoft documents agent instructions, source descriptions, schema, metadata, and examples as routing context. The configuration surfaces differ by source type, so reliable routing requires an explicit authority model and source-specific evaluation rather than one generic prompt.</p>
+
+        <section class="readiness-actions"><p><strong>When two sources can answer the same question, which one is authoritative, for whom, and at what freshness?</strong> Write that rule before adding the second source.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_routing&amp;utm_medium=organic_content&amp;utm_campaign=mixed_source_accuracy&amp;utm_content=article_intro#inquiry-form">Send the sources and questions</a><a class="button secondary" href="microsoft-fabric-data-agent-implementation-evaluation-services">Review the broader Data Agent program</a></div></section>
+
+        <h2 id="contract">Create a source authority contract</h2>
+        <p>For every source, define the business domain, supported question types, authoritative metrics, grain, freshness, user cohort, access boundary, owner, query or retrieval tool, exclusions, and fallback. Specify what happens when sources disagree, a source is unavailable, a user lacks access, or a question needs evidence from more than one source.</p>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent source authority contract" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent source authority contract</caption>
+          <thead><tr><th scope="col">Source role</th><th scope="col">Authoritative for</th><th scope="col">Not authoritative for</th><th scope="col">Routing evidence</th></tr></thead>
+          <tbody>
+            <tr><td>Power BI semantic model</td><td>Governed measures, approved business dimensions, RLS-aware executive metrics, and verified answers.</td><td>Raw-detail exploration, operational telemetry, or document policy text.</td><td>Prep for AI schema, AI instructions, verified answers, Read permission, and route tests.</td></tr>
+            <tr><td>Lakehouse / Warehouse / SQL</td><td>Structured detail, governed relational queries, reconciliations, and source-specific exploration.</td><td>Metrics that must use curated semantic calculations unless explicitly approved.</td><td>Selected schema, source description, source instructions, SQL examples, and ground truth.</td></tr>
+            <tr><td>Eventhouse KQL</td><td>Fresh operational events, telemetry, time-series state, incidents, and bounded investigation.</td><td>Certified financial metrics or long-form policy explanations.</td><td>Event-time contract, selected KQL entities, instructions, examples, and latency tests.</td></tr>
+            <tr><td>Graph / Ontology</td><td>Relationship paths, domain entities, semantic context, and connected-data reasoning.</td><td>Bulk export, unsupported graph boundaries, or metrics better defined in a model.</td><td>Graph or ontology scope, descriptions, instructions where supported, and path tests.</td></tr>
+            <tr><td>Azure AI Search</td><td>Policies, procedures, contracts, manuals, and other indexed document evidence.</td><td>Numeric truth that should be calculated from governed structured data.</td><td>Index context, retrieval settings, citations, user access, and grounding evaluation.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="configuration">Respect each source's configuration model</h2>
+        <p>Keep agent-level instructions limited to rules that apply across sources: routing precedence, shared terminology, response format, ambiguity handling, evidence requirements, and no-answer behavior. Put table, join, filter, time, value, and query logic in source-specific instructions and examples where that source supports them.</p>
+        <p>Power BI semantic models are different. Microsoft says the DAX generation tool uses AI Instructions and Verified Answers from Prep for AI; semantic-model-specific instructions at the Data Agent level are ignored for DAX generation. Data Agent does not provide source descriptions or example queries for semantic models. Use agent instructions for cross-source routing and keep metric logic in the model's Prep for AI configuration.</p>
+        <p>SQL and Eventhouse sources support schema selection, source descriptions, instructions, and examples. Graph supports descriptions, instructions, and GQL examples but not node-and-edge schema selection. Ontology supports a description but not source instructions or examples. Azure AI Search uses index context, search type, document count, and response instructions. Do not copy one source's configuration pattern into another and assume it is effective.</p>
+        <p>Descriptions must distinguish sources rather than restate broad capabilities. Name the questions each source should answer, the freshness and grain it owns, and the nearest overlapping source it should not replace. If the boundary cannot be stated clearly, use separate Data Agents or redesign the source portfolio.</p>
+
+        <h2 id="evaluation">Build route-level ground truth</h2>
+        <p>Create a test set that records the expected source or source combination before testing answers. For each question, preserve user persona, expected route, prohibited routes, generated query or retrieved passages, deterministic result, final answer, evidence, latency, and severity. Include paraphrases, ambiguous acronyms, overlapping metrics, mixed fresh and historical data, permission differences, unavailable sources, and questions that should trigger clarification.</p>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent mixed-source routing evaluation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent mixed-source routing evaluation matrix</caption>
+          <thead><tr><th scope="col">Dimension</th><th scope="col">Test</th><th scope="col">Pass condition</th><th scope="col">Remediation</th></tr></thead>
+          <tbody>
+            <tr><td>Route accuracy</td><td>Expected versus selected source for direct, paraphrased, overlapping, and ambiguous questions.</td><td>Agent selects the authoritative source or asks a useful clarification.</td><td>Source contract, descriptions, routing instruction, schema focus, or agent separation.</td></tr>
+            <tr><td>Tool accuracy</td><td>Generated SQL, DAX, KQL, GQL, ontology response, or retrieved document chunks.</td><td>Tool output matches source-specific ground truth.</td><td>Source configuration, model Prep for AI, examples, index tuning, or source redesign.</td></tr>
+            <tr><td>Combination fidelity</td><td>Questions that need a metric plus explanation, event plus policy, or entity plus relationship.</td><td>Every component uses its authoritative source and preserves evidence and qualifiers.</td><td>Explicit decomposition, routing rule, multi-agent boundary, or unsupported-use refusal.</td></tr>
+            <tr><td>Conflict handling</td><td>Sources return different values, freshness, versions, or definitions.</td><td>Agent applies the approved precedence or exposes the conflict without inventing reconciliation.</td><td>Authority rule, freshness metadata, clarification, or human escalation.</td></tr>
+            <tr><td>Permission behavior</td><td>Users with different access to agent and underlying sources.</td><td>Each route respects effective source access and fails closed.</td><td>Permission correction, source separation, route redesign, or clear denied response.</td></tr>
+            <tr><td>Runtime stability</td><td>Standard versus preview routing over the identical source portfolio and question set.</td><td>Any route change is measured, approved, and reversible.</td><td>Runtime rollback, configuration change, release gate, or targeted monitoring.</td></tr>
+            <tr><td>Answer fidelity</td><td>Source attribution, units, freshness, citations, truncation, uncertainty, and final synthesis.</td><td>Answer preserves the evidence and never hides route limitations.</td><td>Response instruction, explicit evidence, clarification, or escalation.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Track route accuracy separately from answer accuracy. A correct answer from the wrong source can pass a shallow test and fail after the sources diverge. Record selected tools and run steps, then classify each failure by intent parsing, route, source configuration, generated query, retrieval, permission, source availability, or synthesis.</p>
+
+        <h2 id="operations">Prove effective access and runtime changes</h2>
+        <p>Sharing the Data Agent does not replace access to its underlying sources. Test each persona against every route, including a source the user cannot access, a source permission removed after publication, and a mixed question where only part of the evidence is allowed. The agent should not substitute a weaker source to bypass a denied authoritative source unless that fallback is explicitly approved and disclosed.</p>
+        <p>Runtime selection affects orchestration, planning, routing, and source query tools. Compare standard and preview runtimes with the same sources, configuration, identities, and question set before changing production. Monitor route distribution, wrong-source corrections, tool failures, authorization errors, latency by route, capacity, source freshness, answer feedback, and runtime or configuration releases.</p>
+        <p>Maintain a published baseline, versioned draft, source contracts, route test suite, and rollback procedure. Test source unavailable, timeout, empty result, stale source, conflicting evidence, unsupported preview source, and output truncation. A route failure should produce a clear limitation, not a confident answer assembled from whatever source remains available.</p>
+
+        <h2 id="pilot">Run a three-to-five-week routing assessment</h2>
+        <ol>
+          <li>Select one Data Agent, two to five sources, user cohorts, business owners, high-value cross-source questions, and measurable route targets.</li>
+          <li>Map source authority, overlap, grain, freshness, configuration support, permissions, tool behavior, runtime, and current failures.</li>
+          <li>Write source contracts, narrow schemas, configure Prep for AI where required, refine descriptions, instructions, examples, index context, and fallback rules.</li>
+          <li>Create route-level ground truth with expected and prohibited sources, query or retrieval evidence, deterministic results, and answer criteria.</li>
+          <li>Run route, tool, conflict, permission, source-outage, ambiguous-intent, mixed-evidence, runtime, latency, and adversarial tests.</li>
+          <li>Classify failures, remediate the correct layer, compare draft with published behavior, and prove release and rollback.</li>
+          <li>Deliver the authority matrix, source configurations, routing scorecard, permission matrix, regression suite, runbooks, and go, limit, split, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>How many data sources can one Microsoft Fabric Data Agent use?</summary><p>Microsoft's current documentation says one Fabric Data Agent can use up to five data sources in any combination. Supported categories include SQL sources, Eventhouse KQL databases, Power BI semantic models, Graph, ontology, and preview Azure AI Search indexes.</p></details>
+          <details><summary>How does Fabric Data Agent choose between multiple data sources?</summary><p>The orchestrator evaluates the user question against available source metadata, schema, descriptions, instructions, and examples, then invokes the relevant query or retrieval tool. Clear non-overlapping source contracts and regression tests are required because overlapping domains can route a question to a plausible but non-authoritative source.</p></details>
+          <details><summary>Where should semantic model instructions go in a mixed-source Data Agent?</summary><p>Microsoft says semantic-model-specific guidance belongs in Power BI Prep for AI because the DAX generation tool uses those AI instructions and verified answers. Agent-level instructions should contain cross-source routing rules and global behavior, not semantic-model query logic.</p></details>
+          <details><summary>Can a Fabric Data Agent combine structured and unstructured sources?</summary><p>Microsoft's newer source-specific preview documentation describes combining Azure AI Search unstructured content with structured Data Agent sources. Validate tenant availability, source routing, permissions, evidence attribution, and failure behavior because some broader concept documentation may lag preview support.</p></details>
+          <details><summary>How long does a Fabric Data Agent routing assessment take?</summary><p>A focused assessment commonly takes three to five weeks for one Data Agent, two to five sources, and a representative cross-source question set. It covers source authority, configuration asymmetries, permissions, routing ground truth, generated queries, answer synthesis, runtime comparison, and release controls.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent">Data Agent orchestration and multi-source configuration</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-add-datasources">Source-specific configuration support</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-configurations">Instructions, descriptions, and routing context</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/semantic-model-best-practices">Semantic model and Prep for AI routing guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-runtime">Standard and preview routing runtimes</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-sharing">Underlying source permissions and sharing</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the questions where two sources disagree or the agent chooses the wrong one.</strong> Datrick can turn that ambiguity into source contracts, route-level ground truth, measured regressions, and a controlled architecture decision.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_routing&amp;utm_medium=organic_content&amp;utm_campaign=mixed_source_accuracy&amp;utm_content=article_end#inquiry-form">Scope the routing assessment</a></div></section>
+        <p>If routing rules and source-query rules are mixed together, <a href="microsoft-fabric-data-agent-instruction-precedence-configuration-conflict-assessment">trace the instruction precedence and configuration layer</a> before adding more guidance.</p>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-power-bi-semantic-model-nl2dax-accuracy-assessment"><span>Test governed metrics</span><strong>Assess semantic model NL2DAX accuracy</strong></a><a href="microsoft-fabric-data-agent-multi-agent-orchestration-architecture-assessment"><span>Split the boundary</span><strong>Assess a multi-agent architecture</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

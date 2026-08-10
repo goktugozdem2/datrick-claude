@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Microsoft Fabric Data Agent Implementation and Evaluation Services | Datrick</title>
+    <meta name="description" content="Implement and evaluate Microsoft Fabric Data Agents across semantic models, warehouses, lakehouses, KQL, instructions, permissions, RLS, integrations, and answer quality.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-implementation-evaluation-services">
+    <meta property="og:title" content="Microsoft Fabric Data Agent Implementation and Evaluation Services | Datrick">
+    <meta property="og:description" content="Ground enterprise data agents in governed Fabric sources and prove answer quality before production rollout.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-implementation-evaluation-services">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Implementation and Evaluation Services", "description": "Implement and evaluate Microsoft Fabric Data Agents across semantic models, warehouses, lakehouses, KQL, instructions, permissions, RLS, integrations, and answer quality.", "url": "https://datrick.com/microsoft-fabric-data-agent-implementation-evaluation-services", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-implementation-evaluation-services"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is a Microsoft Fabric Data Agent?", "acceptedAnswer": {"@type": "Answer", "text": "A Fabric Data Agent is a conversational interface over supported structured data in Microsoft Fabric. It interprets a user's question, selects an approved source, and generates read-only SQL, DAX, or KQL queries to return grounded insights. It can be used in Fabric and integrated into supported agent experiences, but it needs prepared data, instructions, permissions, evaluation, and operating controls."}},
+            {"@type": "Question", "name": "Which data sources can a Fabric Data Agent use?", "acceptedAnswer": {"@type": "Answer", "text": "Current supported source patterns include selected Fabric structured data sources such as Power BI semantic models, Warehouses, Lakehouses through SQL analytics endpoints, and KQL databases or Eventhouse scenarios. Exact item and feature support changes, so implementation should verify current Microsoft documentation. Fabric Data Agents do not currently use unstructured PDF, DOCX, or TXT content as agent data sources."}},
+            {"@type": "Question", "name": "Does a Fabric Data Agent respect Power BI row-level security?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Microsoft documents that Fabric Data Agents honor the user's underlying data permissions, including Power BI row-level and column-level security. Sharing the agent does not automatically grant source access. Users need the required permissions on every source, and tests should verify positive and negative personas across all connected sources and integration paths."}},
+            {"@type": "Question", "name": "How do you evaluate Fabric Data Agent answer quality?", "acceptedAnswer": {"@type": "Answer", "text": "Create a versioned question set with approved interpretation, source, query, expected result, security persona, data snapshot, acceptable narrative, clarification and refusal behavior, and scoring threshold. Measure source selection, query correctness, calculation accuracy, grounding, security, relevance, truncation, reproducibility, latency, and usefulness. Repeat tests after source, schema, instruction, permission, model, or integration changes."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent implementation take?", "acceptedAnswer": {"@type": "Answer", "text": "A bounded implementation and controlled pilot can often be completed in three to five weeks for one business domain when supported data sources, owners, permissions, business definitions, target questions, capacity, and integration decisions are available. More time is required when data quality is poor, semantic models are ambiguous, sources conflict, security is complex, or the agent must be embedded into a larger application or multi-agent workflow."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Microsoft Fabric Data Agent implementation</p>
+        <h1>Ground enterprise data agents in governed Fabric sources and prove their answers.</h1>
+        <p class="page-lede">Prepare structured data, configure source guidance, preserve user permissions, integrate the agent, and evaluate SQL, DAX, and KQL results before production rollout.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=fabric_data_agent&amp;utm_medium=organic_content&amp;utm_campaign=fabric_data_agent_pilot_scoping&amp;utm_content=hero#inquiry-form">Describe the data-agent use case</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Enterprise data agents</span><span>9 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#contract">Use-case contract</a><a href="#data">Data preparation</a><a href="#security">Security and integration</a><a href="#evaluation">Agent evaluation</a><a href="#pilot">Pilot plan</a></nav>
+
+        <p>A Fabric Data Agent can make governed structured data easier to query, but natural language does not remove data engineering or analytical ambiguity. The agent can select the wrong source, generate a valid query for the wrong metric, inherit inconsistent definitions, return a truncated result, fail on a user's missing permission, or produce a confident explanation that is not sufficient for a material decision.</p>
+        <p>Datrick treats the agent as a controlled analytical product. AI can generate query candidates, instruction drafts, paraphrased questions, failure classifications, and regression tests. Approved definitions, deterministic queries, source permissions, business owners, and human review determine what the agent is allowed to answer and whether the response is correct.</p>
+
+        <section class="readiness-actions"><p><strong>Want a data agent but cannot define which questions, sources, and decisions it should support?</strong> Start with one business domain and a measurable question contract.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=fabric_data_agent&amp;utm_medium=organic_content&amp;utm_campaign=fabric_data_agent_pilot_scoping&amp;utm_content=article_intro#inquiry-form">Send the agent context</a><a class="button secondary" href="text-to-sql-evaluation-services">Review text-to-SQL evaluation</a></div></section>
+
+        <h2 id="contract">Define an agent use-case and answer contract</h2>
+        <p>Identify users, business decisions, supported questions, data sources, metrics, sensitive fields, prohibited topics, acceptable latency, languages, integration channel, audit needs, escalation, and measurable value. Define whether the agent provides exploration, an approved KPI answer, a lead for an analyst, or input to another agent. Do not let a conversational prototype silently become a decision system.</p>
+        <div class="article-table-wrap" role="region" aria-label="Microsoft Fabric Data Agent implementation contract" tabindex="0"><table class="article-table"><caption class="sr-only">Microsoft Fabric Data Agent implementation contract</caption>
+          <thead><tr><th scope="col">Implementation domain</th><th scope="col">Required evidence</th><th scope="col">Decision</th></tr></thead>
+          <tbody>
+            <tr><td>Business use</td><td>Personas, decisions, question catalogue, current workflow, time spent, risk, owner, and acceptance criteria.</td><td>Is the agent solving a bounded and measurable problem?</td></tr>
+            <tr><td>Source portfolio</td><td>Semantic models, Warehouses, Lakehouses, KQL databases, schemas, ownership, freshness, quality, lineage, and overlap.</td><td>Which source is authoritative for each question and metric?</td></tr>
+            <tr><td>Agent configuration</td><td>Description, instructions, example queries, source selection guidance, Prep for AI settings, verified answers, and versions.</td><td>Can the agent interpret organizational language without hiding ambiguity?</td></tr>
+            <tr><td>Security and governance</td><td>Agent sharing, source permissions, RLS/CLS, service principals, Purview, audit, DLP, retention, and sensitive scenarios.</td><td>Can every persona query only permitted data through every integration path?</td></tr>
+            <tr><td>Quality evaluation</td><td>Golden questions, expected queries and results, security negatives, unsupported questions, scoring, failures, and regression history.</td><td>Does answer quality meet the threshold for the intended use?</td></tr>
+            <tr><td>Operations</td><td>Capacity, deployment, monitoring, feedback, incidents, source change, ownership, support, review cadence, and exit criteria.</td><td>Can the organization operate and improve the agent after launch?</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="data">Prepare sources before configuring the agent</h2>
+        <p>Resolve ambiguous names, duplicate metrics, inconsistent time logic, undocumented grain, weak relationships, stale data, missing ownership, and conflicting sources. For semantic models, use explicit measures, descriptions, formats, hidden technical fields, synonyms, AI data schema, AI instructions, and verified answers where appropriate. For SQL and KQL sources, expose governed views, documented fields, stable types, tested joins, and query patterns that protect performance.</p>
+        <p>Fabric Data Agents are designed for structured SQL, DAX, and KQL read queries. They do not currently provide a general unstructured-document retrieval layer, and conversational results are limited and summarized rather than intended for complete data export. Route document-grounding, bulk extraction, write-back, workflow action, and high-volume API requirements to the correct complementary architecture instead of forcing them through the chat experience.</p>
+
+        <h2>Write instructions as guidance, not security</h2>
+        <p>Configure the agent description so people and orchestrators understand its purpose and boundaries. Add instructions for source selection, metric terminology, required filters, time interpretation, common ambiguities, clarification, unsupported questions, and response expectations. Include representative example queries with approved results.</p>
+        <p>Instructions can improve relevance but do not replace source logic, permissions, or deterministic validation. Do not use prose to repair an incorrect measure or prevent access to sensitive fields. Fix the durable source layer and enforce access through Fabric and underlying source controls.</p>
+
+        <h2 id="security">Design sharing, identity, and integration paths</h2>
+        <p>Sharing the Fabric Data Agent and sharing its underlying sources are separate decisions. Microsoft documents that users need minimum effective permission on every source they query and that Power BI RLS and CLS continue to apply. Test the published agent with representative users, not only with its creator or workspace administrator.</p>
+        <p>For application integration, choose user-delegated identity or a service principal based on the required security model. On-behalf-of patterns preserve user context; application identities require precise source permissions, credential lifecycle, workload identity controls, usage attribution, and abuse protection. Record whether Copilot Studio, Foundry agents, custom applications, or other orchestrators can invoke the agent and how permissions behave end to end. For remote tool consumption, use the <a href="microsoft-fabric-data-agent-mcp-server-implementation-security-assessment">Fabric Data Agent MCP server implementation and security guide</a> to assess the client and full data path.</p>
+        <p>Review Purview DLP, restricted access, audit, eDiscovery, sensitivity, retention, and employee or customer privacy requirements. Agent interactions and generated queries can become discoverable operational records. Define who can access them and how security, privacy, and support teams investigate incidents. For a low-code connected-agent path, use the <a href="microsoft-copilot-studio-fabric-data-agent-integration-assessment">Copilot Studio and Fabric Data Agent integration guide</a> to compare user and author authentication.</p>
+
+        <h2 id="evaluation">Build a deterministic agent evaluation suite</h2>
+        <div class="article-table-wrap" role="region" aria-label="Microsoft Fabric Data Agent evaluation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Microsoft Fabric Data Agent evaluation matrix</caption>
+          <thead><tr><th scope="col">Evaluation dimension</th><th scope="col">Test method</th><th scope="col">Failure example</th></tr></thead>
+          <tbody>
+            <tr><td>Source selection</td><td>Ask overlapping and domain-specific questions with an approved authoritative source for each.</td><td>Agent queries an operational table when the governed semantic model owns the KPI.</td></tr>
+            <tr><td>Query correctness</td><td>Compare generated SQL, DAX, or KQL semantics, filters, joins, grain, period, and result with deterministic controls.</td><td>Valid query calculates orders instead of recognized revenue.</td></tr>
+            <tr><td>Grounding and explanation</td><td>Verify cited source, cutoff, measure, query evidence, limitations, and narrative against the result.</td><td>Correct number is explained with an unsupported causal claim.</td></tr>
+            <tr><td>Security</td><td>Run positive and negative questions across RLS/CLS personas, missing permissions, sensitive fields, and integration identities.</td><td>Agent reveals a restricted region or fails open through an application identity.</td></tr>
+            <tr><td>Scope and truncation</td><td>Test large results, unsupported documents, write requests, exports, history-dependent follow-ups, and expected clarification.</td><td>User treats a summarized 25-row response as the complete dataset.</td></tr>
+            <tr><td>Reproducibility</td><td>Repeat questions against a fixed data snapshot and rerun after source, model, instruction, permission, or product changes.</td><td>Material answer changes without approved data or business-logic change.</td></tr>
+            <tr><td>Performance and utility</td><td>Measure latency, query cost, capacity use, correction effort, time saved, user confidence, and escalation rate.</td><td>Accurate response is too slow or requires more analyst correction than the current workflow.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Version each test with persona, prompt, expected interpretation, source, query, result, data snapshot, acceptable narrative, prohibited content, and threshold. Include paraphrases, ambiguity, missing filters, contradictory definitions, unsupported sources, stale data, malicious prompt content stored in data, and expected refusals or clarifications. AI can generate test variants but must not be the sole judge of its own answers.</p>
+
+        <h2>Operate feedback and source change</h2>
+        <p>Capture user question, persona, source selected, generated query where available, response, latency, error, feedback, expected behavior, and resolution. Separate access failures, source outages, data quality, semantic ambiguity, instruction gaps, product limitations, and user training. Fix the correct layer and add every material failure to regression coverage.</p>
+        <p>Review source schemas, measures, permissions, instructions, examples, verified answers, integrations, capacity, usage, sensitive topics, and owners on a defined cadence. Pause or restrict the agent when an upstream change invalidates approved answers or when evaluation falls below threshold.</p>
+
+        <h2 id="pilot">Run a three-to-five-week implementation pilot</h2>
+        <ol>
+          <li>Choose one business domain, named users, supported decisions, structured sources, measurable baseline, and accountable owners.</li>
+          <li>Assess source quality, authority, security, freshness, performance, metadata, and compatibility with current Data Agent capabilities.</li>
+          <li>Prepare governed views or semantic models and configure the agent description, instructions, source guidance, examples, and verified answers.</li>
+          <li>Implement agent and underlying-source permissions for representative users plus any approved application or service-principal path.</li>
+          <li>Create golden questions, deterministic queries, security negatives, ambiguity tests, unsupported requests, truncation cases, and utility scenarios.</li>
+          <li>Evaluate the published agent against fixed data, classify failures, remediate the durable layer, and repeat the suite.</li>
+          <li>Pilot with named users while monitoring questions, corrections, source behavior, capacity, security, and support demand.</li>
+          <li>Deliver source and agent configuration, evaluation suite, scorecard, security model, integration, runbooks, limitations, training, backlog, and rollout gates.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is a Microsoft Fabric Data Agent?</summary><p>A Fabric Data Agent is a conversational interface over supported structured data in Microsoft Fabric. It interprets a user's question, selects an approved source, and generates read-only SQL, DAX, or KQL queries to return grounded insights. It can be used in Fabric and integrated into supported agent experiences, but it needs prepared data, instructions, permissions, evaluation, and operating controls.</p></details>
+          <details><summary>Which data sources can a Fabric Data Agent use?</summary><p>Current supported source patterns include selected Fabric structured data sources such as Power BI semantic models, Warehouses, Lakehouses through SQL analytics endpoints, and KQL databases or Eventhouse scenarios. Exact item and feature support changes, so implementation should verify current Microsoft documentation. Fabric Data Agents do not currently use unstructured PDF, DOCX, or TXT content as agent data sources.</p></details>
+          <details><summary>Does a Fabric Data Agent respect Power BI row-level security?</summary><p>Yes. Microsoft documents that Fabric Data Agents honor the user's underlying data permissions, including Power BI row-level and column-level security. Sharing the agent does not automatically grant source access. Users need the required permissions on every source, and tests should verify positive and negative personas across all connected sources and integration paths.</p></details>
+          <details><summary>How do you evaluate Fabric Data Agent answer quality?</summary><p>Create a versioned question set with approved interpretation, source, query, expected result, security persona, data snapshot, acceptable narrative, clarification and refusal behavior, and scoring threshold. Measure source selection, query correctness, calculation accuracy, grounding, security, relevance, truncation, reproducibility, latency, and usefulness. Repeat tests after source, schema, instruction, permission, model, or integration changes.</p></details>
+          <details><summary>How long does a Fabric Data Agent implementation take?</summary><p>A bounded implementation and controlled pilot can often be completed in three to five weeks for one business domain when supported data sources, owners, permissions, business definitions, target questions, capacity, and integration decisions are available. More time is required when data quality is poor, semantic models are ambiguous, sources conflict, security is complex, or the agent must be embedded into a larger application or multi-agent workflow.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent">Microsoft Fabric Data Agent concepts and limitations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-sharing">Microsoft Fabric Data Agent sharing and permissions</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/semantic-model-best-practices">Microsoft semantic model guidance for Fabric Data Agents</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-service-principal">Microsoft service-principal authentication for Fabric Data Agents</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/fabric">Microsoft Foundry integration with Fabric Data Agents</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the questions people repeatedly ask analysts and the structured sources that already have accountable owners.</strong> Datrick can prepare the data, implement the agent, prove its answers, and define production rollout gates.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=fabric_data_agent&amp;utm_medium=organic_content&amp;utm_campaign=fabric_data_agent_pilot_scoping&amp;utm_content=article_end#inquiry-form">Scope a Fabric Data Agent pilot</a></div></section>
+        <p>Planning access for non-English users? Start by documenting Microsoft's current English-only support boundary, then <a href="microsoft-fabric-data-agent-multilingual-non-english-rollout-assessment">assess the translation layer as a separate application-owned risk</a>.</p>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-eventhouse-kql-nl2kql-accuracy-assessment"><span>Real-time KQL answers</span><strong>Assess Eventhouse NL2KQL accuracy</strong></a><a href="microsoft-fabric-data-agent-nl2sql-accuracy-sql-source-configuration-assessment"><span>Improve SQL answers</span><strong>Assess schema, instructions, and examples</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

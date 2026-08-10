@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Data Agent Graph NL2GQL Accuracy Assessment | Datrick</title>
+    <meta name="description" content="Assess Microsoft Fabric Data Agent Graph and NL2GQL accuracy across graph modeling, traversals, instructions, examples, permissions, refresh, capacity, and regression tests.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-graph-nl2gql-accuracy-assessment">
+    <meta property="og:title" content="Fabric Data Agent Graph NL2GQL Accuracy Assessment | Datrick">
+    <meta property="og:description" content="Turn relationship-rich Fabric data into governed conversational answers without ambiguous paths, explosive traversals, stale graphs, or unsupported production assumptions.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-graph-nl2gql-accuracy-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Graph and NL2GQL Accuracy Assessment", "description": "Assess Microsoft Fabric Data Agent Graph and NL2GQL accuracy across graph modeling, traversals, instructions, examples, permissions, refresh, capacity, and regression tests.", "url": "https://datrick.com/microsoft-fabric-data-agent-graph-nl2gql-accuracy-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-graph-nl2gql-accuracy-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Can a Microsoft Fabric Data Agent query a Fabric Graph Model?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Fabric Data Agent can use a Fabric Graph Model or graph queryset as a preview data source, translate natural-language questions into GQL, and execute the query against the underlying graph artifact. Users need Read permission on the graph item and its underlying data."}},
+            {"@type": "Question", "name": "How do we improve Fabric Data Agent NL2GQL accuracy?", "acceptedAnswer": {"@type": "Answer", "text": "Begin with a decision-specific graph model, define node and edge semantics, direction, keys, path rules, cardinality, freshness, and prohibited traversals, then add source instructions and validated question-GQL examples. Compare generated GQL and results with deterministic ground truth across direct, multi-hop, optional, cyclic, and no-path questions."}},
+            {"@type": "Question", "name": "Can we limit a Fabric Data Agent to selected graph nodes and edges?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft's current configuration documentation says Graph Model sources don't support schema selection inside Data Agent. If a user must not query particular nodes, edges, or properties, enforce that boundary in the graph item, underlying data, permissions, or a separate purpose-built graph rather than relying on instructions alone."}},
+            {"@type": "Question", "name": "Does Build agent with AI configure Fabric Graph sources?", "acceptedAnswer": {"@type": "Answer", "text": "No. Microsoft's current preview documentation limits Build agent with AI to SQL and Eventhouse sources and explicitly lists Graph as unsupported. Graph source instructions, descriptions, and question-GQL examples therefore require deliberate manual design, review, and testing."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent Graph assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment commonly takes three to five weeks for one relationship-rich decision domain, one Graph Model, one Data Agent, and a representative question set. It covers graph semantics, refresh, permissions, NL2GQL configuration, ground truth, query performance, answer evaluation, preview risk, and operating controls."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent + Graph</p>
+        <h1>Make every conversational path prove its graph logic.</h1>
+        <p class="page-lede">Model one relationship-rich decision, encode node and edge meaning, validate NL2GQL traversals against approved GQL, prove effective access, and bound refresh and capacity risk before users trust graph-powered answers.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_graph&amp;utm_medium=organic_content&amp;utm_campaign=graph_nl2gql_assessment&amp;utm_content=hero#inquiry-form">Describe the graph use case</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Graph-powered conversational analytics</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#contract">Use-case contract</a><a href="#model">Graph model</a><a href="#accuracy">NL2GQL accuracy</a><a href="#operations">Security and operations</a><a href="#pilot">Assessment plan</a></nav>
+
+        <p>A graph answer can be persuasive while following the wrong relationship, direction, path mode, hop count, duplicate route, or point-in-time state. A question about suppliers connected to a failed component can silently cross an obsolete edge, revisit a node, expand through millions of paths, or treat absence of a relationship as evidence of absence. Valid GQL does not guarantee valid business reasoning.</p>
+        <p>Fabric Data Agent can attach a Fabric Graph Model or graph queryset and use NL2GQL to answer natural-language questions over connected data. Microsoft documents support for source instructions, descriptions, and question-GQL examples, but not node-and-edge schema selection inside the Data Agent. The Graph and its Data Agent integration are also in preview. A production decision therefore starts with a deliberately bounded graph artifact and an explicit evidence standard.</p>
+
+        <section class="readiness-actions"><p><strong>Which decision requires relationships that a table or semantic model cannot express clearly?</strong> Start with that path, not a graph of everything.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_graph&amp;utm_medium=organic_content&amp;utm_campaign=graph_nl2gql_assessment&amp;utm_content=article_intro#inquiry-form">Send the graph and question context</a><a class="button secondary" href="microsoft-fabric-data-agent-implementation-evaluation-services">Review the broader Data Agent program</a></div></section>
+
+        <h2 id="contract">Define the graph question contract</h2>
+        <p>Select one relationship-rich business decision, accountable owner, Graph Model, user cohort, supported questions, prohibited uses, refresh expectation, permission boundary, and measurable outcome. Define whether the answer supports discovery, investigation, recommendation, or a regulated decision. Keep automated action outside the pilot until the path evidence, identity, and failure behavior are proven.</p>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent Graph assessment contract" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent Graph assessment contract</caption>
+          <thead><tr><th scope="col">Contract area</th><th scope="col">Required decision</th><th scope="col">Evidence</th><th scope="col">Failure to prevent</th></tr></thead>
+          <tbody>
+            <tr><td>Business path</td><td>Start and end entities, allowed relationships, direction, hop range, filters, ranking, and decision owner.</td><td>Approved question and GQL catalogue.</td><td>Agent follows a plausible but invalid path between entities.</td></tr>
+            <tr><td>Graph semantics</td><td>Node and edge labels, keys, properties, direction, cardinality, lifecycle, and source-of-truth rules.</td><td>Graph semantic map with owner and examples.</td><td>Same relationship label carries different meanings across sources.</td></tr>
+            <tr><td>Data boundary</td><td>Underlying Lakehouse tables, graph item, exposed properties, sensitive links, refresh, and retention.</td><td>Lineage, access matrix, and freshness evidence.</td><td>Instructions are mistaken for an enforceable node or edge boundary.</td></tr>
+            <tr><td>Quality</td><td>Expected GQL, path set, result, answer, clarification, latency, and severity-weighted threshold.</td><td>Versioned ground-truth and regression suite.</td><td>Natural-language answer hides an incorrect traversal or duplicate path.</td></tr>
+            <tr><td>Preview gate</td><td>Permitted environment, SLA assumption, fallback, expansion criteria, and accountable risk owner.</td><td>Documented go, limit, or stop decision.</td><td>Preview capability is treated as an unsupported production commitment.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="model">Build a decision-specific Graph Model</h2>
+        <p>Model only the entities and relationships required for the contracted decisions. Give every node a stable key and every edge an unambiguous business verb. Document edge direction, whether multiple edges can connect the same pair, effective dates, confidence or source where relevant, and how deletions or corrections propagate. If two relationship meanings need different filters or owners, give them distinct labels instead of relying on prompt interpretation.</p>
+        <p>Fabric Graph currently uses the labeled property graph model and does not support RDF. Microsoft also documents that graph schema evolution is not currently supported: structural changes require reingesting updated source data into a new model. Treat the graph definition as a governed interface. Version model changes, rebuild in a non-production workspace, rerun ground truth, and promote only after affected questions pass.</p>
+        <p>Graph data is ingested from underlying Lakehouse tables when the model is saved and can be refreshed manually or on a schedule in a shared workspace. Define the expected staleness of nodes, edges, and properties, then make it visible in evaluation and user answers where it changes the decision. A fresh Data Agent over a stale graph is still stale.</p>
+        <p>Do not depend on Data Agent instructions to hide sensitive graph structure. Microsoft's current documentation says Graph sources do not support schema selection inside the agent. Create a purpose-built graph, remove or separate restricted properties and relationships, and test Read permission on both the graph item and underlying data for every persona.</p>
+
+        <h2 id="accuracy">Evaluate NL2GQL as relationship reasoning</h2>
+        <p>Write source instructions for node and edge meaning, direction, path constraints, keys, required filters, date validity, cardinality, ranking, null behavior, duplicate control, and prohibited traversals. Add validated question-GQL examples for direct relationships, two- and multi-hop paths, shared entities, optional relationships, cycles, no-path results, temporal validity, and bounded aggregation. Microsoft documents that these examples are passed to NL2GQL to teach complex graph traversal patterns.</p>
+        <p>Build deterministic ground truth from approved GQL and stable data snapshots. For every question, preserve the intended interpretation, expected path mode, hop range, filters, distinct rules, result, answer, latency, identity, and severity. Include ambiguous entity names, missing edges, duplicate routes, disconnected components, high-degree hubs, cycles, stale refresh, unauthorized data, and deliberately explosive traversals.</p>
+
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent NL2GQL evaluation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent NL2GQL evaluation matrix</caption>
+          <thead><tr><th scope="col">Dimension</th><th scope="col">Test</th><th scope="col">Pass condition</th><th scope="col">Remediation</th></tr></thead>
+          <tbody>
+            <tr><td>Path correctness</td><td>Labels, direction, direct versus multi-hop, minimum and maximum hops, and shared-node constraints.</td><td>Generated GQL follows only the approved relationship pattern.</td><td>Clarify labels and instructions, add a validated example, or redesign the graph.</td></tr>
+            <tr><td>Path semantics</td><td>TRAIL, WALK, SIMPLE, ACYCLIC, optional paths, cycles, and duplicate route behavior.</td><td>Path mode and distinct logic match the business question.</td><td>Encode the required mode in GQL examples and regression tests.</td></tr>
+            <tr><td>Entity fidelity</td><td>Keys, aliases, labels, property types, missing nodes, edge validity, and temporal filters.</td><td>Results resolve the intended entities and valid point-in-time relationships.</td><td>Fix source keys, graph mapping, refresh, or disambiguation behavior.</td></tr>
+            <tr><td>Security</td><td>Graph item Read, underlying data access, sensitive properties, restricted relationships, and mixed personas.</td><td>Every user sees only authorized paths and denied questions fail closed.</td><td>Separate graph/source, reduce exposed properties, correct permissions, or reject the channel.</td></tr>
+            <tr><td>Performance</td><td>High-degree nodes, variable-length paths, unbounded matches, filters, LIMIT, aggregation, concurrency, and graph operations.</td><td>Correct GQL stays within agreed latency, result, and capacity thresholds.</td><td>Bound hops and results, filter earlier, precompute a relationship, or narrow the use case.</td></tr>
+            <tr><td>Answer fidelity</td><td>Path evidence, freshness, count basis, omitted links, truncation, uncertainty, and source attribution.</td><td>Answer preserves material qualifiers and never overstates what the graph proves.</td><td>Response instruction, evidence display, clarification, or human escalation.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Inspect the generated GQL, not only the prose. Graph traversal is especially sensitive to path explosion. Microsoft recommends bounded results and shallow, targeted traversals; unbounded matches can produce large result sets, and each additional hop can multiply the paths evaluated. Record query latency and graph operation consumption alongside correctness.</p>
+        <p>Do not expect Build agent with AI to create this configuration. Microsoft's current preview limits that assistant to SQL and Eventhouse sources and explicitly lists Graph as unsupported. Manually review every instruction and example, validate its GQL, and keep the configuration under the same release discipline as the Graph Model.</p>
+
+        <h2 id="operations">Prove permissions, refresh, and preview behavior</h2>
+        <p>Test the actual consumption channel and each user persona. Microsoft documents that a user needs Read permission on the graph item and the underlying data. Verify positive and negative cases, direct item sharing, workspace roles, access removal, and mixed-source routing. If a Data Agent combines Graph with SQL, semantic, KQL, ontology, or search sources, test whether each question routes to the intended source and respects every underlying permission boundary.</p>
+        <p>Monitor graph ingestion and scheduled refresh status, model version, source freshness, Data Agent routing, generated-query errors, graph operation consumption, latency, high-cardinality traversals, authorization failures, answer corrections, and user feedback. Correlate every material answer issue with the agent version, graph version, refresh, identity, generated GQL, and result metadata.</p>
+        <p>Graph and graph-powered AI reasoning are currently preview capabilities without an SLA and Microsoft says preview is not recommended for production workloads. Use a controlled pilot, bounded users and decisions, explicit fallback, and an accountable risk owner. A failed or stale graph query should produce a clear limitation, not a fabricated relationship.</p>
+
+        <h2 id="pilot">Run a three-to-five-week Graph assessment</h2>
+        <ol>
+          <li>Select one business decision that genuinely needs connected-data reasoning, one user cohort, one owner, and measurable success criteria.</li>
+          <li>Map authoritative tables, node and edge labels, keys, properties, direction, cardinality, validity, sensitive relationships, and refresh expectations.</li>
+          <li>Build a purpose-specific Graph Model and access boundary; document schema-change, rebuild, versioning, and fallback rules.</li>
+          <li>Attach the graph source, write routing and source instructions, and add validated question-GQL examples for representative traversal patterns.</li>
+          <li>Create deterministic ground truth and run path, identity, ambiguity, stale-data, no-path, cyclic, high-degree, capacity, and adversarial tests.</li>
+          <li>Classify failures by source data, graph model, refresh, instruction, example, generated GQL, permission, runtime, or final answer; remediate and repeat.</li>
+          <li>Deliver the graph contract, semantic map, configuration, evaluation scorecard, permission matrix, runbooks, and go, limit, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Can a Microsoft Fabric Data Agent query a Fabric Graph Model?</summary><p>Yes. Fabric Data Agent can use a Fabric Graph Model or graph queryset as a preview data source, translate natural-language questions into GQL, and execute the query against the underlying graph artifact. Users need Read permission on the graph item and its underlying data.</p></details>
+          <details><summary>How do we improve Fabric Data Agent NL2GQL accuracy?</summary><p>Begin with a decision-specific graph model, define node and edge semantics, direction, keys, path rules, cardinality, freshness, and prohibited traversals, then add source instructions and validated question-GQL examples. Compare generated GQL and results with deterministic ground truth across direct, multi-hop, optional, cyclic, and no-path questions.</p></details>
+          <details><summary>Can we limit a Fabric Data Agent to selected graph nodes and edges?</summary><p>Microsoft's current configuration documentation says Graph Model sources don't support schema selection inside Data Agent. If a user must not query particular nodes, edges, or properties, enforce that boundary in the graph item, underlying data, permissions, or a separate purpose-built graph rather than relying on instructions alone.</p></details>
+          <details><summary>Does Build agent with AI configure Fabric Graph sources?</summary><p>No. Microsoft's current preview documentation limits Build agent with AI to SQL and Eventhouse sources and explicitly lists Graph as unsupported. Graph source instructions, descriptions, and question-GQL examples therefore require deliberate manual design, review, and testing.</p></details>
+          <details><summary>How long does a Fabric Data Agent Graph assessment take?</summary><p>A focused assessment commonly takes three to five weeks for one relationship-rich decision domain, one Graph Model, one Data Agent, and a representative question set. It covers graph semantics, refresh, permissions, NL2GQL configuration, ground truth, query performance, answer evaluation, preview risk, and operating controls.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-add-datasources?tabs=gql">Configure Graph Model sources in Fabric Data Agent</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/graph/overview">Graph in Microsoft Fabric and graph-powered AI reasoning</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/graph/write-graph-pattern-queries">GQL graph patterns and path modes</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/graph/gql-query-performance">GQL query performance and bounded traversals</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/graph/manage-data">Graph ingestion, refresh, and scheduling</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-sharing">Data Agent and underlying Graph permissions</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-creator-agent-overview">Build agent with AI supported source limitations</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with one high-value relationship question and the GQL that proves it.</strong> Datrick can turn that path into a focused graph source, NL2GQL evaluation suite, and evidence-based rollout recommendation.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_graph&amp;utm_medium=organic_content&amp;utm_campaign=graph_nl2gql_assessment&amp;utm_content=article_end#inquiry-form">Scope the Graph assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-eventhouse-kql-nl2kql-accuracy-assessment"><span>Real-time relationship evidence</span><strong>Compare Eventhouse NL2KQL evaluation</strong></a><a href="microsoft-fabric-data-agent-azure-ai-search-unstructured-rag-assessment"><span>Ground answers in documents</span><strong>Assess Azure AI Search retrieval and citations</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

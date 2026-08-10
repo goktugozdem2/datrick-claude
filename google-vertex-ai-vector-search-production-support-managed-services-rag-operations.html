@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vertex AI Vector Search Production Support | Datrick</title>
+    <meta name="description" content="Managed Google Vertex AI Vector Search production support for indexes, endpoints, updates, recall, filters, replicas, Private Service Connect, monitoring, incidents, releases, and cost.">
+    <link rel="canonical" href="https://datrick.com/google-vertex-ai-vector-search-production-support-managed-services-rag-operations">
+    <meta property="og:title" content="Vertex AI Vector Search Production Support | Datrick">
+    <meta property="og:description" content="Operate Vertex AI Vector Search with accountable updates, recall, filtering, endpoint capacity, private access, monitoring, releases, and cost.">
+    <meta property="og:url" content="https://datrick.com/google-vertex-ai-vector-search-production-support-managed-services-rag-operations">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Service", "name": "Google Vertex AI Vector Search Production Support and Managed Services", "description": "Ongoing Google Vertex AI Vector Search operations covering source data, embeddings, batch or stream index updates, indexes, deployed indexes and endpoints, ScaNN configuration, approximate and brute-force recall evaluation, filters and crowding, shards and replicas, Private Service Connect, IAM, monitoring, incidents, releases, quotas, cost, runbooks, and reporting.", "url": "https://datrick.com/google-vertex-ai-vector-search-production-support-managed-services-rag-operations", "provider": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "areaServed": "Global", "audience": {"@type": "BusinessAudience", "audienceType": "Software companies, enterprises, managed service providers, and AI delivery firms operating production Google Vertex AI Vector Search and RAG workloads"}},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is included in Vertex AI Vector Search production support?", "acceptedAnswer": {"@type": "Answer", "text": "A defined service can include source data and embeddings, batch or stream updates, indexes, deployed indexes and endpoints, ScaNN configuration, approximate and brute-force recall evaluation, filters and crowding, shards and replicas, Private Service Connect, IAM, monitoring, incidents, releases, quotas, Google Cloud cost, runbooks, and reporting."}},
+            {"@type": "Question", "name": "How many replicas does a production Vertex AI Vector Search index need?", "acceptedAnswer": {"@type": "Answer", "text": "Google documents that a deployed index using fewer than two replicas per shard is excluded from the Vertex AI SLA. Set minReplicaCount to at least two for SLA eligibility and validate additional headroom against workload, CPU, memory, latency, failover, autoscaling limits, quotas, and cost."}},
+            {"@type": "Question", "name": "How should Vertex AI Vector Search recall be tested?", "acceptedAnswer": {"@type": "Answer", "text": "Use labelled production-like queries and compare approximate search against brute-force ground truth. Test approximate neighbor count, neighbor count, fraction of leaf nodes searched, index build parameters, filters, crowding, shards, embeddings, concurrency, latency, cost, and grounded-answer quality before accepting a configuration."}},
+            {"@type": "Question", "name": "Should Vertex AI Vector Search use batch or stream updates?", "acceptedAnswer": {"@type": "Answer", "text": "Batch updates use files in Cloud Storage and suit controlled bulk refreshes. Stream updates use upsert and delete operations that reach deployed indexes in near real time. Select based on freshness, throughput, deletion, reconciliation, quota, rollback, recovery, and cost requirements, then test the complete source-to-query path."}},
+            {"@type": "Question", "name": "How long does Vertex AI Vector Search managed support onboarding take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused onboarding commonly takes two to four weeks for a representative index, endpoint, and consuming RAG workflow. It covers updates, retrieval quality, filtering, shard and replica capacity, private access, monitoring, release and recovery controls, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Google Cloud VectorOps</p>
+        <h1>Autoscaling does not prove that a deployed index has enough recall or replica headroom.</h1>
+        <p class="page-lede">Operate Vertex AI Vector Search with accountable data updates, ScaNN recall, filters and crowding, index and endpoint releases, shard and replica capacity, Private Service Connect, monitoring, quotas, and cost.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=vertex_vector_search_support&amp;utm_medium=organic_content&amp;utm_campaign=vertex_vector_rag_operations&amp;utm_content=hero#inquiry-form">Describe the Vertex estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Google Cloud VectorOps</span><span>14 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Service boundary</a><a href="#scope">Operating scope</a><a href="#relevance">Recall and capacity</a><a href="#incidents">Incident response</a><a href="#onboarding">Onboarding</a></nav>
+
+        <p>Vertex AI Vector Search can build managed ScaNN indexes, accept batch or streaming updates, deploy an index to an IndexEndpoint, autoscale replicas between configured limits, reshuffle shards as data changes, filter and diversify neighbors, expose Cloud Monitoring metrics, and serve through public, VPC-peered, or Private Service Connect patterns. Those controls do not decide who owns a streaming update that was accepted but not visible to the application, a low approximate-neighbor count that loses relevant evidence, an index with one replica per shard and no SLA coverage, a quota that blocks scale-out, a filter namespace that leaks a tenant cohort, or a new index that was deployed without a relevance rollback path.</p>
+        <p>Datrick provides an ongoing operating layer for an agreed Vertex AI Vector Search estate. Named engineers correlate authoritative sources, Cloud Storage batches or streaming upserts and deletes, datapoint IDs, embeddings, indexes, deployed indexes and endpoints, ScaNN build and query parameters, filters and crowding, labelled recall, shards and replicas, machine types, autoscaling, IAM, private connectivity, monitoring, quotas, releases, Google Cloud cost, and business outcomes. Google Cloud support remains the escalation path for platform defects. Datrick owns the client-specific diagnosis, containment, validation, communication, change, and prevention accepted in the service boundary.</p>
+
+        <section class="readiness-actions"><p><strong>Do you have Vertex AI Vector Search in production but no team accountable for turning update drift, recall loss, filter defects, replica pressure, private-network failures, quota ceilings, or index-release risk into a verified outcome?</strong> Start with one representative index, deployed endpoint, and consuming search or RAG workflow.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=vertex_vector_search_support&amp;utm_medium=organic_content&amp;utm_campaign=vertex_vector_rag_operations&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" href="ai-workflows.html">Review AI workflow operations</a></div></section>
+
+        <h2 id="boundary">Define ownership from source datapoint to index, deployed endpoint, retrieved evidence, citation, and business answer</h2>
+        <p>A production path can include source documents or events; embedding generation; Cloud Storage files or streaming upserts and deletes; datapoint IDs, dense or sparse embeddings, restricts and crowding tags; an Index resource; a DeployedIndex on an IndexEndpoint; ScaNN search and filters; an agent or application; answer synthesis and citations; and the target workflow. Name which layers the managed service owns, observes, changes, coordinates, or excludes.</p>
+        <p>Document Google Cloud organizations, folders, projects, regions and service accounts; source systems, update method and datapoint IDs; embedding model and dimensions; indexes and versions; endpoint type and deployed index IDs; shard size, machine type and replica limits; index build and query parameters; namespaces, numeric filters and crowding; freshness, recall, latency and availability SLOs; IAM, VPC, PSC and DNS; quotas, monitoring, support hours, severity, change authority, budget, fallback, and Google escalation.</p>
+
+        <h2 id="scope">Operate the complete Vertex AI Vector Search production surface</h2>
+        <div class="article-table-wrap" role="region" aria-label="Vertex AI Vector Search production support scope" tabindex="0"><table class="article-table"><caption class="sr-only">Vertex AI Vector Search production support scope</caption>
+          <thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead>
+          <tbody>
+            <tr><td>Sources and index updates</td><td>Authoritative records, embedding generation, Cloud Storage batch files or streaming upserts and deletes, unique datapoint IDs, dense and sparse vectors, restricts, crowding tags, retries, backfill, deletion, and reconciliation.</td><td>Source owner, update method, freshness and deletion SLOs, idempotency, embedding authority, quota, replay authority, and exception route.</td></tr>
+            <tr><td>Index and deployment lifecycle</td><td>Index resources, update configuration, index builds and updates, DeployedIndex IDs, IndexEndpoints, public or private access, deployment, undeployment, blue-green index versions, migration, retirement, and compatibility.</td><td>Source of truth, environment and naming, build window, endpoint target, deployment time, readiness, cutover, old-index retention, and rollback.</td></tr>
+            <tr><td>Retrieval and evaluation</td><td>ScaNN configuration, brute-force ground truth, approximate neighbor count, neighbor count, fraction of leaf nodes searched, dense or sparse retrieval, filters, numeric restricts, crowding, reranking, recall, latency, drift, and grounded-answer evaluation.</td><td>Labelled cohorts, acceptable recall, filter and tenant negatives, embedding compatibility, accuracy-latency-cost trade-off, reviewer, and business consequence.</td></tr>
+            <tr><td>Shards, replicas, and capacity</td><td>Shard size and current shards, machine type, minimum and maximum replicas, current replicas, autoscaling, CPU and memory headroom, query concurrency, resharding, node quota, load shedding, availability, and capacity forecast.</td><td>SLA eligibility, traffic and growth profile, two-or-more replica policy, 60 percent headroom guidance, scale authority, quota process, availability, and budget.</td></tr>
+            <tr><td>Identity and private networking</td><td>IAM roles and service accounts, VPC Service Controls where applicable, public endpoint exposure, VPC peering or Private Service Connect, project allowlists, service connection policy or forwarding rules, addresses, routes, firewall, DNS, access logs, credentials, and break glass.</td><td>Least privilege, project and network ownership, public exposure, tenant isolation, logging cost, connection-string ownership, credential rotation, audit, and incident route.</td></tr>
+            <tr><td>Observability and continuity</td><td>Current shard and replica metrics, request latency and errors, access logs where enabled, update jobs, long-running operations, endpoint and connectivity probes, quota, source-to-index samples, exact recall checks, dependency fallback, RTO, and RPO.</td><td>Metric coverage and retention, alert owner, source-of-truth recovery, rebuild and redeploy procedure, regional strategy, fallback, and Google escalation.</td></tr>
+            <tr><td>Release, quota, and value</td><td>Source contracts, embeddings, data files or stream clients, index and query configuration, deployed index topology, IAM and networking, application versions, tests, rollout, rollback, index build and update cost, serving machines, logs, model cost, attribution, and forecast.</td><td>Change window, approval, compatibility, concurrent operation and throughput quotas, budget, canary, rollback, and acceptance evidence.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="relevance">Treat recall, update method, filters, shards, replicas, networking, quotas, and cost as one design</h2>
+        <p>Approximate search trades exhaustive comparison for lower latency and scale. Google documents that increasing approximate-neighbor count or the fraction of leaf nodes searched can improve recall while increasing latency and compute cost. Maintain labelled queries and a brute-force ground-truth baseline across tenant, filter, language, content-age and business cohorts. Measure retrieval quality independently from endpoint success, current replica count and application answer quality.</p>
+        <p>Batch and stream updates have different operational contracts. Batch updates use files in Cloud Storage and fit controlled bulk refreshes; stream updates use upsert and delete calls that propagate to deployed indexes in near real time. Neither removes the need for stable datapoint IDs, item-level failure handling, source-to-index reconciliation, deletion tests, quota monitoring, freshness samples, and recovery from an incorrect embedding or metadata release.</p>
+        <p>A DeployedIndex autoscaling policy operates between configured minimum and maximum replicas. Google documents that fewer than two replicas per shard excludes the deployment from the Vertex AI SLA and recommends additional replicas when CPU or memory is consistently around 60 percent. Current shard and replica metrics are necessary but not sufficient: benchmark concurrency, latency, failover, resharding, scale lag and quota exhaustion with the selected machine type and cost ceiling.</p>
+        <p>Filtering and crowding change what “nearest” means. Namespace allow and deny tokens, numeric restrictions and per-crowding limits can intentionally remove otherwise relevant neighbors, but a metadata or policy error can also hide or expose evidence. Validate positive and negative cohorts through the exact endpoint and network path used by production.</p>
+
+        <h2 id="incidents">Distinguish update, index, recall, filter, replica, network, quota, release, and cost failures</h2>
+        <div class="article-table-wrap" role="region" aria-label="Vertex AI Vector Search production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Vertex AI Vector Search production incident matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead>
+          <tbody>
+            <tr><td>Datapoints are missing, stale, duplicated, or not deleted</td><td>Authoritative source and event time, datapoint ID, batch file and update operation or stream response, index update method, restricts and crowding tags, deployed index version, sampled query, application cache, quota, and recent retry.</td><td>Pause consequential automation, stop unsafe replay, isolate affected IDs, restore the accepted update client or batch, use source fallback, and disclose freshness risk.</td><td>Stable-ID contract, item-level update ledger, source-to-index reconciliation, deletion test, quota alarm, freshness SLO, sampling, idempotent retry, and fallback.</td></tr>
+            <tr><td>Approximate retrieval loses expected evidence</td><td>Labelled query and brute-force neighbors, approximate neighbor count, neighbor count, leaf fraction, index build parameters, shard size, embeddings, filters, crowding, reranking, latency, cost, and release.</td><td>Restore accepted index and query settings, increase search breadth within tested limits, narrow affected cohorts, use validated brute-force or lexical fallback, and block high-consequence automation.</td><td>Recall and ranking thresholds, ground-truth suite, filter and tenant negatives, query-cohort canary, model compatibility gate, drift monitoring, cost limit, and rollback.</td></tr>
+            <tr><td>Index build, update, deployment, or cutover is incomplete</td><td>Long-running operation, Index and DeployedIndex resource, endpoint target, deployed ID, build or update logs, source file, version, current traffic route, shard and replica metrics, IAM, quota, and recent change.</td><td>Keep the last accepted deployed index, stop cutover, preserve source files and configuration, avoid overlapping operations, restore quota or permissions, and preserve evidence.</td><td>Infrastructure and index as code, blue-green IDs, readiness and smoke checks, concurrent-operation quota precheck, deployment-time baseline, old-index retention, and rollback.</td></tr>
+            <tr><td>Latency or availability degrades at replica or quota ceiling</td><td>Current shards and replicas, min and max replicas, machine type, CPU and memory, QPS and latency, autoscaling lag, errors, deployed-node quota, reshard event, workload spike, availability objective, and recent config.</td><td>Protect critical traffic, shed nonessential load, raise an approved max or quota, add replica headroom, avoid retry storms, use a tested fallback, and communicate impact and cost.</td><td>Two-or-more replica policy, load and failure test, 60 percent headroom alarm, quota process, scale-lag runbook, capacity forecast, load shedding, and budget guardrail.</td></tr>
+            <tr><td>Filter, IAM, PSC, VPC, firewall, or DNS denies or exposes data</td><td>Caller service account and IAM, query namespaces and numeric filters, tenant cohort and negatives, endpoint type, PSC project allowlist and service attachment, forwarding rule and address, VPC route and firewall, DNS, access logs, VPC Service Controls, and recent change.</td><td>Revoke unsafe access, stop public fallback, restore accepted filter and private path, block affected tenant queries, use approved break glass, preserve logs, and notify the owner.</td><td>Effective-access matrix, mandatory filter tests, denied-tenant negatives, least privilege, network-as-code, PSC canary, credential rotation, logging and audit alerts.</td></tr>
+            <tr><td>Recovery, release, dependency, or cost control fails</td><td>Authoritative source and embedding rebuild path, index files and definitions, deployed endpoints, query evaluation, IAM and network config, model dependency, quotas, build and update charges, serving machines, logs, model cost, and recent release.</td><td>Stop cutover, preserve current index and source artifacts, rebuild and deploy in isolation, restore accepted model and query settings, cap noncritical consumption, and communicate RTO, quality, or budget risk.</td><td>Rebuild and redeploy exercise, recovery checklist, release matrix, index and embedding rollback, canary evaluation, cost attribution, forecast, alarms, and fallback.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>A retry is not automatically safe. Before resubmitting a batch, replaying streaming upserts, deleting datapoints, rebuilding an index, deploying to an endpoint, changing replica limits, altering PSC, or reopening traffic, determine which updates succeeded, which index version and deployed ID serve queries, whether filters and embeddings changed, whether autoscaling or quota is the actual constraint, and whether the application already acted on a response. Reconcile source, index, endpoint, query, identity, application, and business state first.</p>
+
+        <h2>Release source contracts, embeddings, indexes, endpoints, filters, capacity, access, and applications together</h2>
+        <p>A production Vertex AI Vector Search release includes source contracts, batch files or stream clients, datapoint IDs, embedding model and dimensions, Index and DeployedIndex configuration, query breadth, filters and crowding, shard and replica topology, endpoint and PSC configuration, IAM, monitoring, quotas, application versions, budgets, rollout, and rollback. A valid Google Cloud change can still alter freshness, recall, latency, access, availability, and cost.</p>
+        <p>Before release, ingest a representative corpus; reconcile datapoints and deletes; compare approximate retrieval against brute-force ground truth; run filter, crowding and tenant negatives; benchmark realistic concurrency; inspect shards, replicas, scale lag and quota; rehearse endpoint or network failure; rebuild and redeploy from source artifacts; canary the application, index, embedding and filter change together; and preserve the prior accepted index and endpoint route.</p>
+
+        <h2 id="onboarding">Onboard through inventory, baselines, controlled failures, and shadow operations</h2>
+        <ol>
+          <li><strong>Inventory:</strong> Google organizations, projects, regions, sources, update clients, Cloud Storage files, indexes, deployed indexes, endpoints, embeddings, queries, filters, replicas, identities, networks, quotas, applications, and outcomes.</li>
+          <li><strong>Responsibility:</strong> define supported layers, freshness, recall, latency and availability SLOs, severity, access, change authority, budget, dependencies, fallback, Google escalation, and exclusions.</li>
+          <li><strong>Baseline:</strong> measure source and index coverage, update and deletion lag, query-cohort recall and latency, shards and replicas, capacity headroom, autoscaling, quota, access, private connectivity, build and serving cost, and incidents.</li>
+          <li><strong>Controls:</strong> validate datapoint IDs, batch or stream semantics, exact recall baselines, filters and crowding, replica policy, quotas, least privilege, alerts, rebuild and redeploy, releases, rollback, attribution, and runbooks.</li>
+          <li><strong>Exercise:</strong> rehearse a failed update, stale datapoint, recall regression, filter omission, one-replica exposure, quota ceiling, scale lag, PSC or DNS outage, IAM denial, rebuild, embedding dependency outage, and unsafe retry.</li>
+          <li><strong>Transition:</strong> operate in shadow, close or accept material gaps, publish runbooks and escalation routes, and accept the steady-state support scope.</li>
+        </ol>
+
+        <section class="readiness-actions"><p><strong>Start with the Vertex AI Vector Search index and endpoint that already influences customer, financial, operational, compliance, or workforce decisions.</strong> Datrick can define the operating boundary, close material control gaps, and transition one representative search or RAG workload into managed support.</p><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=vertex_vector_search_support&amp;utm_medium=organic_content&amp;utm_campaign=vertex_vector_rag_operations&amp;utm_content=article_end#inquiry-form">Request a Vertex VectorOps review</a></section>
+
+        <h2>Official references and adjacent operating guides</h2>
+        <ul>
+          <li><a href="https://cloud.google.com/vertex-ai/docs/vector-search/overview">Vertex AI Vector Search overview and pricing model</a></li>
+          <li><a href="https://cloud.google.com/vertex-ai/docs/vector-search/query-index-public-endpoint">Query-time recall, filtering, crowding, and performance settings</a></li>
+          <li><a href="https://cloud.google.com/vertex-ai/docs/vector-search/private-service-connect">Vertex AI Vector Search with Private Service Connect</a></li>
+          <li><a href="https://cloud.google.com/vertex-ai/docs/vector-search/monitor">Monitor deployed Vector Search shards and replicas</a></li>
+          <li><a href="https://cloud.google.com/vertex-ai/docs/quotas">Vertex AI Vector Search quotas and limits</a></li>
+          <li><a href="https://cloud.google.com/vertex-ai/docs/reference/rpc/google.cloud.aiplatform.v1">Vertex AI Index update methods and deployment resources</a></li>
+          <li><a href="https://cloud.google.com/vertex-ai/docs/release-notes">Vertex AI release notes</a></li>
+          <li><a href="redis-vector-search-production-support-managed-services-rag-operations">Redis vector search production support</a></li>
+          <li><a href="ai-workflows.html">Production AI workflow automation and operations</a></li>
+          <li><a href="white-label-ai-agent-operations-managed-support-for-msps">White-label AI agent managed support for MSPs</a></li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is included in Vertex AI Vector Search production support?</summary><p>A defined service can include source data and embeddings, batch or stream updates, indexes, deployed indexes and endpoints, ScaNN configuration, approximate and brute-force recall evaluation, filters and crowding, shards and replicas, Private Service Connect, IAM, monitoring, incidents, releases, quotas, Google Cloud cost, runbooks, and reporting.</p></details>
+          <details><summary>How many replicas does a production Vertex AI Vector Search index need?</summary><p>Google documents that a deployed index using fewer than two replicas per shard is excluded from the Vertex AI SLA. Set <code>minReplicaCount</code> to at least two for SLA eligibility and validate additional headroom against workload, CPU, memory, latency, failover, autoscaling limits, quotas, and cost.</p></details>
+          <details><summary>How should Vertex AI Vector Search recall be tested?</summary><p>Use labelled production-like queries and compare approximate search against brute-force ground truth. Test approximate neighbor count, neighbor count, fraction of leaf nodes searched, index build parameters, filters, crowding, shards, embeddings, concurrency, latency, cost, and grounded-answer quality before accepting a configuration.</p></details>
+          <details><summary>Should Vertex AI Vector Search use batch or stream updates?</summary><p>Batch updates use files in Cloud Storage and suit controlled bulk refreshes. Stream updates use upsert and delete operations that reach deployed indexes in near real time. Select based on freshness, throughput, deletion, reconciliation, quota, rollback, recovery, and cost requirements, then test the complete source-to-query path.</p></details>
+          <details><summary>How long does Vertex AI Vector Search managed support onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for a representative index, endpoint, and consuming RAG workflow. It covers updates, retrieval quality, filtering, shard and replica capacity, private access, monitoring, release and recovery controls, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope.</p></details>
+        </div>
+
+        <div class="article-next"><p>Comparing Google-managed and Azure-integrated vector search operating boundaries?</p><a href="azure-cosmos-db-vector-search-production-support-managed-services-rag-operations">Review the Azure Cosmos DB vector search production support boundary</a></div>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

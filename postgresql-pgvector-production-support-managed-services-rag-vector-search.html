@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PostgreSQL pgvector Production Support | Datrick</title>
+    <meta name="description" content="Managed PostgreSQL pgvector production support for HNSW and IVFFlat recall, filtered search, ingestion, vacuum, replication, monitoring, backup, releases, and cost.">
+    <link rel="canonical" href="https://datrick.com/postgresql-pgvector-production-support-managed-services-rag-vector-search">
+    <meta property="og:title" content="PostgreSQL pgvector Production Support | Datrick">
+    <meta property="og:description" content="Operate pgvector with accountable recall, query plans, HNSW or IVFFlat indexes, filtering, maintenance, HA, backup, incidents, releases, and cost.">
+    <meta property="og:url" content="https://datrick.com/postgresql-pgvector-production-support-managed-services-rag-vector-search">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Service", "name": "PostgreSQL pgvector Production Support and Managed Services", "description": "Ongoing PostgreSQL and pgvector operations covering vector schemas, ingestion, HNSW and IVFFlat indexes, exact and approximate recall, filtered search, query plans, vacuum and reindex, replication and failover, monitoring, backups, security, incidents, releases, cost, runbooks, and reporting.", "url": "https://datrick.com/postgresql-pgvector-production-support-managed-services-rag-vector-search", "provider": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "areaServed": "Global", "audience": {"@type": "BusinessAudience", "audienceType": "Software companies, enterprises, managed service providers, and AI delivery firms operating production PostgreSQL pgvector RAG workloads"}},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is included in PostgreSQL pgvector production support?", "acceptedAnswer": {"@type": "Answer", "text": "A defined service can include vector schema and embedding compatibility, bulk and incremental ingestion, exact-search baselines, HNSW and IVFFlat index design, filtered approximate search, query plans and statistics, autovacuum, reindex and bloat, replication and failover, connection capacity, backups and restore, security, incidents, releases, cost, runbooks, and reporting."}},
+            {"@type": "Question", "name": "Should pgvector use HNSW or IVFFlat in production?", "acceptedAnswer": {"@type": "Answer", "text": "HNSW generally provides a better speed-recall trade-off but builds more slowly, uses more memory, and can increase insert and vacuum cost. IVFFlat builds faster and uses less memory, but recall depends strongly on data present at build time, list count, and probe count. Benchmark both against representative filters, concurrency, data growth, and an exact-search baseline."}},
+            {"@type": "Question", "name": "Why does a pgvector filtered query return fewer rows than LIMIT?", "acceptedAnswer": {"@type": "Answer", "text": "Approximate indexes scan candidates first and PostgreSQL can apply filters afterward, so too few matching rows may remain. Increase HNSW ef_search or IVFFlat probes, enable iterative scans, add an appropriate B-tree or partial vector index, or partition for high-cardinality filters. Verify the query plan and recall rather than increasing parameters blindly."}},
+            {"@type": "Question", "name": "How do you monitor pgvector recall in production?", "acceptedAnswer": {"@type": "Answer", "text": "Maintain labelled queries with expected neighbors, compare approximate results with exact search by disabling index scans inside a controlled transaction, track hit rate and ranking alongside latency, and segment results by filter and tenant. Monitor plans, buffers, dead tuples, index size, ef_search or probes, and embedding version so a performance improvement cannot silently reduce retrieval quality."}},
+            {"@type": "Question", "name": "How long does pgvector production support onboarding take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused onboarding commonly takes two to four weeks for a representative production portfolio. It covers database, table, embedding and index inventory, exact and approximate retrieval baselines, query plans, maintenance, replication and failover, backup and restore, incidents, releases, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">PostgreSQL pgvector Operations</p>
+        <h1>A fast SQL query is not proof that approximate retrieval has acceptable recall.</h1>
+        <p class="page-lede">Operate pgvector with accountable embedding and schema compatibility, exact and approximate recall, HNSW or IVFFlat lifecycle, filtered search, vacuum and reindex, PostgreSQL HA and backup, controlled releases, and cost evidence.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Database%20operations&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=pgvector_production_support&amp;utm_medium=organic_content&amp;utm_campaign=postgresql_pgvector_operations&amp;utm_content=hero#inquiry-form">Describe the pgvector estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>pgvector Operations</span><span>14 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Service boundary</a><a href="#scope">Operating scope</a><a href="#recall">Recall and maintenance</a><a href="#incidents">Incident response</a><a href="#onboarding">Onboarding</a></nav>
+
+        <p>pgvector keeps relational data, metadata filters, transactions, vector search, backup, replication, security, and operational tooling inside PostgreSQL. It supports exact nearest-neighbor search plus HNSW and IVFFlat approximate indexes over vector, half-precision, binary, and sparse representations. Those controls do not decide who owns an HNSW query that met latency while missing expected documents, an IVFFlat index built before representative data existed, a tenant filter applied after the approximate scan, dead tuples reducing returned rows, a vacuum delayed by a large vector index, an embedding model change that mixed incompatible vectors, or a read replica that served stale retrieval after failover.</p>
+        <p>Datrick provides an ongoing operating layer for an agreed PostgreSQL and pgvector estate. Named engineers correlate source records, primary keys, metadata, embedding models and dimensions, vector types, tables and partitions, HNSW or IVFFlat indexes, exact and approximate queries, filters, query plans, planner statistics, buffers, cache, dead tuples, autovacuum, reindex, WAL, replicas, failover, connections, backups, security events, releases, cloud resources, cost, and business outcomes. PostgreSQL or cloud-provider support remains the escalation path for platform defects. Datrick owns the client-specific diagnosis, containment, validation, communication, change, and prevention accepted in the service boundary.</p>
+
+        <section class="readiness-actions"><p><strong>Do you have pgvector in production but no team accountable for turning recall loss, filtered-result gaps, index-build pressure, vacuum lag, query-plan regressions, embedding drift, replica failure, or restore risk into a verified outcome?</strong> Start with one representative database and retrieval workload.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Database%20operations&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=pgvector_production_support&amp;utm_medium=organic_content&amp;utm_campaign=postgresql_pgvector_operations&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" href="data-operations.html">Review data operations</a></div></section>
+
+        <h2 id="boundary">Define ownership from source row to vector index, query plan, retrieved evidence, and business answer</h2>
+        <p>A production path can include source systems and document pipelines; chunking, metadata, vectorization and reranking; ingestion clients; PostgreSQL clusters, databases, schemas, tables, partitions, rows and vector columns; exact, HNSW or IVFFlat search; B-tree, partial or expression indexes; filters, joins and row-level security; primary and read replicas; connection pools; an agent or application; answer synthesis and citations; and the target workflow. Name which layers the managed service owns, observes, changes, coordinates, or excludes.</p>
+        <p>Document hosting model, cloud, region, PostgreSQL and pgvector versions; tables and workloads; primary keys, metadata, embedding dimensions and distance; HNSW or IVFFlat parameters; filters and partitioning; source freshness and ingestion; query patterns and plans; recall, latency and availability SLOs; write and read topology; maintenance and backup; security principals; support hours; severity; change authority; budget; fallback; and escalation.</p>
+
+        <h2 id="scope">Operate the complete PostgreSQL pgvector production surface</h2>
+        <div class="article-table-wrap" role="region" aria-label="PostgreSQL pgvector production support scope" tabindex="0"><table class="article-table"><caption class="sr-only">PostgreSQL pgvector production support scope</caption>
+          <thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead>
+          <tbody>
+            <tr><td>Schema and embedding design</td><td>Table purpose, primary keys, vector, halfvec, bit or sparsevec columns, dimensions, distance, metadata, tenancy, partitions, row-level security, embedding model and version, retention, and deletion.</td><td>Authoritative source, embedding compatibility, dimension limits, tenant isolation, metadata ownership, retention, and deletion SLA.</td></tr>
+            <tr><td>Ingestion and freshness</td><td>COPY and incremental insert or upsert, stable IDs, embedding generation, transactions, batches, duplicate prevention, update and delete visibility, WAL volume, replica lag, backfill, and reconciliation.</td><td>Source owner, row and vector freshness SLOs, idempotency, throughput, transaction boundary, retry, replica reads, and exception route.</td></tr>
+            <tr><td>Indexes and retrieval</td><td>Exact search, HNSW or IVFFlat, operator class and distance, build parameters and progress, ef_search, probes, iterative scans, partial and expression indexes, partitioning, filters, joins, limits, scores, reranking, recall, drift, and regression.</td><td>Index choice, build window, memory and storage, expected evidence, recall and latency SLOs, filters, reviewer, and business consequence.</td></tr>
+            <tr><td>PostgreSQL maintenance</td><td>Planner statistics, EXPLAIN ANALYZE BUFFERS, pg_stat_statements, autovacuum, dead tuples, analyze, reindex concurrently, index and table bloat, checkpoints, WAL, connection pools, locks, and long transactions.</td><td>Maintenance windows, lock budget, statistics target, bloat threshold, vacuum SLA, connection headroom, and escalation.</td></tr>
+            <tr><td>HA and observability</td><td>Primary and replicas, replication lag, failover, read routing, CPU, memory, cache, I/O, storage, QPS, latency, errors, waits, index size, build progress, approximate versus exact recall, logs, alerts, and incident evidence.</td><td>Traffic and growth profile, RTO and RPO, read consistency, failover authority, capacity, metric retention, alert ownership, and performance target.</td></tr>
+            <tr><td>Security, backup, and hosting</td><td>Self-managed or cloud database boundary, users and roles, TLS, network controls, row-level security, secrets, audit, physical and logical backups, point-in-time recovery, restore, extension and major-version compatibility, and upgrades.</td><td>Least privilege, rotation, audit ownership, RTO and RPO, restore acceptance, hosting responsibility, compliance, and provider escalation.</td></tr>
+            <tr><td>Release, cost, and value</td><td>PostgreSQL, pgvector and client versions, schemas, embeddings, index and query parameters, partitioning, application retrieval logic, infrastructure, tests, rollout, rollback, compute, memory, IOPS, storage, replicas, backup, transfer, inference, and anomaly.</td><td>Source of truth, environments, approval, compatibility, budget, forecast, unit economics, canary, and acceptance evidence.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="recall">Treat approximate recall, filtering, index lifecycle, vacuum, and database HA as one design</h2>
+        <p>HNSW generally offers a better query speed-recall trade-off without a training step, but it builds more slowly, uses more memory, and makes inserts and vacuum more expensive. IVFFlat builds faster and uses less memory, but recall depends on representative data being present before build, an appropriate list count, and the probes used at query time. Neither index is correct by brand preference: compare both against exact search using realistic filters, concurrency, growth, and hardware.</p>
+        <p>Approximate vector indexes produce candidates before PostgreSQL applies many filters. A query can therefore request ten rows and return fewer after filtering. Increase HNSW ef_search or IVFFlat probes only with evidence; enable iterative scans, add B-tree or partial vector indexes for a few stable values, or partition for many high-cardinality values. Inspect EXPLAIN ANALYZE BUFFERS and track recall by filter cohort so the planner and index settings are part of the quality contract.</p>
+        <p>Updates and deletes leave dead tuples until vacuum, and pgvector notes that dead tuples can reduce approximate results. HNSW vacuum can be slow; reindexing the HNSW index concurrently before vacuum can improve maintenance time. Build large production indexes concurrently, monitor pg_stat_progress_create_index, control maintenance memory and parallel workers, keep planner statistics current, and prevent long transactions from blocking cleanup.</p>
+        <p>Vector dimensions directly affect table and index working sets. halfvec, binary quantization with reranking, partitioning, or read replicas can reduce cost or increase throughput, but each changes precision, query complexity, or operational responsibility. PostgreSQL replication and point-in-time recovery protect database state; they do not prove embedding compatibility, retrieval recall, tenant filters, or answer grounding after failover.</p>
+
+        <h2 id="incidents">Distinguish recall, query-plan, index, maintenance, replication, restore, release, and cost failures</h2>
+        <div class="article-table-wrap" role="region" aria-label="PostgreSQL pgvector production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">PostgreSQL pgvector production incident matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead>
+          <tbody>
+            <tr><td>Approximate query returns fewer or different rows than expected</td><td>Query and expected IDs, exact-search baseline, query plan, HNSW ef_search or IVFFlat probes, iterative-scan settings, filters, partial indexes, partitions, dead tuples, embedding version, limit, scores, and recent release.</td><td>Pause consequential automation, restore the accepted query and index parameters, use exact search or a reviewed fallback for the affected cohort, and disclose the quality risk.</td><td>Labelled retrieval set, exact-versus-approximate recall checks, filter-cohort thresholds, plan regression tests, parameter ownership, embedding gate, canary, and rollback.</td></tr>
+            <tr><td>HNSW build, reindex, or vacuum consumes production headroom</td><td>pg_stat_progress_create_index, locks, maintenance_work_mem, parallel workers, CPU, memory, I/O, WAL, replica lag, long transactions, dead tuples, index size, query latency, and recent change.</td><td>Throttle ingestion, defer noncritical builds, cancel only through an approved runbook, protect read and write capacity, preserve evidence, and move maintenance to a controlled window.</td><td>Concurrent-build policy, capacity model, progress and lock alerts, reindex-before-vacuum procedure, transaction-age control, maintenance window, replica-lag gate, and load test.</td></tr>
+            <tr><td>IVFFlat recall degrades as the table grows or distribution changes</td><td>Rows and distribution present at build time, current row count, list count, probes, analyze state, filter cohorts, exact baseline, insert growth, index age, latency, and storage.</td><td>Increase probes only within an accepted latency budget, route critical cohorts to exact search, stop risky rollout, and schedule a representative concurrent rebuild.</td><td>Growth-triggered rebuild policy, list and probe benchmark, representative build corpus, recall trend, statistics maintenance, canary, and index acceptance evidence.</td></tr>
+            <tr><td>Embedding schema, model, dimension, or vector type is mixed</td><td>Source record, embedding model and version, dimension, vector or halfvec type, null and zero vectors, table constraint, index operator class, application release, backfill, and retrieval result.</td><td>Quarantine incompatible writes, restore the accepted model and schema path, isolate affected rows, use the previous index or corpus, and prevent mixed retrieval.</td><td>Embedding registry, schema and dimension constraints, versioned columns or tables, backfill manifest, compatibility tests, dual-read canary, and cutover gate.</td></tr>
+            <tr><td>Read replica or failover serves stale or degraded retrieval</td><td>WAL position, replication lag, read route, transaction timestamp, extension and index compatibility, planner statistics, cache, exact and approximate baseline, failover event, and application retry.</td><td>Route affected reads to the accepted primary or healthy replica, freeze risky changes, disclose staleness, and verify retrieval before reopening automated decisions.</td><td>Read-consistency SLO, lag-based routing, failover retrieval suite, extension-version gate, replica capacity test, recovery runbook, and post-failover acceptance.</td></tr>
+            <tr><td>Backup, restore, upgrade, or cost control fails</td><td>Physical and logical backup status, WAL archive, restore target, extension and PostgreSQL versions, tables, indexes, planner statistics, row counts, exact and approximate tests, compute, memory, IOPS, storage, replicas, and recent change.</td><td>Stop cutover, keep the source read-only where possible, restore to an isolated target, preserve evidence, use tested fallback, cap noncritical work, and communicate RPO or budget risk.</td><td>Backup manifest, point-in-time restore exercise, extension compatibility matrix, post-restore analyze and retrieval acceptance, upgrade canary, cost attribution, alerts, and rollback.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>A retry is not automatically safe. Before replaying an insert, upsert, delete, embedding backfill, concurrent index build, reindex, vacuum, failover, restore, or migration, determine whether the transaction committed, whether the same primary key and embedding version already exist, whether a long transaction or lock remains, whether WAL reached replicas, whether the planner selected a different path, and whether the application already exposed a response. Reconcile source, row, transaction, vector, index, plan, replica, query, and business state before reopening traffic.</p>
+
+        <h2>Release schemas, embeddings, indexes, queries, maintenance, HA, and applications together</h2>
+        <p>A production pgvector release includes source contracts, primary keys and metadata, embedding model and dimensions, vector type and distance, table and partition design, HNSW or IVFFlat indexes, build and query parameters, filters and joins, planner statistics, autovacuum and reindex policy, PostgreSQL and extension versions, primary and replica topology, connection pools, security principals, backup, infrastructure, budgets, rollout, and rollback. A valid SQL, schema, index, or embedding change can still alter recall, latency, write amplification, replica lag, isolation, and cost.</p>
+        <p>Before release, ingest a representative corpus; verify stable IDs, dimensions, null and zero-vector handling; compare exact and approximate retrieval; test every material filter cohort; inspect EXPLAIN ANALYZE BUFFERS; build indexes concurrently; simulate insert, update and delete churn plus vacuum; load realistic concurrency; verify replica lag and failover; restore a point-in-time backup; re-run retrieval acceptance; canary the application and database change together; and preserve the accepted schema, index, query, maintenance, and application configuration.</p>
+
+        <h2 id="onboarding">Onboard through inventory, baselines, controlled failures, and shadow operations</h2>
+        <ol>
+          <li><strong>Inventory:</strong> hosting model, cloud and regions, PostgreSQL and pgvector versions, databases, schemas, tables, partitions, primary keys, vector columns, embedding models, HNSW and IVFFlat indexes, filters, queries, applications, replicas, connection pools, principals, backups, and outcomes.</li>
+          <li><strong>Responsibility:</strong> define supported layers, row and vector freshness, exact and approximate recall, latency and availability SLOs, severity, access, tenant isolation, change authority, budget, dependencies, fallback, provider escalation, and exclusions.</li>
+          <li><strong>Baseline:</strong> measure ingestion, update and delete behavior, exact and approximate retrieval, filter cohorts, query plans, buffers, index build and size, dead tuples, vacuum, locks, WAL, replica lag, connections, backup status, infrastructure cost, and incidents.</li>
+          <li><strong>Controls:</strong> validate stable keys, embedding compatibility, schema constraints, index and query parameters, partitioning, least privilege, row-level security, maintenance, capacity alerts, retrieval evaluation, backup and restore, releases, rollback, attribution, and alerts.</li>
+          <li><strong>Exercise:</strong> rehearse recall loss, filtered-result gaps, HNSW build pressure, IVFFlat drift, long transaction and vacuum lag, embedding mismatch, replica failure, point-in-time restore, credential rotation, and hosting-provider dependency outage.</li>
+          <li><strong>Transition:</strong> operate in shadow, close or accept material gaps, publish runbooks and escalation routes, and accept the steady-state support scope.</li>
+        </ol>
+
+        <section class="readiness-actions"><p><strong>Start with the PostgreSQL and pgvector workload that already influences customer, financial, operational, compliance, or workforce decisions.</strong> Datrick can define the operating boundary, close material control gaps, and transition one representative database into managed support.</p><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Database%20operations&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=pgvector_production_support&amp;utm_medium=organic_content&amp;utm_campaign=postgresql_pgvector_operations&amp;utm_content=article_end#inquiry-form">Request a pgvector operations review</a></section>
+
+        <h2>Official references and adjacent operating guides</h2>
+        <ul>
+          <li><a href="https://github.com/pgvector/pgvector">pgvector index, query, filtering, iterative-scan, maintenance, and recall guidance</a></li>
+          <li><a href="https://www.postgresql.org/docs/current/sql-vacuum.html">PostgreSQL VACUUM reference</a></li>
+          <li><a href="https://www.postgresql.org/docs/current/maintenance.html">PostgreSQL routine database maintenance</a></li>
+          <li><a href="https://www.postgresql.org/docs/current/monitoring-stats.html">PostgreSQL statistics and progress monitoring</a></li>
+          <li><a href="https://www.postgresql.org/docs/current/warm-standby.html">PostgreSQL streaming replication and warm standby</a></li>
+          <li><a href="https://www.postgresql.org/docs/current/continuous-archiving.html">PostgreSQL continuous archiving and point-in-time recovery</a></li>
+          <li><a href="https://aws.amazon.com/blogs/database/running-pgvector-in-production-on-amazon-aurora-postgresql/">AWS guidance for running pgvector in production on Aurora PostgreSQL</a></li>
+          <li><a href="milvus-zilliz-cloud-production-support-managed-services-vector-database-operations">Milvus and Zilliz Cloud vector database operations</a></li>
+          <li><a href="data-operations.html">Managed data and database operations</a></li>
+          <li><a href="white-label-ai-agent-operations-managed-support-for-msps">White-label AI agent managed support for MSPs</a></li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is included in PostgreSQL pgvector production support?</summary><p>A defined service can include vector schema and embedding compatibility, bulk and incremental ingestion, exact-search baselines, HNSW and IVFFlat index design, filtered approximate search, query plans and statistics, autovacuum, reindex and bloat, replication and failover, connection capacity, backups and restore, security, incidents, releases, cost, runbooks, and reporting.</p></details>
+          <details><summary>Should pgvector use HNSW or IVFFlat in production?</summary><p>HNSW generally provides a better speed-recall trade-off but builds more slowly, uses more memory, and can increase insert and vacuum cost. IVFFlat builds faster and uses less memory, but recall depends strongly on data present at build time, list count, and probe count. Benchmark both against representative filters, concurrency, data growth, and an exact-search baseline.</p></details>
+          <details><summary>Why does a pgvector filtered query return fewer rows than LIMIT?</summary><p>Approximate indexes scan candidates first and PostgreSQL can apply filters afterward, so too few matching rows may remain. Increase HNSW ef_search or IVFFlat probes, enable iterative scans, add an appropriate B-tree or partial vector index, or partition for high-cardinality filters. Verify the query plan and recall rather than increasing parameters blindly.</p></details>
+          <details><summary>How do you monitor pgvector recall in production?</summary><p>Maintain labelled queries with expected neighbors, compare approximate results with exact search by disabling index scans inside a controlled transaction, track hit rate and ranking alongside latency, and segment results by filter and tenant. Monitor plans, buffers, dead tuples, index size, ef_search or probes, and embedding version so a performance improvement cannot silently reduce retrieval quality.</p></details>
+          <details><summary>How long does pgvector production support onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for a representative production portfolio. It covers database, table, embedding and index inventory, exact and approximate retrieval baselines, query plans, maintenance, replication and failover, backup and restore, incidents, releases, controlled failure exercises, runbooks, and acceptance of the steady-state operating scope.</p></details>
+        </div>
+
+        <div class="article-next"><p>Moving from relational vector search to a managed enterprise search and RAG service?</p><a href="azure-ai-search-production-support-managed-services-rag-operations">Review the Azure AI Search production support boundary</a></div>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

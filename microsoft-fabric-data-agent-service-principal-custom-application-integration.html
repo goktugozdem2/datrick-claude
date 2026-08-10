@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Data Agent Service Principal Custom App Integration | Datrick</title>
+    <meta name="description" content="Integrate a published Microsoft Fabric Data Agent into a custom application or unattended service with service principal authentication, source permissions, MCP runtime controls, and production testing.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-service-principal-custom-application-integration">
+    <meta property="og:title" content="Fabric Data Agent Service Principal Custom App Integration | Datrick">
+    <meta property="og:description" content="Build a production path from custom applications and background services to governed Fabric Data Agent answers without relying on a signed-in user.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-service-principal-custom-application-integration">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Service Principal Custom Application Integration", "description": "Integrate a published Microsoft Fabric Data Agent into a custom application or unattended service with service principal authentication, source permissions, MCP runtime controls, and production testing.", "url": "https://datrick.com/microsoft-fabric-data-agent-service-principal-custom-application-integration", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-service-principal-custom-application-integration"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Can a custom application call a Microsoft Fabric Data Agent without a signed-in user?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Microsoft documents service principal authentication for published Fabric Data Agents in automation, background services, custom applications, and CI/CD pipelines. The service principal must be enabled for Fabric APIs, have access to the workspace, and have explicit read access to every attached source used by the Data Agent."}},
+            {"@type": "Question", "name": "Is the Fabric Data Agent Python SDK the runtime API for asking questions?", "acceptedAnswer": {"@type": "Answer", "text": "No. Microsoft describes the Python SDK as a management-plane tool for creating, configuring, updating, and publishing Data Agents. A published Data Agent is queried at runtime through its MCP endpoint. Production architecture should keep management credentials and runtime credentials separate."}},
+            {"@type": "Question", "name": "Does sharing the Data Agent with a service principal grant access to its data sources?", "acceptedAnswer": {"@type": "Answer", "text": "No. The service principal needs workspace access and explicit read access to every attached source. Sharing only the Data Agent item is insufficient. The Data Agent reads schemas and executes read-only queries within the calling identity's effective permissions."}},
+            {"@type": "Question", "name": "Can Fabric Data Agent service principal authentication use a managed identity?", "acceptedAnswer": {"@type": "Answer", "text": "Not currently for the Data Agent runtime. Microsoft's preview documentation says managed identities are not supported and a service principal is required. It also states that service principal authentication is not yet supported for Data Agents connected to a KQL database."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent custom application integration pilot take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused pilot commonly takes three to five weeks for one application, one published Data Agent, one service principal, and a controlled question set. The pilot should prove identity, source permissions, runtime behavior, answer quality, failure handling, capacity, observability, and operational ownership before production rollout."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent + custom applications</p>
+        <h1>Put governed Fabric answers inside your application without depending on a signed-in user.</h1>
+        <p class="page-lede">Design and prove a service-principal integration for a published Microsoft Fabric Data Agent. Separate lifecycle management from runtime access, constrain the identity to approved sources, and operate the MCP connection with measurable answer quality, security, capacity, and recovery controls.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=fabric_data_agent_spn&amp;utm_medium=organic_content&amp;utm_campaign=fabric_custom_app_integration&amp;utm_content=hero#inquiry-form">Describe the application integration</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Application integration</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#architecture">Architecture</a><a href="#identity">Identity and access</a><a href="#runtime">Runtime controls</a><a href="#quality">Quality and operations</a><a href="#pilot">Pilot plan</a></nav>
+
+        <p>A chat interface in Fabric proves that a Data Agent can answer a question. It does not prove that a customer portal, internal application, scheduled service, or multi-step automation can call the agent reliably under a non-human identity. A production integration needs an explicit application contract: which identity asks, which sources that identity can read, how requests enter the runtime, how answers are validated, and what happens when authentication, capacity, source access, or generated queries fail.</p>
+        <p>Microsoft now documents service principal authentication for published Fabric Data Agents in custom applications, background services, automation, and CI/CD pipelines. The capability is in preview. That creates a practical machine-to-machine path, but it also changes the security model. Every user of a shared application can otherwise inherit the same fixed service-principal data boundary, so authorization at the application layer must be designed rather than assumed.</p>
+
+        <section class="readiness-actions"><p><strong>What decision will the application make easier, and whose data boundary should govern each request?</strong> Resolve those two questions before selecting credentials or writing the first MCP client call.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=fabric_data_agent_spn&amp;utm_medium=organic_content&amp;utm_campaign=fabric_custom_app_integration&amp;utm_content=article_intro#inquiry-form">Send the integration context</a><a class="button secondary" href="microsoft-fabric-data-agent-mcp-server-implementation-security-assessment">Review the MCP security path</a></div></section>
+
+        <h2 id="architecture">Separate management plane, published state, and runtime</h2>
+        <p>Fabric exposes different surfaces for different jobs. The Fabric REST API and the preview Fabric Data Agent Python SDK manage the artifact lifecycle: create the item, configure instructions and sources, update the public definition, publish a staged version, and inspect item properties. Microsoft explicitly describes the SDK as management plane rather than the runtime question API.</p>
+        <p>After publication, the Data Agent runtime is exposed through its MCP endpoint. A client discovers the published agent's tool, sends a natural-language question, and receives the generated answer. The endpoint follows the workspace and Data Agent artifact IDs and requires a valid Fabric bearer token. Keep this runtime connection separate from deployment automation. The identity allowed to update an agent definition should not automatically be the identity used by a production application to ask questions.</p>
+
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent integration planes" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent integration planes</caption>
+          <thead><tr><th scope="col">Plane</th><th scope="col">Purpose</th><th scope="col">Production control</th><th scope="col">Failure to avoid</th></tr></thead>
+          <tbody>
+            <tr><td>Definition and lifecycle</td><td>Create, configure, version, update, and publish the Data Agent through Fabric REST APIs, Git, deployment pipelines, or the Python SDK.</td><td>Deployment identity, versioned configuration, approval, environment binding, and rollback evidence.</td><td>Allowing the runtime application to modify its own instructions, sources, or published definition.</td></tr>
+            <tr><td>Published artifact</td><td>Provide the approved instructions, examples, source bindings, description, and consumption endpoint.</td><td>Named owner, known-good version, evaluation baseline, source inventory, and publication record.</td><td>Calling an unpublished draft or changing production sources without regression testing.</td></tr>
+            <tr><td>Runtime MCP endpoint</td><td>Accept a question from a tool, application, or agent and return the Data Agent answer.</td><td>Dedicated runtime identity, token handling, request policy, timeout, retry, telemetry, and answer checks.</td><td>Treating a successful HTTP response as proof that the answer is authorized or correct.</td></tr>
+            <tr><td>Application experience</td><td>Authenticate users, collect intent, apply business authorization, display evidence, and route follow-up or escalation.</td><td>User-to-data policy, approved prompt templates, citations, disclaimers, feedback, and human review.</td><td>Exposing one broad service-principal data boundary to every application user.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="identity">Design the service principal as a fixed data persona</h2>
+        <p>A service principal is a non-interactive Microsoft Entra identity. Microsoft requires the tenant setting that permits service principals to use Fabric APIs, workspace access for the published Data Agent, and explicit read access to every attached data source. Sharing the Data Agent item alone does not grant source access. The agent reads schemas and runs read-only queries under the calling identity's effective permissions.</p>
+        <p>Treat the service principal as a fixed data persona. Define the business domain it may answer, the application that may use it, approved sources, workspace role, row-level and column-level rules, Purview policies, credential owner, expiration, and emergency revocation path. Prefer a dedicated identity per application and data boundary over one tenant-wide integration identity. A secret that is easy to deploy but grants broad source access is an operational liability.</p>
+        <p>Microsoft documents client-credentials authentication using the Fabric resource scope <code>https://analysis.windows.net/powerbi/api/.default</code>. Store credentials in an approved secret manager, rotate them, alert before expiration, and prevent tokens or secrets from entering logs. Where organizational policy permits, use a certificate or federated credential instead of a long-lived client secret. Confirm the currently supported credential and identity options during implementation because the Data Agent service-principal capability remains preview.</p>
+        <p>Two limitations require an early design decision. Microsoft's current Data Agent runtime documentation says managed identities are not supported for this authentication path, and service principal authentication is not yet supported for Data Agents connected to KQL databases. Do not design a launch around either assumption. If the source mix includes KQL or the hosting standard mandates managed identity, retain an interactive identity path, change the integration boundary, or wait for verified support.</p>
+
+        <h2 id="runtime">Build a resilient MCP runtime adapter</h2>
+        <p>Do not spread token acquisition and MCP protocol logic through the application. Put them behind a small runtime adapter that accepts an approved question envelope and returns a normalized result. The envelope should include application user, tenant or customer context, business purpose, correlation ID, question, conversation policy, timeout, and expected response class. The adapter should acquire and cache tokens safely, connect to the published endpoint, discover the supported tool, invoke it, normalize errors, and emit structured telemetry.</p>
+        <p>Define retry behavior by failure type. Retry token or transient capacity failures with bounded exponential backoff and honor server guidance where available. Do not blindly replay ambiguous requests or retry authorization failures. Cap total latency, apply concurrency limits, isolate queues by customer or workload, and stop cascading requests when Fabric capacity or a source is unhealthy. Natural-language questions are not idempotent business actions, and the Data Agent remains read-only, but repeated calls can still consume capacity and produce confusing duplicate answers.</p>
+        <p>The application must enforce its own authorization before the shared service principal asks a question. Map each signed-in application user to approved domains, question types, customers, regions, and output handling. Reject attempts to expand scope through prompts. If distinct customers require distinct data boundaries, use separate source models, RLS identities that are proven for the runtime path, separate Data Agents, or separate service principals. Never rely on the model to infer tenant isolation from the wording of a question.</p>
+
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent custom application production tests" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent custom application production tests</caption>
+          <thead><tr><th scope="col">Test family</th><th scope="col">What to exercise</th><th scope="col">Required evidence</th></tr></thead>
+          <tbody>
+            <tr><td>Identity</td><td>Valid, expired, revoked, wrong-tenant, wrong-scope, rotated, and missing credentials.</td><td>Fail-closed behavior, no secret leakage, actionable alert, and successful rotation without application downtime.</td></tr>
+            <tr><td>Authorization</td><td>Workspace denied, one source denied, restricted row or column, cross-customer request, and unsupported KQL path.</td><td>The application blocks invalid scope and Fabric enforces the service principal's effective permissions.</td></tr>
+            <tr><td>Question quality</td><td>Approved, ambiguous, unsupported, adversarial, stale-context, multi-source, and high-cardinality questions.</td><td>Ground-truth comparison for source selection, generated query, result, explanation, and uncertainty.</td></tr>
+            <tr><td>Runtime reliability</td><td>Token delay, MCP disconnect, timeout, throttling, source outage, capacity pressure, malformed response, and partial result.</td><td>Bounded retries, clear user state, correlation, circuit breaking, no request storm, and recoverable queue behavior.</td></tr>
+            <tr><td>Operations</td><td>Agent republish, source schema change, credential rotation, permission recertification, incident, and rollback.</td><td>Version attribution, regression detection, owner notification, known-good recovery, and retained audit evidence.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="quality">Evaluate the answer as application output</h2>
+        <p>A custom application can make a generated answer look authoritative. Preserve the distinction between source evidence, generated query, computed result, and natural-language explanation. Where the runtime exposes diagnostics or source detail, capture the minimum necessary evidence without leaking sensitive data. Display the data freshness, business scope, and limitations that a user needs to judge the answer. Route high-impact or ambiguous results to a human rather than allowing the application to turn a read-only answer into an automatic business action.</p>
+        <p>Build a versioned evaluation set from real questions. Cover expected metrics, filters, time windows, joins, synonyms, source selection, empty results, restricted data, and questions the agent should decline. Score factual correctness, query correctness, permission behavior, completeness, unsupported claims, latency, and consumption. Run the set against the exact published version and service-principal identity used by production. A Data Agent that passes under a developer account may fail or answer differently under the application identity.</p>
+        <p>Operate the integration with correlated telemetry across the application request, token acquisition, MCP call, Data Agent version, source, latency, capacity, answer evaluation, user feedback, and escalation. Avoid logging raw prompts and answers by default when they may contain confidential data. Establish retention, access, redaction, and incident rules. Watch for increases in authorization errors, timeouts, unsupported questions, low-confidence answers, repeated retries, consumption per answer, and negative feedback.</p>
+
+        <h2 id="pilot">Run a three-to-five-week custom application pilot</h2>
+        <ol>
+          <li>Select one application workflow, one governed domain, one published Data Agent, one service-principal data persona, and one accountable business owner.</li>
+          <li>Map the management plane, published artifact, runtime endpoint, application authorization, sources, users, trust boundaries, secrets, and operational owners.</li>
+          <li>Enable the scoped tenant setting, register the Entra application, choose the credential method, grant least-privilege workspace and source access, and document unsupported paths.</li>
+          <li>Implement the runtime adapter with token caching, MCP connection, request envelope, timeout, bounded retry, correlation, structured errors, and secure telemetry.</li>
+          <li>Build ground-truth, permission, adversarial, failure, capacity, credential rotation, republish, and rollback tests for the production identity.</li>
+          <li>Run the pilot with a controlled cohort, measure answer quality and business value, remediate the correct layer, and repeat the full regression suite.</li>
+          <li>Deliver the architecture, permission matrix, evaluation scorecard, deployment and rotation runbooks, dashboards, support model, and go, limit, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Can a custom application call a Microsoft Fabric Data Agent without a signed-in user?</summary><p>Yes. Microsoft documents service principal authentication for published Fabric Data Agents in automation, background services, custom applications, and CI/CD pipelines. The service principal must be enabled for Fabric APIs, have access to the workspace, and have explicit read access to every attached source used by the Data Agent.</p></details>
+          <details><summary>Is the Fabric Data Agent Python SDK the runtime API for asking questions?</summary><p>No. Microsoft describes the Python SDK as a management-plane tool for creating, configuring, updating, and publishing Data Agents. A published Data Agent is queried at runtime through its MCP endpoint. Production architecture should keep management credentials and runtime credentials separate.</p></details>
+          <details><summary>Does sharing the Data Agent with a service principal grant access to its data sources?</summary><p>No. The service principal needs workspace access and explicit read access to every attached source. Sharing only the Data Agent item is insufficient. The Data Agent reads schemas and executes read-only queries within the calling identity's effective permissions.</p></details>
+          <details><summary>Can Fabric Data Agent service principal authentication use a managed identity?</summary><p>Not currently for the Data Agent runtime. Microsoft's preview documentation says managed identities are not supported and a service principal is required. It also states that service principal authentication is not yet supported for Data Agents connected to a KQL database.</p></details>
+          <details><summary>How long does a Fabric Data Agent custom application integration pilot take?</summary><p>A focused pilot commonly takes three to five weeks for one application, one published Data Agent, one service principal, and a controlled question set. The pilot should prove identity, source permissions, runtime behavior, answer quality, failure handling, capacity, observability, and operational ownership before production rollout.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-service-principal">Service principal authentication with Fabric Data Agent</a></li>
+          <li><a href="https://learn.microsoft.com/en-gb/fabric/data-science/fabric-data-agent-sdk">Fabric Data Agent Python SDK and runtime separation</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/rest/api/fabric/dataagent/items">Fabric Data Agent item-management REST APIs</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/rest/api/fabric/articles/item-management/definitions/data-agent-definition">Fabric Data Agent public definition format</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-mcp-server">Fabric Data Agent MCP runtime</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/concept-data-agent">Fabric Data Agent architecture, governance, and limitations</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with one application and one deliberately narrow data persona.</strong> Datrick can implement the service-principal path, prove the runtime under production permissions, and deliver an evidence-backed rollout decision.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=fabric_data_agent_spn&amp;utm_medium=organic_content&amp;utm_campaign=fabric_custom_app_integration&amp;utm_content=article_end#inquiry-form">Scope the custom application pilot</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-multi-agent-orchestration-architecture-assessment"><span>Expand to specialist agents</span><strong>Assess routing and orchestration boundaries</strong></a><a href="microsoft-fabric-data-agent-cicd-lifecycle-governance-assessment"><span>Control the management plane</span><strong>Version and release the Data Agent</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

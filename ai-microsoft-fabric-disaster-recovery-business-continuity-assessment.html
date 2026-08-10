@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Microsoft Fabric Disaster Recovery and Business Continuity Assessment | Datrick</title>
+    <meta name="description" content="Assess Microsoft Fabric disaster recovery across OneLake BCDR, item definitions, source data, capacity, region failure, deletion, RPO, RTO, runbooks, and recovery drills.">
+    <link rel="canonical" href="https://datrick.com/ai-microsoft-fabric-disaster-recovery-business-continuity-assessment">
+    <meta property="og:title" content="AI Microsoft Fabric Disaster Recovery and Business Continuity Assessment | Datrick">
+    <meta property="og:description" content="Prove that critical Fabric workloads can recover, not merely that a DR setting is enabled.">
+    <meta property="og:url" content="https://datrick.com/ai-microsoft-fabric-disaster-recovery-business-continuity-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "AI Microsoft Fabric Disaster Recovery and Business Continuity Assessment", "description": "Assess Microsoft Fabric disaster recovery across OneLake BCDR, item definitions, source data, capacity, region failure, deletion, RPO, RTO, runbooks, and recovery drills.", "url": "https://datrick.com/ai-microsoft-fabric-disaster-recovery-business-continuity-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/ai-microsoft-fabric-disaster-recovery-business-continuity-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Does Microsoft Fabric have disaster recovery?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft Fabric provides reliability and recovery capabilities, including capacity-level disaster recovery for supported OneLake data, Power BI continuity behavior, file soft delete, and item recovery for supported item types. Coverage and behavior differ by region, capacity, item, data location, and failure mode. A workload still needs an item-by-item recovery design, dependencies, runbooks, RPO and RTO, and tested business validation."}},
+            {"@type": "Question", "name": "What does OneLake disaster recovery protect?", "acceptedAnswer": {"@type": "Answer", "text": "When enabled on a supported capacity and region pair, OneLake disaster recovery geo-replicates eligible OneLake data to the paired region. Replication is asynchronous, so data not copied before a regional disaster can be lost. It does not automatically prove recovery of every Fabric item definition, external source, KQL workload, identity, permission, endpoint, orchestration, or dependent application."}},
+            {"@type": "Question", "name": "Is OneLake soft delete the same as disaster recovery?", "acceptedAnswer": {"@type": "Answer", "text": "No. Soft delete helps recover deleted OneLake files for a retention period, while item recovery can protect supported workspace items when enabled. Regional disaster recovery addresses a different failure class. None of these alone replaces source recovery, deployment artifacts, configuration recovery, permission reconstruction, dependency sequencing, or end-to-end workload validation."}},
+            {"@type": "Question", "name": "How do you test Microsoft Fabric disaster recovery?", "acceptedAnswer": {"@type": "Answer", "text": "Define approved failure scenarios and expected RPO and RTO, freeze the test scope, capture source and target state, execute a tabletop or controlled technical recovery, restore item definitions, data, configuration, identity, permissions, orchestration, gateways, endpoints, and dependent services in sequence, then validate reconciled data and business transactions. Record timings, gaps, manual steps, evidence, and remediation owners."}},
+            {"@type": "Question", "name": "How long does a Microsoft Fabric disaster recovery assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment of one critical Fabric workload can often be completed in two to four weeks when item inventory, architecture, source and deployment access, owners, business continuity requirements, and operational evidence are available. Remediation and a technical recovery drill take longer when definitions are not in source control, data exists outside OneLake, identities are manual, dependencies are undocumented, or no secondary environment exists."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Microsoft Fabric disaster recovery assessment</p>
+        <h1>Prove that critical Fabric workloads can recover, not merely that a DR setting is enabled.</h1>
+        <p class="page-lede">Map item-specific protection, external dependencies, RPO and RTO, recovery sequencing, business validation, and evidence before a regional outage or destructive error tests the plan.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_disaster_recovery&amp;utm_medium=organic_content&amp;utm_campaign=fabric_bcdr_assessment_scoping&amp;utm_content=hero#inquiry-form">Describe the recovery risk</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Fabric reliability and BCDR</span><span>9 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#objectives">Recovery objectives</a><a href="#coverage">Coverage matrix</a><a href="#failure">Failure scenarios</a><a href="#drill">Recovery drill</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>Fabric disaster recovery is not one switch. A critical workload can include source systems, gateways, pipelines, notebooks, environments, lakehouses, warehouses, KQL databases, semantic models, reports, identities, secrets, workspace roles, capacities, APIs, embedded applications, alerts, and downstream consumers. These components do not share one recovery mechanism or one failure boundary.</p>
+        <p>Datrick builds recovery confidence from evidence. AI can accelerate inventory, dependency mapping, runbook comparison, log correlation, test-case generation, reconciliation analysis, and drill reporting. It cannot declare a workload recovered without deterministic data checks, security validation, application transactions, accountable business acceptance, and measured recovery time.</p>
+
+        <section class="readiness-actions"><p><strong>Is OneLake DR enabled but nobody can explain how the complete workload returns to service?</strong> Start with one critical domain and an item-by-item recovery contract.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_disaster_recovery&amp;utm_medium=organic_content&amp;utm_campaign=fabric_bcdr_assessment_scoping&amp;utm_content=article_intro#inquiry-form">Send the workload context</a><a class="button secondary" href="ai-power-bi-fabric-cicd-deployment-pipeline-release-governance-automation">Review deployment recovery</a></div></section>
+
+        <h2 id="objectives">Define business recovery objectives by workload</h2>
+        <p>Start with business impact, not platform features. Identify critical decisions and processes, users, operating windows, data cutoff, maximum tolerable outage, maximum tolerable data loss, legal and contractual obligations, dependent services, communication owners, manual workarounds, and return-to-normal criteria. Set RPO and RTO for the complete service, then decompose them across each component.</p>
+        <p>Separate high availability, backup, deletion recovery, configuration reconstruction, regional disaster recovery, cyber recovery, and business continuity. A redundant service may survive hardware failure but not a bad deployment. Geo-replication may preserve recent data but copy logical corruption. Source control may recreate an item definition but not its data, permissions, secrets, or operational history.</p>
+
+        <h2 id="coverage">Create an item-by-item recovery coverage matrix</h2>
+        <div class="article-table-wrap" role="region" aria-label="Microsoft Fabric disaster recovery coverage matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Microsoft Fabric disaster recovery coverage matrix</caption>
+          <thead><tr><th scope="col">Recovery layer</th><th scope="col">Evidence required</th><th scope="col">Question to prove</th></tr></thead>
+          <tbody>
+            <tr><td>OneLake data</td><td>Capacity DR setting, supported region pair, replication evidence, BCDR storage and operations, data scope, lag assumption, cost, and post-failover behavior.</td><td>Which data is geo-replicated, what can be lost, and how is integrity verified after failover?</td></tr>
+            <tr><td>Item definitions and code</td><td>Git repositories, deployment artifacts, export or API coverage, versions, environment parameters, dependencies, and reproducible deployment tests.</td><td>Can every critical definition be reconstructed without relying on the failed workspace?</td></tr>
+            <tr><td>External and non-OneLake data</td><td>Source recovery, KQL and item-specific behavior, shortcuts, mirrored sources, external storage, SaaS dependencies, and ownership.</td><td>Which data needs a separate protection and recovery path?</td></tr>
+            <tr><td>Identity and configuration</td><td>Groups, roles, service principals, managed identities, secrets, gateways, connections, credentials, tenant settings, labels, sharing, and endpoints.</td><td>Can access and connectivity be restored without weakening security?</td></tr>
+            <tr><td>Orchestration and operations</td><td>Schedules, triggers, monitoring, alerts, incident routing, capacity assignment, runbooks, contacts, vendor escalation, and freeze criteria.</td><td>Can processing resume in dependency order without duplicate or missing work?</td></tr>
+            <tr><td>Business validation</td><td>Record counts, checksums, balances, KPIs, freshness, security personas, API tests, reports, downstream exports, and owner sign-off.</td><td>Does restored service produce approved business outcomes, not only healthy infrastructure?</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Microsoft documents that capacity-level DR for supported OneLake scenarios uses asynchronous cross-region replication and a platform-selected Azure region pair. Data not replicated before a disaster can be lost, and coverage depends on Fabric availability in the paired region. Verify that replication has started and monitor BCDR storage and operations rather than assuming the setting is immediately effective.</p>
+
+        <h2>Use multiple protection layers for different failures</h2>
+        <p>OneLake file soft delete, workspace item recovery for supported types, source-system retention, warehouse or database-specific recovery, deployment artifacts, configuration backups, and regional DR address different risks. Item recovery can require tenant configuration and has item-specific limitations; recovered sharing permissions or dependent behavior may need reconstruction. Record preview status and product changes as operational assumptions that require periodic review.</p>
+        <p>Protect definitions and configuration independently from data. Keep supported items in source control or reproducible deployment packages, externalize environment configuration, document identities and connections, preserve schema and security expectations, and test rebuilding into a clean workspace. Never store the only usable recovery artifact inside the capacity or workspace it is intended to recover.</p>
+
+        <h2 id="failure">Test explicit failure scenarios</h2>
+        <div class="article-table-wrap" role="region" aria-label="Microsoft Fabric recovery scenarios and validation" tabindex="0"><table class="article-table"><caption class="sr-only">Microsoft Fabric recovery scenarios and validation</caption>
+          <thead><tr><th scope="col">Failure scenario</th><th scope="col">Recovery action</th><th scope="col">Acceptance evidence</th></tr></thead>
+          <tbody>
+            <tr><td>Accidental file or item deletion</td><td>Stop dependent processing, identify deletion scope, recover through the supported retention path, rebuild missing configuration, and replay safely.</td><td>Restored objects, correct data version, permissions, lineage, downstream outputs, and documented recovery time.</td></tr>
+            <tr><td>Bad code or data deployment</td><td>Freeze release, identify affected versions and writes, roll back definitions, restore or repair data, and reconcile partial processing.</td><td>Matched business results, no duplicate effects, security intact, and monitored return to service.</td></tr>
+            <tr><td>Workspace or capacity loss</td><td>Provision approved target, deploy definitions, bind configuration and identities, restore or reconnect data, sequence workloads, and republish endpoints.</td><td>Complete inventory restored, users and integrations reconnected, and RPO/RTO measured.</td></tr>
+            <tr><td>Regional Fabric outage</td><td>Activate vendor and internal incident paths, assess platform failover state, control writes and dependent systems, validate secondary behavior, and communicate service status.</td><td>Known data cutoff, validated read/write behavior, reconciled recovery point, business acceptance, and failback plan.</td></tr>
+            <tr><td>Source or gateway outage</td><td>Use source-specific continuity, alternate connectivity, queued ingestion, or approved degraded mode; resume with controlled backfill.</td><td>No missed or duplicated periods, freshness communicated, downstream models reconciled, and backlog cleared.</td></tr>
+            <tr><td>Identity compromise or tenant event</td><td>Contain access, rotate credentials, deploy clean identities and configuration, review activity, validate data integrity, and restore least privilege.</td><td>Compromise removed, audit evidence retained, security tests passed, and approved access restored.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="drill">Run a controlled recovery drill</h2>
+        <ol>
+          <li>Approve scenario, scope, safety constraints, production impact, observers, escalation, abort conditions, and success criteria.</li>
+          <li>Capture item inventory, versions, source state, data cutoff, identities, permissions, dependencies, schedules, endpoints, and business baselines.</li>
+          <li>Execute a tabletop first, then a non-production technical recovery that uses the actual artifacts, roles, and documented sequence.</li>
+          <li>Time detection, declaration, containment, provisioning, data availability, definition deployment, configuration, processing, technical validation, and business acceptance.</li>
+          <li>Run record, aggregate, freshness, security-persona, report, API, downstream, and operational tests against approved expected results.</li>
+          <li>Record every missing permission, undocumented dependency, manual decision, stale artifact, failed automation, vendor wait, and reconciliation exception.</li>
+          <li>Prioritize remediation by business impact and recovery-objective risk, assign owners, then repeat the failed portions.</li>
+        </ol>
+        <p>A drill is not successful because the team followed a document. It is successful when the target service returns within approved objectives, produces correct and authorized outcomes, and leaves sufficient evidence for owners to accept recovery. Preserve a versioned drill record and retest after material architecture, item, region, identity, deployment, or support changes.</p>
+
+        <h2 id="assessment">Run a two-to-four-week Fabric BCDR assessment</h2>
+        <ol>
+          <li>Define critical workloads, impact tiers, RPO, RTO, recovery owners, regulatory requirements, and approved failure scenarios.</li>
+          <li>Inventory Fabric items, data locations, capacities, regions, sources, gateways, identities, code, configuration, endpoints, and downstream dependencies.</li>
+          <li>Map current protection and recovery mechanisms to every component and failure scenario; verify settings and retained evidence.</li>
+          <li>Identify unsupported, preview, external, manual, stale, or untested recovery paths and quantify their business consequence.</li>
+          <li>Design the target recovery architecture, source and artifact protection, alternate environments, identity controls, sequencing, communication, and vendor escalation.</li>
+          <li>Create deterministic recovery tests and run one tabletop or controlled technical drill for the highest-value bounded workload.</li>
+          <li>Deliver the coverage matrix, risk register, architecture, runbooks, test suite, drill report, remediation roadmap, cost implications, and recurring exercise cadence.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Does Microsoft Fabric have disaster recovery?</summary><p>Microsoft Fabric provides reliability and recovery capabilities, including capacity-level disaster recovery for supported OneLake data, Power BI continuity behavior, file soft delete, and item recovery for supported item types. Coverage and behavior differ by region, capacity, item, data location, and failure mode. A workload still needs an item-by-item recovery design, dependencies, runbooks, RPO and RTO, and tested business validation.</p></details>
+          <details><summary>What does OneLake disaster recovery protect?</summary><p>When enabled on a supported capacity and region pair, OneLake disaster recovery geo-replicates eligible OneLake data to the paired region. Replication is asynchronous, so data not copied before a regional disaster can be lost. It does not automatically prove recovery of every Fabric item definition, external source, KQL workload, identity, permission, endpoint, orchestration, or dependent application.</p></details>
+          <details><summary>Is OneLake soft delete the same as disaster recovery?</summary><p>No. Soft delete helps recover deleted OneLake files for a retention period, while item recovery can protect supported workspace items when enabled. Regional disaster recovery addresses a different failure class. None of these alone replaces source recovery, deployment artifacts, configuration recovery, permission reconstruction, dependency sequencing, or end-to-end workload validation.</p></details>
+          <details><summary>How do you test Microsoft Fabric disaster recovery?</summary><p>Define approved failure scenarios and expected RPO and RTO, freeze the test scope, capture source and target state, execute a tabletop or controlled technical recovery, restore item definitions, data, configuration, identity, permissions, orchestration, gateways, endpoints, and dependent services in sequence, then validate reconciled data and business transactions. Record timings, gaps, manual steps, evidence, and remediation owners.</p></details>
+          <details><summary>How long does a Microsoft Fabric disaster recovery assessment take?</summary><p>A focused assessment of one critical Fabric workload can often be completed in two to four weeks when item inventory, architecture, source and deployment access, owners, business continuity requirements, and operational evidence are available. Remediation and a technical recovery drill take longer when definitions are not in source control, data exists outside OneLake, identities are manual, dependencies are undocumented, or no secondary environment exists.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/onelake/onelake-disaster-recovery">Microsoft OneLake disaster recovery and data protection</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/reliability/reliability-fabric">Microsoft Fabric reliability guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/admin/retention-recovery">Microsoft Fabric retention and item recovery guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/well-architected/microsoft-fabric/reliability">Microsoft Fabric Well-Architected reliability guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/well-architected/design-guides/disaster-recovery">Microsoft disaster recovery design guidance</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the Fabric workload whose loss would create the largest business interruption.</strong> Datrick can map protection gaps, build the recovery contract, run a controlled drill, and deliver an approval-ready remediation plan.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_disaster_recovery&amp;utm_medium=organic_content&amp;utm_campaign=fabric_bcdr_assessment_scoping&amp;utm_content=article_end#inquiry-form">Scope a Fabric recovery assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-managed-services-support-operations"><span>Managed operations</span><strong>Own incidents, recovery, and improvement</strong></a><a href="ai-power-bi-fabric-cicd-deployment-pipeline-release-governance-automation"><span>Recovery artifacts</span><strong>Control source, deployment, and rollback</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

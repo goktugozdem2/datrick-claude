@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Claude Models Comparison 2026: Fable, Opus, Sonnet &amp; Haiku</title>
+    <meta name="description" content="Compare Claude Fable, Opus, Sonnet and Haiku: differences, pricing, speed, context windows, coding, agents and best use cases. Updated July 2026.">
+    <link rel="canonical" href="https://datrick.com/claude-models-comparison">
+    <meta property="og:title" content="Claude Models Comparison 2026: Fable, Opus, Sonnet &amp; Haiku"><meta property="og:description" content="Compare Claude Fable, Opus, Sonnet and Haiku by differences, pricing, speed, context, coding, agents and best use cases."><meta property="og:url" content="https://datrick.com/claude-models-comparison"><meta property="og:type" content="article"><meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png"><meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png"><link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the difference between Claude Fable, Opus, Sonnet, and Haiku?","acceptedAnswer":{"@type":"Answer","text":"Fable 5 is Anthropic's most capable widely released model for demanding reasoning and long-horizon agentic work. Opus 4.8 targets complex agentic coding and enterprise work. Sonnet 5 balances frontier intelligence, speed, and cost. Haiku 4.5 is the fastest and lowest-cost current model for high-volume and latency-sensitive workloads."}},{"@type":"Question","name":"Which Claude model is best for AI agents?","acceptedAnswer":{"@type":"Answer","text":"Start with Sonnet 5 for most production agents, use Opus 4.8 when complex judgment and long-running execution materially improve outcomes, and evaluate Fable 5 for the hardest long-horizon workloads. Haiku 4.5 is useful for fast sub-agents and high-volume bounded tasks. The correct choice should be established with workload-specific evaluations."}},{"@type":"Question","name":"Which Claude model is best for coding?","acceptedAnswer":{"@type":"Answer","text":"Sonnet 5 is the practical starting point for most coding workloads because it combines strong agentic coding with lower cost and faster responses. Opus 4.8 is appropriate for complex repository work, architecture, debugging, and long-running engineering agents. Fable 5 should be evaluated for unusually demanding multi-day or ambiguous work."}},{"@type":"Question","name":"How much do the latest Claude models cost?","acceptedAnswer":{"@type":"Answer","text":"As of July 2026, base API pricing per million input and output tokens is $10 and $50 for Fable 5, $5 and $25 for Opus 4.8, $2 and $10 introductory pricing for Sonnet 5 through August 31, 2026, and $1 and $5 for Haiku 4.5. Sonnet 5 standard pricing is scheduled to become $3 and $15. Confirm current pricing before budgeting."}},{"@type":"Question","name":"Should every workflow use the strongest Claude model?","acceptedAnswer":{"@type":"Answer","text":"No. Use the least expensive and fastest model that consistently passes a representative evaluation set. Stronger models are justified only when their quality or autonomy improvement creates more value than the added latency, operating complexity, and token cost."}}]}</script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "headline": "Claude Models Comparison 2026: Fable, Opus, Sonnet & Haiku",
+            "description": "Compare Claude Fable, Opus, Sonnet and Haiku by differences, pricing, speed, context, coding, agents and best use cases.",
+            "url": "https://datrick.com/claude-models-comparison",
+            "datePublished": "2026-07-16",
+            "dateModified": "2026-07-28",
+            "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"},
+            "reviewedBy": {"@type": "Person", "name": "Can Goktug Ozdem", "url": "https://datrick.com/about.html"},
+            "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}},
+            "mainEntityOfPage": "https://datrick.com/claude-models-comparison"
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://datrick.com/"},
+              {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://datrick.com/resources.html"},
+              {"@type": "ListItem", "position": 3, "name": "Claude Models Comparison", "item": "https://datrick.com/claude-models-comparison"}
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai" data-content-id="claude_models_comparison" data-content-group="claude_models" data-content-type="commercial_resource" data-commercial-cluster="ai_readiness">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header"><a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav><a class="header-cta" href="index.html#contact">Start a conversation</a></header>
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div><p class="eyebrow">Claude model selection guide</p><h1>Claude models comparison 2026: Fable 5 vs Opus 4.8 vs Sonnet 5 vs Haiku 4.5.</h1><p class="page-lede">Choose the model that passes your workload's quality threshold at the lowest justified cost and latency, then prove the decision with production-shaped evaluations.</p><div class="article-meta"><a href="resources.html">Resource library</a><span>Updated July 2026</span><span>11 min read</span></div><p class="article-review">Reviewed against official Anthropic product documentation by <a href="about.html">Can Goktug Ozdem</a>. Last checked July 16, 2026.</p></div></section>
+      <section class="section service-band"><article class="article-body">
+        <p>Anthropic's current Claude lineup is no longer a simple small, medium, and large ladder. Fable 5, Opus 4.8, Sonnet 5, and Haiku 4.5 differ in reasoning behavior, context, latency, pricing, retention constraints, and intended operating model. The most expensive model is not automatically the best production choice.</p>
+        <p>A defensible selection process starts with the workflow: quality threshold, failure cost, response-time requirement, input and output volume, tool use, autonomy, review path, data policy, and monthly budget. Model labels become useful only after those constraints are explicit.</p>
+        <p><strong>Accuracy note:</strong> Specifications below were checked against Anthropic's <a href="https://platform.claude.com/docs/en/about-claude/models/overview">official model overview</a> and model-specific documentation on July 11, 2026. Pricing and availability change. Confirm current documentation before committing a production budget.</p>
+
+        <h2>Latest Claude models compared</h2>
+        <div class="article-table-wrap" role="region" aria-label="Latest Claude model comparison" tabindex="0"><table class="article-table"><caption class="sr-only">Latest Claude model comparison</caption><thead><tr><th scope="col">Model</th><th scope="col">Starting role</th><th scope="col">Input / output per MTok</th><th scope="col">Context / max output</th><th scope="col">Relative latency</th></tr></thead><tbody>
+          <tr><td>Claude Fable 5</td><td>Most demanding reasoning and long-horizon agents</td><td>$10 / $50</td><td>1M / 128k</td><td>Slower</td></tr>
+          <tr><td>Claude Opus 4.8</td><td>Complex agentic coding and enterprise work</td><td>$5 / $25</td><td>1M / 128k</td><td>Moderate</td></tr>
+          <tr><td>Claude Sonnet 5</td><td>General production default for coding, agents, and knowledge work</td><td>$2 / $10 introductory; $3 / $15 scheduled after Aug. 31, 2026</td><td>1M / 128k</td><td>Fast</td></tr>
+          <tr><td>Claude Haiku 4.5</td><td>High-volume, real-time, and cost-sensitive workloads</td><td>$1 / $5</td><td>200k / 64k</td><td>Fastest</td></tr>
+        </tbody></table></div>
+        <p class="evidence-note"><strong>Selecting a model for a real workload?</strong> This table is a starting point, not a production decision. <a data-cta-name="models_table_to_selection_assessment" data-funnel-stage="content_to_commercial" data-next-stage="assessment_landing" href="ai-readiness-assessment-model-selection?utm_source=claude_models_comparison&amp;utm_medium=organic_content&amp;utm_campaign=ai_model_selection_assessment&amp;utm_content=comparison_table">Review Datrick's vendor-neutral model-selection assessment</a> for workload value, evaluation design, data constraints, operating risk, and total cost.</p>
+
+        <h2>When to choose Claude Fable 5</h2>
+        <p>Fable 5 is Anthropic's most capable widely released model, designed for demanding reasoning and long-horizon agentic work. Anthropic specifically highlights multi-day goal-directed runs, complex ambiguity, delegation to parallel sub-agents, code review and debugging, dense visual work, and enterprise documents.</p>
+        <p>Choose Fable only when your evaluation demonstrates that lower-cost models miss critical requirements or require enough retries and human correction to erase their price advantage. Fable also introduces operating considerations that belong in architecture review: safety classifiers can return a successful HTTP response with a refusal stop reason, fallback behavior must be designed, and Fable carries 30-day retention rather than zero data retention. Read the detailed <a href="claude-fable-5-vs-opus-4-8">Fable 5 vs Opus 4.8 comparison</a>.</p>
+
+        <h2>When to choose Claude Opus 4.8</h2>
+        <p>Opus 4.8 is the starting point for complex agentic coding and enterprise work when Sonnet does not consistently meet the quality threshold. It supports a 1M-token context window, 128k maximum output, adaptive thinking, effort controls, and fast mode as a research preview on the Claude API.</p>
+        <p>Typical candidates include large repository exploration, architecture and debugging across multiple systems, advanced research, vision-heavy workflows, computer use, and long-running agents where better judgment reduces dead ends. At half Fable's token price, Opus can be the economic choice when it passes the same workload evaluation. See <a href="claude-sonnet-5-vs-opus-4-8">Sonnet 5 vs Opus 4.8</a> for the practical boundary.</p>
+
+        <h2>When to choose Claude Sonnet 5</h2>
+        <p>Sonnet 5 is the practical default for most new production workloads. Anthropic positions it as the best combination of speed and intelligence for coding, agents, data analysis, content, visual understanding, and tool use. Its 1M context and 128k output limits match the larger models, while its standard pricing remains materially lower.</p>
+        <p>Start here for application agents, engineering assistants, research workflows, document automation, and enterprise knowledge work. Move upward only when an evaluation identifies a quality gap with economic consequences. Teams upgrading from Sonnet 4.6 must account for adaptive thinking defaults, removed manual thinking budgets, rejected non-default sampling parameters, and tokenizer changes. Follow the <a href="claude-sonnet-5-migration-guide">Sonnet 5 migration guide</a>.</p>
+
+        <h2>When to choose Claude Haiku 4.5</h2>
+        <p>Haiku 4.5 is the fastest and lowest-cost current Claude model. It fits responsive chat, classification, extraction, routing, bounded tool calls, high-volume document processing, sub-agent tasks, and workflows where a human or stronger model handles difficult exceptions.</p>
+        <p>Its 200k context and 64k maximum output are smaller than the other current models, but many production tasks never approach those limits. Haiku is often under-tested because teams assume the lowest tier cannot meet quality requirements. Evaluate it first when latency and volume dominate the economics. Read <a href="claude-haiku-4-5-vs-sonnet-5">Haiku 4.5 vs Sonnet 5</a>.</p>
+
+        <h2>A defensible model-selection process</h2>
+        <ol><li><strong>Define the accepted outcome.</strong> Write measurable quality, safety, formatting, and completion criteria before comparing models.</li><li><strong>Build a representative evaluation set.</strong> Include normal work, edge cases, missing data, conflicting instructions, and known failure modes.</li><li><strong>Test the same operating design.</strong> Keep tools, prompts, context, and review rules comparable unless a model-specific feature requires change.</li><li><strong>Measure total workflow cost.</strong> Include input, output, retries, tool calls, latency, review time, failure handling, and engineering complexity.</li><li><strong>Route by difficulty when justified.</strong> Use Haiku or Sonnet for normal cases and escalate only uncertain or high-value work to Opus or Fable.</li><li><strong>Re-evaluate before migration.</strong> Model updates can change tokenization, parameter support, behavior, and the economics of existing prompts.</li></ol>
+
+        <section class="readiness-actions"><p><strong>Estimate the workload before choosing a model.</strong> Enter monthly requests and average token volume to compare base API cost across all four current Claude models.</p><a class="button secondary" data-cta-name="models_to_cost_calculator" data-funnel-stage="content_to_tool" data-next-stage="calculator" href="claude-api-cost-calculator">Open the Claude cost calculator</a></section>
+
+        <h2>Common production routing patterns</h2>
+        <div class="article-table-wrap" role="region" aria-label="Claude model routing patterns" tabindex="0"><table class="article-table"><caption class="sr-only">Claude model routing patterns</caption><thead><tr><th scope="col">Pattern</th><th scope="col">Starting model</th><th scope="col">Escalation condition</th></tr></thead><tbody><tr><td>High-volume extraction or classification</td><td>Haiku 4.5</td><td>Low confidence, complex source, or validation failure routes to Sonnet 5</td></tr><tr><td>General agent or coding workflow</td><td>Sonnet 5</td><td>Hard cases, complex debugging, or repeated failed plans route to Opus 4.8</td></tr><tr><td>Complex engineering or enterprise analysis</td><td>Opus 4.8</td><td>Unusually long-horizon, ambiguous, or multi-agent work is evaluated on Fable 5</td></tr><tr><td>Long-running autonomous program</td><td>Fable 5 after evaluation</td><td>Refusals route through an explicit fallback policy</td></tr></tbody></table></div>
+
+        <h2>Frequently asked questions</h2><div class="faq-list"><details><summary>What is the difference between Claude Fable, Opus, Sonnet, and Haiku?</summary><p>Fable 5 is Anthropic's most capable widely released model for demanding reasoning and long-horizon agentic work. Opus 4.8 targets complex agentic coding and enterprise work. Sonnet 5 balances frontier intelligence, speed, and cost. Haiku 4.5 is the fastest and lowest-cost current model for high-volume and latency-sensitive workloads.</p></details><details><summary>Which Claude model is best for AI agents?</summary><p>Start with Sonnet 5 for most production agents, use Opus 4.8 when complex judgment and long-running execution materially improve outcomes, and evaluate Fable 5 for the hardest long-horizon workloads. Haiku 4.5 is useful for fast sub-agents and high-volume bounded tasks. Establish the choice with workload-specific evaluations.</p></details><details><summary>Which Claude model is best for coding?</summary><p>Sonnet 5 is the practical starting point for most coding workloads because it combines strong agentic coding with lower cost and faster responses. Opus 4.8 is appropriate for complex repository work, architecture, debugging, and long-running engineering agents. Fable 5 should be evaluated for unusually demanding multi-day or ambiguous work.</p></details><details><summary>How much do the latest Claude models cost?</summary><p>As of July 2026, base API pricing per million input and output tokens is $10 and $50 for Fable 5, $5 and $25 for Opus 4.8, $2 and $10 introductory pricing for Sonnet 5 through August 31, 2026, and $1 and $5 for Haiku 4.5. Sonnet 5 standard pricing is scheduled to become $3 and $15. Confirm current pricing before budgeting.</p></details><details><summary>Should every workflow use the strongest Claude model?</summary><p>No. Use the least expensive and fastest model that consistently passes a representative evaluation set. Stronger models are justified only when their quality or autonomy improvement creates more value than the added latency, operating complexity, and token cost.</p></details></div>
+
+        <section class="readiness-actions"><p><strong>Choose with production evidence.</strong> Datrick compares Claude and other suitable model routes against the client's use case, quality threshold, data constraints, integration effort, operating risk, and total cost before recommending a pilot.</p><a class="button primary" data-cta-name="models_to_selection_assessment" data-funnel-stage="content_to_commercial" data-next-stage="assessment_landing" href="ai-readiness-assessment-model-selection?utm_source=claude_models_comparison&amp;utm_medium=website&amp;utm_campaign=ai_model_selection_assessment&amp;utm_content=article_end">Review the model-selection assessment</a></section>
+        <nav class="article-next" aria-label="Resource next steps"><a data-cta-name="models_next_to_cost_calculator" data-funnel-stage="content_to_tool" data-next-stage="calculator" href="claude-api-cost-calculator"><span>Interactive tool</span><strong>Estimate Claude API cost</strong></a><a data-cta-name="models_next_to_selection_assessment" data-funnel-stage="content_to_commercial" data-next-stage="assessment_landing" href="ai-readiness-assessment-model-selection?utm_source=claude_models_comparison&amp;utm_medium=website&amp;utm_campaign=ai_model_selection_assessment&amp;utm_content=next_step"><span>Consulting assessment</span><strong>Prioritize the use case and model route</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer><script src="script.js"></script>
+  </body>
+</html>

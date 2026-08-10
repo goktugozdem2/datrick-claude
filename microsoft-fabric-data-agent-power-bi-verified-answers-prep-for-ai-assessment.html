@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Data Agent Verified Answers Assessment | Datrick</title>
+    <meta name="description" content="Implement and assess Power BI Prep for AI Verified Answers for Fabric Data Agent: trigger matching, DAX grounding, filters, conflicts, model changes, security, and regression.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-power-bi-verified-answers-prep-for-ai-assessment">
+    <meta property="og:title" content="Fabric Data Agent Verified Answers Assessment | Datrick">
+    <meta property="og:description" content="Prove that the right Power BI Verified Answer guides the right Fabric Data Agent question without creating false matches or stale DAX.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-power-bi-verified-answers-prep-for-ai-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent Power BI Verified Answers and Prep for AI Assessment", "description": "Implement and assess Power BI Prep for AI Verified Answers for Fabric Data Agent: trigger matching, DAX grounding, filters, conflicts, model changes, security, and regression.", "url": "https://datrick.com/microsoft-fabric-data-agent-power-bi-verified-answers-prep-for-ai-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-power-bi-verified-answers-prep-for-ai-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Do Power BI Verified Answers work with Fabric Data Agent?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Microsoft states that Verified Answers are stored on the Power BI semantic model and can guide Fabric Data Agent DAX generation when a question exactly or semantically matches a trigger. The agent uses the question and visual properties rather than returning the original Power BI visual."}},
+            {"@type": "Question", "name": "How many trigger questions should a Power BI Verified Answer have?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft recommends five to seven complete trigger questions per Verified Answer, including formal and conversational variations. The correct set should cover intended phrasing without attracting nearby questions that require a different measure, date, filter, grain, or business interpretation."}},
+            {"@type": "Question", "name": "How many filters can a Power BI Verified Answer support?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft's current semantic-model guidance says a Verified Answer can use up to three filters for flexible slicing. Teams should test allowed values, missing values, combinations, security behavior, default interpretation, and questions outside the configured filter contract."}},
+            {"@type": "Question", "name": "What happens when a field used by a Verified Answer is renamed?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft says that when referenced tables, columns, or measures are renamed, the Verified Answer must be updated and saved again. Hidden referenced columns can also prevent it from working. Treat model changes as a release event with dependency checks and regression tests."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent Verified Answers assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment commonly takes two to four weeks for one semantic model, its Verified Answers, target Data Agents or Copilot experiences, and a representative question set. It covers triggers, filters, visual properties, generated DAX, conflicts, model changes, security, regression, release, and rollback."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Power BI Prep for AI assurance</p>
+        <h1>A verified answer is only reliable if it matches the right question.</h1>
+        <p class="page-lede">Implement and test trigger coverage, false matches, visual grounding, measures, filters, generated DAX, AI instruction conflicts, model changes, consumer permissions, and release controls across Fabric Data Agent and Power BI Copilot.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_verified_answers&amp;utm_medium=organic_content&amp;utm_campaign=prep_for_ai_match_assessment&amp;utm_content=hero#inquiry-form">Describe the matching problem</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Power BI conversational accuracy</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#contract">Answer contract</a><a href="#matching">Trigger design</a><a href="#evaluation">Match testing</a><a href="#lifecycle">Model lifecycle</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>A Verified Answer can correct a recurring business question and still create a new failure mode. A broad trigger may attract a nearby question that needs another measure. A narrow trigger may miss the language users actually use. A visual can reference a renamed or hidden field. An AI instruction can contradict the answer. The generated DAX can be valid while the matched business interpretation is wrong.</p>
+        <p>Microsoft stores Verified Answers on the Power BI semantic model, so the configuration can affect every Fabric Data Agent and Copilot experience that uses that model. Fabric Data Agent does not return the original verified visual. It uses the trigger questions and visual properties, including columns, measures, and filters, to influence DAX generation after an exact or semantically similar match.</p>
+
+        <section class="readiness-actions"><p><strong>Can you show which prompts should match, which must not, and the DAX expected for both?</strong> If not, the Verified Answer is a hopeful example rather than a controlled production asset.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_verified_answers&amp;utm_medium=organic_content&amp;utm_campaign=prep_for_ai_match_assessment&amp;utm_content=article_intro#inquiry-form">Send the model and questions</a><a class="button secondary" href="microsoft-fabric-data-agent-power-bi-semantic-model-nl2dax-accuracy-assessment">Assess the complete NL2DAX path</a></div></section>
+
+        <h2 id="contract">Define each Verified Answer as a tested semantic contract</h2>
+        <p>Record the business owner, approved meaning, target users, supported questions, excluded questions, semantic model version, source visual, measures, columns, relationships, filters, date logic, expected DAX behavior, RLS and CLS outcome, consumers, freshness, severity, release owner, and rollback target.</p>
+        <div class="article-table-wrap" role="region" aria-label="Power BI Verified Answer semantic contract" tabindex="0"><table class="article-table"><caption class="sr-only">Power BI Verified Answer semantic contract</caption>
+          <thead><tr><th scope="col">Contract element</th><th scope="col">Evidence</th><th scope="col">Failure risk</th><th scope="col">Control</th></tr></thead>
+          <tbody>
+            <tr><td>Business intent</td><td>Approved metric, grain, period, comparison, dimensions, units, and accountable owner.</td><td>A technically valid answer encodes the wrong business definition.</td><td>Signed ground truth and deterministic DAX control.</td></tr>
+            <tr><td>Trigger set</td><td>Five to seven complete formal and conversational questions plus expected paraphrases.</td><td>Real users miss the answer or an unrelated prompt matches it.</td><td>Positive, near-match, negative, ambiguity, and collision tests.</td></tr>
+            <tr><td>Visual grounding</td><td>Visual type, measures, columns, filters, sort, hidden fields, and source page.</td><td>Stale or ambiguous properties guide DAX toward the wrong query.</td><td>Dependency inventory, approved visual, and generated-DAX reconciliation.</td></tr>
+            <tr><td>Filter contract</td><td>Up to three supported filters, allowed values, defaults, combinations, and invalid cases.</td><td>A filter is ignored, misread, overbroad, or inconsistent with security.</td><td>Boundary matrix and explicit fallback outside supported combinations.</td></tr>
+            <tr><td>Instruction relationship</td><td>AI Data Schema, Prep for AI Instructions, agent routing instructions, and precedence assumptions.</td><td>Conflicting guidance creates unstable measure, date, or source selection.</td><td>Single-purpose rules, conflict tests, and removal of duplicate semantics.</td></tr>
+            <tr><td>Consumer scope</td><td>Every Data Agent, Power BI Copilot experience, workspace, user role, and release using the model.</td><td>A model-level change fixes one experience and regresses another.</td><td>Consumer registry, cross-experience regression, staged release, and rollback.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="matching">Design triggers around intent boundaries, not keyword coverage</h2>
+        <p>Microsoft recommends five to seven trigger questions per Verified Answer and advises using complete questions rather than partial phrases. Include formal and conversational language, but keep the intent stable. “What is sales performance by territory?” and “How are sales distributed across regions?” may belong together only when territory and region share the same approved business mapping.</p>
+        <p>For every positive trigger, create neighboring negatives. Change the measure, date basis, population, currency, grain, comparison, or business entity one at a time. “Revenue by sales territory” must not capture “margin by service territory” merely because the vocabulary is similar. If two Verified Answers occupy overlapping semantic space, test them together and narrow or consolidate the contract.</p>
+        <p>Use the supported filter flexibility deliberately. Microsoft currently advises up to three filters. Test each filter alone, all supported combinations, omitted values, unknown values, synonyms, nulls, security-filtered values, and a fourth condition that should fall outside the contract. Do not imply unlimited slicing when the verified design only covers a bounded pattern.</p>
+
+        <h2 id="evaluation">Measure true matches, false matches, misses, and answer fidelity</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent Verified Answers evaluation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent Verified Answers evaluation matrix</caption>
+          <thead><tr><th scope="col">Test family</th><th scope="col">Question set</th><th scope="col">Pass condition</th><th scope="col">Remediation</th></tr></thead>
+          <tbody>
+            <tr><td>Exact match</td><td>Configured trigger questions against the target model and consumers.</td><td>Expected Verified Answer influences correct DAX and business result every time.</td><td>Visual, model object, save state, consumer version, or permission.</td></tr>
+            <tr><td>Semantic match</td><td>Natural paraphrases, abbreviations, reordered clauses, and conversational phrasing.</td><td>Intended variants match without changing metric, grain, date, or filters.</td><td>Trigger rewrite, added variant, synonym, description, or scope split.</td></tr>
+            <tr><td>False-positive match</td><td>Nearby questions differing by one material business condition.</td><td>Wrong Verified Answer never captures the question; agent clarifies or uses the correct path.</td><td>Narrow triggers, remove overlap, separate models, or clarification rule.</td></tr>
+            <tr><td>No-match fallback</td><td>Unsupported, ambiguous, and prohibited questions.</td><td>Agent generates correct DAX, asks a useful question, or abstains safely.</td><td>AI schema, instruction, new Verified Answer, use-case limit, or no-answer policy.</td></tr>
+            <tr><td>Filter behavior</td><td>Each allowed filter, combinations, invalid values, omitted values, and security boundaries.</td><td>DAX applies only intended filters and final response states scope accurately.</td><td>Filter redesign, visual change, model measure, trigger, or explicit limitation.</td></tr>
+            <tr><td>Conflict</td><td>Verified Answer versus AI Instruction, duplicate measure, alternate visual, or another answer.</td><td>Approved interpretation wins consistently without adjacent regressions.</td><td>Simplify, consolidate, remove contradiction, or redesign semantic model.</td></tr>
+            <tr><td>Security</td><td>Same triggers across consumer identities, RLS roles, CLS boundaries, and denied users.</td><td>Generated DAX and result honor each user's effective access and fail closed.</td><td>Model security, source sharing, permission, consumer scope, or rollout block.</td></tr>
+            <tr><td>Cross-experience</td><td>Fabric Data Agent and every Power BI Copilot or agent consumer using the model.</td><td>Each supported experience preserves the approved meaning and limitations.</td><td>Experience-specific validation, release sequencing, or model separation.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Score precision and recall for matching separately from DAX validity, numeric correctness, semantic correctness, security, latency, and final-answer fidelity. A high match rate is harmful when matches are wrong. Preserve prompt, matched asset, generated DAX, source result, final answer, user identity, model version, and configuration version for every critical test.</p>
+
+        <h2 id="lifecycle">Treat model and configuration changes as dependency releases</h2>
+        <p>Microsoft says a Verified Answer must be updated and saved again when referenced tables, columns, or measures are renamed. Verified Answers also fail when they rely on hidden columns. Include visibility, rename, delete, measure logic, relationship, filter, report visual, AI Data Schema, instruction, refresh, and deployment changes in dependency analysis.</p>
+        <p>Semantic-model-specific guidance belongs in Power BI Prep for AI. Microsoft states that the Data Agent DAX generation tool ignores semantic-model guidance placed in Data Agent instructions. It also warns that conflicting AI Instructions and Verified Answers can create unpredictable behavior. Keep semantic logic in one accountable layer and test every deliberate overlap.</p>
+        <p>Version the model, Verified Answers, triggers, filters, instructions, test set, and expected DAX together. Compare draft and published behavior, then rerun every registered consumer before promotion. Monitor wrong-answer reports, match precision, misses, generated-DAX drift, authorization failures, latency, and model changes. Preserve rollback to the last approved semantic configuration.</p>
+
+        <h2 id="assessment">Run a two-to-four-week Verified Answers assessment</h2>
+        <ol>
+          <li>Select one semantic model, its Fabric Data Agents and Copilot consumers, business owners, target users, critical questions, and known wrong answers.</li>
+          <li>Inventory AI Data Schema, Verified Answers, triggers, filters, source visuals, measures, columns, AI Instructions, permissions, model dependencies, and releases.</li>
+          <li>Define the semantic contract and deterministic DAX ground truth for every candidate Verified Answer.</li>
+          <li>Create exact, paraphrase, near-match, negative, ambiguity, filter, conflict, security, model-change, and cross-experience tests.</li>
+          <li>Run the baseline, inspect generated DAX and final answers, and classify failures by trigger, visual, model, filter, instruction, permission, client, or release.</li>
+          <li>Refine the smallest responsible layer, rerun the full collision suite, and compare draft with production under real consumer identities.</li>
+          <li>Deliver the Verified Answer registry, trigger and filter design, dependency map, scorecard, regression suite, release gates, monitoring, runbooks, and go, limit, redesign, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Do Power BI Verified Answers work with Fabric Data Agent?</summary><p>Yes. Microsoft states that Verified Answers are stored on the Power BI semantic model and can guide Fabric Data Agent DAX generation when a question exactly or semantically matches a trigger. The agent uses the question and visual properties rather than returning the original Power BI visual.</p></details>
+          <details><summary>How many trigger questions should a Power BI Verified Answer have?</summary><p>Microsoft recommends five to seven complete trigger questions per Verified Answer, including formal and conversational variations. The correct set should cover intended phrasing without attracting nearby questions that require a different measure, date, filter, grain, or business interpretation.</p></details>
+          <details><summary>How many filters can a Power BI Verified Answer support?</summary><p>Microsoft's current semantic-model guidance says a Verified Answer can use up to three filters for flexible slicing. Teams should test allowed values, missing values, combinations, security behavior, default interpretation, and questions outside the configured filter contract.</p></details>
+          <details><summary>What happens when a field used by a Verified Answer is renamed?</summary><p>Microsoft says that when referenced tables, columns, or measures are renamed, the Verified Answer must be updated and saved again. Hidden referenced columns can also prevent it from working. Treat model changes as a release event with dependency checks and regression tests.</p></details>
+          <details><summary>How long does a Fabric Data Agent Verified Answers assessment take?</summary><p>A focused assessment commonly takes two to four weeks for one semantic model, its Verified Answers, target Data Agents or Copilot experiences, and a representative question set. It covers triggers, filters, visual properties, generated DAX, conflicts, model changes, security, regression, release, and rollback.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/semantic-model-best-practices">Fabric Data Agent semantic model and Verified Answers best practices</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-verified-answers">Power BI Prep for AI Verified Answers guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-data-schema">Power BI AI Data Schema guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai-instructions">Power BI AI Instructions guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-add-datasources">Fabric Data Agent semantic model configuration support</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the Verified Answer whose broad trigger could silently select the wrong executive metric.</strong> Datrick can map its dependencies, build collision tests, reconcile generated DAX, and turn the configuration into a controlled production asset.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_agent_verified_answers&amp;utm_medium=organic_content&amp;utm_campaign=prep_for_ai_match_assessment&amp;utm_content=article_end#inquiry-form">Scope the Verified Answers assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-power-bi-semantic-model-nl2dax-accuracy-assessment"><span>Validate generated DAX</span><strong>Assess the full semantic model path</strong></a><a href="ai-power-bi-fabric-copilot-readiness-semantic-model-evaluation"><span>Prepare the wider model</span><strong>Assess Power BI Copilot readiness</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

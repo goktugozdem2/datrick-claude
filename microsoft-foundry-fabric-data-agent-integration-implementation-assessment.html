@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Microsoft Foundry and Fabric Data Agent Integration Assessment | Datrick</title>
+    <meta name="description" content="Implement and assess a Microsoft Foundry Agent Service integration with Fabric Data Agent across OBO identity, permissions, tool routing, evaluation, and monitoring.">
+    <link rel="canonical" href="https://datrick.com/microsoft-foundry-fabric-data-agent-integration-implementation-assessment">
+    <meta property="og:title" content="Microsoft Foundry and Fabric Data Agent Integration Assessment | Datrick">
+    <meta property="og:description" content="Connect a Foundry agent to governed Fabric data with tested identity passthrough, tool invocation, answer quality, observability, and release controls.">
+    <meta property="og:url" content="https://datrick.com/microsoft-foundry-fabric-data-agent-integration-implementation-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Foundry and Fabric Data Agent Integration Implementation Assessment", "description": "Implement and assess a Microsoft Foundry Agent Service integration with Fabric Data Agent across OBO identity, permissions, tool routing, evaluation, and monitoring.", "url": "https://datrick.com/microsoft-foundry-fabric-data-agent-integration-implementation-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-foundry-fabric-data-agent-integration-implementation-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Can Microsoft Foundry Agent Service use a Fabric Data Agent as a tool?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Microsoft documents a preview Fabric Data Agent tool for Foundry Agent Service. A published Fabric Data Agent is connected to the Foundry project, then attached to a prompt or hosted agent through the Microsoft Fabric preview tool. The Foundry model handles orchestration and response generation while the Fabric Data Agent performs its own structured-data query generation."}},
+            {"@type": "Question", "name": "How does identity work between Foundry and Fabric Data Agent?", "acceptedAnswer": {"@type": "Answer", "text": "The documented Foundry integration uses user identity passthrough, also called On-Behalf-Of authorization. Fabric queries run under the signed-in end user's identity. Each user needs the required Foundry role, access to the published Fabric Data Agent, and effective permission on the underlying sources. Service principal authentication is not currently supported for this specific Fabric tool path."}},
+            {"@type": "Question", "name": "Why does our Foundry agent not call the Fabric Data Agent tool?", "acceptedAnswer": {"@type": "Answer", "text": "The tool can be missing, connected to the wrong Fabric item, unpublished, or poorly described, and the agent instructions might not provide a clear routing rule. Validate the Fabric project connection, workspace and artifact IDs, published state, tool configuration, and user access. Test natural tool selection with representative prompts and use required tool choice only as a diagnostic or intentionally constrained workflow."}},
+            {"@type": "Question", "name": "How should we evaluate a Foundry agent that uses Fabric Data Agent?", "acceptedAnswer": {"@type": "Answer", "text": "Evaluate the complete path: user intent, tool selection, Fabric source routing, generated SQL DAX or KQL, source result, final answer, security behavior, latency, tokens, failures, and business usefulness. Include allowed and denied personas, unsupported questions, competing tools, multi-turn cases, timeouts, publication changes, and regressions. Use Foundry traces and Application Insights with a versioned ground-truth dataset."}},
+            {"@type": "Question", "name": "How long does a Foundry and Fabric Data Agent integration assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused production-shaped pilot can often be completed in three to five weeks for one Foundry agent, one published Fabric Data Agent, one governed domain, and a named user cohort. The work covers connection setup, OBO identity, source permissions, tool instructions, evaluation, tracing, monitoring, failure handling, release controls, and a go, limit, or stop recommendation."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Microsoft Foundry + Fabric Data Agent</p>
+        <h1>Give a Foundry agent governed Fabric answers without flattening user permissions.</h1>
+        <p class="page-lede">Implement a production-shaped Fabric Data Agent tool with On-Behalf-Of identity, deterministic tool routing, source and answer evaluation, end-to-end tracing, continuous monitoring, and explicit preview gates.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=foundry_fabric_data_agent&amp;utm_medium=organic_content&amp;utm_campaign=foundry_fabric_integration_pilot&amp;utm_content=hero#inquiry-form">Describe the agent integration</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Agentic enterprise data</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#architecture">Architecture</a><a href="#identity">OBO identity</a><a href="#routing">Tool routing</a><a href="#evaluation">Evaluation and monitoring</a><a href="#pilot">Pilot plan</a></nav>
+
+        <p>Connecting a Fabric Data Agent to Microsoft Foundry Agent Service creates two reasoning layers. The Foundry model interprets the request, decides whether to invoke the Fabric tool, and produces the final response. The Fabric Data Agent selects a governed source and generates the structured query. A correct answer depends on both layers and on the identity, permissions, semantic model, data, and client channel around them.</p>
+        <p>Datrick makes those boundaries testable. The implementation uses a published Data Agent, an explicit Foundry project connection, signed-in user identity passthrough, scoped business questions, traceable tool calls, deterministic source checks, and release evidence. The pilot does not treat a successful playground answer as production readiness.</p>
+
+        <section class="readiness-actions"><p><strong>Which users need which governed Fabric answers inside the Foundry agent?</strong> Start with that decision and its permission boundary.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=foundry_fabric_data_agent&amp;utm_medium=organic_content&amp;utm_campaign=foundry_fabric_integration_pilot&amp;utm_content=article_intro#inquiry-form">Send the integration context</a><a class="button secondary" href="microsoft-fabric-data-agent-implementation-evaluation-services">Prepare the Fabric agent</a></div></section>
+
+        <h2 id="architecture">Design the two-agent request path</h2>
+        <p>Build and publish the Fabric Data Agent first. In Foundry, create a Microsoft Fabric project connection using the production Data Agent workspace and artifact IDs, then attach the connection through `MicrosoftFabricPreviewTool` or the corresponding SDK or REST representation. Keep project endpoint, model deployment, connection ID, agent version, and Fabric item IDs environment-specific and versioned.</p>
+        <p>The Foundry model controls orchestration and final response generation; it does not replace the model Fabric uses for natural-language-to-query generation. Changing the Foundry model can alter tool selection, planning, synthesis, latency, and cost even when the Data Agent definition is unchanged. Changing the Data Agent can alter source routing and queries even when the Foundry agent is unchanged.</p>
+
+        <div class="article-table-wrap" role="region" aria-label="Microsoft Foundry and Fabric Data Agent integration contract" tabindex="0"><table class="article-table"><caption class="sr-only">Microsoft Foundry and Fabric Data Agent integration contract</caption>
+          <thead><tr><th scope="col">Integration layer</th><th scope="col">Required decision</th><th scope="col">Acceptance evidence</th></tr></thead>
+          <tbody>
+            <tr><td>Business contract</td><td>Users, decisions, supported questions, prohibited use, authoritative sources, latency, quality, escalation, and owner.</td><td>Named cohort and ground-truth question set approved by data and business owners.</td></tr>
+            <tr><td>Fabric Data Agent</td><td>Published version, source inventory, descriptions, instructions, examples, permissions, capacity, and lifecycle.</td><td>Direct Data Agent tests meet source, query, result, security, and latency thresholds.</td></tr>
+            <tr><td>Foundry connection</td><td>Same-tenant project, correct workspace and artifact IDs, connection ID, environment mapping, and access ownership.</td><td>Connection resolves the intended published item in dev, test, and production without hard-coded cross-environment references.</td></tr>
+            <tr><td>Foundry agent</td><td>Prompt or hosted architecture, orchestration model, instructions, Fabric tool guidance, competing tools, conversation behavior, and version.</td><td>Tool selection and final synthesis pass deterministic and adversarial cases.</td></tr>
+            <tr><td>Identity</td><td>Signed-in user path, Foundry role, Fabric agent access, source permissions, RLS, CLS, consent, and channel support.</td><td>Allowed users succeed and denied users fail closed through the complete integration.</td></tr>
+            <tr><td>Operations</td><td>Tracing, Application Insights, evaluations, red teaming, SLOs, alerts, token and Fabric cost, incident response, and support.</td><td>Every production run can be correlated across orchestration, Fabric tool, source, identity, result, and release version.</td></tr>
+            <tr><td>Preview governance</td><td>Current support matrix, regions, SDK versions, SLA position, channel limitations, release review, and exit plan.</td><td>Risk owner approves a bounded pilot and can disable or roll back the integration.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="identity">Preserve the end user's identity end to end</h2>
+        <p>Microsoft documents On-Behalf-Of identity passthrough for this Fabric tool path. The Fabric Data Agent runs queries as the signed-in end user, not as a shared application identity. Users need the required Foundry project role, access to the published Data Agent, and effective permission on every source their questions can reach.</p>
+        <p>Use the tool-specific permission prerequisites for the Foundry integration rather than copying assumptions from another Data Agent channel. Microsoft currently documents user identity authentication and does not support service-principal authentication for this specific integration. The direct Data Agent API or MCP endpoint has different identity capabilities; these paths are not interchangeable.</p>
+        <p>Create a persona matrix for Foundry RBAC, Data Agent sharing, semantic model or database access, RLS, CLS, Purview policy, and expected questions. Test the same question as allowed, restricted, and denied users. An administrator's successful playground test says nothing about an end user's production access.</p>
+
+        <h2 id="routing">Make Fabric tool invocation deterministic enough to operate</h2>
+        <p>Foundry decides whether to call the Fabric tool. Give the agent concise instructions that state which topics and data require Fabric, which questions belong to other tools, and when to clarify or refuse. The published Data Agent description and Foundry connection must identify the domain without implying broader authority.</p>
+        <p>Evaluate natural tool selection before forcing `tool_choice`. Required tool choice can prove the connection and can be appropriate for a deliberately Fabric-only workflow, but it can hide routing defects in a multi-tool agent. Test in-domain, adjacent, ambiguous, unsupported, competing-tool, multi-turn, and prompt-injection cases.</p>
+
+        <h2>Diagnose failures by layer</h2>
+        <div class="article-table-wrap" role="region" aria-label="Foundry Fabric Data Agent integration failure matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Foundry Fabric Data Agent integration failure matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Likely boundary</th><th scope="col">Diagnostic action</th></tr></thead>
+          <tbody>
+            <tr><td>Fabric tool is never called</td><td>Tool attachment, connection, Foundry instructions, prompt scope, model planning, or competing tool.</td><td>Confirm the tool in the agent definition, inspect trace, test explicit in-domain prompts, and compare natural versus required tool choice.</td></tr>
+            <tr><td>Invalid artifact or workspace ID</td><td>Foundry project connection points to a malformed or wrong Fabric item.</td><td>Copy exact GUIDs from the published Data Agent URL and recreate the environment-specific connection.</td></tr>
+            <tr><td>Unauthorized</td><td>User lacks Foundry role, Data Agent access, source permission, or the channel did not preserve user identity.</td><td>Reproduce as the affected user and walk the persona matrix without granting broad admin access.</td></tr>
+            <tr><td>Item or configuration not found</td><td>Data Agent is unpublished, moved, deleted, changed, or the connection references the wrong item.</td><td>Verify publish state, active sources, workspace, artifact, connection, and release manifest.</td></tr>
+            <tr><td>Empty or wrong answer</td><td>Foundry routing, Data Agent source routing, generated query, semantic model, source data, permissions, or final synthesis.</td><td>Trace both agents, compare generated query with direct source result, and locate the first incorrect step.</td></tr>
+            <tr><td>Thread active or intermittent timeout</td><td>Conversation concurrency, network, Fabric delay, source latency, model throttling, or retry behavior.</td><td>Use a fresh thread when blocked, correlate timings, apply bounded retries, and prevent retry amplification.</td></tr>
+            <tr><td>Works in development but fails after publishing</td><td>Identity, RBAC, connection, version, channel, or permission behavior changed at release.</td><td>Run acceptance tests through the published endpoint and channel with real user personas before exposure.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="evaluation">Trace and evaluate the complete answer, not one model</h2>
+        <p>Instrument Foundry with Application Insights and preserve traces for model calls, tool decisions, tool inputs, Fabric results, errors, token usage, latency, and final output subject to privacy policy. Correlate these records with Data Agent version, source version, user persona, generated query evidence, and business ground truth.</p>
+        <p>Foundry's monitoring dashboard can surface token usage, latency, run success, evaluation outcomes, and red-team results. Those metrics do not by themselves prove business correctness. Build continuous evaluations for tool-call accuracy, intent resolution, task adherence, source selection, query correctness, calculation accuracy, security, answer relevance, refusal, and reproducibility.</p>
+        <ul>
+          <li>Compare direct Fabric Data Agent quality with the answer after Foundry orchestration and synthesis.</li>
+          <li>Run positive and negative personas across all sources and connected channels.</li>
+          <li>Include competing tools, prompt injection, stale conversations, missing permissions, unpublished agents, timeouts, and source changes.</li>
+          <li>Track p50 and p95 latency, run success, retries, Foundry tokens, Fabric AI Query and generated-query workload, and cost per accepted answer.</li>
+          <li>Block release when critical questions regress, security fails, unsupported tool calls rise, or the published channel cannot preserve OBO identity.</li>
+        </ul>
+
+        <h2 id="pilot">Run a three-to-five-week Foundry integration pilot</h2>
+        <ol>
+          <li>Select one governed data domain, one published Fabric Data Agent, one Foundry agent, one supported channel, and a named user cohort.</li>
+          <li>Define question scope, ground truth, source authority, identity and permission matrix, quality threshold, SLO, cost envelope, and preview risk owner.</li>
+          <li>Create environment-specific Fabric connections, attach the preview tool, configure OBO user access, and validate direct and integrated queries.</li>
+          <li>Write concise tool-routing guidance and build natural, forced, competing-tool, unsupported, adversarial, and multi-turn evaluation cases.</li>
+          <li>Enable tracing and monitoring; correlate tool calls, Fabric queries, results, identity, errors, latency, tokens, capacity, and release versions.</li>
+          <li>Promote through isolated environments, run persona and channel acceptance, exercise failure and rollback, and document support ownership.</li>
+          <li>Deliver architecture, connection and release specification, permission matrix, test suite, scorecard, monitoring, runbooks, limitations, and go, limit, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Can Microsoft Foundry Agent Service use a Fabric Data Agent as a tool?</summary><p>Yes. Microsoft documents a preview Fabric Data Agent tool for Foundry Agent Service. A published Fabric Data Agent is connected to the Foundry project, then attached to a prompt or hosted agent through the Microsoft Fabric preview tool. The Foundry model handles orchestration and response generation while the Fabric Data Agent performs its own structured-data query generation.</p></details>
+          <details><summary>How does identity work between Foundry and Fabric Data Agent?</summary><p>The documented Foundry integration uses user identity passthrough, also called On-Behalf-Of authorization. Fabric queries run under the signed-in end user's identity. Each user needs the required Foundry role, access to the published Fabric Data Agent, and effective permission on the underlying sources. Service principal authentication is not currently supported for this specific Fabric tool path.</p></details>
+          <details><summary>Why does our Foundry agent not call the Fabric Data Agent tool?</summary><p>The tool can be missing, connected to the wrong Fabric item, unpublished, or poorly described, and the agent instructions might not provide a clear routing rule. Validate the Fabric project connection, workspace and artifact IDs, published state, tool configuration, and user access. Test natural tool selection with representative prompts and use required tool choice only as a diagnostic or intentionally constrained workflow.</p></details>
+          <details><summary>How should we evaluate a Foundry agent that uses Fabric Data Agent?</summary><p>Evaluate the complete path: user intent, tool selection, Fabric source routing, generated SQL DAX or KQL, source result, final answer, security behavior, latency, tokens, failures, and business usefulness. Include allowed and denied personas, unsupported questions, competing tools, multi-turn cases, timeouts, publication changes, and regressions. Use Foundry traces and Application Insights with a versioned ground-truth dataset.</p></details>
+          <details><summary>How long does a Foundry and Fabric Data Agent integration assessment take?</summary><p>A focused production-shaped pilot can often be completed in three to five weeks for one Foundry agent, one published Fabric Data Agent, one governed domain, and a named user cohort. The work covers connection setup, OBO identity, source permissions, tool instructions, evaluation, tracing, monitoring, failure handling, release controls, and a go, limit, or stop recommendation.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/fabric">Use Microsoft Fabric Data Agent with Foundry Agent Service</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/tool-catalog">Foundry Agent Service tools overview</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/foundry/observability/how-to/how-to-monitor-agents-dashboard">Foundry Agent Monitoring Dashboard</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/azure/foundry/agents/overview">Microsoft Foundry Agent Service overview</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-sharing">Fabric Data Agent sharing and source permissions</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-configuration-best-practices">Fabric Data Agent configuration best practices</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with one Foundry agent, one Fabric Data Agent, and one real user permission model.</strong> Datrick can implement the connection, prove tool and answer behavior, and deliver a production adoption decision.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=foundry_fabric_data_agent&amp;utm_medium=organic_content&amp;utm_campaign=foundry_fabric_integration_pilot&amp;utm_content=article_end#inquiry-form">Scope the Foundry integration pilot</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-foundry-ai-agent-managed-services-production-support"><span>After go-live</span><strong>Operate Foundry agents as a managed service</strong></a><a href="microsoft-fabric-data-agent-implementation-evaluation-services"><span>Fabric grounding</span><strong>Prepare sources and prove Data Agent answers</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

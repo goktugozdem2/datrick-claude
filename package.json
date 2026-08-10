@@ -1,0 +1,12 @@
+{
+  "name": "datrick-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "audit:content": "node scripts/content-audit.mjs",
+    "audit:links": "node scripts/internal-link-graph.mjs",
+    "audit:live": "node scripts/crawl-live-site.mjs",
+    "build:database-pages": "node scripts/build-database-money-pages.mjs",
+    "test": "node tests/contact-handler.test.mjs && node tests/database-money-pages.test.mjs && node tests/site-shell.test.mjs && node tests/design-system-accessibility.test.mjs && node tests/technical-seo.test.mjs"
+  }
+}

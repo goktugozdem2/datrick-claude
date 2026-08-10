@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Operations Agent Incident Response | Datrick</title>
+    <meta name="description" content="Troubleshoot Fabric Operations Agent incidents across playbooks, rules, source data, Teams delivery, identity, actions, capacity, state, containment, and recovery.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-operations-agent-production-incident-response-troubleshooting-support">
+    <meta property="og:title" content="Fabric Operations Agent Incident Response | Datrick">
+    <meta property="og:description" content="Restore a failed Operations Agent control loop by reconciling source, query, rule, state, operation, Teams, identity, action, capacity, change, and rollback evidence.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-operations-agent-production-incident-response-troubleshooting-support">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Operations Agent Production Incident Response and Troubleshooting Support", "description": "Troubleshoot Fabric Operations Agent incidents across playbooks, rules, source data, Teams delivery, identity, actions, capacity, state, containment, and recovery.", "url": "https://datrick.com/microsoft-fabric-operations-agent-production-incident-response-troubleshooting-support", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-operations-agent-production-incident-response-troubleshooting-support"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Why is Microsoft Fabric Operations Agent not sending Teams messages?", "acceptedAnswer": {"@type": "Answer", "text": "Check whether the agent is active, source data is current, the generated rule query returns matching records, the condition and five-minute evaluation window behave as expected, capacity isn't rejecting background work, the Fabric Operations Agent Teams app is installed and allowed, the recipient belongs to the organization and has write permission on the agent item, and messaging isn't simplified or throttled under heavy use."}},
+            {"@type": "Question", "name": "Why did Operations Agent playbook generation fail?", "acceptedAnswer": {"@type": "Answer", "text": "Common causes include no connected knowledge source, unsupported or inaccessible source, insufficient permissions, incompatible schema or bindings, ambiguous goals and instructions, capacity or regional prerequisites, and a failed or incomplete asynchronous generation operation. Inspect the actual source, identity, status, and returned error before changing the prompt."}},
+            {"@type": "Question", "name": "How do you troubleshoot a failed Operations Agent action?", "acceptedAnswer": {"@type": "Answer", "text": "Trace the operation from the matching source record and generated rule through the recommendation, Teams recipient and approval, creator delegated identity, action ID and parameter values, Activator connection, Power Automate run, downstream authorization, idempotency, postcondition, and error. Contain retries until the downstream effect is reconciled."}},
+            {"@type": "Question", "name": "What should we do if an Operations Agent takes the wrong action?", "acceptedAnswer": {"@type": "Answer", "text": "Stop the agent or remove the affected action, preserve operation and downstream evidence, revoke or narrow authority where needed, identify every impacted object, reverse or compensate changes through an approved process, notify owners, restore a known-good configuration, and rerun the rule and action regression suite before reactivation."}},
+            {"@type": "Question", "name": "How long does an Operations Agent incident assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "Initial containment and fault-domain triage can often be completed in a focused incident session when access and evidence are available. A durable one-to-two-week recovery assessment typically covers root cause, configuration and data repair, regression replay, monitoring, runbooks, identity and action controls, rollback, and a safe reactivation decision."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Operations Agent production recovery</p>
+        <h1>When the control loop goes quiet, stop guessing and reconcile every state.</h1>
+        <p class="page-lede">Contain and troubleshoot Operations Agent incidents across source data, generated queries, rule conditions, agent state, operations, Teams delivery, creator identity, actions, Power Automate, capacity, recent changes, and rollback.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Immediately%20%2F%20this%20week&amp;engagement_type=Urgent%20support&amp;utm_source=fabric_operations_agent_incident&amp;utm_medium=organic_content&amp;utm_campaign=production_troubleshooting&amp;utm_content=hero#inquiry-form">Describe the production incident</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>AI operations incident response</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#triage">Triage</a><a href="#trace">Evidence trace</a><a href="#testing">Recovery tests</a><a href="#operations">Prevention</a><a href="#assessment">Support plan</a></nav>
+
+        <p>An Operations Agent incident can appear as no Teams message, a rule that never fires, repeated alerts, a stuck or failed recommendation, the wrong parameter, a Power Automate failure, an inactive agent, unexpected capacity load, or an action that changed the wrong object. These symptoms cross data, AI, identity, messaging, and automation boundaries.</p>
+        <p>Do not begin by rewriting goals and instructions. Preserve current state, determine business impact, contain unsafe actions, establish the last known-good operation, and trace one expected event through every stage of the control loop. A conversational message is not the system of record; reconcile source rows, queries, rules, operation records, approvals, downstream runs, and actual postconditions.</p>
+
+        <section class="readiness-actions"><p><strong>What was the last event that should have produced a known operation, message, approval, and downstream result?</strong> Use that event as the first end-to-end trace.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Immediately%20%2F%20this%20week&amp;engagement_type=Urgent%20support&amp;utm_source=fabric_operations_agent_incident&amp;utm_medium=organic_content&amp;utm_campaign=production_troubleshooting&amp;utm_content=article_intro#inquiry-form">Send the incident evidence</a><a class="button secondary" href="microsoft-fabric-operations-agent-rule-not-triggering-state-transition-duplicate-alert-assessment">Inspect a failing rule</a></div></section>
+
+        <h2 id="triage">Contain impact and classify the first failed boundary</h2>
+        <p>Record incident start, affected process and objects, severity, current agent state, last known-good operation, recent configuration or source change, expected and actual outcome, downstream impact, temporary manual control, owner, and recovery objective. Stop the agent or remove a risky action when continued execution could create harm; preserve evidence before editing configuration.</p>
+        <p>Check platform and tenant prerequisites, supported region, workspace capacity state, source availability and freshness, creator account and permissions, recipient access, Teams app availability, action and flow health, recent direct UI/API/MCP changes, and current Fabric service health. Keep observations separate from hypotheses.</p>
+
+        <h2 id="trace">Trace source, detection, reasoning, delivery, approval, and execution</h2>
+        <div class="article-table-wrap" role="region" aria-label="Operations Agent incident fault isolation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Operations Agent incident fault isolation matrix</caption>
+          <thead><tr><th scope="col">Boundary</th><th scope="col">Evidence to collect</th><th scope="col">Likely failure</th><th scope="col">Containment or repair</th></tr></thead>
+          <tbody>
+            <tr><td>Source and freshness</td><td>Expected record, entity ID, value, event and ingestion time, schema, source watermark, duplicates, nulls, and access.</td><td>No current matching data, late ingestion, schema drift, wrong source, broken ontology binding, or permission loss.</td><td>Restore ingestion or binding, correct source, fix access, backfill carefully, and validate ground truth.</td></tr>
+            <tr><td>Generated query</td><td>Rule query, Query insights, property binding, time window, result rows, duration, errors, and five-minute evaluation timing.</td><td>Wrong field, threshold, grouping, window, identifier, unsupported table, or query failure.</td><td>Run independently, correct data or instruction, regenerate, and replay positive and negative cases.</td></tr>
+            <tr><td>Condition and state</td><td>State or transition type, prior value, boundary, recovery, current agent state, activation time, and rule version.</td><td>Agent inactive, persistent-state duplication, missed transition, ambiguous threshold, or stale playbook.</td><td>Stop or start deliberately, correct condition, define recovery, regenerate, and verify state.</td></tr>
+            <tr><td>Reasoning and operation</td><td>Operation ID, detected context, recommendation, reasoning, status, creation and expiry, response, and capacity evidence.</td><td>Reasoning failure, simplified message under throttling, operation expiration, or no operation created.</td><td>Preserve operation, reduce load, correct rule evidence, restore capacity, or use deterministic fallback.</td></tr>
+            <tr><td>Teams delivery</td><td>Teams app installation and tenant allow, recipient, organization membership, item write permission, chat or channel, timestamp, and message status.</td><td>App blocked or missing, invalid recipient, insufficient item permission, missing channel, or message throttling.</td><td>Restore approved app and recipient access, verify destination, send canary, and add alternate escalation.</td></tr>
+            <tr><td>Approval</td><td>Recipient, displayed context and parameters, response, responder, timestamp, operation age, and creator identity.</td><td>Wrong approver, parameter edit, no response, three-day expiration, or misunderstanding of execution identity.</td><td>Cancel or reject, correct recipient and context, recreate only after evidence review, and train owner.</td></tr>
+            <tr><td>Action and flow</td><td>Action ID, Activator connection, flow run, parameters, creator permissions, downstream logs, retry, and error.</td><td>Broken connection, wrong flow, invalid parameter, authorization, outbound protection, license, or downstream outage.</td><td>Disable action, repair connection or authority, validate contract, reconcile retries, and test nonproduction.</td></tr>
+            <tr><td>Postcondition</td><td>Target object before and after, external transaction ID, duplicate or partial effects, compensation path, and owner confirmation.</td><td>Action reported success but target state is wrong, partial, delayed, or duplicated.</td><td>Contain repeats, compensate through approved process, restore state, and add postcondition checks.</td></tr>
+            <tr><td>Change and capacity</td><td>Definition or playbook diff, API/MCP/UI audit, deployment, role change, capacity metrics, throttling state, and service incident.</td><td>Unreviewed drift, bad release, creator offboarding, sustained overload, or platform dependency failure.</td><td>Restore known-good version, revoke change path, resize or isolate load, and invoke fallback control.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Microsoft documents that active agents run rule queries every five minutes, operations expire after three days without approval, heavy use can throttle messages and produce simplified non-LLM Teams output, and execution uses the creator's delegated identity even when another recipient approves. Build the incident timeline around those behaviors rather than assuming immediate event delivery or approver identity execution.</p>
+
+        <h2 id="testing">Prove recovery with deterministic and failure cases</h2>
+        <div class="article-table-wrap" role="region" aria-label="Operations Agent incident recovery validation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Operations Agent incident recovery validation matrix</caption>
+          <thead><tr><th scope="col">Recovery test</th><th scope="col">Method</th><th scope="col">Pass condition</th><th scope="col">Do not reactivate when</th></tr></thead>
+          <tbody>
+            <tr><td>Known positive</td><td>Replay the incident and representative matching records with exact object, value, time, query, rule, and expected operation.</td><td>Every required case is detected within the approved end-to-end objective.</td><td>Any material known case remains missed, late, or mapped to the wrong object.</td></tr>
+            <tr><td>Known negative</td><td>Replay normal periods, nearby values, excluded entities, maintenance windows, and known exceptions.</td><td>No unnecessary operation or message is created.</td><td>False positives exceed owner tolerance or create operational burden.</td></tr>
+            <tr><td>Transition and duplicate</td><td>Move false to true, remain true, recover, re-enter, duplicate source records, and repeat evaluation cycles.</td><td>Signals and repeats match the approved state or transition contract.</td><td>Persistent-state messages spam owners or a valid re-entry is missed.</td></tr>
+            <tr><td>Data and permission failure</td><td>Pause ingestion, delay records, change schema, remove source access, revoke creator, and restore each dependency.</td><td>Failure is visible, contained, escalated, and recoverable without false normality.</td><td>The agent fails silently or continues using unintended authority.</td></tr>
+            <tr><td>Teams and approval</td><td>Test direct and channel recipient, app block, missing write permission, parameter edit, reject, approve, timeout, and expiration.</td><td>Only approved recipients receive clear context and every response has correct status and attribution.</td><td>Delivery, context, authority, or expiry behavior is ambiguous.</td></tr>
+            <tr><td>Action failure</td><td>Test invalid parameter, broken connection, downstream 4xx/5xx, timeout, duplicate submission, partial success, and retry.</td><td>Effects are idempotent, errors visible, retries bounded, and postconditions verified.</td><td>Downstream state cannot be reconciled or safely compensated.</td></tr>
+            <tr><td>Capacity pressure</td><td>Burst multiple objects and rules while monitoring Capacity Metrics, Eventhouse, reasoning, Teams, and action behavior.</td><td>Critical control SLOs and escalation survive expected peak load.</td><td>Background work rejects, delivery simplifies without safe fallback, or cost becomes uncontrolled.</td></tr>
+            <tr><td>Rollback and stop</td><td>Stop the agent, restore prior definition or configuration, verify dependencies, reactivate in a canary window, and compare evidence.</td><td>Known-good behavior returns within the recovery objective.</td><td>Current state differs from the approved rollback artifact or audit is incomplete.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Use one labeled incident replay set as the permanent regression suite. A repair is not complete when a new Teams message appears; it is complete when source, query, rule, operation, message, approval, action, and postcondition all reconcile for positive, negative, and failed paths.</p>
+
+        <h2 id="operations">Prevent recurrence with ownership and observable control states</h2>
+        <p>Monitor source freshness, query success and duration, agent active state, operation count and status, rule hit rate, false positives, message delivery and simplification, approvals and expirations, action runs and failures, postconditions, creator access, recipient permission, definition and playbook drift, capacity, and manual fallback availability.</p>
+        <p>Maintain a runbook with severity criteria, stop authority, source and query checks, rule and state diagnosis, Teams and identity owners, action and downstream contacts, evidence locations, emergency compensation, known-good definition, release and rollback procedure, vendor escalation, communication templates, and reactivation gates.</p>
+        <p>Exercise the runbook after source, schema, ontology, instruction, playbook, identity, recipient, action, flow, tenant, region, capacity, MCP, REST API, or Fabric release changes. Assign explicit ownership for creator offboarding and direct configuration drift; both can break the control loop outside a normal deployment.</p>
+
+        <h2 id="assessment">Run urgent triage followed by a one-to-two-week recovery assessment</h2>
+        <ol>
+          <li>Establish impact, severity, affected objects, unsafe actions, current agent state, last known-good operation, recent changes, manual fallback, and containment owner.</li>
+          <li>Preserve source, query, playbook, operation, Teams, approval, identity, action, flow, downstream, capacity, deployment, API, MCP, and audit evidence.</li>
+          <li>Trace one expected event end to end and identify the first boundary where expected and actual state diverge.</li>
+          <li>Contain the failing rule, action, identity, recipient, configuration path, or agent while maintaining the approved manual process.</li>
+          <li>Repair the root cause and build a labeled regression set covering the incident, normal data, boundaries, transitions, failures, permissions, load, and recovery.</li>
+          <li>Replay every control path, reconcile operation and downstream state, validate Teams delivery and approvals, and exercise stop and rollback.</li>
+          <li>Reactivate through a monitored canary window only after owners approve source, rule, recommendation, action, capacity, and recovery evidence.</li>
+          <li>Deliver the incident timeline, root cause, impact and reconciliation, repaired configuration, regression suite, monitoring, runbook, ownership changes, and prevention backlog.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Why is Microsoft Fabric Operations Agent not sending Teams messages?</summary><p>Check whether the agent is active, source data is current, the generated rule query returns matching records, the condition and five-minute evaluation window behave as expected, capacity isn't rejecting background work, the Fabric Operations Agent Teams app is installed and allowed, the recipient belongs to the organization and has write permission on the agent item, and messaging isn't simplified or throttled under heavy use.</p></details>
+          <details><summary>Why did Operations Agent playbook generation fail?</summary><p>Common causes include no connected knowledge source, unsupported or inaccessible source, insufficient permissions, incompatible schema or bindings, ambiguous goals and instructions, capacity or regional prerequisites, and a failed or incomplete asynchronous generation operation. Inspect the actual source, identity, status, and returned error before changing the prompt.</p></details>
+          <details><summary>How do you troubleshoot a failed Operations Agent action?</summary><p>Trace the operation from the matching source record and generated rule through the recommendation, Teams recipient and approval, creator delegated identity, action ID and parameter values, Activator connection, Power Automate run, downstream authorization, idempotency, postcondition, and error. Contain retries until the downstream effect is reconciled.</p></details>
+          <details><summary>What should we do if an Operations Agent takes the wrong action?</summary><p>Stop the agent or remove the affected action, preserve operation and downstream evidence, revoke or narrow authority where needed, identify every impacted object, reverse or compensate changes through an approved process, notify owners, restore a known-good configuration, and rerun the rule and action regression suite before reactivation.</p></details>
+          <details><summary>How long does an Operations Agent incident assessment take?</summary><p>Initial containment and fault-domain triage can often be completed in a focused incident session when access and evidence are available. A durable one-to-two-week recovery assessment typically covers root cause, configuration and data repair, regression replay, monitoring, runbooks, identity and action controls, rollback, and a safe reactivation decision.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent">Operations Agent setup, generated playbook, rules, state, Teams, and actions</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-limitations">Operations Agent source, cadence, identity, expiry, messaging, region, and capacity limitations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-actions">Operations Agent Teams recommendations, approvals, and downstream actions</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-transparency-note">Operations Agent responsible use and probabilistic behavior</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-billing">Operations Agent capacity meters, background processing, and reporting</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Send the last event that should have completed the control loop and the first observed failure.</strong> Datrick can isolate the fault domain, contain risk, repair the root cause, replay the evidence, and establish safe reactivation gates.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Immediately%20%2F%20this%20week&amp;engagement_type=Urgent%20support&amp;utm_source=fabric_operations_agent_incident&amp;utm_medium=organic_content&amp;utm_campaign=production_troubleshooting&amp;utm_content=article_end#inquiry-form">Request incident support</a></div></section>
+        <p>For workspace-wide pipeline failures, long-running jobs, and missing schedules, <a href="microsoft-fabric-operations-agent-pipeline-monitoring-long-running-failed-runs-assessment">build a monitored ItemJobEventLogs contract with deterministic controls, Operations Agent context, Teams escalation, and NOC runbooks</a>.</p>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-operations-agent-rule-not-triggering-state-transition-duplicate-alert-assessment"><span>Repair detection behavior</span><strong>Assess rule and alert accuracy</strong></a><a href="microsoft-fabric-operations-agent-creator-identity-teams-approval-action-security-assessment"><span>Contain execution risk</span><strong>Assess identity and action security</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

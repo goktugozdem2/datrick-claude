@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Operations Agent Rule and Alert Assessment | Datrick</title>
+    <meta name="description" content="Fix Fabric Operations Agent rules that don't trigger or create duplicate alerts across KQL, time, state and transition conditions, replay, and monitoring.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-operations-agent-rule-not-triggering-state-transition-duplicate-alert-assessment">
+    <meta property="og:title" content="Fabric Operations Agent Rule and Alert Assessment | Datrick">
+    <meta property="og:description" content="Prove each generated Operations Agent rule against known incidents, quiet periods, state persistence, transitions, timing, duplicates, and query evidence.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-operations-agent-rule-not-triggering-state-transition-duplicate-alert-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Operations Agent Rule Not Triggering, State, Transition, and Duplicate Alert Assessment", "description": "Fix Fabric Operations Agent rules that don't trigger or create duplicate alerts across KQL, time, state and transition conditions, replay, and monitoring.", "url": "https://datrick.com/microsoft-fabric-operations-agent-rule-not-triggering-state-transition-duplicate-alert-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-operations-agent-rule-not-triggering-state-transition-duplicate-alert-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Why is my Microsoft Fabric Operations Agent rule not triggering?", "acceptedAnswer": {"@type": "Answer", "text": "Common causes include a generated query or property binding that doesn't match the source, missing or unsuitable ingestion time, unsupported table or condition, an inactive agent, creator permission failure, no matching data in the evaluation window, or a state-transition assumption that doesn't match the configured condition. Inspect the rule query and run it against representative data before rewriting instructions."}},
+            {"@type": "Question", "name": "Why does Fabric Operations Agent send duplicate Teams alerts?", "acceptedAnswer": {"@type": "Answer", "text": "A state condition can remain true across repeated evaluations and signal again while the value stays in that state. Microsoft documents a five-minute rule-query cadence. If the business needs one message only when the value enters the state, use an appropriate transition condition and test recovery and re-entry behavior."}},
+            {"@type": "Question", "name": "What is the difference between state and transition conditions in Operations Agent?", "acceptedAnswer": {"@type": "Answer", "text": "A state condition is met whenever the current value satisfies the rule, such as Is above. A transition condition is met when the value changes from outside to inside the condition, such as Crosses above, Enters range, or Becomes. The correct choice depends on whether the team wants repeated awareness of an ongoing state or one signal when the state changes."}},
+            {"@type": "Question", "name": "How often does Microsoft Fabric Operations Agent evaluate rules?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft's current documentation says an active Operations Agent runs each rule query every five minutes. Production expectations should include source ingestion delay, query duration, reasoning and Teams delivery time, capacity behavior, and the fact that a five-minute cadence isn't an immediate event trigger."}},
+            {"@type": "Question", "name": "How long does an Operations Agent rule accuracy assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment commonly takes two to four weeks for one agent, monitored source, rule set, and representative incident history. It covers source and time semantics, generated queries, state and transition logic, replay, false positives, missed events, duplicate alerts, monitoring, change control, and release gates."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Operations Agent detection assurance</p>
+        <h1>If the rule is wrong, every recommendation starts from false evidence.</h1>
+        <p class="page-lede">Resolve rules that don't trigger, repeat while a state persists, map to the wrong field, miss late data, or create noisy Teams messages by testing generated queries, time semantics, state and transition conditions, boundaries, replay, throttling, and change control.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_operations_agent_rule_accuracy&amp;utm_medium=organic_content&amp;utm_campaign=state_transition_alert_assessment&amp;utm_content=hero#inquiry-form">Describe the failing rule</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Real-time AI detection quality</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#signal">Signal contract</a><a href="#conditions">Condition design</a><a href="#testing">Rule tests</a><a href="#governance">Change control</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>An Operations Agent can produce a convincing recommendation from a rule that monitors the wrong field, uses ingestion time instead of business event time, repeats every five minutes while a state remains true, or never observes a late or unsupported record. The message is downstream of detection. If detection is wrong, explanation and action quality cannot repair the control.</p>
+        <p>Microsoft exposes the query behind each generated rule and distinguishes state conditions from transition conditions. Treat that query and condition as executable production logic: version it, replay it against known history, verify source and time semantics, measure misses and false positives, and approve it independently from the natural-language instruction.</p>
+
+        <section class="readiness-actions"><p><strong>Can you show the exact query and source records that should have triggered the rule?</strong> If not, establish ground truth before changing the prompt.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_operations_agent_rule_accuracy&amp;utm_medium=organic_content&amp;utm_campaign=state_transition_alert_assessment&amp;utm_content=article_intro#inquiry-form">Send the rule and incident history</a><a class="button secondary" href="microsoft-fabric-operations-agent-implementation-evaluation-services">Review the broader agent pilot</a></div></section>
+
+        <h2 id="signal">Define the monitored signal and time contract</h2>
+        <p>For each rule, record the business object, unique identifier, source table, property and underlying column, data type, unit, event timestamp, ingestion timestamp, expected arrival delay, population, grouping, window, threshold, exclusions, recovery, owner, severity, and response objective. Use flat Eventhouse tables with descriptive columns and identify the business object explicitly.</p>
+        <p>Microsoft says Operations Agent defaults to table ingestion time for identifying recent records and runs active rule queries every five minutes. A five-minute query cadence is not an immediate event trigger. Model event-to-ingestion delay, query-window overlap, source freshness, query duration, reasoning, Teams delivery, and capacity effects in the end-to-end detection objective.</p>
+
+        <h2 id="conditions">Choose state or transition behavior deliberately</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Operations Agent rule condition contract" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Operations Agent rule condition contract</caption>
+          <thead><tr><th scope="col">Control</th><th scope="col">Required evidence</th><th scope="col">Failure risk</th><th scope="col">Release decision</th></tr></thead>
+          <tbody>
+            <tr><td>Generated query</td><td>Full KQL or ontology query, selected property, underlying field, time filter, grouping, projection, and result shape.</td><td>The playbook looks correct while the query reads the wrong evidence.</td><td>Run the query independently and reconcile every control case.</td></tr>
+            <tr><td>State condition</td><td>Examples such as Is above, Is below, or Is; expected behavior while the value remains true.</td><td>The rule signals on repeated evaluations and creates duplicate alert burden.</td><td>Use only when recurring awareness of the ongoing state is intentional.</td></tr>
+            <tr><td>Transition condition</td><td>Examples such as Crosses above, Crosses below, Enters range, Exits range, or Becomes.</td><td>The first transition is missed because prior state, null, recovery, or object identity is wrong.</td><td>Use when one signal per state entry is required and test re-entry.</td></tr>
+            <tr><td>Threshold and unit</td><td>Numeric value, inclusive boundary, scale, unit, valid range, precision, and business owner approval.</td><td>Qualitative wording causes the generated rule to invent or misread a threshold.</td><td>Use explicit measurable conditions and boundary examples.</td></tr>
+            <tr><td>Object identity</td><td>Unique entity key, table, duplicates, nulls, reuse, aggregation level, and partition behavior.</td><td>State from one asset or process is applied to another or fragmented across records.</td><td>Prove stable identity and expected per-object state tracking.</td></tr>
+            <tr><td>Time window</td><td>Ingestion time, event time, lookback, late-arrival distribution, overlap, timezone, and reset behavior.</td><td>Records arrive outside the queried window or are reevaluated unexpectedly.</td><td>Align source and query time semantics and test delayed data.</td></tr>
+            <tr><td>Recovery and suppression</td><td>Return-to-normal criteria, re-entry, maintenance windows, known exceptions, cooldown, recipients, and escalation.</td><td>Persistent incidents spam Teams or suppression hides a genuine recurrence.</td><td>Define explicit recovery and measurable alert-burden limits.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Rule order and separation also matter because the LLM generates the playbook from instructions. Put each condition on a separate line, list higher-priority rules first, quote field names with special characters, and replace qualitative phrases with approved numeric definitions. Then validate the generated executable query instead of assuming the instruction survived unchanged.</p>
+
+        <h2 id="testing">Replay known events, quiet periods, and timing edges</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Operations Agent rule accuracy test matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Operations Agent rule accuracy test matrix</caption>
+          <thead><tr><th scope="col">Test</th><th scope="col">Method</th><th scope="col">Pass condition</th><th scope="col">Remediation</th></tr></thead>
+          <tbody>
+            <tr><td>Known positive</td><td>Replay incidents with exact expected object, value, time, rule, and operation outcome.</td><td>Every required case triggers within the documented evaluation and delivery objective.</td><td>Source preparation, query, binding, window, threshold, condition, or permission fix.</td></tr>
+            <tr><td>Known negative</td><td>Replay normal periods, nearby values, excluded entities, maintenance windows, and expected exceptions.</td><td>No recommendation is created and alert burden stays below the owner-approved rate.</td><td>Threshold, exclusion, grouping, suppression, or separate rule.</td></tr>
+            <tr><td>Boundary</td><td>Test immediately below, equal to, and above every threshold plus null, zero, negative, and extreme values.</td><td>Inclusive and exclusive behavior matches the written contract.</td><td>Condition correction, unit normalization, or explicit clarification.</td></tr>
+            <tr><td>Persistent state</td><td>Keep the same object above or below the threshold across multiple five-minute evaluations.</td><td>Repeated signals occur only when the approved state policy requires them.</td><td>Transition condition, suppression, cooldown, or recipient aggregation.</td></tr>
+            <tr><td>Transition and recovery</td><td>Move false to true, remain true, return to normal, then re-enter; include null-to-true.</td><td>One signal per intended transition and a new signal only after valid recovery and re-entry.</td><td>Object key, prior-state logic, transition type, or recovery rule.</td></tr>
+            <tr><td>Late and duplicate data</td><td>Delay records, reorder events, duplicate identifiers, replay batches, and compare event with ingestion time.</td><td>No missed material case or duplicate operation outside the approved tolerance.</td><td>Ingestion pipeline, deduplication, query window, source model, or alternate control.</td></tr>
+            <tr><td>Missing data</td><td>Stop ingestion, omit identifiers, send null values, create sparse periods, and restore the stream.</td><td>The rule fails visibly or uses an approved absence condition; it doesn't imply normal operation.</td><td>Data-quality rule, heartbeat control, stop state, or escalation.</td></tr>
+            <tr><td>Query and access</td><td>Run generated KQL independently, inspect Query insights, remove creator source access, and test unsupported objects.</td><td>Query results reconcile and access failures are visible without false recommendations.</td><td>Query correction, regular table, permission, quoting, schema description, or rollout block.</td></tr>
+            <tr><td>Message load</td><td>Burst multiple objects and rules, sustain a true state, and observe Teams output under capacity pressure.</td><td>Owners receive actionable volume; simplified or throttled messages don't hide critical control state.</td><td>Rule prioritization, aggregation, suppression, capacity, alternate notification, or stop.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Run in shadow mode beside the existing alert or operating process. Measure event-to-detection latency, recall, false-positive rate, duplicate operations per incident, missed recovery, Teams messages per owner, acknowledgment, recommendation utility, query cost, and capacity. Keep recommendation quality separate from rule accuracy.</p>
+
+        <h2 id="governance">Treat playbook regeneration as a monitored rule change</h2>
+        <p>Version business goals, instructions, source definition, property mapping, generated query, condition type, threshold, window, grouping, suppression, recipients, actions, and agent state. A natural-language edit or playbook regeneration can alter executable monitoring behavior. Review the diff, rerun replay tests, record approval, and retain a rollback or stop path.</p>
+        <p>Use Query insights and the Operations Agent activity log to compare expected evaluations with actual query execution, recommendations, responses, and operation status. Alert when the agent is inactive, queries fail, data stops arriving, detection volume changes sharply, false positives rise, known control events are missed, Teams delivery is simplified or throttled, or capacity cost changes materially.</p>
+        <p>Maintain a rule registry with owner, purpose, source, time contract, query, state or transition semantics, threshold authority, regression dataset, release version, alert budget, dependencies, and retirement condition. Revalidate after schema, ingestion, KQL, ontology, instruction, runtime, recipient, region, capacity, or Fabric release changes.</p>
+
+        <h2 id="assessment">Run a two-to-four-week rule accuracy assessment</h2>
+        <ol>
+          <li>Select one Operations Agent, monitored process, source, rule set, accountable owners, current alert path, incident history, and required detection objective.</li>
+          <li>Inventory source tables, fields, object IDs, event and ingestion time, data quality, generated queries, conditions, thresholds, grouping, suppression, recipients, agent state, and permissions.</li>
+          <li>Build a labeled replay set with known positives, normal periods, boundary values, persistent states, transitions, recovery, late and duplicate records, missing data, and access failures.</li>
+          <li>Execute generated queries independently, compare each result with ground truth, and classify failures by data, time, query, binding, condition, state, permission, capacity, or delivery.</li>
+          <li>Refine source preparation, instructions, field descriptions, queries, thresholds, state or transition choice, suppression, recovery, recipient load, and monitoring.</li>
+          <li>Run shadow-mode tests across multiple evaluation cycles and measure recall, false positives, duplicate operations, latency, message burden, recommendation utility, and cost.</li>
+          <li>Deliver the signal contract, rule registry, verified queries, replay suite, scorecard, revised playbook, monitoring, release and rollback gates, and go, limited pilot, recommendation-only, or stop decision.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Why is my Microsoft Fabric Operations Agent rule not triggering?</summary><p>Common causes include a generated query or property binding that doesn't match the source, missing or unsuitable ingestion time, unsupported table or condition, an inactive agent, creator permission failure, no matching data in the evaluation window, or a state-transition assumption that doesn't match the configured condition. Inspect the rule query and run it against representative data before rewriting instructions.</p></details>
+          <details><summary>Why does Fabric Operations Agent send duplicate Teams alerts?</summary><p>A state condition can remain true across repeated evaluations and signal again while the value stays in that state. Microsoft documents a five-minute rule-query cadence. If the business needs one message only when the value enters the state, use an appropriate transition condition and test recovery and re-entry behavior.</p></details>
+          <details><summary>What is the difference between state and transition conditions in Operations Agent?</summary><p>A state condition is met whenever the current value satisfies the rule, such as Is above. A transition condition is met when the value changes from outside to inside the condition, such as Crosses above, Enters range, or Becomes. The correct choice depends on whether the team wants repeated awareness of an ongoing state or one signal when the state changes.</p></details>
+          <details><summary>How often does Microsoft Fabric Operations Agent evaluate rules?</summary><p>Microsoft's current documentation says an active Operations Agent runs each rule query every five minutes. Production expectations should include source ingestion delay, query duration, reasoning and Teams delivery time, capacity behavior, and the fact that a five-minute cadence isn't an immediate event trigger.</p></details>
+          <details><summary>How long does an Operations Agent rule accuracy assessment take?</summary><p>A focused assessment commonly takes two to four weeks for one agent, monitored source, rule set, and representative incident history. It covers source and time semantics, generated queries, state and transition logic, replay, false positives, missed events, duplicate alerts, monitoring, change control, and release gates.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent">Operations Agent generated queries, conditions, five-minute cadence, and activity log</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-limitations">Operations Agent source, rule, runtime, and messaging limitations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-actions">Operations Agent recommendations and Teams delivery</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-transparency-note">Operations Agent responsible use and probabilistic behavior</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-billing">Operations Agent capacity and billing</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the rule that missed a known incident or keeps messaging the same unresolved state.</strong> Datrick can reconcile the query, replay the evidence, correct state and transition behavior, and establish measurable release gates.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_operations_agent_rule_accuracy&amp;utm_medium=organic_content&amp;utm_campaign=state_transition_alert_assessment&amp;utm_content=article_end#inquiry-form">Scope the rule accuracy assessment</a></div></section>
+        <p>When the failure is live and the fault domain is not yet known, <a href="microsoft-fabric-operations-agent-production-incident-response-troubleshooting-support">contain and trace the Operations Agent incident across source, state, operation, Teams, identity, action, capacity, and recent change evidence</a>.</p>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-operations-agent-implementation-evaluation-services"><span>Implement the full control loop</span><strong>Assess an Operations Agent pilot</strong></a><a href="microsoft-fabric-operations-agent-creator-identity-teams-approval-action-security-assessment"><span>Secure approved actions</span><strong>Assess identity and action authority</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

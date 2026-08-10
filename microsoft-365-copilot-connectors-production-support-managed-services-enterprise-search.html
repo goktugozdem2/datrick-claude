@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Microsoft 365 Copilot Connectors Production Support | Datrick</title>
+    <meta name="description" content="Managed Microsoft 365 Copilot connector support for crawls, Graph external items, schemas, ACLs, Copilot Search relevance, incidents, releases, and governance.">
+    <link rel="canonical" href="https://datrick.com/microsoft-365-copilot-connectors-production-support-managed-services-enterprise-search">
+    <meta property="og:title" content="Microsoft 365 Copilot Connectors Production Support | Datrick"><meta property="og:description" content="Operate Microsoft 365 Copilot connectors with accountable crawl freshness, schemas, ACLs, discovery quality, incidents, releases, and governance."><meta property="og:url" content="https://datrick.com/microsoft-365-copilot-connectors-production-support-managed-services-enterprise-search"><meta property="og:type" content="website"><meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="assets/datrick-logo.png"><link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@graph":[
+        {"@type":"Service","name":"Microsoft 365 Copilot Connectors Production Support and Managed Enterprise Search Services","description":"Ongoing Microsoft 365 Copilot connector operations covering source crawls, external connections and items, schemas, semantic labels, access control lists, identity mapping, indexed-content validation, Copilot Search discovery, Graph throttling, incidents, releases, governance, runbooks, and reporting.","url":"https://datrick.com/microsoft-365-copilot-connectors-production-support-managed-services-enterprise-search","provider":{"@type":"Organization","name":"Datrick","url":"https://datrick.com/"},"areaServed":"Global","audience":{"@type":"BusinessAudience","audienceType":"Enterprises, Microsoft partners, managed service providers, and AI delivery firms operating Microsoft 365 Copilot connectors and enterprise search"}},
+        {"@type":"FAQPage","mainEntity":[
+          {"@type":"Question","name":"What is included in Microsoft 365 Copilot connector production support?","acceptedAnswer":{"@type":"Answer","text":"A defined service can include source connectivity, full and incremental crawls, custom connector ingestion, Microsoft Graph external connections and items, schemas and semantic labels, ACLs and identity mapping, indexed-content validation, Copilot Search relevance, staged rollout, throttling, incidents, releases, governance, runbooks, and reporting."}},
+          {"@type":"Question","name":"Can Copilot connector data remain searchable after a connection fails?","acceptedAnswer":{"@type":"Answer","text":"Yes. Microsoft documents that previously indexed data can remain searchable when a connection has a critical failure. A delete failure can also leave indexed data, item quota use, or crawls active. Incident handling must verify connection state, Copilot visibility, item state, user access, and actual search behavior."}},
+          {"@type":"Question","name":"How should Microsoft 365 Copilot connector permissions be tested?","acceptedAnswer":{"@type":"Answer","text":"Test public, allowed, denied, removed-user, changed-group, external-group, missing-identity, and cross-source cases with the exact connector permission mode, item ACLs, Entra or external identity mapping, staged audience, and Copilot or Search route used in production. Use the index browser to inspect item permissions and user access."}},
+          {"@type":"Question","name":"How should Copilot connector relevance and schema changes be validated?","acceptedAnswer":{"@type":"Answer","text":"Use labelled production-like searches and prompts with expected items, citations, access outcomes, and business criteria. Validate content properties, searchable and retrievable fields, semantic labels, aliases, schema restrictions, crawl coverage, Copilot discovery, latency, Graph throttling, and the final answer before broad rollout."}},
+          {"@type":"Question","name":"How long does Microsoft 365 Copilot connector managed support onboarding take?","acceptedAnswer":{"@type":"Answer","text":"A focused onboarding commonly takes two to four weeks for a representative connection, source, identity model, and Copilot or Search experience. It covers inventory, crawl and item baselines, schema and permission tests, monitoring, incident and release controls, staged rollout, failure exercises, runbooks, and steady-state acceptance."}}
+        ]}
+      ]}
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header"><a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav><a class="header-cta" href="index.html#contact">Start a conversation</a></header>
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div><p class="eyebrow">Microsoft 365 Knowledge Operations</p><h1>A green connector does not prove that Copilot can find the right item without exposing the wrong one.</h1><p class="page-lede">Operate Microsoft 365 Copilot connectors with accountable crawl freshness, external item coverage, schemas and semantic labels, ACLs, identity mapping, Copilot Search discovery, incidents, releases, and governance.</p><div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=m365_copilot_connector_support&amp;utm_medium=organic_content&amp;utm_campaign=copilot_enterprise_knowledge_operations&amp;utm_content=hero#inquiry-form">Describe the connector estate</a></div><div class="article-meta"><a href="resources.html">Resource library</a><span>Microsoft 365 knowledge operations</span><span>14 min read</span></div></div></section>
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Service boundary</a><a href="#scope">Operating scope</a><a href="#quality">Discovery quality</a><a href="#incidents">Incident response</a><a href="#onboarding">Onboarding</a></nav>
+        <p>Microsoft 365 Copilot connectors can ingest external content from systems such as Salesforce, ServiceNow, Confluence, Jira, GitHub, Google Drive, file shares, and custom applications into Microsoft Graph for Copilot, Copilot Search, Microsoft Search, and agent experiences. Those controls do not decide who owns a crawl that skips restricted folders, an external item whose ACL no longer matches the source, a schema change that degrades discovery, a connection failure whose previously indexed data remains searchable, a deletion failure that continues consuming quota, or a broad rollout that exposes low-quality content tenant-wide.</p>
+        <p>Datrick provides an ongoing operating layer for an agreed connector estate. Named engineers correlate source inventory, credentials and connector agents, full or incremental crawls, Microsoft Graph external connections and items, schemas and semantic labels, Entra and external-group identity mapping, item ACLs, index-browser evidence, Copilot visibility, staged rollout, Search and Copilot outcomes, Graph throttling, licensing boundaries, incidents, releases, and governance. Microsoft support remains the escalation path for platform defects. Datrick owns the client-specific diagnosis, containment, validation, communication, change, and prevention accepted in the service boundary.</p>
+        <section class="readiness-actions"><p><strong>Do you have Copilot connectors in production but no team accountable for turning stale crawls, missing items, ACL drift, weak discovery, 429s, or tenant-wide exposure into a verified outcome?</strong> Start with one representative source, connection, identity path, and Copilot experience.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=m365_copilot_connector_support&amp;utm_medium=organic_content&amp;utm_campaign=copilot_enterprise_knowledge_operations&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" href="ai-workflows.html">Review AI workflow operations</a></div></section>
+
+        <h2 id="boundary">Define ownership from external source and identity to indexed item, Copilot discovery, citation, and user outcome</h2>
+        <p>A production plan can include Microsoft-built, partner, or custom synced connectors; Graph Connector Agent hosts; custom federated connectors where accepted; source credentials and network paths; full, incremental, event-based, or scheduled refresh; external connection and item IDs; content, properties, and schemas; semantic labels and aliases; ACLs and external groups; connection visibility; staged audiences; Copilot Search and Chat; declarative agents; licensing; monitoring; change; deletion; and Microsoft escalation.</p>
+        <p>Document source, connector, index, identity, experience, and application ownership separately. A source can be reachable while one folder, item type, field mapping, or group fails. A connection can be failed while previously indexed data remains searchable. Turning Copilot visibility off can exclude content from Copilot results without stopping the crawl. Some permission modes and schema choices cannot be safely corrected in place and require a controlled rebuild. Product success requires explicit contracts for all of them.</p>
+
+        <h2 id="scope">Operate the complete Microsoft 365 Copilot connector production surface</h2>
+        <div class="article-table-wrap" role="region" aria-label="Microsoft 365 Copilot connector production support scope" tabindex="0"><table class="article-table"><caption class="sr-only">Microsoft 365 Copilot connector production support scope</caption><thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead><tbody>
+          <tr><td>Sources, connectors, crawls, and items</td><td>Source inventory, credentials, agent health, connection state, crawl strategy and schedule, additions, updates and deletions, external item IDs, failed and skipped content, freshness, retry, and reconciliation.</td><td>Source owner, authoritative scope, supported connector and format, expected item population, freshness and deletion SLO, maintenance, retry authority, and exclusions.</td></tr>
+          <tr><td>Schema, content, and discovery</td><td>Content property, crawled properties, searchable, queryable, retrievable and refinable attributes, semantic labels, aliases, snippets, result types, schema recommendations, evaluation, and rollback.</td><td>Schema owner, immutable or rebuild-sensitive settings, title and URL meaning, expected search and Copilot use, relevance threshold, release gate, and acceptance set.</td></tr>
+          <tr><td>ACLs, identities, and governance</td><td>Only-people-with-access versus everyone mode, item allow and deny ACLs, Entra mapping, external groups, staged audience, index-browser checks, Copilot visibility, audit evidence, and access review.</td><td>Identity authority, public-content rule, group synchronization, deny precedence, tenant exposure, rebuild approval, least privilege, compliance evidence, and incident authority.</td></tr>
+          <tr><td>Copilot, Search, and agent outcomes</td><td>Indexed-content validation, Copilot Search discovery, Chat grounding, citations, declarative-agent use, query cohorts, expected items, user reports, licensing, latency, fallback, and business acceptance.</td><td>Supported experiences and licenses, expected answer or item, citation policy, high-consequence review, user support route, model boundary, and product owner.</td></tr>
+          <tr><td>Monitoring, incidents, releases, and quota</td><td>Connection states, admin and service-health alerts, Graph 429s and Retry-After, item quota, staged rollout, crawl and schema releases, deletion, rollback, incident communication, and reporting.</td><td>Severity, SLO, support escalation, rollout cohort, release window, quota owner, retry budget, data retention, rollback authority, exclusions, and service acceptance.</td></tr>
+        </tbody></table></div>
+
+        <h2 id="quality">Treat crawl coverage, schema meaning, ACL correctness, Copilot discovery, latency, and governance as one design</h2>
+        <p>Start with an expected-item ledger, not a connector status. Reconcile source inventory, configured scope, crawl type and schedule, connection state, external item IDs, last refresh, skipped and failed content, schema properties, ACLs, Copilot visibility, index-browser evidence, and sampled search. Microsoft documents that a failed connection can leave previously indexed data searchable and that a delete failure can leave data, quota use, or crawls behind. Monitor actual outcomes, not only the control plane.</p>
+        <p>Schema is retrieval behavior. The content property supports full-text indexing, snippets, language processing, ranking, relevance, and query formulation. Semantic labels provide meaning across Microsoft 365; incorrect mappings can degrade discovery. Searchable, queryable, retrievable, and refinable attributes affect different behaviors, and some choices have restrictions after setup. Evaluate a schema against labelled searches and Copilot prompts before broad ingestion.</p>
+        <p>Permission tests must use the complete identity route. Validate public, allowed, denied, removed-user, changed-group, missing identity, external-group, and cross-source cases in the index browser and the actual Copilot or Search experience. A connection configured as visible to everyone does not enforce item-specific permissions. Microsoft also documents that changing some connector access settings requires deleting and recreating the connection. Treat that as a data migration and exposure-control event.</p>
+
+        <h2 id="incidents">Distinguish source, crawl, item, schema, ACL, visibility, experience, throttling, deletion, and release failures</h2>
+        <div class="article-table-wrap" role="region" aria-label="Microsoft 365 Copilot connector production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Microsoft 365 Copilot connector production incident matrix</caption><thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead><tbody>
+          <tr><td>Expected content is absent, stale, or remains after source deletion</td><td>Source item and timestamp, connector scope, crawl type and status, agent and credentials, external connection and item ID, indexed last refresh, deletion, connection state, Copilot visibility, and user query.</td><td>Pause consequential use, preserve source and item evidence, disable unsafe visibility where appropriate, stop blind replay, correct source or connector access, and validate targeted reingestion or deletion.</td><td>Expected-item ledger, freshness and deletion SLO, source-to-item reconciliation, failed-item queue, idempotent update and delete, stale-content test, and source-owner signoff.</td></tr>
+          <tr><td>Restricted content is exposed or allowed content is hidden</td><td>Connection permission mode, item allow and deny ACLs, Entra mapping, external groups, staged audience, user memberships, index-browser access check, Copilot route, and recent identity or source change.</td><td>Turn off unsafe Copilot visibility or disable the route, preserve evidence, default deny high-risk cohorts, correct identity or ACL mapping, and retest allowed and denied users.</td><td>Identity contract, no-everyone policy for sensitive sources, ACL reconciliation, negative tests, group-change canary, staged rollout, periodic access review, and rebuild runbook.</td></tr>
+          <tr><td>Copilot cannot find or cite the expected item</td><td>Source text, content property, schema attributes, semantic labels, aliases, external item state, ACL, Copilot visibility, expected query or prompt, returned items, citation, licensing, and recent release.</td><td>Restore accepted schema or connection, narrow the audience, show source links, use validated fallback, require review, and block high-consequence automation.</td><td>Labelled query and prompt suite, schema release gate, expected-item and citation thresholds, cohort canary, user feedback review, attribution, and rollback.</td></tr>
+          <tr><td>Connection fails, Graph throttles, deletion fails, or rollout causes disruption</td><td>Connection state, service health, crawl activity, indexed-data visibility, item quota, Graph 429 and Retry-After, retry behavior, staged audience, admin change, deletion state, and consuming experience.</td><td>Stop retry amplification, preserve indexed-state evidence, keep rollout staged, disable unsafe visibility, retry only reversible operations, escalate platform faults, and communicate residual data risk.</td><td>State-aware runbooks, Retry-After handling, item and quota forecast, deletion verification, staged rollout, release matrix, canary, service-health alerting, and rollback.</td></tr>
+        </tbody></table></div>
+
+        <p>A retry or rebuild is not automatically safe. Before rerunning a crawl, recreating a connection, changing schema, switching permission mode, reingesting items, deleting a connection, or ending staged rollout, determine which items are authoritative, what remains indexed, who can currently see it, which quotas are consumed, whether downstream Copilot experiences cache or cite it, and whether item IDs and deletes are idempotent.</p>
+        <h2>Release sources, crawls, schemas, identities, ACLs, visibility, and Copilot experiences together</h2>
+        <p>A production release includes source and deletion contracts, connector and agent versions, credentials and network path, crawl strategy, connection and item identity, schema and semantic labels, ACL and external-group mapping, Copilot visibility, staged audience, licensing, experience configuration, monitoring, Graph retry policy, governance, rollout, and rollback. Before release, reconcile item coverage, inspect indexed properties and ACLs, run access negatives, evaluate expected search and Copilot citations, exercise 429 and deletion faults, and canary the complete user route.</p>
+
+        <h2 id="onboarding">Onboard through inventory, baselines, controlled failures, and shadow operations</h2>
+        <ol><li><strong>Inventory:</strong> tenants, licenses, sources, connectors, agents, connections, items, crawls, schemas, labels, identities, ACLs, audiences, experiences, monitoring, and outcomes.</li><li><strong>Responsibility:</strong> define supported layers, freshness, deletion, access, discovery, citation and availability SLOs, severity, authority, governance, fallback, Microsoft escalation, and exclusions.</li><li><strong>Baseline:</strong> measure expected and indexed items, crawl and deletion failures, schema quality, access outcomes, expected discovery, citations, latency, 429s, quota, and incidents.</li><li><strong>Controls:</strong> validate sources, items, schemas, labels, identities, ACLs, public mode, visibility, expected results, staged rollout, retries, releases, and rollback.</li><li><strong>Exercise:</strong> rehearse failed crawl, skipped item, stale deletion, schema regression, ACL leak, missing allowed result, 429, failed connection, failed deletion, and unsafe broad rollout.</li><li><strong>Transition:</strong> operate in shadow, close or accept material gaps, publish runbooks and escalation routes, and accept the steady-state scope.</li></ol>
+        <section class="readiness-actions"><p><strong>Start with the Copilot connection that already exposes customer, employee, support, financial, compliance, or operational knowledge.</strong> Datrick can define the operating boundary, close material gaps, and transition one representative connector and experience into managed support.</p><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=m365_copilot_connector_support&amp;utm_medium=organic_content&amp;utm_campaign=copilot_enterprise_knowledge_operations&amp;utm_content=article_end#inquiry-form">Request a Copilot connector review</a></section>
+
+        <h2>Official references and adjacent operating guides</h2>
+        <ul><li><a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/manage-connector">Manage and monitor Microsoft 365 Copilot connector connections</a></li><li><a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/indexed-content">Validate indexed connector content and user access</a></li><li><a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/manage-access-permissions">Manage connector access permissions</a></li><li><a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/deployment-overview">Deploy connectors, schemas, and semantic labels</a></li><li><a href="https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/staged-rollout">Stage connector rollout</a></li><li><a href="https://learn.microsoft.com/en-us/graph/connecting-external-content-manage-items">Manage Microsoft Graph external items</a></li><li><a href="microsoft-copilot-studio-managed-services-production-support">Microsoft Copilot Studio managed services</a></li><li><a href="microsoft-copilot-studio-fabric-data-agent-integration-assessment">Copilot Studio and Fabric Data Agent integration</a></li><li><a href="ai-workflows.html">Production AI workflow automation and operations</a></li><li><a href="white-label-ai-agent-operations-managed-support-for-msps">White-label AI agent managed support for MSPs</a></li></ul>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list"><details><summary>What is included in Microsoft 365 Copilot connector production support?</summary><p>A defined service can include source connectivity, full and incremental crawls, custom connector ingestion, Microsoft Graph external connections and items, schemas and semantic labels, ACLs and identity mapping, indexed-content validation, Copilot Search relevance, staged rollout, throttling, incidents, releases, governance, runbooks, and reporting.</p></details><details><summary>Can Copilot connector data remain searchable after a connection fails?</summary><p>Yes. Microsoft documents that previously indexed data can remain searchable when a connection has a critical failure. A delete failure can also leave indexed data, item quota use, or crawls active. Incident handling must verify connection state, Copilot visibility, item state, user access, and actual search behavior.</p></details><details><summary>How should Microsoft 365 Copilot connector permissions be tested?</summary><p>Test public, allowed, denied, removed-user, changed-group, external-group, missing-identity, and cross-source cases with the exact connector permission mode, item ACLs, Entra or external identity mapping, staged audience, and Copilot or Search route used in production. Use the index browser to inspect item permissions and user access.</p></details><details><summary>How should Copilot connector relevance and schema changes be validated?</summary><p>Use labelled production-like searches and prompts with expected items, citations, access outcomes, and business criteria. Validate content properties, searchable and retrievable fields, semantic labels, aliases, schema restrictions, crawl coverage, Copilot discovery, latency, Graph throttling, and the final answer before broad rollout.</p></details><details><summary>How long does Microsoft 365 Copilot connector managed support onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for a representative connection, source, identity model, and Copilot or Search experience. It covers inventory, crawl and item baselines, schema and permission tests, monitoring, incident and release controls, staged rollout, failure exercises, runbooks, and steady-state acceptance.</p></details></div>
+        <div class="article-next"><p>Operating connected enterprise knowledge across Jira and Confluence?</p><a href="atlassian-rovo-production-support-managed-services-enterprise-search-agents">Review the Atlassian Rovo production support boundary</a></div>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

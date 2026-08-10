@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Operations Agent Identity and Action Security | Datrick</title>
+    <meta name="description" content="Assess Fabric Operations Agent creator identity, Teams approvals, action permissions, parameters, expiry, offboarding, audit evidence, and rollback.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-operations-agent-creator-identity-teams-approval-action-security-assessment">
+    <meta property="og:title" content="Fabric Operations Agent Identity and Action Security | Datrick">
+    <meta property="og:description" content="Prove that every Operations Agent recommendation and action executes with the intended identity, authority, parameters, evidence, and recovery path.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-operations-agent-creator-identity-teams-approval-action-security-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Operations Agent Creator Identity, Teams Approval, and Action Security Assessment", "description": "Assess Fabric Operations Agent creator identity, Teams approvals, action permissions, parameters, expiry, offboarding, audit evidence, and rollback.", "url": "https://datrick.com/microsoft-fabric-operations-agent-creator-identity-teams-approval-action-security-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-operations-agent-creator-identity-teams-approval-action-security-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Which identity does Microsoft Fabric Operations Agent use for actions?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft states that Operations Agent uses the delegated identity and permissions of its creator. Queries, data access, and approved actions therefore run with the creator's credentials, not the Teams recipient's credentials."}},
+            {"@type": "Question", "name": "Does changing the Teams recipient change Operations Agent execution permissions?", "acceptedAnswer": {"@type": "Answer", "text": "No. Changing the individual or Teams channel that receives recommendations doesn't change the identity used for queries and actions. A recipient can approve a recommendation, but the action still runs on behalf of the creator with the creator's permissions."}},
+            {"@type": "Question", "name": "Who can receive Operations Agent recommendations in Microsoft Teams?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft's current documentation says recipients must belong to the organization and have write permission for the Operations Agent item. Messages can be sent directly to an individual or posted in a Teams channel, subject to the configured agent behavior and Teams app availability."}},
+            {"@type": "Question", "name": "What happens if an Operations Agent recommendation isn't approved?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft documents that an operation expires when no action is taken within three days. After expiration, the recommendation can no longer be approved. Production design should also define escalation, substitution, rejection, duplicate-message, and stale-parameter behavior."}},
+            {"@type": "Question", "name": "How long does an Operations Agent identity and action security assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment commonly takes two to four weeks for one agent, creator identity, monitored source, recipient group, and bounded action set. It covers effective access, action contracts, approvals, parameters, negative tests, offboarding, audit, incident response, and rollback."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Operations Agent action security</p>
+        <h1>The approver chooses yes. The creator's identity still executes.</h1>
+        <p class="page-lede">Assess creator credentials, source and action permissions, Teams recipients, editable parameters, Fabric item and Power Automate actions, expiration, duplicate approval, offboarding, audit evidence, failure containment, and rollback.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_operations_agent_identity&amp;utm_medium=organic_content&amp;utm_campaign=action_security_assessment&amp;utm_content=hero#inquiry-form">Describe the agent and action</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Real-time AI action governance</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#identity">Identity contract</a><a href="#approval">Approval boundary</a><a href="#actions">Action tests</a><a href="#lifecycle">Identity lifecycle</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>A Teams approval can look like a transfer of authority. It is not. Microsoft documents that Fabric Operations Agent queries and actions use the delegated identity and permissions of the agent's creator. Changing the recipient changes who sees and approves the recommendation, but it doesn't change the credentials used to read data or invoke the action.</p>
+        <p>This creates a production identity contract that must survive creator role changes, leave, termination, permission expansion, token or connection failure, recipient changes, action edits, and downstream system changes. A convenient human approval button does not compensate for an over-privileged or unmanaged execution identity.</p>
+
+        <section class="readiness-actions"><p><strong>If the creator left today, could you prove what the agent can read, which actions it can run, and how to stop it?</strong> Resolve that before expanding recipients or actions.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_operations_agent_identity&amp;utm_medium=organic_content&amp;utm_campaign=action_security_assessment&amp;utm_content=article_intro#inquiry-form">Send the identity and action scope</a><a class="button secondary" href="microsoft-fabric-operations-agent-implementation-evaluation-services">Review the broader agent pilot</a></div></section>
+
+        <h2 id="identity">Define the creator identity and action contract</h2>
+        <p>Record the human creator, employment status, Entra account, Fabric workspace role, Eventhouse or ontology permissions, KQL access, action permissions, downstream connections, Teams recipients, support owner, backup owner, review date, and stop authority. Calculate effective access rather than relying on assigned role names.</p>
+        <p>Separate four people or identities that the user experience can blur: the agent creator, the Teams recipient, the person who approves, and the downstream identity used by a Fabric item or Power Automate connection. Document every transition and prove which identity authorizes data access, recommendation delivery, action invocation, and downstream effect.</p>
+
+        <h2 id="approval">Make approval an explicit authorization boundary</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Operations Agent identity and approval contract" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Operations Agent identity and approval contract</caption>
+          <thead><tr><th scope="col">Control</th><th scope="col">Required evidence</th><th scope="col">Failure risk</th><th scope="col">Release decision</th></tr></thead>
+          <tbody>
+            <tr><td>Creator</td><td>Named owner, approved role, effective source and action access, lifecycle status, review cadence, and backup.</td><td>Personal elevated access becomes a long-running automation credential.</td><td>Use a controlled least-privilege creator pattern approved for the current product behavior.</td></tr>
+            <tr><td>Recipient</td><td>Organization membership, agent-item write permission, direct message or Teams channel, duty role, availability, and substitution.</td><td>A broad channel or unqualified recipient can approve an action without ownership.</td><td>Restrict recipients to accountable responders and test membership changes.</td></tr>
+            <tr><td>Recommendation</td><td>Triggered condition, source evidence, rule and query, severity, action, parameters, expected effect, risks, and freshness.</td><td>The approver sees persuasive language without enough evidence to decide.</td><td>Require decision-ready context and an investigation route before approval.</td></tr>
+            <tr><td>Approval policy</td><td>Allowed approvers, Yes/No semantics, segregation of duties, escalation, expiry, out-of-hours behavior, and high-risk exclusions.</td><td>Any writer can authorize a sensitive creator-powered action.</td><td>Keep sensitive actions outside the agent or add a downstream authorization gate.</td></tr>
+            <tr><td>Parameters</td><td>Name, type, source, allowed values, range, current-state validation, editability, encoding, and sensitive-data handling.</td><td>An edited, stale, malformed, or model-generated parameter changes the target or impact.</td><td>Validate server-side against allowlists and current state; reject unknown or stale values.</td></tr>
+            <tr><td>Downstream action</td><td>Fabric item or Power Automate flow, connection owner, effective identity, permissions, idempotency, timeout, postconditions, and rollback.</td><td>The connection introduces broader authority or duplicate and partial effects.</td><td>Use a bounded action contract with independent authorization and observable result.</td></tr>
+            <tr><td>Audit evidence</td><td>Agent version, rule, query, source data, recommendation, recipient, response, creator identity, action input, result, duration, and incident link.</td><td>The team can't reconstruct who approved what authority and what changed.</td><td>Correlate the full operation before allowing production-changing actions.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Microsoft currently allows direct Teams messages or channel posts. Recipient convenience must not redefine authorization. If the downstream system requires a stronger identity, dual approval, change window, or separation of duties, enforce that in the action service rather than relying only on the Teams response.</p>
+
+        <h2 id="actions">Test the complete action path and every negative case</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Operations Agent identity and action security test matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Operations Agent identity and action security test matrix</caption>
+          <thead><tr><th scope="col">Test</th><th scope="col">Method</th><th scope="col">Pass condition</th><th scope="col">Remediation</th></tr></thead>
+          <tbody>
+            <tr><td>Approved happy path</td><td>Trigger a known condition, inspect query and recommendation, approve with an allowed recipient, and reconcile the downstream result.</td><td>Only the intended creator authority, action, parameters, target, and effect occur once.</td><td>Correct identity, rule, action contract, parameter binding, or downstream connection.</td></tr>
+            <tr><td>Denied source access</td><td>Remove or narrow creator access to monitored data and trigger the rule.</td><td>The query fails visibly without stale inference, alternate-source leakage, or action execution.</td><td>Least-privilege source access, error handling, stop rule, or separate agent.</td></tr>
+            <tr><td>Denied action access</td><td>Remove permission to the Fabric item, flow, or downstream target while keeping source access.</td><td>No partial or hidden effect; failure is recorded and reaches the owner.</td><td>Permission correction, bounded executor, compensating action, or rollout block.</td></tr>
+            <tr><td>Recipient change</td><td>Change the individual and channel, then repeat query and action tests.</td><td>Delivery changes; creator-based execution authority doesn't silently change.</td><td>Recipient governance, write-permission review, and explicit approver authorization.</td></tr>
+            <tr><td>Parameter tampering</td><td>Edit values to boundaries, unknown entities, stale targets, restricted resources, malformed strings, and excessive quantities.</td><td>Server-side validation rejects unsafe inputs before any effect.</td><td>Types, allowlists, current-state checks, maximum impact, and encoding controls.</td></tr>
+            <tr><td>Duplicate approval</td><td>Repeat Teams interactions, retry after latency, send duplicate operations, and run concurrent approvals.</td><td>Idempotency key and state prevent duplicate execution.</td><td>Operation ID, lock, deduplication, postcondition, and compensating control.</td></tr>
+            <tr><td>Expiration and stale state</td><td>Delay response, change the target after recommendation, and test the documented three-day expiry.</td><td>Expired operations can't execute and stale parameters require revalidation.</td><td>Shorter business timeout, live-state check, regeneration, or escalation.</td></tr>
+            <tr><td>Creator offboarding</td><td>Disable the account, remove roles, rotate connections, transfer ownership, and restart the agent.</td><td>The agent fails closed, alerts an owner, and resumes only under an approved identity.</td><td>Lifecycle automation, backup owner, stop control, reauthorization, and acceptance test.</td></tr>
+            <tr><td>Downstream partial failure</td><td>Inject timeout, unavailable dependency, partial write, callback failure, and rollback failure.</td><td>Impact remains contained, observable, retry-safe, and recoverable.</td><td>Transaction boundary, idempotent retry, compensation, alert, and manual recovery.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Keep the agent in recommendation-only or shadow mode until negative tests pass. Score detection, recommendation quality, approver comprehension, authorization, parameter safety, action correctness, duplicate prevention, failure containment, recovery, and audit completeness separately.</p>
+
+        <h2 id="lifecycle">Govern creator, connection, recipient, and action lifecycle</h2>
+        <p>A personal creator account is an operational dependency. Connect HR and identity lifecycle events to an agent inventory so leave, termination, role change, privilege increase, MFA or conditional-access change, and account disablement trigger review or stop. Define a supported ownership-transfer or rebuild procedure and test it before the creator becomes unavailable.</p>
+        <p>Review recipients and channels as approval surfaces. Microsoft currently requires recipients to belong to the organization and have write permission on the agent item. Reconcile write grants, Teams membership, duty roster, substitution, separation of duties, and sensitive-data exposure. Remove stale recipients and verify that revoked users can no longer receive or approve new operations.</p>
+        <p>Version goals, instructions, playbook rules, action descriptions, parameter schemas, source bindings, recipients, connections, and downstream versions. Monitor source-query failures, recommendation volume, approvals, rejections, expirations, duplicate attempts, action failures, permission changes, creator status, capacity, and unexplained state changes. Maintain stop, rollback, and incident runbooks for the agent itself.</p>
+
+        <h2 id="assessment">Run a two-to-four-week identity and action security assessment</h2>
+        <ol>
+          <li>Select one Operations Agent, creator, monitored source, recipient group, current recommendation flow, and bounded action set.</li>
+          <li>Inventory effective source and action access, workspace roles, Teams delivery, agent-item write grants, connections, downstream identities, parameters, owners, and lifecycle events.</li>
+          <li>Trace the control path from rule query and source evidence through recommendation, recipient, approval, creator identity, action invocation, downstream effect, and audit record.</li>
+          <li>Define allowlists, parameter schemas, impact bounds, approval rules, timeouts, idempotency, postconditions, failure containment, rollback, and prohibited actions.</li>
+          <li>Run allowed, denied, recipient-change, tampering, duplicate, expiry, stale-state, offboarding, connection, downstream-failure, recovery, and audit tests.</li>
+          <li>Remediate creator privileges, recipient grants, action contracts, downstream authorization, parameter validation, lifecycle automation, monitoring, and stop controls.</li>
+          <li>Deliver the identity map, effective-access evidence, action registry, test results, revised controls, operating runbook, incident and offboarding procedures, rollback, and go, limited pilot, recommendation-only, or stop decision.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Which identity does Microsoft Fabric Operations Agent use for actions?</summary><p>Microsoft states that Operations Agent uses the delegated identity and permissions of its creator. Queries, data access, and approved actions therefore run with the creator's credentials, not the Teams recipient's credentials.</p></details>
+          <details><summary>Does changing the Teams recipient change Operations Agent execution permissions?</summary><p>No. Changing the individual or Teams channel that receives recommendations doesn't change the identity used for queries and actions. A recipient can approve a recommendation, but the action still runs on behalf of the creator with the creator's permissions.</p></details>
+          <details><summary>Who can receive Operations Agent recommendations in Microsoft Teams?</summary><p>Microsoft's current documentation says recipients must belong to the organization and have write permission for the Operations Agent item. Messages can be sent directly to an individual or posted in a Teams channel, subject to the configured agent behavior and Teams app availability.</p></details>
+          <details><summary>What happens if an Operations Agent recommendation isn't approved?</summary><p>Microsoft documents that an operation expires when no action is taken within three days. After expiration, the recommendation can no longer be approved. Production design should also define escalation, substitution, rejection, duplicate-message, and stale-parameter behavior.</p></details>
+          <details><summary>How long does an Operations Agent identity and action security assessment take?</summary><p>A focused assessment commonly takes two to four weeks for one agent, creator identity, monitored source, recipient group, and bounded action set. It covers effective access, action contracts, approvals, parameters, negative tests, offboarding, audit, incident response, and rollback.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent">Create, configure, run, and audit Fabric Operations Agent</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-actions">Teams recipients, creator identity, Fabric item, and Power Automate actions</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-limitations">Operations Agent identity, expiration, region, and runtime limitations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-transparency-note">Operations Agent responsible use and transparency guidance</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-billing">Operations Agent capacity and billing</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the action where the creator has broader access than the person approving it in Teams.</strong> Datrick can map effective authority, test the complete path, harden parameters and downstream controls, and define a recoverable production boundary.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_operations_agent_identity&amp;utm_medium=organic_content&amp;utm_campaign=action_security_assessment&amp;utm_content=article_end#inquiry-form">Scope the action security assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-operations-agent-implementation-evaluation-services"><span>Implement the full control loop</span><strong>Assess an Operations Agent pilot</strong></a><a href="microsoft-fabric-ai-agent-observability-cost-governance-assessment"><span>Monitor agent behavior</span><strong>Assess observability and cost governance</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

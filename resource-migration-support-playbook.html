@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Migration Support Playbook | Datrick</title>
+    <meta name="description" content="Plan a controlled data migration with discovery, validation, rehearsals, cutover gates, rollback criteria, reporting continuity, hypercare, and handover.">
+    <link rel="canonical" href="https://datrick.com/resource-migration-support-playbook.html">
+    <meta property="og:title" content="Migration Support Playbook | Datrick">
+    <meta property="og:description" content="A practical guide to migration QA, validation, reporting continuity, rollback planning, and stakeholder handover.">
+    <meta property="og:url" content="https://datrick.com/resource-migration-support-playbook.html">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "headline": "Migration Support Playbook for Teams That Cannot Lose Reporting Continuity",
+            "description": "A practical playbook for migration discovery, validation, rehearsals, cutover, rollback, reporting continuity, hypercare, and operating handover.",
+            "url": "https://datrick.com/resource-migration-support-playbook.html",
+            "dateModified": "2026-07-28",
+            "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"},
+            "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What should a data migration plan include?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A data migration plan should define scope, owners, source and target systems, dependencies, data profiling, transformation rules, security, validation, rehearsals, cutover sequence, decision gates, rollback criteria, stakeholder communication, hypercare, and operating handover."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you validate a data migration?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Validate at several levels: record counts and control totals, field-level transformations, referential integrity, duplicate and null behavior, representative record samples, business rules, report and KPI reconciliation, application workflows, security, and target performance. Exceptions need owners and documented acceptance."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "When should a migration be rolled back?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Rollback should be considered when predefined cutover thresholds are breached, such as unreconciled critical data, failed business workflows, unacceptable reporting differences, security or integrity concerns, missed downtime limits, or unresolved defects that prevent safe operation. The decision authority and latest safe rollback time must be agreed before cutover."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is migration hypercare?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Migration hypercare is the defined period after cutover when the team uses increased monitoring, faster triage, daily reconciliation, clear escalation, and concentrated technical coverage to stabilize the target environment. Exit criteria should be based on evidence, not only elapsed time."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data" data-commercial-cluster="database_migration" data-content-type="commercial_resource">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Migration support</p>
+          <h1>Migration support playbook for teams that cannot lose reporting continuity.</h1>
+          <p class="page-lede">Modernization work succeeds when QA, validation, rollback, reporting dependencies, and stakeholder updates are managed as one operating system.</p>
+          <div class="article-meta"><a href="resources.html">Resource library</a><span>Operations playbook</span><span>12 min read</span></div>
+          <p class="article-review">Reviewed for migration delivery accuracy by <a href="about.html">Can Goktug Ozdem</a>, founder and senior technical lead. Last reviewed July 28, 2026.</p>
+        </div>
+      </section>
+      <section class="section service-band">
+        <article class="article-body">
+          <p>A migration is controlled when the team can explain what will move, how each important result will be validated, who can stop the cutover, how service will be restored if the target fails, and what evidence is required before responsibility transfers to operations.</p>
+
+          <p>This playbook applies to database, warehouse, ETL, reporting, application-data, and cloud-platform migrations. Teams comparing integration platforms should also review the <a href="etlelt-pricing-guide">ETL and ELT pricing guide</a> before treating a vendor’s published rate as the total operating cost. The playbook can guide a complete program or a defined support workstream such as migration development, QA, reconciliation, performance review, reporting continuity, cutover readiness, rollback evidence, or handover.</p>
+
+          <h2>The migration control model</h2>
+          <div class="article-table-wrap" role="region" aria-label="Migration phases and decision evidence" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Migration phases and decision evidence</caption>
+              <thead><tr><th scope="col">Phase</th><th scope="col">Primary question</th><th scope="col">Evidence required to proceed</th></tr></thead>
+              <tbody>
+                <tr><td>Discovery</td><td>Do we understand the systems, data, dependencies, owners, and constraints?</td><td>Reconciled scope, dependency map, data profile, risk register, and named owners.</td></tr>
+                <tr><td>Design</td><td>Can the target preserve required business behavior and controls?</td><td>Mapping rules, architecture, security model, validation plan, and operating assumptions.</td></tr>
+                <tr><td>Build</td><td>Can data and workloads move repeatably?</td><td>Versioned migration logic, logs, exception handling, test results, and deployment procedure.</td></tr>
+                <tr><td>Rehearsal</td><td>Can the team execute within the available window?</td><td>Timed run, defect summary, reconciled outputs, performance results, and updated runbook.</td></tr>
+                <tr><td>Readiness</td><td>Are unresolved risks acceptable and recovery options credible?</td><td>Go/no-go pack, approved exceptions, rollback proof, support roster, and communications.</td></tr>
+                <tr><td>Cutover</td><td>Is the target safe to place into service?</td><td>Completed gates, validation results, decision log, stakeholder status, and ownership confirmation.</td></tr>
+                <tr><td>Hypercare</td><td>Is the target stable under real operating conditions?</td><td>Monitoring, reconciliation, issue trends, business confirmation, and met exit criteria.</td></tr>
+                <tr><td>Handover</td><td>Can operations support the target without the project team?</td><td>Runbooks, access, known issues, monitoring, backlog, training, and formal acceptance.</td></tr>
+              </tbody>
+            </table></div>
+
+          <h2>1. Define scope, ownership, and success</h2>
+          <p>Start with a migration charter that names the business sponsor, program owner, technical leads, source and target owners, validation owner, security approver, cutover manager, operations owner, and rollback decision authority. Define what is in scope, explicitly out of scope, and dependent on another team.</p>
+
+          <p>Success should be measurable. Examples include reconciliation thresholds, allowed downtime, maximum data lag, report availability, transaction success, target performance, accepted defects, and the date by which legacy operation can end. Avoid a single criterion such as “all rows loaded.” A technically complete load can still fail because business rules, reports, permissions, or operating procedures do not work.</p>
+
+          <h2>2. Map systems and reporting dependencies</h2>
+          <p>Build a dependency map from source capture through databases, files, integrations, transformations, semantic models, dashboards, exports, and operational consumers. Record schedules, owners, service expectations, credentials, network paths, data classifications, and business deadlines.</p>
+
+          <p>Pay particular attention to dependencies that are easy to miss: direct analyst queries, spreadsheets fed by extracts, scheduled email reports, vendor files, hard-coded connection strings, personal service accounts, archived tables used for audits, and month-end jobs that do not run during a short test period.</p>
+
+          <h2>3. Profile the source before designing the move</h2>
+          <p>Profile row volumes, growth, key distributions, nulls, duplicates, invalid values, encoding, timestamps, large objects, referential integrity, and historical anomalies. Separate defects that already exist in the source from defects introduced by migration logic. Decide whether each source issue will be corrected, preserved, quarantined, or explicitly accepted.</p>
+
+          <p>Record source-to-target mappings as versioned rules. For every transformed field or entity, document source, target, conversion logic, default behavior, rejected-value handling, business owner, and test case. If a rule cannot be explained to a reviewer, it is not ready for an irreversible production run.</p>
+
+          <h2>4. Design validation at multiple levels</h2>
+          <p>Validation should prove completeness, correctness, usability, and control. Use multiple methods because no single check detects every failure.</p>
+
+          <ul>
+            <li><strong>Volume:</strong> row counts, file counts, partitions, date ranges, and expected incremental changes.</li>
+            <li><strong>Control totals:</strong> sums, balances, quantities, distinct entities, and other business totals by meaningful segment.</li>
+            <li><strong>Field rules:</strong> data types, formats, mapping logic, defaults, null handling, truncation, and precision.</li>
+            <li><strong>Relationships:</strong> primary keys, duplicates, orphan records, referential integrity, and hierarchy behavior.</li>
+            <li><strong>Sampling:</strong> representative normal, high-value, boundary, historical, and known-problem records.</li>
+            <li><strong>Business workflows:</strong> end-to-end transactions, updates, reversals, approvals, exports, and operational queries.</li>
+            <li><strong>Reporting:</strong> dashboard values, KPI definitions, refresh timing, filters, drilldowns, and reconciliations.</li>
+            <li><strong>Nonfunctional controls:</strong> performance, concurrency, security, audit logging, backup, recovery, and monitoring.</li>
+          </ul>
+
+          <p>Define thresholds and owners before testing. A difference may be expected because of timing, cleansing, or changed business logic, but it still needs evidence and approval. Store results so the team can compare rehearsals and prove what changed.</p>
+
+          <h2>5. Build repeatable migration execution</h2>
+          <p>Migration scripts, pipelines, infrastructure changes, and validation checks should be versioned and repeatable. Record run identifiers, input boundaries, start and finish times, row counts, rejected records, warnings, errors, retries, and code versions. Re-running a step must not silently duplicate or corrupt data.</p>
+
+          <p>Separate the migration into restartable stages where practical. A failed late-stage validation should not require repeating every extraction if verified intermediate outputs can be preserved safely. Define how partial runs are detected, cleaned up, resumed, or abandoned.</p>
+
+          <h2>6. Rehearse the complete cutover</h2>
+          <p>A rehearsal should use production-like volume, permissions, topology, and operating constraints. Execute the actual runbook with the people expected to perform the cutover. Time every stage, capture manual decisions, record defects, and test communications as well as technical steps.</p>
+
+          <p>At minimum, rehearse extraction or synchronization, transformation, load, validation, application connection changes, report refreshes, performance checks, monitoring, issue triage, stakeholder updates, and rollback. Update the duration estimate using measured evidence and preserve contingency inside the window.</p>
+
+          <h2>7. Establish cutover gates and rollback criteria</h2>
+          <p>The cutover runbook should identify each task, owner, expected duration, prerequisite, completion evidence, and escalation path. Gates should be explicit: source freeze confirmed, final synchronization complete, critical validation passed, applications connected, priority reports reconciled, monitoring active, and business owner approval recorded.</p>
+
+          <p>Define rollback before the team is under pressure. State which failures trigger immediate rollback, which can be repaired within the window, who decides, the latest safe decision time, how source and target changes will be reconciled, and how users will be informed. Test the rollback path during rehearsal rather than treating it as a diagram.</p>
+
+          <div class="article-table-wrap" role="region" aria-label="Example cutover decision thresholds" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Example cutover decision thresholds</caption>
+              <thead><tr><th scope="col">Signal</th><th scope="col">Proceed only when</th><th scope="col">Escalate or roll back when</th></tr></thead>
+              <tbody>
+                <tr><td>Critical data</td><td>Control totals and required records meet approved thresholds.</td><td>Material differences remain unexplained or cannot be repaired safely.</td></tr>
+                <tr><td>Business workflows</td><td>Priority transactions and operational scenarios pass.</td><td>A critical workflow fails with no tested workaround.</td></tr>
+                <tr><td>Reporting</td><td>Required dashboards and exports reconcile and refresh on time.</td><td>Decision-critical reporting is wrong, late, or lacks an accepted fallback.</td></tr>
+                <tr><td>Performance</td><td>Target workload remains within agreed operating limits.</td><td>Latency, throughput, locking, or resource use threatens service continuity.</td></tr>
+                <tr><td>Security and integrity</td><td>Access, audit, encryption, and integrity checks pass.</td><td>Unauthorized access, data exposure, or integrity risk is detected.</td></tr>
+                <tr><td>Time window</td><td>Remaining work fits inside the measured contingency.</td><td>The latest safe rollback decision point will be missed.</td></tr>
+              </tbody>
+            </table></div>
+
+          <h2>8. Protect reporting continuity</h2>
+          <p>Reporting continuity deserves its own plan. Identify which reports must remain available during the move, acceptable data staleness, final legacy refresh, first target refresh, reconciliation owner, and temporary distribution method. A migration may be acceptable for the application while still creating an executive or regulatory reporting failure.</p>
+
+          <p>Freeze metric definitions during cutover unless a planned change has been approved and communicated. Compare source and target results at the same business cutoff. Document expected differences caused by timing or redesigned logic and obtain business-owner acceptance rather than leaving analysts to explain differences after launch.</p>
+
+          <h2>9. Staff cutover and hypercare for decisions</h2>
+          <p>The cutover roster should cover migration execution, source, target, applications, infrastructure, security, validation, reporting, business acceptance, communications, and incident management. Name primary and backup contacts, working hours, escalation channels, and decision authority. More people are not automatically safer; every participant needs a defined responsibility.</p>
+
+          <p>Hypercare begins when the target enters service. Increase monitoring and reconciliation frequency, maintain rapid triage, review issues daily, and keep the project and operations teams connected. Track incidents, validation exceptions, performance, user impact, report timeliness, workarounds, and backlog ownership.</p>
+
+          <h2>10. Exit hypercare with evidence</h2>
+          <p>Do not end hypercare only because a fixed number of days passed. Define exit criteria such as stable processing across required business cycles, accepted reconciliation results, no unresolved critical defects, normal performance, successful backups, tested support escalation, current runbooks, trained operators, and ownership of the remaining backlog.</p>
+
+          <p>Complete an operating handover using Datrick's <a href="resource-database-handover.html">database operations handover checklist</a>. Archive the final migration package: scope, architecture, mappings, scripts, test evidence, decision log, exceptions, known issues, runbooks, monitoring, restore procedure, and post-migration improvement backlog.</p>
+
+          <h2>Migration readiness checklist</h2>
+          <ul>
+            <li>Scope, exclusions, success measures, owners, and decision authority are documented.</li>
+            <li>Source, target, application, integration, reporting, security, and operational dependencies are mapped.</li>
+            <li>Source data has been profiled and existing defects have explicit treatment.</li>
+            <li>Mapping rules and migration logic are versioned, reviewable, logged, and restartable.</li>
+            <li>Validation covers technical, business, reporting, performance, security, and recovery requirements.</li>
+            <li>A production-like rehearsal has measured duration and exposed operating defects.</li>
+            <li>Cutover gates, owners, evidence, communication, and go/no-go authority are explicit.</li>
+            <li>Rollback criteria, decision time, execution steps, and reconciliation are tested.</li>
+            <li>Reporting continuity and temporary workarounds are approved by business owners.</li>
+            <li>Hypercare coverage, monitoring, triage, exit criteria, and operating handover are ready.</li>
+          </ul>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-list">
+            <details>
+              <summary>What should a data migration plan include?</summary>
+              <p>A data migration plan should define scope, owners, source and target systems, dependencies, data profiling, transformation rules, security, validation, rehearsals, cutover sequence, decision gates, rollback criteria, stakeholder communication, hypercare, and operating handover.</p>
+            </details>
+            <details>
+              <summary>How do you validate a data migration?</summary>
+              <p>Validate at several levels: record counts and control totals, field-level transformations, referential integrity, duplicate and null behavior, representative record samples, business rules, report and KPI reconciliation, application workflows, security, and target performance. Exceptions need owners and documented acceptance.</p>
+            </details>
+            <details>
+              <summary>When should a migration be rolled back?</summary>
+              <p>Rollback should be considered when predefined cutover thresholds are breached, such as unreconciled critical data, failed business workflows, unacceptable reporting differences, security or integrity concerns, missed downtime limits, or unresolved defects that prevent safe operation. The decision authority and latest safe rollback time must be agreed before cutover.</p>
+            </details>
+            <details>
+              <summary>What is migration hypercare?</summary>
+              <p>Migration hypercare is the defined period after cutover when the team uses increased monitoring, faster triage, daily reconciliation, clear escalation, and concentrated technical coverage to stabilize the target environment. Exit criteria should be based on evidence, not only elapsed time.</p>
+            </details>
+          </div>
+
+          <section class="readiness-actions"><p><strong>Find the migration risks before the cutover window.</strong> Score dependency, validation, rehearsal, rollback, reporting continuity, hypercare, and handover readiness before sharing environment details.</p><a class="button primary" data-cta-name="playbook_to_migration_risk_assessment" data-funnel-stage="content_to_commercial" href="migration-risk-assessment?utm_source=migration_support_playbook&amp;utm_medium=organic_content&amp;utm_campaign=database_migration_assessment&amp;utm_content=article_end">Start the migration risk assessment</a></section>
+          <nav class="article-next" aria-label="Resource next steps"><a href="database-migration-services"><span>Matching service</span><strong>Review database migration services</strong></a><a href="migration-risk-assessment"><span>Commercial assessment</span><strong>Assess migration risk</strong></a></nav>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

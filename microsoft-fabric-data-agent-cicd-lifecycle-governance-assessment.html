@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Microsoft Fabric Data Agent CI/CD and Lifecycle Governance Assessment | Datrick</title>
+    <meta name="description" content="Assess Fabric Data Agent Git integration, deployment pipelines, draft and published definitions, source rebinding, evaluation gates, rollback, and release governance.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-data-agent-cicd-lifecycle-governance-assessment">
+    <meta property="og:title" content="Microsoft Fabric Data Agent CI/CD and Lifecycle Governance Assessment | Datrick">
+    <meta property="og:description" content="Move Data Agent changes from development to production with versioned definitions, evaluation gates, and rollback evidence.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-data-agent-cicd-lifecycle-governance-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Data Agent CI/CD and Lifecycle Governance Assessment", "description": "Assess Fabric Data Agent Git integration, deployment pipelines, draft and published definitions, source rebinding, evaluation gates, rollback, and release governance.", "url": "https://datrick.com/microsoft-fabric-data-agent-cicd-lifecycle-governance-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-data-agent-cicd-lifecycle-governance-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Does Fabric Data Agent support Git integration and deployment pipelines?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft documents Git integration and deployment-pipeline support for Fabric Data Agent as part of application lifecycle management. Source control and Data Agent deployment support are currently documented as preview. Validate the current support matrix, tenant behavior, provider limitations, item dependencies, and target-workspace bindings before adopting the workflow for production releases."}},
+            {"@type": "Question", "name": "What parts of a Fabric Data Agent are stored in source control?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft's Data Agent item definition includes a top-level schema, draft stage configuration, source definitions, and few-shot examples. Published agents add publish information and a separate published-stage representation. The exact serialized files depend on sources and schema version, so review exported definitions and exclude environment-specific secrets or unsupported settings from assumptions."}},
+            {"@type": "Question", "name": "Does deploying a Fabric Data Agent automatically publish it?", "acceptedAnswer": {"@type": "Answer", "text": "Do not assume that presence in a production workspace means the agent is published for every consumption channel. Microsoft guidance states that a Data Agent must be published to be consumed through channels such as Copilot for Power BI, Copilot Studio, and Foundry tools. The release workflow should verify draft versus published state and run post-deployment acceptance tests."}},
+            {"@type": "Question", "name": "Can a service principal operate a Fabric Data Agent?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft documents service-principal support for Data Agent in ALM scenarios such as Git integration and deployment pipelines, but not as general interaction support for the agent. Use least privilege for release automation and test separately which human or application identities can consume the published agent."}},
+            {"@type": "Question", "name": "How long does a Fabric Data Agent CI/CD assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment and production-shaped release pilot can often be completed in three to five weeks for one agent and its required sources. The work includes definition export, environment mapping, Git workflow, deployment automation, source rebinding, evaluation gates, publishing, permission tests, rollback, drift detection, and operating documentation."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric Data Agent CI/CD and lifecycle</p>
+        <h1>Release Data Agent changes with versioned definitions, evaluation gates, and a tested rollback.</h1>
+        <p class="page-lede">Separate development from production, control draft and published state, bind each environment deliberately, and prove that every release preserves answer quality, permissions, and consumption channels.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_data_agent_cicd&amp;utm_medium=organic_content&amp;utm_campaign=data_agent_lifecycle_assessment&amp;utm_content=hero#inquiry-form">Describe the release problem</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>AI agent ALM</span><span>10 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#inventory">Release inventory</a><a href="#definition">Item definition</a><a href="#pipeline">Deployment pipeline</a><a href="#gates">Evaluation gates</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>A Fabric Data Agent can change even when its name and URL do not. A source is added, instructions are edited, few-shot examples change, a semantic model is republished, permissions move, or a draft is published. Any of these can alter source selection, generated queries, answers, security behavior, latency, and capacity consumption.</p>
+        <p>Datrick treats Data Agent configuration as releasable software. Git history and deployment pipelines provide the transport; deterministic evaluation, environment-aware binding, permission tests, publishing controls, approval, rollback, and runtime monitoring provide release confidence.</p>
+
+        <section class="readiness-actions"><p><strong>Can you reproduce the exact published agent currently serving users?</strong> Establish the definition and release evidence before the next change.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_data_agent_cicd&amp;utm_medium=organic_content&amp;utm_campaign=data_agent_lifecycle_assessment&amp;utm_content=article_intro#inquiry-form">Send the agent lifecycle context</a><a class="button secondary" href="microsoft-fabric-data-agent-implementation-evaluation-services">Review Data Agent evaluation</a></div></section>
+
+        <h2 id="inventory">Inventory the whole release unit</h2>
+        <p>Map the Data Agent, owner, developers, consumers, Git provider, branches, workspaces, deployment stages, service connection, sources, semantic models, warehouses, lakehouses, Eventhouses, ontologies, instructions, example queries, permissions, tenant settings, capacities, integrations, and published channels. Include dependencies that are not serialized or automatically rebound.</p>
+        <p>Define which workspace is authoritative for development, test, and production. Restrict development consumption so experimental agents are not mistaken for approved production tools. End users should reach only the production-published version through supported channels.</p>
+
+        <h2 id="definition">Understand the draft and published item definition</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent lifecycle definition contract" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent lifecycle definition contract</caption>
+          <thead><tr><th scope="col">Definition area</th><th scope="col">Release evidence</th><th scope="col">Failure to prevent</th></tr></thead>
+          <tbody>
+            <tr><td>Top-level schema</td><td>Definition schema version, item metadata, logical identity, compatibility, and validation result.</td><td>A service update or unsupported schema breaks import or changes interpretation.</td></tr>
+            <tr><td>Draft stage</td><td>Source inventory, selected schemas, AI instructions, source instructions, few-shot examples, and configuration diff.</td><td>An unreviewed portal edit bypasses source control or evaluation.</td></tr>
+            <tr><td>Published stage</td><td>Publish information, published configuration, release version, actor, timestamp, and channel acceptance result.</td><td>Production workspace contains a newer draft while users still consume an older published agent.</td></tr>
+            <tr><td>Dependencies</td><td>Source item IDs, workspace IDs, names, connection or credential requirements, permissions, and target mapping.</td><td>The promoted agent points to development data or an inaccessible source.</td></tr>
+            <tr><td>Environment values</td><td>Variables, mapping rules, post-deployment scripts, secrets boundary, region, capacity, and tenant settings.</td><td>Hard-coded development references or credentials reach production.</td></tr>
+            <tr><td>Consumers</td><td>Fabric, Power BI Copilot, Copilot Studio, Foundry, sharing, group membership, and minimum source access.</td><td>The agent deploys successfully but is unavailable or overexposed to users.</td></tr>
+            <tr><td>Evaluation</td><td>Question suite, expected source/query/result, security persona, latency, cost, score, approval, and artifact version.</td><td>A syntactically valid release silently reduces answer quality or security.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Review exported files rather than assuming every portal setting is represented. Keep generated and human-authored configuration distinctions clear. Do not store secrets in Git. Version the evaluation data and expected results beside the release process without exposing sensitive production samples.</p>
+
+        <h2>Use branches and review for semantic change</h2>
+        <p>Require a change request that explains the user problem, affected sources and questions, expected behavior, risk, and rollback. Use isolated feature workspaces or branches. Review structured diffs for removed sources, widened schema, changed instructions, few-shot examples, publishing state, and dependency references.</p>
+        <p>Automated checks should validate JSON schemas, required files, naming, source allow lists, prohibited environments, unresolved placeholders, unsafe instructions, missing owners, and evaluation coverage. Human reviewers assess business semantics, source authority, privacy, and whether examples teach unsupported behavior.</p>
+
+        <h2 id="pipeline">Promote through development, test, and production</h2>
+        <p>Use Fabric deployment pipelines or a controlled API/fabric-cicd workflow based on the supported item matrix and organizational release tooling. Data Agent source control and deployment support are preview, so validate behavior after every Fabric release and retain a manual recovery path.</p>
+        <p>Deploy dependencies in a known order. Rebind each target source to the correct workspace and item, establish permissions, validate tenant and capacity settings, then run smoke tests before publishing. Microsoft documents service-principal support for Data Agent ALM operations; do not assume that identity can interact with the agent outside ALM.</p>
+
+        <h2 id="gates">Require evidence before publish and exposure</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Data Agent release evaluation gates" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Data Agent release evaluation gates</caption>
+          <thead><tr><th scope="col">Gate</th><th scope="col">Test</th><th scope="col">Release decision</th></tr></thead>
+          <tbody>
+            <tr><td>Definition integrity</td><td>Schema, files, logical identity, diff, source allow list, environment values, and dependency resolution.</td><td>Block invalid, unexpected, or development-bound configuration.</td></tr>
+            <tr><td>Source binding</td><td>Every source exists, matches expected type and schema, uses production data, and has an accountable owner.</td><td>Block missing, stale, unauthorized, or cross-environment references.</td></tr>
+            <tr><td>Answer quality</td><td>Matched questions across source selection, SQL/DAX/KQL, calculation, narrative, ambiguity, and unsupported requests.</td><td>Score meets threshold and has no critical regression from current production.</td></tr>
+            <tr><td>Security</td><td>Allowed and prohibited personas, RLS/CLS, source permissions, sharing, prompt attacks, and restricted data inference.</td><td>No unauthorized detail, metadata, aggregate, or cross-source disclosure.</td></tr>
+            <tr><td>Performance and cost</td><td>p50/p95 latency, AI Query, generated-engine CU, concurrency, failures, retries, and shared-capacity impact.</td><td>Release stays within SLO, budget, and capacity safety margin.</td></tr>
+            <tr><td>Publishing</td><td>Published version, channel availability, user group, source authorization, version marker, and smoke questions.</td><td>Only the approved production definition is consumable.</td></tr>
+            <tr><td>Rollback</td><td>Restore prior definition, rebind sources, republish, verify permissions, rerun critical questions, and record recovery time.</td><td>Rollback meets the agreed RTO and restores known behavior.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2>Detect drift after release</h2>
+        <p>Compare the production item definition with the approved commit and release manifest. Alert on portal edits, source changes, publishing changes, permissions, sharing, owner, tenant settings, capacity assignment, or integration changes. Configuration equality is not enough: source schemas and semantic behavior can drift without changing the agent definition.</p>
+        <p>Schedule critical evaluation questions and negative security tests. Monitor answer quality, selected sources, query failures, authorization errors, latency, AI Query consumption, user corrections, and incidents. Link runtime findings to the exact published definition and source versions. If production trust is already compromised, use the <a href="microsoft-fabric-data-agent-production-incident-response-rollback-support">Data Agent incident-response and rollback guide</a> to preserve evidence and restore a known-good path.</p>
+
+        <h2 id="assessment">Run a three-to-five-week lifecycle assessment</h2>
+        <ol>
+          <li>Select one Data Agent, its consumers, environments, sources, release owners, current deployment process, and recent change failures.</li>
+          <li>Export and inspect draft and published definitions; map serialized files, missing settings, dependencies, bindings, identities, and channels.</li>
+          <li>Design Git branches, workspace stages, approvals, service connection, environment mappings, secret handling, and post-deployment operations.</li>
+          <li>Build schema, policy, dependency, question-quality, security-persona, performance, cost, publishing, and rollback tests.</li>
+          <li>Run a production-shaped promotion from development through test to an isolated target, rebind sources, publish, and execute acceptance tests.</li>
+          <li>Exercise rollback and measure recovery; add drift detection for definition, source, permission, sharing, publishing, and runtime behavior.</li>
+          <li>Deliver the release architecture, repository contract, pipeline specification, test suite, approval gates, runbook, evidence template, and implementation backlog.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Does Fabric Data Agent support Git integration and deployment pipelines?</summary><p>Microsoft documents Git integration and deployment-pipeline support for Fabric Data Agent as part of application lifecycle management. Source control and Data Agent deployment support are currently documented as preview. Validate the current support matrix, tenant behavior, provider limitations, item dependencies, and target-workspace bindings before adopting the workflow for production releases.</p></details>
+          <details><summary>What parts of a Fabric Data Agent are stored in source control?</summary><p>Microsoft's Data Agent item definition includes a top-level schema, draft stage configuration, source definitions, and few-shot examples. Published agents add publish information and a separate published-stage representation. The exact serialized files depend on sources and schema version, so review exported definitions and exclude environment-specific secrets or unsupported settings from assumptions.</p></details>
+          <details><summary>Does deploying a Fabric Data Agent automatically publish it?</summary><p>Do not assume that presence in a production workspace means the agent is published for every consumption channel. Microsoft guidance states that a Data Agent must be published to be consumed through channels such as Copilot for Power BI, Copilot Studio, and Foundry tools. The release workflow should verify draft versus published state and run post-deployment acceptance tests.</p></details>
+          <details><summary>Can a service principal operate a Fabric Data Agent?</summary><p>Microsoft documents service-principal support for Data Agent in ALM scenarios such as Git integration and deployment pipelines, but not as general interaction support for the agent. Use least privilege for release automation and test separately which human or application identities can consume the published agent.</p></details>
+          <details><summary>How long does a Fabric Data Agent CI/CD assessment take?</summary><p>A focused assessment and production-shaped release pilot can often be completed in three to five weeks for one agent and its required sources. The work includes definition export, environment mapping, Git workflow, deployment automation, source rebinding, evaluation gates, publishing, permission tests, rollback, drift detection, and operating documentation.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-source-control">Source control, CI/CD, and ALM for Fabric Data Agent</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/rest/api/fabric/articles/item-management/definitions/data-agent-definition">Fabric Data Agent item definition</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/fundamentals/understand-best-practices-fabric-cicd">Fabric CI/CD concepts and best practices</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/cicd/deployment-pipelines/intro-to-deployment-pipelines">Fabric deployment pipelines</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/cicd/manage-deployment">Fabric CI/CD workflow options</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the production Data Agent whose next change cannot be safely reproduced or rolled back.</strong> Datrick can define the source contract, build the release gates, run a production-shaped deployment, and deliver an auditable lifecycle workflow.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_data_agent_cicd&amp;utm_medium=organic_content&amp;utm_campaign=data_agent_lifecycle_assessment&amp;utm_content=article_end#inquiry-form">Scope the lifecycle assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-python-sdk-automated-evaluation-regression-testing"><span>Automate release evidence</span><strong>Build ground-truth regression gates</strong></a><a href="microsoft-fabric-ai-agent-observability-cost-governance-assessment"><span>Runtime governance</span><strong>Measure quality, cost, and capacity impact</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

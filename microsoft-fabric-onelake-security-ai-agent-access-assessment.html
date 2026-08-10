@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Microsoft Fabric OneLake Security and AI Agent Access Assessment | Datrick</title>
+    <meta name="description" content="Assess Microsoft Fabric OneLake security roles, RLS, CLS, workspace access, SQL identity modes, shortcuts, Direct Lake, Spark, and Fabric Data Agent effective access.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-onelake-security-ai-agent-access-assessment">
+    <meta property="og:title" content="Microsoft Fabric OneLake Security and AI Agent Access Assessment | Datrick">
+    <meta property="og:description" content="Prove what every human, engine, application, and AI agent can actually read in OneLake.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-onelake-security-ai-agent-access-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric OneLake Security and AI Agent Access Assessment", "description": "Assess Microsoft Fabric OneLake security roles, RLS, CLS, workspace access, SQL identity modes, shortcuts, Direct Lake, Spark, and Fabric Data Agent effective access.", "url": "https://datrick.com/microsoft-fabric-onelake-security-ai-agent-access-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-onelake-security-ai-agent-access-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is OneLake security in Microsoft Fabric?", "acceptedAnswer": {"@type": "Answer", "text": "OneLake security is a fine-grained access-control model for supported OneLake items. Roles can grant table or folder access and can include row-level and column-level restrictions. Supported Fabric engines evaluate the requesting identity and enforce the policies at query time. The capability and individual integrations have documented preview scopes and limitations that must be checked before production use."}},
+            {"@type": "Question", "name": "Is OneLake security generally available?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft currently documents OneLake security roles, RLS, CLS, and several integrations as preview for supported item and engine combinations. It is enabled per item and Microsoft states that the preview cannot be turned off after enablement. Validate current support for the exact item, engine, region, identity, policy type, and workload before opting in."}},
+            {"@type": "Question", "name": "Does Fabric Data Agent enforce OneLake security, RLS, and CLS?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft documents that Fabric Data Agent uses the requesting user's credentials, honors underlying source permissions, and applies supported RLS and CLS controls. Users also need the minimum permission on each connected source. Test each real persona, source, query path, and prohibited question because effective behavior depends on the source type and configured security model."}},
+            {"@type": "Question", "name": "Do Microsoft Fabric workspace roles bypass OneLake RLS and CLS?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft documents that workspace Admin, Member, and Contributor roles have elevated access and aren't restricted by OneLake RLS or CLS in supported scenarios. Fine-grained filtering is intended for Viewer or read-only shared users. An assessment should remove unnecessary elevated roles and test effective access rather than infer it from role names alone."}},
+            {"@type": "Question", "name": "How long does a OneLake security and AI agent access assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment can often be completed in three to five weeks for a bounded set of lakehouses, engines, agents, roles, and personas. The work includes inventory, effective-access mapping, policy and identity-mode review, negative testing, remediation design, and a controlled pilot plan. Larger estates or migrations from multiple overlapping security models require more time."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">OneLake security and AI agent access</p>
+        <h1>Prove what every human, engine, application, and AI agent can actually read.</h1>
+        <p class="page-lede">Map overlapping Fabric permissions, OneLake roles, RLS and CLS, identity modes, shortcuts, semantic models, Spark, and Data Agent paths into tested effective access.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=onelake_agent_security&amp;utm_medium=organic_content&amp;utm_campaign=onelake_agent_access_assessment&amp;utm_content=hero#inquiry-form">Describe the access risk</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Fabric security and AI governance</span><span>9 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#inventory">Access inventory</a><a href="#model">Security model</a><a href="#agents">Agent access</a><a href="#testing">Effective-access testing</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>AI agents make Fabric security easier to misunderstand because the conversational interface hides the query path. A user asks one question; the agent selects a source, generates a query, and returns an answer. Whether that answer is allowed depends on the user's identity, workspace and item access, the connected source, OneLake role membership, RLS and CLS, SQL access mode, semantic-model permissions, shortcuts, engine support, and Purview controls.</p>
+        <p>Datrick assesses the result as effective access, not as a list of configured roles. AI can accelerate entitlement inventory, policy comparison, query generation, test-case expansion, drift detection, and evidence classification. Deterministic expected results and negative persona tests remain the authority for security decisions.</p>
+
+        <section class="readiness-actions"><p><strong>Can you answer exactly what a Fabric Data Agent can reveal to each real user?</strong> Test the complete identity-to-answer path before broad rollout.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=onelake_agent_security&amp;utm_medium=organic_content&amp;utm_campaign=onelake_agent_access_assessment&amp;utm_content=article_intro#inquiry-form">Send the security context</a><a class="button secondary" href="microsoft-fabric-data-agent-implementation-evaluation-services">Review Data Agent evaluation</a></div></section>
+
+        <h2 id="inventory">Inventory every path to the data</h2>
+        <p>Start with sensitive business domains and the identities that consume them. Inventory tenant settings, capacities, domains, workspaces, roles, items, shares, OneLake security opt-in, data roles, virtual members, Entra groups, service principals, workspace identities, item owners, SQL permissions, semantic-model roles, shortcuts, external engines, Direct Lake models, Spark workloads, Data Agents, Foundry or Copilot integrations, and temporary access methods.</p>
+        <p>Map the path each persona uses. The same lakehouse table can produce different controls through OneLake file access, Spark, SQL analytics endpoint, Direct Lake, a semantic model, or a Data Agent. Record the effective identity, policy authority, supported security features, bypass conditions, and expected denial behavior for each path.</p>
+
+        <h2 id="model">Resolve the effective security model before enabling preview controls</h2>
+        <div class="article-table-wrap" role="region" aria-label="Microsoft Fabric OneLake effective access model" tabindex="0"><table class="article-table"><caption class="sr-only">Microsoft Fabric OneLake effective access model</caption>
+          <thead><tr><th scope="col">Access layer</th><th scope="col">Control question</th><th scope="col">Common exposure</th></tr></thead>
+          <tbody>
+            <tr><td>Workspace and item</td><td>Is the identity Admin, Member, Contributor, Viewer, or directly shared; which item permissions and reshare paths apply?</td><td>Elevated workspace roles bypass fine-grained OneLake filtering.</td></tr>
+            <tr><td>OneLake role</td><td>Which table, folder, Read or ReadWrite grant, explicit member, group, security principal, or virtual permission group applies?</td><td>DefaultReader or a broader overlapping role preserves full access.</td></tr>
+            <tr><td>RLS and CLS</td><td>Which filter and column list apply; are both defined in a supported role composition; does most-permissive access override restriction?</td><td>Multiple roles produce broader access or unsupported combinations and query errors.</td></tr>
+            <tr><td>SQL endpoint identity</td><td>Does user identity mode enforce OneLake roles, or does delegated identity mode enforce SQL permissions through the item owner?</td><td>Teams believe OneLake policy applies while the endpoint uses delegated SQL security.</td></tr>
+            <tr><td>Semantic model</td><td>Does Direct Lake use SSO or a fixed identity; which model RLS, OLS, source permission, and fallback behavior apply?</td><td>A fixed identity or duplicated policy creates a different effective perimeter.</td></tr>
+            <tr><td>Shortcuts and engines</td><td>Is identity passthrough or delegated; which source and target permissions, authorized-engine controls, and network protections apply?</td><td>A delegated shortcut breaks source permission flow or an unsupported engine is blocked.</td></tr>
+            <tr><td>AI agent</td><td>Which requesting user, connected source, minimum permission, generated query, RLS/CLS, DLP, and output policy governs the answer?</td><td>Sharing the agent without aligned source permissions creates errors, empty results, or unintended disclosure.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>OneLake security is currently documented as preview for supported items and integrations, is enabled per item, and cannot be disabled after opt-in. Do not use a production lakehouse as the first experiment. Reproduce representative data and identities in a controlled item, capture the current access baseline, plan migration and rollback at the workload level, and define a stop decision before enabling the feature.</p>
+
+        <h2>Design roles for least privilege and predictable composition</h2>
+        <p>Prefer Entra groups with accountable owners over individual grants. Separate data-consumer identities from item builders and administrators. Remove unnecessary Admin, Member, and Contributor roles from users whose access should be filtered. Review virtual membership such as ReadAll because it can include a broader population than the role name suggests.</p>
+        <p>Build mutually understandable roles around stable business access patterns. Test overlapping grants because the most permissive path can win. Define RLS and CLS in supported combinations, use stable identity attributes, and document how missing or malformed attributes behave. Treat ReadWrite as a separate risk with explicit write-path tests.</p>
+
+        <h2 id="agents">Test Fabric Data Agent as the requesting user</h2>
+        <p>Microsoft documents that Fabric Data Agent uses the requesting user's credentials, honors source permissions, RLS and CLS, and applies supported Purview governance controls. It is read-only, but read-only access can still expose sensitive rows, columns, aggregates, identifiers, relationships, or derived facts. Share the agent and its underlying sources deliberately; users without required source permissions can receive authorization errors or empty results.</p>
+        <p>Create prohibited-question tests, not only allowed questions. Ask directly for restricted columns, infer them through grouping or filters, request small-cell aggregates, use synonyms, combine sources, prompt for another region or tenant, and repeat through every supported integration. Verify both the returned answer and the source query or authorization outcome.</p>
+
+        <h2 id="testing">Build a cross-engine effective-access test suite</h2>
+        <div class="article-table-wrap" role="region" aria-label="OneLake and Fabric AI agent security test matrix" tabindex="0"><table class="article-table"><caption class="sr-only">OneLake and Fabric AI agent security test matrix</caption>
+          <thead><tr><th scope="col">Test dimension</th><th scope="col">Representative cases</th><th scope="col">Required evidence</th></tr></thead>
+          <tbody>
+            <tr><td>Personas</td><td>Admin, developer, analyst, Viewer, direct share, regional user, external guest, service principal, workspace identity, and application user.</td><td>Object ID, group closure, workspace and item access, role memberships, expected data, and prohibited data.</td></tr>
+            <tr><td>Engines</td><td>OneLake API, file explorer, Spark, SQL endpoint, Direct Lake, semantic model, Data Agent, shortcut, and authorized external engine.</td><td>Effective identity, policy source, query, result, denial, and engine-specific limitation.</td></tr>
+            <tr><td>Policy composition</td><td>Table/folder grants, RLS, CLS, RLS plus CLS, overlapping roles, DefaultReader, ReadAll, and elevated workspace roles.</td><td>Expected rows and columns matched to actual results and policy resolution.</td></tr>
+            <tr><td>Identity mode</td><td>User identity, delegated item-owner identity, fixed semantic-model identity, passthrough shortcut, and delegated shortcut.</td><td>Token subject or executor, enforced security plane, owner dependency, and negative test.</td></tr>
+            <tr><td>Agent questions</td><td>Allowed detail, prohibited detail, inference, aggregation, synonym, cross-source join, ambiguity, prompt injection, and missing permission.</td><td>Selected source, generated query, authorization outcome, answer, citation or explanation, and leakage score.</td></tr>
+            <tr><td>Change and drift</td><td>Group add/remove, role edit, workspace promotion, source change, endpoint-mode switch, new column, shortcut change, and agent-source update.</td><td>Propagation time, regression result, alert, approval, and rollback or remediation.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Use deterministic fixtures with unique canary values in restricted rows and columns. A denial alone is not enough: confirm that schema, metadata, counts, error text, logs, and generated narratives do not reveal prohibited facts. Re-run the suite after every role, identity-mode, source, model, agent, engine, or workspace change.</p>
+
+        <h2>Govern policy change and access evidence</h2>
+        <p>Every role, group, source, shortcut, endpoint mode, item owner, or workspace-role change can alter effective access. Require an owner, reason, ticket, impact analysis, approval, test result, deployment record, and rollback. Monitor elevated-role growth, direct grants, stale groups, DefaultReader membership, policy errors, blocked queries, agent authorization failures, unusual sensitive queries, and preview-product changes.</p>
+        <p>Produce an access decision record for each sensitive domain: authoritative security plane, permitted personas, prohibited data, supported engines, expected identity, test suite, current exceptions, product limitations, and accountable owner. This gives security, data, and AI teams one verifiable contract.</p>
+
+        <h2 id="assessment">Run a three-to-five-week security assessment</h2>
+        <ol>
+          <li>Select sensitive domains, representative items, engines, AI agents, personas, business owners, and regulatory or contractual requirements.</li>
+          <li>Inventory workspace, item, OneLake, SQL, semantic-model, shortcut, external-engine, Data Agent, Purview, and network controls.</li>
+          <li>Map the effective identity and security authority for each access path, then identify bypasses, conflicting roles, owner dependencies, and preview boundaries.</li>
+          <li>Build deterministic allowed and prohibited datasets, expected rows and columns, canary values, persona fixtures, and cross-engine queries.</li>
+          <li>Execute positive and negative effective-access tests through Spark, SQL, Direct Lake, semantic models, shortcuts, APIs, and Data Agents in scope.</li>
+          <li>Prioritize exposure, remove unnecessary elevation, redesign roles and groups, align identity modes, and define a controlled OneLake security pilot where justified.</li>
+          <li>Deliver the access graph, finding register, evidence pack, target model, remediation backlog, regression suite, monitoring requirements, and go/hold/stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is OneLake security in Microsoft Fabric?</summary><p>OneLake security is a fine-grained access-control model for supported OneLake items. Roles can grant table or folder access and can include row-level and column-level restrictions. Supported Fabric engines evaluate the requesting identity and enforce the policies at query time. The capability and individual integrations have documented preview scopes and limitations that must be checked before production use.</p></details>
+          <details><summary>Is OneLake security generally available?</summary><p>Microsoft currently documents OneLake security roles, RLS, CLS, and several integrations as preview for supported item and engine combinations. It is enabled per item and Microsoft states that the preview cannot be turned off after enablement. Validate current support for the exact item, engine, region, identity, policy type, and workload before opting in.</p></details>
+          <details><summary>Does Fabric Data Agent enforce OneLake security, RLS, and CLS?</summary><p>Microsoft documents that Fabric Data Agent uses the requesting user's credentials, honors underlying source permissions, and applies supported RLS and CLS controls. Users also need the minimum permission on each connected source. Test each real persona, source, query path, and prohibited question because effective behavior depends on the source type and configured security model.</p></details>
+          <details><summary>Do Microsoft Fabric workspace roles bypass OneLake RLS and CLS?</summary><p>Microsoft documents that workspace Admin, Member, and Contributor roles have elevated access and aren't restricted by OneLake RLS or CLS in supported scenarios. Fine-grained filtering is intended for Viewer or read-only shared users. An assessment should remove unnecessary elevated roles and test effective access rather than infer it from role names alone.</p></details>
+          <details><summary>How long does a OneLake security and AI agent access assessment take?</summary><p>A focused assessment can often be completed in three to five weeks for a bounded set of lakehouses, engines, agents, roles, and personas. The work includes inventory, effective-access mapping, policy and identity-mode review, negative testing, remediation design, and a controlled pilot plan. Larger estates or migrations from multiple overlapping security models require more time.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/onelake/security/get-started-onelake-security">Get started with OneLake security</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/onelake/security/create-manage-roles">Create and manage OneLake security roles</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/onelake/security/column-level-security">Column-level security in OneLake</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-engineering/spark-onelake-security">Spark support for OneLake RLS and CLS</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/onelake/security/sql-analytics-endpoint-onelake-security">OneLake security for SQL analytics endpoints</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-science/data-agent-sharing">Fabric Data Agent sharing and permissions</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the sensitive domain that your first AI agent will query.</strong> Datrick can map effective access, execute negative tests, redesign the control model, and define a safe OneLake security pilot.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Data%20platform%20or%20BI%20work&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=onelake_agent_security&amp;utm_medium=organic_content&amp;utm_campaign=onelake_agent_access_assessment&amp;utm_content=article_end#inquiry-form">Scope the access assessment</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-implementation-evaluation-services"><span>Agent implementation</span><strong>Build and evaluate a Fabric Data Agent</strong></a><a href="microsoft-purview-fabric-ai-agent-governance-assessment"><span>AI governance</span><strong>Validate Purview controls and evidence</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

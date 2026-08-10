@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Technical LLM Evaluation for Coding and SQL | Datrick</title>
+    <meta name="description" content="A practical guide to technical LLM evaluation for coding agents, SQL models, rubrics, human review, calibration, adjudication, and managed evaluation pilots.">
+    <link rel="canonical" href="https://datrick.com/technical-llm-evaluation-coding-sql">
+    <meta property="og:title" content="Technical LLM Evaluation for Coding and SQL | Datrick">
+    <meta property="og:description" content="How to design coding and SQL evaluations that combine executable checks, technical expert review, calibrated rubrics, and visible quality operations.">
+    <meta property="og:url" content="https://datrick.com/technical-llm-evaluation-coding-sql">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "headline": "Technical LLM Evaluation for Coding and SQL",
+            "description": "A practical guide to technical LLM evaluation for coding agents, SQL models, rubrics, human review, calibration, adjudication, and managed evaluation pilots.",
+            "url": "https://datrick.com/technical-llm-evaluation-coding-sql",
+            "datePublished": "2026-07-14",
+            "dateModified": "2026-07-14",
+            "author": {
+              "@type": "Organization",
+              "name": "Datrick",
+              "url": "https://datrick.com/"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Datrick",
+              "url": "https://datrick.com/",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://datrick.com/assets/datrick-logo.png"
+              }
+            },
+            "mainEntityOfPage": "https://datrick.com/technical-llm-evaluation-coding-sql"
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is technical LLM evaluation?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Technical LLM evaluation measures whether a model or agent produces correct, useful, and operationally responsible work in domains such as software engineering, SQL, databases, data pipelines, analytics, and technical workflows. It combines task design, executable checks, model-based graders where appropriate, human expert review, calibration, and adjudication."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you evaluate coding LLMs?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Evaluate coding LLMs in a controlled repository and runtime using tests for required behavior, regression checks for existing behavior, static analysis where useful, and technical review of the patch and execution trace. The evaluation should also check constraint compliance, tool use, security, maintainability, and whether the claimed result matches the final repository state."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do you evaluate text-to-SQL models?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Evaluate text-to-SQL models against a controlled schema and dataset. Check execution success, result correctness, filters, joins, grouping, null and duplicate behavior, date and timezone logic, permissions, performance risk, and the assumptions made when the request is ambiguous. Exact query matching alone is insufficient because different SQL statements can be semantically equivalent."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "When do you need human experts instead of only an LLM-as-a-judge?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Use human experts when correctness depends on domain context, multiple solutions may be valid, the rubric is new or ambiguous, errors carry operational risk, or a model-based grader has not been calibrated against trusted human decisions. Model-based graders can help scale repeatable criteria, but they should not silently define the quality standard they are meant to measure."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does a managed LLM evaluation pilot work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "A managed pilot begins with one bounded task family, representative examples, contributor requirements, a draft rubric, security controls, and an authorized decision owner. A calibration sample is reviewed and adjudicated before broader delivery. The pilot closes with quality findings, disagreement patterns, rubric changes, delivery evidence, and a recommendation to expand, revise, or stop."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Technical AI evaluation</p>
+          <h1>Technical LLM evaluation for coding, SQL, and data reasoning.</h1>
+          <p class="page-lede">A practical guide to building evaluation programs that can distinguish a plausible answer from correct, executable, and operationally responsible technical work.</p>
+          <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=technical_llm_evaluation_guide&amp;utm_medium=website&amp;utm_campaign=coding_sql_evaluation&amp;utm_content=hero#inquiry-form">Scope a technical evaluation pilot</a></div>
+          <div class="article-meta"><a href="resources.html">Resource library</a><span>Evaluation guide</span><span>16 min read</span></div>
+          <p class="article-review">Reviewed for coding, SQL, and evaluation accuracy by <a href="about.html">Can Goktug Ozdem</a>, founder and senior technical lead. Last reviewed July 16, 2026.</p>
+        </div>
+      </section>
+
+      <section class="section service-band">
+        <article class="article-body">
+          <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#evaluation-system">Evaluation system</a><a href="#coding-evaluation">Coding evaluation</a><a href="#sql-evaluation">SQL evaluation</a><a href="#managed-pilot">Managed pilot</a></nav>
+
+          <p>Technical LLM evaluation becomes difficult exactly where fluent output stops being enough. A generated patch may compile but break an existing workflow. A SQL query may execute but double-count revenue. A coding agent may report success while leaving the repository in a failing state. A rubric can look precise while two experienced reviewers interpret it differently.</p>
+
+          <p>The evaluation system therefore has to test more than the final response. It must define the task, control the environment, inspect outcomes and traces, combine the right graders, use technical experts for consequential judgment, and turn disagreement into better instructions. This guide explains how to structure that system for coding, SQL, database, data-pipeline, analytics, and technical agent programs.</p>
+
+          <section class="readiness-actions"><p><strong>Need a technical evaluation pilot?</strong> Datrick supports bounded coding, SQL, data, analytics, rubric, reference-answer, model-output review, calibration, adjudication, and quality-operations programs.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=technical_llm_evaluation_guide&amp;utm_medium=website&amp;utm_campaign=coding_sql_evaluation&amp;utm_content=article_intro#inquiry-form">Scope a technical evaluation pilot</a><a class="button secondary" href="ai-model-training.html">Review the managed service</a></div></section>
+
+          <h2 id="evaluation-system">What technical LLM evaluation must establish</h2>
+          <p>A useful evaluation answers a bounded decision. It may compare two models, validate a new agent release, determine whether a task family is ready for production, qualify contributors, improve a rubric, or measure whether a model can perform work under realistic constraints. The first step is to write that decision and identify who is authorized to act on the result.</p>
+
+          <p>Do not begin with a broad goal such as "measure coding quality." Define the users, languages, repositories, schemas, tool permissions, task families, expected outcomes, failure costs, and release decision. A benchmark that does not represent the intended work can produce a precise score that answers the wrong question.</p>
+
+          <div class="article-table-wrap" role="region" aria-label="Technical LLM evaluation system layers" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Technical LLM evaluation system layers</caption>
+              <thead><tr><th scope="col">Layer</th><th scope="col">Question it answers</th><th scope="col">Required evidence</th></tr></thead>
+              <tbody>
+                <tr><td>Task specification</td><td>What work is the system expected to complete?</td><td>Inputs, constraints, tools, environment, success criteria, prohibited behavior, and escalation rules.</td></tr>
+                <tr><td>Evaluation set</td><td>Does the sample represent real operating conditions?</td><td>Common cases, difficult cases, failures, ambiguous requests, risk categories, and protected holdout tasks.</td></tr>
+                <tr><td>Execution environment</td><td>Can the result be reproduced safely?</td><td>Pinned dependencies, schema and data state, tool versions, permissions, timeouts, logs, and reset behavior.</td></tr>
+                <tr><td>Graders</td><td>How is success measured?</td><td>Executable checks, state checks, rubric criteria, references, human review rules, thresholds, and grader versions.</td></tr>
+                <tr><td>Calibration</td><td>Do reviewers apply the standard consistently?</td><td>Worked examples, independent sample decisions, disagreements, adjudication, and revised guidance.</td></tr>
+                <tr><td>Quality operations</td><td>Can the program detect drift and correct it?</td><td>Acceptance, rework, disagreement, error taxonomy, escalation, turnaround, and rubric-change records.</td></tr>
+                <tr><td>Decision record</td><td>What changed because of the evaluation?</td><td>Baseline, comparison, limitations, unresolved risks, authorized decision, and follow-up checks.</td></tr>
+              </tbody>
+            </table></div>
+
+          <h2>Use three grader types for different jobs</h2>
+          <p>No single grader should carry every quality decision. Anthropic's published guidance for agent evaluations separates code-based, model-based, and human graders, with coding tasks commonly using executable tests for correctness and a rubric for broader code quality. OpenAI's Evals interface likewise treats test criteria, data-source structure, runs, and graders as explicit parts of an evaluation. The operating implication is straightforward: choose the most reliable grader for each claim instead of asking one judge for a universal score.</p>
+
+          <div class="article-table-wrap" role="region" aria-label="Technical LLM grader comparison" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Technical LLM grader comparison</caption>
+              <thead><tr><th scope="col">Grader</th><th scope="col">Best use</th><th scope="col">Primary limitation</th><th scope="col">Technical example</th></tr></thead>
+              <tbody>
+                <tr><td>Executable or deterministic</td><td>Claims with a verifiable state or rule.</td><td>Can miss valid alternatives or qualitative defects.</td><td>Tests pass, expected rows exist, forbidden files are unchanged, query stays read-only, schema matches.</td></tr>
+                <tr><td>Model-based</td><td>Repeatable rubric criteria across open-ended outputs.</td><td>Non-deterministic and capable of sharing the evaluated model's blind spots.</td><td>Assess explanation quality, compare two patches, classify failure type, check a response against a written rubric.</td></tr>
+                <tr><td>Human technical expert</td><td>Domain judgment, ambiguity, high-risk errors, and calibration.</td><td>Slower, more expensive, and inconsistent without a managed review process.</td><td>Review whether a migration plan is safe, a SQL assumption is defensible, or an agent used an unacceptable shortcut.</td></tr>
+              </tbody>
+            </table></div>
+
+          <p>Automated checks should verify what can be verified. Human experts should define and review what requires professional judgment. Model-based graders can then scale criteria that have been made explicit and calibrated. A model judge should not silently become the source of truth for a technical standard that humans have never agreed.</p>
+
+          <p>For further technical context, see Anthropic's <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">guide to evaluating AI agents</a> and the <a href="https://developers.openai.com/api/reference/resources/evals">OpenAI Evals API reference</a>.</p>
+
+          <h2 id="coding-evaluation">How to evaluate coding LLMs and coding agents</h2>
+          <p>A coding evaluation should run in a controlled repository and environment. The model or agent receives the task, available tools, repository state, and constraints. The harness records the complete attempt, including tool calls and final repository state. The graders then inspect both what changed and how the result was reached.</p>
+
+          <h3>Define behavior before implementation style</h3>
+          <p>Specify the user-visible or system-visible behavior that must change, the behavior that must remain unchanged, prohibited shortcuts, and the evidence required for completion. Do not make the reference patch the only acceptable answer when multiple implementations can satisfy the contract.</p>
+
+          <h3>Separate fail-to-pass from pass-to-pass checks</h3>
+          <p>New tests should fail before the correct change and pass afterward. Existing tests should continue to pass. This distinction exposes patches that satisfy the narrow task by breaking unrelated behavior. Add static analysis, security checks, type checks, lint rules, or performance limits only where they represent a real acceptance condition.</p>
+
+          <h3>Inspect the trajectory, not only the final message</h3>
+          <p>Review whether the agent read relevant context, changed authorized files, interpreted command output correctly, ran appropriate checks, recovered from failures, and reported evidence accurately. An agent that says "all tests pass" when tests were never run has failed even if the final prose is convincing.</p>
+
+          <h3>Review engineering quality separately</h3>
+          <p>Passing tests do not establish maintainability, security, appropriate scope, useful error handling, or respect for existing architecture. Apply a bounded rubric to these dimensions and require the reviewer to cite evidence from the patch or trace. Avoid vague criteria such as "good code" that cannot be adjudicated.</p>
+
+          <h2 id="sql-evaluation">How to evaluate text-to-SQL models and data agents</h2>
+          <p>Text-to-SQL evaluation needs a controlled database, representative schemas, realistic data, explicit access boundaries, and questions that reflect how users actually ask for information. Exact string matching is a weak primary grader because different queries can produce the same correct result, while a syntactically valid query can return the wrong business answer.</p>
+
+          <div class="article-table-wrap" role="region" aria-label="SQL LLM evaluation checklist" tabindex="0">
+            <table class="article-table"><caption class="sr-only">SQL LLM evaluation checklist</caption>
+              <thead><tr><th scope="col">Dimension</th><th scope="col">What to verify</th><th scope="col">Common plausible failure</th></tr></thead>
+              <tbody>
+                <tr><td>Result correctness</td><td>Returned rows and aggregates match the intended question.</td><td>The query executes but answers a different interpretation.</td></tr>
+                <tr><td>Join logic</td><td>Keys, cardinality, direction, and fan-out are correct.</td><td>A many-to-many join silently duplicates revenue or activity.</td></tr>
+                <tr><td>Filters and scope</td><td>Status, tenant, geography, product, and time boundaries are applied.</td><td>Cancelled records or another tenant's data are included.</td></tr>
+                <tr><td>Nulls and duplicates</td><td>Missing values and duplicate records follow the business rule.</td><td>Null handling removes valid records or inflates a count.</td></tr>
+                <tr><td>Time semantics</td><td>Timezone, fiscal period, effective date, and late-arriving data are handled.</td><td>A monthly KPI shifts because UTC and local dates are mixed.</td></tr>
+                <tr><td>Permissions</td><td>The query uses allowed tables, columns, rows, and operations.</td><td>The result is correct but obtained through unauthorized data access.</td></tr>
+                <tr><td>Performance risk</td><td>Scan size, predicates, indexes, recursion, and concurrency are reasonable.</td><td>A correct query creates unacceptable warehouse or production load.</td></tr>
+                <tr><td>Ambiguity behavior</td><td>The system asks, states assumptions, or follows an authorized default.</td><td>The model invents the definition of active customer or revenue.</td></tr>
+              </tbody>
+            </table></div>
+
+          <p>Use execution-based checks against known result sets where possible, but retain technical review for business semantics and operational risk. A query can return the expected sample result for the wrong reason, especially when the sample is small. Include counterexamples, empty sets, duplicate keys, boundary dates, and adversarial schema names to expose brittle reasoning.</p>
+
+          <h2>Design rubrics that can be calibrated and adjudicated</h2>
+          <p>A rubric should describe observable evidence, severity, and decision boundaries. Each criterion needs to say what the reviewer inspects, what qualifies as pass or failure, how partial performance is handled, and which cases must be escalated. Keep correctness separate from explanation quality, style, safety, and efficiency so one strong dimension does not hide a critical failure in another.</p>
+
+          <ol>
+            <li><strong>Draft from real work.</strong> Use accepted and failed examples, production incidents, reviewer questions, and task-owner expectations.</li>
+            <li><strong>Test independently.</strong> Have qualified reviewers score the same sample without discussing their decisions first.</li>
+            <li><strong>Classify disagreement.</strong> Separate reviewer error, rubric ambiguity, missing context, multiple valid answers, and genuinely borderline cases.</li>
+            <li><strong>Adjudicate with authority.</strong> Route unresolved cases to the person authorized to define the program standard.</li>
+            <li><strong>Revise and version.</strong> Update criteria and examples, record the decision, and decide whether previous work needs re-review.</li>
+            <li><strong>Monitor drift.</strong> Sample ongoing work and watch disagreement, rework, and error categories as the task mix changes.</li>
+          </ol>
+
+          <p>Reviewer agreement is not the same as correctness. Reviewers can consistently apply a bad rubric. Pair agreement measures with expert adjudication, executable evidence, and periodic challenge tasks designed to expose blind spots.</p>
+
+          <h2>Build representative evaluation tasks without contaminating the test</h2>
+          <p>Start from real task families, then create a distribution that covers routine work, hard work, ambiguous requests, incomplete context, safety boundaries, known historical failures, and cases where the correct action is to ask or stop. Preserve a protected holdout set for release decisions. If model developers, prompt authors, or contributors repeatedly see the complete test bank, the evaluation can become a memory test rather than a capability measure.</p>
+
+          <p>Record task provenance, permissions, sensitive-data treatment, version, expected skills, known limitations, and whether the item may have appeared in training or public benchmarks. Synthetic variations can broaden coverage, but a technical expert should verify that they remain coherent and preserve the intended difficulty.</p>
+
+          <h2 id="managed-pilot">Managed human evaluation for coding and SQL programs</h2>
+          <p>A managed evaluation team is more than a list of available engineers. The program needs contributor matching, access controls, onboarding, calibration, queue ownership, review, escalation, feedback, versioned instructions, and delivery reporting. Without those controls, adding more reviewers can increase inconsistency faster than capacity.</p>
+
+          <p>Datrick's fit is technical evaluation work that benefits from practical judgment across software, SQL, databases, data pipelines, BI, analytics, migrations, debugging, and operating workflows. Generic high-volume annotation that does not require this reasoning is not the primary service.</p>
+
+          <h3>A responsible pilot sequence</h3>
+          <ol>
+            <li>Select one bounded task family and name the program owner and quality decision owner.</li>
+            <li>Review instructions, examples, rubric, environment, security, expected volume, and contributor profile.</li>
+            <li>Run a small calibration sample with independent decisions and documented questions.</li>
+            <li>Adjudicate disagreement and revise the task, rubric, examples, or contributor guidance.</li>
+            <li>Deliver a controlled pilot with first-pass review, quality checks, escalation, and visible queue status.</li>
+            <li>Close with acceptance, rework, disagreement, error taxonomy, turnaround, limitations, and a written recommendation.</li>
+          </ol>
+
+          <p>The pilot should be allowed to conclude that the task is not ready to scale. Unclear instructions, unstable environments, insufficient source data, weak reference answers, or an unowned quality decision are program risks, not reasons to manufacture throughput.</p>
+
+          <h2>Warning signs in a technical evaluation proposal</h2>
+          <ul>
+            <li>One overall score combines correctness, style, safety, and usefulness without showing critical failures.</li>
+            <li>The evaluation checks only the final response and ignores repository, database, tool, or environment state.</li>
+            <li>Exact-match grading rejects semantically correct SQL or valid alternative implementations.</li>
+            <li>An LLM judge is used at scale before comparison with trusted human technical decisions.</li>
+            <li>Reviewers receive credentials or titles but no task-specific calibration sample.</li>
+            <li>Disagreement is averaged away instead of classified and adjudicated.</li>
+            <li>Benchmark tasks are public, repeatedly exposed, or too similar to training examples.</li>
+            <li>The program reports completed units but not acceptance, rework, error categories, or rubric changes.</li>
+            <li>No one is authorized to resolve ambiguous definitions of correctness.</li>
+            <li>The vendor promises a quality target before reviewing the task, baseline, and operating constraints.</li>
+          </ul>
+
+          <h2>Frequently asked questions</h2>
+          <div class="faq-list">
+            <details><summary>What is technical LLM evaluation?</summary><p>Technical LLM evaluation measures whether a model or agent produces correct, useful, and operationally responsible work in domains such as software engineering, SQL, databases, data pipelines, analytics, and technical workflows. It combines task design, executable checks, model-based graders where appropriate, human expert review, calibration, and adjudication.</p></details>
+            <details><summary>How do you evaluate coding LLMs?</summary><p>Evaluate coding LLMs in a controlled repository and runtime using tests for required behavior, regression checks for existing behavior, static analysis where useful, and technical review of the patch and execution trace. The evaluation should also check constraint compliance, tool use, security, maintainability, and whether the claimed result matches the final repository state.</p></details>
+            <details><summary>How do you evaluate text-to-SQL models?</summary><p>Evaluate text-to-SQL models against a controlled schema and dataset. Check execution success, result correctness, filters, joins, grouping, null and duplicate behavior, date and timezone logic, permissions, performance risk, and the assumptions made when the request is ambiguous. Exact query matching alone is insufficient because different SQL statements can be semantically equivalent.</p></details>
+            <details><summary>When do you need human experts instead of only an LLM-as-a-judge?</summary><p>Use human experts when correctness depends on domain context, multiple solutions may be valid, the rubric is new or ambiguous, errors carry operational risk, or a model-based grader has not been calibrated against trusted human decisions. Model-based graders can help scale repeatable criteria, but they should not silently define the quality standard they are meant to measure.</p></details>
+            <details><summary>How does a managed LLM evaluation pilot work?</summary><p>A managed pilot begins with one bounded task family, representative examples, contributor requirements, a draft rubric, security controls, and an authorized decision owner. A calibration sample is reviewed and adjudicated before broader delivery. The pilot closes with quality findings, disagreement patterns, rubric changes, delivery evidence, and a recommendation to expand, revise, or stop.</p></details>
+          </div>
+
+          <section class="readiness-actions"><p><strong>Start with one task family and a visible quality decision.</strong> Datrick can review the task, contributor profile, rubric, reference answers, environment, security controls, calibration method, review plan, and pilot evidence before recurring delivery is proposed.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=AI%20training%20or%20evaluation%20company&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=technical_llm_evaluation_guide&amp;utm_medium=website&amp;utm_campaign=coding_sql_evaluation&amp;utm_content=article_end#inquiry-form">Scope a technical evaluation pilot</a></div></section>
+
+          <nav class="article-next" aria-label="Resource next steps"><a href="coding-agent-evaluation-services"><span>Deep dive</span><strong>Coding-agent evaluation and human review</strong></a><a href="text-to-sql-evaluation-services"><span>Deep dive</span><strong>Enterprise text-to-SQL evaluation</strong></a></nav>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

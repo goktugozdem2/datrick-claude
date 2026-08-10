@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LangGraph Production Support and LangSmith AgentOps | Datrick</title>
+    <meta name="description" content="Managed LangGraph production support and LangSmith AgentOps for durable execution, threads, checkpoints, interrupts, queues, Postgres, Redis, tracing, evaluation, incidents, and releases.">
+    <link rel="canonical" href="https://datrick.com/langgraph-production-support-langsmith-agentops-managed-services">
+    <meta property="og:title" content="LangGraph Production Support and LangSmith AgentOps | Datrick">
+    <meta property="og:description" content="Operate LangGraph agents with accountable durable state, queue and database reliability, LangSmith traces and evaluation, human approvals, incidents, and controlled releases.">
+    <meta property="og:url" content="https://datrick.com/langgraph-production-support-langsmith-agentops-managed-services">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Service", "name": "LangGraph Production Support and LangSmith AgentOps Managed Services", "description": "Ongoing LangGraph and LangSmith operations covering Agent Server, threads, checkpoints, interrupts, queues, Postgres, Redis, traces, evaluations, tools, incidents, releases, runbooks, and reporting.", "url": "https://datrick.com/langgraph-production-support-langsmith-agentops-managed-services", "provider": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "areaServed": "Global", "audience": {"@type": "BusinessAudience", "audienceType": "Software companies, enterprises, managed service providers, and AI delivery firms operating production LangGraph agents"}},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is included in LangGraph production support?", "acceptedAnswer": {"@type": "Answer", "text": "A defined service can include Agent Server availability, API and queue workers, threads, checkpoints, long-term memory, interrupts and approvals, Postgres and Redis dependencies, LangSmith traces, online and offline evaluation, alerts, tools, incidents, release control, cost, runbooks, and reporting. Scope depends on the deployment model, agents, infrastructure, integrations, access, support hours, and accepted responsibility boundary."}},
+            {"@type": "Question", "name": "What is the difference between LangSmith Cloud, standalone Agent Server, and self-hosted LangSmith?", "acceptedAnswer": {"@type": "Answer", "text": "LangSmith Cloud is managed by LangChain on supported cloud platforms. A standalone Agent Server runs in your Docker, Compose, or Kubernetes environment and requires your PostgreSQL, Redis, LangSmith license, load balancing, infrastructure monitoring, and operations. Self-hosted LangSmith runs the fuller control and data plane in your cloud and has its own platform dependencies and scaling responsibilities. The support boundary must match the chosen model."}},
+            {"@type": "Question", "name": "Why do LangGraph interrupts require idempotent side effects?", "acceptedAnswer": {"@type": "Answer", "text": "When an interrupted run resumes, the node containing the interrupt restarts from the beginning. Code before the interrupt can therefore execute again. Any external action before that point must be idempotent or moved into a separately controlled step, and the same persistent thread ID must be used to resume the saved state."}},
+            {"@type": "Question", "name": "How do you monitor LangGraph agents with LangSmith?", "acceptedAnswer": {"@type": "Answer", "text": "Capture complete traces with inputs, outputs, model and tool calls, state and metadata; build project-scoped dashboards and alerts for run volume, errors, latency, feedback, and cost; run online evaluators on filtered or sampled production traces; and move failing traces into datasets for offline regression tests. Platform metrics must also cover API, queue, Postgres, Redis, model providers, and downstream tools."}},
+            {"@type": "Question", "name": "How long does LangGraph production support onboarding take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused onboarding commonly takes two to four weeks for a representative production portfolio. It covers deployment and graph inventory, state and checkpoint baselines, queue and dependency capacity, observability and evaluation, tools and approvals, incidents, releases, cost, runbooks, controlled failure exercises, and acceptance of the steady-state operating scope."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">LangGraph and LangSmith AgentOps</p>
+        <h1>Durable execution preserves the run. It does not own the production outcome.</h1>
+        <p class="page-lede">Operate LangGraph agents with accountable threads and checkpoints, queues and data stores, interrupts and approvals, LangSmith traces and evaluation, incident response, controlled releases, and cost evidence.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=langgraph_production_support&amp;utm_medium=organic_content&amp;utm_campaign=langgraph_agentops&amp;utm_content=hero#inquiry-form">Describe the LangGraph estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>LangGraph AgentOps</span><span>12 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Service boundary</a><a href="#scope">Operating scope</a><a href="#state">State and observability</a><a href="#incidents">Incident response</a><a href="#onboarding">Onboarding</a></nav>
+
+        <p>LangGraph can express stateful workflows, persist checkpoints, pause for human approval, resume a thread, stream output, retry durable runs, and deploy through LangSmith Cloud, a standalone Agent Server, or a self-hosted LangSmith platform. LangSmith can trace requests, evaluate production traffic, collect feedback, and alert on aggregate signals. Those controls do not decide who owns a queue backlog, exhausted PostgreSQL connections, an interrupt resumed twice, a tool that committed before approval, an evaluator that missed a client-specific regression, or a graph that completed while the target business state remained wrong.</p>
+        <p>Datrick provides an ongoing operating layer for an agreed LangGraph estate. Named engineers correlate client requests, assistants, threads, runs, checkpoints, state, interrupts, queues, API workers, PostgreSQL, Redis, traces, evaluators, model providers, retrieval, tools, external-system audits, releases, cost, and business outcomes. LangChain Support remains the escalation path for platform defects. Datrick owns the client-specific diagnosis, containment, validation, communication, change, and prevention accepted in the service boundary.</p>
+
+        <section class="readiness-actions"><p><strong>Do you have LangGraph agents in production but no team accountable for turning a stuck run, missing checkpoint, queue backlog, repeated side effect, trace regression, or provider incident into a verified outcome?</strong> Start with one representative portfolio.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=langgraph_production_support&amp;utm_medium=organic_content&amp;utm_campaign=langgraph_agentops&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" href="white-label-ai-agent-operations-managed-support-for-msps">Review the MSP model</a></div></section>
+
+        <h2 id="boundary">Define ownership across graph code, Agent Server, state, providers, tools, and outcomes</h2>
+        <p>A production path can include a web, mobile, chat, API, or event client; load balancer and authentication; Agent Server API replicas and queue workers; graph or functional API code; assistants, threads, runs, checkpoints, long-term memory, cron jobs, and interrupts; PostgreSQL and Redis; LangSmith tracing and evaluation; model and embedding providers; retrieval stores; internal or external tools; and the target system that creates the actual outcome. Name which layers the managed service owns, observes, changes, coordinates, or excludes.</p>
+        <p>Document Cloud, standalone, or self-hosted deployment; regions and clusters; agents and versions; traffic and concurrency; API and queue capacity; Postgres, Redis, blob storage, and ClickHouse where applicable; thread and trace retention; tools and identities; support hours; severity; quality bars; change authority; budgets; fallback; and vendor escalation.</p>
+
+        <h2 id="scope">Operate the complete LangGraph production surface</h2>
+        <div class="article-table-wrap" role="region" aria-label="LangGraph and LangSmith managed services scope" tabindex="0"><table class="article-table"><caption class="sr-only">LangGraph and LangSmith managed services scope</caption>
+          <thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead>
+          <tbody>
+            <tr><td>Agent Server and queues</td><td>Availability, API latency and errors, streaming, run creation, queue depth and age, worker concurrency, heartbeat, retries, sweeper recovery, cancellation, and scaling.</td><td>Deployment model, SLO, traffic, concurrency, timeout, replica authority, load balancer, and capacity headroom.</td></tr>
+            <tr><td>Threads and durable state</td><td>Thread IDs, checkpoints, long-term memory, run status, state schema, persistence, TTL, interrupts, resume behavior, deletion, recovery, and reconciliation.</td><td>State owner, retention, consistency, migration, encryption, deletion, backup, recovery point, and recovery time.</td></tr>
+            <tr><td>Postgres, Redis, and storage</td><td>Connections, latency, locks, capacity, backup and failover, Redis communication, queue metadata, blob and trace storage, ClickHouse where applicable, and dependency health.</td><td>Managed versus client infrastructure, credentials, pooling, backup, failover, maintenance, observability, and escalation.</td></tr>
+            <tr><td>Tracing and evaluation</td><td>Trace completeness, inputs and outputs, model and tool spans, metadata, dashboards, project alerts, feedback, online evaluators, datasets, offline regression, sampling, and anomaly review.</td><td>Projects, sensitive data, retention, sampling, quality thresholds, evaluator budget, alert route, reviewer, and business KPI.</td></tr>
+            <tr><td>Tools and approvals</td><td>Tool contracts, identity, timeout, retry, interrupt policy, reviewer decision, resume value, idempotency, side effects, target audit, safe replay, and fallback.</td><td>Allowed tools, principal, action authority, approval SLA, target SLO, rollback, and emergency disable path.</td></tr>
+            <tr><td>Release and dependencies</td><td>Graph code, state schema, packages, Agent Server version, model and prompt, tool contracts, stores, infrastructure, evaluator gates, rollout, rollback, and provider change.</td><td>Source of truth, environments, change authority, freeze, migration, canary, compatibility, and acceptance evidence.</td></tr>
+            <tr><td>Cost and value</td><td>Model and embedding use, LangSmith plan and traces, online evaluators, compute, database and storage, retries, loops, support effort, attribution, anomaly, and outcome.</td><td>Commercial owner, budget, threshold, business KPI, forecast, unit economics, and optimization authority.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="state">Treat state, queue recovery, and observability as one operating system</h2>
+        <p>LangSmith Deployment uses stateless API and server instances around durable PostgreSQL storage and ephemeral Redis communication. PostgreSQL holds runs, threads, assistants, cron jobs, checkpoints, and long-term memory; Redis carries ongoing-run metadata and streaming communication. Queue workers execute runs with configurable concurrency. On a hard shutdown, a sweeper can requeue work after a heartbeat breach. That resilience is valuable, but it makes tool idempotency and target reconciliation mandatory because a recovered attempt can repeat work around a failure boundary.</p>
+        <p>Deployment responsibility varies. LangSmith Cloud manages more of the runtime. A standalone Agent Server brings Docker, Compose, or Kubernetes but requires your PostgreSQL, Redis, license, load balancing, infrastructure monitoring, backup, and scaling. Self-hosted LangSmith brings a fuller control and data plane with more dependencies and capacity planning. Do not write a single runbook for all three models.</p>
+        <p>LangSmith traces provide the request record and dashboards can surface run count, latency, errors, feedback, and cost. Alerts are project-scoped. Online evaluators can run on filtered or sampled production traces, while offline experiments compare versions against curated, historical, or synthetic datasets. Connect these application-quality signals to API, queue, database, model-provider, retrieval, tool, and business-state metrics; a clean trace does not prove the target operation succeeded.</p>
+
+        <h2 id="incidents">Distinguish runtime, state, approval, tool, quality, release, and cost failures</h2>
+        <div class="article-table-wrap" role="region" aria-label="LangGraph production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">LangGraph production incident matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead>
+          <tbody>
+            <tr><td>Run is stuck, delayed, or repeatedly retried</td><td>Run and thread IDs, queue depth and age, worker heartbeat, attempt count, API and worker logs, Postgres and Redis health, provider latency, timeout, and recent scaling.</td><td>Stop new traffic if needed, preserve state, isolate affected queue, restore dependency capacity, route to fallback, and avoid blind duplicate execution.</td><td>Queue SLO, heartbeat alert, capacity model, dependency monitoring, retry budget, dead-letter workflow, and recovery exercise.</td></tr>
+            <tr><td>Thread state is missing or inconsistent</td><td>Thread ID, checkpoint history, state schema and version, run order, concurrent updates, persistence errors, retention or deletion, backup, and client correlation.</td><td>Freeze writes for affected threads, restore an accepted checkpoint where safe, route to manual handling, preserve evidence, and reconcile external state.</td><td>Stable IDs, schema migration, concurrency tests, retention policy, backup and restore test, and state-version validation.</td></tr>
+            <tr><td>Approval resumes twice or action occurs before review</td><td>Interrupt and resume events, thread ID, node code, checkpoint, reviewer decision, client retry, code before interrupt, tool audit, idempotency key, and target state.</td><td>Disable action path, block further resumes, isolate records, reconcile side effects, require manual approval, and restore accepted state only after review.</td><td>Idempotent pre-interrupt code, separate action node, single-use approval token, resume contract, target verification, and replay test.</td></tr>
+            <tr><td>Agent completes but answer or action is wrong</td><td>Trace and spans, graph route, state, model and prompt, retrieval, tool inputs and outputs, evaluator scores, feedback, expected result, target audit, and recent change.</td><td>Narrow affected cohort, route to human, disable risky tool, restore accepted version or source, and correct impacted outcomes.</td><td>Representative datasets, deterministic assertions, online cohort evaluation, human feedback, target reconciliation, and release threshold.</td></tr>
+            <tr><td>Regression after graph or dependency release</td><td>Code and package diff, Agent Server version, state migration, model and prompt, tool schema, deployment config, traces, eval experiment, traffic, and provider change.</td><td>Stop rollout, restore accepted image and graph where compatible, preserve state, narrow traffic, and communicate migration risk.</td><td>Locked dependencies, compatibility matrix, state migration test, canary, shadow traffic, evaluation gate, and rollback rehearsal.</td></tr>
+            <tr><td>Unexpected cost or runaway loop</td><td>LangSmith cost and run metrics, trace depth, repeated nodes and tools, model tokens, retries, evaluator sampling, queue attempts, infrastructure use, and outcomes.</td><td>Stop loop, cap steps and traffic, disable noncritical evaluator or tool paths where safe, route to human, and notify the commercial owner.</td><td>Step and retry limits, per-agent attribution, cost alerts, anomaly detection, evaluation sampling policy, forecast, and unit economics.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Safe replay is a business decision, not merely requeuing a run. Before retrying, determine whether a tool already created, changed, approved, sent, paid, assigned, or closed a record. Use idempotency keys, target-state reconciliation, explicit approval, and a record of which attempt owns the final outcome.</p>
+
+        <h2>Place the approval boundary after preparation and before side effects</h2>
+        <p>LangGraph interrupts save graph state and wait until execution resumes with the same thread ID. The interrupted node starts again from its beginning on resume, so code before the interrupt can run again. Prepare and validate a proposed action before approval, but move consequential execution into an idempotent step after the approval decision. Do not wrap interrupts in control flow that changes their order, and do not use a volatile in-memory checkpointer for production approvals.</p>
+        <p>Define reviewer identity, approval SLA, allowed decisions, expiry, editing rules, resume payload schema, delegation, audit evidence, and emergency cancellation. Test duplicate client requests, reviewer refresh, concurrent reviewers, expired decisions, rejected actions, edited arguments, process restarts, and target-system partial success.</p>
+
+        <h2>Release graph code together with state and infrastructure compatibility</h2>
+        <p>A production release includes graph or functional API code, state and checkpoint schema, package locks, Agent Server and deployment configuration, model and prompt, retrieval and tools, secrets and identities, Postgres and Redis settings, tracing projects, evaluator versions, alerts, client contracts, approvals, rollout, and rollback. A container that starts successfully is not proof that old threads can resume or that a new node order preserves interrupt semantics.</p>
+        <p>Before release, replay representative threads, test state migration and old-checkpoint compatibility, run offline evaluation and deterministic tool tests, load API and queue paths, verify provider fallbacks, canary a limited cohort, monitor online quality, and preserve the accepted image and migration reversal. For self-hosted deployments, include database backup, restore, failover, and connection-capacity tests.</p>
+
+        <h2 id="onboarding">Onboard through inventory, baselines, controlled failures, and shadow operations</h2>
+        <ol>
+          <li><strong>Inventory:</strong> deployment model, clusters, graphs, assistants, threads, runs, checkpoints, state schemas, queues, databases, stores, tools, providers, tracing projects, and outcomes.</li>
+          <li><strong>Responsibility:</strong> define supported layers, SLOs, severity, access, data handling, quality, change authority, budget, dependencies, fallback, vendor escalation, and exclusions.</li>
+          <li><strong>Baseline:</strong> measure API and queue health, run completion, state persistence, interrupt age, trace coverage, evaluation, tool and target-state success, cost, and incidents.</li>
+          <li><strong>Controls:</strong> validate durable checkpointers, idempotency, approval contracts, backup and restore, alerts, evaluator datasets, safe replay, releases, rollback, and attribution.</li>
+          <li><strong>Exercise:</strong> rehearse a worker crash, queue backlog, Postgres interruption, missing checkpoint, duplicate resume, tool side effect, quality regression, loop, and provider outage.</li>
+          <li><strong>Transition:</strong> operate in shadow, close or accept material gaps, publish runbooks and escalation routes, and accept the steady-state support scope.</li>
+        </ol>
+
+        <section class="readiness-actions"><p><strong>Start with the LangGraph agents that already create customer, financial, operational, compliance, or workforce consequence.</strong> Datrick can define the operating boundary, close material control gaps, and transition one portfolio into managed support.</p><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=langgraph_production_support&amp;utm_medium=organic_content&amp;utm_campaign=langgraph_agentops&amp;utm_content=article_end#inquiry-form">Request a LangGraph AgentOps review</a></section>
+
+        <h2>Official references and adjacent operating guides</h2>
+        <ul>
+          <li><a href="https://docs.langchain.com/langsmith/deployment">LangSmith Deployment models</a></li>
+          <li><a href="https://docs.langchain.com/langsmith/scalability-and-resilience">LangSmith scalability and resilience</a></li>
+          <li><a href="https://docs.langchain.com/langsmith/agent-server-scale">Configure Agent Server for scale</a></li>
+          <li><a href="https://docs.langchain.com/oss/python/langgraph/interrupts">LangGraph interrupts and durable state</a></li>
+          <li><a href="https://docs.langchain.com/langsmith/observability">LangSmith observability</a></li>
+          <li><a href="https://docs.langchain.com/langsmith/evaluation">LangSmith online and offline evaluation</a></li>
+          <li><a href="https://docs.langchain.com/langsmith/alerts">LangSmith project alerts</a></li>
+          <li><a href="white-label-ai-agent-operations-managed-support-for-msps">White-label AI agent managed support for MSPs</a></li>
+          <li><a href="openai-agents-sdk-production-support-agentops">OpenAI Agents SDK production support</a></li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is included in LangGraph production support?</summary><p>A defined service can include Agent Server availability, API and queue workers, threads, checkpoints, long-term memory, interrupts and approvals, Postgres and Redis dependencies, LangSmith traces, online and offline evaluation, alerts, tools, incidents, release control, cost, runbooks, and reporting. Scope depends on the deployment model, agents, infrastructure, integrations, access, support hours, and accepted responsibility boundary.</p></details>
+          <details><summary>What is the difference between LangSmith Cloud, standalone Agent Server, and self-hosted LangSmith?</summary><p>LangSmith Cloud is managed by LangChain on supported cloud platforms. A standalone Agent Server runs in your Docker, Compose, or Kubernetes environment and requires your PostgreSQL, Redis, LangSmith license, load balancing, infrastructure monitoring, and operations. Self-hosted LangSmith runs the fuller control and data plane in your cloud and has its own platform dependencies and scaling responsibilities. The support boundary must match the chosen model.</p></details>
+          <details><summary>Why do LangGraph interrupts require idempotent side effects?</summary><p>When an interrupted run resumes, the node containing the interrupt restarts from the beginning. Code before the interrupt can therefore execute again. Any external action before that point must be idempotent or moved into a separately controlled step, and the same persistent thread ID must be used to resume the saved state.</p></details>
+          <details><summary>How do you monitor LangGraph agents with LangSmith?</summary><p>Capture complete traces with inputs, outputs, model and tool calls, state and metadata; build project-scoped dashboards and alerts for run volume, errors, latency, feedback, and cost; run online evaluators on filtered or sampled production traces; and move failing traces into datasets for offline regression tests. Platform metrics must also cover API, queue, Postgres, Redis, model providers, and downstream tools.</p></details>
+          <details><summary>How long does LangGraph production support onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for a representative production portfolio. It covers deployment and graph inventory, state and checkpoint baselines, queue and dependency capacity, observability and evaluation, tools and approvals, incidents, releases, cost, runbooks, controlled failure exercises, and acceptance of the steady-state operating scope.</p></details>
+        </div>
+
+        <div class="article-next"><p>Comparing state-machine orchestration with role-based agent teams?</p><a href="crewai-production-support-amp-managed-services-agentops">Review the CrewAI production support boundary</a></div>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

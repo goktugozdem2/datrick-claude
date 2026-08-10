@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PostgreSQL Backup Verification and Restore Drill</title>
+    <meta name="description" content="A practical PostgreSQL backup verification and restore-test runbook using pg_verifybackup, pg_restore, integrity checks, and recovery evidence.">
+    <link rel="canonical" href="https://datrick.com/postgresql-backup-verification-restore-drill">
+    <link rel="alternate" type="application/atom+xml" title="Datrick PostgreSQL Notes" href="https://datrick.com/postgresql.xml">
+    <meta property="og:title" content="PostgreSQL Backup Verification and Restore Drill">
+    <meta property="og:description" content="How to prove a PostgreSQL backup is intact, restorable, usable, and operationally recoverable before an incident.">
+    <meta property="og:url" content="https://datrick.com/postgresql-backup-verification-restore-drill">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "PostgreSQL Backup Verification and Restore Drill",
+        "description": "A practical PostgreSQL backup verification and restore-test runbook using pg_verifybackup, pg_restore, integrity checks, and recovery evidence.",
+        "url": "https://datrick.com/postgresql-backup-verification-restore-drill",
+        "datePublished": "2026-07-23",
+        "dateModified": "2026-07-23",
+        "author": {"@type": "Person", "name": "Can Goktug Ozdem", "url": "https://datrick.com/about.html"},
+        "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}},
+        "proficiencyLevel": "Intermediate",
+        "mainEntityOfPage": "https://datrick.com/postgresql-backup-verification-restore-drill"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://datrick.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://datrick.com/resources.html"},
+          {"@type": "ListItem", "position": 3, "name": "PostgreSQL Backup Verification", "item": "https://datrick.com/postgresql-backup-verification-restore-drill"}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">PostgreSQL operations</p>
+          <h1>PostgreSQL backup verification and restore drill.</h1>
+          <p class="page-lede">A green backup job proves that a process completed. A recovery drill proves whether the team can restore the right data, on compatible infrastructure, inside a useful recovery window.</p>
+          <div class="article-meta"><a href="resources.html">Resource library</a><span>Technical runbook</span><span>9 min read</span></div>
+          <p class="article-review">Written by <a href="about.html" rel="author">Can Goktug Ozdem</a>. Published July 23, 2026.</p>
+        </div>
+      </section>
+      <section class="section service-band">
+        <article class="article-body">
+          <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#four-layers">Four verification layers</a><a href="#logical-backups">Logical backups</a><a href="#physical-backups">Physical backups</a><a href="#evidence">Recovery evidence</a></nav>
+
+          <p>PostgreSQL backup verification fails when teams collapse four different questions into one: does the backup file exist, is it internally intact, can PostgreSQL restore it, and does the restored system satisfy the business recovery requirement? Each question needs separate evidence.</p>
+
+          <p>This runbook separates those layers. It applies to logical archives created with <code>pg_dump</code>, physical base backups created with <code>pg_basebackup</code>, and managed-service snapshots where the provider controls the physical backup mechanism. Adapt the commands to the PostgreSQL major version, backup format, extensions, encryption model, and recovery objective in your environment.</p>
+
+          <h2 id="four-layers">The four layers of PostgreSQL backup verification</h2>
+          <div class="article-table-wrap" role="region" aria-label="Four PostgreSQL backup verification layers" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Four PostgreSQL backup verification layers</caption>
+              <thead><tr><th scope="col">Layer</th><th scope="col">Question</th><th scope="col">Minimum evidence</th></tr></thead>
+              <tbody>
+                <tr><td>1. Presence</td><td>Was the expected backup produced and retained?</td><td>Backup identifier, timestamp, size, retention location, encryption state, and job result.</td></tr>
+                <tr><td>2. Integrity</td><td>Are the backup files complete and unchanged?</td><td>Archive listing or backup-manifest verification with a successful exit status.</td></tr>
+                <tr><td>3. Restorability</td><td>Can a compatible PostgreSQL instance consume the backup?</td><td>A clean restore that stops on errors and records duration, warnings, and dependencies.</td></tr>
+                <tr><td>4. Usability</td><td>Does the recovered database contain the right data and support the expected workload?</td><td>Application checks, reconciliation queries, permissions, extensions, jobs, and recovery-time evidence.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>A checksum cannot replace a restore. A successful restore cannot replace data reconciliation. A database that accepts connections cannot prove that the application, roles, scheduled jobs, or recovery point are correct. Treat each layer as a gate.</p>
+
+          <h2 id="logical-backups">Verify a logical backup before restoring it</h2>
+          <p>For custom or directory-format logical archives, begin by asking <code>pg_restore</code> to read the archive table of contents. This is a fast structural check and gives you an inventory for the planned restore.</p>
+
+          <pre><code>pg_restore --list appdb.dump &gt; appdb.restore.list
+test -s appdb.restore.list</code></pre>
+
+          <p>Review the list for expected schemas, extensions, tables, sequences, functions, ownership entries, and large objects. The PostgreSQL documentation explains that the output of <code>--list</code> can be edited and supplied to <code>--use-list</code> when a controlled subset or order is required. Do not remove an item merely because it looks unfamiliar; first identify its dependency and business purpose.</p>
+
+          <h3>Restore into a clean target</h3>
+          <p>Use an isolated target with the required PostgreSQL major version, extensions, locale, encoding, and storage capacity. Avoid restoring over a shared test database that already contains objects, because pre-existing state can hide ownership, extension, and schema-order failures.</p>
+
+          <pre><code>createdb --template=template0 restore_validation
+pg_restore \
+  --dbname=restore_validation \
+  --exit-on-error \
+  --verbose \
+  appdb.dump \
+  2&gt;restore_validation.log</code></pre>
+
+          <p><code>pg_restore</code> continues after SQL errors by default and reports an error count at the end. For a verification drill, <code>--exit-on-error</code> makes the first failure visible and prevents a partly successful restore from being reported as good enough. A single transaction can provide all-or-nothing behavior, but PostgreSQL notes that it may be impractical for databases with many objects because the restore holds a lock for each restored object.</p>
+
+          <h3>Do not normalize warnings away</h3>
+          <p>Classify every warning. Missing roles, unavailable extensions, ownership failures, incompatible settings, and permission errors are recovery dependencies, not cosmetic noise. If the production restore procedure intentionally remaps ownership or omits privileges, record that decision and test the exact command that operations will run.</p>
+
+          <h2 id="physical-backups">Verify a physical base backup</h2>
+          <p><code>pg_basebackup</code> generates a backup manifest unless manifest generation is disabled. The manifest records expected files and optional checksums. PostgreSQL's <code>pg_verifybackup</code> checks the manifest, file presence and size, file checksums, and the WAL ranges required by the backup.</p>
+
+          <pre><code>pg_verifybackup /backups/base/2026-07-23</code></pre>
+
+          <p>Run the utility version appropriate for the backup and preserve its exit status and output. For tar-format base backups, extract the archive into an isolated directory before verification. Keep the manifest protected with the backup evidence; if an attacker can modify both the backup and its manifest, a checksum alone does not establish trust.</p>
+
+          <p>PostgreSQL explicitly warns that <code>pg_verifybackup</code> cannot perform every check a running server will perform. The next gate is still a test recovery: start a disposable cluster from the verified backup, apply the required WAL, and prove that PostgreSQL reaches the intended recovery target.</p>
+
+          <h2>Run the restore like an incident, not a demo</h2>
+          <p>A realistic drill starts with an approved recovery scenario and clock. Record who initiates recovery, who supplies credentials and encryption keys, where the target runs, how the backup is selected, which recovery point is requested, and who declares the database usable.</p>
+
+          <ol>
+            <li><strong>State the target:</strong> identify the database, backup ID, required recovery point, recovery time objective, and recovery point objective.</li>
+            <li><strong>Prepare isolation:</strong> prevent the restored system from sending email, running production jobs, publishing events, or connecting to real downstream consumers.</li>
+            <li><strong>Restore from documented instructions:</strong> use the same access path, tooling, roles, and secrets process expected during an incident.</li>
+            <li><strong>Capture timing:</strong> separate provisioning, transfer, restore, WAL replay, validation, and handoff time.</li>
+            <li><strong>Validate and reconcile:</strong> run technical and business checks before declaring success.</li>
+            <li><strong>Dispose safely:</strong> preserve evidence, revoke temporary access, and securely remove restored sensitive data.</li>
+          </ol>
+
+          <h2>Validate the recovered database</h2>
+          <p>Build a small, deterministic validation pack before the drill. It should be safe to run repeatedly and should fail clearly. Useful checks include:</p>
+          <ul>
+            <li>the expected PostgreSQL version, encoding, collation, and timezone;</li>
+            <li>required extensions and their versions;</li>
+            <li>expected schemas, tables, partitions, views, functions, and sequences;</li>
+            <li>row counts or controlled aggregates for critical business tables;</li>
+            <li>the maximum timestamp or known transaction at the recovery boundary;</li>
+            <li>foreign-key, exclusion, and application-level integrity checks;</li>
+            <li>roles, ownership, grants, row-level security, and default privileges;</li>
+            <li>application login, one representative read path, and one isolated write path;</li>
+            <li>scheduled jobs, replication settings, monitoring, and backup configuration that must be recreated outside the database.</li>
+          </ul>
+
+          <p>Do not rely only on total row counts. A table can have the expected number of rows while containing the wrong recovery point, tenant, partition, or date range. Select a few business facts that an owner can recognize and that reveal whether the restored data is coherent.</p>
+
+          <h2 id="evidence">Record recovery evidence that can be audited</h2>
+          <p>A restore drill should produce a compact evidence pack. At minimum, retain the backup identifier, source environment, target environment, PostgreSQL and tool versions, command transcript, timestamps, exit codes, validation query results, errors and warnings, measured recovery point, measured recovery time, reviewer, and unresolved actions.</p>
+
+          <p>Separate the drill result from the follow-up status. A drill can complete while still revealing that the recovery objective was missed. Report that honestly: for example, "restore and validation succeeded in 3 hours 18 minutes; the approved RTO is 2 hours." The gap then has an owner and an engineering decision instead of disappearing behind a green backup dashboard.</p>
+
+          <h2>A practical recurring schedule</h2>
+          <p>Frequency should follow change rate and business consequence. A common pattern is continuous monitoring of backup completion, automated archive or manifest verification after every backup, a representative restore each month, and a broader service recovery exercise at least annually. Systems with strict recovery commitments, rapid schema change, or frequent release activity may need more frequent drills.</p>
+
+          <p>Trigger an additional drill after changing PostgreSQL major versions, backup tooling, encryption, object storage, retention policy, extensions, topology, cloud provider, identity controls, or the recovery runbook itself. A restore procedure is only proven for the combination that was actually tested.</p>
+
+          <h2>Further reading</h2>
+          <ul>
+            <li><a href="https://www.postgresql.org/docs/current/app-pgverifybackup.html">PostgreSQL documentation: pg_verifybackup</a></li>
+            <li><a href="https://www.postgresql.org/docs/current/app-pgbasebackup.html">PostgreSQL documentation: pg_basebackup</a></li>
+            <li><a href="https://www.postgresql.org/docs/current/app-pgrestore.html">PostgreSQL documentation: pg_restore</a></li>
+            <li><a href="resource-database-handover.html">Database operations handover checklist</a></li>
+            <li><a href="postgresql-consulting">PostgreSQL consulting services</a></li>
+          </ul>
+
+          <p class="article-review"><strong>About the author:</strong> Can Goktug Ozdem is Datrick's founder and senior technical lead. He works on database operations, migrations, recovery readiness, and production support.</p>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

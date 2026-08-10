@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Pipeline Monitoring with Operations Agent | Datrick</title>
+    <meta name="description" content="Implement Fabric pipeline monitoring with Operations Agent, workspace Eventhouse, ItemJobEventLogs, long-running and failed-run rules, Teams, NOC, and evaluation.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-operations-agent-pipeline-monitoring-long-running-failed-runs-assessment">
+    <meta property="og:title" content="Fabric Pipeline Monitoring with Operations Agent | Datrick">
+    <meta property="og:description" content="Choose the right Fabric alert path and prove long-running, failed, missing, recovered, repeated, and high-load pipeline monitoring end to end.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-operations-agent-pipeline-monitoring-long-running-failed-runs-assessment">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Operations Agent Pipeline Monitoring for Long-Running and Failed Runs", "description": "Implement Fabric pipeline monitoring with Operations Agent, workspace Eventhouse, ItemJobEventLogs, long-running and failed-run rules, Teams, NOC, and evaluation.", "url": "https://datrick.com/microsoft-fabric-operations-agent-pipeline-monitoring-long-running-failed-runs-assessment", "datePublished": "2026-07-14", "dateModified": "2026-07-14", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-operations-agent-pipeline-monitoring-long-running-failed-runs-assessment"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "Can Microsoft Fabric Operations Agent monitor data pipelines?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Microsoft documents an Operations Agent pattern that uses the workspace monitoring Eventhouse and ItemJobEventLogs table to detect pipeline conditions such as runs exceeding a duration threshold, then sends context through the Fabric Operations Agent Teams app."}},
+            {"@type": "Question", "name": "How do I alert when a Fabric pipeline runs longer than 60 minutes?", "acceptedAnswer": {"@type": "Answer", "text": "Enable workspace monitoring, connect an Operations Agent to the monitoring Eventhouse, define an explicit 3,600,000 millisecond threshold against DurationMs, identify Data Pipeline records, include ItemName and run timestamps, generate and review the playbook, start the agent, install the Teams app, and validate with a controlled long run. Also test in-progress runs because completed-duration examples alone can alert only after completion."}},
+            {"@type": "Question", "name": "Should I use failure notifications, Activator, or Operations Agent for pipeline alerts?", "acceptedAnswer": {"@type": "Answer", "text": "Use scheduled-run failure notifications for simple built-in failure email, Activator for deterministic event or KQL conditions and direct actions, and Operations Agent when monitored conditions need natural-language configuration, generated rules, contextual reasoning, or recommendations. Keep a deterministic control for critical failures and use the agent where its additional reasoning has measurable value."}},
+            {"@type": "Question", "name": "What is ItemJobEventLogs in Microsoft Fabric?", "acceptedAnswer": {"@type": "Answer", "text": "ItemJobEventLogs is a workspace monitoring Eventhouse table containing job execution evidence. Microsoft documents fields used for pipeline monitoring such as Timestamp, ItemKind, ItemName, JobStatus, DurationMs, JobStartTime, JobEndTime, JobInvokeType, JobInstanceId, and WorkspaceName."}},
+            {"@type": "Question", "name": "How long does a Fabric pipeline Operations Agent assessment take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused assessment commonly takes two to four weeks for one workspace, representative pipeline portfolio, Operations Agent, Teams path, and NOC owner. It covers monitoring architecture, log completeness, thresholds and baselines, generated rules, replay, delivery, escalation, capacity, failure behavior, and operating runbooks."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Fabric pipeline NOC monitoring</p>
+        <h1>A pipeline alert should identify the run, breach, and next action, not just say slow.</h1>
+        <p class="page-lede">Monitor long-running, failed, missing, and abnormal Fabric pipeline runs through workspace monitoring, ItemJobEventLogs, deterministic controls, Operations Agent rules, Teams context, escalation, replay, and measurable NOC ownership.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Database%20operations&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_pipeline_operations_agent&amp;utm_medium=organic_content&amp;utm_campaign=long_running_failed_run_monitoring&amp;utm_content=hero#inquiry-form">Describe the pipeline estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>AI-assisted pipeline operations</span><span>12 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#architecture">Alert architecture</a><a href="#contract">Monitoring contract</a><a href="#testing">Pipeline tests</a><a href="#operations">NOC operations</a><a href="#assessment">Assessment plan</a></nav>
+
+        <p>Fabric provides several pipeline alert paths: activity-level Outlook or Teams steps, scheduled-run failure notifications, deterministic Activator rules over job events or KQL, workspace-wide monitoring through an Eventhouse, and an Operations Agent that interprets a playbook and sends contextual recommendations. The right design depends on whether the requirement is a guaranteed failure signal, a deterministic threshold, or an AI-assisted diagnosis and response.</p>
+        <p>Microsoft's Operations Agent example monitors the workspace `ItemJobEventLogs` table, identifies Data Pipeline records, compares `DurationMs` with a 60-minute threshold, and includes run context in Teams. Production design must go further: distinguish completed from currently running jobs, detect missing expected runs, account for ingestion delay, prevent duplicate alerts, preserve critical deterministic controls, and connect each message to an owner and runbook.</p>
+
+        <section class="readiness-actions"><p><strong>Which condition requires guaranteed notification, and which one benefits from contextual AI reasoning?</strong> Keep deterministic controls for critical failures and measure the agent's incremental value.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Database%20operations&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_pipeline_operations_agent&amp;utm_medium=organic_content&amp;utm_campaign=long_running_failed_run_monitoring&amp;utm_content=article_intro#inquiry-form">Send the pipeline and alert requirements</a><a class="button secondary" href="microsoft-fabric-operations-agent-rule-not-triggering-state-transition-duplicate-alert-assessment">Review rule accuracy</a></div></section>
+
+        <h2 id="architecture">Choose failure notification, Activator, Operations Agent, or a layered design</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric pipeline alert architecture comparison" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric pipeline alert architecture comparison</caption>
+          <thead><tr><th scope="col">Alert path</th><th scope="col">Best fit</th><th scope="col">Primary limitation</th><th scope="col">Production control</th></tr></thead>
+          <tbody>
+            <tr><td>Pipeline activity step</td><td>Send a direct message or email after a specific activity outcome within one pipeline.</td><td>Alert logic is embedded in each pipeline and can fail with or complicate the workflow.</td><td>Standard component, failure path tests, centralized ownership, and deployment validation.</td></tr>
+            <tr><td>Scheduled failure notification</td><td>Simple built-in email notification when a scheduled pipeline run fails.</td><td>Limited context and condition flexibility; doesn't cover every trigger or operational pattern.</td><td>Use as a minimum deterministic signal for supported critical schedules.</td></tr>
+            <tr><td>Job event Activator</td><td>Deterministic create, update, run-status, email, or Teams actions over selected job events.</td><td>Per-rule maintenance and limited contextual reasoning.</td><td>Versioned rules, owner, test events, action monitoring, and fallback recipient.</td></tr>
+            <tr><td>KQL plus Activator</td><td>Workspace-wide deterministic conditions over monitoring Eventhouse records.</td><td>Polling window, ingestion lag, duplicate and missed-event tradeoffs require careful design.</td><td>Poll more often than the query window, test overlap, deduplicate by run ID, and monitor freshness.</td></tr>
+            <tr><td>Operations Agent</td><td>Natural-language playbook, generated rules, contextual comparison, recommendation, and response guidance.</td><td>Probabilistic generation and reasoning, five-minute cadence, identity, Teams, capacity, and preview risks.</td><td>Review generated queries, replay ground truth, shadow deterministic controls, and measure added value.</td></tr>
+            <tr><td>Layered NOC design</td><td>Critical deterministic failure signal plus AI-assisted duration anomaly, context, triage, and recommendation.</td><td>More components and possible duplicate messages without shared incident correlation.</td><td>One run ID, severity model, suppression policy, escalation owner, and reconciled incident state.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="contract">Define run identity, expected schedule, threshold, baseline, and escalation</h2>
+        <p>For each pipeline, record workspace, item ID and name, criticality, owner, schedule and trigger type, timezone, expected start window, expected frequency, maximum duration, warning and critical thresholds, historical percentiles, source and target SLAs, dependencies, concurrency, retry policy, maintenance windows, business blackout dates, completion and failure semantics, escalation, and manual recovery.</p>
+        <p>Map the contract to `ItemJobEventLogs` fields including `Timestamp`, `ItemKind`, `ItemName`, `JobStatus`, `DurationMs`, `JobStartTime`, `JobEndTime`, `JobInvokeType`, `JobInstanceId`, and `WorkspaceName`. Confirm actual values and ingestion behavior in the target workspace rather than assuming display names or status strings.</p>
+        <p>A completed run above 60 minutes is different from an in-progress run that has already exceeded 60 minutes. The first uses final `DurationMs`; the second needs current elapsed time from `JobStartTime`, a status filter, and a policy for repeated evaluations. Missing expected runs require schedule-aware absence detection, not a duration rule.</p>
+
+        <h2 id="testing">Replay normal, failed, slow, missing, repeated, and recovery cases</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric pipeline monitoring test matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric pipeline monitoring test matrix</caption>
+          <thead><tr><th scope="col">Test</th><th scope="col">Method</th><th scope="col">Pass condition</th><th scope="col">Remediation</th></tr></thead>
+          <tbody>
+            <tr><td>Completed long run</td><td>Replay a completed pipeline immediately below, equal to, and above the duration threshold.</td><td>Boundary behavior matches the written rule and message shows correct minutes, excess, and timestamps.</td><td>Unit, threshold, comparison, rounding, or field-mapping fix.</td></tr>
+            <tr><td>Currently running breach</td><td>Keep a run in progress beyond warning and critical thresholds across multiple evaluations.</td><td>Alert arrives before completion and repeats only under the approved reminder policy.</td><td>Elapsed-time query, state or transition rule, suppression, or escalation correction.</td></tr>
+            <tr><td>Failed run</td><td>Trigger known activity and pipeline failures across scheduled and on-demand invocation.</td><td>Critical deterministic signal arrives and AI context includes pipeline plus JobInstanceId for investigation.</td><td>Status mapping, job-type filter, recipient, Teams, or fallback control.</td></tr>
+            <tr><td>Missing expected run</td><td>Skip a scheduled trigger, disable it, delay start, and create a holiday or maintenance exception.</td><td>Unexplained absence alerts after the approved grace period; valid exceptions remain quiet.</td><td>Schedule registry, heartbeat logic, timezone, exception calendar, or ownership fix.</td></tr>
+            <tr><td>Historical anomaly</td><td>Compare current duration with at least seven days of representative history, weekday patterns, volume, and known change windows.</td><td>Baseline comparison is statistically and operationally meaningful for the pipeline.</td><td>Segment baseline, minimum history, robust percentile, volume normalization, or remove comparison.</td></tr>
+            <tr><td>Duplicate and retry</td><td>Repeat job events, rerun the same pipeline, retry failed activities, overlap query windows, and sustain a breach.</td><td>Messages correlate by JobInstanceId and don't create uncontrolled duplicate incidents.</td><td>Deduplication, state transition, cooldown, aggregation, or incident-key correction.</td></tr>
+            <tr><td>Monitoring data lag</td><td>Delay or stop workspace monitoring ingestion and compare Monitor Hub with Eventhouse evidence.</td><td>Freshness breach is visible and absence of logs is never interpreted as healthy pipelines.</td><td>Monitoring heartbeat, source alert, fallback API or Monitor Hub check, and escalation.</td></tr>
+            <tr><td>Permissions and Teams</td><td>Remove creator source access, recipient write permission, Teams app, channel, and creator account.</td><td>Failures are visible, containable, and routed to an alternate operational owner.</td><td>Identity ownership, group recipient, permission, app policy, or deterministic fallback.</td></tr>
+            <tr><td>Load and capacity</td><td>Burst job events across many pipelines while Eventhouse, Operations Agent, Teams, and capacity are observed.</td><td>Critical messages and deterministic controls meet SLO without unacceptable CU or recipient burden.</td><td>Scope, aggregation, severity routing, capacity, sampling, or separate agents.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Run the Operations Agent beside Monitor Hub and the deterministic alert path. Measure failure recall, long-run detection recall, false positives, event-to-message latency, duplicate incidents per run, missing-run detection, context completeness, recommendation utility, acknowledgment, time to triage, capacity, and operator load.</p>
+
+        <h2 id="operations">Operate pipeline monitoring as a NOC service</h2>
+        <p>Maintain a monitored-pipeline registry with criticality, owner, schedule, threshold, baseline, dependencies, deterministic alert, agent rule, message destination, escalation, runbook, manual recovery, and retirement date. Reconcile registry scope with actual Fabric pipelines and workspace monitoring logs.</p>
+        <p>Dashboard expected versus actual runs, active long runs, failures, recoveries, source-log freshness, rule queries, operations, Teams delivery, acknowledgments, repeated alerts, action status, capacity, and unresolved incidents. Link every alert to the Monitoring Hub or run evidence by workspace, item, and JobInstanceId.</p>
+        <p>Use the agent to improve context, prioritize incidents, compare history, and recommend investigation steps. Do not replace a deterministic critical-failure signal before its recall is proven. Review generated rules and KQL after pipeline, schema, status, schedule, workspace monitoring, instruction, runtime, identity, recipient, or Fabric changes.</p>
+
+        <h2 id="assessment">Run a two-to-four-week pipeline monitoring assessment</h2>
+        <ol>
+          <li>Select one workspace, representative critical pipelines, NOC owner, current alerts, incident history, response objectives, Teams destination, and measurable baseline.</li>
+          <li>Enable and validate workspace monitoring; profile ItemJobEventLogs coverage, status values, run identity, timestamps, duration, trigger types, ingestion lag, retention, and permissions.</li>
+          <li>Define the pipeline registry, severity model, schedules, duration thresholds, historical baselines, missing-run grace, duplicate policy, escalation, and manual controls.</li>
+          <li>Choose deterministic notifications, Activator, Operations Agent, or a layered architecture for each condition based on criticality and reasoning value.</li>
+          <li>Configure the Operations Agent, generate and inspect the playbook and queries, verify Teams, and build a labeled run-history evaluation set.</li>
+          <li>Replay normal, failed, slow-completed, slow-in-progress, missing, retried, duplicate, stale-log, permission, delivery, load, and recovery cases.</li>
+          <li>Run shadow mode, measure recall, false positives, latency, duplicates, triage utility, operator load, and capacity, then exercise incident and rollback runbooks.</li>
+          <li>Deliver the architecture, pipeline registry, verified KQL and playbook, test suite, scorecard, dashboards, alerts, escalation matrix, runbooks, and scale, limited pilot, deterministic-only, or stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>Can Microsoft Fabric Operations Agent monitor data pipelines?</summary><p>Yes. Microsoft documents an Operations Agent pattern that uses the workspace monitoring Eventhouse and ItemJobEventLogs table to detect pipeline conditions such as runs exceeding a duration threshold, then sends context through the Fabric Operations Agent Teams app.</p></details>
+          <details><summary>How do I alert when a Fabric pipeline runs longer than 60 minutes?</summary><p>Enable workspace monitoring, connect an Operations Agent to the monitoring Eventhouse, define an explicit 3,600,000 millisecond threshold against DurationMs, identify Data Pipeline records, include ItemName and run timestamps, generate and review the playbook, start the agent, install the Teams app, and validate with a controlled long run. Also test in-progress runs because completed-duration examples alone can alert only after completion.</p></details>
+          <details><summary>Should I use failure notifications, Activator, or Operations Agent for pipeline alerts?</summary><p>Use scheduled-run failure notifications for simple built-in failure email, Activator for deterministic event or KQL conditions and direct actions, and Operations Agent when monitored conditions need natural-language configuration, generated rules, contextual reasoning, or recommendations. Keep a deterministic control for critical failures and use the agent where its additional reasoning has measurable value.</p></details>
+          <details><summary>What is ItemJobEventLogs in Microsoft Fabric?</summary><p>ItemJobEventLogs is a workspace monitoring Eventhouse table containing job execution evidence. Microsoft documents fields used for pipeline monitoring such as Timestamp, ItemKind, ItemName, JobStatus, DurationMs, JobStartTime, JobEndTime, JobInvokeType, JobInstanceId, and WorkspaceName.</p></details>
+          <details><summary>How long does a Fabric pipeline Operations Agent assessment take?</summary><p>A focused assessment commonly takes two to four weeks for one workspace, representative pipeline portfolio, Operations Agent, Teams path, and NOC owner. It covers monitoring architecture, log completeness, thresholds and baselines, generated rules, replay, delivery, escalation, capacity, failure behavior, and operating runbooks.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-factory/create-alerts-for-pipeline-runs">Fabric pipeline failure, Activator, workspace, and Operations Agent alert patterns</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/fundamentals/enable-workspace-monitoring">Enable workspace monitoring and its Eventhouse</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/fundamentals/item-job-event-logs">Workspace monitoring ItemJobEventLogs schema</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent">Operations Agent setup, playbook, rules, state, Teams, and actions</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/data-factory/monitor-pipeline-runs">Monitor Fabric pipeline runs in Monitoring Hub</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Start with the pipelines whose late or failed completion affects a client, SLA, or downstream business process.</strong> Datrick can build the monitoring evidence layer, implement the right alert architecture, evaluate the agent, and operate the escalation path.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=Database%20operations&amp;urgency=Within%2030%20days&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;utm_source=fabric_pipeline_operations_agent&amp;utm_medium=organic_content&amp;utm_campaign=long_running_failed_run_monitoring&amp;utm_content=article_end#inquiry-form">Scope pipeline monitoring</a></div></section>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-operations-agent-production-incident-response-troubleshooting-support"><span>Restore a broken control loop</span><strong>Use the incident response guide</strong></a><a href="ai-microsoft-fabric-capacity-throttling-cost-performance-optimization"><span>Protect shared capacity</span><strong>Assess Fabric CU and throttling</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

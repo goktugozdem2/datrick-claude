@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Microsoft Fabric Operations Agent Implementation Services | Datrick</title>
+    <meta name="description" content="Implement and evaluate Microsoft Fabric Operations Agent across Eventhouse data, goals, generated playbooks, Teams approvals, actions, identity, audit, and capacity cost.">
+    <link rel="canonical" href="https://datrick.com/microsoft-fabric-operations-agent-implementation-evaluation-services">
+    <meta property="og:title" content="Microsoft Fabric Operations Agent Implementation Services | Datrick">
+    <meta property="og:description" content="Prove one real-time operations agent from monitored signal to safe, auditable action.">
+    <meta property="og:url" content="https://datrick.com/microsoft-fabric-operations-agent-implementation-evaluation-services">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Article", "headline": "Microsoft Fabric Operations Agent Implementation and Evaluation Services", "description": "Implement and evaluate Microsoft Fabric Operations Agent across Eventhouse data, goals, generated playbooks, Teams approvals, actions, identity, audit, and capacity cost.", "url": "https://datrick.com/microsoft-fabric-operations-agent-implementation-evaluation-services", "datePublished": "2026-07-14", "dateModified": "2026-07-28", "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "reviewedBy": {"@type": "Person", "name": "Can Goktug Ozdem", "url": "https://datrick.com/about.html"}, "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}}, "mainEntityOfPage": "https://datrick.com/microsoft-fabric-operations-agent-implementation-evaluation-services"},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is Microsoft Fabric Operations Agent?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft Fabric Operations Agent is an AI agent in Fabric Real-Time Intelligence that continuously monitors configured operational data, evaluates generated rules, analyzes matching conditions, and recommends or executes permitted actions. It can communicate through Microsoft Teams and records operational activity for review."}},
+            {"@type": "Question", "name": "Is Microsoft Fabric Operations Agent generally available?", "acceptedAnswer": {"@type": "Answer", "text": "Microsoft announced general availability in June 2026 with rollout across regions. Individual integrations can have separate support states. For example, ontology-based monitoring and the remote MCP server are documented as preview. Confirm the current status, region, capacity, tenant setting, source, action, API, and governance requirement in the target tenant before production approval."}},
+            {"@type": "Question", "name": "What data can a Fabric Operations Agent monitor?", "acceptedAnswer": {"@type": "Answer", "text": "Current Microsoft guidance supports Eventhouse and KQL database data, with documented limitations on source types and monitored rule patterns. Fabric IQ Ontology can also be used as a knowledge source through a separately documented preview integration. A pilot should validate the exact table, property, timeseries, rule, query, region, and refresh behavior required by the use case."}},
+            {"@type": "Question", "name": "How should Fabric Operations Agent actions be governed?", "acceptedAnswer": {"@type": "Answer", "text": "Start with recommendations or low-impact reversible actions. Use least privilege, explicit parameters, approval policy, idempotency, validation, timeout, rollback, and audit evidence. Test that queries and actions run under the intended identity. Microsoft documents that the agent uses the delegated identity and permissions of its creator, even when another recipient approves a recommendation."}},
+            {"@type": "Question", "name": "How long does a Microsoft Fabric Operations Agent pilot take?", "acceptedAnswer": {"@type": "Answer", "text": "A bounded pilot for one operational process can often be completed in four to six weeks when representative Eventhouse data, process owners, expected incidents, action endpoints, Teams users, security approvals, and measurable baselines are available. Production rollout should follow only after replay, shadow-mode, permission, cost, failure, and live acceptance tests pass."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-data">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Microsoft Fabric Operations Agent services</p>
+        <h1>Implement Microsoft Fabric Operations Agent as a governed, auditable control loop.</h1>
+        <p class="page-lede">Prepare real-time data, generate and inspect the playbook, prove detection quality, constrain actions, and measure whether an Operations Agent improves response without creating new operational risk.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=fabric_operations_agent&amp;utm_medium=organic_content&amp;utm_campaign=fabric_operations_agent_pilot&amp;utm_content=hero#inquiry-form">Describe the process to monitor</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>Updated July 2026</span><span>10 min read</span></div>
+        <p class="article-review">Reviewed against official Microsoft Fabric product documentation by <a href="about.html">Can Goktug Ozdem</a>. Last checked July 28, 2026.</p>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#use-case">Use-case contract</a><a href="#playbook">Playbook design</a><a href="#actions">Action safety</a><a href="#evaluation">Evaluation</a><a href="#pilot">Pilot plan</a></nav>
+
+        <p>Operational teams rarely lack alerts. They lack reliable context, ownership, diagnosis, and a safe path from signal to action. A new agent that generates more notifications can make the problem worse. A useful Fabric Operations Agent must detect the right condition, explain it with the right data, recommend an allowed response, reach an accountable person, and leave evidence that the process worked.</p>
+        <p>Datrick implements Operations Agent as a production control loop rather than an AI demonstration. AI can help translate goals into candidate rules, summarize triggered evidence, correlate known context, draft recommendations, and assist with playbook review. Deterministic monitoring, governed data, least-privilege identity, explicit approval, tested actions, and measurable evaluation remain the authority.</p>
+
+        <section class="readiness-actions"><p><strong>Do you have a recurring operational condition that people notice too late or handle inconsistently?</strong> Start with one process, one accountable owner, and one bounded response.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=fabric_operations_agent&amp;utm_medium=organic_content&amp;utm_campaign=fabric_operations_agent_pilot&amp;utm_content=article_intro#inquiry-form">Send the operations context</a><a class="button secondary" href="microsoft-fabric-iq-ontology-implementation-assessment">Review ontology grounding</a></div></section>
+
+        <h2 id="use-case">Define an operations-agent use-case contract</h2>
+        <p>Select a process where data already arrives in Fabric Real-Time Intelligence and the desired response can be stated clearly. Good pilot candidates include failed or delayed data pipelines, service-level breaches, asset or equipment conditions, inventory thresholds, order exceptions, queue backlog, data freshness, or process anomalies with a known owner and response.</p>
+        <p>Avoid starting with a broad instruction such as "optimize operations." Define the monitored population, time window, event or state, threshold, business interpretation, exclusions, recommended decision, permitted action, recipients, approval rule, timeout, and expected evidence. Compare the agent with a deterministic Activator rule, dashboard alert, scheduled query, or existing incident automation. Use an agent only when contextual interpretation and recommendation add measurable value.</p>
+
+        <div class="article-table-wrap" role="region" aria-label="Fabric Operations Agent use-case contract" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Operations Agent use-case contract</caption>
+          <thead><tr><th scope="col">Control area</th><th scope="col">Required evidence</th><th scope="col">Acceptance decision</th></tr></thead>
+          <tbody>
+            <tr><td>Operational goal</td><td>Business outcome, monitored process, owner, affected users, current response, loss or risk, and baseline.</td><td>Is the goal specific enough to produce and evaluate rules?</td></tr>
+            <tr><td>Knowledge source</td><td>Eventhouse, KQL database, table, schema, keys, timestamps, freshness, retention, quality, and representative history.</td><td>Does the source contain reliable evidence at the required frequency?</td></tr>
+            <tr><td>Detection</td><td>Population, window, threshold, condition, grouping, suppression, recovery, exceptions, and expected positive and negative cases.</td><td>Can each rule be tested independently against known data?</td></tr>
+            <tr><td>Recommendation</td><td>Context, diagnosis boundary, evidence, owner, severity, next step, parameters, and unsupported claims.</td><td>Can an operator make a better decision from the message?</td></tr>
+            <tr><td>Action</td><td>Fabric pipeline, notebook, user data function, Power Automate flow, external effect, permissions, validation, and rollback.</td><td>Is the action bounded, idempotent, reversible, and observable?</td></tr>
+            <tr><td>Human approval</td><td>Teams recipient, role, authorization, substitution, timeout, escalation, rejection, and out-of-hours policy.</td><td>Can the right person approve safely without hidden context?</td></tr>
+            <tr><td>Operations evidence</td><td>Rule, source data, reasoning, recommendation, approval, executor identity, action result, duration, cost, and incident reference.</td><td>Can the team reconstruct what happened and why?</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="playbook">Generate the playbook, then inspect it like code</h2>
+        <p>Configure business goals, agent instructions, knowledge sources, and actions before generating the playbook. Review every generated concept and rule against the underlying Eventhouse schema and the operational contract. Microsoft warns that rules can refer to property names rather than underlying columns; confirm the actual binding, query, threshold, grouping, and timing behavior.</p>
+        <p>Create a versioned inventory of instructions, source definitions, actions, generated rules, recipients, run state, and test cases. Treat any regeneration as a change that can alter monitoring behavior. Compare the rule diff, rerun replay tests, record approval, and keep a rollback path. The Fabric item definition and REST surfaces can support deployment automation, but their support state and identity limitations must be validated for the target tenant.</p>
+
+        <h2>Prepare Eventhouse data for dependable monitoring</h2>
+        <p>Validate event time versus ingestion time, late and duplicate events, missing values, entity identifiers, units, state transitions, retention, update frequency, and expected volume. Build deterministic KQL controls for each candidate rule. Replay known incidents and quiet periods. If the agent cannot observe a reliable signal from the source, better instructions will not fix it.</p>
+        <p>Current Microsoft limitations include five-minute query cadence, English goals and instructions, source and rule-pattern restrictions, and regional or workspace constraints. Ontology-based monitoring has additional preview limitations such as supported properties and simple conditions. Record the exact product behavior observed in the target tenant instead of assuming every documented or announced capability is available in every integration.</p>
+
+        <h2 id="actions">Constrain identity, approval, and action risk</h2>
+        <p>Microsoft documents that Operations Agent uses the delegated identity and permissions of its creator for queries and actions. Changing the Teams recipient does not change that execution identity. Select a controlled owner account, apply least privilege, remove unnecessary access, document credential lifecycle, and test what the agent can and cannot read or execute.</p>
+        <p>Begin in observe-only or recommendation-only mode. Introduce actions in risk order: notification, ticket creation, diagnostic query, reversible workflow, controlled retry, and only then a production-changing response. Validate parameters against allow lists and current state. Require idempotency, timeout, concurrency control, postcondition checks, audit correlation, failure handling, and rollback. A human approval button is not sufficient if the operator lacks context or the downstream action is unsafe.</p>
+
+        <h2 id="evaluation">Evaluate detection, recommendation, action, and economics</h2>
+        <div class="article-table-wrap" role="region" aria-label="Fabric Operations Agent evaluation matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Fabric Operations Agent evaluation matrix</caption>
+          <thead><tr><th scope="col">Evaluation dimension</th><th scope="col">Test method</th><th scope="col">Release threshold</th></tr></thead>
+          <tbody>
+            <tr><td>Detection recall</td><td>Replay known incidents, boundary values, delayed data, duplicates, state changes, and representative synthetic cases.</td><td>Required cases trigger within the agreed monitoring interval.</td></tr>
+            <tr><td>False positives</td><td>Replay normal periods, maintenance windows, suppressed entities, transient noise, and expected exceptions.</td><td>Alert burden stays below the owner-approved rate.</td></tr>
+            <tr><td>Recommendation quality</td><td>Blind-score context, source evidence, severity, diagnosis boundaries, next step, parameters, and unsupported claims.</td><td>Operators can choose an action without reopening the full investigation.</td></tr>
+            <tr><td>Action safety</td><td>Test approval, rejection, expiry, duplicate messages, stale parameters, timeout, concurrent execution, partial failure, and rollback.</td><td>No unauthorized or duplicate effect; failures remain contained and visible.</td></tr>
+            <tr><td>Identity and access</td><td>Verify creator, recipient, workspace role, source permissions, action permissions, restricted data, and offboarding behavior.</td><td>Observed access matches the approved identity model and negative tests.</td></tr>
+            <tr><td>Operational latency</td><td>Measure event arrival, rule evaluation, reasoning, Teams delivery, approval, action completion, and recovery.</td><td>End-to-end timing meets the process objective and documented cadence.</td></tr>
+            <tr><td>Capacity and cost</td><td>Track Copilot, agent compute, autonomous reasoning, source-query, action, and storage consumption in Capacity Metrics.</td><td>Cost per monitored process and accepted intervention fits the business case.</td></tr>
+            <tr><td>Audit and recovery</td><td>Reconstruct decisions from traces, approvals, identities, parameters, action results, incident records, and configuration versions.</td><td>An independent reviewer can explain and reproduce the control path.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Run the candidate in shadow mode beside the current operating process. Score matched events without allowing production-changing actions. Compare time to detect, time to understand, time to decide, operator effort, false-positive burden, missed incidents, successful interventions, and capacity cost. Promote only the rules and actions that outperform the baseline.</p>
+
+        <h2>Monitor the agent as an operational service</h2>
+        <p>Track active agents, owners, creator identities, connected sources, actions, recipients, rule versions, last successful evaluation, recommendation volume, approvals, rejections, expirations, action failures, and cost. Establish stop controls and an incident path for the agent itself. Revalidate after source schema, KQL, ontology, instruction, action endpoint, permission, region, or Fabric release changes.</p>
+        <p>Use the audit and tracing surface to investigate unexpected behavior. Store links to the source evidence and downstream incident or change record. Review high rejection rates and user corrections as product feedback, not user error. Retire rules that no longer represent an active business process.</p>
+
+        <h2 id="pilot">Run a four-to-six-week Operations Agent pilot</h2>
+        <ol>
+          <li>Select one recurring operational process, accountable owner, representative data, current baseline, and measurable decision or response outcome.</li>
+          <li>Confirm region, capacity, tenant settings, Eventhouse source, Teams availability, identity, action endpoints, and support state for every required integration.</li>
+          <li>Write the use-case contract and deterministic KQL controls, then prepare historical incidents, normal periods, edge cases, and negative tests.</li>
+          <li>Configure goals, instructions, knowledge source, recipients, and recommendation-only actions; generate the playbook and inspect every rule and binding.</li>
+          <li>Replay the evaluation suite, remediate source and rule defects, and establish detection, false-positive, latency, and recommendation baselines.</li>
+          <li>Run in shadow mode with representative users, measure operator utility and capacity consumption, and review every missed or rejected case.</li>
+          <li>Add one low-risk action with least privilege, explicit approval, parameter validation, idempotency, postcondition checks, failure containment, and rollback.</li>
+          <li>Deliver configuration, playbook inventory, source queries, evaluation suite, identity model, action controls, operating runbook, cost baseline, limitations, and scale/hold/stop recommendation.</li>
+        </ol>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is Microsoft Fabric Operations Agent?</summary><p>Microsoft Fabric Operations Agent is an AI agent in Fabric Real-Time Intelligence that continuously monitors configured operational data, evaluates generated rules, analyzes matching conditions, and recommends or executes permitted actions. It can communicate through Microsoft Teams and records operational activity for review.</p></details>
+          <details><summary>Is Microsoft Fabric Operations Agent generally available?</summary><p>Microsoft announced general availability in June 2026 with rollout across regions. Individual integrations can have separate support states. For example, ontology-based monitoring and the remote MCP server are documented as preview. Confirm the current status, region, capacity, tenant setting, source, action, API, and governance requirement in the target tenant before production approval.</p></details>
+          <details><summary>What data can a Fabric Operations Agent monitor?</summary><p>Current Microsoft guidance supports Eventhouse and KQL database data, with documented limitations on source types and monitored rule patterns. Fabric IQ Ontology can also be used as a knowledge source through a separately documented preview integration. A pilot should validate the exact table, property, timeseries, rule, query, region, and refresh behavior required by the use case.</p></details>
+          <details><summary>How should Fabric Operations Agent actions be governed?</summary><p>Start with recommendations or low-impact reversible actions. Use least privilege, explicit parameters, approval policy, idempotency, validation, timeout, rollback, and audit evidence. Test that queries and actions run under the intended identity. Microsoft documents that the agent uses the delegated identity and permissions of its creator, even when another recipient approves a recommendation.</p></details>
+          <details><summary>How long does a Microsoft Fabric Operations Agent pilot take?</summary><p>A bounded pilot for one operational process can often be completed in four to six weeks when representative Eventhouse data, process owners, expected incidents, action endpoints, Teams users, security approvals, and measurable baselines are available. Production rollout should follow only after replay, shadow-mode, permission, cost, failure, and live acceptance tests pass.</p></details>
+        </div>
+
+        <h2>Official implementation references</h2>
+        <ul>
+          <li><a href="https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/Advancing-autonomous-action-with-operations-agent-Generally/ba-p/5192046">Microsoft Fabric Operations Agent general-availability announcement</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent">Microsoft Fabric Operations Agent overview</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-limitations">Operations Agent best practices and limitations</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/operations-agent-billing">Operations Agent capacity and billing</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/iq/ontology/how-to-create-operations-agent">Operations Agent with Fabric IQ Ontology</a></li>
+          <li><a href="https://learn.microsoft.com/en-us/fabric/real-time-intelligence/mcp-remote-operations-agent">Operations Agent remote MCP server</a></li>
+        </ul>
+
+        <section class="readiness-actions"><p><strong>Choose one operational condition where faster, more consistent response has a measurable owner and value.</strong> Datrick can prepare the real-time source, implement the Operations Agent, evaluate the control loop, and define a defensible production decision.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;utm_source=fabric_operations_agent&amp;utm_medium=organic_content&amp;utm_campaign=fabric_operations_agent_pilot&amp;utm_content=article_end#inquiry-form">Scope an Operations Agent pilot</a></div></section>
+        <p>If a rule misses known incidents or repeatedly messages the same unresolved state, <a href="microsoft-fabric-operations-agent-rule-not-triggering-state-transition-duplicate-alert-assessment">assess the generated query, time semantics, state and transition condition, and replay evidence</a>.</p>
+        <p>Before enabling a production-changing action, <a href="microsoft-fabric-operations-agent-creator-identity-teams-approval-action-security-assessment">assess the creator identity, Teams approval, parameters, downstream authority, and offboarding path</a>.</p>
+        <p>If developers or operators will manage the agent through Visual Studio Code or GitHub Copilot CLI, <a href="microsoft-fabric-operations-agent-remote-mcp-server-implementation-security-assessment">secure the remote MCP query and configure endpoints, identities, tools, changes, audit, and rollback</a>.</p>
+        <p>If the agent will monitor a business semantic layer instead of a direct Eventhouse table, <a href="microsoft-fabric-operations-agent-fabric-iq-ontology-knowledge-source-implementation-assessment">validate the Fabric IQ Ontology entities, relationships, bindings, freshness, generated rules, and action parameters</a>.</p>
+        <p>For repeatable dev-test-production promotion, <a href="microsoft-fabric-operations-agent-rest-api-cicd-deployment-automation-assessment">govern the Operations Agent public definition, delegated API identity, environment rebinding, long-running updates, inactive-first release, behavioral tests, and rollback</a>.</p>
+        <p>If a live agent stops messaging, misses expected conditions, or fails an approved action, <a href="microsoft-fabric-operations-agent-production-incident-response-troubleshooting-support">trace and contain the production incident across source, query, rule, state, Teams, identity, action, capacity, and recent changes</a>.</p>
+        <p>For a production NOC use case, <a href="microsoft-fabric-operations-agent-pipeline-monitoring-long-running-failed-runs-assessment">monitor Fabric pipeline failures, long-running and missing runs through workspace ItemJobEventLogs, deterministic controls, agent context, Teams escalation, and replay</a>.</p>
+        <nav class="article-next" aria-label="Resource next steps"><a href="microsoft-fabric-data-agent-eventhouse-kql-nl2kql-accuracy-assessment"><span>Read-only Eventhouse insight</span><strong>Evaluate Data Agent NL2KQL answers</strong></a><a href="microsoft-fabric-ai-agent-observability-cost-governance-assessment"><span>Agent economics</span><strong>Measure total CU and workload impact</strong></a></nav>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

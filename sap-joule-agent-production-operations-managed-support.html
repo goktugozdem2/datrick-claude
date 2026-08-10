@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAP Joule Agent Production Operations and Support | Datrick</title>
+    <meta name="description" content="Managed SAP Joule agent post-go-live support for traces, tools, approvals, BTP environments, transports, incidents, deployment drift, and AI consumption.">
+    <link rel="canonical" href="https://datrick.com/sap-joule-agent-production-operations-managed-support">
+    <meta property="og:title" content="SAP Joule Agent Production Operations and Support | Datrick">
+    <meta property="og:description" content="Operate Joule agents with accountable traces, tools, approvals, BTP environments, transport, incident response, releases, and consumption governance.">
+    <meta property="og:url" content="https://datrick.com/sap-joule-agent-production-operations-managed-support">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Service", "name": "SAP Joule Agent Production Operations and Managed Support", "description": "Ongoing SAP Joule agent operations covering traces, request logs, tools, approvals, BTP environments, transport, deployment drift, incidents, controlled releases, consumption, and reporting.", "url": "https://datrick.com/sap-joule-agent-production-operations-managed-support", "provider": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "areaServed": "Global", "audience": {"@type": "BusinessAudience", "audienceType": "Enterprises, managed service providers, and SAP service firms operating production Joule agents"}},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is included in SAP Joule agent managed support?", "acceptedAnswer": {"@type": "Answer", "text": "A defined service can include Joule agent and skill health, trace and request-log investigation, tools and human approvals, private and shared environments, BTP destinations and identities, transport between tenants, deployment drift, incidents, controlled releases, AI consumption, runbooks, and reporting. Scope depends on the Joule edition, agents, SAP products, environments, integrations, access, and accepted responsibility boundary."}},
+            {"@type": "Question", "name": "Can you troubleshoot a Joule agent with traces and request logs?", "acceptedAnswer": {"@type": "Answer", "text": "For supported Joule Studio tests, the Timeline view exposes nested events and traces, Request Logs shows request details, and the Chart view shows time by step. Production support also needs BTP, destination, authentication, SAP application, tool, approval, deployment, and business-record evidence. Some content-based agent implementations do not support execution trace and log debugging, so the service boundary must identify the edition and available telemetry."}},
+            {"@type": "Question", "name": "How do you safely deploy Joule agents to production?", "acceptedAnswer": {"@type": "Answer", "text": "Release a tested project version, transport the validated project to the production tenant using SAP Cloud Transport Management or controlled export and import, configure a shared environment and variables, verify the AI Agent Builder activation and authorizations, deploy with conflict checks, run accepted smoke and business-state tests, and preserve a rollback or stop path. Shared Joule deployment can conflict with SAP standard capabilities and requires extra testing."}},
+            {"@type": "Question", "name": "How do you control sensitive actions in a Joule agent?", "acceptedAnswer": {"@type": "Answer", "text": "Limit environment access to authorized users or groups, apply least privilege to BTP and target-system identities, define tools narrowly, validate inputs and outputs, require human approval for consequential actions, protect destinations and credentials, test denied and injection scenarios, reconcile target records, and maintain an emergency stop path."}},
+            {"@type": "Question", "name": "How long does SAP Joule agent support onboarding take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused onboarding commonly takes two to four weeks for a representative agent portfolio. It covers tenant and project inventory, ownership, traces and log baselines, tools and approvals, environments and identities, transports, open incidents, releases, consumption, runbooks, controlled failure exercises, and acceptance of the steady-state support scope."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">SAP Joule post-go-live operations</p>
+        <h1>A deployed Joule agent is not an operated SAP process.</h1>
+        <p class="page-lede">Operate SAP Joule agents with accountable traces and request logs, tools and approvals, BTP environments and identities, incident response, controlled transport and releases, consumption, and service evidence.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=sap_joule_support&amp;utm_medium=organic_content&amp;utm_campaign=sap_agentops&amp;utm_content=hero#inquiry-form">Describe the Joule estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>SAP AgentOps</span><span>11 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Service boundary</a><a href="#scope">Operating scope</a><a href="#evidence">Trace and test evidence</a><a href="#incidents">Incident response</a><a href="#onboarding">Onboarding</a></nav>
+
+        <p>Joule Studio can build skills and agents, orchestrate multistep work, call SAP and external tools, request human approval, and deploy released projects into BTP-backed environments. Control Tower, environments, timeline traces, request logs, project versions, transport, and shared capability management provide essential platform controls. They do not decide who owns a loop, a failed destination, an outdated capability, a tool that posts the wrong SAP transaction, or an undeploy that removes production triggers and variables.</p>
+        <p>Datrick provides an ongoing operating layer for an agreed Joule estate. Named engineers correlate agents, skills, project versions, traces, request logs, tools, approvals, BTP subaccounts, destinations, identities, environments, shared assistants, transport, SAP application records, user reports, consumption, releases, and target outcomes. SAP Support remains the escalation path for platform defects. Datrick owns the client-specific diagnosis, containment, validation, communication, change, and prevention accepted in the service boundary.</p>
+
+        <section class="readiness-actions"><p><strong>Do you have Joule agents but no team accountable for turning a failed trace, tool error, approval issue, deployment drift, or business-record mismatch into a verified outcome?</strong> Start with one production project.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=sap_joule_support&amp;utm_medium=organic_content&amp;utm_campaign=sap_agentops&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" href="white-label-ai-agent-operations-managed-support-for-msps">Review the MSP model</a></div></section>
+
+        <h2 id="boundary">Define ownership across Joule, BTP, SAP applications, and business outcomes</h2>
+        <p>A production path can include Joule, a shared or standalone assistant, a released Joule Studio project, agents and skills, dialog functions or other tools, human approval, BTP subaccounts and environments, IAS and role collections, destinations and APIs, Cloud Transport Management, SAP S/4HANA, SuccessFactors, Ariba, Concur or other systems, and the financial, HR, procurement, supply-chain, or service record that represents the outcome. Name which layers the managed service owns, observes, changes, coordinates, or excludes.</p>
+        <p>Document tenants, regions, subaccounts, environments, assistants, projects and versions, agents, skills, tools, destinations, identities, user groups, variables, triggers, transports, target systems, support hours, severity, response and update targets, quality bars, telemetry, data classes, change authority, consumption budgets, fallback, and SAP escalation.</p>
+
+        <h2 id="scope">Operate the complete SAP Joule production surface</h2>
+        <div class="article-table-wrap" role="region" aria-label="SAP Joule agent managed support scope" tabindex="0"><table class="article-table"><caption class="sr-only">SAP Joule agent managed support scope</caption>
+          <thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead>
+          <tbody>
+            <tr><td>Agents, skills, and execution</td><td>Invocation, agent plan, nested events, tool sequence, completion, loops, errors, latency, user input, final answer, and fallback.</td><td>Supported agents, skills, projects and versions, users, languages, hours, SLO, expected result, and human handoff.</td></tr>
+            <tr><td>Tools and approvals</td><td>Dialog functions, SAP capabilities, MCP or external tools, input schema, destination, identity, timeout, validation, approval, retry, and side effects.</td><td>Allowed tools, owner, action authority, approver, target SLO, idempotency, rollback, and emergency stop path.</td></tr>
+            <tr><td>Trace and request evidence</td><td>Timeline, nested event traces, request logs, step duration, configuration, network trace, region and subaccount evidence, errors, and user reports.</td><td>Edition and telemetry availability, role access, retention, sensitive data, alert route, baseline, and SAP incident evidence.</td></tr>
+            <tr><td>BTP identity and connectivity</td><td>Subaccount, IAS, roles, environments, user groups, destinations, TLS, credentials, MCP or API connectivity, region, and dependency health.</td><td>Platform owner, least privilege, identity authority, credential owner, network, dependency SLO, and security incident route.</td></tr>
+            <tr><td>Environment and deployment</td><td>Private and shared environments, Shared or Standalone assistant, project release, variables, triggers, deployment state, outdated capabilities, stop, redeploy, and undeploy.</td><td>Environment model, audience, capability conflicts, activation, variable source, trigger owner, stop authority, and restoration path.</td></tr>
+            <tr><td>Transport and lifecycle</td><td>Validated version, test-to-production tenant transfer, Cloud Transport Management or export/import, version and update visibility, release gate, canary, and rollback.</td><td>Source of truth, tenants, change authority, approval, freeze, compatibility, deployment order, and acceptance evidence.</td></tr>
+            <tr><td>Consumption and value</td><td>Agent executions, steps, retries, loops, model and AI units where applicable, BTP services, integration traffic, support effort, attribution, anomaly, and outcome.</td><td>Commercial owner, entitlement, budget, threshold, business KPI, unit economics, forecast, and optimization authority.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="evidence">Use traces and tests without assuming every Joule implementation has the same telemetry</h2>
+        <p>For supported Joule Studio testing, the Timeline view exposes nested events and traces, Request Logs exposes request detail, and the Chart view shows time consumption by step. Preserve the exact project and version, environment, prompt, user, event hierarchy, tool inputs and outputs, request JSON, duration, destination, target record, and recent change. SAP recommends including region, subaccount ID, reproduction steps, screenshots, and network trace when escalating a Joule Studio incident.</p>
+        <p>Telemetry varies by edition and implementation. SAP documents that some classic content-based agent implementations can be built and deployed without test or debug access to execution traces and logs. Inventory the actual runtime before promising observability. Where traces are unavailable, strengthen tool logs, destination monitoring, SAP application audit, business-state reconciliation, user feedback, synthetic tests, and controlled rollout.</p>
+        <p>Test representative users, roles, languages, ambiguous requests, missing data, unsafe instructions, approval and rejection, destination failure, timeout, conflicting shared capabilities, loops, and consequential SAP actions. A final answer is a terminal action for the turn; instructions that tell an agent to notify the user and continue can create unnecessary iterations. Verify the SAP target state independently of the conversational output.</p>
+
+        <h2 id="incidents">Distinguish agent, tool, identity, deployment, transport, and target-state failures</h2>
+        <div class="article-table-wrap" role="region" aria-label="SAP Joule agent production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">SAP Joule agent production incident matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead>
+          <tbody>
+            <tr><td>Loop, wrong plan, or incomplete answer</td><td>Project and version, agent configuration, timeline and traces, request log, tools, final-answer handling, user input, expected result, target record, and recent change.</td><td>Stop affected path, route to human, restore accepted version, preserve evidence, and correct impacted SAP records.</td><td>Representative tests, explicit terminal rules, step and retry limits, approval, canary, quality gate, and outcome SLO.</td></tr>
+            <tr><td>Tool, destination, or MCP failure</td><td>Tool schema and arguments, destination, authentication, target endpoint, request and response, timeout, retry, shared-environment projects, network trace, and target audit.</td><td>Disable tool or project, block replay, rotate credential if needed, use manual route, isolate records, and reconcile target state.</td><td>Contract and negative tests, least privilege, destination monitoring, timeout, idempotency, approval, fallback, and rollback.</td></tr>
+            <tr><td>Unsafe or duplicate SAP action</td><td>Agent instruction, tool definition, human approval flag and prompt, user identity, tool call, SAP transaction log, retry, and partial side effects.</td><td>Stop capability, prevent replay, revoke access if needed, hold downstream processing, correct transaction, and invoke security or business recovery.</td><td>Human approval, narrow tools, validation, idempotency, authorization test, target reconciliation, and emergency stop.</td></tr>
+            <tr><td>Deployment drift or ghost capability</td><td>Shared Capabilities status, Joule Studio environment, Shared Assistant, project and version, last update, deployment warning, authentication, variable and trigger state.</td><td>Stop outdated capability, preserve configuration, redeploy the accepted version to the correct environment, and validate users and triggers.</td><td>Deployment inventory, drift check, post-deploy reconciliation, environment ownership, smoke test, and controlled undeploy runbook.</td></tr>
+            <tr><td>Transport or release regression</td><td>Source and target tenant, released version, transport request or export package, environment variables, user groups, activation, SAP standard capability conflict, tests, and recent SAP release.</td><td>Stop rollout, restore prior accepted capability or manual fallback, isolate affected users, and preserve transport evidence.</td><td>Cloud Transport Management, versioned package, conflict test, representative tenant, canary, change approval, and rollback.</td></tr>
+            <tr><td>Unexpected consumption or latency</td><td>Executions, steps, tools, retries, loops, model or AI units, BTP service usage, destinations, traffic mix, step chart, target outcome, and recent change.</td><td>Stop loops, narrow traffic, disable noncritical capability, route to human, protect budget, and notify the commercial owner.</td><td>Per-project attribution, budget and anomaly alert, step limits, test separation, latency baseline, forecast, and unit economics.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Safe replay is a business decision, not merely another Joule invocation. Before rerunning a failed agent, determine whether a tool already created, changed, released, approved, paid, hired, allocated, or communicated an SAP record. Use idempotency, approval, and target-state reconciliation for consequential actions.</p>
+
+        <h2>Control shared environments, deployment conflicts, and undeploy impact</h2>
+        <p>Use shared environments to restrict agent and skill access to authorized users or groups. A project deployed to the Shared Joule assistant can conflict with SAP standard capabilities, so run intent, routing, permission, and regression tests before broad exposure. Track the deployed version and last update, and monitor warning states where a capability exists only in the Shared Assistant or only in the Joule Studio environment.</p>
+        <p>Undeploy is not a harmless delete. SAP documents that undeploy can remove environment variables, triggers, dependent artifacts, and job information. Before stopping or undeploying a capability, preserve its configuration, dependency and trigger inventory, current work, target-system state, restoration procedure, and business-owner approval. Use stop or narrow access first when evidence is incomplete.</p>
+
+        <h2>Transport validated versions and preserve a production restoration path</h2>
+        <p>Release a project version before deployment. Transfer validated projects from test to production tenants through SAP Cloud Transport Management when available, or controlled export and import when it is not. Recreate or verify the production shared environment, variables, roles, user groups, destinations, activation toggle, and target-system connectivity. Deploy the released version, reconcile Shared Capabilities status, run smoke and business-state tests, and canary the intended audience.</p>
+        <p>Maintain a compatibility inventory for Joule Studio edition, BTP region, SAP applications, assistant type, destinations, tools, models, and platform releases. Re-run critical trace, tool, approval, role, transport, and transaction tests after SAP changes. A platform or capability update is an agent release even when project instructions did not change.</p>
+
+        <h2 id="onboarding">Onboard through inventory, baselines, controlled failures, and shadow operations</h2>
+        <ol>
+          <li><strong>Inventory:</strong> tenants, regions, subaccounts, environments, assistants, projects, versions, agents, skills, tools, destinations, identities, variables, triggers, transports, telemetry, and outcomes.</li>
+          <li><strong>Responsibility:</strong> define supported layers, SLOs, severity, access, data handling, quality, change authority, budget, dependencies, fallback, SAP escalation, and exclusions.</li>
+          <li><strong>Baseline:</strong> measure executions, completion, trace and log coverage, steps, tools, latency, errors, approvals, target-state success, deployment drift, consumption, and incidents.</li>
+          <li><strong>Controls:</strong> validate environment access, identities, destinations, human approval, tests, transport, deployment reconciliation, safe replay, stop and restoration, and consumption alerts.</li>
+          <li><strong>Exercise:</strong> rehearse a loop, failed tool, duplicate action, rejected approval, expired credential, ghost capability, transport failure, undeploy impact, consumption spike, and platform incident.</li>
+          <li><strong>Transition:</strong> operate in shadow, close or accept material gaps, publish runbooks and escalation routes, and accept the steady-state support scope.</li>
+        </ol>
+
+        <section class="readiness-actions"><p><strong>Start with the Joule agents that already create financial, workforce, procurement, supply-chain, or service consequence.</strong> Datrick can define the operating boundary, close material control gaps, and transition one portfolio into managed support.</p><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=sap_joule_support&amp;utm_medium=organic_content&amp;utm_campaign=sap_agentops&amp;utm_content=article_end#inquiry-form">Request a Joule operations review</a></section>
+
+        <h2>Official references and adjacent operating guides</h2>
+        <ul>
+          <li><a href="https://help.sap.com/docs/joule-studio-classic/joule-studio-classic-edition/test-your-joule-agent">Test a Joule agent and inspect traces</a></li>
+          <li><a href="https://help.sap.com/docs/Joule_Studio/45f9d2b8914b4f0ba731570ff9a85313/cb4c061a5d55492d80dd9204a32b74c1.html">Deploy a Joule Studio project</a></li>
+          <li><a href="https://help.sap.com/docs/Joule_Studio/45f9d2b8914b4f0ba731570ff9a85313/3cf6b29cc88845eab9e126f3a35e5548.html">Transfer Joule projects across tenants</a></li>
+          <li><a href="https://help.sap.com/docs/Joule_Studio/45f9d2b8914b4f0ba731570ff9a85313/6b0a25c11bc54daf84c29a5f9b82c87d.html">Manage Joule skills and agents across environments</a></li>
+          <li><a href="https://help.sap.com/docs/joule-studio-classic/joule-studio-classic-edition/governance-and-safety-controls">Joule governance and safety controls</a></li>
+          <li><a href="https://help.sap.com/docs/Joule_Studio/45f9d2b8914b4f0ba731570ff9a85313/f4cd9241a8e14f13ba960efc81501dd6.html">Joule Studio troubleshooting and request logs</a></li>
+          <li><a href="white-label-ai-agent-operations-managed-support-for-msps">White-label AI agent managed support for MSPs</a></li>
+          <li><a href="managed-human-evaluation-ai-agents">Managed human evaluation for AI agents</a></li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is included in SAP Joule agent managed support?</summary><p>A defined service can include Joule agent and skill health, trace and request-log investigation, tools and human approvals, private and shared environments, BTP destinations and identities, transport between tenants, deployment drift, incidents, controlled releases, AI consumption, runbooks, and reporting. Scope depends on the Joule edition, agents, SAP products, environments, integrations, access, and accepted responsibility boundary.</p></details>
+          <details><summary>Can you troubleshoot a Joule agent with traces and request logs?</summary><p>For supported Joule Studio tests, the Timeline view exposes nested events and traces, Request Logs shows request details, and the Chart view shows time by step. Production support also needs BTP, destination, authentication, SAP application, tool, approval, deployment, and business-record evidence. Some content-based agent implementations do not support execution trace and log debugging, so the service boundary must identify the edition and available telemetry.</p></details>
+          <details><summary>How do you safely deploy Joule agents to production?</summary><p>Release a tested project version, transport the validated project to the production tenant using SAP Cloud Transport Management or controlled export and import, configure a shared environment and variables, verify the AI Agent Builder activation and authorizations, deploy with conflict checks, run accepted smoke and business-state tests, and preserve a rollback or stop path. Shared Joule deployment can conflict with SAP standard capabilities and requires extra testing.</p></details>
+          <details><summary>How do you control sensitive actions in a Joule agent?</summary><p>Limit environment access to authorized users or groups, apply least privilege to BTP and target-system identities, define tools narrowly, validate inputs and outputs, require human approval for consequential actions, protect destinations and credentials, test denied and injection scenarios, reconcile target records, and maintain an emergency stop path.</p></details>
+          <details><summary>How long does SAP Joule agent support onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for a representative agent portfolio. It covers tenant and project inventory, ownership, traces and log baselines, tools and approvals, environments and identities, transports, open incidents, releases, consumption, runbooks, controlled failure exercises, and acceptance of the steady-state support scope.</p></details>
+        </div>
+
+        <div class="article-next"><p>Need the same support model across several agent platforms?</p><a href="white-label-ai-agent-operations-managed-support-for-msps">Review white-label AI agent managed support for MSPs</a></div>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

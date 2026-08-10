@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Amazon Bedrock AgentCore Managed Services and Support | Datrick</title>
+    <meta name="description" content="Managed Amazon Bedrock AgentCore production support for runtime, observability, evaluations, identity, gateway, memory, policy, incidents, and cost.">
+    <link rel="canonical" href="https://datrick.com/amazon-bedrock-agentcore-managed-services-production-support">
+    <meta property="og:title" content="Amazon Bedrock AgentCore Managed Services and Support | Datrick">
+    <meta property="og:description" content="Operate Bedrock AgentCore with accountable observability, evaluation, identity, tools, memory, incidents, releases, security, and cost governance.">
+    <meta property="og:url" content="https://datrick.com/amazon-bedrock-agentcore-managed-services-production-support">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {"@type": "Service", "name": "Amazon Bedrock AgentCore Managed Services and Production Support", "description": "Ongoing Bedrock AgentCore operations covering Runtime, Observability, Evaluations, Identity, Gateway, Memory, Policy, incidents, controlled releases, security, cost, and reporting.", "url": "https://datrick.com/amazon-bedrock-agentcore-managed-services-production-support", "provider": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"}, "areaServed": "Global", "audience": {"@type": "BusinessAudience", "audienceType": "Enterprises, managed service providers, and IT service firms operating production AI agents on AWS Bedrock AgentCore"}},
+          {"@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": "What is included in Amazon Bedrock AgentCore managed services?", "acceptedAnswer": {"@type": "Answer", "text": "A defined managed service can include Runtime and session monitoring, CloudWatch traces and metrics, continuous and batch evaluation, Gateway and tool support, Identity and credentials, Memory, Policy, Browser or Code Interpreter dependencies, incidents, controlled releases, IAM and network security, quotas, cost, runbooks, and service reporting. Scope depends on the architecture, enabled services, regions, access, and accepted responsibility boundary."}},
+            {"@type": "Question", "name": "Does AgentCore Observability detect wrong agent answers automatically?", "acceptedAnswer": {"@type": "Answer", "text": "Observability exposes traces, logs, and metrics such as sessions, latency, duration, token usage, and errors, but an agent can complete without a technical error and still choose the wrong tool or produce a poor outcome. AgentCore Evaluations, custom evaluators, representative ground truth, target-state checks, user feedback, and calibrated human review are needed to monitor quality."}},
+            {"@type": "Question", "name": "How do you troubleshoot an AgentCore Runtime incident?", "acceptedAnswer": {"@type": "Answer", "text": "Preserve the runtime ARN, endpoint, version, session ID, request, trace, logs, container and architecture, execution role, inbound authentication, model and tool dependencies, response status, quotas, target state, and recent changes. Check the documented runtime log group, reproduce locally with the same payload, classify authentication, startup, validation, application, timeout, and session-lifecycle failures, and verify side effects before retry."}},
+            {"@type": "Question", "name": "How do you secure Amazon Bedrock AgentCore Runtime?", "acceptedAnswer": {"@type": "Answer", "text": "Use least-privilege custom IAM policies rather than development-oriented broad policies, scope trust and runtime permissions, enable required metadata protections, run containers as non-root, separate user-delegated and autonomous credentials, use AgentCore Identity for outbound credentials, constrain network paths, protect logs and traces, test denied actions, and maintain an emergency disable path."}},
+            {"@type": "Question", "name": "How long does Bedrock AgentCore support onboarding take?", "acceptedAnswer": {"@type": "Answer", "text": "A focused onboarding commonly takes two to four weeks for a representative agent portfolio. It covers inventory, responsibility, runtime and session health, observability, evaluation and cost baselines, identity and tools, memory and policy, open incidents, releases, quotas, runbooks, controlled failure exercises, and acceptance of the steady-state scope."}}
+          ]}
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero"><div>
+        <p class="eyebrow">Amazon Bedrock AgentCore AgentOps</p>
+        <h1>AgentCore provides the control plane. Your service still needs an operator.</h1>
+        <p class="page-lede">Operate Amazon Bedrock AgentCore with accountable runtime and session monitoring, evaluations, identity, gateway and tools, memory, policy, incident response, controlled releases, quotas, cost, and service evidence.</p>
+        <div class="hero-actions article-hero-actions"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=bedrock_agentcore_support&amp;utm_medium=organic_content&amp;utm_campaign=aws_agentops&amp;utm_content=hero#inquiry-form">Describe the AgentCore estate</a></div>
+        <div class="article-meta"><a href="resources.html">Resource library</a><span>AWS AgentOps</span><span>12 min read</span></div>
+      </div></section>
+
+      <section class="section service-band"><article class="article-body">
+        <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#boundary">Service boundary</a><a href="#scope">Operating scope</a><a href="#observability">Observability</a><a href="#incidents">Incident response</a><a href="#onboarding">Onboarding</a></nav>
+
+        <p>Amazon Bedrock AgentCore provides managed services for running, observing, evaluating, securing, and connecting AI agents built with different frameworks and models. Runtime, Observability, Evaluations, Identity, Gateway, Memory, Policy, Browser, Code Interpreter, and Registry can remove substantial platform work. They do not decide whether a wrong tool call harmed a business process, whether memory should be corrected, whether an evaluation is calibrated, whether a stalled session should be terminated, or whether a release is safe for a client.</p>
+        <p>Datrick provides an ongoing operating layer for an agreed AgentCore estate. Named engineers correlate CloudWatch traces, metrics and logs with runtime sessions, evaluators, identities, gateways, tools, memory, policies, models, deployments, user reports, cost, and target-system outcomes. AWS Support remains the escalation path for platform defects. Datrick owns the client-specific diagnosis, containment, validation, communication, release, and prevention accepted in the service boundary.</p>
+
+        <section class="readiness-actions"><p><strong>Do you have AgentCore dashboards but no team accountable for turning a quality drop, stuck session, tool error, credential issue, or quota spike into a verified client outcome?</strong> Start with one agent portfolio.</p><div class="readiness-action-links"><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=bedrock_agentcore_support&amp;utm_medium=organic_content&amp;utm_campaign=aws_agentops&amp;utm_content=article_intro#inquiry-form">Send the operating context</a><a class="button secondary" href="white-label-ai-agent-operations-managed-support-for-msps">Review the MSP model</a></div></section>
+
+        <h2 id="boundary">Define ownership across AgentCore services, agent code, AWS dependencies, and outcomes</h2>
+        <p>A production path can include a channel or API, AgentCore Runtime or harness, a framework, models inside or outside Bedrock, AgentCore Gateway and tools, Identity and credential providers, Memory, Policy and Guardrails, Browser or Code Interpreter, A2A or MCP services, ECR and build pipelines, IAM, VPC endpoints, CloudWatch, evaluators, databases, queues, and downstream business systems. Name which layers the managed service owns, observes, changes, coordinates, or excludes.</p>
+        <p>Document accounts, organizations, regions, runtime ARNs, versions and endpoints, frameworks, models, sessions, tools, gateways, identities, memory stores, evaluators, policies, networks, environments, hours, severity, response and update targets, telemetry, data classes, change authority, support plan, quota, and fallback. A service called “AgentCore managed support” must still state which AgentCore services are actually enabled and instrumented.</p>
+
+        <h2 id="scope">Operate the complete Bedrock AgentCore production surface</h2>
+        <div class="article-table-wrap" role="region" aria-label="Amazon Bedrock AgentCore managed services scope" tabindex="0"><table class="article-table"><caption class="sr-only">Amazon Bedrock AgentCore managed services scope</caption>
+          <thead><tr><th scope="col">Service area</th><th scope="col">Managed responsibility</th><th scope="col">Boundary to define</th></tr></thead>
+          <tbody>
+            <tr><td>Runtime and sessions</td><td>Invocation, stream, asynchronous job, session health and lifecycle, latency, timeout, error, container, allocation, concurrency, orphan cleanup, and fallback.</td><td>Supported runtimes and endpoints, protocols, regions, hours, SLO, quota, model and framework, and restoration authority.</td></tr>
+            <tr><td>Observability and evaluations</td><td>CloudWatch metrics, traces and logs, OTEL instrumentation, transaction search, evaluator coverage and calibration, quality alerts, and human review.</td><td>Telemetry layers, data sensitivity, retention, metrics, ground truth, thresholds, sample rate, evaluator model, reviewer, and cost.</td></tr>
+            <tr><td>Gateway, tools, and actions</td><td>Discovery, schema, MCP or API target, authentication, authorization, timeout, error, policy, approval, side effect, retry, idempotency, and rollback.</td><td>Allowed tools, action owner, least privilege, user delegation, monetary or data impact, human approval, and emergency disable path.</td></tr>
+            <tr><td>Identity and security</td><td>Inbound auth, runtime execution role, AgentCore Identity, outbound credentials, user attribution, IAM conditions, VPC endpoint, secrets, and access review.</td><td>Security authority, principal model, autonomous versus delegated access, network, credential owner, incident route, and evidence retention.</td></tr>
+            <tr><td>Memory and policy</td><td>Short and long-term memory behavior, namespace and user isolation, extraction and retrieval, stale or poisoned state, retention, policy enforcement, and Guardrails.</td><td>Authoritative memory, user and tenant key, data classes, deletion, evaluator, enforcement point, exception, and business acceptance.</td></tr>
+            <tr><td>Release and lifecycle</td><td>Agent code, framework, model, container or direct deployment, architecture, Runtime version and endpoint, Gateway, policy, memory, evaluator, rollout, and rollback.</td><td>Source of truth, environments, build chain, approval, test gate, alias strategy, freeze window, compatibility, and acceptance evidence.</td></tr>
+            <tr><td>Quota, cost, and value</td><td>Runtime CPU and memory, sessions, models, tokens, gateways, identity, memory, browser, code execution, evaluations, CloudWatch, network, and support effort.</td><td>Billing owner, tags and attribution, quotas, budgets, limits, anomaly threshold, unit economics, and optimization authority.</td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="observability">Use observability and evaluation together, then verify the business state</h2>
+        <p>AgentCore emits OTEL-compatible telemetry to CloudWatch and provides metrics for session volume, latency, duration, token usage, errors, and service-specific resources. Enable the required CloudWatch Transaction Search setup, use stable metadata for client, workload, runtime version, endpoint, session, model and tool, and instrument custom spans around business-critical decisions. Monitor telemetry ingestion, permissions, retention, sampling, dashboard availability, and alert delivery.</p>
+        <p>An agent can return successfully and still select the wrong tool, loop, ignore evidence, omit a required step, or update the wrong state. AgentCore Evaluations can score traces with built-in, LLM-as-a-judge, or code-based evaluators. Calibrate evaluators against representative ground truth and expert review. Monitor evaluator coverage, version, false positives, false negatives, failure, model cost, and drift. A quality score is not reliable when the sampled traffic or judge changed silently.</p>
+        <p>Correlate the runtime session ID with model calls, tools, memory, Gateway targets, identity, approvals, target audits, user feedback, and deployment. AWS exposes the session ID to agent code and custom runtimes for downstream tagging. Use it to prove what occurred across S3 objects, queues, logs, external APIs, and business systems. Preserve evidence before stopping, retrying, or deleting a session.</p>
+
+        <h2 id="incidents">Distinguish platform, container, identity, session, tool, quality, and target-state failures</h2>
+        <div class="article-table-wrap" role="region" aria-label="Amazon Bedrock AgentCore production incident matrix" tabindex="0"><table class="article-table"><caption class="sr-only">Amazon Bedrock AgentCore production incident matrix</caption>
+          <thead><tr><th scope="col">Symptom</th><th scope="col">Evidence to reconcile</th><th scope="col">Safe containment</th><th scope="col">Permanent control</th></tr></thead>
+          <tbody>
+            <tr><td>Runtime 403, 422, 500, or 504</td><td>Invocation and payload, runtime and endpoint, version, container startup logs, architecture, execution role, bearer token, MMDS config, application stack, timeout, and dependency.</td><td>Preserve the request and logs, stop rollout, use accepted endpoint or fallback, and reproduce locally with the exact payload.</td><td>Contract test, non-root and compatible image, startup probe, least-privilege role, auth test, timeout budget, canary, and rollback.</td></tr>
+            <tr><td>Stuck or quota-exhausting sessions</td><td>Session ID, health and last-update behavior, idle and lifetime settings, active workload count, stream or tool state, ping implementation, quota, and cleanup calls.</td><td>Stop unresponsive sessions, pause new traffic, protect active users, and verify no task or side effect is abandoned.</td><td>Correct health timestamp, session lifecycle metric, expiry and cleanup, quota alert, load test, and runbook.</td></tr>
+            <tr><td>Wrong tool or unsafe action</td><td>Trace, request, identity, policy and Guardrail, Gateway target, schema, arguments, result, approval, retry, memory, evaluator, and target audit.</td><td>Disable tool or route, revoke credential, stop session, block replay, isolate affected records, and invoke security or business recovery.</td><td>Least privilege, deterministic policy, negative and injection tests, approval, idempotency, evaluator, target reconciliation, and rollback.</td></tr>
+            <tr><td>Quality regression without technical error</td><td>Trace and output, evaluator scores and version, model, prompt and framework, tools, memory, traffic mix, expected result, user feedback, and recent release.</td><td>Narrow users, require review, restore accepted version, disable affected path, and correct business outcomes.</td><td>Representative ground truth, calibrated evaluators, sampled expert review, canary, release gate, and outcome SLO.</td></tr>
+            <tr><td>Credential or permission failure</td><td>Caller and user, inbound auth, execution role, trust conditions, Identity credential provider, token and expiry, scopes, VPC endpoint, target policy, and audit logs.</td><td>Rotate or revoke credential, stop affected action, restore approved role, preserve evidence, and use manual fallback.</td><td>Credential-expiry alert, user versus autonomous separation, scoped IAM, policy-as-code, access review, and negative tests.</td></tr>
+            <tr><td>Unexpected cost or throttling</td><td>Sessions, duration, CPU and memory, tokens, model, loops, retries, tools, Gateway, memory, browser, code execution, evaluations, CloudWatch, network, quotas, and workload mix.</td><td>Stop loops, cap iterations and tokens, pause noncritical traffic, terminate idle sessions, reduce concurrency, or use fallback.</td><td>Per-agent tags, cost dashboard, anomaly alert, configurable limits, quota forecast, load test, lifecycle cleanup, and unit economics.</td></tr>
+          </tbody>
+        </table></div>
+
+        <p>Safe replay is a business decision, not only an HTTP retry. Before reinvoking a failed runtime, check whether the model streamed partial output, a tool or external API already changed state, memory persisted a result, or an approval remains pending. Use idempotency keys and target-state reconciliation for consequential actions. Separate retryable transport failure from an application error or an unsafe partial execution.</p>
+
+        <h2>Harden runtime identities and containers beyond development defaults</h2>
+        <p>AWS warns that CLI-generated policies are intended for development and can be too broad for production. Use custom least-privilege policies scoped to runtime ARNs and required actions, constrain execution-role trust with source conditions, and control user-delegated invocation. Agent code inside the microVM can access execution-role credentials, so the role must not hold permissions the agent does not need.</p>
+        <p>Use AgentCore Identity to keep outbound OAuth and API credentials out of code and logs. Separate user-delegated authorization from autonomous service credentials. Run custom containers as non-root, use compatible architecture and size, pin build dependencies, and maintain required metadata protections. AWS requires MMDSv2 for Runtime invocations from June 30, 2026; include that setting in deployment compliance and canary checks.</p>
+
+        <h2 id="onboarding">Onboard through service inventory, telemetry, controlled failures, and shadow operations</h2>
+        <ol>
+          <li><strong>Inventory:</strong> accounts, regions, runtimes, versions, endpoints, frameworks, models, sessions, gateways, tools, identities, memory, policies, evaluators, networks, telemetry, and outcomes.</li>
+          <li><strong>Responsibility:</strong> define supported services, SLOs, severity, access, data handling, change authority, support plan, quota, dependencies, fallback, and exclusions.</li>
+          <li><strong>Baseline:</strong> measure runtime and task success, sessions, latency, tokens, errors, quality, evaluator coverage, tool and identity behavior, quotas, costs, incidents, and telemetry completeness.</li>
+          <li><strong>Controls:</strong> validate IAM and trust, outbound credentials, network, container and MMDSv2, policy and Guardrails, session cleanup, evaluations, safe replay, rollback, budgets, and fallback.</li>
+          <li><strong>Exercise:</strong> rehearse a startup 403, malformed payload, timeout, stuck session, wrong tool, credential expiry, memory error, quality regression, cost spike, and platform incident.</li>
+          <li><strong>Transition:</strong> operate in shadow, close or accept material gaps, publish runbooks and escalation routes, and accept the steady-state support scope.</li>
+        </ol>
+
+        <section class="readiness-actions"><p><strong>Start with the AgentCore workloads that already create client or operational consequence.</strong> Datrick can define the operating boundary, close material control gaps, and transition one portfolio into managed support.</p><a class="button primary" href="index.html?buyer_type=CTO%20%2F%20technical%20leader&amp;service=AI%20workflow%20automation&amp;urgency=Within%2030%20days&amp;engagement_type=Ongoing%20operations%20program&amp;utm_source=bedrock_agentcore_support&amp;utm_medium=organic_content&amp;utm_campaign=aws_agentops&amp;utm_content=article_end#inquiry-form">Request an AWS AgentOps review</a></section>
+
+        <h2>Official references and adjacent operating guides</h2>
+        <ul>
+          <li><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/">Amazon Bedrock AgentCore services overview</a></li>
+          <li><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html">AgentCore Observability, CloudWatch, and OTEL telemetry</a></li>
+          <li><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html">AgentCore Evaluations and automated quality assessment</a></li>
+          <li><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-troubleshooting.html">AgentCore Runtime troubleshooting and session failures</a></li>
+          <li><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-security-best-practices.html">AgentCore Runtime security best practices</a></li>
+          <li><a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/bedrock-agentcore-limits.html">AgentCore service quotas and runtime limits</a></li>
+          <li><a href="resource-production-ai-workflow.html">How to build a production-ready AI workflow</a></li>
+          <li><a href="managed-human-evaluation-ai-agents">Managed human evaluation for AI agents</a></li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+        <div class="faq-list">
+          <details><summary>What is included in Amazon Bedrock AgentCore managed services?</summary><p>A defined managed service can include Runtime and session monitoring, CloudWatch traces and metrics, continuous and batch evaluation, Gateway and tool support, Identity and credentials, Memory, Policy, Browser or Code Interpreter dependencies, incidents, controlled releases, IAM and network security, quotas, cost, runbooks, and service reporting. Scope depends on the architecture, enabled services, regions, access, and accepted responsibility boundary.</p></details>
+          <details><summary>Does AgentCore Observability detect wrong agent answers automatically?</summary><p>Observability exposes traces, logs, and metrics such as sessions, latency, duration, token usage, and errors, but an agent can complete without a technical error and still choose the wrong tool or produce a poor outcome. AgentCore Evaluations, custom evaluators, representative ground truth, target-state checks, user feedback, and calibrated human review are needed to monitor quality.</p></details>
+          <details><summary>How do you troubleshoot an AgentCore Runtime incident?</summary><p>Preserve the runtime ARN, endpoint, version, session ID, request, trace, logs, container and architecture, execution role, inbound authentication, model and tool dependencies, response status, quotas, target state, and recent changes. Check the documented runtime log group, reproduce locally with the same payload, classify authentication, startup, validation, application, timeout, and session-lifecycle failures, and verify side effects before retry.</p></details>
+          <details><summary>How do you secure Amazon Bedrock AgentCore Runtime?</summary><p>Use least-privilege custom IAM policies rather than development-oriented broad policies, scope trust and runtime permissions, enable required metadata protections, run containers as non-root, separate user-delegated and autonomous credentials, use AgentCore Identity for outbound credentials, constrain network paths, protect logs and traces, test denied actions, and maintain an emergency disable path.</p></details>
+          <details><summary>How long does Bedrock AgentCore support onboarding take?</summary><p>A focused onboarding commonly takes two to four weeks for a representative agent portfolio. It covers inventory, responsibility, runtime and session health, observability, evaluation and cost baselines, identity and tools, memory and policy, open incidents, releases, quotas, runbooks, controlled failure exercises, and acceptance of the steady-state scope.</p></details>
+        </div>
+
+        <div class="article-next"><p>Need the same support model across several agent platforms?</p><a href="white-label-ai-agent-operations-managed-support-for-msps">Review white-label AI agent managed support for MSPs</a></div>
+      </article></section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+  </body>
+</html>

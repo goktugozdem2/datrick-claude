@@ -1,237 +1,748 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Datrick | White-Label Data Operations Capacity</title>
-<meta name="description" content="Datrick provides white-label and direct data operations capacity for IT service firms and CTOs — DBA/NOC, migration, BI reporting, analytics, and AI workflow delivery for business-critical environments.">
-<link rel="stylesheet" href="/assets/styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Datrick | AI Strategy, Model Selection &amp; Production Delivery</title>
+    <meta
+      name="description"
+      content="Datrick helps technology leaders identify valuable AI use cases, select the right models, and move validated workflows into controlled production."
+    >
+    <link rel="canonical" href="https://datrick.com/">
+    <meta property="og:title" content="Datrick | AI Strategy, Model Selection &amp; Production Delivery">
+    <meta property="og:description" content="Vendor-neutral AI decision support, model selection, workflow implementation, evaluation, and managed operations backed by production data expertise.">
+    <meta property="og:url" content="https://datrick.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://datrick.com/#website",
+            "url": "https://datrick.com/",
+            "name": "Datrick",
+            "alternateName": "Datrick, Inc.",
+            "publisher": { "@id": "https://datrick.com/#organization" },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://datrick.com/#organization",
+            "name": "Datrick",
+            "legalName": "Datrick, Inc.",
+            "foundingDate": "2022",
+            "url": "https://datrick.com/",
+            "email": "info@datrick.com",
+            "telephone": "+1-725-895-5967",
+            "logo": "https://datrick.com/assets/datrick-logo.png",
+            "description": "US-incorporated, senior-led AI company helping technology leaders identify valuable use cases, select suitable models, validate workflows, and move them into controlled production. Delivery is backed by production data operations, integration, BI, and analytics expertise.",
+            "areaServed": "Global",
+            "sameAs": [
+              "https://www.linkedin.com/company/datrick/",
+              "https://www.goodfirms.co/company/datrick",
+              "https://clutch.co/profile/datrick"
+            ],
+            "founder": {
+              "@type": "Person",
+              "name": "Can Goktug Ozdem"
+            },
+            "location": [
+              { "@type": "Place", "name": "Wilmington, Delaware, United States" },
+              { "@type": "Place", "name": "Istanbul, Türkiye" }
+            ],
+            "serviceType": [
+              "AI readiness assessment",
+              "AI use-case value assessment",
+              "AI model selection",
+              "AI pilot design and evaluation",
+              "AI workflow implementation",
+              "Managed AI operations",
+              "AI model training and evaluation",
+              "Partner data operations",
+              "DBA/NOC coverage",
+              "Migration support",
+              "BI reporting",
+              "Analytics delivery"
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="content-role-core">
+    <a class="skip-link" href="#top">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Datrick home">
+        <img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115">
+        <span>Datrick</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="#contact">Start a conversation</a>
+    </header>
 
-<header class="site-header">
-  <div class="wrap">
-    <a class="logo" href="/"><span class="logo-mark">D</span>Datrick</a>
-    <button class="nav-toggle" onclick="document.getElementById('nav').classList.toggle('open')">Menu</button>
-    <nav class="main-nav" id="nav">
-      <a href="/etl">ETL</a>
-      <a href="/dwh">Data Warehouse</a>
-      <a href="/devops-engineers">DevOps</a>
-      <a href="/team">Team</a>
-      <a href="/blog">Blog</a>
-      <a href="/career">Career</a>
-      <a class="btn btn-primary" href="/schedule">Schedule an Intro Call</a>
-    </nav>
-  </div>
-</header>
+    <main id="top" tabindex="-1">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Vendor-neutral AI decision, implementation, and operations</p>
+          <h1>Decide where AI creates value. Move the right workflows into production.</h1>
+          <p class="hero-lede">
+            Datrick helps technology leaders prioritize AI use cases, select the right models, validate real workflow value, and build the controls required for dependable production use.
+          </p>
+          <div class="hero-actions hero-actions-two" aria-label="Primary actions">
+            <a class="button primary" href="ai-readiness-assessment-model-selection">Assess your AI opportunity</a>
+            <a class="button secondary" href="case-studies.html">Review delivery evidence</a>
+          </div>
+          <div class="hero-trust" aria-label="Datrick credibility">
+            <a href="anthropic.html">Claude Partner Network participant</a>
+            <a href="case-studies.html#ai-evaluation">Confidential leading-model evaluation experience</a>
+            <a class="result-badge" href="about.html#company-footprint">US-incorporated · Senior-led · Global delivery</a>
+          </div>
+          <dl class="hero-stats">
+            <div>
+              <dt>Decide</dt>
+              <dd>use-case value, model fit, readiness, risk, roadmap</dd>
+            </div>
+            <div>
+              <dt>Implement</dt>
+              <dd>workflow integration, evaluation, human control, rollout</dd>
+            </div>
+            <div>
+              <dt>Operate</dt>
+              <dd>monitoring, incidents, change control, continuous improvement</dd>
+            </div>
+          </dl>
+        </div>
 
-<section class="hero">
-  <div class="wrap">
-    <span class="kicker">Data Team as a Service</span>
-    <h1>White-label data operations capacity for teams that can't afford to slip</h1>
-    <p class="sub">Datrick helps IT service firms and CTOs add dependable DBA, migration, BI, analytics, and AI workflow support when a client environment needs immediate senior execution — without disrupting your account ownership.</p>
-    <div class="cta-row">
-      <a class="btn btn-primary btn-lg" href="/schedule">Schedule an Intro Call</a>
-      <a class="btn btn-light btn-lg" href="#services">Explore Services</a>
-    </div>
-    <p class="trust">Trusted across SaaS, e-commerce, logistics, credit, insurance, and enterprise BI environments.</p>
-  </div>
-</section>
+        <div class="ops-board" aria-label="Datrick AI decision-to-operations model">
+          <div class="board-header">
+            <span>AI delivery model</span>
+            <span class="status-dot">Vendor-neutral</span>
+          </div>
+          <div class="signal-grid">
+            <div class="signal-card green">
+              <span>Decision</span>
+              <strong>Value and model fit</strong>
+              <small>Prioritize use cases and compare suitable model routes against real constraints</small>
+            </div>
+            <div class="signal-card blue">
+              <span>Evidence</span>
+              <strong>Pilot the workflow</strong>
+              <small>Test quality, operating value, failure modes, integration, and total cost</small>
+            </div>
+            <div class="signal-card amber">
+              <span>Production</span>
+              <strong>Controls and ownership</strong>
+              <small>Implement access, evaluation, logging, human review, fallback, and support</small>
+            </div>
+            <div class="signal-card violet">
+              <span>Foundation</span>
+              <strong>Data and systems</strong>
+              <small>Production experience across databases, migration, BI, analytics, and operations</small>
+            </div>
+          </div>
+          <div class="pipeline" aria-hidden="true">
+            <span>Opportunity</span>
+            <i></i>
+            <span>Decision</span>
+            <i></i>
+            <span>Pilot</span>
+            <i></i>
+            <span>Production</span>
+          </div>
+        </div>
+      </section>
 
-<section id="services">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="kicker">What we deliver</span>
-      <h2>Senior execution across the data lifecycle</h2>
-      <p>One accountable partner covering the operational work that keeps client data environments healthy, current, and reportable.</p>
-    </div>
-    <div class="grid grid-3">
-      <div class="card">
-        <div class="icon">▣</div>
-        <h3>DBA &amp; NOC Coverage</h3>
-        <p>Ongoing database administration and monitoring for production environments — backups, performance tuning, incident response, and escalation paths your clients can rely on.</p>
-      </div>
-      <div class="card">
-        <div class="icon">⇄</div>
-        <h3>Migrations</h3>
-        <p>Custom migration plans with minimal downtime — platform moves, warehouse consolidations, and version upgrades executed with QA checkpoints at every stage.</p>
-        <a class="more" href="/dwh">Data warehouse services →</a>
-      </div>
-      <div class="card">
-        <div class="icon">▤</div>
-        <h3>ETL &amp; Data Pipelines</h3>
-        <p>Data models, ETL/ELT pipelines, and transformation layers built across modern warehouse, reporting, and transformation platforms.</p>
-        <a class="more" href="/etl">ETL consulting →</a>
-      </div>
-      <div class="card">
-        <div class="icon">◫</div>
-        <h3>BI Reporting</h3>
-        <p>Dashboards and KPI systems that decision-makers actually use — designed, rebuilt, or rescued when reporting breaks and nobody owns the fix.</p>
-      </div>
-      <div class="card">
-        <div class="icon">◔</div>
-        <h3>Analytics</h3>
-        <p>Analytical models and metrics layers grounded in real data, with documentation that survives handovers and team changes.</p>
-      </div>
-      <div class="card">
-        <div class="icon">✳</div>
-        <h3>AI Workflows</h3>
-        <p>Claude and LLM-backed workflows for reporting, triage, document analysis, migration QA, and internal operations — always with human review points.</p>
-      </div>
-    </div>
-  </div>
-</section>
+      <section class="section service-band" aria-label="When teams call Datrick">
+        <div class="section-heading">
+          <p class="eyebrow">When teams bring us in</p>
+          <h2>Senior judgment when an AI investment or critical system needs a responsible owner.</h2>
+        </div>
+        <div class="moment-list">
+          <article>
+            <span class="service-tag">Investment decision</span>
+            <h3><a href="ai-readiness-assessment-model-selection">AI opportunities exist, but the priority is unclear</a></h3>
+            <p>Compare use-case value, model fit, readiness, risk, and the smallest responsible next scope.</p>
+          </article>
+          <article>
+            <span class="service-tag">Production gap</span>
+            <h3><a href="ai-workflows.html">A promising AI prototype needs to survive real operations</a></h3>
+            <p>Add evaluation, integration, access control, human review, observability, fallback, and ownership.</p>
+          </article>
+          <article>
+            <span class="service-tag">Ownership failure</span>
+            <h3><a href="database-handover-support.html">A critical data or AI system loses its technical owner</a></h3>
+            <p>Recover access, establish the baseline, stabilize operations, and create a documented ownership path.</p>
+          </article>
+          <article>
+            <span class="service-tag">Partner delivery</span>
+            <h3><a href="partners.html">An IT service firm needs senior AI and data delivery</a></h3>
+            <p>Add accountable specialist delivery under your brand while retaining the client relationship.</p>
+          </article>
+        </div>
+      </section>
 
-<section class="alt">
-  <div class="wrap split">
-    <div>
-      <span class="kicker" style="color:var(--accent);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">White-label partnership</span>
-      <h2>Your brand. Your client. Our capacity.</h2>
-      <p>IT outsourcing firms protect client relationships by design. Datrick supports client work across DBA/NOC, migration, BI reporting, analytics, and AI workflows under your delivery model — your account ownership never comes into question.</p>
-      <p>We add offshore data operations capacity that plugs into your escalation paths, your ticketing, and your reporting cadence.</p>
-      <a class="btn btn-ghost" href="/schedule">Discuss a partnership</a>
-    </div>
-    <div>
-      <ul class="checklist">
-        <li>Delivery under your brand and account structure</li>
-        <li>Clear escalation and named senior ownership</li>
-        <li>Visible delivery progress your PMs can report on</li>
-        <li>Documentation handed over, not hoarded</li>
-        <li>No end-client solicitation — ever</li>
-      </ul>
-    </div>
-  </div>
-</section>
+      <section class="section service-band" id="services">
+        <div class="section-heading">
+          <p class="eyebrow">Delivery capabilities</p>
+          <h2>One path from AI investment decision to dependable operations.</h2>
+        </div>
+        <div class="capability-list">
+          <article>
+            <span class="icon">01</span>
+            <h3><a href="ai-readiness-assessment-model-selection">AI readiness and model selection</a></h3>
+            <p>Use-case value, model routes, data and integration readiness, governance, risk, and an evidence-backed pilot roadmap.</p>
+          </article>
+          <article>
+            <span class="icon">02</span>
+            <h3><a href="ai-workflows.html">AI implementation and evaluation</a></h3>
+            <p>Representative evaluations, workflow integration, human review, production controls, rollout, and operating guidance.</p>
+          </article>
+          <article>
+            <span class="icon">03</span>
+            <h3><a href="data-operations.html">Production data and systems foundation</a></h3>
+            <p>Database operations, migration, BI, analytics, observability, documentation, and continuity behind dependable AI delivery.</p>
+          </article>
+        </div>
+      </section>
 
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <span class="kicker">When to call us</span>
-      <h2>Built for the moments internal teams can't absorb</h2>
-      <p>Datrick brings in senior data support when the timeline is real and the risk is concrete.</p>
-    </div>
-    <div class="grid grid-2">
-      <div class="card">
-        <h3>A key developer leaves</h3>
-        <p>The person who knew the pipelines is gone and the handover never happened. We reverse-engineer, stabilize, and document the environment.</p>
-      </div>
-      <div class="card">
-        <h3>Reporting breaks</h3>
-        <p>Dashboards stop matching reality and stakeholders lose trust. We trace the lineage, fix the root cause, and put checks in place.</p>
-      </div>
-      <div class="card">
-        <h3>A migration creates risk</h3>
-        <p>A platform move is underway and your team can't validate it fast enough. We bring migration QA, parallel-run validation, and rollback planning.</p>
-      </div>
-      <div class="card">
-        <h3>AI needs to reach production</h3>
-        <p>The Claude experiments worked; now leadership wants real systems. We build LLM-backed workflows with evaluation criteria and human review.</p>
-      </div>
-    </div>
-  </div>
-</section>
+      <section class="section decision-operations-framework" id="ai-decision-to-operations">
+        <div class="section-heading">
+          <p class="eyebrow">Datrick AI Decision-to-Operations Framework</p>
+          <h2>Six decision gates from opportunity to dependable operations.</h2>
+        </div>
+        <p class="context-note">
+          Each gate resolves a specific executive or operating question, produces reviewable evidence, and ends with an explicit decision before more investment is committed.
+        </p>
+        <ol class="framework-grid">
+          <li>
+            <span class="framework-number">01</span>
+            <div>
+              <p class="framework-stage">Value</p>
+              <h3>Where can AI create measurable value?</h3>
+              <p>Prioritize workflows against baseline effort, quality, capacity, revenue, risk, and adoption.</p>
+              <strong>Evidence: use-case and ROI scorecard</strong>
+            </div>
+          </li>
+          <li>
+            <span class="framework-number">02</span>
+            <div>
+              <p class="framework-stage">Model fit</p>
+              <h3>Which technical route fits the work?</h3>
+              <p>Compare model and automation options using representative tasks, constraints, and total operating cost.</p>
+              <strong>Evidence: model selection record</strong>
+            </div>
+          </li>
+          <li>
+            <span class="framework-number">03</span>
+            <div>
+              <p class="framework-stage">Readiness and risk</p>
+              <h3>What must be ready before delivery?</h3>
+              <p>Expose gaps across data, integration, security, governance, ownership, evaluation, and adoption.</p>
+              <strong>Evidence: readiness and risk register</strong>
+            </div>
+          </li>
+          <li>
+            <span class="framework-number">04</span>
+            <div>
+              <p class="framework-stage">Pilot evidence</p>
+              <h3>Does the workflow work under realistic conditions?</h3>
+              <p>Test bounded scope, representative scenarios, users, failure modes, controls, and acceptance criteria.</p>
+              <strong>Evidence: pilot decision package</strong>
+            </div>
+          </li>
+          <li>
+            <span class="framework-number">05</span>
+            <div>
+              <p class="framework-stage">Production controls</p>
+              <h3>Can the workflow operate safely and reliably?</h3>
+              <p>Add access control, observability, human review, fallback, auditability, documentation, and ownership.</p>
+              <strong>Evidence: production readiness record</strong>
+            </div>
+          </li>
+          <li>
+            <span class="framework-number">06</span>
+            <div>
+              <p class="framework-stage">Managed operations</p>
+              <h3>How will quality and value hold over time?</h3>
+              <p>Monitor service health, model behavior, cost, incidents, data dependencies, adoption, and improvement work.</p>
+              <strong>Evidence: operating baseline and cadence</strong>
+            </div>
+          </li>
+        </ol>
+        <div class="section-actions framework-actions">
+          <a class="button primary" href="ai-readiness-assessment-model-selection">Start with an AI decision assessment</a>
+          <a class="text-link" href="ai-readiness-assessment-vs-poc-vs-pilot">Compare assessment, POC, and pilot</a>
+        </div>
+      </section>
 
-<section class="alt">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="kicker">How engagements work</span>
-      <h2>Scoped for accountability from day one</h2>
-    </div>
-    <div class="steps" style="max-width:760px;">
-      <div class="step">
-        <h3>Workflow owner</h3>
-        <p>Every engagement names a single owner on your side and ours. No diffuse responsibility, no orphaned tickets.</p>
-      </div>
-      <div class="step">
-        <h3>Real system access</h3>
-        <p>We work in the actual environment with proper credentials and audit trails — not from screenshots and guesswork.</p>
-      </div>
-      <div class="step">
-        <h3>Evaluation criteria</h3>
-        <p>Success is defined up front: SLAs, data-quality thresholds, migration cutover conditions, or model evaluation gates.</p>
-      </div>
-      <div class="step">
-        <h3>Human review points</h3>
-        <p>Automation is grounded in real data and gated by human review — especially for AI-assisted workflows.</p>
-      </div>
-      <div class="step">
-        <h3>Operating documentation</h3>
-        <p>Every engagement leaves behind runbooks and documentation, so the next handover is a non-event.</p>
-      </div>
-    </div>
-  </div>
-</section>
+      <section class="section buyer-verification" id="buyer-verification">
+        <div class="section-heading">
+          <p class="eyebrow">Institutional trust register</p>
+          <h2>Four claims a buyer can trace before starting a conversation.</h2>
+        </div>
+        <p class="context-note">Datrick separates company identity, ecosystem position, named accountability, and delivery evidence so each can be reviewed on its own terms.</p>
+        <dl class="trust-register">
+          <div>
+            <dt>Corporate identity</dt>
+            <dd>
+              <strong>Datrick, Inc.</strong>
+              <span>Delaware corporation with operating presence in Wilmington and Istanbul.</span>
+              <a class="text-link" href="about.html#company-footprint">Review company structure</a>
+            </dd>
+          </div>
+          <div>
+            <dt>Named accountability</dt>
+            <dd>
+              <strong>Can Goktug Ozdem</strong>
+              <span>Founder and senior technical lead responsible for scoping, delivery standards, and technical review.</span>
+              <a class="text-link" href="about.html#leadership">Review leadership</a>
+            </dd>
+          </div>
+          <div>
+            <dt>Ecosystem position</dt>
+            <dd>
+              <strong>Claude Partner Network participant</strong>
+              <span>Claude implementation and enablement connected to production data, controls, and operating ownership.</span>
+              <a class="text-link" href="anthropic.html">Review Claude capability</a>
+            </dd>
+          </div>
+          <div>
+            <dt>Evidence standard</dt>
+            <dd>
+              <strong>Claims stay bounded</strong>
+              <span>Measured outcomes, operating outcomes, and confidential delivery are labeled separately.</span>
+              <a class="text-link" href="case-studies.html">Review delivery evidence</a>
+            </dd>
+          </div>
+        </dl>
+      </section>
 
-<section>
-  <div class="wrap split">
-    <div>
-      <span class="kicker" style="color:var(--accent);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;">AI in production</span>
-      <h2>From Claude experimentation to production systems</h2>
-      <p>Most teams have prototypes. Few have LLM workflows that survive contact with real reporting, service operations, migration work, and internal knowledge processes.</p>
-      <p>Datrick builds Claude and LLM-backed systems the way we build data pipelines: with owners, evaluation criteria, human review points, and documentation.</p>
-      <a class="btn btn-ghost" href="/schedule">Talk through a use case</a>
-    </div>
-    <div>
-      <ul class="checklist">
-        <li>Reporting narratives and anomaly triage</li>
-        <li>Document analysis and extraction</li>
-        <li>Migration QA and reconciliation checks</li>
-        <li>Internal knowledge workflows</li>
-        <li>Service-desk augmentation with human sign-off</li>
-      </ul>
-    </div>
-  </div>
-</section>
+      <section class="section ai-engagement-paths" id="ai-engagement-paths">
+        <div class="section-heading">
+          <p class="eyebrow">AI engagement paths</p>
+          <h2>Choose the smallest engagement that resolves the next decision.</h2>
+        </div>
+        <p class="context-note">Each path has a defined decision, evidence standard, and commercial boundary. Start where uncertainty is highest, then expand only when the evidence supports it. If you are comparing implementation partners, use the <a href="ai-consulting-rfp-vendor-selection">AI consulting RFP and vendor selection checklist</a> to normalize proposals.</p>
+        <div class="package-grid commercial-offer-grid">
+          <article>
+            <span class="package-label">Decision</span>
+            <h3>AI Decision Sprint</h3>
+            <p>For one priority workflow when the value case, model route, readiness, or responsible pilot scope is still unclear.</p>
+            <dl class="offer-facts">
+              <div><dt>Produces</dt><dd>Value case, model evidence, risk register, and pilot charter</dd></div>
+              <div><dt>Investment</dt><dd>$15,000 fixed scope</dd></div>
+              <div><dt>Typical duration</dt><dd>2 weeks</dd></div>
+            </dl>
+            <div class="offer-actions">
+              <a class="button primary" data-cta-name="start_ai_decision_sprint" data-offer="ai_decision_sprint" data-funnel-stage="commercial_offer" href="index.html?service=AI%20value%2C%20model%20selection%2C%20and%20integration%20assessment&amp;engagement_type=Assessment%20%2F%20healthcheck&amp;expected_investment=Focused%20assessment%20or%20pilot&amp;offer=ai_decision_sprint&amp;utm_source=homepage&amp;utm_medium=website&amp;utm_campaign=ai_engagement_paths&amp;utm_content=decision_sprint_cta#contact">Start a decision sprint</a>
+              <a class="text-link" href="ai-readiness-assessment-model-selection">Review the scope</a>
+            </div>
+          </article>
+          <article>
+            <span class="package-label">Evidence</span>
+            <h3>Production AI Pilot</h3>
+            <p>For a bounded workflow that must prove quality, integration, controls, user fit, and operating viability under realistic conditions.</p>
+            <dl class="offer-facts">
+              <div><dt>Produces</dt><dd>Working pilot, evaluation baseline, controls, and decision package</dd></div>
+              <div><dt>Investment</dt><dd>Scoped to workflow and evidence requirements</dd></div>
+              <div><dt>Boundary</dt><dd>Defined acceptance criteria before implementation</dd></div>
+            </dl>
+            <div class="offer-actions">
+              <a class="button primary" data-cta-name="scope_production_ai_pilot" data-offer="production_ai_pilot" data-funnel-stage="commercial_offer" href="index.html?service=AI%20workflow%20automation&amp;engagement_type=Fixed-scope%20project%20or%20pilot&amp;expected_investment=Focused%20assessment%20or%20pilot&amp;offer=production_ai_pilot&amp;utm_source=homepage&amp;utm_medium=website&amp;utm_campaign=ai_engagement_paths&amp;utm_content=production_pilot_cta#contact">Scope a production pilot</a>
+              <a class="text-link" href="ai-workflows.html">Review production delivery</a>
+            </div>
+          </article>
+          <article>
+            <span class="package-label">Operations</span>
+            <h3>Managed AI Operations</h3>
+            <p>For production AI workflows that need accountable ownership across quality, incidents, model changes, cost, releases, and improvement work.</p>
+            <dl class="offer-facts">
+              <div><dt>Produces</dt><dd>Operating baseline, service cadence, reporting, and prioritized backlog</dd></div>
+              <div><dt>Investment</dt><dd>From $15,000 per month</dd></div>
+              <div><dt>Boundary</dt><dd>Ownership and service scope agreed before transition</dd></div>
+            </dl>
+            <div class="offer-actions">
+              <a class="button primary" data-cta-name="discuss_managed_ai_operations" data-offer="managed_ai_operations" data-funnel-stage="commercial_offer" href="index.html?service=AI%20workflow%20automation&amp;engagement_type=Ongoing%20operations%20program&amp;expected_investment=Ongoing%20delivery%20program&amp;offer=managed_ai_operations&amp;utm_source=homepage&amp;utm_medium=website&amp;utm_campaign=ai_engagement_paths&amp;utm_content=managed_operations_cta#contact">Discuss managed operations</a>
+              <a class="text-link" href="ai-consulting-pricing-guide">Review pricing guidance</a>
+            </div>
+          </article>
+        </div>
+      </section>
 
-<section class="alt">
-  <div class="wrap">
-    <div class="band">
-      <h2>Talk to the person who does the work</h2>
-      <p>A brief intro call with our founder to understand your environment, your goals, and whether we're the right fit. No pitch deck, no handoff to sales.</p>
-      <a class="btn btn-primary btn-lg" href="/schedule">Schedule an Intro Call</a>
-    </div>
-  </div>
-</section>
+      <section class="section ai-workflows" id="ai-workflows">
+        <div class="section-heading">
+          <p class="eyebrow">AI delivery</p>
+          <div>
+            <span class="partner-badge">Claude Partner Network participant</span>
+            <h2>From expert model evaluation to governed Claude workflows.</h2>
+          </div>
+        </div>
+        <div class="ai-layout">
+          <div class="ai-copy">
+            <p>
+              Datrick combines production data experience with confidential leading-model training work. We help AI teams improve technical quality and help enterprises put Claude into controlled operations.
+            </p>
+            <p>
+              If the use case or platform is still unclear, start with a <a href="ai-readiness-assessment-model-selection">vendor-neutral AI readiness assessment and model selection</a> before funding implementation.
+            </p>
+            <div class="section-actions">
+              <a class="button dark-button" href="ai-readiness-assessment-model-selection">Assess AI readiness</a>
+              <a class="button dark-button" href="ai-workflows.html">Explore AI workflows</a>
+              <a class="button dark-button" href="ai-model-training.html">Explore model training</a>
+            </div>
+          </div>
+          <div class="partner-flow">
+            <article>
+              <span>01</span>
+              <h3>Technical model evaluation</h3>
+              <p>Coding, SQL, data, analytics, rubrics, reference answers, and model-output review.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Claude workflow implementation</h3>
+              <p>Internal assistants, document intelligence, data copilots, reporting, and operational automation.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>Governance and production rollout</h3>
+              <p>Evaluations, access controls, logging, human review, fallbacks, documentation, and support.</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a class="logo" href="/"><span class="logo-mark">D</span>Datrick</a>
-        <p>White-label and direct data operations capacity for business-critical environments.</p>
-      </div>
-      <div>
-        <h4>Services</h4>
-        <ul>
-          <li><a href="/etl">ETL Consulting</a></li>
-          <li><a href="/dwh">Data Warehouse</a></li>
-          <li><a href="/devops-engineers">DevOps Engineers</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/team">Team</a></li>
-          <li><a href="/career">Career</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/schedule">Schedule a Call</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:info@datrick.com">info@datrick.com</a></li>
-          <li><a href="tel:+14083937240">+1 (408) 393-7240</a></li>
-          <li>Datrick, Inc. · Wilmington, DE</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Datrick, Inc. All rights reserved.</span>
-      <span><a href="/terms-of-use">Terms of Use</a></span>
-    </div>
-  </div>
-</footer>
+      <section class="section process" id="process">
+        <div class="section-heading">
+          <p class="eyebrow">Engagement model</p>
+          <h2>Structured enough for enterprise buyers, lightweight enough to start quickly.</h2>
+        </div>
+        <ol class="timeline four-step">
+          <li>
+            <span>1</span>
+            <h3>Written scoping</h3>
+            <p>Share the situation, systems, risks, prior attempts, and timeline.</p>
+          </li>
+          <li>
+            <span>2</span>
+            <h3>Delivery plan</h3>
+            <p>Define ownership, access, deliverables, escalation, and acceptance.</p>
+          </li>
+          <li>
+            <span>3</span>
+            <h3>Senior delivery</h3>
+            <p>Execute through a named lead with visible status, findings, and decisions.</p>
+          </li>
+          <li>
+            <span>4</span>
+            <h3>Continuity</h3>
+            <p>Document the work, transfer knowledge, and define ongoing support where useful.</p>
+          </li>
+        </ol>
+      </section>
 
-</body>
+      <section class="section proof decision-proof" id="proof">
+        <div class="proof-copy">
+          <p class="eyebrow">Evidence before investment</p>
+          <h2>What a scoped engagement is meant to change.</h2>
+          <p>
+            The right starting point should produce evidence, reduce operating risk, and make the next decision easier. These are verified examples, published only at the level confidentiality allows.
+          </p>
+          <a class="text-link" href="case-studies.html">Review the evidence standard and anonymized cases</a>
+        </div>
+        <div class="proof-list proof-evidence-list">
+          <div>
+            <span class="proof-type">Reporting warehouse</span>
+            <strong><a href="case-study-warehouse-query-performance"><b>68%</b> faster queries</a></strong>
+            <ul class="proof-path">
+              <li><em>Situation</em>Slow, scan-heavy reporting workloads.</li>
+              <li><em>Delivery</em>Query, model, and scan-behavior optimization.</li>
+              <li><em>Outcome</em>68% faster queries and 85% lower scan volume.</li>
+            </ul>
+          </div>
+          <div>
+            <span class="proof-type">Recurring partner delivery</span>
+            <strong><a href="case-study-five-year-it-service-delivery-partner">Initial delivery expanded into 5+ years of work</a></strong>
+            <ul class="proof-path">
+              <li><em>Situation</em>An IT service firm needed dependable delivery behind its client relationship.</li>
+              <li><em>Delivery</em>DBA/NOC, migration, BI, reporting, and analytics support.</li>
+              <li><em>Outcome</em>Reliable delivery led to repeat work across additional services.</li>
+            </ul>
+          </div>
+          <div>
+            <span class="proof-type">Confidential AI delivery</span>
+            <strong>Expert review for leading AI model programs</strong>
+            <ul class="proof-path">
+              <li><em>Situation</em>Technical evaluation required judgment across code and data.</li>
+              <li><em>Delivery</em>Rubrics, reference answers, SQL, analytics, and model-output review.</li>
+              <li><em>Outcome</em>Repeatable confidential delivery across technical disciplines.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="contact-overview">
+          <div class="contact-copy">
+            <p class="eyebrow">Contact</p>
+            <h2>Start with the smallest useful step.</h2>
+            <p>Describe what is happening, what is at risk, and what has already been tried. A senior lead will review it and recommend the right next step within one business day.</p>
+          </div>
+          <div class="commercial-guidance" aria-labelledby="planning-ranges-title">
+            <div class="commercial-guidance-copy">
+              <p class="eyebrow">Planning ranges</p>
+              <h3 id="planning-ranges-title">A useful starting point, not a rigid package.</h3>
+              <p>Every situation is different. These ranges are here to help with early planning; after review, we recommend the smallest scope that can produce a useful outcome.</p>
+            </div>
+            <div>
+              <dl class="commercial-baseline" aria-label="Typical engagement planning ranges">
+                <div>
+                  <dt>AI Decision Sprint</dt>
+                  <dd>$15,000 fixed scope</dd>
+                </div>
+                <div>
+                  <dt>Production AI Pilot</dt>
+                  <dd>Scoped to evidence required</dd>
+                </div>
+                <div>
+                  <dt>Managed AI Operations</dt>
+                  <dd>From $15,000/month</dd>
+                </div>
+              </dl>
+              <p class="commercial-note">Urgent support is prioritized after written intake. Final pricing reflects risk, access, response time, and delivery ownership.</p>
+            </div>
+          </div>
+          <div class="contact-details">
+            <div class="contact-card">
+              <a href="mailto:info@datrick.com">info@datrick.com</a>
+              <a href="tel:+17258955967">+1 (725) 895-5967</a>
+              <span>Datrick, Inc. · Wilmington, DE · Istanbul</span>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" id="inquiry-form" action="/api/contact" method="POST" aria-label="Project inquiry">
+          <div class="form-intro"><span>Written scoping</span><strong>Describe the situation.</strong><p>A senior lead responds within one business day with a recommendation or qualifying questions.</p></div>
+          <input type="hidden" name="_subject" value="New Datrick website inquiry">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://datrick.com/thank-you.html">
+          <input type="hidden" name="utm_source">
+          <input type="hidden" name="utm_medium">
+          <input type="hidden" name="utm_campaign">
+          <input type="hidden" name="utm_content">
+          <input type="hidden" name="utm_term">
+          <input type="hidden" name="last_utm_source">
+          <input type="hidden" name="last_utm_medium">
+          <input type="hidden" name="last_utm_campaign">
+          <input type="hidden" name="last_utm_content">
+          <input type="hidden" name="last_utm_term">
+          <input type="hidden" name="internal_source">
+          <input type="hidden" name="internal_campaign">
+          <input type="hidden" name="internal_content">
+          <input type="hidden" name="gclid">
+          <input type="hidden" name="gbraid">
+          <input type="hidden" name="wbraid">
+          <input type="hidden" name="msclkid">
+          <input type="hidden" name="click_captured_at">
+          <input type="hidden" name="landing_page">
+          <input type="hidden" name="referrer">
+          <input type="hidden" name="entry_offer">
+          <input type="hidden" name="lead_id">
+          <input type="hidden" name="traffic_type">
+          <input type="hidden" name="ga_client_id">
+          <input type="hidden" name="assessment_id">
+          <input type="hidden" name="assessment_score">
+          <input type="hidden" name="assessment_level">
+          <input type="hidden" name="assessment_answers">
+          <input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Work email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+
+          <div class="form-row">
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" autocomplete="organization">
+          </div>
+
+          <div class="form-row">
+            <label for="preferred-follow-up">Preferred follow-up</label>
+            <select id="preferred-follow-up" name="preferred_follow_up">
+              <option>Email</option>
+              <option>WhatsApp</option>
+              <option>Phone call</option>
+            </select>
+          </div>
+
+          <div class="form-row phone-row" hidden>
+            <label for="phone">Phone / WhatsApp</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="e.g. +1 555 123 4567" disabled>
+          </div>
+
+          <div class="form-row">
+            <label for="buyer-type">You are</label>
+            <select id="buyer-type" name="buyer_type" required>
+              <option value="">Select one</option>
+              <option>IT service firm / agency</option>
+              <option>CTO / technical leader</option>
+              <option>AI training or evaluation company</option>
+              <option>Learning / enablement leader</option>
+              <option>Founder / operator</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="service">What do you need help with?</label>
+            <select id="service" name="service" required>
+              <option value="">Select one</option>
+              <option>AI value, model selection, and integration assessment</option>
+              <option>Partner delivery under your brand</option>
+              <option>Partner AI delivery under your brand</option>
+              <option>AI project handover or rescue</option>
+              <option>Emergency DBA support</option>
+              <option>Database handover recovery</option>
+              <option>Dedicated data operations program</option>
+              <option>Database operations</option>
+              <option>Migration support</option>
+              <option>Data platform or BI work</option>
+              <option>AI workflow automation</option>
+              <option>AI model training or evaluation</option>
+              <option>Claude Code enablement / tooling assessment</option>
+              <option>Claude certification preparation / bootcamp</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="urgency">When do you need help?</label>
+            <select id="urgency" name="urgency" required>
+              <option value="">Select one</option>
+              <option>Immediately / this week</option>
+              <option>Within 30 days</option>
+              <option>This quarter</option>
+              <option>Exploring future delivery needs</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="engagement-type">Engagement type</label>
+            <select id="engagement-type" name="engagement_type">
+              <option value="">Select one</option>
+              <option>Assessment / healthcheck</option>
+              <option>Fixed-scope project or pilot</option>
+              <option>Team bootcamp / enablement</option>
+              <option>Ongoing operations program</option>
+              <option>Urgent support</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="expected-investment">Preferred starting point</label>
+            <select id="expected-investment" name="expected_investment" required>
+              <option value="">Select one</option>
+              <option>Not sure, recommend the right scope</option>
+              <option>Focused assessment or pilot</option>
+              <option>Ongoing delivery program</option>
+              <option>Transformation or dedicated team</option>
+            </select>
+          </div>
+
+          <div class="form-row full">
+            <label for="message">Describe the situation: what's at risk, what's been tried, and your timeline.</label>
+            <textarea id="message" name="message" rows="5" placeholder="Briefly describe the client, system, workflow, migration, or reporting problem." required></textarea>
+          </div>
+
+          <p class="form-status" id="inquiry-form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+          <button class="button primary form-submit" type="submit">Send inquiry</button>
+          <p class="form-note">By adding a phone number, you agree Datrick may contact you about this inquiry by phone or WhatsApp.</p>
+          <p class="form-note">We take calls after written scoping, not before.</p>
+        </form>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>

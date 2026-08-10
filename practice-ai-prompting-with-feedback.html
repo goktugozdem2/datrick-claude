@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Practice AI Prompting with Feedback: A Repeatable Loop | Datrick</title>
+    <meta name="description" content="Practice AI prompting with a controlled feedback loop, error log, evaluation criteria, worked example, seven-day plan, and metrics that show real improvement.">
+    <link rel="canonical" href="https://datrick.com/practice-ai-prompting-with-feedback">
+    <meta property="og:title" content="Practice AI Prompting with Feedback: A Repeatable Loop | Datrick">
+    <meta property="og:description" content="Turn random prompt rewrites into a measurable practice loop using goals, error diagnosis, one controlled change, comparison, and evidence.">
+    <meta property="og:url" content="https://datrick.com/practice-ai-prompting-with-feedback">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="https://datrick.com/assets/datrick-social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="assets/datrick-logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "headline": "Practice AI Prompting with a Feedback Loop That Produces Evidence",
+            "description": "A controlled feedback loop, error log, worked example, seven-day plan, and metrics for improving AI prompting.",
+            "url": "https://datrick.com/practice-ai-prompting-with-feedback",
+            "datePublished": "2026-08-02",
+            "dateModified": "2026-08-02",
+            "author": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/"},
+            "reviewedBy": {"@type": "Person", "name": "Can Goktug Ozdem", "url": "https://datrick.com/about.html"},
+            "publisher": {"@type": "Organization", "name": "Datrick", "url": "https://datrick.com/", "logo": {"@type": "ImageObject", "url": "https://datrick.com/assets/datrick-logo.png"}},
+            "mainEntityOfPage": "https://datrick.com/practice-ai-prompting-with-feedback"
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {"@type": "Question", "name": "How do you practice AI prompting with feedback?", "acceptedAnswer": {"@type": "Answer", "text": "Define the task and pass criteria, run a baseline prompt, classify the most important error, change one prompt variable, rerun the same case, compare the results, and record whether the change improved the target without creating a new failure."}},
+              {"@type": "Question", "name": "Can AI critique its own prompt?", "acceptedAnswer": {"@type": "Answer", "text": "An AI model can suggest ambiguities or missing context, but its critique is not ground truth. Check the suggestion against the task, approved sources, deterministic tests, or a qualified human reviewer."}},
+              {"@type": "Question", "name": "What should you measure while practicing prompts?", "acceptedAnswer": {"@type": "Answer", "text": "Measure task success, critical error rate, revisions required to reach an acceptable output, source or format compliance, latency and cost when relevant, and whether the method transfers to an unseen case."}},
+              {"@type": "Question", "name": "Should you change several parts of a prompt at once?", "acceptedAnswer": {"@type": "Answer", "text": "Change one material variable at a time during practice. Multiple simultaneous changes make it difficult to identify what caused an improvement or regression."}},
+              {"@type": "Question", "name": "How do teams practice prompting safely?", "acceptedAnswer": {"@type": "Answer", "text": "Use approved tools and sanitized scenarios, define sensitive-data and action boundaries, keep representative test cases, review critical failures, version reusable prompts, and require human approval for consequential outputs or actions."}}
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Resources", "item": "https://datrick.com/resources.html"},
+              {"@type": "ListItem", "position": 2, "name": "Practice AI Prompting with Feedback", "item": "https://datrick.com/practice-ai-prompting-with-feedback"}
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="article-page content-role-ai" data-content-id="practice-ai-prompting-with-feedback" data-content-group="prompt-engineering" data-funnel-stage="awareness">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Datrick home"><img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115"><span>Datrick</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="index.html#contact">Start a conversation</a>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="page-hero">
+        <div>
+          <p class="eyebrow">Prompt practice system</p>
+          <h1>Practice AI prompting with a feedback loop that produces evidence.</h1>
+          <p class="page-lede">Replace random rewrites with a controlled loop: define the goal, diagnose one error, change one variable, compare results, and record whether the prompt improved.</p>
+          <div class="hero-actions article-hero-actions"><a class="button primary" data-funnel-stage="consideration" data-next-stage="worksheet" data-cta-name="open_prompt_practice_worksheet" href="#worksheet">Use the practice worksheet</a></div>
+          <div class="article-meta"><a href="resources.html">Resource library</a><span>Feedback loop and worksheet</span><span>12 min read</span></div>
+          <p class="article-review">Reviewed for AI evaluation and learning design by <a href="about.html">Can Goktug Ozdem</a>, founder and senior technical lead. Last reviewed August 2, 2026.</p>
+        </div>
+      </section>
+
+      <section class="section service-band">
+        <article class="article-body">
+          <nav class="article-toc" aria-label="In this guide"><strong>In this guide</strong><a href="#loop">Feedback loop</a><a href="#worksheet">Worksheet</a><a href="#feedback">Feedback sources</a><a href="#metrics">Metrics</a><a href="#seven-day">Seven-day plan</a></nav>
+
+          <h2 id="loop">What does it mean to practice AI prompting with feedback?</h2>
+          <p>To practice AI prompting with feedback, define what an acceptable result must contain, run a baseline prompt, inspect the output against that standard, name the most important gap, change one part of the prompt, and rerun the same case. The comparison tells you whether the change helped. Repeating prompts without this diagnosis is activity, not deliberate practice.</p>
+          <p><a href="https://www.ibm.com/think/topics/prompt-engineering">IBM's prompt engineering overview</a> describes iterative prompting as structured refinement, and <a href="https://cloud.google.com/discover/what-is-prompt-engineering">Google Cloud's prompt engineering guide</a> notes that adapting prompts based on user feedback or model outputs can improve responses over time. The missing piece is a reliable judge. A model output cannot prove its own correctness, so use source evidence, deterministic checks, a rubric, or a qualified reviewer whenever the task matters.</p>
+
+          <section class="readiness-actions">
+            <p><strong>Progress through three funnel stages.</strong> Learn the loop, practice it on a bounded worksheet, then decide whether the pattern is ready for personal reuse, a team standard, or a production evaluation.</p>
+            <div class="readiness-action-links"><a class="button primary" data-funnel-stage="consideration" data-next-stage="worksheet" data-cta-name="jump_to_prompt_worksheet" href="#worksheet">Start the worksheet</a><a class="button secondary" data-funnel-stage="consideration" data-next-stage="education" data-cta-name="open_advanced_prompt_guide" href="advanced-prompt-engineering-guide">Choose advanced techniques</a></div>
+          </section>
+
+          <h2>A six-step feedback loop</h2>
+          <ol>
+            <li><strong>Define the task and pass criteria.</strong> Write the audience, required facts, source boundary, output format, constraints, and unacceptable failures before running the prompt.</li>
+            <li><strong>Capture the baseline.</strong> Save the prompt, model, relevant settings, input, output, date, and result. Without a baseline you cannot show improvement.</li>
+            <li><strong>Classify the largest error.</strong> Choose one category such as missing context, unsupported claim, wrong format, incomplete instruction, unsafe action, or unsuitable technique.</li>
+            <li><strong>Change one material variable.</strong> Add context, clarify a constraint, provide examples, require a schema, or change the workflow. Do not rewrite everything at once.</li>
+            <li><strong>Rerun the same case.</strong> Compare the new output with the baseline using the original pass criteria. Check for both improvement and new regressions.</li>
+            <li><strong>Test transfer.</strong> Run the revised prompt on at least one unseen but representative case. A change that fixes only the original example may be overfit.</li>
+          </ol>
+
+          <h2 id="worksheet">Prompt practice worksheet</h2>
+          <p>Copy or print this table for one task. Keep the entries short enough that another reviewer can reconstruct what changed and why.</p>
+          <div class="article-table-wrap" role="region" aria-label="AI prompting feedback worksheet" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Worksheet for practicing AI prompting with feedback</caption>
+              <thead><tr><th scope="col">Field</th><th scope="col">Record</th><th scope="col">Pass question</th></tr></thead>
+              <tbody>
+                <tr><td>Task and user</td><td>Who uses the output and what decision or action follows?</td><td>Is the outcome specific enough to evaluate?</td></tr>
+                <tr><td>Required evidence</td><td>Approved facts, documents, fields, examples, or tools.</td><td>Can every material claim be traced or checked?</td></tr>
+                <tr><td>Output contract</td><td>Format, length, fields, tone, citations, and missing-data behavior.</td><td>Can a reviewer mark pass or fail consistently?</td></tr>
+                <tr><td>Critical failures</td><td>Fabrication, wrong recipient, unsafe action, sensitive-data exposure, or omitted requirement.</td><td>Would any failure require rejection regardless of the total score?</td></tr>
+                <tr><td>Baseline result</td><td>What passed, what failed, and how many revisions were required?</td><td>Is the baseline saved with enough context to reproduce?</td></tr>
+                <tr><td>Named gap</td><td>The single highest-priority error to address.</td><td>Is the gap about the prompt, input, model, tool, data, or workflow?</td></tr>
+                <tr><td>Controlled change</td><td>One change and the reason it should address the gap.</td><td>Can you isolate the effect of this change?</td></tr>
+                <tr><td>Comparison</td><td>Pass criteria before and after, plus any new regression.</td><td>Did the target improve without creating a critical failure?</td></tr>
+                <tr><td>Transfer test</td><td>Result on a different representative input.</td><td>Does the improvement generalize beyond the original example?</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Worked example: a support escalation summary</h2>
+          <p><strong>Baseline prompt:</strong> “Summarize this support ticket for escalation.” The output is readable but omits customer impact, supporting evidence, the current owner, and the next decision. The problem is not tone. The output contract is missing.</p>
+          <p><strong>Controlled revision:</strong> “Create an escalation summary with five labeled fields: issue, customer impact, verified evidence, current owner, and next decision. Use only the ticket text. Write ‘not stated’ when a field is missing. Do not infer severity or promise a resolution.”</p>
+          <p>The revised output can now be checked field by field. If a required field is still wrong, diagnose that error separately. If the same structure works on an unseen ticket, it may be a candidate for a reusable template. It is not production-ready until the team also validates source access, sensitive data, ownership, workflow integration, and failure handling.</p>
+
+          <h2 id="feedback">Use the right feedback source</h2>
+          <div class="article-table-wrap" role="region" aria-label="Prompt feedback sources" tabindex="0">
+            <table class="article-table"><caption class="sr-only">Feedback sources for AI prompt practice</caption>
+              <thead><tr><th scope="col">Feedback source</th><th scope="col">Best for</th><th scope="col">Limit</th></tr></thead>
+              <tbody>
+                <tr><td>Self-review against a rubric</td><td>Format, completeness, visible source use, and clear constraints.</td><td>The learner may miss the same domain error that caused the output.</td></tr>
+                <tr><td>Model critique or meta-prompt</td><td>Finding ambiguity, missing context, or alternative structures.</td><td>The model can confidently recommend a change that is unnecessary or wrong.</td></tr>
+                <tr><td>Deterministic check</td><td>Schema validity, required fields, calculations, citations, code tests, and policy rules.</td><td>A passing check may not capture usefulness, meaning, or business judgment.</td></tr>
+                <tr><td>Source reconciliation</td><td>Factual accuracy, grounded extraction, and unsupported claims.</td><td>Source quality and authority still require judgment.</td></tr>
+                <tr><td>Qualified human review</td><td>Domain correctness, risk, customer impact, and nuanced tradeoffs.</td><td>Review must be calibrated or different reviewers may apply different standards.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>A useful meta-prompt is: “Review this prompt against the task, required evidence, constraints, and output contract below. List ambiguities and missing information. Do not judge factual correctness unless it can be checked from the supplied sources.” Use the response as a candidate diagnosis, then verify it.</p>
+
+          <h2>Change one variable at a time</h2>
+          <p>During deliberate practice, isolate the change that should address the named gap. You might add a source boundary, one representative example, a structured output schema, a missing-data rule, or a human-approval condition. If you also change the model, examples, prompt structure, and input at the same time, the outcome cannot tell you which change mattered.</p>
+          <p>Production optimization can later compare bundled versions, but the evidence record should still identify every difference. Version the prompt, test set, model, tool contract, retrieval configuration, and evaluation rubric together so a regression can be reproduced.</p>
+
+          <h2 id="metrics">How to tell whether prompting is improving</h2>
+          <p>Do not use prompt count, lesson completion, or a streak as the primary measure. Track outcomes tied to the task:</p>
+          <ul>
+            <li><strong>Task success rate:</strong> the share of representative cases that meet all acceptance criteria.</li>
+            <li><strong>Critical failure rate:</strong> the share containing a failure that requires rejection regardless of the overall score.</li>
+            <li><strong>Revisions to acceptance:</strong> how many controlled revisions are required before an output is usable.</li>
+            <li><strong>Grounding or format compliance:</strong> whether required sources, fields, schemas, and missing-data behavior are followed.</li>
+            <li><strong>Transfer performance:</strong> whether the method works on unseen cases from the same task family.</li>
+            <li><strong>Latency and cost:</strong> whether the gain justifies additional model calls, retrieval, tools, or human review.</li>
+          </ul>
+          <p>Record the sample size and test mix. A 100% pass rate on three easy examples is not stronger evidence than a lower result on a representative set with edge cases and critical failures.</p>
+
+          <h2 id="seven-day">A seven-day AI prompting practice plan</h2>
+          <ol>
+            <li><strong>Day 1:</strong> choose one recurring task and write acceptance criteria before prompting.</li>
+            <li><strong>Day 2:</strong> capture five baseline cases and classify the errors.</li>
+            <li><strong>Day 3:</strong> improve goal, context, constraints, and output format one variable at a time.</li>
+            <li><strong>Day 4:</strong> add examples only where the baseline shows a format, tone, or classification gap.</li>
+            <li><strong>Day 5:</strong> test source grounding, missing-data behavior, and a critical failure case.</li>
+            <li><strong>Day 6:</strong> run unseen cases and compare the result with the baseline.</li>
+            <li><strong>Day 7:</strong> document the reusable pattern, its limits, reviewer, and next evaluation.</li>
+          </ol>
+
+          <h2>Common practice mistakes</h2>
+          <ul>
+            <li>Changing the prompt before defining what a good output means.</li>
+            <li>Using the same example for development and final evaluation.</li>
+            <li>Accepting a model's self-critique as factual verification.</li>
+            <li>Optimizing average quality while ignoring one unacceptable failure.</li>
+            <li>Practicing only polished examples with complete information.</li>
+            <li>Sending confidential or regulated data to an unapproved tool.</li>
+            <li>Treating a prompt fix as the answer when the real gap is data, permissions, tooling, or workflow ownership.</li>
+          </ul>
+
+          <h2>Move from individual practice to a team standard</h2>
+          <p>A team pattern needs more than a shared prompt. Define the intended task, approved inputs, owner, reviewer, sensitive-data rules, output contract, critical failures, evaluation set, prompt and model version, release approval, monitoring, and retirement conditions. Keep deterministic controls outside the model where possible.</p>
+          <p>Keep reusable patterns anchored to current provider guidance. Both the <a href="https://developers.openai.com/api/docs/guides/prompt-engineering">OpenAI prompt engineering guide</a> and <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview">Claude prompt engineering overview</a> connect technique selection to clear instructions, relevant context, examples, and empirical evaluation rather than a universal prompt formula.</p>
+          <p>Use <a href="resource-production-ai-workflow.html">the production AI workflow guide</a> when the output enters a business process or triggers an action. Use <a href="ai-model-training.html">AI model training and evaluation support</a> when the team needs representative tasks, calibrated reviewers, error analysis, or a maintained quality program.</p>
+
+          <section class="readiness-actions">
+            <p><strong>Need a facilitated practice and evaluation plan?</strong> Share one target workflow, sample volume, current failure modes, approved tools, reviewer roles, and the decision the evaluation must support.</p>
+            <div class="readiness-action-links"><a class="button primary" data-offer="prompt_evaluation_workshop" data-cta-name="scope_prompt_evaluation_workshop" data-funnel-stage="conversion" data-next-stage="lead" href="index.html?buyer_type=Learning%20%2F%20enablement%20leader&amp;service=AI%20model%20training%20or%20evaluation&amp;engagement_type=Team%20bootcamp%20%2F%20enablement&amp;offer=prompt_evaluation_workshop&amp;utm_source=practice_ai_prompting_with_feedback&amp;utm_medium=organic_content&amp;utm_campaign=prompt_enablement&amp;utm_content=page_end#inquiry-form">Scope a prompt evaluation workshop</a><a class="button secondary" data-funnel-stage="decision" data-next-stage="service" data-cta-name="review_ai_evaluation_service" href="ai-model-training.html?utm_source=practice_ai_prompting_with_feedback&amp;utm_medium=website&amp;utm_campaign=prompt_enablement&amp;utm_content=page_end">Review evaluation support</a></div>
+          </section>
+
+          <h2>Frequently asked questions</h2>
+          <details><summary>How do you practice AI prompting with feedback?</summary><p>Define the task and pass criteria, run a baseline prompt, classify the most important error, change one prompt variable, rerun the same case, compare the results, and test the revision on an unseen case.</p></details>
+          <details><summary>Can AI critique its own prompt?</summary><p>It can suggest ambiguities or missing context, but its critique is not ground truth. Check the suggestion against the task, approved sources, deterministic tests, or a qualified human reviewer.</p></details>
+          <details><summary>What should you measure while practicing prompts?</summary><p>Measure task success, critical failures, revisions to acceptance, source or format compliance, transfer to unseen cases, and latency or cost when relevant.</p></details>
+          <details><summary>Should you change several parts of a prompt at once?</summary><p>No. Change one material variable at a time during practice so you can identify what caused an improvement or regression.</p></details>
+          <details><summary>How do teams practice prompting safely?</summary><p>Use approved tools and sanitized scenarios, define sensitive-data and action boundaries, maintain representative tests, review critical failures, version reusable prompts, and require human approval for consequential work.</p></details>
+
+          <nav class="article-next" aria-label="Prompt practice next steps"><a data-funnel-stage="consideration" data-next-stage="education" data-cta-name="open_course_scorecard" href="best-prompt-engineering-course"><span>Course selection</span><strong>Score training before you buy</strong></a><a data-funnel-stage="consideration" data-next-stage="education" data-cta-name="open_advanced_prompt_guide" href="advanced-prompt-engineering-guide"><span>Advanced guide</span><strong>Match techniques to production failure modes</strong></a></nav>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

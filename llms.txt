@@ -1,0 +1,52 @@
+# Datrick
+
+> Datrick is a US-based AI and data services company. It helps technical leaders assess AI opportunities, select suitable models and tools, implement controlled production workflows, and operate the data and database systems those workflows depend on.
+
+## Commercial services
+
+- [AI Readiness Assessment and Model Selection](https://datrick.com/ai-readiness-assessment-model-selection)
+- [AI Workflow Automation and Implementation](https://datrick.com/ai-workflows.html)
+- [Claude Implementation and Enablement](https://datrick.com/anthropic.html)
+- [White-Label AI Agent Operations for MSPs](https://datrick.com/white-label-ai-agent-operations-managed-support-for-msps)
+- [Data Operations and Migration Support](https://datrick.com/data-operations.html)
+- [Emergency DBA Support](https://datrick.com/emergency-dba-support.html)
+- [Microsoft Fabric Managed Services](https://datrick.com/microsoft-fabric-managed-services-support-operations.html)
+- [Power BI Managed Services](https://datrick.com/power-bi-managed-services-support.html)
+
+## Buyers and engagement paths
+
+- CTOs and technical leaders evaluating AI use cases, model choices, implementation risk, or production operating requirements
+- IT service firms and MSPs seeking confidential delivery capacity under their own brand
+- Teams facing database incidents, ownership gaps, migrations, unreliable reporting, or data-pipeline risk
+- [Who Datrick Serves](https://datrick.com/who-we-serve.html)
+- [Case Studies](https://datrick.com/case-studies.html)
+- [Start a Written Scoping Conversation](https://datrick.com/#contact)
+
+## Decision resources
+
+- [Prompt Engineering Course Selection Scorecard on ClaudeQuest](https://claudequest.app/blog/best-prompt-engineering-course)
+- [AI Prompting Practice and Feedback Loop on ClaudeQuest](https://claudequest.app/blog/practice-ai-prompting-with-feedback)
+- [Advanced Prompt Engineering Techniques and Evaluation](https://datrick.com/advanced-prompt-engineering-guide)
+- [Production AI Workflow Architecture and Checklist](https://datrick.com/resource-production-ai-workflow.html)
+- [Claude Models Comparison](https://datrick.com/claude-models-comparison)
+- [Claude Certifications](https://datrick.com/claude-certifications)
+- [ETL and ELT Pricing Guide](https://datrick.com/etlelt-pricing-guide)
+- [Database Migration Support Playbook](https://datrick.com/resource-migration-support-playbook.html)
+- [Database Handover Checklist](https://datrick.com/resource-database-handover.html)
+- [BI Reporting Reliability Checklist](https://datrick.com/resource-bi-reporting-reliability-checklist.html)
+- [All Resources](https://datrick.com/resources.html)
+
+## Delivery principles
+
+- Model and platform selection is based on the client's use case, data, risk, cost, and operating constraints.
+- Production AI workflows include human review, evaluation, access controls, observability, rollback planning, and operating documentation where required.
+- Datrick provides managed implementation and operations; it does not present itself as a self-service AI software platform.
+- Confidential partner delivery is available for qualified IT service firms and MSPs.
+- Every inquiry is reviewed through written scoping before a call.
+
+## Company and contact
+
+- [About Datrick](https://datrick.com/about.html)
+- [Privacy Policy](https://datrick.com/privacy.html)
+- [Terms](https://datrick.com/terms.html)
+- Email: info@datrick.com
