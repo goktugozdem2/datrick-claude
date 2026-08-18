@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Datrick monogram">
+  <path d="M14 20h16c9.94 0 18 8.06 18 18s-8.06 18-18 18H14V20z" fill="#c6a6ea" opacity="0.55"/>
+  <path d="M11 14h16c9.94 0 18 8.06 18 18s-8.06 18-18 18H11V14z" fill="#3b3f9c" opacity="0.75"/>
+  <path d="M8 8h16c9.94 0 18 8.06 18 18s-8.06 18-18 18H8V8zM15 15v22h9c6.08 0 11-4.92 11-11s-4.92-11-11-11h-9z" fill="#18181f"/>
+</svg>

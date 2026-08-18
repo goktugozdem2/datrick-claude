@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datrick | Production AI &amp; Data Operations</title>
+<meta name="description" content="Datrick helps technology leaders decide where AI creates value, move the right workflows into production, and run the data operations behind them.">
+<link rel="canonical" href="https://datrick.com/">
+<meta property="og:title" content="Datrick | Production AI &amp; Data Operations">
+<meta property="og:description" content="AI decision support, production delivery, and managed data operations. Senior-led, written-first, evidence-bounded.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://datrick.com/">
+<link rel="icon" type="image/svg+xml" href="assets/datrick-monogram.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ============================================================
+Datrick · design system (locked Aug 2026)
+Ink #18181f · Indigo #3b3f9c · Mono gray #96949f
+Callout #f4f3f8 (indigo left bar) · Lavender #c6a6ea
+Hairlines #e5e5e8 · White pages
+Serif display · Monospace letterspaced labels · Sans body
+============================================================ */
+:root {
+--ink: #18181f;
+--indigo: #3b3f9c;
+--gray: #96949f;
+--callout: #f4f3f8;
+--lavender: #c6a6ea;
+--hair: #e5e5e8;
+--white: #ffffff;
+--serif: "Libre Caslon Text", Georgia, "Times New Roman", serif;
+--sans: "Instrument Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+--mono: "IBM Plex Mono", "SF Mono", Menlo, Consolas, monospace;
+--max: 1120px;
+--pad: clamp(20px, 4vw, 48px);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+html { scroll-behavior: auto; }
+*, *::before, *::after { animation: none !important; transition: none !important; }
+}
+body {
+font-family: var(--sans);
+font-size: 16.5px;
+line-height: 1.6;
+color: var(--ink);
+background: var(--white);
+-webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--lavender); color: var(--ink); }
+a { color: var(--indigo); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+:focus-visible {
+outline: 2px solid var(--indigo);
+outline-offset: 3px;
+border-radius: 1px;
+}
+.dk-wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); }
+/* ---------- type roles ---------- */
+.dk-display {
+font-family: var(--serif);
+font-weight: 400;
+line-height: 1.14;
+letter-spacing: -0.01em;
+}
+h1.dk-display { font-size: clamp(34px, 5.2vw, 58px); }
+h2.dk-display { font-size: clamp(26px, 3.4vw, 38px); }
+h3 { font-family: var(--sans); font-weight: 600; font-size: 18px; line-height: 1.35; }
+/* mono eyebrow with the 12-o'clock index tick */
+.dk-eyebrow {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+font-family: var(--mono);
+font-size: 11.5px;
+font-weight: 500;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(--gray);
+}
+.dk-eyebrow::before {
+content: "";
+width: 2px;
+height: 12px;
+background: var(--indigo);
+flex: none;
+}
+.dk-eyebrow--lavender { color: var(--lavender); }
+.dk-eyebrow--lavender::before { background: var(--lavender); }
+.dk-lede { font-size: clamp(17px, 2vw, 19.5px); color: #45444e; max-width: 62ch; }
+.dk-muted { color: var(--gray); }
+.dk-small { font-size: 14px; }
+/* ---------- buttons ---------- */
+.dk-btn {
+display: inline-block;
+font-family: var(--sans);
+font-weight: 600;
+font-size: 15px;
+line-height: 1;
+padding: 15px 26px;
+border: 1px solid var(--ink);
+color: var(--ink);
+background: transparent;
+cursor: pointer;
+transition: background 0.15s ease, color 0.15s ease;
+}
+.dk-btn:hover { background: var(--ink); color: var(--white); text-decoration: none; }
+.dk-btn--solid { background: var(--ink); color: var(--white); }
+.dk-btn--solid:hover { background: var(--indigo); border-color: var(--indigo); }
+.dk-btn--ghost { border-color: var(--hair); }
+.dk-btn--ghost:hover { border-color: var(--ink); background: transparent; color: var(--ink); }
+.dk-btn--light { border-color: var(--white); color: var(--white); }
+.dk-btn--light:hover { background: var(--white); color: var(--ink); }
+/* ---------- header ---------- */
+.dk-site-header {
+position: sticky;
+top: 0;
+z-index: 50;
+background: rgba(255, 255, 255, 0.94);
+backdrop-filter: blur(8px);
+border-bottom: 1px solid var(--hair);
+}
+.dk-site-header .dk-wrap {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 24px;
+height: 72px;
+}
+.dk-wordmark {
+font-family: var(--serif);
+font-size: 21px;
+letter-spacing: 0.34em;
+text-transform: uppercase;
+color: var(--ink);
+display: inline-flex;
+align-items: center;
+gap: 12px;
+white-space: nowrap;
+}
+.dk-wordmark:hover { text-decoration: none; color: var(--ink); }
+.dk-wordmark img { width: 26px; height: 26px; display: block; }
+.dk-nav { display: flex; align-items: center; gap: 28px; }
+.dk-nav a {
+font-size: 14.5px;
+font-weight: 500;
+color: var(--ink);
+}
+.dk-nav a:hover { color: var(--indigo); text-decoration: none; }
+.dk-nav .dk-btn { padding: 11px 18px; font-size: 13.5px; }
+.dk-nav-toggle {
+display: none;
+background: none;
+border: 1px solid var(--hair);
+padding: 8px 12px;
+font-family: var(--mono);
+font-size: 12px;
+letter-spacing: 0.12em;
+cursor: pointer;
+color: var(--ink);
+}
+@media (max-width: 860px) {
+.dk-nav-toggle { display: block; }
+.dk-nav {
+display: none;
+position: absolute;
+top: 72px;
+left: 0;
+right: 0;
+flex-direction: column;
+align-items: stretch;
+gap: 0;
+background: var(--white);
+border-bottom: 1px solid var(--hair);
+padding: 8px 0 16px;
+}
+.dk-nav.dk-open { display: flex; }
+.dk-nav a { padding: 12px var(--pad); }
+.dk-nav .dk-btn { margin: 10px var(--pad) 0; text-align: center; }
+}
+/* ---------- sections ---------- */
+.dk-section { padding: clamp(64px, 9vw, 110px) 0; }
+.dk-section--hair { border-top: 1px solid var(--hair); }
+.dk-section-head { max-width: 720px; margin-bottom: clamp(36px, 5vw, 56px); }
+.dk-section-head .dk-display { margin: 14px 0 12px; }
+/* ---------- hero ---------- */
+.dk-hero { padding: clamp(72px, 10vw, 130px) 0 clamp(56px, 8vw, 96px); }
+.dk-hero .dk-display { margin: 20px 0 22px; max-width: 17ch; }
+.dk-hero .dk-lede { margin-bottom: 34px; }
+.dk-hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 40px; }
+.dk-trustline {
+display: flex;
+flex-wrap: wrap;
+gap: 10px 0;
+align-items: center;
+font-family: var(--mono);
+font-size: 12px;
+letter-spacing: 0.06em;
+color: var(--gray);
+}
+.dk-trustline span { display: inline-flex; align-items: center; }
+.dk-trustline span + span::before {
+content: "·";
+margin: 0 14px;
+color: var(--hair);
+}
+/* ---------- card grids ---------- */
+.dk-grid { display: grid; gap: 1px; background: var(--hair); border: 1px solid var(--hair); }
+.dk-grid--2 { grid-template-columns: repeat(2, 1fr); }
+.dk-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.dk-grid--4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 920px) { .dk-grid--3, .dk-grid--4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px) { .dk-grid--2, .dk-grid--3, .dk-grid--4 { grid-template-columns: 1fr; } }
+.dk-cell {
+background: var(--white);
+padding: 30px 28px 32px;
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+.dk-cell .dk-tag {
+font-family: var(--mono);
+font-size: 10.5px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--indigo);
+}
+.dk-cell h3 a { color: var(--ink); }
+.dk-cell h3 a:hover { color: var(--indigo); text-decoration: none; }
+.dk-cell p { font-size: 15px; color: #45444e; }
+/* ---------- gate rail (signature) ---------- */
+.dk-rail { position: relative; padding-left: 34px; max-width: 780px; }
+.dk-rail::before {
+content: "";
+position: absolute;
+left: 0;
+top: 6px;
+bottom: 6px;
+width: 1px;
+background: var(--hair);
+}
+.dk-gate { position: relative; padding: 0 0 44px 0; }
+.dk-gate:last-child { padding-bottom: 0; }
+.dk-gate::before {
+content: "";
+position: absolute;
+left: -34px;
+top: 7px;
+width: 14px;
+height: 2px;
+background: var(--indigo);
+}
+.dk-gate .dk-gate-index {
+font-family: var(--mono);
+font-size: 11.5px;
+letter-spacing: 0.22em;
+text-transform: uppercase;
+color: var(--gray);
+margin-bottom: 8px;
+}
+.dk-gate h3 { font-family: var(--serif); font-weight: 400; font-size: 21px; margin-bottom: 8px; }
+.dk-gate p { font-size: 15.5px; color: #45444e; max-width: 58ch; }
+.dk-gate .dk-evidence {
+margin-top: 12px;
+font-family: var(--mono);
+font-size: 12.5px;
+color: var(--indigo);
+}
+/* ---------- callout (evidence cards) ---------- */
+.dk-callout {
+background: var(--callout);
+border-left: 3px solid var(--indigo);
+padding: 28px 28px 30px;
+}
+.dk-callout .dk-metric {
+font-family: var(--serif);
+font-size: clamp(28px, 3vw, 36px);
+line-height: 1.1;
+margin: 6px 0 4px;
+}
+.dk-callout .dk-metric a { color: var(--ink); }
+.dk-callout .dk-metric a:hover { color: var(--indigo); text-decoration: none; }
+.dk-callout dl { margin-top: 14px; font-size: 14px; }
+.dk-callout dt {
+font-family: var(--mono);
+font-size: 10.5px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(--gray);
+margin-top: 10px;
+}
+.dk-callout dd { color: #45444e; }
+.dk-evidence-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 920px) { .dk-evidence-grid { grid-template-columns: 1fr; } }
+/* ---------- pricing paths ---------- */
+.dk-path { border: 1px solid var(--hair); padding: 34px 30px 36px; display: flex; flex-direction: column; }
+.dk-path--lead { border-color: var(--ink); }
+.dk-paths { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 920px) { .dk-paths { grid-template-columns: 1fr; } }
+.dk-path .dk-tag {
+font-family: var(--mono);
+font-size: 10.5px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--indigo);
+margin-bottom: 12px;
+}
+.dk-path h3 { font-family: var(--serif); font-weight: 400; font-size: 23px; margin-bottom: 10px; }
+.dk-path .dk-price {
+font-family: var(--mono);
+font-size: 14px;
+color: var(--ink);
+padding: 10px 0;
+border-top: 1px solid var(--hair);
+border-bottom: 1px solid var(--hair);
+margin: 14px 0;
+}
+.dk-path p { font-size: 15px; color: #45444e; }
+.dk-path .dk-btn { margin-top: auto; align-self: flex-start; margin-top: 22px; }
+/* ---------- dark band (intake) ---------- */
+.dk-band {
+background: var(--ink);
+color: var(--white);
+padding: clamp(70px, 9vw, 110px) 0;
+}
+.dk-band .dk-display { color: var(--white); margin: 16px 0 14px; }
+.dk-band .dk-lede { color: #b9b7c2; }
+.dk-band a { color: var(--lavender); }
+.dk-band-grid {
+display: grid;
+grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+gap: clamp(40px, 6vw, 80px);
+align-items: start;
+}
+@media (max-width: 920px) { .dk-band-grid { grid-template-columns: 1fr; } }
+.dk-band .dk-contact-meta { margin-top: 30px; font-size: 15px; color: #b9b7c2; display: grid; gap: 8px; }
+.dk-band .dk-contact-meta strong { color: var(--white); font-weight: 500; }
+/* form */
+.dk-form { display: grid; gap: 18px; }
+.dk-form label {
+display: block;
+font-family: var(--mono);
+font-size: 11px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(--lavender);
+margin-bottom: 8px;
+}
+.dk-form input,
+.dk-form textarea,
+.dk-form select {
+width: 100%;
+background: transparent;
+border: 1px solid #3a3946;
+color: var(--white);
+font-family: var(--sans);
+font-size: 15.5px;
+padding: 13px 14px;
+border-radius: 0;
+}
+.dk-form input:focus, .dk-form textarea:focus, .dk-form select:focus {
+outline: none;
+border-color: var(--lavender);
+}
+.dk-form textarea { min-height: 130px; resize: vertical; }
+.dk-form .dk-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 620px) { .dk-form .dk-row { grid-template-columns: 1fr; } }
+.dk-form .dk-note { font-family: var(--mono); font-size: 12px; color: var(--gray); }
+/* ---------- footer ---------- */
+.dk-site-footer { border-top: 1px solid var(--hair); padding: 44px 0 52px; }
+.dk-site-footer .dk-wrap {
+display: flex;
+flex-wrap: wrap;
+gap: 24px 48px;
+justify-content: space-between;
+align-items: flex-start;
+}
+.dk-site-footer .dk-wordmark { font-size: 17px; }
+.dk-site-footer nav { display: flex; flex-wrap: wrap; gap: 8px 26px; }
+.dk-site-footer nav a { font-size: 14px; color: var(--ink); }
+.dk-site-footer .dk-fineprint {
+width: 100%;
+margin-top: 26px;
+padding-top: 20px;
+border-top: 1px solid var(--hair);
+font-family: var(--mono);
+font-size: 12px;
+color: var(--gray);
+display: flex;
+flex-wrap: wrap;
+gap: 8px 28px;
+justify-content: space-between;
+}
+/* ---------- reveal ---------- */
+.dk-reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.dk-reveal.dk-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .dk-reveal { opacity: 1; transform: none; } }
+</style>
+<script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://datrick.com/#website",
+            "url": "https://datrick.com/",
+            "name": "Datrick",
+            "alternateName": "Datrick, Inc.",
+            "publisher": { "@id": "https://datrick.com/#organization" },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://datrick.com/#organization",
+            "name": "Datrick",
+            "legalName": "Datrick, Inc.",
+            "foundingDate": "2022",
+            "url": "https://datrick.com/",
+            "email": "info@datrick.com",
+            "telephone": "+1-725-895-5967",
+            "logo": "https://datrick.com/assets/datrick-logo.png",
+            "description": "US-incorporated, senior-led AI company helping technology leaders identify valuable use cases, select suitable models, validate workflows, and move them into controlled production. Delivery is backed by production data operations, integration, BI, and analytics expertise.",
+            "areaServed": "Global",
+            "sameAs": [
+              "https://www.linkedin.com/company/datrick/",
+              "https://www.goodfirms.co/company/datrick",
+              "https://clutch.co/profile/datrick"
+            ],
+            "founder": {
+              "@type": "Person",
+              "name": "Can Goktug Ozdem"
+            },
+            "location": [
+              { "@type": "Place", "name": "Wilmington, Delaware, United States" },
+              { "@type": "Place", "name": "Istanbul, Türkiye" }
+            ],
+            "serviceType": [
+              "AI readiness assessment",
+              "AI use-case value assessment",
+              "AI model selection",
+              "AI pilot design and evaluation",
+              "AI workflow implementation",
+              "Managed AI operations",
+              "AI model training and evaluation",
+              "Partner data operations",
+              "DBA/NOC coverage",
+              "Migration support",
+              "BI reporting",
+              "Analytics delivery"
+            ]
+          }
+        ]
+      }
+    </script>
+</head>
+<body class="content-role-core">
+<a class="skip-link" href="#top">Skip to content</a>
+<header class="site-header">
+      <a class="brand" href="#top" aria-label="Datrick home">
+        <img class="brand-logo" src="assets/datrick-logo.png" alt="Datrick logo" width="122" height="115">
+        <span>Datrick</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-shell-version="2026-07-17">
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="services-menu">Services</button>
+          <div class="dropdown-menu" id="services-menu">
+            <a href="partners.html">IT Service Firms</a>
+            <a href="data-operations.html">Data Operations</a>
+            <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+            <a href="ai-workflows.html">AI Workflow Automation</a>
+            <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+            <a href="anthropic.html">Claude Implementation</a>
+          </div>
+        </div>
+        <a href="case-studies.html">Case Studies</a>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Resources</button>
+          <div class="dropdown-menu" id="resources-menu">
+            <a href="resources.html">All Resources</a>
+            <a href="resource-production-ai-workflow.html">Production AI Workflow Guide</a>
+            <a href="resource-database-handover.html">Database Handover Checklist</a>
+            <a href="resource-bi-reporting-reliability-checklist.html">BI Reporting Checklist</a>
+            <a href="claude-certifications">Claude Certification Guide</a>
+          </div>
+        </div>
+        <div class="nav-item has-dropdown">
+          <button class="nav-trigger" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="company-menu">Company</button>
+          <div class="dropdown-menu" id="company-menu">
+            <a href="about.html">About</a>
+            <a href="who-we-serve.html">Who We Serve</a>
+            <a href="partner-brief.html">Partner Brief</a>
+          </div>
+        </div>
+        <a class="nav-mobile-cta" href="index.html#contact">Start a conversation</a>
+      </nav>
+      <a class="header-cta" href="#contact">Start a conversation</a>
+    </header>
+
+<main id="top" tabindex="-1">
+<!-- Hero -->
+<section class="dk-hero">
+<div class="dk-wrap">
+<span class="dk-eyebrow">Production AI &amp; Data Operations</span>
+<h1 class="dk-display">Decide where AI creates value. Move it into production. Keep it running.</h1>
+<p class="dk-lede">Datrick helps technology leaders prioritize AI use cases, put the right workflows into controlled production, and own the database and data operations underneath them.</p>
+<div class="dk-hero-ctas">
+<a class="dk-btn dk-btn--solid" href="/ai-readiness-assessment-model-selection">Assess your AI opportunity</a>
+<a class="dk-btn" href="/managed-database-operations">Managed database operations</a>
+</div>
+<p class="dk-trustline">
+<span>Claude Partner Network participant</span>
+<span>Datrick, Inc. · Delaware</span>
+<span>Senior-led · Written-first</span>
+</p>
+</div>
+</section>
+<!-- When teams bring us in -->
+<section class="dk-section dk-section--hair">
+<div class="dk-wrap">
+<div class="dk-section-head">
+<span class="dk-eyebrow">When teams bring us in</span>
+<h2 class="dk-display">Senior judgment when an AI investment or a critical system needs an owner.</h2>
+</div>
+<div class="dk-grid dk-grid--2">
+<div class="dk-cell dk-reveal">
+<span class="dk-tag">Investment decision</span>
+<h3><a href="/ai-readiness-assessment-model-selection">AI opportunities exist, but the priority is unclear</a></h3>
+<p>Compare use-case value, model fit, readiness, and the smallest responsible next scope.</p>
+</div>
+<div class="dk-cell dk-reveal">
+<span class="dk-tag">Production gap</span>
+<h3><a href="/ai-workflows.html">A promising AI prototype must survive real operations</a></h3>
+<p>Add the evaluation, integration, and human control a workflow needs before it carries weight.</p>
+</div>
+<div class="dk-cell dk-reveal">
+<span class="dk-tag">Ownership failure</span>
+<h3><a href="/database-handover-support.html">A critical database or data system lost its technical owner</a></h3>
+<p>Recover access, stabilize operations, and establish a documented ownership path.</p>
+</div>
+<div class="dk-cell dk-reveal">
+<span class="dk-tag">Partner delivery</span>
+<h3><a href="/partners.html">An IT service firm needs senior AI and data delivery</a></h3>
+<p>Accountable specialist delivery under your brand. You keep the client relationship.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Six gates (signature) -->
+<section class="dk-section dk-section--hair">
+<div class="dk-wrap">
+<div class="dk-section-head">
+<span class="dk-eyebrow">Decision-to-Operations Framework</span>
+<h2 class="dk-display">Six gates from opportunity to dependable operations.</h2>
+<p class="dk-lede">Each gate resolves one question, produces reviewable evidence, and ends with an explicit decision before more money is committed.</p>
+</div>
+<ol class="dk-rail" style="list-style:none">
+<li class="dk-gate dk-reveal">
+<div class="dk-gate-index">Gate 01 · Value</div>
+<h3>Where can AI create measurable value?</h3>
+<p>Prioritize workflows against baseline effort, quality, capacity, and risk.</p>
+<div class="dk-evidence">Evidence: use-case and ROI scorecard</div>
+</li>
+<li class="dk-gate dk-reveal">
+<div class="dk-gate-index">Gate 02 · Model fit</div>
+<h3>Which technical route fits the work?</h3>
+<p>Compare model and automation options on representative tasks and total operating cost.</p>
+<div class="dk-evidence">Evidence: model selection record</div>
+</li>
+<li class="dk-gate dk-reveal">
+<div class="dk-gate-index">Gate 03 · Readiness</div>
+<h3>What must be ready before delivery?</h3>
+<p>Expose the gaps across data, integration, security, and ownership.</p>
+<div class="dk-evidence">Evidence: readiness and risk register</div>
+</li>
+<li class="dk-gate dk-reveal">
+<div class="dk-gate-index">Gate 04 · Pilot</div>
+<h3>Does the workflow hold up under realistic conditions?</h3>
+<p>Test a bounded scope against real scenarios, real users, and defined acceptance criteria.</p>
+<div class="dk-evidence">Evidence: pilot decision package</div>
+</li>
+<li class="dk-gate dk-reveal">
+<div class="dk-gate-index">Gate 05 · Controls</div>
+<h3>Can it operate safely and reliably?</h3>
+<p>Add access control, evaluation, logging, human review, fallback, and documented ownership.</p>
+<div class="dk-evidence">Evidence: production readiness record</div>
+</li>
+<li class="dk-gate dk-reveal">
+<div class="dk-gate-index">Gate 06 · Operations</div>
+<h3>Will quality and value hold over time?</h3>
+<p>Monitor service health, model behavior, cost, and incidents on a set cadence.</p>
+<div class="dk-evidence">Evidence: operating baseline and cadence</div>
+</li>
+</ol>
+</div>
+</section>
+<!-- Engagement paths / pricing (single anchor) -->
+<section class="dk-section dk-section--hair" id="engagements">
+<div class="dk-wrap">
+<div class="dk-section-head">
+<span class="dk-eyebrow">Engagement paths</span>
+<h2 class="dk-display">Start with the smallest engagement that resolves the next decision.</h2>
+<p class="dk-lede">Each path has a defined decision, an evidence standard, and a commercial boundary. Expand only when the evidence supports it.</p>
+</div>
+<div class="dk-paths">
+<div class="dk-path dk-path--lead dk-reveal">
+<span class="dk-tag">Decision</span>
+<h3>AI Decision Sprint</h3>
+<p>One priority workflow. Value case, model evidence, risk register, and a pilot charter.</p>
+<div class="dk-price">$15,000 fixed scope · 2 weeks</div>
+<p class="dk-small dk-muted">For when the value case, model route, or responsible pilot scope is still unclear.</p>
+<a class="dk-btn dk-btn--solid" href="#contact">Start a decision sprint</a>
+</div>
+<div class="dk-path dk-reveal">
+<span class="dk-tag">Evidence</span>
+<h3>Production AI Pilot</h3>
+<p>A bounded workflow proven against quality, integration, controls, and operating viability.</p>
+<div class="dk-price">Scoped to evidence required</div>
+<p class="dk-small dk-muted">Acceptance criteria are defined in writing before implementation begins.</p>
+<a class="dk-btn" href="#contact">Scope a pilot</a>
+</div>
+<div class="dk-path dk-reveal">
+<span class="dk-tag">Operations</span>
+<h3>Managed Operations</h3>
+<p>Accountable ownership of production AI workflows or database estates: quality, incidents, cost, and improvement.</p>
+<div class="dk-price">From $15,000 per month</div>
+<p class="dk-small dk-muted">Ownership and service scope agreed before transition.</p>
+<a class="dk-btn" href="#contact">Discuss operations</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Claude / vendor-neutral reconciliation -->
+<section class="dk-section dk-section--hair">
+<div class="dk-wrap">
+<div class="dk-section-head">
+<span class="dk-eyebrow">Claude Partner Network participant</span>
+<h2 class="dk-display">Vendor-neutral decisions. Claude-deep implementation.</h2>
+<p class="dk-lede">Model selection is run against your constraints, not a vendor list. Where Claude is the right route, Datrick implements it with production depth as a Claude Partner Network participant, grounded in confidential evaluation work on leading models.</p>
+</div>
+<div class="dk-grid dk-grid--3">
+<div class="dk-cell dk-reveal">
+<span class="dk-tag">Evaluation</span>
+<h3>Technical model evaluation</h3>
+<p>Coding, SQL, data, and analytics: rubrics, reference answers, and model-output review.</p>
+</div>
+<div class="dk-cell dk-reveal">
+<span class="dk-tag">Implementation</span>
+<h3>Claude workflow delivery</h3>
+<p>Internal assistants, document intelligence, data copilots, and operational automation.</p>
+</div>
+<div class="dk-cell dk-reveal">
+<span class="dk-tag">Governance</span>
+<h3>Controlled rollout</h3>
+<p>The workflow ships with its controls, its documentation, and a named owner.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Evidence -->
+<section class="dk-section dk-section--hair">
+<div class="dk-wrap">
+<div class="dk-section-head">
+<span class="dk-eyebrow">Evidence before investment</span>
+<h2 class="dk-display">Claims stay bounded. Metrics appear only where verified.</h2>
+<p class="dk-lede">Measured outcomes, operating outcomes, and confidential delivery are labeled separately, so capability is never presented as proof. <a href="/case-studies.html">Read the evidence standard</a>.</p>
+</div>
+<div class="dk-evidence-grid">
+<div class="dk-callout dk-reveal">
+<span class="dk-eyebrow">Measured</span>
+<div class="dk-metric"><a href="/case-study-warehouse-query-performance">68% faster queries</a></div>
+<dl>
+<dt>Environment</dt><dd>Reporting warehouse</dd>
+<dt>Also verified</dt><dd>85% lower scan volume</dd>
+</dl>
+</div>
+<div class="dk-callout dk-reveal">
+<span class="dk-eyebrow">Operating</span>
+<div class="dk-metric"><a href="/case-study-five-year-it-service-delivery-partner">5+ years of partner delivery</a></div>
+<dl>
+<dt>Environment</dt><dd>Prime IT service firm's client operations</dd>
+<dt>Verified change</dt><dd>Scope expanded across DBA, migration, BI, and analytics</dd>
+</dl>
+</div>
+<div class="dk-callout dk-reveal">
+<span class="dk-eyebrow">Confidential</span>
+<div class="dk-metric">Leading AI model programs</div>
+<dl>
+<dt>Environment</dt><dd>Technical training and evaluation</dd>
+<dt>Verified scope</dt><dd>Rubrics, reference answers, and model-output review</dd>
+</dl>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust register -->
+<section class="dk-section dk-section--hair">
+<div class="dk-wrap">
+<div class="dk-section-head">
+<span class="dk-eyebrow">Institutional trust register</span>
+<h2 class="dk-display">Four claims a buyer can trace before starting a conversation.</h2>
+</div>
+<div class="dk-grid dk-grid--4">
+<div class="dk-cell dk-reveal">
+<span class="dk-tag">Corporate identity</span>
+<h3>Datrick, Inc.</h3>
+<p>Delaware corporation. Operating presence in Wilmington and Istanbul. <a href="/about.html">Company structure</a></p>
+</div>
+<div class="dk-cell dk-reveal">
+<span class="dk-tag">Named accountability</span>
+<h3>Goktug Ozdem</h3>
+<p>Founder and senior technical lead. Owns scoping, delivery standards, and technical review. <a href="https://www.linkedin.com/in/goktugozdem/" rel="noopener">LinkedIn</a></p>
+</div>
+<div class="dk-cell dk-reveal">
+<span class="dk-tag">Ecosystem position</span>
+<h3>Claude Partner Network participant</h3>
+<p>Claude implementation connected to production data and operating ownership. <a href="/anthropic.html">Claude capability</a></p>
+</div>
+<div class="dk-cell dk-reveal">
+<span class="dk-tag">Evidence standard</span>
+<h3>Claims stay bounded</h3>
+<p>Measured, operating, and confidential evidence labeled separately. <a href="/case-studies.html">Delivery evidence</a></p>
+</div>
+</div>
+</div>
+</section>
+<!-- Intake band -->
+<section class="dk-band" id="contact">
+<div class="dk-wrap dk-band-grid">
+<div>
+<span class="dk-eyebrow dk-eyebrow--lavender">Written scoping</span>
+<h2 class="dk-display">Describe the situation. A senior lead responds within one business day.</h2>
+<p class="dk-lede">What is happening, what is at risk, and what has already been tried. You get a scoping recommendation or qualifying questions, in writing.</p>
+<div class="dk-contact-meta">
+<span><strong>info@datrick.com</strong></span>
+<span><strong>+1 (725) 895-5967</strong></span>
+<span>Datrick, Inc. · Wilmington, DE · Istanbul</span>
+</div>
+</div>
+<form class="dk-form" id="intake" method="POST" action="/api/contact">
+<input type="text" name="_honey" value="" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+<input type="hidden" name="_subject" value="Written scoping · datrick.com">
+<div class="dk-row">
+<div>
+<label for="f-name">Name</label>
+<input id="f-name" name="name" type="text" autocomplete="name" required>
+</div>
+<div>
+<label for="f-email">Work email</label>
+<input id="f-email" name="email" type="email" autocomplete="email" required>
+</div>
+</div>
+<div class="dk-row">
+<div>
+<label for="f-company">Company</label>
+<input id="f-company" name="company" type="text" autocomplete="organization" required>
+</div>
+<div>
+<label for="f-timeline">When do you need help?</label>
+<select id="f-timeline" name="urgency" required>
+<option value="" selected disabled>Select one</option>
+<option>Immediately / this week</option>
+<option>Within 30 days</option>
+<option>This quarter</option>
+<option>Exploring future delivery needs</option>
+</select>
+</div>
+</div>
+<div>
+<label for="f-situation">The situation</label>
+<textarea id="f-situation" name="message" required placeholder="What's at risk, what's been tried, and what a good outcome looks like."></textarea>
+</div>
+<button class="dk-btn dk-btn--light" type="submit">Send for review</button>
+<p id="inquiry-form-status" role="status" aria-live="polite" class="dk-note"></p>
+<p class="dk-note">Calls follow written scoping, not the other way around.</p>
+</form>
+</div>
+</section>
+</main>
+
+<script>
+// Datrick · minimal behavior. No frameworks.
+// Mobile nav
+(function () {
+var toggle = document.querySelector('.nav-toggle');
+var nav = document.getElementById('nav');
+if (!toggle || !nav) return;
+toggle.addEventListener('click', function () {
+var open = nav.classList.toggle('open');
+toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+})();
+// Scroll reveal (respects reduced motion)
+(function () {
+var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var items = document.querySelectorAll('.reveal');
+if (reduced || !('IntersectionObserver' in window)) {
+items.forEach(function (el) { el.classList.add('in'); });
+return;
+}
+var io = new IntersectionObserver(function (entries) {
+entries.forEach(function (e) {
+if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+});
+}, { rootMargin: '0px 0px -8% 0px' });
+items.forEach(function (el) { io.observe(el); });
+})();
+// Intake form: if no endpoint is wired yet, fall back to a prefilled email.
+(function () {
+var form = document.getElementById('intake');
+if (!form) return;
+form.addEventListener('submit', function (e) {
+if (form.getAttribute('action') !== 'FORM_ENDPOINT') return; // real endpoint wired · let it POST
+e.preventDefault();
+var v = function (n) { var el = form.querySelector('[name="' + n + '"]'); return el ? el.value : ''; };
+var body =
+'Name: ' + v('name') + '\n' +
+'Company: ' + v('company') + '\n' +
+'Timeline: ' + v('urgency') + '\n\n' +
+'Situation:\n' + v('message');
+window.location.href = 'mailto:info@datrick.com'
++ '?subject=' + encodeURIComponent('Written scoping · ' + v('company'))
++ '&body=' + encodeURIComponent(body);
+});
+})();
+</script>
+<footer class="site-footer" aria-label="Site footer" data-shell-version="2026-07-17">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Datrick home">
+            <img class="brand-logo" src="assets/datrick-logo.png" alt="" width="122" height="115">
+            <span>Datrick</span>
+          </a>
+          <p>Boutique data and AI consultancy for business-critical environments.</p>
+          <span>&copy; <span id="year">2026</span> Datrick, Inc.</span>
+        </div>
+        <details class="footer-links" open>
+          <summary>Services</summary>
+          <a href="partners.html">IT Service Firms</a>
+          <a href="data-operations.html">Data Operations</a>
+          <a href="ai-readiness-assessment-model-selection">AI Readiness &amp; Model Selection</a>
+          <a href="ai-workflows.html">AI Workflow Automation</a>
+          <a href="ai-model-training.html">AI Model Training &amp; Evaluation</a>
+          <a href="anthropic.html">Claude Implementation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Company</summary>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="resources.html">Resources</a>
+          <a href="who-we-serve.html">Who We Serve</a>
+          <a href="about.html">About</a>
+          <a href="index.html#contact">Start a conversation</a>
+        </details>
+        <details class="footer-links" open>
+          <summary>Legal</summary>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="mailto:info@datrick.com">info@datrick.com</a>
+        </details>
+      </div>
+    </footer>
+<script src="script.js"></script>
+</body>
+</html>
