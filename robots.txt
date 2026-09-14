@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://datrick.com/sitemap.xml
+Sitemap: https://datrick.com/sitemap-commercial.xml
