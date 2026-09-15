@@ -1,0 +1,47 @@
+name: Deploy Datrick to Vercel Production
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vercel-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull production configuration
+        run: vercel pull --yes --environment=production --token="${{ secrets.VERCEL_TOKEN }}"
+        env:
+          VERCEL_ORG_ID: team_boYL1scey5cDrmZAWp1vMvba
+          VERCEL_PROJECT_ID: prj_ZcZn1a1JMtDkJjtNJ47ghueZiTP3
+
+      - name: Build production output
+        run: vercel build --prod --token="${{ secrets.VERCEL_TOKEN }}"
+        env:
+          VERCEL_ORG_ID: team_boYL1scey5cDrmZAWp1vMvba
+          VERCEL_PROJECT_ID: prj_ZcZn1a1JMtDkJjtNJ47ghueZiTP3
+
+      - name: Deploy to production
+        run: vercel deploy --prebuilt --prod --token="${{ secrets.VERCEL_TOKEN }}"
+        env:
+          VERCEL_ORG_ID: team_boYL1scey5cDrmZAWp1vMvba
+          VERCEL_PROJECT_ID: prj_ZcZn1a1JMtDkJjtNJ47ghueZiTP3
